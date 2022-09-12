@@ -140,8 +140,8 @@ public class OwsOperationMetadataExtensionProviderRepository
      */
     public OwsOperationMetadataExtensionProvider getExtendedCapabilitiesProvider(
             OwsServiceCommunicationObject serviceCommunicationObject) {
-        String service = serviceCommunicationObject.getService();
-        String version = serviceCommunicationObject.getVersion();
+        /*~~>*/String service = serviceCommunicationObject.getService();
+        /*~~>*/String version = serviceCommunicationObject.getVersion();
         return getExtendedCapabilitiesProvider(service, version);
     }
 
@@ -153,7 +153,7 @@ public class OwsOperationMetadataExtensionProviderRepository
      *
      * @return loaded {@link OwsOperationMetadataExtensionProvider} implementation
      */
-    public OwsOperationMetadataExtensionProvider getExtendedCapabilitiesProvider(String service, String version) {
+    public OwsOperationMetadataExtensionProvider getExtendedCapabilitiesProvider(/*~~>*/String service, /*~~>*/String version) {
         return getDomains().stream()
                 .map(domain -> new OwsOperationMetadataExtensionProviderKey(service, version, domain))
                 .map(this::getExtendedCapabilitiesProvider)
@@ -184,8 +184,8 @@ public class OwsOperationMetadataExtensionProviderRepository
      *         specific {@link OwsServiceCommunicationObject}
      */
     public boolean hasExtendedCapabilitiesProvider(OwsServiceCommunicationObject serviceCommunicationObject) {
-        String service = serviceCommunicationObject.getService();
-        String version = serviceCommunicationObject.getVersion();
+        /*~~>*/String service = serviceCommunicationObject.getService();
+        /*~~>*/String version = serviceCommunicationObject.getVersion();
         return hasExtendedCapabilitiesProvider(service, version);
     }
 
@@ -199,7 +199,7 @@ public class OwsOperationMetadataExtensionProviderRepository
      * @return {@code true}, if a {@link OwsOperationMetadataExtensionProvider} implementation is loaded for the
      *         specific {@code service} and {@code version}
      */
-    public boolean hasExtendedCapabilitiesProvider(String service, String version) {
+    public boolean hasExtendedCapabilitiesProvider(/*~~>*/String service, /*~~>*/String version) {
         return getDomains().stream()
                 .map(domain -> new OwsOperationMetadataExtensionProviderKey(service, version, domain))
                 .anyMatch(this::hasExtendedCapabilitiesProvider);
@@ -245,7 +245,7 @@ public class OwsOperationMetadataExtensionProviderRepository
      *
      * @return the map with {@link OwsServiceKey} and linked domain values
      */
-    public Map<OwsServiceKey, Collection<String>> getAllDomains() {
+    public Map<OwsServiceKey, Collection</*~~>*/String>> getAllDomains() {
         return this.extendedCapabilitiesProvider.keySet().stream()
                 .collect(groupingBy(OwsOperationMetadataExtensionProviderKey::getServiceOperatorKey,
                                     mapping(OwsOperationMetadataExtensionProviderKey::getDomain,
@@ -257,7 +257,7 @@ public class OwsOperationMetadataExtensionProviderRepository
      *
      * @return the domain values
      */
-    private Set<String> getDomains() {
+    private Set</*~~>*/String> getDomains() {
         return Activatables.activatedKeys(extendedCapabilitiesProvider, activations)
                 .stream()
                 .map(OwsOperationMetadataExtensionProviderKey::getDomain)

@@ -37,7 +37,7 @@ public class ResultFilterDecoderv20 extends AbstractXmlDecoder<XmlObject, Result
     private static final Logger LOGGER = LoggerFactory.getLogger(ResultFilterDecoderv20.class);
 
     private static final Set<DecoderKey> DECODER_KEYS =
-            CodingHelper.decoderKeysForElements(ResultFilterConstants.NS_RF_20, ResultFilterDocument.class,
+            CodingHelper.decoderKeysForElements(/*~~>*/ResultFilterConstants.NS_RF_20, ResultFilterDocument.class,
                     ResultFilterPropertyType.class, ResultFilterType.class);
 
     @Override

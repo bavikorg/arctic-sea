@@ -41,7 +41,7 @@ public class RelatedPartyTypeEncoder extends AbstractXmlEncoder<XmlObject, Relat
 
     private static final Set<EncoderKey> ENCODER_KEYS =
             Sets.newHashSet(new ClassToClassEncoderKey(RelatedPartyType.class, RelatedParty.class),
-                    new XmlEncoderKey(InspireBase2Constants.NS_BASE2, RelatedParty.class));
+                    new XmlEncoderKey(/*~~>*/InspireBase2Constants.NS_BASE2, RelatedParty.class));
 
     @Override
     public Set<EncoderKey> getKeys() {
@@ -88,7 +88,7 @@ public class RelatedPartyTypeEncoder extends AbstractXmlEncoder<XmlObject, Relat
             }
         }
         if (contact.getTelephoneFacsimile().isPresent()) {
-            for (Nillable<String> telephoneFacsimile : contact.getTelephoneFacsimile().get()) {
+            for (Nillable</*~~>*/String> telephoneFacsimile : contact.getTelephoneFacsimile().get()) {
                 if (telephoneFacsimile.isPresent()) {
                     ct.addNewTelephoneFacsimile().setStringValue(telephoneFacsimile.get());
                 }
@@ -101,7 +101,7 @@ public class RelatedPartyTypeEncoder extends AbstractXmlEncoder<XmlObject, Relat
             }
         }
         if (contact.getTelephoneVoice().isPresent()) {
-            for (Nillable<String> telephoneVoice : contact.getTelephoneVoice().get()) {
+            for (Nillable</*~~>*/String> telephoneVoice : contact.getTelephoneVoice().get()) {
                 if (telephoneVoice.isPresent()) {
                     ct.addNewTelephoneVoice().setStringValue(telephoneVoice.get());
                 }
@@ -154,15 +154,15 @@ public class RelatedPartyTypeEncoder extends AbstractXmlEncoder<XmlObject, Relat
     }
 
     protected XmlObject encodeGML(Object o) throws EncodingException {
-        return encodeObjectToXml(GmlConstants.NS_GML_32, o);
+        return encodeObjectToXml(/*~~>*/GmlConstants.NS_GML_32, o);
     }
 
     protected XmlObject encodeGMD(Object o) throws EncodingException {
-        return encodeObjectToXml(GmdConstants.NS_GMD, o);
+        return encodeObjectToXml(/*~~>*/GmdConstants.NS_GMD, o);
     }
 
     protected XmlObject encodeGMD(Object o, EncodingContext context) throws EncodingException {
-        return encodeObjectToXml(GmdConstants.NS_GMD, o, context);
+        return encodeObjectToXml(/*~~>*/GmdConstants.NS_GMD, o, context);
     }
 
 }

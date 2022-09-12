@@ -24,25 +24,25 @@ import org.n52.shetland.ogc.sos.Sos2Constants;
  */
 public class DeleteSensorResponse extends OwsServiceResponse {
 
-    private String deletedProcedure;
+    private /*~~>*/String deletedProcedure;
 
     public DeleteSensorResponse() {
         super(null, null, Sos2Constants.Operations.DeleteSensor.name());
     }
 
-    public DeleteSensorResponse(String service, String version) {
+    public DeleteSensorResponse(/*~~>*/String service, /*~~>*/String version) {
         super(service, version, Sos2Constants.Operations.DeleteSensor.name());
     }
 
-    public DeleteSensorResponse(String service, String version, String operationName) {
+    public DeleteSensorResponse(/*~~>*/String service, /*~~>*/String version, /*~~>*/String operationName) {
         super(service, version, operationName);
     }
 
-    public void setDeletedProcedure(String deletedProcedure) {
-        this.deletedProcedure = deletedProcedure;
+    public void setDeletedProcedure(/*~~>*/String deletedProcedure) {
+        /*~~>*/this.deletedProcedure = deletedProcedure;
     }
 
-    public String getDeletedProcedure() {
+    public /*~~>*/String getDeletedProcedure() {
         return deletedProcedure;
     }
 

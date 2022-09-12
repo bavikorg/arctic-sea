@@ -25,10 +25,10 @@ import com.google.common.collect.ComparisonChain;
 
 public class SoapBinding extends ExtensibilityElement {
 
-    private String style;
-    private String transport;
+    private /*~~>*/String style;
+    private /*~~>*/String transport;
 
-    public SoapBinding(String style, String transport) {
+    public SoapBinding(/*~~>*/String style, /*~~>*/String transport) {
         super(WSDLConstants.QN_SOAP_12_BINDING);
         this.setStyle(style);
         this.setTransport(transport);
@@ -37,7 +37,7 @@ public class SoapBinding extends ExtensibilityElement {
     /**
      * @return the style
      */
-    public String getStyle() {
+    public /*~~>*/String getStyle() {
         return style;
     }
 
@@ -45,14 +45,14 @@ public class SoapBinding extends ExtensibilityElement {
      * @param style
      *            the style to set
      */
-    public void setStyle(String style) {
-        this.style = style;
+    public void setStyle(/*~~>*/String style) {
+        /*~~>*/this.style = style;
     }
 
     /**
      * @return the transport
      */
-    public String getTransport() {
+    public /*~~>*/String getTransport() {
         return transport;
     }
 
@@ -60,8 +60,8 @@ public class SoapBinding extends ExtensibilityElement {
      * @param transport
      *            the transport to set
      */
-    public void setTransport(String transport) {
-        this.transport = transport;
+    public void setTransport(/*~~>*/String transport) {
+        /*~~>*/this.transport = transport;
     }
 
     @Override

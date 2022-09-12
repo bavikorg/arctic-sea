@@ -27,7 +27,7 @@ public class PortType extends AbstractWsdl {
 
     private Collection<Operation> operations = new TreeSet<>();
 
-    public PortType(String name) {
+    public PortType(/*~~>*/String name) {
         super(name);
     }
 
@@ -65,7 +65,7 @@ public class PortType extends AbstractWsdl {
         return !getOperations().isEmpty();
     }
 
-    public Operation getOperation(String name, String request, String response) {
+    public Operation getOperation(/*~~>*/String name, /*~~>*/String request, /*~~>*/String response) {
         for (Operation operation : operations) {
             if (operation.getName().equals(name) && operation.getInput().getName().equals(request)
                     && operation.getOutput().getName().equals(response)) {

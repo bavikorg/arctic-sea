@@ -15,16 +15,16 @@
  */
 package org.n52.shetland.ogc.gml;
 
-public class UomSymbol implements UomIdentifier<String> {
+public class UomSymbol implements UomIdentifier</*~~>*/String> {
 
-    private final String value;
+    private final /*~~>*/String value;
 
-    public UomSymbol(String value) {
-        this.value = value;
+    public UomSymbol(/*~~>*/String value) {
+        /*~~>*/this.value = value;
     }
 
     @Override
-    public String getValue() {
+    public /*~~>*/String getValue() {
         return value;
     }
 

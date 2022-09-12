@@ -88,7 +88,7 @@ public final class Producers {
         }
 
         @Override
-        public String toString() {
+        public /*~~>*/String toString() {
             return MoreObjects.toStringHelper(this)
                     .add("instance", this.instance)
                     .toString();

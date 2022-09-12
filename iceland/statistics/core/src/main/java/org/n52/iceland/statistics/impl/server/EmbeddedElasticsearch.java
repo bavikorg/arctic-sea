@@ -44,17 +44,17 @@ public class EmbeddedElasticsearch {
 
     private static final Logger LOG = LoggerFactory.getLogger(EmbeddedElasticsearch.class);
 
-    private static final String RESOURCE_BASE = "/statistics/embedded";
+    private static final /*~~>*/String RESOURCE_BASE = "/statistics/embedded";
 
-    private static final List<String> SCRIPT_FILE_NAMES =
-            ImmutableList.<String> of("getcapabilities_sections_concat.groovy",
+    private static final List</*~~>*/String> SCRIPT_FILE_NAMES =
+            ImmutableList.</*~~>*/String> of("getcapabilities_sections_concat.groovy",
                     "most_requested_observedproperties.groovy", "most_requested_procedures.groovy");
 
-    private static final String LOGGING_CONFIG_PATH = "/config/logging.yml";
+    private static final /*~~>*/String LOGGING_CONFIG_PATH = "/config/logging.yml";
 
-    private static final String CONFIG_PATH = "/elasticsearch_embedded.yml";
+    private static final /*~~>*/String CONFIG_PATH = "/elasticsearch_embedded.yml";
 
-    private String homePath;
+    private /*~~>*/String homePath;
 
     private EmbeddedElastic embeddedNode;
 
@@ -94,7 +94,7 @@ public class EmbeddedElasticsearch {
             LOG.error(e.getMessage(), e);
         }
 
-        String resource = RESOURCE_BASE + CONFIG_PATH;
+        /*~~>*/String resource = RESOURCE_BASE + CONFIG_PATH;
         Builder setting;
         try (InputStream stream = getClass().getResourceAsStream(RESOURCE_BASE + CONFIG_PATH)) {
             setting = Settings.builder().loadFromStream(resource, stream, false);
@@ -115,12 +115,12 @@ public class EmbeddedElasticsearch {
 
         pl.allegro.tech.embeddedelasticsearch.EmbeddedElastic.Builder builder =
                 EmbeddedElastic.builder().withElasticVersion("6.3.0").withPlugin("groovy");
-        builder.withSetting(PopularProperties.TRANSPORT_TCP_PORT, 9300);
+        builder.withSetting(/*~~>*/PopularProperties.TRANSPORT_TCP_PORT, 9300);
         builder.withSetting("cluster.name", "elasticsearch");
         builder.withSetting("node.name", "Embedded Server");
         builder.withSetting("path.home", homePath);
         builder.withSetting("path.logs", homePath + "/logs");
-        for (String key : settings.keySet()) {
+        for (/*~~>*/String key : settings.keySet()) {
             builder.withSetting(key, settings.get(key));
         }
         embeddedNode = builder.build();
@@ -148,7 +148,7 @@ public class EmbeddedElasticsearch {
     }
 
     private void downlaodGroovyLibrary() throws IOException {
-        String groovyDir = homePath + "/plugins/groovy";
+        /*~~>*/String groovyDir = homePath + "/plugins/groovy";
         FileUtils.forceMkdir(new File(groovyDir));
         FileDownloader.downloadFile(
                 "http://central.maven.org/maven2/org/codehaus/groovy/groovy-all/2.4.17/groovy-all-2.4.17.jar",
@@ -160,7 +160,7 @@ public class EmbeddedElasticsearch {
         FileUtils.forceMkdir(scripts);
 
         // read the files list at least on windows works
-        for (String line : SCRIPT_FILE_NAMES) {
+        for (/*~~>*/String line : SCRIPT_FILE_NAMES) {
             try (InputStream scriptFile =
                     EmbeddedElasticsearch.class.getResourceAsStream(RESOURCE_BASE + "/scripts/" + line);
                     FileOutputStream scriptFileOut = new FileOutputStream(scripts.getAbsolutePath() + "/" + line)) {
@@ -169,12 +169,12 @@ public class EmbeddedElasticsearch {
         }
     }
 
-    public String getHomePath() {
+    public /*~~>*/String getHomePath() {
         return homePath;
     }
 
-    public void setHomePath(String homePath) {
-        this.homePath = homePath;
+    public void setHomePath(/*~~>*/String homePath) {
+        /*~~>*/this.homePath = homePath;
     }
 
     public RestHighLevelClient getClient() {

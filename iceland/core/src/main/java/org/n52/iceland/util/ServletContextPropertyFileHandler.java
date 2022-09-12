@@ -28,7 +28,7 @@ import javax.servlet.ServletContext;
  */
 public class ServletContextPropertyFileHandler extends PropertyFileHandlerImpl {
 
-    public ServletContextPropertyFileHandler(ServletContext ctx, String name) {
+    public ServletContextPropertyFileHandler(ServletContext ctx, /*~~>*/String name) {
         super(ctx.getRealPath(name) != null ? ctx.getRealPath(name)
                 : Paths.get(ctx.getRealPath("/"), name).toString());
     }

@@ -23,21 +23,21 @@ import javax.xml.namespace.QName;
  *
  */
 public interface RelatedOfferingConstants {
-    String NS_RO = "http://www.opengis.net/sosro/1.0";
+    /*~~>*/String NS_RO = "http://www.opengis.net/sosro/1.0";
 
-    String NS_RO_PREFIX = "ro";
+    /*~~>*/String NS_RO_PREFIX = "ro";
 
-    String ROLE = "sub-offering";
+    /*~~>*/String ROLE = "sub-offering";
 
-    String RELATED_OFFERINGS = "relatedOfferings";
+    /*~~>*/String RELATED_OFFERINGS = "relatedOfferings";
 
-    String EN_RO_RELATED_OFFERINGS = "RelatedOfferings";
+    /*~~>*/String EN_RO_RELATED_OFFERINGS = "RelatedOfferings";
 
-    String EN_RO_OFFERING_CONTEXT = "OfferingContext";
+    /*~~>*/String EN_RO_OFFERING_CONTEXT = "OfferingContext";
 
-    String EN_RO_ROLE = "role";
+    /*~~>*/String EN_RO_ROLE = "role";
 
-    String EN_RO_RELATED_OFFERING = "relatedOffering";
+    /*~~>*/String EN_RO_RELATED_OFFERING = "relatedOffering";
 
     QName QN_RO_RELATED_OFFERINGS = new QName(NS_RO, EN_RO_RELATED_OFFERINGS, NS_RO_PREFIX);
 

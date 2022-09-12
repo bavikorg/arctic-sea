@@ -28,7 +28,7 @@ import com.google.common.collect.Lists;
 public class DocumentCitation extends AbstractGML {
 
     private Nillable<DateTime> date;
-    private List<Nillable<String>> links = Lists.newArrayList();
+    private List<Nillable</*~~>*/String>> links = Lists.newArrayList();
 
     /**
      * @return the date
@@ -60,7 +60,7 @@ public class DocumentCitation extends AbstractGML {
     /**
      * @return the links
      */
-    public List<Nillable<String>> getLinks() {
+    public List<Nillable</*~~>*/String>> getLinks() {
         return Collections.unmodifiableList(links);
     }
 
@@ -69,7 +69,7 @@ public class DocumentCitation extends AbstractGML {
      *            the links to set
      * @return this {@link DocumentCitation}
      */
-    public DocumentCitation setLinks(Collection<Nillable<String>> links) {
+    public DocumentCitation setLinks(Collection<Nillable</*~~>*/String>> links) {
         this.links.clear();
         if (links != null) {
             this.links.addAll(links);
@@ -77,12 +77,12 @@ public class DocumentCitation extends AbstractGML {
         return this;
     }
 
-    public DocumentCitation addLink(String link) {
+    public DocumentCitation addLink(/*~~>*/String link) {
         addLink(Nillable.present(link));
         return this;
     }
 
-    public DocumentCitation addLink(Nillable<String> link) {
+    public DocumentCitation addLink(Nillable</*~~>*/String> link) {
         if (link != null) {
             this.links.add(link);
         }

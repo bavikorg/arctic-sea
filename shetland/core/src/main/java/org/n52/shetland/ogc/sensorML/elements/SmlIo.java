@@ -27,7 +27,7 @@ import edu.umd.cs.findbugs.annotations.SuppressFBWarnings;
  */
 public class SmlIo extends AbstractReferenceType {
 
-    private String ioName;
+    private /*~~>*/String ioName;
 
     private SweAbstractDataComponent ioValue;
 
@@ -53,7 +53,7 @@ public class SmlIo extends AbstractReferenceType {
     /**
      * @return the inputName
      */
-    public String getIoName() {
+    public /*~~>*/String getIoName() {
         return ioName;
     }
 
@@ -62,8 +62,8 @@ public class SmlIo extends AbstractReferenceType {
      *            the inputName to set
      * @return This object
      */
-    public SmlIo setIoName(final String inputName) {
-        this.ioName = inputName;
+    public SmlIo setIoName(final /*~~>*/String inputName) {
+        /*~~>*/this.ioName = inputName;
         return this;
     }
 
@@ -91,8 +91,8 @@ public class SmlIo extends AbstractReferenceType {
     }
 
     @Override
-    public String toString() {
-        return String.format("SosSMLIo [ioName=%s, ioValue=%s]", ioName, ioValue);
+    public /*~~>*/String toString() {
+        return /*~~>*/String.format("SosSMLIo [ioName=%s, ioValue=%s]", ioName, ioValue);
     }
 
     public Boolean isSetValue() {

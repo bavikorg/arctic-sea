@@ -35,19 +35,19 @@ public interface I18NDAO<T extends AbstractI18NMetadata>
 
     boolean isSupported();
 
-    T getMetadata(String id)
+    T getMetadata(/*~~>*/String id)
             throws OwsExceptionReport;
 
-    T getMetadata(String id, Locale locale)
+    T getMetadata(/*~~>*/String id, Locale locale)
             throws OwsExceptionReport;
 
     Collection<T> getMetadata()
             throws OwsExceptionReport;
 
-    Collection<T> getMetadata(Collection<String> id)
+    Collection<T> getMetadata(Collection</*~~>*/String> id)
             throws OwsExceptionReport;
 
-    Collection<T> getMetadata(Collection<String> id, Locale locale)
+    Collection<T> getMetadata(Collection</*~~>*/String> id, Locale locale)
             throws OwsExceptionReport;
 
     void saveMetadata(T i18n)

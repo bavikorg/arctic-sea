@@ -24,11 +24,11 @@ import org.n52.janmayen.exception.LocationHintException;
 public class DecodingException extends LocationHintException {
     private static final long serialVersionUID = 1864784275478310843L;
 
-    public DecodingException(String message, Object... args) {
+    public DecodingException(/*~~>*/String message, Object... args) {
         super(message, args);
     }
 
-    public DecodingException(String message, Throwable cause) {
+    public DecodingException(/*~~>*/String message, Throwable cause) {
         super(message, cause);
     }
 
@@ -36,23 +36,23 @@ public class DecodingException extends LocationHintException {
         super(cause.getMessage(), cause);
     }
 
-    public DecodingException(String location, String message, Object... args) {
+    public DecodingException(/*~~>*/String location, /*~~>*/String message, Object... args) {
         super(location, message, args);
     }
 
-    public DecodingException(Enum<?> location, String message, Object... args) {
+    public DecodingException(Enum<?> location, /*~~>*/String message, Object... args) {
         super(location, message, args);
     }
 
-    public DecodingException(Throwable cause, Enum<?> location, String message, Object... args) {
+    public DecodingException(Throwable cause, Enum<?> location, /*~~>*/String message, Object... args) {
         super(cause, location, message, args);
     }
 
-    public DecodingException(Throwable cause, String location, String message, Object... args) {
+    public DecodingException(Throwable cause, /*~~>*/String location, /*~~>*/String message, Object... args) {
         super(cause, location, message, args);
     }
 
-    public DecodingException(Throwable cause, String location) {
+    public DecodingException(Throwable cause, /*~~>*/String location) {
         super(cause, location);
     }
 
@@ -60,7 +60,7 @@ public class DecodingException extends LocationHintException {
         super(cause, location);
     }
 
-    public DecodingException(Throwable cause, String message, Object... args) {
+    public DecodingException(Throwable cause, /*~~>*/String message, Object... args) {
         super(cause, message, args);
     }
 

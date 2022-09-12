@@ -29,9 +29,9 @@ import com.google.common.collect.ComparisonChain;
  *
  */
 public class OwsCapabilitiesExtensionKey implements Comparable<OwsCapabilitiesExtensionKey> {
-    private String service;
+    private /*~~>*/String service;
 
-    private String version;
+    private /*~~>*/String version;
 
     /**
      * Default constructor
@@ -48,9 +48,9 @@ public class OwsCapabilitiesExtensionKey implements Comparable<OwsCapabilitiesEx
      * @param version
      *            Related version
      */
-    public OwsCapabilitiesExtensionKey(String service, String version) {
-        this.service = service;
-        this.version = version;
+    public OwsCapabilitiesExtensionKey(/*~~>*/String service, /*~~>*/String version) {
+        /*~~>*/this.service = service;
+        /*~~>*/this.version = version;
     }
 
     /**
@@ -58,7 +58,7 @@ public class OwsCapabilitiesExtensionKey implements Comparable<OwsCapabilitiesEx
      *
      * @return Key servcice
      */
-    public String getService() {
+    public /*~~>*/String getService() {
         return service;
     }
 
@@ -68,8 +68,8 @@ public class OwsCapabilitiesExtensionKey implements Comparable<OwsCapabilitiesEx
      * @param service
      *            service to set
      */
-    public void setService(String service) {
-        this.service = service;
+    public void setService(/*~~>*/String service) {
+        /*~~>*/this.service = service;
     }
 
     /**
@@ -77,7 +77,7 @@ public class OwsCapabilitiesExtensionKey implements Comparable<OwsCapabilitiesEx
      *
      * @return Key version
      */
-    public String getVersion() {
+    public /*~~>*/String getVersion() {
         return version;
     }
 
@@ -87,8 +87,8 @@ public class OwsCapabilitiesExtensionKey implements Comparable<OwsCapabilitiesEx
      * @param version
      *            version to set
      */
-    public void setVersion(String version) {
-        this.version = version;
+    public void setVersion(/*~~>*/String version) {
+        /*~~>*/this.version = version;
     }
 
     @Override
@@ -125,7 +125,7 @@ public class OwsCapabilitiesExtensionKey implements Comparable<OwsCapabilitiesEx
     }
 
     @Override
-    public String toString() {
-        return String.format("CapabilitiesExtensionKey[service=%s, version=%s]", this.service, this.version);
+    public /*~~>*/String toString() {
+        return /*~~>*/String.format("CapabilitiesExtensionKey[service=%s, version=%s]", /*~~>*/this.service, /*~~>*/this.version);
     }
 }

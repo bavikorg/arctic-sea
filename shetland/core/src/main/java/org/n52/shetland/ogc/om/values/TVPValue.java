@@ -89,7 +89,7 @@ public class TVPValue implements MultiValue<List<TimeValuePair>> {
     }
 
     @Override
-    public void setUnit(String unit) {
+    public void setUnit(/*~~>*/String unit) {
         this.unit = new UoM(unit);
     }
 
@@ -100,7 +100,7 @@ public class TVPValue implements MultiValue<List<TimeValuePair>> {
     }
 
     @Override
-    public String getUnit() {
+    public /*~~>*/String getUnit() {
         if (isSetUnit()) {
             return unit.getUom();
         }

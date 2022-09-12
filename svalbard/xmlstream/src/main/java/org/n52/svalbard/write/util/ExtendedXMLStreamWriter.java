@@ -27,5 +27,5 @@ import javax.xml.stream.XMLStreamWriter;
  */
 public interface ExtendedXMLStreamWriter extends XMLStreamWriter {
 
-    void writeXML(String xml) throws XMLStreamException;
+    void writeXML(/*~~>*/String xml) throws XMLStreamException;
 }

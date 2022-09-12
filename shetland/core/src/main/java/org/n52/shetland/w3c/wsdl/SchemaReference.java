@@ -22,12 +22,12 @@ public class SchemaReference {
 
     }
 
-    public void setSchemaLocationURI(String schemaLocation) {
+    public void setSchemaLocationURI(/*~~>*/String schemaLocation) {
         // TODO Auto-generated method stub
 
     }
 
-    public void setId(String namespace) {
+    public void setId(/*~~>*/String namespace) {
         // TODO Auto-generated method stub
 
     }

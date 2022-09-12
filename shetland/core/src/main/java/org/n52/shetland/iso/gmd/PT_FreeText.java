@@ -78,7 +78,7 @@ public class PT_FreeText extends AbtractGmd {
     }
 
     @Override
-    public String toString() {
+    public /*~~>*/String toString() {
         return MoreObjects.toStringHelper(this).add("TextGroup", getTextGroup()).toString();
     }
 }

@@ -17,17 +17,17 @@ package org.n52.svalbard;
 
 public interface CodingSettings {
 
-    String TOKEN_SEPARATOR = "coding.tokenSeparator";
+    /*~~>*/String TOKEN_SEPARATOR = "coding.tokenSeparator";
 
-    String TUPLE_SEPARATOR = "coding.tupleSeparator";
+    /*~~>*/String TUPLE_SEPARATOR = "coding.tupleSeparator";
 
-    String DECIMAL_SEPARATOR = "coding.decimalSeparator";
+    /*~~>*/String DECIMAL_SEPARATOR = "coding.decimalSeparator";
 
-    String CHARACTER_ENCODING = "coding.characterEncoding";
+    /*~~>*/String CHARACTER_ENCODING = "coding.characterEncoding";
 
-    String SRS_NAME_PREFIX_URN = "coding.srsNamePrefixURN";
+    /*~~>*/String SRS_NAME_PREFIX_URN = "coding.srsNamePrefixURN";
 
-    String SRS_NAME_PREFIX_URL = "coding.srsNamePrefixURL";
+    /*~~>*/String SRS_NAME_PREFIX_URL = "coding.srsNamePrefixURL";
 
-    String VALIDATE_RESPONSE = "service.response.validate";
+    /*~~>*/String VALIDATE_RESPONSE = "service.response.validate";
 }

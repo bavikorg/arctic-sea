@@ -29,34 +29,34 @@ import com.google.common.base.MoreObjects;
  */
 public class OwsValue implements OwsValueRestriction {
     public static final Comparator<OwsValue> COMPARATOR = Comparator.comparing(OwsValue::getValue);
-    private final String value;
+    private final /*~~>*/String value;
 
-    public OwsValue(String value) {
-        this.value = Objects.requireNonNull(value);
+    public OwsValue(/*~~>*/String value) {
+        /*~~>*/this.value = Objects.requireNonNull(value);
     }
 
     @JsonValue
-    public String getValue() {
-        return this.value;
+    public /*~~>*/String getValue() {
+        return /*~~>*/this.value;
     }
 
     @Override
     public int hashCode() {
-        return this.value.hashCode();
+        return /*~~>*/this.value.hashCode();
     }
 
     @Override
     public boolean equals(Object obj) {
         if (obj != null && obj.getClass() == getClass()) {
             OwsValue that = (OwsValue) obj;
-            return Objects.equals(this.value, that.getValue());
+            return Objects.equals(/*~~>*/this.value, that.getValue());
         }
         return false;
     }
 
     @Override
-    public String toString() {
-        return MoreObjects.toStringHelper(this).addValue(this.value).toString();
+    public /*~~>*/String toString() {
+        return MoreObjects.toStringHelper(this).addValue(/*~~>*/this.value).toString();
     }
 
     @Override
@@ -69,7 +69,7 @@ public class OwsValue implements OwsValueRestriction {
         return true;
     }
 
-    public static OwsValue of(String value) {
+    public static OwsValue of(/*~~>*/String value) {
         return new OwsValue(value);
     }
 }

@@ -24,13 +24,13 @@ package org.n52.shetland.ogc.sensorML;
  */
 public class RulesDefinition {
 
-    private String description;
+    private /*~~>*/String description;
 
     public RulesDefinition() {
     }
 
-    public RulesDefinition(final String description) {
-        this.description = description;
+    public RulesDefinition(final /*~~>*/String description) {
+        /*~~>*/this.description = description;
     }
 
     /**
@@ -47,8 +47,8 @@ public class RulesDefinition {
      *            1.0.1).
      * @return the {@link RulesDefinition} object instance
      */
-    public RulesDefinition setDescription(final String description) {
-        this.description = description;
+    public RulesDefinition setDescription(final /*~~>*/String description) {
+        /*~~>*/this.description = description;
         return this;
     }
 
@@ -56,7 +56,7 @@ public class RulesDefinition {
      *
      * @return Textual description of the i/o structure (Source: SensorML 1.0.1)
      */
-    public String getDescription() {
+    public /*~~>*/String getDescription() {
         return description;
     }
 

@@ -26,40 +26,40 @@ import com.google.common.base.Strings;
  */
 public class GetResultTemplateRequest extends OwsServiceRequest {
 
-    private String offering;
+    private /*~~>*/String offering;
 
-    private String observedProperty;
+    private /*~~>*/String observedProperty;
 
     public GetResultTemplateRequest() {
         super(null, null, Sos2Constants.Operations.GetResultTemplate.name());
     }
 
-    public GetResultTemplateRequest(String service, String version) {
+    public GetResultTemplateRequest(/*~~>*/String service, /*~~>*/String version) {
         super(service, version, Sos2Constants.Operations.GetResultTemplate.name());
     }
 
-    public GetResultTemplateRequest(String service, String version, String operationName) {
+    public GetResultTemplateRequest(/*~~>*/String service, /*~~>*/String version, /*~~>*/String operationName) {
         super(service, version, operationName);
     }
 
-    public String getOffering() {
+    public /*~~>*/String getOffering() {
         return offering;
     }
 
-    public void setOffering(String offering) {
-        this.offering = offering;
+    public void setOffering(/*~~>*/String offering) {
+        /*~~>*/this.offering = offering;
     }
 
     public boolean isSetOffering() {
         return !Strings.isNullOrEmpty(getOffering());
     }
 
-    public String getObservedProperty() {
+    public /*~~>*/String getObservedProperty() {
         return observedProperty;
     }
 
-    public void setObservedProperty(String observedProperty) {
-        this.observedProperty = observedProperty;
+    public void setObservedProperty(/*~~>*/String observedProperty) {
+        /*~~>*/this.observedProperty = observedProperty;
     }
 
     public boolean isSetObservedProperty() {

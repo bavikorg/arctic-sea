@@ -57,11 +57,11 @@ public class JsonConfiguration implements Destroyable,
                                           FileSettingsConfiguration {
 
     private static final Logger LOG = LoggerFactory.getLogger(JsonConfiguration.class);
-    private static final String DEFAULT_FILE_NAME = "configuration.json";
+    private static final /*~~>*/String DEFAULT_FILE_NAME = "configuration.json";
     private static final int DEFAULT_WRITE_TIMEOUT = 1000;
-    private static final String CONFIG_PATH = "config";
-    private static final String WEB_INF_PATH = "WEB-INF";
-    private String fileName = DEFAULT_FILE_NAME;
+    private static final /*~~>*/String CONFIG_PATH = "config";
+    private static final /*~~>*/String WEB_INF_PATH = "WEB-INF";
+    private /*~~>*/String fileName = DEFAULT_FILE_NAME;
     private int writeTimeout = DEFAULT_WRITE_TIMEOUT;
     private boolean readonly;
     private final ReadWriteLock lock = new ReentrantReadWriteLock();
@@ -99,9 +99,9 @@ public class JsonConfiguration implements Destroyable,
 
     private Path buildPath() {
         if (configLocationProvider != null && configLocationProvider.get() != null) {
-            return Paths.get(configLocationProvider.get(), WEB_INF_PATH, CONFIG_PATH, this.fileName);
+            return Paths.get(configLocationProvider.get(), WEB_INF_PATH, CONFIG_PATH, /*~~>*/this.fileName);
         }
-        return Paths.get(WEB_INF_PATH, CONFIG_PATH, this.fileName);
+        return Paths.get(WEB_INF_PATH, CONFIG_PATH, /*~~>*/this.fileName);
     }
 
     /**
@@ -190,8 +190,8 @@ public class JsonConfiguration implements Destroyable,
      *
      * @param fileName the file name
      */
-    public void setFileName(String fileName) {
-        this.fileName = fileName;
+    public void setFileName(/*~~>*/String fileName) {
+        /*~~>*/this.fileName = fileName;
     }
 
     /**
@@ -292,7 +292,7 @@ public class JsonConfiguration implements Destroyable,
     }
 
     @Override
-    public String toString() {
+    public /*~~>*/String toString() {
         return "JsonConfiguration{" + "file=" + file + '}';
     }
 

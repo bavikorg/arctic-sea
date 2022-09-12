@@ -21,7 +21,7 @@ import org.n52.shetland.rdf.AbstractResource;
 
 public class LandingPage extends AbstractResource implements DcatRdfPrefix {
 
-    public LandingPage(String value) {
+    public LandingPage(/*~~>*/String value) {
         super(value);
     }
 

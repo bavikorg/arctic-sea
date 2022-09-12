@@ -25,8 +25,8 @@ import javax.xml.namespace.QName;
 
 public class Definitions extends AbstractDocumentedWsdl {
 
-    private String targetNamespace;
-    private Map<String, String> namespaces = new LinkedHashMap<>();
+    private /*~~>*/String targetNamespace;
+    private Map</*~~>*/String, /*~~>*/String> namespaces = new LinkedHashMap<>();
     private Collection<Message> messages = new TreeSet<>();
     private Collection<Service> services = new TreeSet<>();
     private Collection<Import> imports = new TreeSet<>();
@@ -39,12 +39,12 @@ public class Definitions extends AbstractDocumentedWsdl {
         return WSDLConstants.WSDLQNames.QN_WSDL_DEFINITIONS;
     }
 
-    public Definitions setTargetNamespace(String targetNamespace) {
-        this.targetNamespace = targetNamespace;
+    public Definitions setTargetNamespace(/*~~>*/String targetNamespace) {
+        /*~~>*/this.targetNamespace = targetNamespace;
         return this;
     }
 
-    public String getTargetNamespace() {
+    public /*~~>*/String getTargetNamespace() {
         return targetNamespace;
     }
 
@@ -52,14 +52,14 @@ public class Definitions extends AbstractDocumentedWsdl {
         return getTargetNamespace() != null && !getTargetNamespace().isEmpty();
     }
 
-    public Definitions addNamespace(String prefix, String namespace) {
+    public Definitions addNamespace(/*~~>*/String prefix, /*~~>*/String namespace) {
         if (prefix != null && !prefix.isEmpty() && namespace != null && !namespace.isEmpty()) {
             this.namespaces.put(prefix, namespace);
         }
         return this;
     }
 
-    public Definitions addNamespaces(Map<String, String> namespaces) {
+    public Definitions addNamespaces(Map</*~~>*/String, /*~~>*/String> namespaces) {
         if (namespaces != null && !namespaces.isEmpty()) {
             namespaces.entrySet().forEach(n -> {
                 addNamespace(n.getKey(), n.getValue());
@@ -68,12 +68,12 @@ public class Definitions extends AbstractDocumentedWsdl {
         return this;
     }
 
-    public Definitions setNamespaces(Map<String, String> namespaces) {
+    public Definitions setNamespaces(Map</*~~>*/String, /*~~>*/String> namespaces) {
         this.namespaces.clear();
         return addNamespaces(namespaces);
     }
 
-    public Map<String, String> getNamespaces() {
+    public Map</*~~>*/String, /*~~>*/String> getNamespaces() {
         return Collections.unmodifiableMap(namespaces);
     }
 

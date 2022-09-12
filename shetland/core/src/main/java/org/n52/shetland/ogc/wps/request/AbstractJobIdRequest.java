@@ -30,11 +30,11 @@ public abstract class AbstractJobIdRequest extends OwsServiceRequest {
     public AbstractJobIdRequest() {
     }
 
-    public AbstractJobIdRequest(String service, String version) {
+    public AbstractJobIdRequest(/*~~>*/String service, /*~~>*/String version) {
         super(service, version);
     }
 
-    public AbstractJobIdRequest(String service, String version, String operationName) {
+    public AbstractJobIdRequest(/*~~>*/String service, /*~~>*/String version, /*~~>*/String operationName) {
         super(service, version, operationName);
     }
 
@@ -46,7 +46,7 @@ public abstract class AbstractJobIdRequest extends OwsServiceRequest {
         this.jobId = jobId;
     }
 
-    public void setJobId(String jobId) {
+    public void setJobId(/*~~>*/String jobId) {
         if (jobId != null) {
             setJobId(new JobId(jobId));
         }

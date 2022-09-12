@@ -25,11 +25,11 @@ public class GetStatusRequest extends AbstractJobIdRequest {
         super(null, null, WPSConstants.Operations.GetStatus.name());
     }
 
-    public GetStatusRequest(String service, String version) {
+    public GetStatusRequest(/*~~>*/String service, /*~~>*/String version) {
         super(service, version, WPSConstants.Operations.GetStatus.name());
     }
 
-    public GetStatusRequest(String service, String version, String operationName) {
+    public GetStatusRequest(/*~~>*/String service, /*~~>*/String version, /*~~>*/String operationName) {
         super(service, version, operationName);
     }
 

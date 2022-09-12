@@ -26,11 +26,11 @@ public class GetObservationResponse extends AbstractObservationResponse {
         super(null, null, SosConstants.Operations.GetObservation.name());
     }
 
-    public GetObservationResponse(String service, String version) {
+    public GetObservationResponse(/*~~>*/String service, /*~~>*/String version) {
         super(service, version, SosConstants.Operations.GetObservation.name());
     }
 
-    public GetObservationResponse(String service, String version, String operationName) {
+    public GetObservationResponse(/*~~>*/String service, /*~~>*/String version, /*~~>*/String operationName) {
         super(service, version, operationName);
     }
 }

@@ -23,48 +23,48 @@ import com.google.common.base.Strings;
 public class ElementType {
 
     public static final ElementType START_TIME =
-            new ElementType("StartTime", OmConstants.PHEN_SAMPLING_TIME, OmConstants.PHEN_UOM_ISO8601);
+            new ElementType("StartTime", /*~~>*/OmConstants.PHEN_SAMPLING_TIME, /*~~>*/OmConstants.PHEN_UOM_ISO8601);
 
     public static final ElementType END_TIME =
-            new ElementType("EndTime", OmConstants.PHEN_SAMPLING_TIME, OmConstants.PHEN_UOM_ISO8601);
+            new ElementType("EndTime", /*~~>*/OmConstants.PHEN_SAMPLING_TIME, /*~~>*/OmConstants.PHEN_UOM_ISO8601);
 
     public static final ElementType VERIFICATION =
-            new ElementType("Verification", AqdConstants.DEFINITION_VERIFICATION);
+            new ElementType("Verification", /*~~>*/AqdConstants.DEFINITION_VERIFICATION);
 
-    public static final ElementType VALIDITY = new ElementType("Validity", AqdConstants.DEFINITION_VALIDITY);
+    public static final ElementType VALIDITY = new ElementType("Validity", /*~~>*/AqdConstants.DEFINITION_VALIDITY);
 
-    public static final ElementType DATA_CAPTURE = new ElementType("DataCapture", AqdConstants.DEFINITION_DATA_CAPTURE,
-            AqdConstants.DEFINITION_UOM_STATISTICS_PERCENTAGE);
+    public static final ElementType DATA_CAPTURE = new ElementType("DataCapture", /*~~>*/AqdConstants.DEFINITION_DATA_CAPTURE,
+            /*~~>*/AqdConstants.DEFINITION_UOM_STATISTICS_PERCENTAGE);
 
-    private final String name;
+    private final /*~~>*/String name;
 
-    private final String definition;
+    private final /*~~>*/String definition;
 
-    private final String uom;
+    private final /*~~>*/String uom;
 
-    public ElementType(String name, String definition) {
+    public ElementType(/*~~>*/String name, /*~~>*/String definition) {
         this(name, definition, null);
     }
 
-    public ElementType(String name, String definition, String uom) {
-        this.name = name;
-        this.definition = definition;
-        this.uom = uom;
+    public ElementType(/*~~>*/String name, /*~~>*/String definition, /*~~>*/String uom) {
+        /*~~>*/this.name = name;
+        /*~~>*/this.definition = definition;
+        /*~~>*/this.uom = uom;
     }
 
-    private ElementType(String name, PrimaryObservation primaryObs, String uom) {
+    private ElementType(/*~~>*/String name, PrimaryObservation primaryObs, /*~~>*/String uom) {
         this(name, primaryObs.getConceptURI(), uom);
     }
 
-    public String getName() {
+    public /*~~>*/String getName() {
         return name;
     }
 
-    public String getDefinition() {
+    public /*~~>*/String getDefinition() {
         return definition;
     }
 
-    public String getUOM() {
+    public /*~~>*/String getUOM() {
         return uom;
     }
 
@@ -72,7 +72,7 @@ public class ElementType {
         return !Strings.isNullOrEmpty(getUOM());
     }
 
-    public static ElementType getValueElementType(PrimaryObservation primaryObs, String uom) {
+    public static ElementType getValueElementType(PrimaryObservation primaryObs, /*~~>*/String uom) {
         return new ElementType("Value", primaryObs, uom);
     }
 }

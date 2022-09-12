@@ -29,7 +29,7 @@ import org.n52.janmayen.Copyable;
 public class RangeValue<
         T> implements Comparable<RangeValue<T>>, Copyable<RangeValue<T>> {
 
-    private static final String NULL = "null";
+    private static final /*~~>*/String NULL = "null";
     private T rangeStart;
     private T rangeEnd;
 
@@ -72,15 +72,15 @@ public class RangeValue<
         return list;
     }
 
-    public List<String> getRangeAsStringList() {
-        final List<String> list = new ArrayList<>(2);
+    public List</*~~>*/String> getRangeAsStringList() {
+        final List</*~~>*/String> list = new ArrayList<>(2);
         list.add(rangeStart.toString());
         list.add(rangeEnd.toString());
         return list;
     }
 
     @Override
-    public String toString() {
+    public /*~~>*/String toString() {
         final StringBuilder builder = new StringBuilder();
         if (isSetStartValue()) {
             builder.append(rangeStart);

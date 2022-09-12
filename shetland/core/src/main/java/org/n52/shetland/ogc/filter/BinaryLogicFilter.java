@@ -104,7 +104,7 @@ public class BinaryLogicFilter extends Filter<BinaryLogicOperator> implements Lo
     }
 
     @Override
-    public String toString() {
+    public /*~~>*/String toString() {
         return MoreObjects.toStringHelper(this).add("children", this.filterPredicates.size())
                 .add("predicates", Arrays.toString(this.filterPredicates.toArray())).toString();
     }

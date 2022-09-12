@@ -425,8 +425,8 @@ public final class CollectionHelper {
         return !isNotNullOrEmpty(array);
     }
 
-    public static String collectionToString(Collection<?> collection) {
-        return collection.stream().map(String::valueOf).collect(Collectors.joining(",", "(", ")"));
+    public static /*~~>*/String collectionToString(Collection<?> collection) {
+        return collection.stream().map(/*~~>*/String::valueOf).collect(Collectors.joining(",", "(", ")"));
     }
 
     /**
@@ -466,7 +466,7 @@ public final class CollectionHelper {
      *
      * @return {@link List} with separated values
      */
-    public static List<String> csvStringToList(String csv) {
+    public static List</*~~>*/String> csvStringToList(/*~~>*/String csv) {
         return svStringToList(csv, ",");
     }
 
@@ -480,7 +480,7 @@ public final class CollectionHelper {
      *
      * @return {@link List} with separated values
      */
-    public static List<String> svStringToList(String sv, String separator) {
+    public static List</*~~>*/String> svStringToList(/*~~>*/String sv, /*~~>*/String separator) {
         return Lists.newArrayList(sv, separator);
     }
 
@@ -492,7 +492,7 @@ public final class CollectionHelper {
      *
      * @return {@link Set} with separated values
      */
-    public static Set<String> csvStringToSet(String csv) {
+    public static Set</*~~>*/String> csvStringToSet(/*~~>*/String csv) {
         return svStringToSet(csv, ",");
     }
 
@@ -506,7 +506,7 @@ public final class CollectionHelper {
      *
      * @return {@link Set} with separated values
      */
-    public static Set<String> svStringToSet(String sv, String separator) {
+    public static Set</*~~>*/String> svStringToSet(/*~~>*/String sv, /*~~>*/String separator) {
         return Sets.newHashSet(svStringToArray(sv, separator));
     }
 
@@ -520,8 +520,8 @@ public final class CollectionHelper {
      *
      * @return Array with separated values
      */
-    public static String[] svStringToArray(String sv, String separator) {
-        String[] split = sv.split(separator);
+    public static /*~~>*//*~~>*/String[] svStringToArray(/*~~>*/String sv, /*~~>*/String separator) {
+        /*~~>*/String[] split = sv.split(separator);
         for (int i = 0; i < split.length; i++) {
             split[i] = split[i].trim();
         }

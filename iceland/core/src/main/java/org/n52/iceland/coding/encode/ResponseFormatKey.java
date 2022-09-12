@@ -27,11 +27,11 @@ import com.google.common.base.Objects;
 public class ResponseFormatKey {
     private OwsServiceKey serviceOperatorKey;
 
-    private String responseFormat;
+    private /*~~>*/String responseFormat;
 
-    public ResponseFormatKey(OwsServiceKey serviceOperatorKey, String responseFormat) {
+    public ResponseFormatKey(OwsServiceKey serviceOperatorKey, /*~~>*/String responseFormat) {
         this.serviceOperatorKey = serviceOperatorKey;
-        this.responseFormat = responseFormat;
+        /*~~>*/this.responseFormat = responseFormat;
     }
 
     public ResponseFormatKey() {
@@ -46,19 +46,19 @@ public class ResponseFormatKey {
         this.serviceOperatorKey = serviceOperatorKey;
     }
 
-    public String getResponseFormat() {
+    public /*~~>*/String getResponseFormat() {
         return responseFormat;
     }
 
-    public void setResponseFormat(String responseFormat) {
-        this.responseFormat = responseFormat;
+    public void setResponseFormat(/*~~>*/String responseFormat) {
+        /*~~>*/this.responseFormat = responseFormat;
     }
 
-    public String getService() {
+    public /*~~>*/String getService() {
         return getServiceOperatorKey() != null ? getServiceOperatorKey().getService() : null;
     }
 
-    public String getVersion() {
+    public /*~~>*/String getVersion() {
         return getServiceOperatorKey() != null ? getServiceOperatorKey().getVersion() : null;
     }
 
@@ -78,8 +78,8 @@ public class ResponseFormatKey {
     }
 
     @Override
-    public String toString() {
-        return String.format("%s[serviceOperatorKeyType=%s, responseFormat=%s]", getClass().getSimpleName(),
+    public /*~~>*/String toString() {
+        return /*~~>*/String.format("%s[serviceOperatorKeyType=%s, responseFormat=%s]", getClass().getSimpleName(),
                 getServiceOperatorKey(), getResponseFormat());
     }
 }

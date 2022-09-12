@@ -131,7 +131,7 @@ public abstract class AbstractCVDiscretePointCoverageTypeEncoder<T>
      * @throws EncodingException
      *             If an error occurs
      */
-    private PointPropertyType encodeGeometry(Point point, String gmlId) throws EncodingException {
+    private PointPropertyType encodeGeometry(Point point, /*~~>*/String gmlId) throws EncodingException {
         PointPropertyType ppt = PointPropertyType.Factory.newInstance(getXmlOptions());
         ppt.setPoint((PointType) encodeGML(point, EncodingContext.of(XmlBeansEncodingFlags.GMLID, gmlId)));
         return ppt;
@@ -153,25 +153,25 @@ public abstract class AbstractCVDiscretePointCoverageTypeEncoder<T>
     }
 
     @Override
-    public void addNamespacePrefixToMap(Map<String, String> nameSpacePrefixMap) {
+    public void addNamespacePrefixToMap(Map</*~~>*/String, /*~~>*/String> nameSpacePrefixMap) {
         super.addNamespacePrefixToMap(nameSpacePrefixMap);
-        nameSpacePrefixMap.put(CvConstants.NS_CV, CvConstants.NS_CV_PREFIX);
+        nameSpacePrefixMap.put(/*~~>*/CvConstants.NS_CV, /*~~>*/CvConstants.NS_CV_PREFIX);
     }
 
     protected XmlObject encodeGML(Object o, EncodingContext ec) throws EncodingException {
-        return encodeObjectToXml(GmlConstants.NS_GML_32, o, ec);
+        return encodeObjectToXml(/*~~>*/GmlConstants.NS_GML_32, o, ec);
     }
 
     protected XmlObject encodeGML(Object o) throws EncodingException {
-        return encodeObjectToXml(GmlConstants.NS_GML_32, o);
+        return encodeObjectToXml(/*~~>*/GmlConstants.NS_GML_32, o);
     }
 
     protected XmlObject encodeSWE(Object o) throws EncodingException {
-        return encodeObjectToXml(SweConstants.NS_SWE_20, o);
+        return encodeObjectToXml(/*~~>*/SweConstants.NS_SWE_20, o);
     }
 
     protected XmlObject encodeSWE(Object o, EncodingContext ec) throws EncodingException {
-        return encodeObjectToXml(SweConstants.NS_SWE_20, o, ec);
+        return encodeObjectToXml(/*~~>*/SweConstants.NS_SWE_20, o, ec);
     }
 
     protected XmlString createXmlString() {
@@ -243,7 +243,7 @@ public abstract class AbstractCVDiscretePointCoverageTypeEncoder<T>
             if (value.isSetValue()) {
                 EncodingContext ec = EncodingContext
                         .of(XmlBeansEncodingFlags.GMLID,
-                                SosConstants.OBS_ID_PREFIX + IdGenerator.generate(value.toString()))
+                                /*~~>*/SosConstants.OBS_ID_PREFIX + IdGenerator.generate(value.toString()))
                         .with(XmlBeansEncodingFlags.PROPERTY_TYPE, true);
                 return encodeGML(value.getValue(), ec);
             } else {

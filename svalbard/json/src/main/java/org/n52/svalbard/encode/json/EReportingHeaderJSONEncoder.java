@@ -34,12 +34,12 @@ public class EReportingHeaderJSONEncoder extends JSONEncoder<EReportingHeader> {
     public JsonNode encodeJSON(EReportingHeader header)
             throws EncodingException {
         ObjectNode j = Json.nodeFactory().objectNode();
-        j.set(AQDJSONConstants.CHANGE, encodeObjectToJson(header.getChange()));
-        j.set(AQDJSONConstants.DELETE, encodeObjectToJson(header.getDelete()));
-        j.set(AQDJSONConstants.CONTENT, encodeObjectToJson(header.getContent()));
-        j.set(AQDJSONConstants.INSPIRE_ID, encodeObjectToJson(header.getInspireID()));
-        j.set(AQDJSONConstants.REPORTING_AUTHORITY, encodeObjectToJson(header.getReportingAuthority()));
-        j.set(AQDJSONConstants.REPORTING_PERIOD, encodeObjectToJson(header.getReportingPeriod()));
+        j.set(/*~~>*/AQDJSONConstants.CHANGE, encodeObjectToJson(header.getChange()));
+        j.set(/*~~>*/AQDJSONConstants.DELETE, encodeObjectToJson(header.getDelete()));
+        j.set(/*~~>*/AQDJSONConstants.CONTENT, encodeObjectToJson(header.getContent()));
+        j.set(/*~~>*/AQDJSONConstants.INSPIRE_ID, encodeObjectToJson(header.getInspireID()));
+        j.set(/*~~>*/AQDJSONConstants.REPORTING_AUTHORITY, encodeObjectToJson(header.getReportingAuthority()));
+        j.set(/*~~>*/AQDJSONConstants.REPORTING_PERIOD, encodeObjectToJson(header.getReportingPeriod()));
         return j;
     }
 }

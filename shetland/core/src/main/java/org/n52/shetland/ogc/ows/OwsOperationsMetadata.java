@@ -113,7 +113,7 @@ public class OwsOperationsMetadata {
     }
 
     @Override
-    public String toString() {
+    public /*~~>*/String toString() {
         return "OwsOperationsMetadata{" + "operations=" + operations + ", parameters=" + parameters + ", constraints="
                 + constraints + '}';
     }

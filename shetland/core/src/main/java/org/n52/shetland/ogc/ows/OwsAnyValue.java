@@ -37,7 +37,7 @@ public final class OwsAnyValue implements OwsPossibleValues {
     }
 
     @Override
-    public String toString() {
+    public /*~~>*/String toString() {
         return "OwsAnyValue{}";
     }
 

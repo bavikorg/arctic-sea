@@ -27,7 +27,7 @@ public class CountFilter implements FilterClause {
         this.value = value;
     }
 
-    public CountFilter(String value) {
+    public CountFilter(/*~~>*/String value) {
         this.value = Boolean.valueOf(value);
     }
 
@@ -54,7 +54,7 @@ public class CountFilter implements FilterClause {
     }
 
     @Override
-    public String toString() {
+    public /*~~>*/String toString() {
         return "$count=" + getValue().toString();
     }
 }

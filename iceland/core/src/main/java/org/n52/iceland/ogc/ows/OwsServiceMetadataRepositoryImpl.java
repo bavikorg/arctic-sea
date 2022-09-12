@@ -41,8 +41,8 @@ import edu.umd.cs.findbugs.annotations.SuppressFBWarnings;
  */
 public class OwsServiceMetadataRepositoryImpl implements OwsServiceMetadataRepository {
 
-    private final Map<String, LocalizedProducer<OwsServiceProvider>> serviceProviders;
-    private final Map<String, LocalizedProducer<OwsServiceIdentification>> serviceIdentifications;
+    private final Map</*~~>*/String, LocalizedProducer<OwsServiceProvider>> serviceProviders;
+    private final Map</*~~>*/String, LocalizedProducer<OwsServiceIdentification>> serviceIdentifications;
 
     private SettingsService settingsService;
     private ServiceOperatorRepository serviceOperatorRepository;
@@ -64,22 +64,22 @@ public class OwsServiceMetadataRepositoryImpl implements OwsServiceMetadataRepos
     }
 
     @Override
-    public LocalizedProducer<OwsServiceIdentification> getServiceIdentificationFactory(String service) {
+    public LocalizedProducer<OwsServiceIdentification> getServiceIdentificationFactory(/*~~>*/String service) {
         return this.serviceIdentifications.computeIfAbsent(service, this::createServiceIdentificationFactory);
     }
 
     @Override
-    public LocalizedProducer<OwsServiceProvider> getServiceProviderFactory(String service) {
+    public LocalizedProducer<OwsServiceProvider> getServiceProviderFactory(/*~~>*/String service) {
         return this.serviceProviders.computeIfAbsent(service, this::createServiceProviderFactory);
     }
 
-    private LocalizedProducer<OwsServiceProvider> createServiceProviderFactory(String service) {
+    private LocalizedProducer<OwsServiceProvider> createServiceProviderFactory(/*~~>*/String service) {
         OwsServiceProviderFactory factory = new OwsServiceProviderFactory();
         this.settingsService.configure(factory);
         return factory;
     }
 
-    private LocalizedProducer<OwsServiceIdentification> createServiceIdentificationFactory(String service) {
+    private LocalizedProducer<OwsServiceIdentification> createServiceIdentificationFactory(/*~~>*/String service) {
         OwsServiceIdentificationFactory factory = new OwsServiceIdentificationFactory(service,
                                                                                       this.serviceOperatorRepository);
         this.settingsService.configure(factory);

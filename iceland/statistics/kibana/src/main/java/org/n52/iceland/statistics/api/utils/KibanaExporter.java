@@ -38,23 +38,23 @@ import com.fasterxml.jackson.databind.SerializationFeature;
 
 public class KibanaExporter {
 
-    private static String statisticsIndex;
+    private static /*~~>*/String statisticsIndex;
 
     private static RestHighLevelClient client;
 
     // CHECKSTYLE:OFF
-    public static void main(String args[]) throws Exception {
+    public static void main(/*~~>*/String args[]) throws Exception {
         if (args.length != 2) {
             System.out.printf("Usage: java KibanaExporter.jar %s %s%n", "localhost:9300", "my-cluster-name");
             System.exit(0);
         }
         if (!args[0].contains(":")) {
             throw new IllegalArgumentException(
-                    String.format("%s not a valid format. Expected <hostname>:<port>.", args[0]));
+                    /*~~>*/String.format("%s not a valid format. Expected <hostname>:<port>.", args[0]));
         }
 
         // set ES address
-        String split[] = args[0].split(":");
+        /*~~>*/String split[] = args[0].split(":");
 
         // set cluster name
         Builder tcSettings = Settings.builder();
@@ -109,12 +109,12 @@ public class KibanaExporter {
     private static KibanaConfigEntryDto parseSearchHit(SearchHit hit) {
         System.out.printf("Reading %s/%s/%s%n", hit.getIndex(), hit.getType(), hit.getId());
 
-        String id = hit.getId();
+        /*~~>*/String id = hit.getId();
         if (hit.getId().equals(statisticsIndex)) {
-            id = KibanaImporter.INDEX_NEEDLE;
+            id = /*~~>*/KibanaImporter.INDEX_NEEDLE;
         }
 
-        String source = hit.getSourceAsString().replace(statisticsIndex, KibanaImporter.INDEX_NEEDLE);
+        /*~~>*/String source = hit.getSourceAsString().replace(statisticsIndex, /*~~>*/KibanaImporter.INDEX_NEEDLE);
 
         return new KibanaConfigEntryDto(hit.getIndex(), hit.getType(), id, source);
 

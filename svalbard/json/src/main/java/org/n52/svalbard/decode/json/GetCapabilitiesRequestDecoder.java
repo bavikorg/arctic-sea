@@ -43,11 +43,11 @@ public class GetCapabilitiesRequestDecoder extends AbstractSosRequestDecoder<Get
 
     private static final MediaType MT = MediaTypes.APPLICATION_JSON;
 
-    private static final String V2 = Sos2Constants.SERVICEVERSION;
+    private static final /*~~>*/String V2 = /*~~>*/Sos2Constants.SERVICEVERSION;
 
-    private static final String V1 = Sos1Constants.SERVICEVERSION;
+    private static final /*~~>*/String V1 = /*~~>*/Sos1Constants.SERVICEVERSION;
 
-    private static final String SOS = SosConstants.SOS;
+    private static final /*~~>*/String SOS = /*~~>*/SosConstants.SOS;
 
     public GetCapabilitiesRequestDecoder() {
         super(Sets.<DecoderKey> newHashSet(new JsonDecoderKey(GetCapabilitiesRequest.class), new OperationDecoderKey(
@@ -57,17 +57,17 @@ public class GetCapabilitiesRequestDecoder extends AbstractSosRequestDecoder<Get
     }
 
     @Override
-    protected String getSchemaURI() {
-        return SchemaConstants.Request.GET_CAPABILITIES;
+    protected /*~~>*/String getSchemaURI() {
+        return /*~~>*/SchemaConstants.Request.GET_CAPABILITIES;
     }
 
     @Override
     protected GetCapabilitiesRequest decodeRequest(JsonNode node) {
-        GetCapabilitiesRequest req = new GetCapabilitiesRequest(SosConstants.SOS);
-        req.setAcceptFormats(parseStringOrStringList(node.path(JSONConstants.ACCEPT_FORMATS)));
-        req.setAcceptVersions(parseStringOrStringList(node.path(JSONConstants.ACCEPT_VERSIONS)));
-        req.setSections(parseStringOrStringList(node.path(JSONConstants.SECTIONS)));
-        req.setUpdateSequence(node.path(JSONConstants.UPDATE_SEQUENCE).textValue());
+        GetCapabilitiesRequest req = new GetCapabilitiesRequest(/*~~>*/SosConstants.SOS);
+        req.setAcceptFormats(parseStringOrStringList(node.path(/*~~>*/JSONConstants.ACCEPT_FORMATS)));
+        req.setAcceptVersions(parseStringOrStringList(node.path(/*~~>*/JSONConstants.ACCEPT_VERSIONS)));
+        req.setSections(parseStringOrStringList(node.path(/*~~>*/JSONConstants.SECTIONS)));
+        req.setUpdateSequence(node.path(/*~~>*/JSONConstants.UPDATE_SEQUENCE).textValue());
         return req;
     }
 

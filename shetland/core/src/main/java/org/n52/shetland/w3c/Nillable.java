@@ -30,7 +30,7 @@ import java.util.function.Function;
 public abstract class Nillable<
         T> {
 
-    private static final String INSTANCE_ABSENT = "instance is absent";
+    private static final /*~~>*/String INSTANCE_ABSENT = "instance is absent";
 
     private Nillable() {
     }
@@ -128,7 +128,7 @@ public abstract class Nillable<
      *             if this instance is not nil
      * @see #isNil()
      */
-    public abstract Optional<String> getNilReason();
+    public abstract Optional</*~~>*/String> getNilReason();
 
     /**
      * Creates a new {@code Nillable} from a present instance.
@@ -171,7 +171,7 @@ public abstract class Nillable<
      * @return the nil {@code Nillable}
      */
     public static <
-            T> Nillable<T> nil(String reason) {
+            T> Nillable<T> nil(/*~~>*/String reason) {
         return new Nil(reason).cast();
     }
 
@@ -282,7 +282,7 @@ public abstract class Nillable<
      * @return the {@code Nillable}
      */
     public static <
-            T> Nillable<T> of(T obj, String reason) {
+            T> Nillable<T> of(T obj, /*~~>*/String reason) {
         if (obj == null) {
             if (reason == null) {
                 return absent();
@@ -301,7 +301,7 @@ public abstract class Nillable<
         }
 
         @Override
-        public Optional<String> getNilReason() {
+        public Optional</*~~>*/String> getNilReason() {
             throw new UnsupportedOperationException("instance is present");
         }
 
@@ -342,7 +342,7 @@ public abstract class Nillable<
         }
 
         @Override
-        public String toString() {
+        public /*~~>*/String toString() {
             return get().toString();
         }
     }
@@ -353,14 +353,14 @@ public abstract class Nillable<
         private static final Nil TEMPLATE = new Nil("template");
         private static final Nil UNKNOWN = new Nil("unknown");
         private static final Nil WITHHELD = new Nil("withheld");
-        private final Optional<String> reason;
+        private final Optional</*~~>*/String> reason;
 
-        Nil(String reason) {
+        Nil(/*~~>*/String reason) {
             this.reason = Optional.ofNullable(reason);
         }
 
         @Override
-        public Optional<String> getNilReason() {
+        public Optional</*~~>*/String> getNilReason() {
             return reason;
         }
 
@@ -407,7 +407,7 @@ public abstract class Nillable<
         }
 
         @Override
-        public String toString() {
+        public /*~~>*/String toString() {
             return "Nillable.nil(\"" + getNilReason().orElse("null") + "\")";
         }
     }
@@ -421,7 +421,7 @@ public abstract class Nillable<
         }
 
         @Override
-        public Optional<String> getNilReason() {
+        public Optional</*~~>*/String> getNilReason() {
             throw new UnsupportedOperationException(INSTANCE_ABSENT);
         }
 
@@ -468,7 +468,7 @@ public abstract class Nillable<
         }
 
         @Override
-        public String toString() {
+        public /*~~>*/String toString() {
             return "Nillable.absent()";
         }
     }

@@ -39,8 +39,8 @@ public class NillableJSONEncoder extends JSONEncoder<Nillable<?>> {
             return nodeFactory().nullNode();
         } else if (t.isNil()) {
             return nodeFactory().objectNode()
-                    .put(AQDJSONConstants.NIL, true)
-                    .put(AQDJSONConstants.REASON, t.getNilReason().orElse(null));
+                    .put(/*~~>*/AQDJSONConstants.NIL, true)
+                    .put(/*~~>*/AQDJSONConstants.REASON, t.getNilReason().orElse(null));
         } else {
             return encodeObjectToJson(t.get());
         }

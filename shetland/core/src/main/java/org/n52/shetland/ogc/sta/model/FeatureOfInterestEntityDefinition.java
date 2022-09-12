@@ -23,35 +23,35 @@ import java.util.Set;
 @SuppressWarnings("VisibilityModifier")
 public class FeatureOfInterestEntityDefinition extends STAEntityDefinition {
 
-    public static final String ENTITY_NAME = FEATURE_OF_INTEREST;
+    public static final /*~~>*/String ENTITY_NAME = FEATURE_OF_INTEREST;
 
-    public static final String ENTITY_SET_NAME = FEATURES_OF_INTEREST;
+    public static final /*~~>*/String ENTITY_SET_NAME = FEATURES_OF_INTEREST;
 
-    private static final String[] NAV_PROPS_MANDATORY = new String[] {};
+    private static final /*~~>*/String[] NAV_PROPS_MANDATORY = new /*~~>*/String[] {};
 
-    private static final String[] NAV_PROPS_OPTIONAL = new String[] { OBSERVATIONS };
+    private static final /*~~>*/String[] NAV_PROPS_OPTIONAL = new /*~~>*/String[] { OBSERVATIONS };
 
-    private static final String[] ENTITY_PROPS_MANDATORY =
-            new String[] { PROP_ID, PROP_NAME, PROP_DESCRIPTION, PROP_ENCODINGTYPE, PROP_FEATURE };
+    private static final /*~~>*/String[] ENTITY_PROPS_MANDATORY =
+            new /*~~>*/String[] { PROP_ID, PROP_NAME, PROP_DESCRIPTION, PROP_ENCODINGTYPE, PROP_FEATURE };
 
-    private static final String[] ENTITY_PROPS_OPTIONAL = new String[] {};
+    private static final /*~~>*/String[] ENTITY_PROPS_OPTIONAL = new /*~~>*/String[] {};
 
-    public static final Set<String> NAVIGATION_PROPERTIES_OPTIONAL =
+    public static final Set</*~~>*/String> NAVIGATION_PROPERTIES_OPTIONAL =
             Collections.unmodifiableSet(new HashSet<>(Arrays.asList(NAV_PROPS_OPTIONAL)));
 
-    public static final Set<String> NAVIGATION_PROPERTIES_MANDATORY =
+    public static final Set</*~~>*/String> NAVIGATION_PROPERTIES_MANDATORY =
             Collections.unmodifiableSet(new HashSet<>(Arrays.asList(NAV_PROPS_MANDATORY)));
 
-    public static final Set<String> NAVIGATION_PROPERTIES = Collections.unmodifiableSet(
+    public static final Set</*~~>*/String> NAVIGATION_PROPERTIES = Collections.unmodifiableSet(
             STAEntityDefinition.combineSets(NAVIGATION_PROPERTIES_OPTIONAL, NAVIGATION_PROPERTIES_MANDATORY));
 
-    public static final Set<String> ENTITY_PROPERTIES_OPTIONAL =
+    public static final Set</*~~>*/String> ENTITY_PROPERTIES_OPTIONAL =
             Collections.unmodifiableSet(new HashSet<>(Arrays.asList(ENTITY_PROPS_OPTIONAL)));
 
-    public static final Set<String> ENTITY_PROPERTIES_MANDATORY =
+    public static final Set</*~~>*/String> ENTITY_PROPERTIES_MANDATORY =
             Collections.unmodifiableSet(new HashSet<>(Arrays.asList(ENTITY_PROPS_MANDATORY)));
 
-    public static final Set<String> ENTITY_PROPERTIES = Collections
+    public static final Set</*~~>*/String> ENTITY_PROPERTIES = Collections
             .unmodifiableSet(STAEntityDefinition.combineSets(ENTITY_PROPERTIES_OPTIONAL, ENTITY_PROPERTIES_MANDATORY));
 
     public FeatureOfInterestEntityDefinition() {

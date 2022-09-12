@@ -64,7 +64,7 @@ public class LifecycleBeanPostProcessor implements DestructionAwareBeanPostProce
     }
 
     @Override
-    public Object postProcessAfterInitialization(Object bean, String beanName) {
+    public Object postProcessAfterInitialization(Object bean, /*~~>*/String beanName) {
         if (bean instanceof Constructable) {
             try {
                 ((Constructable) bean).init();
@@ -76,7 +76,7 @@ public class LifecycleBeanPostProcessor implements DestructionAwareBeanPostProce
     }
 
     @Override
-    public void postProcessBeforeDestruction(Object bean, String beanName) {
+    public void postProcessBeforeDestruction(Object bean, /*~~>*/String beanName) {
         if (bean instanceof Destroyable) {
             try {
                 ((Destroyable) bean).destroy();
@@ -87,7 +87,7 @@ public class LifecycleBeanPostProcessor implements DestructionAwareBeanPostProce
     }
 
     @Override
-    public Object postProcessBeforeInitialization(Object bean, String beanName) {
+    public Object postProcessBeforeInitialization(Object bean, /*~~>*/String beanName) {
         return bean;
     }
 

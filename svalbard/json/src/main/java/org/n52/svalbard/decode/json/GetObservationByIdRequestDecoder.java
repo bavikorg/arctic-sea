@@ -34,13 +34,13 @@ import com.fasterxml.jackson.databind.JsonNode;
  */
 public class GetObservationByIdRequestDecoder extends AbstractSosRequestDecoder<GetObservationByIdRequest> {
     public GetObservationByIdRequestDecoder() {
-        super(GetObservationByIdRequest.class, SosConstants.SOS, Sos2Constants.SERVICEVERSION,
+        super(GetObservationByIdRequest.class, /*~~>*/SosConstants.SOS, /*~~>*/Sos2Constants.SERVICEVERSION,
                 SosConstants.Operations.GetObservationById);
     }
 
     @Override
-    protected String getSchemaURI() {
-        return SchemaConstants.Request.GET_OBSERVATION_BY_ID;
+    protected /*~~>*/String getSchemaURI() {
+        return /*~~>*/SchemaConstants.Request.GET_OBSERVATION_BY_ID;
     }
 
     @Override
@@ -50,7 +50,7 @@ public class GetObservationByIdRequestDecoder extends AbstractSosRequestDecoder<
         return req;
     }
 
-    private List<String> parseObservationIdentifiers(JsonNode node) {
-        return parseStringOrStringList(node.path(JSONConstants.OBSERVATION));
+    private List</*~~>*/String> parseObservationIdentifiers(JsonNode node) {
+        return parseStringOrStringList(node.path(/*~~>*/JSONConstants.OBSERVATION));
     }
 }

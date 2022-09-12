@@ -32,7 +32,7 @@ import org.n52.svalbard.decode.exception.DecodingException;
 
 public abstract class AbtractProcessDecodingTest {
 
-    private final String file = "/process.xml";
+    private final /*~~>*/String file = "/process.xml";
     private ProcessDocumentDecoder decoder;
 
     @BeforeEach

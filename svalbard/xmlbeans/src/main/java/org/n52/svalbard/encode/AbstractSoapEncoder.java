@@ -44,16 +44,16 @@ import com.google.common.collect.ImmutableSet;
  * @since 1.0.0
  */
 public abstract class AbstractSoapEncoder<T, S> extends AbstractXmlEncoder<T, S> {
-    public static final String DEFAULT_FAULT_REASON = "A server exception was encountered.";
+    public static final /*~~>*/String DEFAULT_FAULT_REASON = "A server exception was encountered.";
 
-    public static final String MISSING_RESPONSE_DETAIL_TEXT = "Missing SOS response document!";
+    public static final /*~~>*/String MISSING_RESPONSE_DETAIL_TEXT = "Missing SOS response document!";
 
-    public static final String MISSING_EXCEPTION_DETAIL_TEXT =
+    public static final /*~~>*/String MISSING_EXCEPTION_DETAIL_TEXT =
             "Error while creating SOAPFault element from OWSException! OWSException is missing!";
 
     private final Set<EncoderKey> encoderKey;
 
-    public AbstractSoapEncoder(String namespace) {
+    public AbstractSoapEncoder(/*~~>*/String namespace) {
         this.encoderKey = ImmutableSet.<EncoderKey> of(new XmlEncoderKey(namespace, SoapResponse.class),
                                                        new XmlEncoderKey(namespace, SoapRequest.class));
     }
@@ -113,15 +113,15 @@ public abstract class AbstractSoapEncoder<T, S> extends AbstractXmlEncoder<T, S>
      *
      * @return SOAP action URI
      */
-    protected String getExceptionActionURI(ExceptionCode exceptionCode) {
+    protected /*~~>*/String getExceptionActionURI(ExceptionCode exceptionCode) {
         if (exceptionCode instanceof OwsExceptionCode) {
-            return SosSoapConstants.RESP_ACTION_OWS;
+            return /*~~>*/SosSoapConstants.RESP_ACTION_OWS;
         } else if (exceptionCode instanceof SwesExceptionCode) {
-            return SosSoapConstants.RESP_ACTION_SWES;
+            return /*~~>*/SosSoapConstants.RESP_ACTION_SWES;
         } else if (exceptionCode instanceof SosExceptionCode) {
-            return SosSoapConstants.RESP_ACTION_SOS;
+            return /*~~>*/SosSoapConstants.RESP_ACTION_SOS;
         } else {
-            return SosSoapConstants.RESP_ACTION_OWS;
+            return /*~~>*/SosSoapConstants.RESP_ACTION_OWS;
         }
     }
 
@@ -132,11 +132,11 @@ public abstract class AbstractSoapEncoder<T, S> extends AbstractXmlEncoder<T, S>
      *            OWS exception code to get reason for.
      * @return Text for SOAP fault reason
      */
-    protected String getSoapFaultReasonText(ExceptionCode exceptionCode) {
+    protected /*~~>*/String getSoapFaultReasonText(ExceptionCode exceptionCode) {
         if (exceptionCode != null && exceptionCode.getSoapFaultReason() != null) {
             return exceptionCode.getSoapFaultReason();
         } else {
-            return OWSConstants.SOAP_REASON_UNKNOWN;
+            return /*~~>*/OWSConstants.SOAP_REASON_UNKNOWN;
         }
     }
 

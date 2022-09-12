@@ -74,7 +74,7 @@ import org.n52.svalbard.encode.exception.NoEncoderForKeyException;
  * @since 1.0.0
  */
 public abstract class SimpleBinding implements Binding {
-    private static final String HTTP_MEDIA_TYPE_QUALITY_PARAM = "q";
+    private static final /*~~>*/String HTTP_MEDIA_TYPE_QUALITY_PARAM = "q";
     private static final Logger LOG = LoggerFactory.getLogger(SimpleBinding.class);
 
     private EventBus eventBus;
@@ -166,11 +166,11 @@ public abstract class SimpleBinding implements Binding {
         return OwsServiceRequestContext.fromRequest(req);
     }
 
-    protected boolean isVersionSupported(String service, String acceptVersion) {
+    protected boolean isVersionSupported(/*~~>*/String service, /*~~>*/String acceptVersion) {
         return getServiceOperatorRepository().isVersionSupported(service, acceptVersion);
     }
 
-    protected boolean isServiceSupported(String service) {
+    protected boolean isServiceSupported(/*~~>*/String service) {
         return getServiceOperatorRepository().isServiceSupported(service);
     }
 
@@ -274,8 +274,8 @@ public abstract class SimpleBinding implements Binding {
 
     protected ServiceOperator getServiceOperator(OwsServiceRequest request) throws OwsExceptionReport {
         checkServiceOperatorKeyTypes(request);
-        String service = request.getService();
-        String version = request.getVersion();
+        /*~~>*/String service = request.getService();
+        /*~~>*/String version = request.getVersion();
         if (request instanceof GetCapabilitiesRequest) {
             GetCapabilitiesRequest gcr = (GetCapabilitiesRequest) request;
             if (gcr.isSetAcceptVersions()) {
@@ -283,8 +283,8 @@ public abstract class SimpleBinding implements Binding {
                         .map(this::getServiceOperator).filter(Objects::nonNull).findFirst()
                         .orElseThrow(() -> new InvalidServiceOrVersionException(service, version));
             } else {
-                Set<String> supportedVersions = serviceOperatorRepository.getSupportedVersions(service);
-                String newest = supportedVersions.stream().max(Comparables.version())
+                Set</*~~>*/String> supportedVersions = serviceOperatorRepository.getSupportedVersions(service);
+                /*~~>*/String newest = supportedVersions.stream().max(Comparables.version())
                         .orElseThrow(() -> new InvalidServiceParameterException(service));
                 return getServiceOperator(new OwsServiceKey(service, newest));
             }
@@ -294,8 +294,8 @@ public abstract class SimpleBinding implements Binding {
     }
 
     protected void checkServiceOperatorKeyTypes(OwsServiceRequest request) throws OwsExceptionReport {
-        String service = request.getService();
-        String version = request.getVersion();
+        /*~~>*/String service = request.getService();
+        /*~~>*/String version = request.getVersion();
         if (service == null || service.isEmpty()) {
             throw new MissingServiceParameterException();
         } else if (!getServiceOperatorRepository().isServiceSupported(service)) {

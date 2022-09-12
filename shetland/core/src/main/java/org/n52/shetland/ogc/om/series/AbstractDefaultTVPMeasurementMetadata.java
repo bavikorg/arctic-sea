@@ -27,14 +27,14 @@ package org.n52.shetland.ogc.om.series;
 public abstract class AbstractDefaultTVPMeasurementMetadata<
         T extends AbstractDefaultTVPMeasurementMetadata<?>> {
 
-    private String aggregationDuration;
+    private /*~~>*/String aggregationDuration;
 
-    public String getAggregationDuration() {
+    public /*~~>*/String getAggregationDuration() {
         return aggregationDuration;
     }
 
-    public T setAggregationDuration(String aggregationDuration) {
-        this.aggregationDuration = aggregationDuration;
+    public T setAggregationDuration(/*~~>*/String aggregationDuration) {
+        /*~~>*/this.aggregationDuration = aggregationDuration;
         return (T) this;
     }
 

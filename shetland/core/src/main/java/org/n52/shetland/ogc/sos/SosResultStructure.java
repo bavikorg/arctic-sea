@@ -26,11 +26,11 @@ public class SosResultStructure extends ObjectWithXmlString<SweAbstractDataCompo
         super(object);
     }
 
-    public SosResultStructure(String xml) {
+    public SosResultStructure(/*~~>*/String xml) {
         super(xml);
     }
 
-    public SosResultStructure(SweAbstractDataComponent object, String xml) {
+    public SosResultStructure(SweAbstractDataComponent object, /*~~>*/String xml) {
         super(object, xml);
     }
 }

@@ -38,7 +38,7 @@ public class Process extends AbstractFeature {
     /**
      * 1..1
      */
-    private String type;
+    private /*~~>*/String type;
 
     /**
      * 0..*
@@ -57,7 +57,7 @@ public class Process extends AbstractFeature {
 
     public Process() {
         super("");
-        setDefaultElementEncoding(InspireOMPRConstants.NS_OMPR_30);
+        setDefaultElementEncoding(/*~~>*/InspireOMPRConstants.NS_OMPR_30);
     }
 
     public Identifier getInspireId() {
@@ -68,7 +68,7 @@ public class Process extends AbstractFeature {
      * @param name
      *            the name to set
      */
-    public Process setName(String name) {
+    public Process setName(/*~~>*/String name) {
         super.setName(new CodeType(name));
         return this;
     }
@@ -76,7 +76,7 @@ public class Process extends AbstractFeature {
     /**
      * @return the type
      */
-    public String getType() {
+    public /*~~>*/String getType() {
         return type;
     }
 
@@ -84,8 +84,8 @@ public class Process extends AbstractFeature {
      * @param type
      *            the type to set
      */
-    public Process setType(String type) {
-        this.type = type;
+    public Process setType(/*~~>*/String type) {
+        /*~~>*/this.type = type;
         return this;
     }
 

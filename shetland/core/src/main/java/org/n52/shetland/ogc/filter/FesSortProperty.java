@@ -30,18 +30,18 @@ import org.n52.shetland.ogc.filter.FilterConstants.SortOrder;
 @Deprecated
 public class FesSortProperty {
 
-    private String valueReference;
+    private /*~~>*/String valueReference;
 
     private SortOrder sortOrder;
 
-    public FesSortProperty(String valueReference) {
-        this.valueReference = valueReference;
+    public FesSortProperty(/*~~>*/String valueReference) {
+        /*~~>*/this.valueReference = valueReference;
     }
 
     /**
      * @return the valueReference
      */
-    public String getValueReference() {
+    public /*~~>*/String getValueReference() {
         return valueReference;
     }
 
@@ -49,8 +49,8 @@ public class FesSortProperty {
      * @param valueReference
      *            the valueReference to set
      */
-    public FesSortProperty setValueReference(String valueReference) {
-        this.valueReference = valueReference;
+    public FesSortProperty setValueReference(/*~~>*/String valueReference) {
+        /*~~>*/this.valueReference = valueReference;
         return this;
     }
 

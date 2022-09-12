@@ -41,29 +41,29 @@ public class GetResultRequest extends OwsServiceRequest implements SpatialFeatur
     /**
      * Identifier for the observation template
      */
-    private String observationTemplateIdentifier;
+    private /*~~>*/String observationTemplateIdentifier;
 
-    private String offering;
+    private /*~~>*/String offering;
 
-    private String observedProperty;
+    private /*~~>*/String observedProperty;
 
-    private List<String> featureIdentifiers = new LinkedList<>();
+    private List</*~~>*/String> featureIdentifiers = new LinkedList<>();
 
     private List<TemporalFilter> temporalFilter = new LinkedList<>();
 
     private SpatialFilter spatialFilter;
 
-    private Map<String, String> namespaces = new LinkedHashMap<>();
+    private Map</*~~>*/String, /*~~>*/String> namespaces = new LinkedHashMap<>();
 
     public GetResultRequest() {
         super(null, null, SosConstants.Operations.GetResult.name());
     }
 
-    public GetResultRequest(String service, String version) {
+    public GetResultRequest(/*~~>*/String service, /*~~>*/String version) {
         super(service, version, SosConstants.Operations.GetResult.name());
     }
 
-    public GetResultRequest(String service, String version, String operationName) {
+    public GetResultRequest(/*~~>*/String service, /*~~>*/String version, /*~~>*/String operationName) {
         super(service, version, operationName);
     }
 
@@ -72,7 +72,7 @@ public class GetResultRequest extends OwsServiceRequest implements SpatialFeatur
      *
      * @return observation template identifier
      */
-    public String getObservationTemplateIdentifier() {
+    public /*~~>*/String getObservationTemplateIdentifier() {
         return observationTemplateIdentifier;
     }
 
@@ -83,8 +83,8 @@ public class GetResultRequest extends OwsServiceRequest implements SpatialFeatur
      *            observation template identifier
      * @return this
      */
-    public GetResultRequest setObservationTemplateIdentifier(String observationTemplateIdentifier) {
-        this.observationTemplateIdentifier = observationTemplateIdentifier;
+    public GetResultRequest setObservationTemplateIdentifier(/*~~>*/String observationTemplateIdentifier) {
+        /*~~>*/this.observationTemplateIdentifier = observationTemplateIdentifier;
         return this;
     }
 
@@ -92,12 +92,12 @@ public class GetResultRequest extends OwsServiceRequest implements SpatialFeatur
         return !Strings.isNullOrEmpty(getObservationTemplateIdentifier());
     }
 
-    public String getOffering() {
+    public /*~~>*/String getOffering() {
         return offering;
     }
 
-    public GetResultRequest setOffering(String offering) {
-        this.offering = offering;
+    public GetResultRequest setOffering(/*~~>*/String offering) {
+        /*~~>*/this.offering = offering;
         return this;
     }
 
@@ -105,12 +105,12 @@ public class GetResultRequest extends OwsServiceRequest implements SpatialFeatur
         return !Strings.isNullOrEmpty(getOffering());
     }
 
-    public String getObservedProperty() {
+    public /*~~>*/String getObservedProperty() {
         return observedProperty;
     }
 
-    public GetResultRequest setObservedProperty(String observedProperty) {
-        this.observedProperty = observedProperty;
+    public GetResultRequest setObservedProperty(/*~~>*/String observedProperty) {
+        /*~~>*/this.observedProperty = observedProperty;
         return this;
     }
 
@@ -124,7 +124,7 @@ public class GetResultRequest extends OwsServiceRequest implements SpatialFeatur
      * @return FOI identifiers
      */
     @Override
-    public List<String> getFeatureIdentifiers() {
+    public List</*~~>*/String> getFeatureIdentifiers() {
         return Collections.unmodifiableList(featureIdentifiers);
     }
 
@@ -136,7 +136,7 @@ public class GetResultRequest extends OwsServiceRequest implements SpatialFeatur
      * @return this
      */
     @Override
-    public void setFeatureIdentifiers(List<String> featureIdentifiers) {
+    public void setFeatureIdentifiers(List</*~~>*/String> featureIdentifiers) {
         this.featureIdentifiers.clear();
         if (featureIdentifiers != null) {
             this.featureIdentifiers.addAll(featureIdentifiers);
@@ -171,11 +171,11 @@ public class GetResultRequest extends OwsServiceRequest implements SpatialFeatur
         this.spatialFilter = spatialFilter;
     }
 
-    public Map<String, String> getNamespaces() {
+    public Map</*~~>*/String, /*~~>*/String> getNamespaces() {
         return Collections.unmodifiableMap(namespaces);
     }
 
-    public GetResultRequest setNamespaces(Map<String, String> namespaces) {
+    public GetResultRequest setNamespaces(Map</*~~>*/String, /*~~>*/String> namespaces) {
         this.namespaces.clear();
         if (namespaces != null) {
             this.namespaces.putAll(namespaces);

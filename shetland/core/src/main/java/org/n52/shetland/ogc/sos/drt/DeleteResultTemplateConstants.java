@@ -23,16 +23,16 @@ public interface DeleteResultTemplateConstants {
         resultTemplate
     }
 
-    String OPERATION_NAME = "DeleteResultTemplate";
+    /*~~>*/String OPERATION_NAME = "DeleteResultTemplate";
 
-    String NS = "http://www.opengis.net/drt/1.0";
+    /*~~>*/String NS = "http://www.opengis.net/drt/1.0";
 
-    String NS_PREFIX = "drt";
+    /*~~>*/String NS_PREFIX = "drt";
 
-    String SCHEMA_LOCATION_URL = "http://52north.org/schema/sosdrt/1.0/sosdrt.xsd";
+    /*~~>*/String SCHEMA_LOCATION_URL = "http://52north.org/schema/sosdrt/1.0/sosdrt.xsd";
 
-    String CONFORMANCE_CLASS_INSERTION = "http://www.opengis.net/spec/SOS/2.0/conf/resultInsertion";
+    /*~~>*/String CONFORMANCE_CLASS_INSERTION = "http://www.opengis.net/spec/SOS/2.0/conf/resultInsertion";
 
-    String CONFORMANCE_CLASS_RETRIEVAL = "http://www.opengis.net/spec/SOS/2.0/conf/resultRetrieval";
+    /*~~>*/String CONFORMANCE_CLASS_RETRIEVAL = "http://www.opengis.net/spec/SOS/2.0/conf/resultRetrieval";
 
 }

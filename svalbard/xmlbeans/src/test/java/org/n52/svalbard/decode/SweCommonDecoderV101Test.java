@@ -59,7 +59,7 @@ public class SweCommonDecoderV101Test {
     public void should_decode_Count_with_Quality_Text() throws DecodingException {
         final CountDocument xbCount = CountDocument.Factory.newInstance();
 
-        final String textValue = "quality-text";
+        final /*~~>*/String textValue = "quality-text";
         xbCount.addNewCount()
                 .addNewQuality()
                 .addNewText()
@@ -87,7 +87,7 @@ public class SweCommonDecoderV101Test {
     public void should_decode_Quantity_with_Quality_Category() throws DecodingException {
         final QuantityDocument xbQuantity = QuantityDocument.Factory.newInstance();
 
-        final String categoryValue = "quality-category";
+        final /*~~>*/String categoryValue = "quality-category";
         xbQuantity.addNewQuantity()
                 .addNewQuality()
                 .addNewCategory()
@@ -176,15 +176,15 @@ public class SweCommonDecoderV101Test {
         final ArrayList<BigDecimal> values = Lists.newArrayList(BigDecimal.valueOf(1.0), BigDecimal.valueOf(2.0));
         final QuantityRange xbQuantityRangeType = xbQuantityRange.addNewQuantityRange();
         xbQuantityRangeType.setValue(values);
-        final String definition = "definition";
+        final /*~~>*/String definition = "definition";
         xbQuantityRangeType.setDefinition(definition);
-        final String axisId = "axis-id";
+        final /*~~>*/String axisId = "axis-id";
         xbQuantityRangeType.setAxisID(axisId);
-        final String description = "description";
+        final /*~~>*/String description = "description";
         xbQuantityRangeType.addNewDescription()
                 .setStringValue(description);
         final UomPropertyType xbUom = xbQuantityRangeType.addNewUom();
-        final String uomCode = "uom-code";
+        final /*~~>*/String uomCode = "uom-code";
         xbUom.setCode(uomCode);
         final Object decodedObject = new SweCommonDecoderV101().decode(xbQuantityRange);
 
@@ -211,9 +211,9 @@ public class SweCommonDecoderV101Test {
         TimeRange xbTimeRange = xbTimeRangeDoc.addNewTimeRange();
         final DateTime startDate = new DateTime(1970, 1, 1, 0, 0, DateTimeZone.UTC);
         final DateTime endDate = new DateTime(2013, 12, 31, 23, 59, DateTimeZone.UTC);
-        final List<String> values = Lists.newArrayList(startDate.toString(), endDate.toString());
+        final List</*~~>*/String> values = Lists.newArrayList(startDate.toString(), endDate.toString());
         xbTimeRange.setValue(values);
-        final String iso8601Uom = "urn:ogc:def:unit:ISO:8601";
+        final /*~~>*/String iso8601Uom = "urn:ogc:def:unit:ISO:8601";
         xbTimeRange.addNewUom()
                 .setHref(iso8601Uom);
         final Object decodedObject = new SweCommonDecoderV101().decode(xbTimeRange);

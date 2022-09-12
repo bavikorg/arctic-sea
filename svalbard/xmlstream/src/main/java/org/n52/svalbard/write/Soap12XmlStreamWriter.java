@@ -72,8 +72,8 @@ public class Soap12XmlStreamWriter extends XmlStreamWriter<SoapResponse> {
      */
     protected void writeSoapEnvelope() throws XMLStreamException, EncodingException {
         start(SoapConstants.SOAP_12_ENVELOPE);
-        namespace(W3CConstants.NS_XLINK_PREFIX, W3CConstants.NS_XLINK);
-        namespace(SoapConstants.NS_SOAP_PREFIX, SoapConstants.NS_SOAP_12);
+        namespace(/*~~>*/W3CConstants.NS_XLINK_PREFIX, /*~~>*/W3CConstants.NS_XLINK);
+        namespace(/*~~>*/SoapConstants.NS_SOAP_PREFIX, /*~~>*/SoapConstants.NS_SOAP_12);
         schemaLocation(getSchemaLocation());
         // writeSoapHeader()
         writeSoapBody();
@@ -138,7 +138,7 @@ public class Soap12XmlStreamWriter extends XmlStreamWriter<SoapResponse> {
                     .with(StreamingEncoderFlags.EMBEDDED, true);
             ((StreamingEncoder) encoder).encode(bodyResponse, getOutputStream(), ctx);
         } else {
-            String soapBodyContent = ((XmlObject) encoder.encode(bodyResponse)).xmlText(getXmlOptions());
+            /*~~>*/String soapBodyContent = ((XmlObject) encoder.encode(bodyResponse)).xmlText(getXmlOptions());
             rawText(stripXmlDeclaration(soapBodyContent));
         }
     }
@@ -152,8 +152,8 @@ public class Soap12XmlStreamWriter extends XmlStreamWriter<SoapResponse> {
      * @throws XMLStreamException If an error occurs when writing to {@link OutputStream}
      */
     protected void writeSoapFault(SoapFault fault) throws EncodingException, XMLStreamException {
-        Encoder<XmlObject, SoapFault> encoder = getEncoder(SoapConstants.NS_SOAP_12, fault);
-        String soapFault = encoder.encode(fault).xmlText(getXmlOptions());
+        Encoder<XmlObject, SoapFault> encoder = getEncoder(/*~~>*/SoapConstants.NS_SOAP_12, fault);
+        /*~~>*/String soapFault = encoder.encode(fault).xmlText(getXmlOptions());
         rawText(stripXmlDeclaration(soapFault));
     }
 
@@ -167,8 +167,8 @@ public class Soap12XmlStreamWriter extends XmlStreamWriter<SoapResponse> {
      */
     protected void writeSoapFaultFromException(OwsExceptionReport exception)
             throws EncodingException, XMLStreamException {
-        Encoder<XmlObject, OwsExceptionReport> encoder = getEncoder(SoapConstants.NS_SOAP_12, exception);
-        String soapFault = encoder.encode(exception).xmlText(getXmlOptions());
+        Encoder<XmlObject, OwsExceptionReport> encoder = getEncoder(/*~~>*/SoapConstants.NS_SOAP_12, exception);
+        /*~~>*/String soapFault = encoder.encode(exception).xmlText(getXmlOptions());
         rawText(stripXmlDeclaration(soapFault));
     }
 
@@ -178,7 +178,7 @@ public class Soap12XmlStreamWriter extends XmlStreamWriter<SoapResponse> {
                                                           MediaTypes.APPLICATION_XML));
     }
 
-    private String stripXmlDeclaration(String soapFault) {
+    private /*~~>*/String stripXmlDeclaration(/*~~>*/String soapFault) {
         if (soapFault.startsWith("<?xml")) {
             return soapFault.substring(soapFault.indexOf('>'));
         } else {

@@ -32,50 +32,50 @@ public class SelectQueryOptionTest extends QueryOptionTests {
     @Test
     public void testInvalidSelectOption() {
         // May not be blank
-        init(ODataConstants.QueryOptions.SELECT + EQ + ",");
+        init(/*~~>*/ODataConstants.QueryOptions.SELECT + EQ + ",");
         Assertions.assertThrows(
                 Exception.class,
                 () -> parser.queryOptions().accept(new STAQueryOptionVisitor())
         );
 
         // May not have blank subgroups
-        init(ODataConstants.QueryOptions.SELECT + EQ + "test,");
+        init(/*~~>*/ODataConstants.QueryOptions.SELECT + EQ + "test,");
         Assertions.assertThrows(
                 Exception.class,
                 () -> parser.queryOptions().accept(new STAQueryOptionVisitor())
         );
-        init(ODataConstants.QueryOptions.SELECT + EQ + ",test");
+        init(/*~~>*/ODataConstants.QueryOptions.SELECT + EQ + ",test");
         Assertions.assertThrows(
                 Exception.class,
                 () -> parser.queryOptions().accept(new STAQueryOptionVisitor())
         );
-        init(ODataConstants.QueryOptions.SELECT + EQ + "test,,test");
+        init(/*~~>*/ODataConstants.QueryOptions.SELECT + EQ + "test,,test");
         Assertions.assertThrows(
                 Exception.class,
                 () -> parser.queryOptions().accept(new STAQueryOptionVisitor())
         );
-        init(ODataConstants.QueryOptions.SELECT + EQ + "test , test");
+        init(/*~~>*/ODataConstants.QueryOptions.SELECT + EQ + "test , test");
         Assertions.assertThrows(
                 Exception.class,
                 () -> parser.queryOptions().accept(new STAQueryOptionVisitor())
         );
 
         // May not be numeric
-        init(ODataConstants.QueryOptions.SELECT + EQ + "4444");
+        init(/*~~>*/ODataConstants.QueryOptions.SELECT + EQ + "4444");
         Assertions.assertThrows(
                 Exception.class,
                 () -> parser.queryOptions().accept(new STAQueryOptionVisitor())
         );
 
         // May not include numbers
-        init(ODataConstants.QueryOptions.SELECT + EQ + "features123a");
+        init(/*~~>*/ODataConstants.QueryOptions.SELECT + EQ + "features123a");
         Assertions.assertThrows(
                 Exception.class,
                 () -> parser.queryOptions().accept(new STAQueryOptionVisitor())
         );
 
         // May not be empty
-        init(ODataConstants.QueryOptions.SELECT + EQ + "");
+        init(/*~~>*/ODataConstants.QueryOptions.SELECT + EQ + "");
         Assertions.assertThrows(
                 Exception.class,
                 () -> parser.queryOptions().accept(new STAQueryOptionVisitor())
@@ -85,46 +85,46 @@ public class SelectQueryOptionTest extends QueryOptionTests {
     @Test
     public void testValidSelectOption() {
         QueryOptions queryOptions;
-        String val;
-        String[] split;
+        /*~~>*/String val;
+        /*~~>*/String[] split;
 
         // Check simple property
         val = "test";
-        init(ODataConstants.QueryOptions.SELECT + EQ + val);
+        init(/*~~>*/ODataConstants.QueryOptions.SELECT + EQ + val);
         queryOptions = (QueryOptions) parser.queryOptions().accept(new STAQueryOptionVisitor());
-        Assertions.assertEquals(val, queryOptions.getSelectFilter().getItems().toArray(new String[] {})[0]);
+        Assertions.assertEquals(val, queryOptions.getSelectFilter().getItems().toArray(new /*~~>*/String[] {})[0]);
 
         // check two properties no space
         val = "test,testTwo";
         split = val.split(",");
-        init(ODataConstants.QueryOptions.SELECT + EQ + val);
+        init(/*~~>*/ODataConstants.QueryOptions.SELECT + EQ + val);
         queryOptions = (QueryOptions) parser.queryOptions().accept(new STAQueryOptionVisitor());
         for (int i = 0; i < split.length; i++) {
-            Assertions.assertEquals(split[i].trim(), queryOptions.getSelectFilter().getItems().toArray(new String[] {})[i]);
+            Assertions.assertEquals(split[i].trim(), queryOptions.getSelectFilter().getItems().toArray(new /*~~>*/String[] {})[i]);
         }
 
         // check two properties with space
         val = "test, testTwo";
         split = val.split(",");
-        init(ODataConstants.QueryOptions.SELECT + EQ + val);
+        init(/*~~>*/ODataConstants.QueryOptions.SELECT + EQ + val);
         queryOptions = (QueryOptions) parser.queryOptions().accept(new STAQueryOptionVisitor());
         for (int i = 0; i < split.length; i++) {
-            Assertions.assertEquals(split[i].trim(), queryOptions.getSelectFilter().getItems().toArray(new String[] {})[i]);
+            Assertions.assertEquals(split[i].trim(), queryOptions.getSelectFilter().getItems().toArray(new /*~~>*/String[] {})[i]);
         }
 
         // check two properties with more space
         val = "test, testTwo";
         split = val.split(",");
-        init(ODataConstants.QueryOptions.SELECT + EQ + val);
+        init(/*~~>*/ODataConstants.QueryOptions.SELECT + EQ + val);
         queryOptions = (QueryOptions) parser.queryOptions().accept(new STAQueryOptionVisitor());
         for (int i = 0; i < split.length; i++) {
-            Assertions.assertEquals(split[i].trim(), queryOptions.getSelectFilter().getItems().toArray(new String[] {})[i]);
+            Assertions.assertEquals(split[i].trim(), queryOptions.getSelectFilter().getItems().toArray(new /*~~>*/String[] {})[i]);
         }
 
         // check 2+ properties
         val = "testZero, testOne, testTwo, testThree";
         split = val.split(",");
-        init(ODataConstants.QueryOptions.SELECT + EQ + val);
+        init(/*~~>*/ODataConstants.QueryOptions.SELECT + EQ + val);
         queryOptions = (QueryOptions) parser.queryOptions().accept(new STAQueryOptionVisitor());
         for (int i = 0; i < split.length; i++) {
             Assertions.assertTrue(queryOptions.getSelectFilter().getItems().contains(split[i].trim()));

@@ -51,7 +51,7 @@ public class SosRegisterSensorRequest extends OwsServiceRequest {
     /**
      * Sensor description
      */
-    private String sensorDescription;
+    private /*~~>*/String sensorDescription;
 
     /**
      * constructor
@@ -64,12 +64,12 @@ public class SosRegisterSensorRequest extends OwsServiceRequest {
      *            FeatureOfInterest
      */
     @SuppressFBWarnings({ "EI_EXPOSE_REP2" })
-    public SosRegisterSensorRequest(Collection<AbstractPhenomenon> observableProperties, String sensorDescription,
+    public SosRegisterSensorRequest(Collection<AbstractPhenomenon> observableProperties, /*~~>*/String sensorDescription,
             Collection<AbstractFeature> featuresOfInterest) {
         super(null, null, Sos1Constants.Operations.RegisterSensor.name());
         // this.system = system;
         this.observableProperties.addAll(observableProperties);
-        this.sensorDescription = sensorDescription;
+        /*~~>*/this.sensorDescription = sensorDescription;
         this.featuresOfInterest.addAll(featuresOfInterest);
     }
 
@@ -101,7 +101,7 @@ public class SosRegisterSensorRequest extends OwsServiceRequest {
      *
      * @return sensor description
      */
-    public String getSensorDescription() {
+    public /*~~>*/String getSensorDescription() {
         return sensorDescription;
     }
 
@@ -111,8 +111,8 @@ public class SosRegisterSensorRequest extends OwsServiceRequest {
      * @param sensorDescription
      *            sensor description
      */
-    public void setSensorDescription(String sensorDescription) {
-        this.sensorDescription = sensorDescription;
+    public void setSensorDescription(/*~~>*/String sensorDescription) {
+        /*~~>*/this.sensorDescription = sensorDescription;
     }
 
     /**

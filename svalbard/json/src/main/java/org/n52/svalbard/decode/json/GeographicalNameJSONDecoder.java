@@ -34,15 +34,15 @@ public class GeographicalNameJSONDecoder
     public GeographicalName decodeJSON(JsonNode node, boolean validate)
             throws DecodingException {
         GeographicalName geographicalName = new GeographicalName();
-        geographicalName.setGrammaticalGender(parseNillableCodeType(node.path(AQDJSONConstants.GRAMMATICAL_GENDER)));
-        geographicalName.setGrammaticalNumber(parseNillableCodeType(node.path(AQDJSONConstants.GRAMMATICAL_NUMBER)));
-        geographicalName.setLanguage(parseNillableString(node.path(AQDJSONConstants.LANGUAGE)));
-        geographicalName.setNameStatus(parseNillableCodeType(node.path(AQDJSONConstants.NAME_STATUS)));
-        geographicalName.setNativeness(parseNillableCodeType(node.path(AQDJSONConstants.NATIVENESS)));
-        geographicalName.setSourceOfName(parseNillableString(node.path(AQDJSONConstants.SOURCE_OF_NAME)));
+        geographicalName.setGrammaticalGender(parseNillableCodeType(node.path(/*~~>*/AQDJSONConstants.GRAMMATICAL_GENDER)));
+        geographicalName.setGrammaticalNumber(parseNillableCodeType(node.path(/*~~>*/AQDJSONConstants.GRAMMATICAL_NUMBER)));
+        geographicalName.setLanguage(parseNillableString(node.path(/*~~>*/AQDJSONConstants.LANGUAGE)));
+        geographicalName.setNameStatus(parseNillableCodeType(node.path(/*~~>*/AQDJSONConstants.NAME_STATUS)));
+        geographicalName.setNativeness(parseNillableCodeType(node.path(/*~~>*/AQDJSONConstants.NATIVENESS)));
+        geographicalName.setSourceOfName(parseNillableString(node.path(/*~~>*/AQDJSONConstants.SOURCE_OF_NAME)));
         geographicalName.setPronunciation(
-                decodeJsonToNillable(node.path(AQDJSONConstants.PRONUNCIATION), Pronunciation.class));
-        for (JsonNode n : node.path(AQDJSONConstants.SPELLING)) {
+                decodeJsonToNillable(node.path(/*~~>*/AQDJSONConstants.PRONUNCIATION), Pronunciation.class));
+        for (JsonNode n : node.path(/*~~>*/AQDJSONConstants.SPELLING)) {
             geographicalName.addSpelling(decodeJsonToObject(n, Spelling.class));
         }
         return geographicalName;

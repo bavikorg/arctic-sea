@@ -23,7 +23,7 @@ import org.n52.shetland.util.CollectionHelper;
 
 public interface UVFConstants {
 
-    String LINE_ENDING = "lineending";
+    /*~~>*/String LINE_ENDING = "lineending";
 
     MediaType CONTENT_TYPE_UVF = new MediaType("application", "uvf");
 
@@ -37,7 +37,7 @@ public interface UVFConstants {
      * Time format to be used in UVF encoded data: <code>yyMMddHHmm</code>, e.g. <code>7001011230</code> is
      * 01.01.1970 12:30 UTC
      */
-    String TIME_FORMAT = "yyMMddHHmm";
+    /*~~>*/String TIME_FORMAT = "yyMMddHHmm";
 
     /**
      * The identifiers length is limited to 15 characters following UVF spec for lines 2, 3
@@ -53,7 +53,7 @@ public interface UVFConstants {
     /**
      * No data values MUST be encoded with <code>-777</code> in the UVF format.
      */
-    String NO_DATA_STRING = "-777";
+    /*~~>*/String NO_DATA_STRING = "-777";
 
     /**
      * The list of allowed CRS EPSG codes. Here, the German GK bands:
@@ -64,17 +64,17 @@ public interface UVFConstants {
      * <li>31469</li>
      * </ul>
      */
-    List<String> ALLOWED_CRS = Collections.unmodifiableList(CollectionHelper.list("31466", "31467", "31468", "31469"));
+    List</*~~>*/String> ALLOWED_CRS = Collections.unmodifiableList(CollectionHelper.list("31466", "31467", "31468", "31469"));
 
     int MINIMUM_EPSG_CODE = 31466;
 
     int MAXIMUM_EPSG_CODE = 31469;
 
-    String LINE_ENDING_UNIX = "\n";
+    /*~~>*/String LINE_ENDING_UNIX = "\n";
 
-    String LINE_ENDING_WINDOWS = "\r\n";
+    /*~~>*/String LINE_ENDING_WINDOWS = "\r\n";
 
-    String LINE_ENDING_MAC = "\r";
+    /*~~>*/String LINE_ENDING_MAC = "\r";
 
     enum LineEnding {
         Windows,

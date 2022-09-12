@@ -32,13 +32,13 @@ import com.google.common.collect.Iterators;
  */
 public class NamespaceContextBuilder {
 
-    private final ImmutableBiMap.Builder<String, String> bimap = ImmutableBiMap.builder();
+    private final ImmutableBiMap.Builder</*~~>*/String, /*~~>*/String> bimap = ImmutableBiMap.builder();
 
-    private Builder<String, String> getNamespaces() {
+    private Builder</*~~>*/String, /*~~>*/String> getNamespaces() {
         return this.bimap;
     }
 
-    public NamespaceContextBuilder add(String namespace, String prefix) {
+    public NamespaceContextBuilder add(/*~~>*/String namespace, /*~~>*/String prefix) {
         getNamespaces().put(namespace, prefix);
         return this;
     }
@@ -53,25 +53,25 @@ public class NamespaceContextBuilder {
     }
 
     private static class BiMapNamespaceContext implements NamespaceContext {
-        private final BiMap<String, String> namespaces;
+        private final BiMap</*~~>*/String, /*~~>*/String> namespaces;
 
-        BiMapNamespaceContext(BiMap<String, String> namespaces) {
+        BiMapNamespaceContext(BiMap</*~~>*/String, /*~~>*/String> namespaces) {
             this.namespaces = namespaces;
         }
 
         @Override
-        public String getNamespaceURI(String prefix) {
+        public /*~~>*/String getNamespaceURI(/*~~>*/String prefix) {
             return this.namespaces.inverse().get(prefix);
         }
 
         @Override
-        public String getPrefix(String namespaceURI) {
+        public /*~~>*/String getPrefix(/*~~>*/String namespaceURI) {
             return this.namespaces.get(namespaceURI);
         }
 
         @Override
-        public Iterator<String> getPrefixes(String namespaceURI) {
-            String prefix = this.namespaces.get(namespaceURI);
+        public Iterator</*~~>*/String> getPrefixes(/*~~>*/String namespaceURI) {
+            /*~~>*/String prefix = this.namespaces.get(namespaceURI);
             if (prefix == null) {
                 return Collections.emptyIterator();
             } else {

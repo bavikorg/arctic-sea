@@ -28,7 +28,7 @@ import com.google.common.base.Strings;
  */
 public abstract class WsaHeader implements SoapHeader {
 
-    private String value;
+    private /*~~>*/String value;
 
     /**
      * Constructor
@@ -36,14 +36,14 @@ public abstract class WsaHeader implements SoapHeader {
      * @param value
      *            Value to set
      */
-    public WsaHeader(String value) {
-        this.value = value;
+    public WsaHeader(/*~~>*/String value) {
+        /*~~>*/this.value = value;
     }
 
     /**
      * @return the value
      */
-    public String getValue() {
+    public /*~~>*/String getValue() {
         return value;
     }
 
@@ -51,8 +51,8 @@ public abstract class WsaHeader implements SoapHeader {
      * @param value
      *            the value to set
      */
-    public void setValue(String value) {
-        this.value = value;
+    public void setValue(/*~~>*/String value) {
+        /*~~>*/this.value = value;
     }
 
     /**
@@ -63,8 +63,8 @@ public abstract class WsaHeader implements SoapHeader {
     }
 
     @Override
-    public String getNamespace() {
-        return WsaConstants.NS_WSA;
+    public /*~~>*/String getNamespace() {
+        return /*~~>*/WsaConstants.NS_WSA;
     }
 
 }

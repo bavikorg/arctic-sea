@@ -37,12 +37,12 @@ public class VerticalCRS extends AbstractCRS {
     private Referenceable<VerticalDatum> verticalDatum = Referenceable.of(Nillable.<
             VerticalDatum> missing());
 
-    public VerticalCRS(CodeWithAuthority identifier, String scope, Referenceable<VerticalCS> verticalCS,
+    public VerticalCRS(CodeWithAuthority identifier, /*~~>*/String scope, Referenceable<VerticalCS> verticalCS,
             Referenceable<VerticalDatum> verticalDatum) {
         this(identifier, Lists.newArrayList(scope), verticalCS, verticalDatum);
     }
 
-    public VerticalCRS(CodeWithAuthority identifier, List<String> scope, Referenceable<VerticalCS> verticalCS,
+    public VerticalCRS(CodeWithAuthority identifier, List</*~~>*/String> scope, Referenceable<VerticalCS> verticalCS,
             Referenceable<VerticalDatum> verticalDatum) {
         super(identifier, scope);
         setVerticalCS(verticalCS);

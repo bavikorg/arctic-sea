@@ -58,7 +58,7 @@ public class GetCapabilitiesV1RequestEncoder extends AbstractSosV1RequestEncoder
         if (request.isSetService()) {
             gc.setService(request.getService());
         } else {
-            gc.setService(SosConstants.SOS);
+            gc.setService(/*~~>*/SosConstants.SOS);
         }
     }
 
@@ -70,7 +70,7 @@ public class GetCapabilitiesV1RequestEncoder extends AbstractSosV1RequestEncoder
         } else if (request.isSetVersion()) {
             gc.addNewAcceptVersions().addVersion(request.getVersion());
         } else {
-            gc.addNewAcceptVersions().addVersion(Sos1Constants.SERVICEVERSION);
+            gc.addNewAcceptVersions().addVersion(/*~~>*/Sos1Constants.SERVICEVERSION);
         }
     }
 

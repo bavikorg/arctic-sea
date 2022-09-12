@@ -21,15 +21,15 @@ import org.apache.jena.rdf.model.Resource;
 
 public abstract class AbstractValue implements RdfPrefix, ResourceAdder {
 
-    private final String value;
+    private final /*~~>*/String value;
 
-    public AbstractValue(String value) {
-        this.value = value;
+    public AbstractValue(/*~~>*/String value) {
+        /*~~>*/this.value = value;
     }
 
     public abstract Property getProperty();
 
-    public String getValue() {
+    public /*~~>*/String getValue() {
         return value;
     }
 

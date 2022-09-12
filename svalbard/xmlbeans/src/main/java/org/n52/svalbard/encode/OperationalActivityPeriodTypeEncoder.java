@@ -37,7 +37,7 @@ public class OperationalActivityPeriodTypeEncoder
 
     private static final Set<EncoderKey> ENCODER_KEYS = Sets.newHashSet(
             new ClassToClassEncoderKey(OperationalActivityPeriod.class, OperationalActivityPeriodType.class),
-            new XmlEncoderKey(InspireEfConstants.NS_EF, OperationalActivityPeriod.class));
+            new XmlEncoderKey(/*~~>*/InspireEfConstants.NS_EF, OperationalActivityPeriod.class));
 
     public OperationalActivityPeriodTypeEncoder() {
         LOGGER.debug("Encoder for the following keys initialized successfully: {}!",

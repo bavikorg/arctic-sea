@@ -40,7 +40,7 @@ public class SwesExtensionEncoderv20 extends AbstractXmlEncoder<XmlObject, SwesE
 
     private static final Logger LOGGER = LoggerFactory.getLogger(SwesExtensionEncoderv20.class);
 
-    private static final Set<EncoderKey> ENCODER_KEYS = CodingHelper.encoderKeysForElements(SwesConstants.NS_SWES_20,
+    private static final Set<EncoderKey> ENCODER_KEYS = CodingHelper.encoderKeysForElements(/*~~>*/SwesConstants.NS_SWES_20,
             SwesExtension.class);
 
     public SwesExtensionEncoderv20() {
@@ -62,7 +62,7 @@ public class SwesExtensionEncoderv20 extends AbstractXmlEncoder<XmlObject, SwesE
             throw new UnsupportedEncoderInputException(this, value.getClass());
         }
         return encodeObjectToXml(
-                SweConstants.NS_SWE_20,
+                /*~~>*/SweConstants.NS_SWE_20,
                 value,
                 EncodingContext.of(XmlBeansEncodingFlags.PROPERTY_TYPE));
     }

@@ -45,7 +45,7 @@ public class KibanaImporterIT extends ElasticsearchAwareTest {
 
     @Test
     public void importValidJson() throws IOException, InterruptedException {
-        String json = IOUtils.toString(KibanaImporter.class.getResourceAsStream("/kibana/kibana_config.json"),
+        /*~~>*/String json = IOUtils.toString(KibanaImporter.class.getResourceAsStream("/kibana/kibana_config.json"),
                                        StandardCharsets.UTF_8);
         new KibanaImporter(getEmbeddedClient(), ".kibana", "my-index").importJson(json);
         Thread.sleep(1500);
@@ -55,14 +55,14 @@ public class KibanaImporterIT extends ElasticsearchAwareTest {
         Assertions.assertTrue(resp.getHits().getTotalHits().value > 0);
 
         for (SearchHit hit : resp.getHits().getHits()) {
-            Assertions.assertFalse(hit.getSourceAsString().contains(KibanaImporter.INDEX_NEEDLE));
+            Assertions.assertFalse(hit.getSourceAsString().contains(/*~~>*/KibanaImporter.INDEX_NEEDLE));
         }
 
         SearchResponse resp2 = getEmbeddedClient().search(new SearchRequest(".kibana").types("dashboard"), RequestOptions.DEFAULT);
         Assertions.assertTrue(resp2.getHits().getTotalHits().value > 0);
 
         for (SearchHit hit : resp2.getHits().getHits()) {
-            Assertions.assertFalse(hit.getSourceAsString().contains(KibanaImporter.INDEX_NEEDLE));
+            Assertions.assertFalse(hit.getSourceAsString().contains(/*~~>*/KibanaImporter.INDEX_NEEDLE));
         }
     }
 

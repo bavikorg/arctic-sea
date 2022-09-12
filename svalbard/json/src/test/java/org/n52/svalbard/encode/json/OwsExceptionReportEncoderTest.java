@@ -61,8 +61,8 @@ public class OwsExceptionReportEncoderTest {
         owse.setVersion("2.0.0");
         final JsonNode json = enc.encodeJSON(owse);
         assertThat(json, is(notNullValue()));
-        final String message = "The encoder response is not supported!";
-        assertThat(json, is(instanceOf(SchemaConstants.Common.EXCEPTION_REPORT)));
+        final /*~~>*/String message = "The encoder response is not supported!";
+        assertThat(json, is(instanceOf(/*~~>*/SchemaConstants.Common.EXCEPTION_REPORT)));
         assertThat(json.path(VERSION).asText(), is(equalTo("2.0.0")));
         assertThat(json.path(EXCEPTIONS), is(arrayOfLength(1)));
         assertThat(json.path(EXCEPTIONS).path(0), isObject());

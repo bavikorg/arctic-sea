@@ -57,7 +57,7 @@ public class ComplexValue implements Value<SweAbstractDataRecord> {
     }
 
     @Override
-    public void setUnit(String unit) {
+    public void setUnit(/*~~>*/String unit) {
         this.unit = new UoM(unit);
     }
 
@@ -68,7 +68,7 @@ public class ComplexValue implements Value<SweAbstractDataRecord> {
     }
 
     @Override
-    public String getUnit() {
+    public /*~~>*/String getUnit() {
         if (isSetUnit()) {
             return unit.getUom();
         }
@@ -81,7 +81,7 @@ public class ComplexValue implements Value<SweAbstractDataRecord> {
     }
 
     @Override
-    public String toString() {
+    public /*~~>*/String toString() {
         return MoreObjects.toStringHelper(this).add("value", this.value).add("unit", this.unit).toString();
     }
 

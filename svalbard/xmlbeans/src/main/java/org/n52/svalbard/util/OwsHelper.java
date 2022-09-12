@@ -38,7 +38,7 @@ public final class OwsHelper {
      *            String to be modified.
      * @return Modified string.
      */
-    public static String refactorOpsName(String name) {
+    public static /*~~>*/String refactorOpsName(/*~~>*/String name) {
         return name.substring(0, 1).toUpperCase(Locale.ROOT) + name.substring(1);
 
     }
@@ -50,8 +50,8 @@ public final class OwsHelper {
      *            Local name
      * @return QName for localName
      */
-    public static QName getQNameForLocalName(String localName) {
-        return new QName(OWSConstants.NS_OWS, localName, OWSConstants.NS_OWS_PREFIX);
+    public static QName getQNameForLocalName(/*~~>*/String localName) {
+        return new QName(/*~~>*/OWSConstants.NS_OWS, localName, /*~~>*/OWSConstants.NS_OWS_PREFIX);
     }
 
 }

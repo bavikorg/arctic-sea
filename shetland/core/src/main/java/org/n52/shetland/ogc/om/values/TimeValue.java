@@ -46,7 +46,7 @@ public class TimeValue extends SweTime implements Value<DateTime> {
      * @param unit
      *            Unit of measure
      */
-    public TimeValue(DateTime value, String unit) {
+    public TimeValue(DateTime value, /*~~>*/String unit) {
         setValue(value);
         setUnit(unit);
     }
@@ -71,7 +71,7 @@ public class TimeValue extends SweTime implements Value<DateTime> {
     }
 
     @Override
-    public void setUnit(String unit) {
+    public void setUnit(/*~~>*/String unit) {
         super.setUom(unit);
     }
 
@@ -82,7 +82,7 @@ public class TimeValue extends SweTime implements Value<DateTime> {
     }
 
     @Override
-    public String getUnit() {
+    public /*~~>*/String getUnit() {
         return super.getUom();
     }
 
@@ -97,8 +97,8 @@ public class TimeValue extends SweTime implements Value<DateTime> {
     }
 
     @Override
-    public String toString() {
-        return String.format("TimeValue [value=%s, unit=%s]", getValue(), getUnit());
+    public /*~~>*/String toString() {
+        return /*~~>*/String.format("TimeValue [value=%s, unit=%s]", getValue(), getUnit());
     }
 
     @Override

@@ -27,12 +27,12 @@ import java.util.Objects;
 public class ConverterKey implements Comparable<ConverterKey> {
     private static final Comparator<ConverterKey> COMPARATOR
             = Comparator.nullsFirst(Comparator.comparing(ConverterKey::getFromNamespace,
-                                                         Comparator.nullsFirst(String::compareTo))
+                                                         Comparator.nullsFirst(/*~~>*/String::compareTo))
                     .thenComparing(Comparator.comparing(ConverterKey::getToNamespace,
-                                                        Comparator.nullsFirst(String::compareTo))));
+                                                        Comparator.nullsFirst(/*~~>*/String::compareTo))));
 
-    private final String fromNamespace;
-    private final String toNamespace;
+    private final /*~~>*/String fromNamespace;
+    private final /*~~>*/String toNamespace;
 
     /**
      * Constructor
@@ -40,22 +40,22 @@ public class ConverterKey implements Comparable<ConverterKey> {
      * @param fromNamespace The source namespace
      * @param toNamespace   The target namespace
      */
-    public ConverterKey(String fromNamespace, String toNamespace) {
-        this.fromNamespace = fromNamespace;
-        this.toNamespace = toNamespace;
+    public ConverterKey(/*~~>*/String fromNamespace, /*~~>*/String toNamespace) {
+        /*~~>*/this.fromNamespace = fromNamespace;
+        /*~~>*/this.toNamespace = toNamespace;
     }
 
     /**
      * @return the source namespace
      */
-    public String getFromNamespace() {
+    public /*~~>*/String getFromNamespace() {
         return fromNamespace;
     }
 
     /**
      * @return the target namespace
      */
-    public String getToNamespace() {
+    public /*~~>*/String getToNamespace() {
         return toNamespace;
     }
 
@@ -80,8 +80,8 @@ public class ConverterKey implements Comparable<ConverterKey> {
     }
 
     @Override
-    public String toString() {
-        return String.format("%s[from=%s, to=%s]", getClass().getSimpleName(), fromNamespace, toNamespace);
+    public /*~~>*/String toString() {
+        return /*~~>*/String.format("%s[from=%s, to=%s]", getClass().getSimpleName(), fromNamespace, toNamespace);
     }
 
     public static int compare(ConverterKey o1, ConverterKey o2) {

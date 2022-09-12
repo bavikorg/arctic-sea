@@ -16,12 +16,12 @@
 package org.n52.shetland.rdf;
 
 public interface RDFMediaTypes {
-    String APPLICATION_RDF_XML = "application/rdf+xml";
-    String APPLICATION_N_TRIPLES = "application/n-triples";
-    String APPLICATION_LD_JSON = "application/ld+json";
-    String APPLICATION_RDF_JSON = "application/rdf+json";
-    String APPLICATION_N_QUADS = "application/n-quads";
-    String APPLICATION_TRIG = "application/trig";
-    String TEXT_TURTLE = "text/turtle";
-    String TEXT_N3 = "text/n3";
+    /*~~>*/String APPLICATION_RDF_XML = "application/rdf+xml";
+    /*~~>*/String APPLICATION_N_TRIPLES = "application/n-triples";
+    /*~~>*/String APPLICATION_LD_JSON = "application/ld+json";
+    /*~~>*/String APPLICATION_RDF_JSON = "application/rdf+json";
+    /*~~>*/String APPLICATION_N_QUADS = "application/n-quads";
+    /*~~>*/String APPLICATION_TRIG = "application/trig";
+    /*~~>*/String TEXT_TURTLE = "text/turtle";
+    /*~~>*/String TEXT_N3 = "text/n3";
 }

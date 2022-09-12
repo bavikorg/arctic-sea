@@ -17,22 +17,22 @@ package org.n52.shetland.ogc.om.series.tsml;
 
 public interface ConformanceClassesTSML {
 
-    String UML_TIMESERIES_OBSERVATION = "http://www.opengis.net/spec/timeseries/1.0/conf/uml-timeseries-observation";
+    /*~~>*/String UML_TIMESERIES_OBSERVATION = "http://www.opengis.net/spec/timeseries/1.0/conf/uml-timeseries-observation";
 
-    String UML_TIMESERIES_TVP_OBSERVATION =
+    /*~~>*/String UML_TIMESERIES_TVP_OBSERVATION =
             "http://www.opengis.net/spec/timeseries/1.0/conf/uml-timeseries-tvp-observation";
 
-    String UML_MEASUREMENT_TIMESERIES_TVP_OBSERVATION =
+    /*~~>*/String UML_MEASUREMENT_TIMESERIES_TVP_OBSERVATION =
             "http://www.opengis.net/spec/timeseries/1.0/conf/uml-measurement-timeseries-tvp-observation";
 
-    String XSD_XML_RULES = "http://www.opengis.net/spec/timeseriesml/1.0/conf/xsd-xml-rules";
+    /*~~>*/String XSD_XML_RULES = "http://www.opengis.net/spec/timeseriesml/1.0/conf/xsd-xml-rules";
 
-    String XSD_TIMESERIES_OBSERVATION = "http://www.opengis.net/spec/timeseriesml/1.0/conf/xsd-timeseries-observation";
+    /*~~>*/String XSD_TIMESERIES_OBSERVATION = "http://www.opengis.net/spec/timeseriesml/1.0/conf/xsd-timeseries-observation";
 
-    String XSD_TIMESERIES_TVP_OBSERVATION =
+    /*~~>*/String XSD_TIMESERIES_TVP_OBSERVATION =
             "http://www.opengis.net/spec/timeseriesml/1.0/conf/xsd-timeseries-tvp-observation";
 
-    String XSD_MEASUREMENT_TIMESERIES_TVP =
+    /*~~>*/String XSD_MEASUREMENT_TIMESERIES_TVP =
             "http://www.opengis.net/spec/timeseriesml/1.0/conf/xsd-measurement-timeseries-tvp";
 
 }

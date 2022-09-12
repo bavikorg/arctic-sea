@@ -53,7 +53,7 @@ public class Organization implements RDFElement, FoafRdfPrefix {
     @Override
     public Model addToModel(Model model) {
         addNsPrefix(model);
-        Resource organization = model.createResource(FOAF.NS);
+        Resource organization = model.createResource(/*~~>*/FOAF.NS);
         organization.addProperty(RDF.type, FOAF.Organization);
 
         if (getmBox() != null) {

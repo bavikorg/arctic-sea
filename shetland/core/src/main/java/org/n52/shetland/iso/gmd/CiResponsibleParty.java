@@ -28,11 +28,11 @@ import org.n52.shetland.w3c.xlink.Referenceable;
  */
 public class CiResponsibleParty extends AbstractObject {
 
-    private String individualName;
+    private /*~~>*/String individualName;
 
-    private String organizationName;
+    private /*~~>*/String organizationName;
 
-    private String positionName;
+    private /*~~>*/String positionName;
 
     private Referenceable<CiContact> contactInfo;
 
@@ -56,11 +56,11 @@ public class CiResponsibleParty extends AbstractObject {
         return individualName != null && !individualName.isEmpty();
     }
 
-    public String getIndividualName() {
+    public /*~~>*/String getIndividualName() {
         return individualName;
     }
 
-    public CiResponsibleParty setIndividualName(final String invidualName) {
+    public CiResponsibleParty setIndividualName(final /*~~>*/String invidualName) {
         individualName = invidualName;
         return this;
     }
@@ -69,12 +69,12 @@ public class CiResponsibleParty extends AbstractObject {
         return organizationName != null && !organizationName.isEmpty();
     }
 
-    public String getOrganizationName() {
+    public /*~~>*/String getOrganizationName() {
         return organizationName;
     }
 
-    public CiResponsibleParty setOrganizationName(final String organizationName) {
-        this.organizationName = organizationName;
+    public CiResponsibleParty setOrganizationName(final /*~~>*/String organizationName) {
+        /*~~>*/this.organizationName = organizationName;
         return this;
     }
 
@@ -82,12 +82,12 @@ public class CiResponsibleParty extends AbstractObject {
         return positionName != null && !positionName.isEmpty();
     }
 
-    public String getPositionName() {
+    public /*~~>*/String getPositionName() {
         return positionName;
     }
 
-    public CiResponsibleParty setPositionName(final String positionName) {
-        this.positionName = positionName;
+    public CiResponsibleParty setPositionName(final /*~~>*/String positionName) {
+        /*~~>*/this.positionName = positionName;
         return this;
     }
 

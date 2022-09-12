@@ -88,17 +88,17 @@ import net.opengis.waterml.x20.TVPDefaultMetadataPropertyType;
 public class WmlTVPEncoderv20Test {
 
     private static final long UTC_TIMESTAMP = 43200l;
-    private static final String PROCEDURE = "phttp://example.tld/rocedure";
-    private static final String OFFERING = "http://example.tld/offering";
-    private static final String FEATURE = "http://example.tld/feature";
-    private static final String OBSERVABLE_PROPERTY = "http://example.tld/phenomenon";
-    private static final String CODE_SPACE = "http://example.tld/codespace";
+    private static final /*~~>*/String PROCEDURE = "phttp://example.tld/rocedure";
+    private static final /*~~>*/String OFFERING = "http://example.tld/offering";
+    private static final /*~~>*/String FEATURE = "http://example.tld/feature";
+    private static final /*~~>*/String OBSERVABLE_PROPERTY = "http://example.tld/phenomenon";
+    private static final /*~~>*/String CODE_SPACE = "http://example.tld/codespace";
     private static final DateTime DATE_TIME = new DateTime(UTC_TIMESTAMP);
 
-    private static final String TOKEN_SEPERATOR = "##";
-    private static final String TUPLE_SEPERATOR = "@@";
+    private static final /*~~>*/String TOKEN_SEPERATOR = "##";
+    private static final /*~~>*/String TUPLE_SEPERATOR = "@@";
 
-    private static final String RECREATIONAL = "Recreational";
+    private static final /*~~>*/String RECREATIONAL = "Recreational";
 
     private WmlTVPEncoderv20 encoder;
 
@@ -136,7 +136,7 @@ public class WmlTVPEncoderv20Test {
                 .forEach(e -> ((AbstractDelegatingEncoder<?, ?>) e).setEncoderRepository(encoderRepository));
 
         MultiValue<List<TimeValuePair>> value = new TVPValue();
-        String unit = "test-unit";
+        /*~~>*/String unit = "test-unit";
         value.setUnit(unit);
         TimeValuePair tvp1 =
                 new TimeValuePair(new TimeInstant(new Date(UTC_TIMESTAMP)), new QuantityValue(52.1234567890));
@@ -244,7 +244,7 @@ public class WmlTVPEncoderv20Test {
         QuantityValue value = new QuantityValue();
         value.setUom("unit");
         SweQualityHolder holder = new SweQualityHolder();
-        holder.addReference(WaterMLConstants.EN_CENSORED_REASON, createCensoredReference());
+        holder.addReference(/*~~>*/WaterMLConstants.EN_CENSORED_REASON, createCensoredReference());
         holder.addQuality(createDetectionLimit());
         value.setQuality(holder);
         observation.setValue(new SingleObservationValue<>(phenomenonTime, value));
@@ -273,7 +273,7 @@ public class WmlTVPEncoderv20Test {
         observationConstellation.setFeatureOfInterest(new SamplingFeature(new CodeWithAuthority(FEATURE, CODE_SPACE)));
         OmObservableProperty observableProperty = new OmObservableProperty(OBSERVABLE_PROPERTY);
         observationConstellation.setObservableProperty(observableProperty);
-        observationConstellation.setObservationType(OmConstants.OBS_TYPE_MEASUREMENT);
+        observationConstellation.setObservationType(/*~~>*/OmConstants.OBS_TYPE_MEASUREMENT);
         observationConstellation.addOffering(OFFERING);
         AbstractFeature procedure = new SosProcedureDescriptionUnknownType(PROCEDURE);
         observationConstellation.setProcedure(procedure);
@@ -290,7 +290,7 @@ public class WmlTVPEncoderv20Test {
     }
 
     private org.n52.shetland.ogc.gml.ReferenceType createCensoredReference() {
-        return new org.n52.shetland.ogc.gml.ReferenceType(OGCConstants.BELOW_DETECTION_RANGE,
+        return new org.n52.shetland.ogc.gml.ReferenceType(/*~~>*/OGCConstants.BELOW_DETECTION_RANGE,
                 "Below threshold of sensor");
     }
 
@@ -311,7 +311,7 @@ public class WmlTVPEncoderv20Test {
         return createText(RECREATIONAL, RECREATIONAL, RECREATIONAL);
     }
 
-    private SweText createText(String description, String label, String value) {
+    private SweText createText(/*~~>*/String description, /*~~>*/String label, /*~~>*/String value) {
         SweText text = new SweText();
         text.setLabel(label);
         text.setDescription(description);

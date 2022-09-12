@@ -22,7 +22,7 @@ package org.n52.svalbard.odata.core;
  */
 public interface TestConstants {
 
-    String[] EXAMPLE_FUNCTIONS = {
+    /*~~>*/String[] EXAMPLE_FUNCTIONS = {
             "$filter=substringof('Sensor Things',description)",
             "$filter=endswith(description,'Things')",
             "$filter=startswith(description,'Sensor')",

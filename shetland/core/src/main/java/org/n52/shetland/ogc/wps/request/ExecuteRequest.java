@@ -43,11 +43,11 @@ public class ExecuteRequest extends OwsServiceRequest {
         super(null, null, WPSConstants.Operations.Execute.name());
     }
 
-    public ExecuteRequest(String service, String version) {
+    public ExecuteRequest(/*~~>*/String service, /*~~>*/String version) {
         super(service, version, WPSConstants.Operations.Execute.name());
     }
 
-    public ExecuteRequest(String service, String version, String operationName) {
+    public ExecuteRequest(/*~~>*/String service, /*~~>*/String version, /*~~>*/String operationName) {
         super(service, version, operationName);
     }
 

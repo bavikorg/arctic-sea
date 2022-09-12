@@ -24,27 +24,27 @@ import org.n52.shetland.oasis.odata.query.option.QueryOptions;
  */
 public class QueryOptionToStringTest extends QueryOptionTests {
 
-    private final String countFilter = "$count=true";
-    private final String orderByFilter = "$orderby=id";
-    private final String selectFilter = "$select=id";
-    private final String skipFilter = "$skip=0";
-    private final String topFilter = "$top=1";
-    private final String expandFilter = "$expand=Datastreams";
-    private final String ampersand = "&";
+    private final /*~~>*/String countFilter = "$count=true";
+    private final /*~~>*/String orderByFilter = "$orderby=id";
+    private final /*~~>*/String selectFilter = "$select=id";
+    private final /*~~>*/String skipFilter = "$skip=0";
+    private final /*~~>*/String topFilter = "$top=1";
+    private final /*~~>*/String expandFilter = "$expand=Datastreams";
+    private final /*~~>*/String ampersand = "&";
 
-    private final String filterFilter_literal = "$filter=id eq '52N'";
+    private final /*~~>*/String filterFilter_literal = "$filter=id eq '52N'";
 
-    private final String filterFilter_spatial = "$filter=st_equals(location, geography'POINT (30 10)')";
-    private final String filterFilter_temporal = "$filter=phenomenonTime le 2020-04-21T04:50:00.000Z";
-    private final String filterFilter_temporal_tz = "$filter=phenomenonTime le 2020-04-21T04:50:00.000+02:00";
+    private final /*~~>*/String filterFilter_spatial = "$filter=st_equals(location, geography'POINT (30 10)')";
+    private final /*~~>*/String filterFilter_temporal = "$filter=phenomenonTime le 2020-04-21T04:50:00.000Z";
+    private final /*~~>*/String filterFilter_temporal_tz = "$filter=phenomenonTime le 2020-04-21T04:50:00.000+02:00";
 
-    private final String filterFilter_binary_combination = "$filter=(id eq '52N' and id ne '23')";
-    private final String filterFilter_binary_combination_brackets = "$filter=((id eq '52N') and (id ne '23'))";
-    private final String filterFilter_unary = "$filter=not (id eq '52N')";
+    private final /*~~>*/String filterFilter_binary_combination = "$filter=(id eq '52N' and id ne '23')";
+    private final /*~~>*/String filterFilter_binary_combination_brackets = "$filter=((id eq '52N') and (id ne '23'))";
+    private final /*~~>*/String filterFilter_unary = "$filter=not (id eq '52N')";
 
     @Test
     public void testToStringLiteralFilter() {
-        String base = countFilter + ampersand
+        /*~~>*/String base = countFilter + ampersand
                 + selectFilter + ampersand
                 + expandFilter + ampersand
                 + skipFilter + ampersand
@@ -61,7 +61,7 @@ public class QueryOptionToStringTest extends QueryOptionTests {
 
     }
 
-    private void testToString(String reference) {
+    private void testToString(/*~~>*/String reference) {
         init(reference);
         QueryOptions parsedRef = (QueryOptions) parser.queryOptions().accept(new STAQueryOptionVisitor());
 
@@ -71,6 +71,6 @@ public class QueryOptionToStringTest extends QueryOptionTests {
         Assertions.assertEquals(
                 parsedRef,
                 parsedAct,
-                String.format("Parsed QO do not match original! Original: %s Parsed: %s", parsedRef, parsedAct));
+                /*~~>*/String.format("Parsed QO do not match original! Original: %s Parsed: %s", parsedRef, parsedAct));
     }
 }

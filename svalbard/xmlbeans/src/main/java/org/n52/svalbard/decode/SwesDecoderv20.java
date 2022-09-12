@@ -85,9 +85,9 @@ public class SwesDecoderv20 extends AbstractSwesDecoderv20<OwsServiceCommunicati
 
     @SuppressWarnings("unchecked")
     private static final Set<DecoderKey> DECODER_KEYS = CollectionHelper.union(
-            CodingHelper.decoderKeysForElements(SwesConstants.NS_SWES_20, DescribeSensorDocument.class,
+            CodingHelper.decoderKeysForElements(/*~~>*/SwesConstants.NS_SWES_20, DescribeSensorDocument.class,
                     InsertSensorDocument.class, UpdateSensorDescriptionDocument.class, DeleteSensorDocument.class),
-            CodingHelper.xmlDecoderKeysForOperation(SosConstants.SOS, Sos2Constants.SERVICEVERSION,
+            CodingHelper.xmlDecoderKeysForOperation(/*~~>*/SosConstants.SOS, /*~~>*/Sos2Constants.SERVICEVERSION,
                     SosConstants.Operations.DescribeSensor, Sos2Constants.Operations.InsertSensor,
                     Sos2Constants.Operations.UpdateSensorDescription, Sos2Constants.Operations.DeleteSensor));
 
@@ -300,7 +300,7 @@ public class SwesDecoderv20 extends AbstractSwesDecoderv20<OwsServiceCommunicati
 
             final FeaturePropertyType fpt = relatedFeature.getFeatureRelationship().getTarget();
             if (fpt.getHref() != null && !fpt.getHref().isEmpty()) {
-                final String identifier = fpt.getHref();
+                final /*~~>*/String identifier = fpt.getHref();
                 final AbstractSamplingFeature feature = new SamplingFeature(new CodeWithAuthority(identifier));
                 if (fpt.getTitle() != null && !fpt.getTitle().isEmpty()) {
                     feature.setName(Lists.newArrayList(new CodeType(fpt.getTitle())));
@@ -308,7 +308,7 @@ public class SwesDecoderv20 extends AbstractSwesDecoderv20<OwsServiceCommunicati
                 if (checkForRequestUrl(fpt.getHref())) {
                     feature.setUrl(fpt.getHref());
                 }
-                feature.setFeatureType(OGCConstants.UNKNOWN);
+                feature.setFeatureType(/*~~>*/OGCConstants.UNKNOWN);
                 sosFeatureRelationship.setFeature(feature);
             } else {
                 final Object decodedObject = decodeXmlElement(fpt);
@@ -324,7 +324,7 @@ public class SwesDecoderv20 extends AbstractSwesDecoderv20<OwsServiceCommunicati
         return sosRelatedFeatures;
     }
 
-    private boolean checkForRequestUrl(final String href) {
+    private boolean checkForRequestUrl(final /*~~>*/String href) {
         return href.toLowerCase(Locale.ROOT).contains("request=");
     }
 

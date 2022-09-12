@@ -33,7 +33,7 @@ public enum Actuate {
 
     @Override
     @JsonValue
-    public String toString() {
+    public /*~~>*/String toString() {
         switch (this) {
             case NONE:
                 return "none";
@@ -49,7 +49,7 @@ public enum Actuate {
     }
 
     @JsonCreator
-    public static Actuate fromString(String str) {
+    public static Actuate fromString(/*~~>*/String str) {
         if (str == null || str.isEmpty()) {
             return null;
         }

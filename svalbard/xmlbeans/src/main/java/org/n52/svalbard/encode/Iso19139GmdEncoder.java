@@ -135,19 +135,19 @@ public class Iso19139GmdEncoder
 
     private static final Logger LOGGER = LoggerFactory.getLogger(Iso19139GmdEncoder.class);
 
-    private static final QName QN_GCO_DATE = new QName(GcoConstants.NS_GCO, "Date", GcoConstants.NS_GCO_PREFIX);
+    private static final QName QN_GCO_DATE = new QName(/*~~>*/GcoConstants.NS_GCO, "Date", /*~~>*/GcoConstants.NS_GCO_PREFIX);
 
     private static final QName QN_GMD_CONFORMANCE_RESULT =
-            new QName(GmdConstants.NS_GMD, "DQ_ConformanceResult", GmdConstants.NS_GMD_PREFIX);
+            new QName(/*~~>*/GmdConstants.NS_GMD, "DQ_ConformanceResult", /*~~>*/GmdConstants.NS_GMD_PREFIX);
 
     private static final QName QN_GMD_QUANTITATIVE_RESULT =
-            new QName(GmdConstants.NS_GMD, "DQ_QuantitativeResult", GmdConstants.NS_GMD_PREFIX);
+            new QName(/*~~>*/GmdConstants.NS_GMD, "DQ_QuantitativeResult", /*~~>*/GmdConstants.NS_GMD_PREFIX);
 
     private static final QName QN_GML_BASE_UNIT =
-            new QName(GmlConstants.NS_GML_32, "BaseUnit", GmlConstants.NS_GML_PREFIX);
+            new QName(/*~~>*/GmlConstants.NS_GML_32, "BaseUnit", /*~~>*/GmlConstants.NS_GML_PREFIX);
 
     private static final Set<EncoderKey> ENCODER_KEYS = CollectionHelper.union(
-            CodingHelper.encoderKeysForElements(GmdConstants.NS_GMD, SmlResponsibleParty.class,
+            CodingHelper.encoderKeysForElements(/*~~>*/GmdConstants.NS_GMD, SmlResponsibleParty.class,
                     GmdQuantitativeResult.class, GmdConformanceResult.class, CiResponsibleParty.class,
                     MDMetadata.class, PT_FreeText.class, CiOnlineResource.class, EXExtent.class,
                     EXVerticalExtent.class),
@@ -169,8 +169,8 @@ public class Iso19139GmdEncoder
     }
 
     @Override
-    public void addNamespacePrefixToMap(final Map<String, String> nameSpacePrefixMap) {
-        nameSpacePrefixMap.put(GmdConstants.NS_GMD, GmdConstants.NS_GMD_PREFIX);
+    public void addNamespacePrefixToMap(final Map</*~~>*/String, /*~~>*/String> nameSpacePrefixMap) {
+        nameSpacePrefixMap.put(/*~~>*/GmdConstants.NS_GMD, /*~~>*/GmdConstants.NS_GMD_PREFIX);
     }
 
     @Override
@@ -595,7 +595,7 @@ public class Iso19139GmdEncoder
 
     private void encodeRole(CIRoleCodePropertyType circpt, Nillable<Role> nillable) throws EncodingException {
         if (nillable.isPresent()) {
-            XmlObject encodeObjectToXml = encodeObjectToXml(GcoConstants.NS_GCO, nillable.get());
+            XmlObject encodeObjectToXml = encodeObjectToXml(/*~~>*/GcoConstants.NS_GCO, nillable.get());
             if (encodeObjectToXml != null) {
                 circpt.addNewCIRoleCode().set(encodeObjectToXml);
             }
@@ -608,7 +608,7 @@ public class Iso19139GmdEncoder
 
     private void encodeRole(CIRoleCodePropertyType circpt, org.n52.shetland.ogc.sensorML.Role role)
             throws EncodingException {
-        XmlObject encodeObjectToXml = encodeObjectToXml(GcoConstants.NS_GCO, role);
+        XmlObject encodeObjectToXml = encodeObjectToXml(/*~~>*/GcoConstants.NS_GCO, role);
         if (encodeObjectToXml != null) {
             circpt.addNewCIRoleCode().set(encodeObjectToXml);
         }
@@ -709,7 +709,7 @@ public class Iso19139GmdEncoder
         return lcst;
     }
 
-    private CharacterStringPropertyType[] listToCharacterStringPropertyTypeArray(List<String> list) {
+    private CharacterStringPropertyType[] listToCharacterStringPropertyTypeArray(List</*~~>*/String> list) {
         return list.stream().map(string -> {
             CharacterStringPropertyType cspt = CharacterStringPropertyType.Factory.newInstance();
             cspt.setCharacterString(string);
@@ -904,7 +904,7 @@ public class Iso19139GmdEncoder
             if (verticalCRS.isInstance()) {
                 Nillable<ScCRS> nillable = verticalCRS.getInstance();
                 if (nillable.isPresent()) {
-                    XmlObject xml = encodeObjectToXml(GmlConstants.NS_GML_32, nillable.get().getAbstractCrs());
+                    XmlObject xml = encodeObjectToXml(/*~~>*/GmlConstants.NS_GML_32, nillable.get().getAbstractCrs());
                     if (xml != null && xml instanceof AbstractCRSType) {
                         final XmlObject substituteElement =
                                 XmlHelper.substituteElement(sccrspt.addNewAbstractCRS(), xml);

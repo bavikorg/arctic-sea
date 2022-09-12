@@ -36,13 +36,13 @@ public abstract class AbstractCRS extends IdentifiedObject {
     /* 0..* */
     private List<Referenceable<DomainOfValidity>> domainOfValidity = new ArrayList<>();
     /* 1..* */
-    private List<String> scope = new ArrayList<>();
+    private List</*~~>*/String> scope = new ArrayList<>();
 
-    public AbstractCRS(CodeWithAuthority identifier, String scope) {
+    public AbstractCRS(CodeWithAuthority identifier, /*~~>*/String scope) {
         this(identifier, Lists.newArrayList(scope));
     }
 
-    public AbstractCRS(CodeWithAuthority identifier, List<String> scope) {
+    public AbstractCRS(CodeWithAuthority identifier, List</*~~>*/String> scope) {
         super(identifier);
         setScope(scope);
     }
@@ -77,11 +77,11 @@ public abstract class AbstractCRS extends IdentifiedObject {
         return !CollectionHelper.nullEmptyOrContainsOnlyNulls(getDomainOfValidity());
     }
 
-    public List<String> getScope() {
+    public List</*~~>*/String> getScope() {
         return Collections.unmodifiableList(scope);
     }
 
-    public AbstractCRS setScope(List<String> scope) {
+    public AbstractCRS setScope(List</*~~>*/String> scope) {
         this.scope.clear();
         if (!CollectionHelper.nullEmptyOrContainsOnlyNulls(scope)) {
             this.scope.addAll(scope);
@@ -89,14 +89,14 @@ public abstract class AbstractCRS extends IdentifiedObject {
         return this;
     }
 
-    public AbstractCRS addScope(List<String> scope) {
+    public AbstractCRS addScope(List</*~~>*/String> scope) {
         if (!CollectionHelper.nullEmptyOrContainsOnlyNulls(scope)) {
             this.scope.addAll(scope);
         }
         return this;
     }
 
-    public AbstractCRS addScope(String scope) {
+    public AbstractCRS addScope(/*~~>*/String scope) {
         if (scope != null) {
             this.scope.add(scope);
         }

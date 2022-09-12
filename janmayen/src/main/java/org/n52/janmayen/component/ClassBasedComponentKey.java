@@ -70,7 +70,7 @@ public class ClassBasedComponentKey<T> {
     }
 
     @Override
-    public String toString() {
+    public /*~~>*/String toString() {
         return MoreObjects.toStringHelper(this)
                 .add("type", getType())
                 .toString();

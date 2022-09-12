@@ -25,7 +25,7 @@ import javax.annotation.Nullable;
 public abstract class StringInterpolationException extends Exception {
     private static final long serialVersionUID = -3972285029743751087L;
 
-    public StringInterpolationException(@Nullable String message,
+    public StringInterpolationException(@Nullable /*~~>*/String message,
                                         @Nullable Object... args) {
         this(null, message, args);
     }
@@ -35,19 +35,19 @@ public abstract class StringInterpolationException extends Exception {
     }
 
     public StringInterpolationException(@Nullable Throwable cause,
-                                        @Nullable String message,
+                                        @Nullable /*~~>*/String message,
                                         @Nullable Object... args) {
         super(format(message, args), cause);
     }
 
     @Nullable
-    private static String format(@Nullable String message,
+    private static /*~~>*/String format(@Nullable /*~~>*/String message,
                                  @Nullable Object[] args) {
         if (message == null || message.isEmpty()) {
             return null;
         }
         if (args != null && args.length > 0) {
-            return String.format(message, args);
+            return /*~~>*/String.format(message, args);
         }
         return message;
     }

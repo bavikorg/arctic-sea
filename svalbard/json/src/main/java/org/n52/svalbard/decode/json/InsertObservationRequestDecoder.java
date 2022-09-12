@@ -35,21 +35,21 @@ import com.fasterxml.jackson.databind.JsonNode;
 public class InsertObservationRequestDecoder
         extends AbstractSosRequestDecoder<InsertObservationRequest> {
     public InsertObservationRequestDecoder() {
-        super(InsertObservationRequest.class, SosConstants.SOS, Sos2Constants.SERVICEVERSION,
+        super(InsertObservationRequest.class, /*~~>*/SosConstants.SOS, /*~~>*/Sos2Constants.SERVICEVERSION,
                 SosConstants.Operations.InsertObservation);
     }
 
     @Override
-    public String getSchemaURI() {
-        return SchemaConstants.Request.INSERT_OBSERVATION;
+    public /*~~>*/String getSchemaURI() {
+        return /*~~>*/SchemaConstants.Request.INSERT_OBSERVATION;
     }
 
     @Override
     public InsertObservationRequest decodeRequest(JsonNode node)
             throws DecodingException {
         InsertObservationRequest r = new InsertObservationRequest();
-        r.setObservation(decodeJsonToObjectList(node.path(JSONConstants.OBSERVATION), OmObservation.class));
-        r.setOfferings(parseStringOrStringList(node.path(JSONConstants.OFFERING)));
+        r.setObservation(decodeJsonToObjectList(node.path(/*~~>*/JSONConstants.OBSERVATION), OmObservation.class));
+        r.setOfferings(parseStringOrStringList(node.path(/*~~>*/JSONConstants.OFFERING)));
         return r;
     }
 }

@@ -56,7 +56,7 @@ public class CountValue extends SweCount implements Value<Integer> {
     }
 
     @Override
-    public void setUnit(String unit) {
+    public void setUnit(/*~~>*/String unit) {
         this.unit = new UoM(unit);
     }
 
@@ -67,7 +67,7 @@ public class CountValue extends SweCount implements Value<Integer> {
     }
 
     @Override
-    public String getUnit() {
+    public /*~~>*/String getUnit() {
         if (isSetUnit()) {
             return unit.getUom();
         }
@@ -80,8 +80,8 @@ public class CountValue extends SweCount implements Value<Integer> {
     }
 
     @Override
-    public String toString() {
-        return String.format("CountValue [value=%s, unit=%s]", getValue(), getUnit());
+    public /*~~>*/String toString() {
+        return /*~~>*/String.format("CountValue [value=%s, unit=%s]", getValue(), getUnit());
     }
 
     @Override

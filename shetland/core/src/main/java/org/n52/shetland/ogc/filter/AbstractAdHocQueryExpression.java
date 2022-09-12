@@ -37,7 +37,7 @@ public abstract class AbstractAdHocQueryExpression extends AbstractQueryExpressi
     private AbstractSelectionClause selectionClause;
     private AbstractSortingClause sortingClause;
     private Set<QName> typeNames = new HashSet<>(0);
-    private Set<String> aliases = new HashSet<>(0);
+    private Set</*~~>*/String> aliases = new HashSet<>(0);
 
     public AbstractAdHocQueryExpression(Collection<QName> typeNames) {
         setTypeNames(typeNames);
@@ -149,7 +149,7 @@ public abstract class AbstractAdHocQueryExpression extends AbstractQueryExpressi
     /**
      * @return the aliases
      */
-    public Set<String> getAliases() {
+    public Set</*~~>*/String> getAliases() {
         return Collections.unmodifiableSet(aliases);
     }
 
@@ -159,7 +159,7 @@ public abstract class AbstractAdHocQueryExpression extends AbstractQueryExpressi
      *
      * @return this
      */
-    public AbstractAdHocQueryExpression setAliases(Collection<String> aliases) {
+    public AbstractAdHocQueryExpression setAliases(Collection</*~~>*/String> aliases) {
         this.aliases = Optional.ofNullable(aliases).map(HashSet::new).orElseGet(HashSet::new);
         return this;
     }

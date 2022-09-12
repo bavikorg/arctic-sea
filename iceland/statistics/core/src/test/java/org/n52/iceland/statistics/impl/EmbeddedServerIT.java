@@ -45,16 +45,16 @@ public class EmbeddedServerIT extends SpringBaseTest {
     @Test
     public void connectEmbeddedMode() throws Exception {
 
-        settings.setNodeConnectionMode(ElasticsearchSettingsKeys.CONNECTION_MODE_EMBEDDED_SERVER);
+        settings.setNodeConnectionMode(/*~~>*/ElasticsearchSettingsKeys.CONNECTION_MODE_EMBEDDED_SERVER);
         adminHandler.init();
 
-        Map<String, Object> data = new HashMap<>();
+        Map</*~~>*/String, Object> data = new HashMap<>();
         data.put("test", "test-string");
         IndexResponse idx = dataHandler.persist(data);
 
         Thread.sleep(2000);
 
-        String ret = dataHandler.getClient().get(new GetRequest(idx.getIndex(), idx.getId()), RequestOptions.DEFAULT)
+        /*~~>*/String ret = dataHandler.getClient().get(new GetRequest(idx.getIndex(), idx.getId()), RequestOptions.DEFAULT)
                 .getSourceAsString();
         Assertions.assertNotNull(ret);
 

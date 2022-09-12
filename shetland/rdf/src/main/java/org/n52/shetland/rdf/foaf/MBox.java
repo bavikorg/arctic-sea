@@ -21,7 +21,7 @@ import org.n52.shetland.rdf.AbstractValue;
 
 public class MBox extends AbstractValue implements FoafRdfPrefix {
 
-    public MBox(String value) {
+    public MBox(/*~~>*/String value) {
         super(value);
     }
 

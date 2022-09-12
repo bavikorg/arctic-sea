@@ -26,7 +26,7 @@ import org.n52.shetland.ogc.ows.exception.InvalidParameterValueException;
 public class InvalidServiceOrVersionException extends InvalidParameterValueException {
     private static final long serialVersionUID = 6678340028297145825L;
 
-    public InvalidServiceOrVersionException(String service, String version) {
+    public InvalidServiceOrVersionException(/*~~>*/String service, /*~~>*/String version) {
         at(RequestParams.service);
         withMessage("The requested service (%s) and/or version (%s) is not supported by this server!", service,
                 version);

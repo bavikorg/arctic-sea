@@ -27,11 +27,11 @@ import org.apache.xmlbeans.XmlException;
 public class XmlDecodingException extends DecodingException {
     private static final long serialVersionUID = -495706406337738990L;
 
-    public XmlDecodingException(String name, String xml, XmlException e) {
-        super(String.format("Error while decoding %s:%n%s", name, xml), e);
+    public XmlDecodingException(/*~~>*/String name, /*~~>*/String xml, XmlException e) {
+        super(/*~~>*/String.format("Error while decoding %s:%n%s", name, xml), e);
     }
 
-    public XmlDecodingException(String name, XmlException e) {
-        super(String.format("Error while decoding %s", name), e);
+    public XmlDecodingException(/*~~>*/String name, XmlException e) {
+        super(/*~~>*/String.format("Error while decoding %s", name), e);
     }
 }

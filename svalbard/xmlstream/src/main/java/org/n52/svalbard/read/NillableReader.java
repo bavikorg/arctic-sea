@@ -50,11 +50,11 @@ public abstract class NillableReader<T> extends XmlReader<Nillable<T>> {
     @Override
     @SuppressFBWarnings("NP_NONNULL_PARAM_VIOLATION")
     protected void begin() throws XMLStreamException, DecodingException {
-        Optional<String> attr = attr(W3CConstants.QN_XSI_NIL);
+        Optional</*~~>*/String> attr = attr(W3CConstants.QN_XSI_NIL);
         if (attr.isPresent() && attr.get().equals("true")) {
             List<QName> attributeNames = getPossibleNilReasonAttributes();
-            Iterable<Optional<String>> attributes = attr(attributeNames);
-            Iterable<String> reasons = Optional.presentInstances(attributes);
+            Iterable<Optional</*~~>*/String>> attributes = attr(attributeNames);
+            Iterable</*~~>*/String> reasons = Optional.presentInstances(attributes);
 
             this.nillable = Nillable.nil(Iterables.getFirst(reasons, null));
         } else {

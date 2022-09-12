@@ -36,8 +36,8 @@ import com.fasterxml.jackson.databind.node.ObjectNode;
  * @since 1.0.0
  */
 public abstract class AbstractSosResponseEncoder<T extends OwsServiceResponse> extends JSONEncoder<T> {
-    public AbstractSosResponseEncoder(Class<T> type, String operation) {
-        super(type, new OperationResponseEncoderKey(SosConstants.SOS, Sos2Constants.SERVICEVERSION, operation,
+    public AbstractSosResponseEncoder(Class<T> type, /*~~>*/String operation) {
+        super(type, new OperationResponseEncoderKey(/*~~>*/SosConstants.SOS, /*~~>*/Sos2Constants.SERVICEVERSION, operation,
                                                     MediaTypes.APPLICATION_JSON));
     }
 
@@ -48,9 +48,9 @@ public abstract class AbstractSosResponseEncoder<T extends OwsServiceResponse> e
     @Override
     public JsonNode encodeJSON(T t) throws EncodingException {
         ObjectNode n = Json.nodeFactory().objectNode();
-        n.put(JSONConstants.REQUEST, t.getOperationName());
-        n.put(JSONConstants.VERSION, t.getVersion());
-        n.put(JSONConstants.SERVICE, t.getService());
+        n.put(/*~~>*/JSONConstants.REQUEST, t.getOperationName());
+        n.put(/*~~>*/JSONConstants.VERSION, t.getVersion());
+        n.put(/*~~>*/JSONConstants.SERVICE, t.getService());
         encodeResponse(n, t);
         return n;
     }

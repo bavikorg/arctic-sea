@@ -35,12 +35,12 @@ import com.google.common.collect.Sets;
 public class InspireResourceLocator {
 
     /* Element URL 1..1 */
-    private String url;
+    private /*~~>*/String url;
 
     /* Element MediaType 0..* */
     private Set<MediaType> mediaTypes = Sets.newHashSet();
 
-    public InspireResourceLocator(String url) {
+    public InspireResourceLocator(/*~~>*/String url) {
         setURL(url);
     }
 
@@ -49,7 +49,7 @@ public class InspireResourceLocator {
      *
      * @return the URL
      */
-    public String getURL() {
+    public /*~~>*/String getURL() {
         return url;
     }
 
@@ -59,8 +59,8 @@ public class InspireResourceLocator {
      * @param url
      *            the URL to set
      */
-    private void setURL(String url) {
-        this.url = url;
+    private void setURL(/*~~>*/String url) {
+        /*~~>*/this.url = url;
     }
 
     /**
@@ -121,8 +121,8 @@ public class InspireResourceLocator {
     }
 
     @Override
-    public String toString() {
-        return String.format("%s %n[%n url=%s,%n mediaTypes=%s%n]", this.getClass().getSimpleName(), getURL(),
+    public /*~~>*/String toString() {
+        return /*~~>*/String.format("%s %n[%n url=%s,%n mediaTypes=%s%n]", this.getClass().getSimpleName(), getURL(),
                 CollectionHelper.collectionToString(getMediaTypes()));
     }
 

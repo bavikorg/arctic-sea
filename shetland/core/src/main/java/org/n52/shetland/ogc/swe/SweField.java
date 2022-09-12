@@ -33,7 +33,7 @@ public class SweField extends SweAbstractDataComponent {
      */
     private SweAbstractDataComponent element;
 
-    public SweField(final String name) {
+    public SweField(final /*~~>*/String name) {
         super();
         setName(name);
     }
@@ -53,7 +53,7 @@ public class SweField extends SweAbstractDataComponent {
      *            Field element
      */
     @SuppressFBWarnings({ "EI_EXPOSE_REP2" })
-    public SweField(final String name, final SweAbstractDataComponent element) {
+    public SweField(final /*~~>*/String name, final SweAbstractDataComponent element) {
         super();
         setName(name);
         this.element = element;
@@ -114,8 +114,8 @@ public class SweField extends SweAbstractDataComponent {
     }
 
     @Override
-    public String toString() {
-        return String.format("SosSweField[name=%s, element=%s]", getName(), getElement());
+    public /*~~>*/String toString() {
+        return /*~~>*/String.format("SosSweField[name=%s, element=%s]", getName(), getElement());
     }
 
     @Override

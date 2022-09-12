@@ -21,7 +21,7 @@ import org.n52.shetland.rdf.AbstractResource;
 
 public class DownloadURL extends AbstractResource implements DcatRdfPrefix {
 
-    public DownloadURL(String value) {
+    public DownloadURL(/*~~>*/String value) {
         super(value);
     }
 

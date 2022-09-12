@@ -25,12 +25,12 @@ package org.n52.shetland.ogc.filter;
  */
 public abstract class AbstractQueryExpression {
 
-    private String handle;
+    private /*~~>*/String handle;
 
     /**
      * @return the handle
      */
-    public String getHandle() {
+    public /*~~>*/String getHandle() {
         return handle;
     }
 
@@ -38,13 +38,13 @@ public abstract class AbstractQueryExpression {
      * @param handle
      *            the handle to set
      */
-    public AbstractQueryExpression setHandle(String handle) {
-        this.handle = handle;
+    public AbstractQueryExpression setHandle(/*~~>*/String handle) {
+        /*~~>*/this.handle = handle;
         return this;
     }
 
     public boolean isSetHandle() {
-        return this.handle != null && !this.handle.isEmpty();
+        return /*~~>*/this.handle != null && !/*~~>*/this.handle.isEmpty();
     }
 
 }

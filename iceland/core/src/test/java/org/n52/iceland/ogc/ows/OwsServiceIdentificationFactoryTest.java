@@ -33,7 +33,7 @@ import static org.hamcrest.Matchers.notNullValue;
 
 class OwsServiceIdentificationFactoryTest {
 
-    public static final String SERVICE = "service";
+    public static final /*~~>*/String SERVICE = "service";
 
     @Test
     void testNullLocale() {

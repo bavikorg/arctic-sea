@@ -79,10 +79,10 @@ public class UpdateSensorResponseEncoderTest {
     public void should_return_correct_encoder_keys() {
         Set<EncoderKey> returnedKeySet = encoder.getKeys();
         assertThat(returnedKeySet.size(), is(3));
-        assertThat(returnedKeySet, hasItem(new XmlEncoderKey(SwesConstants.NS_SWES_20, UpdateSensorResponse.class)));
-        assertThat(returnedKeySet, hasItem(new OperationResponseEncoderKey(SosConstants.SOS, Sos2Constants.SERVICEVERSION,
+        assertThat(returnedKeySet, hasItem(new XmlEncoderKey(/*~~>*/SwesConstants.NS_SWES_20, UpdateSensorResponse.class)));
+        assertThat(returnedKeySet, hasItem(new OperationResponseEncoderKey(/*~~>*/SosConstants.SOS, /*~~>*/Sos2Constants.SERVICEVERSION,
                 Sos2Constants.Operations.UpdateSensorDescription, MediaTypes.TEXT_XML)));
-        assertThat(returnedKeySet, hasItem(new OperationResponseEncoderKey(SosConstants.SOS, Sos2Constants.SERVICEVERSION,
+        assertThat(returnedKeySet, hasItem(new OperationResponseEncoderKey(/*~~>*/SosConstants.SOS, /*~~>*/Sos2Constants.SERVICEVERSION,
                 Sos2Constants.Operations.UpdateSensorDescription, MediaTypes.APPLICATION_XML)));
 
     }
@@ -95,17 +95,17 @@ public class UpdateSensorResponseEncoderTest {
 
     @Test
     public void should_return_emptySet_for_conformanceClasses() {
-        assertThat(encoder.getConformanceClasses(SosConstants.SOS, Sos2Constants.SERVICEVERSION), is(not(nullValue())));
-        assertThat(encoder.getConformanceClasses(SosConstants.SOS, Sos2Constants.SERVICEVERSION).isEmpty(), is(TRUE));
+        assertThat(encoder.getConformanceClasses(/*~~>*/SosConstants.SOS, /*~~>*/Sos2Constants.SERVICEVERSION), is(not(nullValue())));
+        assertThat(encoder.getConformanceClasses(/*~~>*/SosConstants.SOS, /*~~>*/Sos2Constants.SERVICEVERSION).isEmpty(), is(TRUE));
     }
 
     @Test
     public void should_add_own_prefix_to_prefixMap() {
-        Map<String, String> prefixMap = Maps.newHashMap();
+        Map</*~~>*/String, /*~~>*/String> prefixMap = Maps.newHashMap();
         encoder.addNamespacePrefixToMap(prefixMap);
         assertThat(prefixMap.isEmpty(), is(FALSE));
-        assertThat(prefixMap.containsKey(SwesConstants.NS_SWES_20), is(TRUE));
-        assertThat(prefixMap.containsValue(SwesConstants.NS_SWES_PREFIX), is(TRUE));
+        assertThat(prefixMap.containsKey(/*~~>*/SwesConstants.NS_SWES_20), is(TRUE));
+        assertThat(prefixMap.containsValue(/*~~>*/SwesConstants.NS_SWES_PREFIX), is(TRUE));
     }
 
     @Test
@@ -142,7 +142,7 @@ public class UpdateSensorResponseEncoderTest {
     @Test
     public void should_encode_UpdateSensor_response() throws EncodingException {
         final UpdateSensorResponse response = new UpdateSensorResponse();
-        final String updatedProcedure = "updatedProcedure";
+        final /*~~>*/String updatedProcedure = "updatedProcedure";
         response.setUpdatedProcedure(updatedProcedure);
 
 

@@ -28,13 +28,13 @@ import org.n52.faroe.annotation.Configurable;
 
 @Configurable
 public class GeoLiteFileDownloader {
-    public static final String CITY_GZ_FILE_NAME = "city.mmdb.gz";
-    public static final String COUNTRY_GZ_FILE_NAME = "country.mmdb.gz";
-    public static final String CITY_FILE_NAME = "city.mmdb";
-    public static final String COUNTRY_FILE_NAME = "country.mmdb";
+    public static final /*~~>*/String CITY_GZ_FILE_NAME = "city.mmdb.gz";
+    public static final /*~~>*/String COUNTRY_GZ_FILE_NAME = "country.mmdb.gz";
+    public static final /*~~>*/String CITY_FILE_NAME = "city.mmdb";
+    public static final /*~~>*/String COUNTRY_FILE_NAME = "country.mmdb";
     private static final Logger LOG = LoggerFactory.getLogger(GeoLiteFileDownloader.class);
 
-    public static void downloadDefaultDatabases(String folderPath) {
+    public static void downloadDefaultDatabases(/*~~>*/String folderPath) {
         LOG.info("Downloading default databases to {}", folderPath);
 
         try {
@@ -56,16 +56,16 @@ public class GeoLiteFileDownloader {
                 prop.load(stream);
             }
 
-            String cityUrl = prop.getProperty("url.city");
-            String countryUrl = prop.getProperty("url.country");
+            /*~~>*/String cityUrl = prop.getProperty("url.city");
+            /*~~>*/String countryUrl = prop.getProperty("url.country");
 
             if (cityUrl == null || countryUrl == null) {
                 LOG.error("Urls not found in geolitepaths.properties file");
                 return;
             }
 
-            String cityOutPath = folder.getPath().concat("/").concat(CITY_GZ_FILE_NAME);
-            String countryOutPath = folder.getPath().concat("/").concat(COUNTRY_GZ_FILE_NAME);
+            /*~~>*/String cityOutPath = folder.getPath().concat("/").concat(CITY_GZ_FILE_NAME);
+            /*~~>*/String countryOutPath = folder.getPath().concat("/").concat(COUNTRY_GZ_FILE_NAME);
 
             download(cityUrl, cityOutPath);
             download(countryUrl, countryOutPath);
@@ -79,12 +79,12 @@ public class GeoLiteFileDownloader {
         }
     }
 
-    private static void download(String cityUrl, String cityOutPath) throws IOException {
+    private static void download(/*~~>*/String cityUrl, /*~~>*/String cityOutPath) throws IOException {
         LOG.info("Downloading {} to {}", cityUrl, cityOutPath);
         FileDownloader.downloadFile(cityUrl, cityOutPath);
     }
 
-    private static void unzip(String cityOutPath) throws IOException {
+    private static void unzip(/*~~>*/String cityOutPath) throws IOException {
         LOG.info("Gunzip {}", cityOutPath);
         FileDownloader.gunzipFile(cityOutPath);
     }

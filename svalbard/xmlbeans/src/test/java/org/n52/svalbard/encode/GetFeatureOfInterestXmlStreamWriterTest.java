@@ -87,7 +87,7 @@ public class GetFeatureOfInterestXmlStreamWriterTest extends AbstractMetadataTes
             GetFeatureOfInterestXmlStreamWriter encoder = new GetFeatureOfInterestXmlStreamWriter(baos,
                     EncodingContext.of(EncoderFlags.ENCODER_REPOSITORY, encoderRepository), createResponse());
             encoder.write();
-            XmlObject encode = XmlObject.Factory.parse(new String(baos.toByteArray()));
+            XmlObject encode = XmlObject.Factory.parse(new /*~~>*/String(baos.toByteArray()));
             assertThat(encode, instanceOf(GetFeatureOfInterestResponseDocument.class));
             GetFeatureOfInterestResponseDocument gord = (GetFeatureOfInterestResponseDocument) encode;
             assertThat(gord.getGetFeatureOfInterestResponse() != null, is(true));
@@ -97,8 +97,8 @@ public class GetFeatureOfInterestXmlStreamWriterTest extends AbstractMetadataTes
 
     private GetFeatureOfInterestResponse createResponse() {
         GetFeatureOfInterestResponse response = new GetFeatureOfInterestResponse();
-        response.setService(SosConstants.SOS);
-        response.setVersion(Sos2Constants.SERVICEVERSION);
+        response.setService(/*~~>*/SosConstants.SOS);
+        response.setVersion(/*~~>*/Sos2Constants.SERVICEVERSION);
 
         Extensions swesExtensions = new Extensions();
         swesExtensions.addExtension(createExtension());

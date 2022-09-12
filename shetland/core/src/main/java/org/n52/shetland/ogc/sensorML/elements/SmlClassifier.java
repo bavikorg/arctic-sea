@@ -27,9 +27,9 @@ import org.n52.shetland.ogc.sensorML.Term;
  */
 public class SmlClassifier extends Term {
 
-    public static final String PROCEDURE_TYPE = "procedureType";
+    public static final /*~~>*/String PROCEDURE_TYPE = "procedureType";
 
-    public static final String INTENDED_APPLICATION = "intendedApplication";
+    public static final /*~~>*/String INTENDED_APPLICATION = "intendedApplication";
 
     /**
      * constructor
@@ -50,7 +50,7 @@ public class SmlClassifier extends Term {
      * @param value
      *            Classifier value
      */
-    public SmlClassifier(final String name, final String definition, final String codeSpace, final String value) {
+    public SmlClassifier(final /*~~>*/String name, final /*~~>*/String definition, final /*~~>*/String codeSpace, final /*~~>*/String value) {
         super();
         setName(name);
         setCodeSpace(codeSpace);

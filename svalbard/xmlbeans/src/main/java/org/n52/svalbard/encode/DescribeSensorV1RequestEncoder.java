@@ -57,7 +57,7 @@ public class DescribeSensorV1RequestEncoder extends AbstractSosV1RequestEncoder<
         if (request.getVersion() != null) {
             descSens.setVersion(request.getVersion());
         } else {
-            descSens.setVersion(Sos1Constants.SERVICEVERSION);
+            descSens.setVersion(/*~~>*/Sos1Constants.SERVICEVERSION);
         }
     }
 
@@ -65,7 +65,7 @@ public class DescribeSensorV1RequestEncoder extends AbstractSosV1RequestEncoder<
         if (request.getService() != null) {
             descSens.setService(request.getService());
         } else {
-            descSens.setService(SosConstants.SOS);
+            descSens.setService(/*~~>*/SosConstants.SOS);
         }
     }
 

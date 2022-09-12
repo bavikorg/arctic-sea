@@ -25,12 +25,12 @@ public class OmObservableProperty extends AbstractPhenomenon {
     /**
      * unit of the values of the phenomenons observations
      */
-    private String unit;
+    private /*~~>*/String unit;
 
     /**
      * valueType in the database of the phenomenons observation values
      */
-    private String valueType;
+    private /*~~>*/String valueType;
 
     /**
      * constructor
@@ -38,7 +38,7 @@ public class OmObservableProperty extends AbstractPhenomenon {
      * @param identifier
      *            observableProperty identifier
      */
-    public OmObservableProperty(String identifier) {
+    public OmObservableProperty(/*~~>*/String identifier) {
         super(identifier);
     }
 
@@ -54,10 +54,10 @@ public class OmObservableProperty extends AbstractPhenomenon {
      * @param valueType
      *            database valType of the observation values according to this observableProperty
      */
-    public OmObservableProperty(String identifier, String description, String unit, String valueType) {
+    public OmObservableProperty(/*~~>*/String identifier, /*~~>*/String description, /*~~>*/String unit, /*~~>*/String valueType) {
         super(identifier, description);
-        this.unit = unit;
-        this.valueType = valueType;
+        /*~~>*/this.unit = unit;
+        /*~~>*/this.valueType = valueType;
     }
 
     /**
@@ -65,7 +65,7 @@ public class OmObservableProperty extends AbstractPhenomenon {
      *
      * @return Returns the unit.
      */
-    public String getUnit() {
+    public /*~~>*/String getUnit() {
         return unit;
     }
 
@@ -75,8 +75,8 @@ public class OmObservableProperty extends AbstractPhenomenon {
      * @param unit
      *            The unit to set.
      */
-    public void setUnit(String unit) {
-        this.unit = unit;
+    public void setUnit(/*~~>*/String unit) {
+        /*~~>*/this.unit = unit;
     }
 
     /**
@@ -84,7 +84,7 @@ public class OmObservableProperty extends AbstractPhenomenon {
      *
      * @return Returns the valueType.
      */
-    public String getValueType() {
+    public /*~~>*/String getValueType() {
         return valueType;
     }
 
@@ -94,8 +94,8 @@ public class OmObservableProperty extends AbstractPhenomenon {
      * @param valueType
      *            The valueType to set.
      */
-    public void setValueType(String valueType) {
-        this.valueType = valueType;
+    public void setValueType(/*~~>*/String valueType) {
+        /*~~>*/this.valueType = valueType;
     }
 
     /**

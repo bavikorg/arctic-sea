@@ -27,20 +27,20 @@ import edu.umd.cs.findbugs.annotations.SuppressFBWarnings;
 public class GmdQuantitativeResult extends GmdDomainConsistency {
 
     private final GmlBaseUnit unit;
-    private final String value;
+    private final /*~~>*/String value;
     private final NilReason valueNilReason;
 
     @SuppressFBWarnings({ "EI_EXPOSE_REP2" })
-    public GmdQuantitativeResult(GmlBaseUnit unit, String value) {
+    public GmdQuantitativeResult(GmlBaseUnit unit, /*~~>*/String value) {
         this.unit = unit;
-        this.value = value;
+        /*~~>*/this.value = value;
         this.valueNilReason = null;
     }
 
     @SuppressFBWarnings({ "EI_EXPOSE_REP2" })
     public GmdQuantitativeResult(GmlBaseUnit unit, NilReason valueNilReason) {
         this.unit = unit;
-        this.value = null;
+        /*~~>*/this.value = null;
         this.valueNilReason = valueNilReason;
     }
 
@@ -49,7 +49,7 @@ public class GmdQuantitativeResult extends GmdDomainConsistency {
         return unit;
     }
 
-    public String getValue() {
+    public /*~~>*/String getValue() {
         return value;
     }
 

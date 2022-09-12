@@ -54,7 +54,7 @@ public class SosInsertionMetadataTypeEncoderTest {
         SosInsertionMetadataType encoded = encoder.encode(insertionMetadata);
 
         MatcherAssert.assertThat(encoded.getObservationTypeArray().length, Is.is(2));
-        List<String> observationTypes = Arrays.asList(encoded.getObservationTypeArray());
+        List</*~~>*/String> observationTypes = Arrays.asList(encoded.getObservationTypeArray());
         Collections.sort(observationTypes);
         MatcherAssert.assertThat(observationTypes, Matchers.contains("type-1", "type-2"));
     }
@@ -67,7 +67,7 @@ public class SosInsertionMetadataTypeEncoderTest {
         SosInsertionMetadataType encoded = encoder.encode(insertionMetadata);
 
         MatcherAssert.assertThat(encoded.getFeatureOfInterestTypeArray().length, Is.is(2));
-        List<String> featureTypes = Arrays.asList(encoded.getFeatureOfInterestTypeArray());
+        List</*~~>*/String> featureTypes = Arrays.asList(encoded.getFeatureOfInterestTypeArray());
         MatcherAssert.assertThat(featureTypes, Matchers.containsInAnyOrder("f-type-1", "f-type-2"));
     }
 

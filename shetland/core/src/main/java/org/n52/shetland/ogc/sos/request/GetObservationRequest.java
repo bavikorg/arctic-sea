@@ -61,12 +61,12 @@ public class GetObservationRequest extends AbstractObservationRequest implements
     /**
      * Request as String.
      */
-    private String requestString;
+    private /*~~>*/String requestString;
 
     /**
      * Offerings list.
      */
-    private List<String> offerings = Lists.newLinkedList();
+    private List</*~~>*/String> offerings = Lists.newLinkedList();
 
     /**
      * Temporal filters list.
@@ -76,17 +76,17 @@ public class GetObservationRequest extends AbstractObservationRequest implements
     /**
      * Procedures list.
      */
-    private List<String> procedures = Lists.newLinkedList();
+    private List</*~~>*/String> procedures = Lists.newLinkedList();
 
     /**
      * ObservedProperties list.
      */
-    private List<String> observedProperties = Lists.newLinkedList();
+    private List</*~~>*/String> observedProperties = Lists.newLinkedList();
 
     /**
      * FOI identifiers list.
      */
-    private List<String> featureIdentifiers = Lists.newLinkedList();
+    private List</*~~>*/String> featureIdentifiers = Lists.newLinkedList();
 
     /**
      * Spatial filters list.
@@ -94,18 +94,18 @@ public class GetObservationRequest extends AbstractObservationRequest implements
     private SpatialFilter spatialFilter;
     @SuppressWarnings("rawtypes")
     private Filter resultFilter;
-    private Map<String, String> namespaces = Maps.newHashMap();
+    private Map</*~~>*/String, /*~~>*/String> namespaces = Maps.newHashMap();
     private boolean mergeObservationValues;
 
     public GetObservationRequest() {
         super(null, null, SosConstants.Operations.GetObservation.name());
     }
 
-    public GetObservationRequest(String service, String version) {
+    public GetObservationRequest(/*~~>*/String service, /*~~>*/String version) {
         super(service, version, SosConstants.Operations.GetObservation.name());
     }
 
-    public GetObservationRequest(String service, String version, String operationName) {
+    public GetObservationRequest(/*~~>*/String service, /*~~>*/String version, /*~~>*/String operationName) {
         super(service, version, operationName);
     }
 
@@ -143,7 +143,7 @@ public class GetObservationRequest extends AbstractObservationRequest implements
      * @return FOI identifiers
      */
     @Override
-    public List<String> getFeatureIdentifiers() {
+    public List</*~~>*/String> getFeatureIdentifiers() {
         return Collections.unmodifiableList(featureIdentifiers);
     }
 
@@ -154,14 +154,14 @@ public class GetObservationRequest extends AbstractObservationRequest implements
      *            FOI identifiers
      */
     @Override
-    public void setFeatureIdentifiers(List<String> featureIdentifiers) {
+    public void setFeatureIdentifiers(List</*~~>*/String> featureIdentifiers) {
         this.featureIdentifiers.clear();
         if (featureIdentifiers != null) {
             this.featureIdentifiers.addAll(featureIdentifiers);
         }
     }
 
-    public GetObservationRequest addFeatureIdentifier(String featureIdentifier) {
+    public GetObservationRequest addFeatureIdentifier(/*~~>*/String featureIdentifier) {
         this.featureIdentifiers.add(featureIdentifier);
         return this;
     }
@@ -171,7 +171,7 @@ public class GetObservationRequest extends AbstractObservationRequest implements
      *
      * @return observableProperties
      */
-    public List<String> getObservedProperties() {
+    public List</*~~>*/String> getObservedProperties() {
         return Collections.unmodifiableList(observedProperties);
     }
 
@@ -181,7 +181,7 @@ public class GetObservationRequest extends AbstractObservationRequest implements
      * @param observedProperties
      *            observedProperties
      */
-    public GetObservationRequest setObservedProperties(List<String> observedProperties) {
+    public GetObservationRequest setObservedProperties(List</*~~>*/String> observedProperties) {
         this.observedProperties.clear();
         if (observedProperties != null) {
             this.observedProperties.addAll(observedProperties);
@@ -189,7 +189,7 @@ public class GetObservationRequest extends AbstractObservationRequest implements
         return this;
     }
 
-    public GetObservationRequest addObservedProperty(String observedProperty) {
+    public GetObservationRequest addObservedProperty(/*~~>*/String observedProperty) {
         this.observedProperties.add(observedProperty);
         return this;
     }
@@ -199,7 +199,7 @@ public class GetObservationRequest extends AbstractObservationRequest implements
      *
      * @return offerings
      */
-    public List<String> getOfferings() {
+    public List</*~~>*/String> getOfferings() {
         return Collections.unmodifiableList(offerings);
     }
 
@@ -209,7 +209,7 @@ public class GetObservationRequest extends AbstractObservationRequest implements
      * @param offerings
      *            offerings
      */
-    public GetObservationRequest setOfferings(List<String> offerings) {
+    public GetObservationRequest setOfferings(List</*~~>*/String> offerings) {
         this.offerings.clear();
         if (offerings != null) {
             this.offerings.addAll(offerings);
@@ -217,7 +217,7 @@ public class GetObservationRequest extends AbstractObservationRequest implements
         return this;
     }
 
-    public GetObservationRequest addOffering(String offering) {
+    public GetObservationRequest addOffering(/*~~>*/String offering) {
         this.offerings.add(offering);
         return this;
     }
@@ -227,7 +227,7 @@ public class GetObservationRequest extends AbstractObservationRequest implements
      *
      * @return procedures
      */
-    public List<String> getProcedures() {
+    public List</*~~>*/String> getProcedures() {
         return Collections.unmodifiableList(procedures);
     }
 
@@ -237,7 +237,7 @@ public class GetObservationRequest extends AbstractObservationRequest implements
      * @param procedures
      *            procedures
      */
-    public GetObservationRequest setProcedures(List<String> procedures) {
+    public GetObservationRequest setProcedures(List</*~~>*/String> procedures) {
         this.procedures.clear();
         if (procedures != null) {
             this.procedures.addAll(procedures);
@@ -245,7 +245,7 @@ public class GetObservationRequest extends AbstractObservationRequest implements
         return this;
     }
 
-    public GetObservationRequest addProcedure(String procedure) {
+    public GetObservationRequest addProcedure(/*~~>*/String procedure) {
         this.procedures.add(procedure);
         return this;
     }
@@ -257,8 +257,8 @@ public class GetObservationRequest extends AbstractObservationRequest implements
      */
     @SuppressWarnings("rawtypes")
     public Filter getResultFilter() {
-        if (getExtension(ResultFilterConstants.RESULT_FILTER).isPresent()) {
-            return ((ResultFilter) getExtension(ResultFilterConstants.RESULT_FILTER).get()).getValue();
+        if (getExtension(/*~~>*/ResultFilterConstants.RESULT_FILTER).isPresent()) {
+            return ((ResultFilter) getExtension(/*~~>*/ResultFilterConstants.RESULT_FILTER).get()).getValue();
         }
         return resultFilter;
     }
@@ -295,7 +295,7 @@ public class GetObservationRequest extends AbstractObservationRequest implements
     }
 
     public boolean hasResultFilter() {
-        return resultFilter != null || hasExtension(ResultFilterConstants.RESULT_FILTER);
+        return resultFilter != null || hasExtension(/*~~>*/ResultFilterConstants.RESULT_FILTER);
     }
 
     /**
@@ -304,7 +304,7 @@ public class GetObservationRequest extends AbstractObservationRequest implements
      *
      * @return request as String
      */
-    public String getRequestString() {
+    public /*~~>*/String getRequestString() {
         return requestString;
     }
 
@@ -314,8 +314,8 @@ public class GetObservationRequest extends AbstractObservationRequest implements
      * @param requestString
      *            request as String
      */
-    public GetObservationRequest setRequestString(String requestString) {
-        this.requestString = requestString;
+    public GetObservationRequest setRequestString(/*~~>*/String requestString) {
+        /*~~>*/this.requestString = requestString;
         return this;
     }
 
@@ -327,8 +327,8 @@ public class GetObservationRequest extends AbstractObservationRequest implements
     @Override
     @SuppressFBWarnings({ "EI_EXPOSE_REP" })
     public SpatialFilter getSpatialFilter() {
-        if (hasExtension(SosSpatialFilterConstants.SPATIAL_FILTER)) {
-            return ((SosSpatialFilter) getExtension(SosSpatialFilterConstants.SPATIAL_FILTER).get()).getValue();
+        if (hasExtension(/*~~>*/SosSpatialFilterConstants.SPATIAL_FILTER)) {
+            return ((SosSpatialFilter) getExtension(/*~~>*/SosSpatialFilterConstants.SPATIAL_FILTER).get()).getValue();
         }
         return spatialFilter;
     }
@@ -353,7 +353,7 @@ public class GetObservationRequest extends AbstractObservationRequest implements
      *
      * @return SOS GetObservation request copy
      */
-    public GetObservationRequest copyOf(List<String> obsProps) {
+    public GetObservationRequest copyOf(List</*~~>*/String> obsProps) {
         GetObservationRequest res = new GetObservationRequest();
         super.copyOf(res);
         res.setTemporalFilters(this.temporalFilters);
@@ -366,12 +366,12 @@ public class GetObservationRequest extends AbstractObservationRequest implements
         res.setResultModel(getResultModel());
         res.setFeatureIdentifiers(this.featureIdentifiers);
         res.setService(this.getService());
-        res.setRequestString(this.requestString);
+        res.setRequestString(/*~~>*/this.requestString);
         return res;
 
     }
 
-    public GetObservationRequest setNamespaces(Map<String, String> namespaces) {
+    public GetObservationRequest setNamespaces(Map</*~~>*/String, /*~~>*/String> namespaces) {
         this.namespaces.clear();
         if (namespaces != null) {
             this.namespaces.putAll(namespaces);
@@ -379,7 +379,7 @@ public class GetObservationRequest extends AbstractObservationRequest implements
         return this;
     }
 
-    public Map<String, String> getNamespaces() {
+    public Map</*~~>*/String, /*~~>*/String> getNamespaces() {
         return Collections.unmodifiableMap(namespaces);
     }
 
@@ -437,10 +437,10 @@ public class GetObservationRequest extends AbstractObservationRequest implements
     @Override
     public boolean hasSpatialFilteringProfileSpatialFilter() {
         return isSetSpatialFilter() && (getSpatialFilter().getValueReference()
-                .equals(Sos2Constants.VALUE_REFERENCE_SPATIAL_FILTERING_PROFILE)
-                || hasExtension(SosSpatialFilterConstants.SPATIAL_FILTER)
-                        && ((SosSpatialFilter) getExtension(SosSpatialFilterConstants.SPATIAL_FILTER).get()).getValue()
-                                .getValueReference().equals(Sos2Constants.VALUE_REFERENCE_SPATIAL_FILTERING_PROFILE));
+                .equals(/*~~>*/Sos2Constants.VALUE_REFERENCE_SPATIAL_FILTERING_PROFILE)
+                || hasExtension(/*~~>*/SosSpatialFilterConstants.SPATIAL_FILTER)
+                        && ((SosSpatialFilter) getExtension(/*~~>*/SosSpatialFilterConstants.SPATIAL_FILTER).get()).getValue()
+                                .getValueReference().equals(/*~~>*/Sos2Constants.VALUE_REFERENCE_SPATIAL_FILTERING_PROFILE));
     }
 
     public boolean isSetRequestString() {

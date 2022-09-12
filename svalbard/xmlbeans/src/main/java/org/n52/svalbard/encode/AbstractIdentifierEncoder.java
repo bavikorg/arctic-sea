@@ -31,8 +31,8 @@ public abstract class AbstractIdentifierEncoder<T>
         extends AbstractXmlEncoder<T, Identifier> {
 
     @Override
-    public void addNamespacePrefixToMap(final Map<String, String> nameSpacePrefixMap) {
-        nameSpacePrefixMap.put(InspireBaseConstants.NS_BASE, InspireBaseConstants.NS_BASE_PREFIX);
+    public void addNamespacePrefixToMap(final Map</*~~>*/String, /*~~>*/String> nameSpacePrefixMap) {
+        nameSpacePrefixMap.put(/*~~>*/InspireBaseConstants.NS_BASE, /*~~>*/InspireBaseConstants.NS_BASE_PREFIX);
     }
 
     @Override

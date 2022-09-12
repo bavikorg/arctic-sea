@@ -24,25 +24,25 @@ import org.n52.shetland.ogc.sos.Sos2Constants;
  */
 public class UpdateSensorResponse extends OwsServiceResponse {
 
-    private String updatedProcedure;
+    private /*~~>*/String updatedProcedure;
 
     public UpdateSensorResponse() {
         super(null, null, Sos2Constants.Operations.UpdateSensorDescription.name());
     }
 
-    public UpdateSensorResponse(String service, String version) {
+    public UpdateSensorResponse(/*~~>*/String service, /*~~>*/String version) {
         super(service, version, Sos2Constants.Operations.UpdateSensorDescription.name());
     }
 
-    public UpdateSensorResponse(String service, String version, String operationName) {
+    public UpdateSensorResponse(/*~~>*/String service, /*~~>*/String version, /*~~>*/String operationName) {
         super(service, version, operationName);
     }
 
-    public void setUpdatedProcedure(String updatedProcedure) {
-        this.updatedProcedure = updatedProcedure;
+    public void setUpdatedProcedure(/*~~>*/String updatedProcedure) {
+        /*~~>*/this.updatedProcedure = updatedProcedure;
     }
 
-    public String getUpdatedProcedure() {
+    public /*~~>*/String getUpdatedProcedure() {
         return updatedProcedure;
     }
 

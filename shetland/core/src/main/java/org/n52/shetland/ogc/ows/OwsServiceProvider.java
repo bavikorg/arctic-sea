@@ -29,19 +29,19 @@ import edu.umd.cs.findbugs.annotations.SuppressFBWarnings;
  */
 public class OwsServiceProvider {
 
-    private final String providerName;
+    private final /*~~>*/String providerName;
     private final Optional<OwsOnlineResource> providerSite;
     private final OwsResponsibleParty serviceContact;
 
     @SuppressFBWarnings("NP_NULL_ON_SOME_PATH_FROM_RETURN_VALUE")
-    public OwsServiceProvider(String providerName, OwsOnlineResource providerSite,
+    public OwsServiceProvider(/*~~>*/String providerName, OwsOnlineResource providerSite,
             OwsResponsibleParty serviceContact) {
-        this.providerName = Objects.requireNonNull(Strings.emptyToNull(providerName));
+        /*~~>*/this.providerName = Objects.requireNonNull(Strings.emptyToNull(providerName));
         this.providerSite = Optional.ofNullable(providerSite);
         this.serviceContact = Objects.requireNonNull(serviceContact);
     }
 
-    public String getProviderName() {
+    public /*~~>*/String getProviderName() {
         return providerName;
     }
 
@@ -56,7 +56,7 @@ public class OwsServiceProvider {
     @Override
     public int hashCode() {
         int hash = 5;
-        hash = 83 * hash + Objects.hashCode(this.providerName);
+        hash = 83 * hash + Objects.hashCode(/*~~>*/this.providerName);
         hash = 83 * hash + Objects.hashCode(this.providerSite);
         hash = 83 * hash + Objects.hashCode(this.serviceContact);
         return hash;
@@ -74,7 +74,7 @@ public class OwsServiceProvider {
             return false;
         }
         final OwsServiceProvider other = (OwsServiceProvider) obj;
-        if (!Objects.equals(this.providerName, other.providerName)) {
+        if (!Objects.equals(/*~~>*/this.providerName, /*~~>*/other.providerName)) {
             return false;
         }
         if (!Objects.equals(this.providerSite, other.providerSite)) {
@@ -87,7 +87,7 @@ public class OwsServiceProvider {
     }
 
     @Override
-    public String toString() {
+    public /*~~>*/String toString() {
         return "OwsServiceProvider{" + "providerName=" + providerName + ", providerSite=" + providerSite
                 + ", serviceContact=" + serviceContact + '}';
     }

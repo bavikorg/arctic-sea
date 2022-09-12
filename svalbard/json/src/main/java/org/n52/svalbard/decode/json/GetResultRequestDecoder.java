@@ -38,13 +38,13 @@ import com.fasterxml.jackson.databind.JsonNode;
 public class GetResultRequestDecoder extends AbstractSosRequestDecoder<GetResultRequest> {
 
     public GetResultRequestDecoder() {
-        super(GetResultRequest.class, SosConstants.SOS, Sos2Constants.SERVICEVERSION,
+        super(GetResultRequest.class, /*~~>*/SosConstants.SOS, /*~~>*/Sos2Constants.SERVICEVERSION,
                 SosConstants.Operations.GetResult);
     }
 
     @Override
-    protected String getSchemaURI() {
-        return SchemaConstants.Request.GET_RESULT;
+    protected /*~~>*/String getSchemaURI() {
+        return /*~~>*/SchemaConstants.Request.GET_RESULT;
     }
 
     @Override
@@ -59,28 +59,28 @@ public class GetResultRequestDecoder extends AbstractSosRequestDecoder<GetResult
         return req;
     }
 
-    private List<String> parseFeatureIdentifiers(JsonNode node) {
-        return parseStringOrStringList(node.path(JSONConstants.FEATURE_OF_INTEREST));
+    private List</*~~>*/String> parseFeatureIdentifiers(JsonNode node) {
+        return parseStringOrStringList(node.path(/*~~>*/JSONConstants.FEATURE_OF_INTEREST));
     }
 
-    private String parseObservationTemplateIdentifier(JsonNode node) {
-        return node.path(JSONConstants.OBSERVATION_TEMPLATE).textValue();
+    private /*~~>*/String parseObservationTemplateIdentifier(JsonNode node) {
+        return node.path(/*~~>*/JSONConstants.OBSERVATION_TEMPLATE).textValue();
     }
 
-    private String parseObservedProperty(JsonNode node) {
-        return node.path(JSONConstants.OBSERVED_PROPERTY).textValue();
+    private /*~~>*/String parseObservedProperty(JsonNode node) {
+        return node.path(/*~~>*/JSONConstants.OBSERVED_PROPERTY).textValue();
     }
 
-    private String parseOffering(JsonNode node) {
-        return node.path(JSONConstants.OFFERING).textValue();
+    private /*~~>*/String parseOffering(JsonNode node) {
+        return node.path(/*~~>*/JSONConstants.OFFERING).textValue();
     }
 
     private SpatialFilter parseSpatialFilter(JsonNode node) throws DecodingException {
-        return decodeJsonToObject(node.path(JSONConstants.SPATIAL_FILTER), SpatialFilter.class);
+        return decodeJsonToObject(node.path(/*~~>*/JSONConstants.SPATIAL_FILTER), SpatialFilter.class);
     }
 
     private List<TemporalFilter> parseTemporalFilters(JsonNode node) throws DecodingException {
-        return decodeJsonToObjectList(node.path(JSONConstants.TEMPORAL_FILTER), TemporalFilter.class);
+        return decodeJsonToObjectList(node.path(/*~~>*/JSONConstants.TEMPORAL_FILTER), TemporalFilter.class);
     }
 
 }

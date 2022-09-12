@@ -25,17 +25,17 @@ import edu.umd.cs.findbugs.annotations.SuppressFBWarnings;
  */
 public class SmlDocumentation extends AbstractSmlDocumentation {
 
-    private String version;
+    private /*~~>*/String version;
 
     private TimeInstant date;
 
-    private String contact;
+    private /*~~>*/String contact;
 
-    private String format;
+    private /*~~>*/String format;
 
-    private String onlineResource;
+    private /*~~>*/String onlineResource;
 
-    public String getVersion() {
+    public /*~~>*/String getVersion() {
         return version;
     }
 
@@ -44,20 +44,20 @@ public class SmlDocumentation extends AbstractSmlDocumentation {
         return date;
     }
 
-    public String getContact() {
+    public /*~~>*/String getContact() {
         return contact;
     }
 
-    public String getFormat() {
+    public /*~~>*/String getFormat() {
         return format;
     }
 
-    public String getOnlineResource() {
+    public /*~~>*/String getOnlineResource() {
         return onlineResource;
     }
 
-    public void setVersion(String version) {
-        this.version = version;
+    public void setVersion(/*~~>*/String version) {
+        /*~~>*/this.version = version;
     }
 
     @SuppressFBWarnings({ "EI_EXPOSE_REP2" })
@@ -66,18 +66,18 @@ public class SmlDocumentation extends AbstractSmlDocumentation {
         return this;
     }
 
-    public SmlDocumentation setContact(String contact) {
-        this.contact = contact;
+    public SmlDocumentation setContact(/*~~>*/String contact) {
+        /*~~>*/this.contact = contact;
         return this;
     }
 
-    public SmlDocumentation setFormat(String format) {
-        this.format = format;
+    public SmlDocumentation setFormat(/*~~>*/String format) {
+        /*~~>*/this.format = format;
         return this;
     }
 
-    public SmlDocumentation setOnlineResource(String onlineResource) {
-        this.onlineResource = onlineResource;
+    public SmlDocumentation setOnlineResource(/*~~>*/String onlineResource) {
+        /*~~>*/this.onlineResource = onlineResource;
         return this;
     }
 

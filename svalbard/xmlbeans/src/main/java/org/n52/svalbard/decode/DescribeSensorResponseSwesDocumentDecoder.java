@@ -38,7 +38,7 @@ import net.opengis.swes.x20.SensorDescriptionType;
 public class DescribeSensorResponseSwesDocumentDecoder extends AbstractSwesDecoderv20<DescribeSensorResponse> {
 
     private static final Set<DecoderKey> DECODER_KEYS = CollectionHelper.union(
-            CodingHelper.decoderKeysForElements(SwesConstants.NS_SWES_20, DescribeSensorResponseDocument.class));
+            CodingHelper.decoderKeysForElements(/*~~>*/SwesConstants.NS_SWES_20, DescribeSensorResponseDocument.class));
 
     @Override
     public DescribeSensorResponse decode(XmlObject objectToDecode) throws DecodingException {

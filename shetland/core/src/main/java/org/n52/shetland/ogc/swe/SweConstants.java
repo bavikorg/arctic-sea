@@ -33,101 +33,101 @@ import com.google.common.base.Joiner;
 public interface SweConstants {
 
     // namespaces and schema locations
-    String NS_SWE_101 = "http://www.opengis.net/swe/1.0.1";
+    /*~~>*/String NS_SWE_101 = "http://www.opengis.net/swe/1.0.1";
 
-    String NS_SWE_20 = "http://www.opengis.net/swe/2.0";
+    /*~~>*/String NS_SWE_20 = "http://www.opengis.net/swe/2.0";
 
-    String NS_SWE_PREFIX = "swe";
+    /*~~>*/String NS_SWE_PREFIX = "swe";
 
-    String SCHEMA_LOCATION_URL_SWE_101 = "http://schemas.opengis.net/sweCommon/1.0.1/swe.xsd";
+    /*~~>*/String SCHEMA_LOCATION_URL_SWE_101 = "http://schemas.opengis.net/sweCommon/1.0.1/swe.xsd";
 
-    String SCHEMA_LOCATION_URL_SWE_20 = "http://schemas.opengis.net/sweCommon/2.0/swe.xsd";
+    /*~~>*/String SCHEMA_LOCATION_URL_SWE_20 = "http://schemas.opengis.net/sweCommon/2.0/swe.xsd";
 
     SchemaLocation SWE_101_SCHEMA_LOCATION = new SchemaLocation(NS_SWE_101, SCHEMA_LOCATION_URL_SWE_101);
 
     SchemaLocation SWE_20_SCHEMA_LOCATION = new SchemaLocation(NS_SWE_20, SCHEMA_LOCATION_URL_SWE_20);
 
-    String X_AXIS = "x";
+    /*~~>*/String X_AXIS = "x";
 
-    String Y_AXIS = "y";
+    /*~~>*/String Y_AXIS = "y";
 
-    String Z_AXIS = "z";
+    /*~~>*/String Z_AXIS = "z";
 
-    String ENCODING_TEXT = "http://www.opengis.net/swe/2.0/TextEncoding";
+    /*~~>*/String ENCODING_TEXT = "http://www.opengis.net/swe/2.0/TextEncoding";
 
-    String EN_BOOLEAN = "Boolean";
+    /*~~>*/String EN_BOOLEAN = "Boolean";
 
-    String EN_CATEGORY = "Category";
+    /*~~>*/String EN_CATEGORY = "Category";
 
-    String EN_COUNT = "Count";
+    /*~~>*/String EN_COUNT = "Count";
 
-    String EN_COUNT_RANGE = "CountRange";
+    /*~~>*/String EN_COUNT_RANGE = "CountRange";
 
-    String EN_DATA_ARRAY = "DataArray";
+    /*~~>*/String EN_DATA_ARRAY = "DataArray";
 
-    String EN_DATA_ARRAY_PROPERTY_TYPE = "DataArrayPropertyType";
+    /*~~>*/String EN_DATA_ARRAY_PROPERTY_TYPE = "DataArrayPropertyType";
 
-    String EN_DATA_CHOICE = "DataChoice";
+    /*~~>*/String EN_DATA_CHOICE = "DataChoice";
 
-    String EN_DATA_RECORD = "DataRecord";
+    /*~~>*/String EN_DATA_RECORD = "DataRecord";
 
-    String EN_ENVELOPE = "Envelope";
+    /*~~>*/String EN_ENVELOPE = "Envelope";
 
-    String EN_FIELD = "field";
+    /*~~>*/String EN_FIELD = "field";
 
-    String EN_OBSERVABLE_PROPERTY = "ObservableProperty";
+    /*~~>*/String EN_OBSERVABLE_PROPERTY = "ObservableProperty";
 
-    String EN_POSITION = "Position";
+    /*~~>*/String EN_POSITION = "Position";
 
-    String EN_QUALITY = "Quality";
+    /*~~>*/String EN_QUALITY = "Quality";
 
-    String EN_QUANTITY = "Quantity";
+    /*~~>*/String EN_QUANTITY = "Quantity";
 
-    String EN_QUANTITY_RANGE = "QuantityRange";
+    /*~~>*/String EN_QUANTITY_RANGE = "QuantityRange";
 
-    String EN_SIMPLEDATARECORD = "SimpleDataRecord";
+    /*~~>*/String EN_SIMPLEDATARECORD = "SimpleDataRecord";
 
-    String EN_TEXT = "Text";
+    /*~~>*/String EN_TEXT = "Text";
 
-    String EN_TEXT_ENCODING = "TextEncoding";
+    /*~~>*/String EN_TEXT_ENCODING = "TextEncoding";
 
-    String EN_ENCODING_TYPE = "encodingType";
+    /*~~>*/String EN_ENCODING_TYPE = "encodingType";
 
-    String EN_TIME = "Time";
+    /*~~>*/String EN_TIME = "Time";
 
-    String EN_TIME_RANGE = "TimeRange";
+    /*~~>*/String EN_TIME_RANGE = "TimeRange";
 
-    String EN_UOM = "uom";
+    /*~~>*/String EN_UOM = "uom";
 
-    String EN_VECTOR = "Vector";
+    /*~~>*/String EN_VECTOR = "Vector";
 
-    String EN_VALUE = "value";
+    /*~~>*/String EN_VALUE = "value";
 
     Joiner COLON_JOINER = Joiner.on(":");
 
-    String VT_BOOLEAN = COLON_JOINER.join(NS_SWE_PREFIX, EN_BOOLEAN);
+    /*~~>*/String VT_BOOLEAN = COLON_JOINER.join(NS_SWE_PREFIX, EN_BOOLEAN);
 
-    String VT_CATEGORY = COLON_JOINER.join(NS_SWE_PREFIX, EN_CATEGORY);
+    /*~~>*/String VT_CATEGORY = COLON_JOINER.join(NS_SWE_PREFIX, EN_CATEGORY);
 
-    String VT_COUNT = COLON_JOINER.join(NS_SWE_PREFIX, EN_COUNT);
+    /*~~>*/String VT_COUNT = COLON_JOINER.join(NS_SWE_PREFIX, EN_COUNT);
 
-    String VT_COUNT_RANGE = COLON_JOINER.join(NS_SWE_PREFIX, EN_COUNT_RANGE);
+    /*~~>*/String VT_COUNT_RANGE = COLON_JOINER.join(NS_SWE_PREFIX, EN_COUNT_RANGE);
 
-    String VT_OBSERVABLE_PROPERTY = COLON_JOINER.join(NS_SWE_PREFIX, EN_OBSERVABLE_PROPERTY);
+    /*~~>*/String VT_OBSERVABLE_PROPERTY = COLON_JOINER.join(NS_SWE_PREFIX, EN_OBSERVABLE_PROPERTY);
 
-    String VT_QUANTITY = COLON_JOINER.join(NS_SWE_PREFIX, EN_QUANTITY);
+    /*~~>*/String VT_QUANTITY = COLON_JOINER.join(NS_SWE_PREFIX, EN_QUANTITY);
 
-    String VT_QUANTITY_RANGE = COLON_JOINER.join(NS_SWE_PREFIX, EN_QUANTITY_RANGE);
+    /*~~>*/String VT_QUANTITY_RANGE = COLON_JOINER.join(NS_SWE_PREFIX, EN_QUANTITY_RANGE);
 
-    String VT_TEXT = COLON_JOINER.join(NS_SWE_PREFIX, EN_TEXT);
+    /*~~>*/String VT_TEXT = COLON_JOINER.join(NS_SWE_PREFIX, EN_TEXT);
 
-    String VT_TIME = COLON_JOINER.join(NS_SWE_PREFIX, EN_TIME);
+    /*~~>*/String VT_TIME = COLON_JOINER.join(NS_SWE_PREFIX, EN_TIME);
 
-    String VT_TIME_RANGE = COLON_JOINER.join(NS_SWE_PREFIX, EN_TIME_RANGE);
+    /*~~>*/String VT_TIME_RANGE = COLON_JOINER.join(NS_SWE_PREFIX, EN_TIME_RANGE);
 
-    String VT_DATA_ARRAY = COLON_JOINER.join(NS_SWE_PREFIX, EN_DATA_ARRAY);
+    /*~~>*/String VT_DATA_ARRAY = COLON_JOINER.join(NS_SWE_PREFIX, EN_DATA_ARRAY);
 
-    String VT_DATA_RECORD = COLON_JOINER.join(NS_SWE_PREFIX, EN_DATA_RECORD);
+    /*~~>*/String VT_DATA_RECORD = COLON_JOINER.join(NS_SWE_PREFIX, EN_DATA_RECORD);
 
     QName QN_BOOLEAN_SWE_101 = new QName(NS_SWE_101, EN_BOOLEAN, NS_SWE_PREFIX);
 
@@ -206,19 +206,19 @@ public interface SweConstants {
     }
 
     final class SweCoordinateNames {
-        public static final String EASTING = "easting";
-        public static final String NORTHING = "northing";
-        public static final String ALTITUDE = "altitude";
-        public static final String HEIGHT = "height";
-        public static final String SOUTHING = "southing";
-        public static final String WESTING = "westing";
-        public static final String LONGITUDE = "longitude";
-        public static final String LATITUDE = "latitude";
-        public static final String DEPTH = "depth";
+        public static final /*~~>*/String EASTING = "easting";
+        public static final /*~~>*/String NORTHING = "northing";
+        public static final /*~~>*/String ALTITUDE = "altitude";
+        public static final /*~~>*/String HEIGHT = "height";
+        public static final /*~~>*/String SOUTHING = "southing";
+        public static final /*~~>*/String WESTING = "westing";
+        public static final /*~~>*/String LONGITUDE = "longitude";
+        public static final /*~~>*/String LATITUDE = "latitude";
+        public static final /*~~>*/String DEPTH = "depth";
 
-        private static final Set<String> X_NAMES = new TreeSet<>(String.CASE_INSENSITIVE_ORDER);
-        private static final Set<String> Y_NAMES = new TreeSet<>(String.CASE_INSENSITIVE_ORDER);
-        private static final Set<String> Z_NAMES = new TreeSet<>(String.CASE_INSENSITIVE_ORDER);
+        private static final Set</*~~>*/String> X_NAMES = new TreeSet<>(String.CASE_INSENSITIVE_ORDER);
+        private static final Set</*~~>*/String> Y_NAMES = new TreeSet<>(String.CASE_INSENSITIVE_ORDER);
+        private static final Set</*~~>*/String> Z_NAMES = new TreeSet<>(String.CASE_INSENSITIVE_ORDER);
 
         static {
             Collections.addAll(X_NAMES, EASTING, WESTING, LONGITUDE);
@@ -229,15 +229,15 @@ public interface SweConstants {
         private SweCoordinateNames() {
         }
 
-        public static boolean isX(String name) {
+        public static boolean isX(/*~~>*/String name) {
             return X_NAMES.contains(name);
         }
 
-        public static boolean isY(String name) {
+        public static boolean isY(/*~~>*/String name) {
             return Y_NAMES.contains(name);
         }
 
-        public static boolean isZ(String name) {
+        public static boolean isZ(/*~~>*/String name) {
             return Z_NAMES.contains(name);
         }
     }

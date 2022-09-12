@@ -28,6 +28,6 @@ public class NoDecoderForKeyException extends DecodingException {
     private static final long serialVersionUID = 2130152587752891589L;
 
     public NoDecoderForKeyException(DecoderKey k) {
-        super(String.format("No decoder implementation is available for key: %s!", k));
+        super(/*~~>*/String.format("No decoder implementation is available for key: %s!", k));
     }
 }

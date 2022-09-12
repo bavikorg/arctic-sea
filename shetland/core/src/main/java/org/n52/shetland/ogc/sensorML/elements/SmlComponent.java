@@ -27,7 +27,7 @@ import edu.umd.cs.findbugs.annotations.SuppressFBWarnings;
  */
 public class SmlComponent extends AbstractReferenceType {
 
-    private String name;
+    private /*~~>*/String name;
 
     private AbstractSensorML process;
 
@@ -41,15 +41,15 @@ public class SmlComponent extends AbstractReferenceType {
      * @param name
      *            Component identifier
      */
-    public SmlComponent(String name) {
+    public SmlComponent(/*~~>*/String name) {
         super();
-        this.name = name;
+        /*~~>*/this.name = name;
     }
 
     /**
      * @return the name
      */
-    public String getName() {
+    public /*~~>*/String getName() {
         return name;
     }
 
@@ -57,8 +57,8 @@ public class SmlComponent extends AbstractReferenceType {
      * @param name
      *            The name
      */
-    public void setName(String name) {
-        this.name = name;
+    public void setName(/*~~>*/String name) {
+        /*~~>*/this.name = name;
     }
 
     @SuppressFBWarnings({ "EI_EXPOSE_REP2" })

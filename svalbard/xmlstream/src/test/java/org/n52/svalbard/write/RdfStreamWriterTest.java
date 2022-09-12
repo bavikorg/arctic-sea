@@ -65,11 +65,11 @@ import org.n52.svalbard.encode.EncodingContext;
 
 public class RdfStreamWriterTest {
 
-    private static final String CATALOG = "catalog";
+    private static final /*~~>*/String CATALOG = "catalog";
 
-    private static final String DISTRIBUTION = "distribution";
+    private static final /*~~>*/String DISTRIBUTION = "distribution";
 
-    private static final String DATASET = "dataset";
+    private static final /*~~>*/String DATASET = "dataset";
 
     @Test
     public void testModelCreation() throws XMLStreamException, IOException {
@@ -109,31 +109,31 @@ public class RdfStreamWriterTest {
 
     }
 
-    private Catalog createCatalog(String prefix) {
+    private Catalog createCatalog(/*~~>*/String prefix) {
         return createCatalog(prefix, createDataset(prefix));
     }
 
-    private Catalog createCatalog(String prefix, Dataset dataset) {
+    private Catalog createCatalog(/*~~>*/String prefix, Dataset dataset) {
         return new Catalog(createTitle(prefix), createDescription(prefix), createPubisher(prefix), dataset);
     }
 
-    private Title createTitle(String prefix) {
+    private Title createTitle(/*~~>*/String prefix) {
         return new Title(createValue(prefix, "title"), "en");
     }
 
-    private Description createDescription(String prefix) {
+    private Description createDescription(/*~~>*/String prefix) {
         return new Description(createValue(prefix, "description"), "en");
     }
 
-    private Publisher createPubisher(String prefix) {
+    private Publisher createPubisher(/*~~>*/String prefix) {
         return new Publisher(createValue(prefix, "publisher"));
     }
 
-    private Dataset createDataset(String prefix) {
+    private Dataset createDataset(/*~~>*/String prefix) {
         return new Dataset(createTitle(prefix), createDescription(prefix));
     }
 
-    private Dataset getDataset(String prefix) {
+    private Dataset getDataset(/*~~>*/String prefix) {
         Dataset dataset = createDataset(prefix);
         dataset.addIdentifier(new Identifier(createValue(prefix, "identifier")));
         dataset.addLanguage(new Language("en"));
@@ -151,7 +151,7 @@ public class RdfStreamWriterTest {
         return dataset;
     }
 
-    private Keyword createKeyword(String prefix) {
+    private Keyword createKeyword(/*~~>*/String prefix) {
         return new Keyword(createValue(prefix, "keyword"));
     }
 
@@ -163,11 +163,11 @@ public class RdfStreamWriterTest {
         return new Theme("http://publications.europa.eu/resource/authority/data-theme/AGRI");
     }
 
-    private ContactPoint createContactPoint(String prefix) {
+    private ContactPoint createContactPoint(/*~~>*/String prefix) {
         return new ContactPoint(createVcardOrganization(prefix));
     }
 
-    private VCardOrganization createVcardOrganization(String prefix) {
+    private VCardOrganization createVcardOrganization(/*~~>*/String prefix) {
         VCardOrganization organization = new VCardOrganization();
         organization.setFn(new FN("org_name"));
         organization.setHasEmail(new HasEmail("mail@org.org"));
@@ -178,11 +178,11 @@ public class RdfStreamWriterTest {
         return new AccessRights("http://publications.europa.eu/resource/authority/access-right/RESTRICTED");
     }
 
-    private LandingPage createLandingPage(String prefix) {
+    private LandingPage createLandingPage(/*~~>*/String prefix) {
         return new LandingPage(createValue(prefix, "landingPage"));
     }
 
-    private DistributionProperty createDistribution(String prefix) {
+    private DistributionProperty createDistribution(/*~~>*/String prefix) {
         return new DistributionProperty(createValue(prefix, "distribution"));
     }
 
@@ -199,7 +199,7 @@ public class RdfStreamWriterTest {
         return location;
     }
 
-    private String createValue(String prefix, String value) {
+    private /*~~>*/String createValue(/*~~>*/String prefix, /*~~>*/String value) {
         return prefix != null && !prefix.isEmpty() ? prefix + "-" + value : value;
     }
 }

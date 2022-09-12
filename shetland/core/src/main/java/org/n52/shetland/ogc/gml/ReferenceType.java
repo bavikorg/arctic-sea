@@ -35,7 +35,7 @@ public class ReferenceType extends AbstractReferenceType {
      * @param href
      *            Href
      */
-    public ReferenceType(String href) {
+    public ReferenceType(/*~~>*/String href) {
         setHref(href);
     }
 
@@ -47,14 +47,14 @@ public class ReferenceType extends AbstractReferenceType {
      * @param title
      *            Title
      */
-    public ReferenceType(String href, String title) {
+    public ReferenceType(/*~~>*/String href, /*~~>*/String title) {
         setHref(href);
         setTitle(title);
     }
 
     @Override
-    public String toString() {
-        return String.format("ReferenceType [title=%s, role=%s, href=%s]", getTitle(), getRole(), getHref());
+    public /*~~>*/String toString() {
+        return /*~~>*/String.format("ReferenceType [title=%s, role=%s, href=%s]", getTitle(), getRole(), getHref());
     }
 
     public boolean isEmpty() {

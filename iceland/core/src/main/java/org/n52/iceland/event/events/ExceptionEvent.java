@@ -45,8 +45,8 @@ public class ExceptionEvent extends AbstractFlowEvent {
     }
 
     @Override
-    public String toString() {
-        return String.format("ExceptionEvent[exception=%s]", getException() != null ? getException().getClass()
+    public /*~~>*/String toString() {
+        return /*~~>*/String.format("ExceptionEvent[exception=%s]", getException() != null ? getException().getClass()
                              .getSimpleName() : getClass());
     }
 }

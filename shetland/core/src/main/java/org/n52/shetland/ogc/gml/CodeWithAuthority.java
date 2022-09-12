@@ -27,12 +27,12 @@ public class CodeWithAuthority implements Comparable<CodeWithAuthority> {
     /**
      * value/identifier
      */
-    private String value;
+    private /*~~>*/String value;
 
     /**
      * code space, TODO: probably should be a URI
      */
-    private String codeSpace = "";
+    private /*~~>*/String codeSpace = "";
 
     /**
      * constructor
@@ -40,7 +40,7 @@ public class CodeWithAuthority implements Comparable<CodeWithAuthority> {
      * @param value
      *            Value/identifier
      */
-    public CodeWithAuthority(String value) {
+    public CodeWithAuthority(/*~~>*/String value) {
         setValue(value);
     }
 
@@ -52,7 +52,7 @@ public class CodeWithAuthority implements Comparable<CodeWithAuthority> {
      * @param codeSpace
      *            Code space
      */
-    public CodeWithAuthority(String value, String codeSpace) {
+    public CodeWithAuthority(/*~~>*/String value, /*~~>*/String codeSpace) {
         setValue(value);
         setCodeSpace(codeSpace);
     }
@@ -65,7 +65,7 @@ public class CodeWithAuthority implements Comparable<CodeWithAuthority> {
      *
      * @return Value
      */
-    public String getValue() {
+    public /*~~>*/String getValue() {
         return value;
     }
 
@@ -74,7 +74,7 @@ public class CodeWithAuthority implements Comparable<CodeWithAuthority> {
      *
      * @return Code space
      */
-    public String getCodeSpace() {
+    public /*~~>*/String getCodeSpace() {
         return codeSpace;
     }
 
@@ -85,8 +85,8 @@ public class CodeWithAuthority implements Comparable<CodeWithAuthority> {
      *            Value to set
      * @return This CodeWithAuthority object
      */
-    public CodeWithAuthority setValue(String value) {
-        this.value = trim(value);
+    public CodeWithAuthority setValue(/*~~>*/String value) {
+        /*~~>*/this.value = trim(value);
         return this;
     }
 
@@ -97,8 +97,8 @@ public class CodeWithAuthority implements Comparable<CodeWithAuthority> {
      *            Code space to set
      * @return This CodeWithAuthority object
      */
-    public CodeWithAuthority setCodeSpace(String codeSpace) {
-        this.codeSpace = trim(codeSpace);
+    public CodeWithAuthority setCodeSpace(/*~~>*/String codeSpace) {
+        /*~~>*/this.codeSpace = trim(codeSpace);
         return this;
     }
 
@@ -108,7 +108,7 @@ public class CodeWithAuthority implements Comparable<CodeWithAuthority> {
      * @return <code>true</code> if value is set
      */
     public boolean isSetValue() {
-        return this.value != null && !this.value.isEmpty();
+        return /*~~>*/this.value != null && !/*~~>*/this.value.isEmpty();
     }
 
     /**
@@ -117,7 +117,7 @@ public class CodeWithAuthority implements Comparable<CodeWithAuthority> {
      * @return <code>true</code> if code space is set
      */
     public boolean isSetCodeSpace() {
-        return this.codeSpace != null && !this.codeSpace.isEmpty();
+        return /*~~>*/this.codeSpace != null && !/*~~>*/this.codeSpace.isEmpty();
     }
 
     @Override
@@ -155,8 +155,8 @@ public class CodeWithAuthority implements Comparable<CodeWithAuthority> {
     }
 
     @Override
-    public String toString() {
-        return String.format("CodeWithAuthority [value=%s, codeSpace=%s]", getValue(), getCodeSpace());
+    public /*~~>*/String toString() {
+        return /*~~>*/String.format("CodeWithAuthority [value=%s, codeSpace=%s]", getValue(), getCodeSpace());
     }
 
     @Override
@@ -174,7 +174,7 @@ public class CodeWithAuthority implements Comparable<CodeWithAuthority> {
         return 1;
     }
 
-    private String trim(String value) {
+    private /*~~>*/String trim(/*~~>*/String value) {
         return value != null ? value.trim() : value;
     }
 }

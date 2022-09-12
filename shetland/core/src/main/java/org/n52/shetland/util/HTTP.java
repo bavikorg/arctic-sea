@@ -53,10 +53,10 @@ public final class HTTP {
     private HTTP() {
     }
 
-    public static String getAsString(URI uri) throws IOException {
+    public static /*~~>*/String getAsString(URI uri) throws IOException {
         try (CloseableHttpResponse response = CLIENT.execute(new HttpGet(uri))) {
             HttpEntity entity = response.getEntity();
-            String encoding = Optional.ofNullable(entity.getContentEncoding()).map(Header::getValue)
+            /*~~>*/String encoding = Optional.ofNullable(entity.getContentEncoding()).map(Header::getValue)
                     .orElse(StandardCharsets.UTF_8.name());
             Charset charset = Charset.forName(encoding);
             try (InputStream is = entity.getContent(); Reader reader = new InputStreamReader(is, charset)) {

@@ -33,7 +33,7 @@ public class ProcessMethod extends AbstractReferenceType {
 
     private AbstractAlgorithm algorithm;
 
-    public ProcessMethod(final String href) {
+    public ProcessMethod(final /*~~>*/String href) {
         if (Strings.isNullOrEmpty(href)) {
             throw new IllegalArgumentException("attribute 'xlink:href' is MANDATORY");
         }

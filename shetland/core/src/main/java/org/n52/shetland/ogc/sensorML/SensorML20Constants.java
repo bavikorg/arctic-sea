@@ -27,16 +27,16 @@ import org.n52.shetland.w3c.SchemaLocation;
  */
 public interface SensorML20Constants extends SensorMLConstants {
 
-    String NS_SML_20 = "http://www.opengis.net/sensorml/2.0";
+    /*~~>*/String NS_SML_20 = "http://www.opengis.net/sensorml/2.0";
 
-    String SCHEMA_LOCATION_URL_SML_20 = "http://schemas.opengis.net/sensorML/2.0/sensorML.xsd";
+    /*~~>*/String SCHEMA_LOCATION_URL_SML_20 = "http://schemas.opengis.net/sensorML/2.0/sensorML.xsd";
 
     SchemaLocation SML_20_SCHEMA_LOCATION = new SchemaLocation(NS_SML_20, SCHEMA_LOCATION_URL_SML_20);
 
-    String SENSORML_20_OUTPUT_FORMAT_URL = NS_SML_20;
+    /*~~>*/String SENSORML_20_OUTPUT_FORMAT_URL = NS_SML_20;
 
     MediaType SENSORML_20_CONTENT_TYPE = new MediaType("text", "xml", "subtype", "sensorml/2.0");
 
-    String SENSORML_20_OUTPUT_FORMAT_MIME_TYPE = SENSORML_20_CONTENT_TYPE.toString();
+    /*~~>*/String SENSORML_20_OUTPUT_FORMAT_MIME_TYPE = SENSORML_20_CONTENT_TYPE.toString();
 
 }

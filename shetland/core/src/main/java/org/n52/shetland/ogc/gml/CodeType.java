@@ -32,11 +32,11 @@ import com.google.common.base.Objects;
  */
 public class CodeType extends AbstractCodeType implements Copyable<CodeType> {
 
-    public CodeType(final String value) {
+    public CodeType(final /*~~>*/String value) {
         super(value);
     }
 
-    public CodeType(String value, URI codespace) {
+    public CodeType(/*~~>*/String value, URI codespace) {
         super(value, codespace);
     }
 
@@ -50,7 +50,7 @@ public class CodeType extends AbstractCodeType implements Copyable<CodeType> {
     }
 
     @Override
-    public String toString() {
+    public /*~~>*/String toString() {
         return MoreObjects.toStringHelper(this).add("value", getValue()).add("codeSpace", getCodeSpace()).toString();
     }
 

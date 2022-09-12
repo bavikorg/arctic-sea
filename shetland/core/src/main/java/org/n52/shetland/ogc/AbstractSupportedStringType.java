@@ -26,14 +26,14 @@ import com.google.common.base.MoreObjects;
  */
 public abstract class AbstractSupportedStringType implements SupportedType {
 
-    private final String value;
+    private final /*~~>*/String value;
 
-    public AbstractSupportedStringType(String value) {
-        this.value = value;
+    public AbstractSupportedStringType(/*~~>*/String value) {
+        /*~~>*/this.value = value;
     }
 
-    public String getValue() {
-        return this.value;
+    public /*~~>*/String getValue() {
+        return /*~~>*/this.value;
     }
 
     @Override
@@ -51,7 +51,7 @@ public abstract class AbstractSupportedStringType implements SupportedType {
     }
 
     @Override
-    public String toString() {
+    public /*~~>*/String toString() {
         return MoreObjects.toStringHelper(this).add("value", getValue()).toString();
     }
 

@@ -217,8 +217,8 @@ public class FullInspireExtendedCapabilities extends InspireExtendedCapabilities
     }
 
     @Override
-    public String toString() {
-        return String.format(
+    public /*~~>*/String toString() {
+        return /*~~>*/String.format(
                 "%s %n[%n \tresourceLocator=%s," + "%n resourceType=%s," + "%n temporalReferences=%s,"
                         + "%n conformity=%s," + "%n metadataPointOfContacts=%s," + "%n metadataDate=%s,"
                         + "%n spatialDataServiceType=%s," + "%n mandatoryKeywords=%s," + "%n keywords=%s,"

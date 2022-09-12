@@ -43,11 +43,11 @@ public class InpspireOMSODecoder
     private static final Set<DecoderKey> DECODER_KEYS = Sets.newHashSet();
 
     private static final Set<SupportedType> SUPPORTED_TYPES =
-            ImmutableSet.of(new ObservationType(InspireOMSOConstants.OBS_TYPE_MULTI_POINT_OBSERVATION),
-                    new ObservationType(InspireOMSOConstants.OBS_TYPE_POINT_OBSERVATION),
-                    new ObservationType(InspireOMSOConstants.OBS_TYPE_POINT_TIME_SERIES_OBSERVATION),
-                    new ObservationType(InspireOMSOConstants.OBS_TYPE_PROFILE_OBSERVATION),
-                    new ObservationType(InspireOMSOConstants.OBS_TYPE_TRAJECTORY_OBSERVATION));
+            ImmutableSet.of(new ObservationType(/*~~>*/InspireOMSOConstants.OBS_TYPE_MULTI_POINT_OBSERVATION),
+                    new ObservationType(/*~~>*/InspireOMSOConstants.OBS_TYPE_POINT_OBSERVATION),
+                    new ObservationType(/*~~>*/InspireOMSOConstants.OBS_TYPE_POINT_TIME_SERIES_OBSERVATION),
+                    new ObservationType(/*~~>*/InspireOMSOConstants.OBS_TYPE_PROFILE_OBSERVATION),
+                    new ObservationType(/*~~>*/InspireOMSOConstants.OBS_TYPE_TRAJECTORY_OBSERVATION));
 
     public InpspireOMSODecoder() {
         LOGGER.debug("Decoder for the following keys initialized successfully: {}!",

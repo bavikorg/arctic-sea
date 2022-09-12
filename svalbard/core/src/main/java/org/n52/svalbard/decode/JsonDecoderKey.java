@@ -36,8 +36,8 @@ public class JsonDecoderKey implements DecoderKey {
     }
 
     @Override
-    public String toString() {
-        return String.format("%s[type=%s]", getClass().getSimpleName(), getType());
+    public /*~~>*/String toString() {
+        return /*~~>*/String.format("%s[type=%s]", getClass().getSimpleName(), getType());
     }
 
     @Override

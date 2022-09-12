@@ -29,12 +29,12 @@ public class XmlStringOperationDecoderKey extends OwsOperationKey implements Dec
 
     private final MediaType contentType;
 
-    public XmlStringOperationDecoderKey(String service, String version, String operation, MediaType contentType) {
+    public XmlStringOperationDecoderKey(/*~~>*/String service, /*~~>*/String version, /*~~>*/String operation, MediaType contentType) {
         super(service, version, operation);
         this.contentType = contentType;
     }
 
-    public XmlStringOperationDecoderKey(String service, String version, Enum<?> operation, MediaType contentType) {
+    public XmlStringOperationDecoderKey(/*~~>*/String service, /*~~>*/String version, Enum<?> operation, MediaType contentType) {
         super(service, version, operation);
         this.contentType = contentType;
     }
@@ -49,8 +49,8 @@ public class XmlStringOperationDecoderKey extends OwsOperationKey implements Dec
     }
 
     @Override
-    public String toString() {
-        return String.format("%s[service=%s, version=%s, operation=%s, contentType=%s]", getClass().getSimpleName(),
+    public /*~~>*/String toString() {
+        return /*~~>*/String.format("%s[service=%s, version=%s, operation=%s, contentType=%s]", getClass().getSimpleName(),
                 getService(), getVersion(), getOperation(), getContentType());
     }
 

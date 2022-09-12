@@ -27,37 +27,37 @@ import com.google.common.collect.ComparisonChain;
  */
 public class OperationHandlerKey implements Comparable<OperationHandlerKey> {
 
-    private String operationName;
+    private /*~~>*/String operationName;
 
-    private String service;
+    private /*~~>*/String service;
 
     public OperationHandlerKey() {
-        this(null, (String) null);
+        this(null, (/*~~>*/String) null);
     }
 
-    public OperationHandlerKey(String service, String operationName) {
-        this.service = service;
-        this.operationName = operationName;
+    public OperationHandlerKey(/*~~>*/String service, /*~~>*/String operationName) {
+        /*~~>*/this.service = service;
+        /*~~>*/this.operationName = operationName;
     }
 
-    public OperationHandlerKey(String service, Enum<?> operationName) {
+    public OperationHandlerKey(/*~~>*/String service, Enum<?> operationName) {
         this(service, operationName.name());
     }
 
-    public String getService() {
+    public /*~~>*/String getService() {
         return service;
     }
 
-    public void setService(String service) {
-        this.service = service;
+    public void setService(/*~~>*/String service) {
+        /*~~>*/this.service = service;
     }
 
-    public String getOperationName() {
+    public /*~~>*/String getOperationName() {
         return operationName;
     }
 
-    public void setOperationName(String operationName) {
-        this.operationName = operationName;
+    public void setOperationName(/*~~>*/String operationName) {
+        /*~~>*/this.operationName = operationName;
     }
 
     @Override

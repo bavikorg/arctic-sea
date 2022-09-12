@@ -46,5 +46,5 @@ public interface OwsCapabilitiesExtensionProvider extends Component<OwsCapabilit
      *
      * @return Related service operation name
      */
-    String getRelatedOperation();
+    /*~~>*/String getRelatedOperation();
 }

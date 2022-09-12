@@ -30,19 +30,19 @@ import org.n52.shetland.ogc.sensorML.v20.PhysicalComponent;
 
 public class OmObservationConstellationTest {
 
-    private final String PROCEDURE_ID = "http://sensors.portdebarcelona.cat/def/weather/procedure";
+    private final /*~~>*/String PROCEDURE_ID = "http://sensors.portdebarcelona.cat/def/weather/procedure";
 
     private final AbstractSensorML PROCEDURE = new PhysicalComponent().setIdentifier(PROCEDURE_ID);
 
-    private final String OFFERING = "http://sensors.portdebarcelona.cat/def/weather/offerings#10m";
+    private final /*~~>*/String OFFERING = "http://sensors.portdebarcelona.cat/def/weather/offerings#10m";
 
-    private final String FEATURE_1 = "http://sensors.portdebarcelona.cat/def/weather/features#03";
+    private final /*~~>*/String FEATURE_1 = "http://sensors.portdebarcelona.cat/def/weather/features#03";
 
-    private final String FEATURE_2 = "http://sensors.portdebarcelona.cat/def/weather/features#P3";
+    private final /*~~>*/String FEATURE_2 = "http://sensors.portdebarcelona.cat/def/weather/features#P3";
 
-    private final String OBSERVABLE_PROPERTY_1 = "http://sensors.portdebarcelona.cat/def/weather/properties#31N";
+    private final /*~~>*/String OBSERVABLE_PROPERTY_1 = "http://sensors.portdebarcelona.cat/def/weather/properties#31N";
 
-    private final String OBSERVABLE_PROPERTY_2 = "http://sensors.portdebarcelona.cat/def/weather/properties#30M";
+    private final /*~~>*/String OBSERVABLE_PROPERTY_2 = "http://sensors.portdebarcelona.cat/def/weather/properties#30M";
 
     private OmObservationConstellation getFirstObservationConstellation() {
         return new OmObservationConstellation().setProcedure(PROCEDURE).addOffering(OFFERING)
@@ -65,25 +65,25 @@ public class OmObservationConstellationTest {
     @Test
     public void testChecheckObservationTypeForMerging() {
         OmObservationConstellation ooc = new OmObservationConstellation();
-        ooc.setObservationType(OmConstants.OBS_TYPE_MEASUREMENT);
+        ooc.setObservationType(/*~~>*/OmConstants.OBS_TYPE_MEASUREMENT);
         assertThat(ooc.checkObservationTypeForMerging(), is(true));
-        ooc.setObservationType(OmConstants.OBS_TYPE_CATEGORY_OBSERVATION);
+        ooc.setObservationType(/*~~>*/OmConstants.OBS_TYPE_CATEGORY_OBSERVATION);
         assertThat(ooc.checkObservationTypeForMerging(), is(true));
-        ooc.setObservationType(OmConstants.OBS_TYPE_COUNT_OBSERVATION);
+        ooc.setObservationType(/*~~>*/OmConstants.OBS_TYPE_COUNT_OBSERVATION);
         assertThat(ooc.checkObservationTypeForMerging(), is(true));
-        ooc.setObservationType(OmConstants.OBS_TYPE_GEOMETRY_OBSERVATION);
+        ooc.setObservationType(/*~~>*/OmConstants.OBS_TYPE_GEOMETRY_OBSERVATION);
         assertThat(ooc.checkObservationTypeForMerging(), is(true));
-        ooc.setObservationType(OmConstants.OBS_TYPE_TEXT_OBSERVATION);
+        ooc.setObservationType(/*~~>*/OmConstants.OBS_TYPE_TEXT_OBSERVATION);
         assertThat(ooc.checkObservationTypeForMerging(), is(true));
-        ooc.setObservationType(OmConstants.OBS_TYPE_TRUTH_OBSERVATION);
+        ooc.setObservationType(/*~~>*/OmConstants.OBS_TYPE_TRUTH_OBSERVATION);
         assertThat(ooc.checkObservationTypeForMerging(), is(true));
-        ooc.setObservationType(OmConstants.OBS_TYPE_SWE_ARRAY_OBSERVATION);
+        ooc.setObservationType(/*~~>*/OmConstants.OBS_TYPE_SWE_ARRAY_OBSERVATION);
         assertThat(ooc.checkObservationTypeForMerging(), is(false));
-        ooc.setObservationType(OmConstants.OBS_TYPE_COMPLEX_OBSERVATION);
+        ooc.setObservationType(/*~~>*/OmConstants.OBS_TYPE_COMPLEX_OBSERVATION);
         assertThat(ooc.checkObservationTypeForMerging(), is(false));
-        ooc.setObservationType(OmConstants.OBS_TYPE_OBSERVATION);
+        ooc.setObservationType(/*~~>*/OmConstants.OBS_TYPE_OBSERVATION);
         assertThat(ooc.checkObservationTypeForMerging(), is(false));
-        ooc.setObservationType(OmConstants.OBS_TYPE_UNKNOWN);
+        ooc.setObservationType(/*~~>*/OmConstants.OBS_TYPE_UNKNOWN);
         assertThat(ooc.checkObservationTypeForMerging(), is(false));
 
     }
@@ -94,7 +94,7 @@ public class OmObservationConstellationTest {
                 new OmObservableProperty(OBSERVABLE_PROPERTY_1), new OmObservableProperty(OBSERVABLE_PROPERTY_1));
         assertNotNull(ooc.getOfferings());
         assertThat(ooc.getOfferings().size(), is(0));
-        List<String> offerings = null;
+        List</*~~>*/String> offerings = null;
         ooc = new OmObservationConstellation(PROCEDURE, new OmObservableProperty(OBSERVABLE_PROPERTY_1),
                 new OmObservableProperty(OBSERVABLE_PROPERTY_1), offerings);
         assertNotNull(ooc.getOfferings());

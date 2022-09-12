@@ -36,7 +36,7 @@ import org.n52.shetland.ogc.ows.exception.OwsExceptionReport;
  */
 public class ExceptionLogger implements EventListener {
     private static final Logger LOGGER = LoggerFactory.getLogger(ExceptionLogger.class);
-    private static final String MESSAGE = "Exception thrown";
+    private static final /*~~>*/String MESSAGE = "Exception thrown";
 
     @Override
     public Set<Class<? extends Event>> getTypes() {

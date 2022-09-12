@@ -27,9 +27,9 @@ import org.n52.shetland.ogc.ows.OwsServiceProvider;
  */
 public interface OwsServiceMetadataRepository {
 
-    LocalizedProducer<OwsServiceIdentification> getServiceIdentificationFactory(String service);
+    LocalizedProducer<OwsServiceIdentification> getServiceIdentificationFactory(/*~~>*/String service);
 
-    LocalizedProducer<OwsServiceProvider> getServiceProviderFactory(String service);
+    LocalizedProducer<OwsServiceProvider> getServiceProviderFactory(/*~~>*/String service);
 
     Set<Locale> getAvailableLocales();
 

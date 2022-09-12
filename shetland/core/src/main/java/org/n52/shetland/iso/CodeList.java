@@ -17,9 +17,9 @@ package org.n52.shetland.iso;
 
 public interface CodeList {
 
-    String CODE_LIST_URL = "http://www.isotc211.org/2005/resources/Codelist/gmxCodelists.xml";
+    /*~~>*/String CODE_LIST_URL = "http://www.isotc211.org/2005/resources/Codelist/gmxCodelists.xml";
 
-    String CI_ROLE_CODE_URL = CODE_LIST_URL + "#CI_RoleCode/";
+    /*~~>*/String CI_ROLE_CODE_URL = CODE_LIST_URL + "#CI_RoleCode/";
 
     enum CiRoleCodes {
         CI_RoleCode_resourceProvider("resourceProvider"),
@@ -34,13 +34,13 @@ public interface CodeList {
         CI_RoleCode_publisher("publisher"),
         CI_RoleCode_author("author");
 
-        private String identifier;
+        private /*~~>*/String identifier;
 
-        CiRoleCodes(String identifier) {
-            this.identifier = identifier;
+        CiRoleCodes(/*~~>*/String identifier) {
+            /*~~>*/this.identifier = identifier;
         }
 
-        public String getIdentifier() {
+        public /*~~>*/String getIdentifier() {
             return identifier;
         }
     }

@@ -37,9 +37,9 @@ public class SpellingJSONEncoder extends JSONEncoder<Spelling> {
     public JsonNode encodeJSON(Spelling t)
             throws EncodingException {
         ObjectNode j = nodeFactory().objectNode();
-        j.put(AQDJSONConstants.TEXT, t.getText());
-        j.set(AQDJSONConstants.SCRIPT, encodeObjectToJson(t.getScript()));
-        j.set(AQDJSONConstants.TRANSLITERATION_SCHEME, encodeObjectToJson(t.getTransliterationScheme()));
+        j.put(/*~~>*/AQDJSONConstants.TEXT, t.getText());
+        j.set(/*~~>*/AQDJSONConstants.SCRIPT, encodeObjectToJson(t.getScript()));
+        j.set(/*~~>*/AQDJSONConstants.TRANSLITERATION_SCHEME, encodeObjectToJson(t.getTransliterationScheme()));
         return j;
     }
 

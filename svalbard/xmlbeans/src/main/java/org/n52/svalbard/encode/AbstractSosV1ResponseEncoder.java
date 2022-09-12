@@ -32,9 +32,9 @@ import com.google.common.collect.Sets;
  * @since 1.0.0
  */
 public abstract class AbstractSosV1ResponseEncoder<T extends OwsServiceResponse> extends AbstractResponseEncoder<T> {
-    public AbstractSosV1ResponseEncoder(String operation, Class<T> responseType) {
-        super(SosConstants.SOS, Sos1Constants.SERVICEVERSION, operation, Sos1Constants.NS_SOS,
-                SosConstants.NS_SOS_PREFIX, responseType);
+    public AbstractSosV1ResponseEncoder(/*~~>*/String operation, Class<T> responseType) {
+        super(/*~~>*/SosConstants.SOS, /*~~>*/Sos1Constants.SERVICEVERSION, operation, /*~~>*/Sos1Constants.NS_SOS,
+                /*~~>*/SosConstants.NS_SOS_PREFIX, responseType);
     }
 
     @Override

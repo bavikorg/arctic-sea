@@ -46,8 +46,8 @@ public class SweSimpleDataRecord extends SweAbstractDataRecord {
     }
 
     @Override
-    public String toString() {
-        return String.format("SweSimpleDataRecord [fields=%s, definition=%s, label=%s, identifier=%s, xml=%s]",
+    public /*~~>*/String toString() {
+        return /*~~>*/String.format("SweSimpleDataRecord [fields=%s, definition=%s, label=%s, identifier=%s, xml=%s]",
                 getFields(), getDefinition(), getLabel(), getIdentifier(), getXml());
     }
 

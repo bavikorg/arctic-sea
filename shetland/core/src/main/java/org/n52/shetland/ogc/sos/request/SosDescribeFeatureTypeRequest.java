@@ -28,17 +28,17 @@ public class SosDescribeFeatureTypeRequest extends OwsServiceRequest {
     /**
      * FeatureOfInterest identifier
      */
-    private String featureIdentifier;
+    private /*~~>*/String featureIdentifier;
 
     public SosDescribeFeatureTypeRequest() {
         super(null, null, Sos1Constants.Operations.DescribeFeatureType.name());
     }
 
-    public SosDescribeFeatureTypeRequest(String service, String version) {
+    public SosDescribeFeatureTypeRequest(/*~~>*/String service, /*~~>*/String version) {
         super(service, version, Sos1Constants.Operations.DescribeFeatureType.name());
     }
 
-    public SosDescribeFeatureTypeRequest(String service, String version, String operationName) {
+    public SosDescribeFeatureTypeRequest(/*~~>*/String service, /*~~>*/String version, /*~~>*/String operationName) {
         super(service, version, operationName);
     }
 
@@ -47,7 +47,7 @@ public class SosDescribeFeatureTypeRequest extends OwsServiceRequest {
      *
      * @return FOI identifier
      */
-    public String getFeatureIdentifier() {
+    public /*~~>*/String getFeatureIdentifier() {
         return featureIdentifier;
     }
 
@@ -57,8 +57,8 @@ public class SosDescribeFeatureTypeRequest extends OwsServiceRequest {
      * @param featureIdentifier
      *            FOI identifier
      */
-    public void setFeatureIdentifier(String featureIdentifier) {
-        this.featureIdentifier = featureIdentifier;
+    public void setFeatureIdentifier(/*~~>*/String featureIdentifier) {
+        /*~~>*/this.featureIdentifier = featureIdentifier;
     }
 
 }

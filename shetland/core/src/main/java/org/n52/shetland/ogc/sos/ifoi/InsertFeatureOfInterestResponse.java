@@ -19,22 +19,22 @@ import org.n52.shetland.ogc.ows.service.OwsServiceResponse;
 
 public class InsertFeatureOfInterestResponse extends OwsServiceResponse {
 
-    private static String OPERATION_NAME = "InsertFeatureOfInterest";
+    private static /*~~>*/String OPERATION_NAME = "InsertFeatureOfInterest";
 
     public InsertFeatureOfInterestResponse() {
         super(null, null, OPERATION_NAME);
     }
 
-    public InsertFeatureOfInterestResponse(String service, String version) {
+    public InsertFeatureOfInterestResponse(/*~~>*/String service, /*~~>*/String version) {
         super(service, version, OPERATION_NAME);
     }
 
-    public InsertFeatureOfInterestResponse(String service, String version, String operationName) {
+    public InsertFeatureOfInterestResponse(/*~~>*/String service, /*~~>*/String version, /*~~>*/String operationName) {
         super(service, version, operationName);
     }
 
     @Override
-    public String getOperationName() {
+    public /*~~>*/String getOperationName() {
         return OPERATION_NAME;
     }
 

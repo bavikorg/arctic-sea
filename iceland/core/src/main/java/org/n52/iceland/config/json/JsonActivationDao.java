@@ -43,17 +43,17 @@ public class JsonActivationDao extends AbstractJsonActivationDao implements Acti
 
     @Override
     public boolean isRequestOperatorActive(RequestOperatorKey key) {
-        return isActive(JsonConstants.OPERATIONS, matches(key), key.isDefaultActive());
+        return isActive(/*~~>*/JsonConstants.OPERATIONS, matches(key), key.isDefaultActive());
     }
 
     @Override
     public void setOperationStatus(RequestOperatorKey key, boolean active) {
-        setStatus(JsonConstants.OPERATIONS, matches(key), s -> encode(s, key), active);
+        setStatus(/*~~>*/JsonConstants.OPERATIONS, matches(key), s -> encode(s, key), active);
     }
 
     @Override
     public Set<RequestOperatorKey> getRequestOperatorKeys() {
-        return getKeys(JsonConstants.OPERATIONS, this::decodeRequestOperatorKey);
+        return getKeys(/*~~>*/JsonConstants.OPERATIONS, this::decodeRequestOperatorKey);
     }
 
     @Override
@@ -61,8 +61,8 @@ public class JsonActivationDao extends AbstractJsonActivationDao implements Acti
         readLock().lock();
         try {
             return getConfiguration()
-                    .path(JsonConstants.ACTIVATION)
-                    .path(JsonConstants.BINDINGS)
+                    .path(/*~~>*/JsonConstants.ACTIVATION)
+                    .path(/*~~>*/JsonConstants.BINDINGS)
                     .path(key.getKeyAsString())
                     .asBoolean(true);
         } finally {
@@ -75,12 +75,12 @@ public class JsonActivationDao extends AbstractJsonActivationDao implements Acti
         writeLock().lock();
         try {
             ObjectNode node = getConfiguration()
-                    .with(JsonConstants.ACTIVATION)
-                    .with(JsonConstants.BINDINGS);
+                    .with(/*~~>*/JsonConstants.ACTIVATION)
+                    .with(/*~~>*/JsonConstants.BINDINGS);
             if (key instanceof PathBindingKey) {
-                node = node.with(JsonConstants.BY_PATH);
+                node = node.with(/*~~>*/JsonConstants.BY_PATH);
             } else if (key instanceof MediaTypeBindingKey) {
-                node = node.with(JsonConstants.BY_MEDIA_TYPE);
+                node = node.with(/*~~>*/JsonConstants.BY_MEDIA_TYPE);
             }
             node.put(key.getKeyAsString(), active);
         } finally {
@@ -93,11 +93,11 @@ public class JsonActivationDao extends AbstractJsonActivationDao implements Acti
     public Set<BindingKey> getBindingKeys() {
         readLock().lock();
         try {
-            JsonNode node = getConfiguration().path(JsonConstants.ACTIVATION).path(JsonConstants.BINDINGS);
+            JsonNode node = getConfiguration().path(/*~~>*/JsonConstants.ACTIVATION).path(/*~~>*/JsonConstants.BINDINGS);
             Set<BindingKey> keys = new HashSet<>(node.size());
-            node.path(JsonConstants.BY_PATH).fieldNames()
+            node.path(/*~~>*/JsonConstants.BY_PATH).fieldNames()
                     .forEachRemaining(k -> keys.add(new PathBindingKey(k)));
-            node.path(JsonConstants.BY_MEDIA_TYPE).fieldNames()
+            node.path(/*~~>*/JsonConstants.BY_MEDIA_TYPE).fieldNames()
                     .forEachRemaining(k -> keys
                     .add(new MediaTypeBindingKey(MediaType.parse(k))));
             return keys;
@@ -108,23 +108,23 @@ public class JsonActivationDao extends AbstractJsonActivationDao implements Acti
 
     @Override
     public boolean isOwsOperationMetadataExtensionProviderActive(OwsOperationMetadataExtensionProviderKey key) {
-        return isActive(JsonConstants.OWS_EXTENDED_CAPABILITIES_PROVIDERS, matches(key), true);
+        return isActive(/*~~>*/JsonConstants.OWS_EXTENDED_CAPABILITIES_PROVIDERS, matches(key), true);
     }
 
     @Override
     public void setOwsOperationMetadataExtensionProviderStatus(OwsOperationMetadataExtensionProviderKey key,
                                                                boolean active) {
-        setStatus(JsonConstants.OWS_EXTENDED_CAPABILITIES_PROVIDERS, matches(key), s -> encode(s, key), active);
+        setStatus(/*~~>*/JsonConstants.OWS_EXTENDED_CAPABILITIES_PROVIDERS, matches(key), s -> encode(s, key), active);
     }
 
     @Override
     public Set<OwsOperationMetadataExtensionProviderKey> getOwsOperationMetadataExtensionProviderKeys() {
-        return getKeys(JsonConstants.OWS_EXTENDED_CAPABILITIES_PROVIDERS, decodeOwsExtendedCapabilitiesProviderKey());
+        return getKeys(/*~~>*/JsonConstants.OWS_EXTENDED_CAPABILITIES_PROVIDERS, decodeOwsExtendedCapabilitiesProviderKey());
     }
 
     protected RequestOperatorKey decodeRequestOperatorKey(JsonNode node) {
         return new RequestOperatorKey(decodeServiceOperatorKey(node),
-                                      node.path(JsonConstants.OPERATION_NAME).textValue());
+                                      node.path(/*~~>*/JsonConstants.OPERATION_NAME).textValue());
     }
 
     protected Function<JsonNode, OwsOperationMetadataExtensionProviderKey> decodeOwsExtendedCapabilitiesProviderKey() {
@@ -135,23 +135,23 @@ public class JsonActivationDao extends AbstractJsonActivationDao implements Acti
         Objects.requireNonNull(supplier);
         return () -> {
             OwsServiceKey sok = key == null ? null : key.getServiceOperatorKey();
-            String operationName = key == null ? null : key.getOperationName();
+            /*~~>*/String operationName = key == null ? null : key.getOperationName();
             return encode(supplier, sok).get()
-                    .put(JsonConstants.OPERATION_NAME, operationName);
+                    .put(/*~~>*/JsonConstants.OPERATION_NAME, operationName);
         };
     }
 
     protected Predicate<JsonNode> matches(RequestOperatorKey key) {
         OwsServiceKey sok = key == null ? null : key.getServiceOperatorKey();
-        String operationName = key == null ? null : key.getOperationName();
+        /*~~>*/String operationName = key == null ? null : key.getOperationName();
         return matches(sok).and(matchesOperationName(operationName));
     }
 
-    protected Predicate<JsonNode> matchesOperationName(String operationName) {
+    protected Predicate<JsonNode> matchesOperationName(/*~~>*/String operationName) {
         if (operationName == null) {
-            return isNullOrMissing(JsonConstants.OPERATION_NAME);
+            return isNullOrMissing(/*~~>*/JsonConstants.OPERATION_NAME);
         }
-        return n -> n.path(JsonConstants.OPERATION_NAME).asText().equals(operationName);
+        return n -> n.path(/*~~>*/JsonConstants.OPERATION_NAME).asText().equals(operationName);
     }
 
 }

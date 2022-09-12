@@ -44,7 +44,7 @@ public class GetObservationByIdResponseDocumentDecoder
     private static final Logger LOGGER = LoggerFactory.getLogger(GetObservationByIdResponseDocumentDecoder.class);
 
     private static final Set<DecoderKey> DECODER_KEYS
-            = CodingHelper.decoderKeysForElements(Sos2Constants.NS_SOS_20, GetObservationByIdResponseDocument.class);
+            = CodingHelper.decoderKeysForElements(/*~~>*/Sos2Constants.NS_SOS_20, GetObservationByIdResponseDocument.class);
 
     public GetObservationByIdResponseDocumentDecoder() {
         LOGGER.debug("Decoder for the following keys initialized successfully: {}!",

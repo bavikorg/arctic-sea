@@ -19,11 +19,11 @@ public class STAInvalidQueryError extends Error {
 
     private static final long serialVersionUID = -6949681213178513459L;
 
-    public STAInvalidQueryError(String msg) {
+    public STAInvalidQueryError(/*~~>*/String msg) {
         super(msg);
     }
 
-    public STAInvalidQueryError(String msg, Throwable nested) {
+    public STAInvalidQueryError(/*~~>*/String msg, Throwable nested) {
         super(msg, nested);
     }
 

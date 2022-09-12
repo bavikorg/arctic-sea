@@ -36,7 +36,7 @@ public class SosV1GetFeatureOfInterestResponseEncoder
 
     @Override
     protected XmlObject create(GetFeatureOfInterestResponse response) throws EncodingException {
-        return getEncoder(GmlConstants.NS_GML, response.getAbstractFeature()).encode(response.getAbstractFeature());
+        return getEncoder(/*~~>*/GmlConstants.NS_GML, response.getAbstractFeature()).encode(response.getAbstractFeature());
 
     }
 }

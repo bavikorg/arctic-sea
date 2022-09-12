@@ -31,7 +31,7 @@ public class ConnectionProviderException extends Exception {
         super();
     }
 
-    public ConnectionProviderException(String message) {
+    public ConnectionProviderException(/*~~>*/String message) {
         super(message);
     }
 
@@ -39,7 +39,7 @@ public class ConnectionProviderException extends Exception {
         super(exception);
     }
 
-    public ConnectionProviderException(String message, Throwable exception) {
+    public ConnectionProviderException(/*~~>*/String message, Throwable exception) {
         super(message, exception);
     }
 }

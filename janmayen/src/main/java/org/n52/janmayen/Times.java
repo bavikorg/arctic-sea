@@ -36,20 +36,20 @@ import com.google.common.base.Strings;
  */
 public final class Times {
     private static final DateTime ZERO = new DateTime(0, 1, 1, 0, 0, 0, 0, DateTimeZone.UTC);
-    private static final String UTC_OFFSET = "+00:00";
-    private static final String Z = "Z";
+    private static final /*~~>*/String UTC_OFFSET = "+00:00";
+    private static final /*~~>*/String Z = "Z";
 
     private Times() {
     }
 
-    public static String encodeDateTime(DateTime dt) {
+    public static /*~~>*/String encodeDateTime(DateTime dt) {
         if (dt == null) {
             return ZERO.toString().replace(Z, UTC_OFFSET);
         }
         return dt.toString();
     }
 
-    public static String encodeDateTime(DateTime dateTime, String dateFormat) {
+    public static /*~~>*/String encodeDateTime(DateTime dateTime, /*~~>*/String dateFormat) {
         if (Strings.isNullOrEmpty(dateFormat)) {
             return encodeDateTime(dateTime);
         } else if (dateTime == null) {
@@ -59,7 +59,7 @@ public final class Times {
         }
     }
 
-    public static String encodeDateTime(DateTime dateTime, DateTimeFormatter formatter) {
+    public static /*~~>*/String encodeDateTime(DateTime dateTime, DateTimeFormatter formatter) {
         if (formatter == null) {
             return encodeDateTime(dateTime);
         } else if (dateTime == null) {
@@ -69,7 +69,7 @@ public final class Times {
         }
     }
 
-    public static DateTime decodeDateTime(String string) {
+    public static DateTime decodeDateTime(/*~~>*/String string) {
         if (Strings.isNullOrEmpty(string)) {
             return null;
         }
@@ -87,17 +87,17 @@ public final class Times {
      *
      * @return Period object of duration
      */
-    public static Period decodePeriod(String period) {
+    public static Period decodePeriod(/*~~>*/String period) {
         return ISOPeriodFormat.standard().parsePeriod(period);
     }
 
-    public static Interval decodeInterval(String interval) {
-        String[] split = interval.split("/", 2);
+    public static Interval decodeInterval(/*~~>*/String interval) {
+        /*~~>*/String[] split = interval.split("/", 2);
         return new Interval(decodeDateTime(split[0]), decodeDateTime(split[1]));
     }
 
-    public static String encodeInterval(Interval interval) {
-        return String.format("%s/%s", encodeDateTime(interval.getStart()), encodeDateTime(interval.getEnd()));
+    public static /*~~>*/String encodeInterval(Interval interval) {
+        return /*~~>*/String.format("%s/%s", encodeDateTime(interval.getStart()), encodeDateTime(interval.getEnd()));
     }
 
     /**

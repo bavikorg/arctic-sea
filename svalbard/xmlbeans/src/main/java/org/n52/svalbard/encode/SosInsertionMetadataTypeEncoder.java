@@ -35,7 +35,7 @@ public class SosInsertionMetadataTypeEncoder
 
     private static final Set<EncoderKey> ENCODER_KEYS = Sets.newHashSet(
             new ClassToClassEncoderKey(SosInsertionMetadata.class, InsertionMetadataType.class),
-            new XmlPropertyTypeEncoderKey(Sos2Constants.NS_SOS_20, SosInsertionMetadata.class));
+            new XmlPropertyTypeEncoderKey(/*~~>*/Sos2Constants.NS_SOS_20, SosInsertionMetadata.class));
 
     @Override
     public Set<EncoderKey> getKeys() {

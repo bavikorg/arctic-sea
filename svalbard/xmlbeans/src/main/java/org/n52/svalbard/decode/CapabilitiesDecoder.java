@@ -59,7 +59,7 @@ public class CapabilitiesDecoder extends AbstractCapabilitiesBaseTypeDecoder<Cap
             = LoggerFactory.getLogger(CapabilitiesDecoder.class);
 
     private static final Set<DecoderKey> DECODER_KEYS
-            = CodingHelper.decoderKeysForElements(Sos1Constants.NS_SOS, Capabilities.class);
+            = CodingHelper.decoderKeysForElements(/*~~>*/Sos1Constants.NS_SOS, Capabilities.class);
 
     public CapabilitiesDecoder() {
         LOGGER.debug("Decoder for the following keys initialized successfully: {}!",
@@ -75,7 +75,7 @@ public class CapabilitiesDecoder extends AbstractCapabilitiesBaseTypeDecoder<Cap
     @SuppressFBWarnings("NP_LOAD_OF_KNOWN_NULL_VALUE")
     public SosCapabilities decode(Capabilities c) throws DecodingException {
         if (c != null) {
-            OwsCapabilities owsCapabilities = parseCapabilitiesBaseType(SosConstants.SOS, c);
+            OwsCapabilities owsCapabilities = parseCapabilitiesBaseType(/*~~>*/SosConstants.SOS, c);
             FilterCapabilities filterCapabilities = parseFilterCapabilities(c.getFilterCapabilities());
             Collection<SosObservationOffering> contents = parseContents(c.getContents());
             return new SosCapabilities(owsCapabilities, filterCapabilities, contents);
@@ -123,7 +123,7 @@ public class CapabilitiesDecoder extends AbstractCapabilitiesBaseTypeDecoder<Cap
         return null;
     }
 
-    private Collection<String> parseProcedure(ObservationOfferingType obsOffType) {
+    private Collection</*~~>*/String> parseProcedure(ObservationOfferingType obsOffType) {
         return Optional.ofNullable(obsOffType.getProcedureArray())
                 .map(Arrays::stream)
                 .orElseGet(Stream::empty)
@@ -131,12 +131,12 @@ public class CapabilitiesDecoder extends AbstractCapabilitiesBaseTypeDecoder<Cap
                 .collect(toSet());
     }
 
-    private Collection<String> parseProcedureDescriptionFormat(ObservationOfferingType obsOffType) {
+    private Collection</*~~>*/String> parseProcedureDescriptionFormat(ObservationOfferingType obsOffType) {
         LOGGER.warn("parseProcedureDescriptionFormat needs to be implemented");
         return Collections.emptySet();
     }
 
-    private Collection<String> parseObservableProperties(ObservationOfferingType obsOffType) {
+    private Collection</*~~>*/String> parseObservableProperties(ObservationOfferingType obsOffType) {
         return Optional.ofNullable(obsOffType.getObservedPropertyArray())
                 .map(Arrays::stream)
                 .orElseGet(Stream::empty)
@@ -154,19 +154,19 @@ public class CapabilitiesDecoder extends AbstractCapabilitiesBaseTypeDecoder<Cap
         return null;
     }
 
-    private Collection<String> parseResponseFormats(ObservationOfferingType obsOffType) {
+    private Collection</*~~>*/String> parseResponseFormats(ObservationOfferingType obsOffType) {
         return Optional.ofNullable(obsOffType.getResponseFormatArray())
                 .map(Arrays::stream)
                 .orElseGet(Stream::empty)
                 .collect(toSet());
     }
 
-    private Collection<String> parseObservationTypes(ObservationOfferingType obsOffType) {
+    private Collection</*~~>*/String> parseObservationTypes(ObservationOfferingType obsOffType) {
         LOGGER.warn("parseObservationTypes needs to be implemented");
         return Collections.emptySet();
     }
 
-    private Collection<String> parseFeatureOfInterestTypes(ObservationOfferingType obsOffType) {
+    private Collection</*~~>*/String> parseFeatureOfInterestTypes(ObservationOfferingType obsOffType) {
         return Optional.ofNullable(obsOffType.getFeatureOfInterestArray())
                 .map(Arrays::stream)
                 .orElseGet(Stream::empty)
@@ -174,7 +174,7 @@ public class CapabilitiesDecoder extends AbstractCapabilitiesBaseTypeDecoder<Cap
                 .collect(toSet());
     }
 
-    private Map<String, Set<String>> parseRelatedFeatures(ObservationOfferingType obsOffType) {
+    private Map</*~~>*/String, Set</*~~>*/String>> parseRelatedFeatures(ObservationOfferingType obsOffType) {
         LOGGER.warn("parseRelatedFeatures needs to be implemented");
         return Collections.emptyMap();
     }

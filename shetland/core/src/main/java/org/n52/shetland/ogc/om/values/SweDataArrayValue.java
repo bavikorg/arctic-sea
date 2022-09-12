@@ -77,7 +77,7 @@ public class SweDataArrayValue implements MultiValue<SweDataArray> {
     }
 
     @Override
-    public void setUnit(final String unit) {
+    public void setUnit(final /*~~>*/String unit) {
         this.uom = new UoM(unit);
     }
 
@@ -88,7 +88,7 @@ public class SweDataArrayValue implements MultiValue<SweDataArray> {
     }
 
     @Override
-    public String getUnit() {
+    public /*~~>*/String getUnit() {
         if (uom != null) {
             return uom.getUom();
         }
@@ -108,7 +108,7 @@ public class SweDataArrayValue implements MultiValue<SweDataArray> {
      * @return <tt>true</tt> (as specified by {@link Collection#add}) <br />
      *         <tt>false</tt> if block could not be added
      */
-    public boolean addBlock(final List<String> blockOfTokensToAddAtTheEnd) {
+    public boolean addBlock(final List</*~~>*/String> blockOfTokensToAddAtTheEnd) {
         if (value != null) {
             return value.add(blockOfTokensToAddAtTheEnd);
         }
@@ -116,8 +116,8 @@ public class SweDataArrayValue implements MultiValue<SweDataArray> {
     }
 
     @Override
-    public String toString() {
-        return String.format("SweDataArrayValue [value=%s, unit=null]", getValue());
+    public /*~~>*/String toString() {
+        return /*~~>*/String.format("SweDataArrayValue [value=%s, unit=null]", getValue());
     }
 
     @Override
@@ -140,18 +140,18 @@ public class SweDataArrayValue implements MultiValue<SweDataArray> {
 
             }
             if (CollectionHelper.isNotEmpty(dateTokenIndizes)) {
-                for (final List<String> block : getValue().getValues()) {
+                for (final List</*~~>*/String> block : getValue().getValues()) {
                     // check for "/" to identify time periods (Is
                     // conform with ISO8601 (see WP))
                     // datetimehelper to DateTime from joda time
                     for (Integer index : dateTokenIndizes) {
-                        String token = null;
+                        /*~~>*/String token = null;
                         try {
                             token = block.get(index);
                             final Time time = DateTimeHelper.parseIsoString2DateTime2Time(token);
                             timePeriod.extendToContain(time);
                         } catch (final DateTimeParseException dte) {
-                            LOGGER.error(String.format("Could not parse ISO8601 string \"%s\"", token), dte);
+                            LOGGER.error(/*~~>*/String.format("Could not parse ISO8601 string \"%s\"", token), dte);
                             // FIXME throw exception here?
                             // try next block;
                             continue;
@@ -159,12 +159,12 @@ public class SweDataArrayValue implements MultiValue<SweDataArray> {
                     }
                 }
             } else {
-                final String errorMsg = "PhenomenonTime field could not be found in ElementType";
+                final /*~~>*/String errorMsg = "PhenomenonTime field could not be found in ElementType";
                 LOGGER.error(errorMsg);
             }
         } else {
-            final String errorMsg =
-                    String.format("Value of type \"%s\" not set correct.", SweDataArrayValue.class.getName());
+            final /*~~>*/String errorMsg =
+                    /*~~>*/String.format("Value of type \"%s\" not set correct.", SweDataArrayValue.class.getName());
             LOGGER.error(errorMsg);
         }
         return timePeriod;
@@ -172,7 +172,7 @@ public class SweDataArrayValue implements MultiValue<SweDataArray> {
 
     private boolean checkFieldNameAndElementDefinition(SweField sweField) {
         return "StartTime".equals(sweField.getName().getValue()) || "EndTime".equals(sweField.getName().getValue())
-                || OmConstants.PHENOMENON_TIME.equals(sweField.getElement().getDefinition());
+                || /*~~>*/OmConstants.PHENOMENON_TIME.equals(sweField.getElement().getDefinition());
 
     }
 

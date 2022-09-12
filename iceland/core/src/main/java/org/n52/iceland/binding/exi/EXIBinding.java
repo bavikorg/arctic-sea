@@ -162,10 +162,10 @@ public class EXIBinding extends SimpleBinding {
             TransformerFactory tf = TransformerFactory.newInstance();
             Transformer transformer = tf.newTransformer();
             if (ef.isFragment()) {
-                transformer.setOutputProperty(OutputKeys.OMIT_XML_DECLARATION, "yes");
+                transformer.setOutputProperty(/*~~>*/OutputKeys.OMIT_XML_DECLARATION, "yes");
             }
-            transformer.setOutputProperty(OutputKeys.METHOD, "xml");
-            transformer.setOutputProperty(OutputKeys.ENCODING, StandardCharsets.UTF_8.name());
+            transformer.setOutputProperty(/*~~>*/OutputKeys.METHOD, "xml");
+            transformer.setOutputProperty(/*~~>*/OutputKeys.ENCODING, StandardCharsets.UTF_8.name());
             // decode EXI encoded InputStream
             EXISource exiSource = new EXISource(ef);
             XMLReader exiReader = exiSource.getXMLReader();

@@ -17,13 +17,13 @@ package org.n52.shetland.ogc.sos;
 
 public interface SosSpatialFilterConstants {
 
-    String NS_SF = "http://www.opengis.net/sossf/1.0";
+    /*~~>*/String NS_SF = "http://www.opengis.net/sossf/1.0";
 
-    String SPATIAL_FILTER = "SpatialFilter";
+    /*~~>*/String SPATIAL_FILTER = "SpatialFilter";
 
-    String CONFORMANCE_CLASS_SF = "http://www.opengis.net/spec/sossf/1.0/conf/sf";
+    /*~~>*/String CONFORMANCE_CLASS_SF = "http://www.opengis.net/spec/sossf/1.0/conf/sf";
 
-    String CONFORMANCE_CLASS_KVP = "http://www.opengis.net/spec/sossf/1.0/conf/kvp";
+    /*~~>*/String CONFORMANCE_CLASS_KVP = "http://www.opengis.net/spec/sossf/1.0/conf/kvp";
 
-    String CONFORMANCE_CLASS_XML = "http://www.opengis.net/spec/sossf/1.0/conf/xml";
+    /*~~>*/String CONFORMANCE_CLASS_XML = "http://www.opengis.net/spec/sossf/1.0/conf/xml";
 }

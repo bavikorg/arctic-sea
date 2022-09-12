@@ -56,8 +56,8 @@ public abstract class ModificationResponseEvent<I extends OwsServiceRequest, O e
     }
 
     @Override
-    public String toString() {
-        return String.format("%s[request=%s, response=%s]", getClass()
+    public /*~~>*/String toString() {
+        return /*~~>*/String.format("%s[request=%s, response=%s]", getClass()
                              .getSimpleName(), getRequest(), getResponse());
     }
 }

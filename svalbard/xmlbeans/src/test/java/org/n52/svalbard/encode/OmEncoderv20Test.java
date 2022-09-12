@@ -77,34 +77,34 @@ import net.opengis.sampling.x20.SFSamplingFeatureType;
 
 public class OmEncoderv20Test {
 
-    private static final String PROCEDURE = "procedure";
-    private static final String OFFERING = "offering";
-    private static final String PARENT_OBSERVABLE_PROPERTY = "http://example.tld/phenomenon/parent";
-    private static final String CHILD_OBSERVABLE_PROPERTY_5 = "http://example.tld/phenomenon/child/5";
-    private static final String CHILD_OBSERVABLE_PROPERTY_4 = "http://example.tld/phenomenon/child/4";
-    private static final String CHILD_OBSERVABLE_PROPERTY_3 = "http://example.tld/phenomenon/child/3";
-    private static final String CHILD_OBSERVABLE_PROPERTY_2 = "http://example.tld/phenomenon/child/2";
-    private static final String CHILD_OBSERVABLE_PROPERTY_1 = "http://example.tld/phenomenon/child/1";
-    private static final String CODE_SPACE = "codespace";
+    private static final /*~~>*/String PROCEDURE = "procedure";
+    private static final /*~~>*/String OFFERING = "offering";
+    private static final /*~~>*/String PARENT_OBSERVABLE_PROPERTY = "http://example.tld/phenomenon/parent";
+    private static final /*~~>*/String CHILD_OBSERVABLE_PROPERTY_5 = "http://example.tld/phenomenon/child/5";
+    private static final /*~~>*/String CHILD_OBSERVABLE_PROPERTY_4 = "http://example.tld/phenomenon/child/4";
+    private static final /*~~>*/String CHILD_OBSERVABLE_PROPERTY_3 = "http://example.tld/phenomenon/child/3";
+    private static final /*~~>*/String CHILD_OBSERVABLE_PROPERTY_2 = "http://example.tld/phenomenon/child/2";
+    private static final /*~~>*/String CHILD_OBSERVABLE_PROPERTY_1 = "http://example.tld/phenomenon/child/1";
+    private static final /*~~>*/String CODE_SPACE = "codespace";
 
-    private static final String TOKEN_SEPERATOR = "##";
-    private static final String TUPLE_SEPERATOR = "@@";
+    private static final /*~~>*/String TOKEN_SEPERATOR = "##";
+    private static final /*~~>*/String TUPLE_SEPERATOR = "@@";
 
-    protected static final String CHILD_OBSERVABLE_PROPERTY_1_NAME = "child1";
-    protected static final String CHILD_OBSERVABLE_PROPERTY_2_NAME = "child2";
-    protected static final String CHILD_OBSERVABLE_PROPERTY_3_NAME = "child3";
-    protected static final String CHILD_OBSERVABLE_PROPERTY_4_NAME = "child4";
-    protected static final String CHILD_OBSERVABLE_PROPERTY_5_NAME = "child5";
+    protected static final /*~~>*/String CHILD_OBSERVABLE_PROPERTY_1_NAME = "child1";
+    protected static final /*~~>*/String CHILD_OBSERVABLE_PROPERTY_2_NAME = "child2";
+    protected static final /*~~>*/String CHILD_OBSERVABLE_PROPERTY_3_NAME = "child3";
+    protected static final /*~~>*/String CHILD_OBSERVABLE_PROPERTY_4_NAME = "child4";
+    protected static final /*~~>*/String CHILD_OBSERVABLE_PROPERTY_5_NAME = "child5";
 
     private OmEncoderv20 omEncoderv20;
 
-    private String procedureIdentifier = "test-procedure-identifier";
+    private /*~~>*/String procedureIdentifier = "test-procedure-identifier";
 
-    private String observedProperty = "test-observed-property";
+    private /*~~>*/String observedProperty = "test-observed-property";
 
-    private String featureIdentifier = "test-feature-identifier";
+    private /*~~>*/String featureIdentifier = "test-feature-identifier";
 
-    private String featureName = "test-feature-name";
+    private /*~~>*/String featureName = "test-feature-name";
 
 
     @BeforeEach
@@ -171,7 +171,7 @@ public class OmEncoderv20Test {
     @Test
     public void shouldEncodeObservationTypeInObservationTemplate() throws EncodingException {
         OmObservationConstellation observationTemplate = new OmObservationConstellation();
-        String observationType = OmConstants.OBS_TYPE_MEASUREMENT;
+        /*~~>*/String observationType = /*~~>*/OmConstants.OBS_TYPE_MEASUREMENT;
         observationTemplate.setObservationType(observationType);
         observationTemplate.setObservableProperty(new OmObservableProperty(observedProperty));
 
@@ -183,7 +183,7 @@ public class OmEncoderv20Test {
     @Test
     public void shouldEncodeTimeFieldsInObservationTemplate() throws EncodingException {
         OmObservationConstellation observationTemplate = new OmObservationConstellation();
-        String observationType = OmConstants.OBS_TYPE_MEASUREMENT;
+        /*~~>*/String observationType = /*~~>*/OmConstants.OBS_TYPE_MEASUREMENT;
         observationTemplate.setObservationType(observationType);
         observationTemplate.setObservableProperty(new OmObservableProperty(observedProperty));
 
@@ -200,7 +200,7 @@ public class OmEncoderv20Test {
     @Test
     public void shouldEncodeFeatureWithNilWhenMissingInObservationTemplate() throws EncodingException {
         OmObservationConstellation observationTemplate = new OmObservationConstellation();
-        String observationType = OmConstants.OBS_TYPE_MEASUREMENT;
+        /*~~>*/String observationType = /*~~>*/OmConstants.OBS_TYPE_MEASUREMENT;
         observationTemplate.setObservationType(observationType);
         observationTemplate.setObservableProperty(new OmObservableProperty(observedProperty));
 
@@ -218,21 +218,21 @@ public class OmEncoderv20Test {
         SamplingFeature featureOfInterest = new SamplingFeature(new CodeWithAuthority(featureIdentifier));
         featureOfInterest.setIdentifier(featureIdentifier);
         featureOfInterest.setName(new CodeType(featureName));
-        featureOfInterest.setFeatureType(SfConstants.SAMPLING_FEAT_TYPE_SF_SAMPLING_POINT);
+        featureOfInterest.setFeatureType(/*~~>*/SfConstants.SAMPLING_FEAT_TYPE_SF_SAMPLING_POINT);
         featureOfInterest.setGeometry(JTSHelper.createGeometryFromWKT("POINT (30 10)" , 4326));
         //
         SensorML procedure = new SensorML();
         procedure.setIdentifier(procedureIdentifier);
         //
         OmObservationConstellation observationTemplate = new OmObservationConstellation();
-        observationTemplate.setObservationType(OmConstants.OBS_TYPE_MEASUREMENT);
+        observationTemplate.setObservationType(/*~~>*/OmConstants.OBS_TYPE_MEASUREMENT);
         observationTemplate.setObservableProperty(new OmObservableProperty(observedProperty));
         observationTemplate.setProcedure(procedure);
         observationTemplate.setFeatureOfInterest(featureOfInterest);
         //
         OMObservationType omObservation = (OMObservationType) omEncoderv20.encode(observationTemplate);
         //
-        assertThat(omObservation.getType().getHref(), Is.is(OmConstants.OBS_TYPE_MEASUREMENT));
+        assertThat(omObservation.getType().getHref(), Is.is(/*~~>*/OmConstants.OBS_TYPE_MEASUREMENT));
         assertThat(omObservation.getPhenomenonTime().isNil(), Is.is(false));
         assertThat(omObservation.getPhenomenonTime().isSetNilReason(), Is.is(true));
         assertThat(omObservation.getPhenomenonTime().getNilReason(), Is.is("template"));
@@ -266,7 +266,7 @@ public class OmEncoderv20Test {
         observableProperty.addPhenomenonComponent(new OmObservableProperty(CHILD_OBSERVABLE_PROPERTY_3));
         observableProperty.addPhenomenonComponent(new OmObservableProperty(CHILD_OBSERVABLE_PROPERTY_4));
         observationConstellation.setObservableProperty(observableProperty);
-        observationConstellation.setObservationType(OmConstants.OBS_TYPE_COMPLEX_OBSERVATION);
+        observationConstellation.setObservationType(/*~~>*/OmConstants.OBS_TYPE_COMPLEX_OBSERVATION);
         observationConstellation.addOffering(OFFERING);
         AbstractFeature procedure = new SosProcedureDescriptionUnknownType(PROCEDURE);
 //        procedure.setIdentifier(new CodeWithAuthority(PROCEDURE, CODE_SPACE));
@@ -312,36 +312,36 @@ public class OmEncoderv20Test {
         Checker(NamespaceContext ctx) {
             this.ctx = ctx;
         }
-        public Matcher<Node> hasXPath(String path) {
+        public Matcher<Node> hasXPath(/*~~>*/String path) {
             return Matchers.hasXPath(path, ctx);
         }
-        public Matcher<Node> hasXPath(String path, Matcher<String> value) {
+        public Matcher<Node> hasXPath(/*~~>*/String path, Matcher</*~~>*/String> value) {
             return Matchers.hasXPath(path, ctx, value);
         }
     }
 
     private class NamespaceContextImpl implements NamespaceContext {
-        private ImmutableBiMap<String, String> map = ImmutableBiMap
-                .<String, String>builder()
-                .put(SweConstants.NS_SWE_PREFIX, SweConstants.NS_SWE_20)
-                .put(OmConstants.NS_OM_PREFIX, OmConstants.NS_OM_2)
-                .put(W3CConstants.NS_XSI_PREFIX, W3CConstants.NS_XSI)
-                .put(W3CConstants.NS_XLINK_PREFIX, W3CConstants.NS_XLINK)
-                .put(GmlConstants.NS_GML_PREFIX, GmlConstants.NS_GML_32)
+        private ImmutableBiMap</*~~>*/String, /*~~>*/String> map = ImmutableBiMap
+                .</*~~>*/String, /*~~>*/String>builder()
+                .put(/*~~>*/SweConstants.NS_SWE_PREFIX, /*~~>*/SweConstants.NS_SWE_20)
+                .put(/*~~>*/OmConstants.NS_OM_PREFIX, /*~~>*/OmConstants.NS_OM_2)
+                .put(/*~~>*/W3CConstants.NS_XSI_PREFIX, /*~~>*/W3CConstants.NS_XSI)
+                .put(/*~~>*/W3CConstants.NS_XLINK_PREFIX, /*~~>*/W3CConstants.NS_XLINK)
+                .put(/*~~>*/GmlConstants.NS_GML_PREFIX, /*~~>*/GmlConstants.NS_GML_32)
                 .build();
 
         @Override
-        public String getNamespaceURI(String prefix) {
+        public /*~~>*/String getNamespaceURI(/*~~>*/String prefix) {
             return map.get(prefix);
         }
 
         @Override
-        public String getPrefix(String namespaceURI) {
+        public /*~~>*/String getPrefix(/*~~>*/String namespaceURI) {
             return map.inverse().get(namespaceURI);
         }
 
         @Override
-        public Iterator<String> getPrefixes(String namespaceURI) {
+        public Iterator</*~~>*/String> getPrefixes(/*~~>*/String namespaceURI) {
             return Iterators.singletonIterator(getPrefix(namespaceURI));
         }
     }

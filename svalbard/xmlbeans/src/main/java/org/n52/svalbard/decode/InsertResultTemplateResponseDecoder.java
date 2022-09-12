@@ -42,9 +42,9 @@ public class InsertResultTemplateResponseDecoder extends AbstractXmlDecoder<XmlO
     private static final Logger LOGGER = LoggerFactory.getLogger(InsertResultTemplateResponseDecoder.class);
 
     private static final Set<DecoderKey> DECODER_KEYS = CollectionHelper.union(
-            CodingHelper.decoderKeysForElements(Sos2Constants.NS_SOS_20,
+            CodingHelper.decoderKeysForElements(/*~~>*/Sos2Constants.NS_SOS_20,
                     InsertResultTemplateResponseDocument.class),
-            CodingHelper.xmlDecoderKeysForOperation(Sos2Constants.SOS, Sos2Constants.SERVICEVERSION,
+            CodingHelper.xmlDecoderKeysForOperation(/*~~>*/Sos2Constants.SOS, /*~~>*/Sos2Constants.SERVICEVERSION,
                     Sos2Constants.Operations.InsertResultTemplate));
 
     public InsertResultTemplateResponseDecoder() {
@@ -69,8 +69,8 @@ public class InsertResultTemplateResponseDecoder extends AbstractXmlDecoder<XmlO
             throw new DecodingException(
                     "Received XML document is not valid. Set log level to debug to get more details");
         }
-        InsertResultTemplateResponse decodedResponse = new InsertResultTemplateResponse(SosConstants.SOS,
-                Sos2Constants.SERVICEVERSION);
+        InsertResultTemplateResponse decodedResponse = new InsertResultTemplateResponse(/*~~>*/SosConstants.SOS,
+                /*~~>*/Sos2Constants.SERVICEVERSION);
         decodedResponse.setAcceptedTemplate(isr.getAcceptedTemplate());
         return decodedResponse;
     }

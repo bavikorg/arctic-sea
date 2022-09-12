@@ -21,8 +21,8 @@ import org.n52.shetland.ogc.ows.extension.StringBasedExtension;
 public interface SosObservationOfferingExtension extends StringBasedExtension, DisableableExtension {
 
     @Override
-    String getIdentifier();
+    /*~~>*/String getIdentifier();
 
-    String getOfferingName();
+    /*~~>*/String getOfferingName();
 
 }

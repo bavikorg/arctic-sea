@@ -25,5 +25,5 @@ import org.n52.iceland.cache.ctrl.AbstractSchedulingContentCacheController;
  * @since 1.0.0
  */
 public interface AsyncCachePersistenceStrategySettings {
-    String CACHE_PERSISTENCE_DELAY = "service.cachePersistenceDelay";
+    /*~~>*/String CACHE_PERSISTENCE_DELAY = "service.cachePersistenceDelay";
 }

@@ -24,25 +24,25 @@ import org.n52.shetland.ogc.sos.SosConstants;
  */
 public class GetResultResponse extends OwsServiceResponse {
 
-    private String resultValues;
+    private /*~~>*/String resultValues;
 
     public GetResultResponse() {
         super(null, null, SosConstants.Operations.GetResult.name());
     }
 
-    public GetResultResponse(String service, String version) {
+    public GetResultResponse(/*~~>*/String service, /*~~>*/String version) {
         super(service, version, SosConstants.Operations.GetResult.name());
     }
 
-    public GetResultResponse(String service, String version, String operationName) {
+    public GetResultResponse(/*~~>*/String service, /*~~>*/String version, /*~~>*/String operationName) {
         super(service, version, operationName);
     }
 
-    public void setResultValues(String resultValues) {
-        this.resultValues = resultValues;
+    public void setResultValues(/*~~>*/String resultValues) {
+        /*~~>*/this.resultValues = resultValues;
     }
 
-    public String getResultValues() {
+    public /*~~>*/String getResultValues() {
         return resultValues;
     }
 

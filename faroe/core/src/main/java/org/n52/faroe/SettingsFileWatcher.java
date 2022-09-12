@@ -63,7 +63,7 @@ import edu.umd.cs.findbugs.annotations.SuppressFBWarnings;
 @Configurable
 public class SettingsFileWatcher implements Constructable, Destroyable {
 
-    private static final String FILE_WATCHER_ENABLED = "filewatcher.enabled";
+    private static final /*~~>*/String FILE_WATCHER_ENABLED = "filewatcher.enabled";
     private static final Logger LOG = LoggerFactory.getLogger(SettingsFileWatcher.class);
     private SettingsService settingsService;
     private FileSettingsConfiguration fileConfiguration;
@@ -133,7 +133,7 @@ public class SettingsFileWatcher implements Constructable, Destroyable {
     }
 
     @Override
-    public String toString() {
+    public /*~~>*/String toString() {
         return MoreObjects.toStringHelper(this).omitNullValues()
                 .add("enabled", this.enabled)
                 .add("path", this.fileConfiguration)

@@ -35,17 +35,17 @@ import com.google.common.collect.Lists;
 public abstract class SweAbstractDataComponent
         implements HasDefaultEncoding<SweAbstractDataComponent>, Copyable<SweAbstractDataComponent> {
 
-    private String definition;
+    private /*~~>*/String definition;
 
     /**
      * optional: swe:description[0..1]
      */
-    private String description;
+    private /*~~>*/String description;
 
     /**
      * optional: swe:label [0..1]
      */
-    private String label;
+    private /*~~>*/String label;
 
     /**
      * optional: gml:name [0..*] (SweCommon 1.0.1)
@@ -55,24 +55,24 @@ public abstract class SweAbstractDataComponent
     /**
      * optional: swe:identifier [0..1]
      */
-    private String identifier;
+    private /*~~>*/String identifier;
 
     /**
      * pre-set XML representation
      */
-    private String xml;
+    private /*~~>*/String xml;
 
-    private String defaultEncoding = SweConstants.NS_SWE_20;
+    private /*~~>*/String defaultEncoding = /*~~>*/SweConstants.NS_SWE_20;
 
-    public String getDefinition() {
+    public /*~~>*/String getDefinition() {
         return definition;
     }
 
-    public String getDescription() {
+    public /*~~>*/String getDescription() {
         return description;
     }
 
-    public String getLabel() {
+    public /*~~>*/String getLabel() {
         if (label != null && !label.isEmpty()) {
             return label;
         } else if (isSetNames()) {
@@ -94,26 +94,26 @@ public abstract class SweAbstractDataComponent
         return Collections.unmodifiableList(names);
     }
 
-    public String getIdentifier() {
+    public /*~~>*/String getIdentifier() {
         return identifier;
     }
 
-    public SweAbstractDataComponent setDefinition(final String definition) {
-        this.definition = definition;
+    public SweAbstractDataComponent setDefinition(final /*~~>*/String definition) {
+        /*~~>*/this.definition = definition;
         return this;
     }
 
-    public SweAbstractDataComponent setDescription(final String description) {
-        this.description = description;
+    public SweAbstractDataComponent setDescription(final /*~~>*/String description) {
+        /*~~>*/this.description = description;
         return this;
     }
 
-    public SweAbstractDataComponent setLabel(final String label) {
-        this.label = label;
+    public SweAbstractDataComponent setLabel(final /*~~>*/String label) {
+        /*~~>*/this.label = label;
         return this;
     }
 
-    public SweAbstractDataComponent addName(final String name) {
+    public SweAbstractDataComponent addName(final /*~~>*/String name) {
         this.names.add(new CodeType(name));
         return this;
     }
@@ -128,7 +128,7 @@ public abstract class SweAbstractDataComponent
         return this;
     }
 
-    public SweAbstractDataComponent setName(final String name) {
+    public SweAbstractDataComponent setName(final /*~~>*/String name) {
         names.clear();
         this.names.add(new CodeType(name));
         return this;
@@ -146,17 +146,17 @@ public abstract class SweAbstractDataComponent
         return this;
     }
 
-    public SweAbstractDataComponent setIdentifier(final String identifier) {
-        this.identifier = identifier;
+    public SweAbstractDataComponent setIdentifier(final /*~~>*/String identifier) {
+        /*~~>*/this.identifier = identifier;
         return this;
     }
 
-    public String getXml() {
+    public /*~~>*/String getXml() {
         return xml;
     }
 
-    public SweAbstractDataComponent setXml(final String xml) {
-        this.xml = xml;
+    public SweAbstractDataComponent setXml(final /*~~>*/String xml) {
+        /*~~>*/this.xml = xml;
         return this;
     }
 
@@ -189,13 +189,13 @@ public abstract class SweAbstractDataComponent
     }
 
     @Override
-    public String getDefaultElementEncoding() {
+    public /*~~>*/String getDefaultElementEncoding() {
         return defaultEncoding;
     }
 
     @Override
-    public SweAbstractDataComponent setDefaultElementEncoding(String defaultEncoding) {
-        this.defaultEncoding = defaultEncoding;
+    public SweAbstractDataComponent setDefaultElementEncoding(/*~~>*/String defaultEncoding) {
+        /*~~>*/this.defaultEncoding = defaultEncoding;
         return this;
     }
 

@@ -72,7 +72,7 @@ public class JTSHelperTest extends JTSHelper {
 
     @Test
     public void shouldPointSwitchCoordinatesDefault() throws ParseException {
-        String coordinates = "52.0 7.0";
+        /*~~>*/String coordinates = "52.0 7.0";
         StringBuilder builder = new StringBuilder();
         builder.append(WKT_POINT);
         builder.append("(");
@@ -151,7 +151,7 @@ public class JTSHelperTest extends JTSHelper {
 
     @Test
     public void shouldPointWKTString() throws OwsExceptionReport, ParseException {
-        String coordinates = "52.0 7.0";
+        /*~~>*/String coordinates = "52.0 7.0";
         StringBuilder builder = new StringBuilder();
         builder.append(WKT_POINT);
         builder.append("(");

@@ -32,7 +32,7 @@ import edu.umd.cs.findbugs.annotations.SuppressFBWarnings;
 public class AbstractDataComponentContainer<
         T> extends AbstractReferenceType {
 
-    private String name;
+    private /*~~>*/String name;
 
     private SweAbstractDataComponent abstractDataComponent;
 
@@ -49,8 +49,8 @@ public class AbstractDataComponentContainer<
      * @param name
      *            name
      */
-    public AbstractDataComponentContainer(String name) {
-        this.name = name;
+    public AbstractDataComponentContainer(/*~~>*/String name) {
+        /*~~>*/this.name = name;
     }
 
     /**
@@ -62,18 +62,18 @@ public class AbstractDataComponentContainer<
      *            data component
      */
     @SuppressFBWarnings({ "EI_EXPOSE_REP2" })
-    public AbstractDataComponentContainer(String name, SweAbstractDataComponent abstractDataComponent) {
-        this.name = name;
+    public AbstractDataComponentContainer(/*~~>*/String name, SweAbstractDataComponent abstractDataComponent) {
+        /*~~>*/this.name = name;
         this.abstractDataComponent = abstractDataComponent;
     }
 
-    public String getName() {
+    public /*~~>*/String getName() {
         return name;
     }
 
     @SuppressWarnings("unchecked")
-    public T setName(String name) {
-        this.name = name;
+    public T setName(/*~~>*/String name) {
+        /*~~>*/this.name = name;
         return (T) this;
     }
 

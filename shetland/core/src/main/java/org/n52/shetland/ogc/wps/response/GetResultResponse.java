@@ -35,13 +35,13 @@ public class GetResultResponse extends OwsServiceResponse {
     }
 
     @SuppressFBWarnings({ "EI_EXPOSE_REP2" })
-    public GetResultResponse(String service, String version, Result result) {
+    public GetResultResponse(/*~~>*/String service, /*~~>*/String version, Result result) {
         super(service, version);
         this.result = result;
     }
 
     @Override
-    public String getOperationName() {
+    public /*~~>*/String getOperationName() {
         return WPSConstants.Operations.GetResult.toString();
     }
 

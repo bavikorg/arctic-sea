@@ -38,27 +38,27 @@ public class ProcessOfferingDecoder extends JSONDecoder<ProcessOffering> {
 
     @Override
     public ProcessOffering decodeJSON(JsonNode node, boolean validate) throws DecodingException {
-        ProcessDescription processDescription = decodeJsonToObject(node.path(JSONConstants.PROCESS),
+        ProcessDescription processDescription = decodeJsonToObject(node.path(/*~~>*/JSONConstants.PROCESS),
                                                                    ProcessDescription.class);
 
-        JsonNode jobControlOptionsNode = node.path(JSONConstants.JOB_CONTROL_OPTIONS);
+        JsonNode jobControlOptionsNode = node.path(/*~~>*/JSONConstants.JOB_CONTROL_OPTIONS);
         List<JobControlOption> jobControlOptions = Streams.stream(jobControlOptionsNode)
                                                           .map(JsonNode::asText)
                                                           .map(JobControlOption::new)
                                                           .collect(toList());
-        JsonNode outputTransmissionNode = node.path(JSONConstants.OUTPUT_TRANSMISSION);
+        JsonNode outputTransmissionNode = node.path(/*~~>*/JSONConstants.OUTPUT_TRANSMISSION);
         List<DataTransmissionMode> outputTransmissionModes = Streams.stream(outputTransmissionNode)
                                                                     .map(JsonNode::asText)
                                                                     .map(DataTransmissionMode::fromString)
                                                                     .filter(Optional::isPresent)
                                                                     .map(Optional::get)
                                                                     .collect(toList());
-        if (node.path(JSONConstants.PROCESS_VERSION).isValueNode()) {
+        if (node.path(/*~~>*/JSONConstants.PROCESS_VERSION).isValueNode()) {
             processDescription = processDescription.newBuilder()
-                                                   .withVersion(node.path(JSONConstants.PROCESS_VERSION).asText())
+                                                   .withVersion(node.path(/*~~>*/JSONConstants.PROCESS_VERSION).asText())
                                                    .build();
         }
-        String processModel = node.path(JSONConstants.PROCESS_MODEL).asText();
+        /*~~>*/String processModel = node.path(/*~~>*/JSONConstants.PROCESS_MODEL).asText();
         return new ProcessOffering(processDescription, jobControlOptions, outputTransmissionModes, processModel);
     }
 

@@ -31,18 +31,18 @@ import org.n52.shetland.util.CollectionHelper;
  */
 public class CiTelephone extends AbstractObject {
 
-    private List<String> voice = new ArrayList<>();
-    private List<String> facsimile = new ArrayList<>();
+    private List</*~~>*/String> voice = new ArrayList<>();
+    private List</*~~>*/String> facsimile = new ArrayList<>();
 
     public boolean isSetVoice() {
         return !CollectionHelper.nullEmptyOrContainsOnlyNulls(voice);
     }
 
-    public List<String> getVoice() {
+    public List</*~~>*/String> getVoice() {
         return Collections.unmodifiableList(voice);
     }
 
-    public CiTelephone setVoice(final Collection<String> voice) {
+    public CiTelephone setVoice(final Collection</*~~>*/String> voice) {
         this.voice.clear();
         if (voice != null) {
             this.voice.addAll(voice);
@@ -50,7 +50,7 @@ public class CiTelephone extends AbstractObject {
         return this;
     }
 
-    public CiTelephone addVoice(final String voice) {
+    public CiTelephone addVoice(final /*~~>*/String voice) {
         if (voice != null) {
             this.voice.add(voice);
         }
@@ -61,18 +61,18 @@ public class CiTelephone extends AbstractObject {
         return !CollectionHelper.nullEmptyOrContainsOnlyNulls(facsimile);
     }
 
-    public List<String> getFacsimile() {
+    public List</*~~>*/String> getFacsimile() {
         return Collections.unmodifiableList(facsimile);
     }
 
-    public CiTelephone addFacsimile(final String facsimile) {
+    public CiTelephone addFacsimile(final /*~~>*/String facsimile) {
         if (facsimile != null) {
             this.facsimile.add(facsimile);
         }
         return this;
     }
 
-    public CiTelephone setFacsimile(final Collection<String> facsimile) {
+    public CiTelephone setFacsimile(final Collection</*~~>*/String> facsimile) {
         this.facsimile.clear();
         if (facsimile != null) {
             this.facsimile.addAll(facsimile);

@@ -30,7 +30,7 @@ public interface FeatureOfInterestIdentifierRequest {
      *
      * @return FeatureOfInterest identifiers
      */
-    List<String> getFeatureIdentifiers();
+    List</*~~>*/String> getFeatureIdentifiers();
 
     /**
      * Set FeatureOfInterest identifiers
@@ -38,7 +38,7 @@ public interface FeatureOfInterestIdentifierRequest {
      * @param featureIdentifiers
      *            FeatureOfInterest identifiers
      */
-    void setFeatureIdentifiers(List<String> featureIdentifiers);
+    void setFeatureIdentifiers(List</*~~>*/String> featureIdentifiers);
 
     /**
      * Check if request contains FeatureOfInterest identifiers

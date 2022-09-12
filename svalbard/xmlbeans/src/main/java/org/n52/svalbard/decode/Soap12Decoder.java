@@ -55,7 +55,7 @@ public class Soap12Decoder extends AbstractSoapDecoder {
     private static final Logger LOGGER = LoggerFactory.getLogger(Soap12Decoder.class);
 
     public Soap12Decoder() {
-        super(SoapConstants.NS_SOAP_12);
+        super(/*~~>*/SoapConstants.NS_SOAP_12);
         LOGGER.debug("Decoder for the following keys initialized successfully: {}!", Joiner.on(", ").join(getKeys()));
     }
 
@@ -73,14 +73,14 @@ public class Soap12Decoder extends AbstractSoapDecoder {
     @Override
     protected AbstractSoap<?> createEnvelope(XmlObject doc) throws DecodingException {
         AbstractSoap<?> soap = null;
-        String soapAction = "";
+        /*~~>*/String soapAction = "";
         if (doc instanceof EnvelopeDocument) {
             EnvelopeDocument envDoc = (EnvelopeDocument) doc;
             OwsServiceCommunicationObject bodyContent = getBodyContent(envDoc);
             soap = bodyContent instanceof OwsServiceRequest
-                    ? new SoapRequest(SoapConstants.NS_SOAP_12, SoapConstants.SOAP_1_2_VERSION)
+                    ? new SoapRequest(/*~~>*/SoapConstants.NS_SOAP_12, /*~~>*/SoapConstants.SOAP_1_2_VERSION)
                             .setBodyContent((OwsServiceRequest) bodyContent)
-                    : new SoapResponse(SoapConstants.NS_SOAP_12, SoapConstants.SOAP_1_2_VERSION)
+                    : new SoapResponse(/*~~>*/SoapConstants.NS_SOAP_12, /*~~>*/SoapConstants.SOAP_1_2_VERSION)
                             .setBodyContent((OwsServiceResponse) bodyContent);
             if (envDoc.getEnvelope()
                     .isSetHeader()) {
@@ -99,7 +99,7 @@ public class Soap12Decoder extends AbstractSoapDecoder {
         fault.setFaultCode(SoapConstants.SENDER_FAULT);
         fault.setLocale(Locale.ENGLISH);
         fault.setFaultReason(getFaultReasons(de));
-        SoapRequest r = new SoapRequest(SoapConstants.NS_SOAP_12, SoapConstants.SOAP_1_2_VERSION);
+        SoapRequest r = new SoapRequest(/*~~>*/SoapConstants.NS_SOAP_12, /*~~>*/SoapConstants.SOAP_1_2_VERSION);
         r.setSoapFault(fault);
         return r;
     }

@@ -23,7 +23,7 @@ import org.n52.shetland.ogc.AbstractSupportedStringType;
  * @author Christian Autermann
  */
 public class ObservationType extends AbstractSupportedStringType {
-    public ObservationType(String value) {
+    public ObservationType(/*~~>*/String value) {
         super(value);
     }
 

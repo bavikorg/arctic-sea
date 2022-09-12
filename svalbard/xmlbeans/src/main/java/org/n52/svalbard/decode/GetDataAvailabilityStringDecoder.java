@@ -32,8 +32,8 @@ public class GetDataAvailabilityStringDecoder extends AbstractStringRequestDecod
     private static final Logger LOGGER = LoggerFactory.getLogger(GetDataAvailabilityStringDecoder.class);
 
     private static final Set<DecoderKey> DECODER_KEYS = CodingHelper.xmlStringDecoderKeysForOperationAndMediaType(
-            SosConstants.SOS, Sos2Constants.SERVICEVERSION,
-            GetDataAvailabilityConstants.OPERATION_NAME);
+            /*~~>*/SosConstants.SOS, /*~~>*/Sos2Constants.SERVICEVERSION,
+            /*~~>*/GetDataAvailabilityConstants.OPERATION_NAME);
 
     public GetDataAvailabilityStringDecoder() {
         LOGGER.debug("Decoder for the following keys initialized successfully: {}!",

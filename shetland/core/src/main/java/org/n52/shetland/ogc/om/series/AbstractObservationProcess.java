@@ -50,7 +50,7 @@ public abstract class AbstractObservationProcess extends AbstractFeature {
      * Multiplicity: 0..1 If the process involves temporal aggregation of a result set, the time duration over
      * which data has been aggregated should be expressed here. E.g. hourly, daily aggregates.
      */
-    private String aggregationDuration;
+    private /*~~>*/String aggregationDuration;
 
     /*
      * Multiplicity: 0..1 Reference to an external process definition
@@ -72,7 +72,7 @@ public abstract class AbstractObservationProcess extends AbstractFeature {
     /*
      * Multiplicity: 0..* Comments specific to the process from the operator or system performing the process.
      */
-    private List<String> comments = new ArrayList<>(0);
+    private List</*~~>*/String> comments = new ArrayList<>(0);
 
     /*
      * Multiplicity: 0..* A defintion of the type of process used in the observation. This may be a Sensor,
@@ -84,7 +84,7 @@ public abstract class AbstractObservationProcess extends AbstractFeature {
         super("");
     }
 
-    public AbstractObservationProcess(String identifier) {
+    public AbstractObservationProcess(/*~~>*/String identifier) {
         super(identifier);
     }
 
@@ -92,12 +92,12 @@ public abstract class AbstractObservationProcess extends AbstractFeature {
         super(featureIdentifier);
     }
 
-    public AbstractObservationProcess(CodeWithAuthority featureIdentifier, String gmlId) {
+    public AbstractObservationProcess(CodeWithAuthority featureIdentifier, /*~~>*/String gmlId) {
         super(featureIdentifier, gmlId);
     }
 
     @Override
-    public AbstractObservationProcess setIdentifier(final String procedureIdentifier) {
+    public AbstractObservationProcess setIdentifier(final /*~~>*/String procedureIdentifier) {
         super.setIdentifier(procedureIdentifier);
         return this;
     }
@@ -120,12 +120,12 @@ public abstract class AbstractObservationProcess extends AbstractFeature {
         return this;
     }
 
-    public String getAggregationDuration() {
+    public /*~~>*/String getAggregationDuration() {
         return aggregationDuration;
     }
 
-    public AbstractObservationProcess setAggregationDuration(final String aggregationDuration) {
-        this.aggregationDuration = aggregationDuration;
+    public AbstractObservationProcess setAggregationDuration(final /*~~>*/String aggregationDuration) {
+        /*~~>*/this.aggregationDuration = aggregationDuration;
         return this;
     }
 
@@ -166,12 +166,12 @@ public abstract class AbstractObservationProcess extends AbstractFeature {
         return this;
     }
 
-    public List<String> getComments() {
+    public List</*~~>*/String> getComments() {
         return Collections.unmodifiableList(comments);
     }
 
     @SuppressFBWarnings({ "EI_EXPOSE_REP2" })
-    public AbstractObservationProcess setComments(final Collection<String> comments) {
+    public AbstractObservationProcess setComments(final Collection</*~~>*/String> comments) {
         this.comments.clear();
         if (comments != null) {
             this.comments.addAll(comments);
@@ -179,7 +179,7 @@ public abstract class AbstractObservationProcess extends AbstractFeature {
         return this;
     }
 
-    public AbstractObservationProcess addComment(final String comment) {
+    public AbstractObservationProcess addComment(final /*~~>*/String comment) {
         if (comment != null) {
             comments.add(comment);
         }

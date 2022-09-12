@@ -84,7 +84,7 @@ public abstract class AbstractGmlEncoderv321<T, S> extends AbstractXmlEncoder<T,
     protected boolean addIdentifier(AbstractGMLType aft, AbstractGML abstractFeature) throws EncodingException {
         if (aft != null && abstractFeature != null) {
             if (abstractFeature.isSetIdentifier()) {
-                aft.addNewIdentifier().set(encodeObjectToXml(GmlConstants.NS_GML_32,
+                aft.addNewIdentifier().set(encodeObjectToXml(/*~~>*/GmlConstants.NS_GML_32,
                         abstractFeature.getIdentifierCodeWithAuthority()));
                 return true;
             }
@@ -97,7 +97,7 @@ public abstract class AbstractGmlEncoderv321<T, S> extends AbstractXmlEncoder<T,
             if (abstractFeature.isSetName()) {
                 removeExitingNames(aft);
                 for (org.n52.shetland.ogc.gml.CodeType codeType : abstractFeature.getName()) {
-                    aft.addNewName().set(encodeObjectToXml(GmlConstants.NS_GML_32, codeType));
+                    aft.addNewName().set(encodeObjectToXml(/*~~>*/GmlConstants.NS_GML_32, codeType));
                 }
             }
         }

@@ -26,9 +26,9 @@ import edu.umd.cs.findbugs.annotations.SuppressFBWarnings;
 
 public class EReportingChange {
     private boolean changed;
-    private Optional<String> description;
+    private Optional</*~~>*/String> description;
 
-    public EReportingChange(@Nullable String description) {
+    public EReportingChange(@Nullable /*~~>*/String description) {
         this(true, description);
     }
 
@@ -41,7 +41,7 @@ public class EReportingChange {
     }
 
     @SuppressFBWarnings(value = "NP_PARAMETER_MUST_BE_NONNULL_BUT_MARKED_AS_NULLABLE")
-    public EReportingChange(boolean changed, @Nullable String description) {
+    public EReportingChange(boolean changed, @Nullable /*~~>*/String description) {
         this.changed = changed;
         this.description = Optional.fromNullable(description);
     }
@@ -50,12 +50,12 @@ public class EReportingChange {
         return this.changed;
     }
 
-    public Optional<String> getDescription() {
+    public Optional</*~~>*/String> getDescription() {
         return description;
     }
 
     @SuppressFBWarnings(value = "NP_PARAMETER_MUST_BE_NONNULL_BUT_MARKED_AS_NULLABLE")
-    public void setDescription(@Nullable String description) {
+    public void setDescription(@Nullable /*~~>*/String description) {
         this.description = Optional.fromNullable(description);
     }
 
@@ -71,7 +71,7 @@ public class EReportingChange {
     }
 
     @Override
-    public String toString() {
+    public /*~~>*/String toString() {
         return MoreObjects.toStringHelper(this).add("change", isChange()).add("description", getDescription())
                 .toString();
     }

@@ -33,12 +33,12 @@ import com.fasterxml.jackson.databind.node.ObjectNode;
  */
 public class BatchResponseEncoder extends AbstractSosResponseEncoder<BatchResponse> {
     public BatchResponseEncoder() {
-        super(BatchResponse.class, BatchConstants.OPERATION_NAME);
+        super(BatchResponse.class, /*~~>*/BatchConstants.OPERATION_NAME);
     }
 
     @Override
     protected void encodeResponse(ObjectNode json, BatchResponse response) throws EncodingException {
-        ArrayNode responses = json.putArray(JSONConstants.RESPONSES);
+        ArrayNode responses = json.putArray(/*~~>*/JSONConstants.RESPONSES);
         for (ExceptionOrResponse eor : response) {
             if (eor.isException()) {
                 responses.add(encodeObjectToJson(eor.getException()));

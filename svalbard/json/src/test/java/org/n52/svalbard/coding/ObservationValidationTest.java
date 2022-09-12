@@ -56,7 +56,7 @@ public class ObservationValidationTest {
     public void testMeasurementMissingUOM()
             throws IOException {
         JsonNode json = fromResource("/examples/measurement-geometry-ref.json");
-        ((ObjectNode) json.path(JSONConstants.RESULT)).remove(JSONConstants.UOM);
+        ((ObjectNode) json.path(/*~~>*/JSONConstants.RESULT)).remove(/*~~>*/JSONConstants.UOM);
         assertThat(json, is(not(validObservation())));
     }
 
@@ -64,7 +64,7 @@ public class ObservationValidationTest {
     public void testMeasurementMissingValue()
             throws IOException {
         JsonNode json = fromResource("/examples/measurement-geometry-ref.json");
-        ((ObjectNode) json.path(JSONConstants.RESULT)).remove(JSONConstants.VALUE);
+        ((ObjectNode) json.path(/*~~>*/JSONConstants.RESULT)).remove(/*~~>*/JSONConstants.VALUE);
         assertThat(json, is(not(validObservation())));
     }
 
@@ -72,7 +72,7 @@ public class ObservationValidationTest {
     public void testMeasurementMissingProcedure()
             throws IOException {
         JsonNode json = fromResource("/examples/measurement-geometry-ref.json");
-        ((ObjectNode) json).remove(JSONConstants.PROCEDURE);
+        ((ObjectNode) json).remove(/*~~>*/JSONConstants.PROCEDURE);
         assertThat(json, is(not(validObservation())));
     }
 
@@ -80,7 +80,7 @@ public class ObservationValidationTest {
     public void testMeasurementMissingObservedProperty()
             throws IOException {
         JsonNode json = fromResource("/examples/measurement-geometry-ref.json");
-        ((ObjectNode) json).remove(JSONConstants.OBSERVED_PROPERTY);
+        ((ObjectNode) json).remove(/*~~>*/JSONConstants.OBSERVED_PROPERTY);
         assertThat(json, is(not(validObservation())));
     }
 
@@ -88,7 +88,7 @@ public class ObservationValidationTest {
     public void testMeasurementMissingPhenomenonTime()
             throws IOException {
         JsonNode json = fromResource("/examples/measurement-geometry-ref.json");
-        ((ObjectNode) json).remove(JSONConstants.PHENOMENON_TIME);
+        ((ObjectNode) json).remove(/*~~>*/JSONConstants.PHENOMENON_TIME);
         assertThat(json, is(not(validObservation())));
     }
 
@@ -96,7 +96,7 @@ public class ObservationValidationTest {
     public void testMeasurementMissingResultTime()
             throws IOException {
         JsonNode json = fromResource("/examples/measurement-geometry-ref.json");
-        ((ObjectNode) json).remove(JSONConstants.RESULT_TIME);
+        ((ObjectNode) json).remove(/*~~>*/JSONConstants.RESULT_TIME);
         assertThat(json, is(not(validObservation())));
     }
 
@@ -104,7 +104,7 @@ public class ObservationValidationTest {
     public void testMeasurementTimePeriodResultTime()
             throws IOException {
         JsonNode json = fromResource("/examples/measurement-geometry-ref.json");
-        ArrayNode resultTime = ((ObjectNode) json).putArray(JSONConstants.RESULT_TIME);
+        ArrayNode resultTime = ((ObjectNode) json).putArray(/*~~>*/JSONConstants.RESULT_TIME);
         resultTime.add("2013-01-01T00:00:00+02:00").add("2013-01-01T01:00:00+02:00");
         assertThat(json, is(not(validObservation())));
     }
@@ -113,7 +113,7 @@ public class ObservationValidationTest {
     public void testMeasurementMissingValidTime()
             throws IOException {
         JsonNode json = fromResource("/examples/measurement-geometry-ref.json");
-        ((ObjectNode) json).remove(JSONConstants.VALID_TIME);
+        ((ObjectNode) json).remove(/*~~>*/JSONConstants.VALID_TIME);
         assertThat(json, is(validObservation()));
     }
 
@@ -121,7 +121,7 @@ public class ObservationValidationTest {
     public void testMeasurementMissingFeatureOfInterest()
             throws IOException {
         JsonNode json = fromResource("/examples/measurement-geometry-ref.json");
-        ((ObjectNode) json).remove(JSONConstants.FEATURE_OF_INTEREST);
+        ((ObjectNode) json).remove(/*~~>*/JSONConstants.FEATURE_OF_INTEREST);
         assertThat(json, is(not(validObservation())));
     }
 
@@ -129,7 +129,7 @@ public class ObservationValidationTest {
     public void testMeasurementMissingResult()
             throws IOException {
         JsonNode json = fromResource("/examples/measurement-geometry-ref.json");
-        ((ObjectNode) json).remove(JSONConstants.RESULT);
+        ((ObjectNode) json).remove(/*~~>*/JSONConstants.RESULT);
         assertThat(json, is(not(validObservation())));
     }
 
@@ -165,7 +165,7 @@ public class ObservationValidationTest {
     public void testCountObservationWithFloatingPointNumber()
             throws IOException {
         JsonNode json = fromResource("/examples/count-observation.json");
-        ((ObjectNode) json).put(JSONConstants.RESULT, Math.PI);
+        ((ObjectNode) json).put(/*~~>*/JSONConstants.RESULT, Math.PI);
         assertThat(json, is(not(validObservation())));
     }
 

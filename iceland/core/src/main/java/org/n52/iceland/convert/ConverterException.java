@@ -38,7 +38,7 @@ public class ConverterException extends Exception {
      *
      * @param message the message
      */
-    public ConverterException(String message) {
+    public ConverterException(/*~~>*/String message) {
         super(message);
     }
 
@@ -57,7 +57,7 @@ public class ConverterException extends Exception {
      * @param message   the message
      * @param exception the cause
      */
-    public ConverterException(String message, Throwable exception) {
+    public ConverterException(/*~~>*/String message, Throwable exception) {
         super(message, exception);
     }
 

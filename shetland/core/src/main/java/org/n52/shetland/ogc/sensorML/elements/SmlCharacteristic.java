@@ -32,7 +32,7 @@ public class SmlCharacteristic extends AbstractDataComponentContainer<SmlCharact
      * @param name
      *            name
      */
-    public SmlCharacteristic(String name) {
+    public SmlCharacteristic(/*~~>*/String name) {
         super(name);
     }
 
@@ -44,7 +44,7 @@ public class SmlCharacteristic extends AbstractDataComponentContainer<SmlCharact
      * @param abstractDataComponent
      *            data component
      */
-    public SmlCharacteristic(String name, SweAbstractDataComponent abstractDataComponent) {
+    public SmlCharacteristic(/*~~>*/String name, SweAbstractDataComponent abstractDataComponent) {
         super(name, abstractDataComponent);
     }
 

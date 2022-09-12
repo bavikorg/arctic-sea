@@ -201,8 +201,8 @@ public class InspireTemporalReference {
     }
 
     @Override
-    public String toString() {
-        return String.format(
+    public /*~~>*/String toString() {
+        return /*~~>*/String.format(
                 "%s %n[%n dateOfCreation=%s,%n dateOfLastRevision=%s,"
                         + "%n dateOfPublication=%s,%n temporalReferences=%s%n]",
                 this.getClass().getSimpleName(), getDateOfCreation(), getDateOfLastRevision(),

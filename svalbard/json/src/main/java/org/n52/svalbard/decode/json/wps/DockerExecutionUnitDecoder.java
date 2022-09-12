@@ -41,13 +41,13 @@ public class DockerExecutionUnitDecoder extends JSONDecoder<DockerExecutionUnit>
             return null;
         }
         DockerExecutionUnit unit = new DockerExecutionUnit();
-        JsonNode unitNode = node.path(JSONConstants.UNIT);
-        unit.setImage(unitNode.path(JSONConstants.IMAGE).asText());
-        unit.setEnvironment(decodeEnvironment(unitNode.path(JSONConstants.ENVIRONMENT)));
+        JsonNode unitNode = node.path(/*~~>*/JSONConstants.UNIT);
+        unit.setImage(unitNode.path(/*~~>*/JSONConstants.IMAGE).asText());
+        unit.setEnvironment(decodeEnvironment(unitNode.path(/*~~>*/JSONConstants.ENVIRONMENT)));
         return unit;
     }
 
-    private Map<String, String> decodeEnvironment(JsonNode node) {
+    private Map</*~~>*/String, /*~~>*/String> decodeEnvironment(JsonNode node) {
         if (node.isArray()) {
             return Streams.stream(node).map(JsonNode::asText).filter(Objects::nonNull).map(s -> s.split("=", 1))
                           .collect(toMap(s -> s[0], s -> s.length > 1 ? s[1] : ""));

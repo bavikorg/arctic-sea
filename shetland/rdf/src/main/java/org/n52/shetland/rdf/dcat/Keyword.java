@@ -21,11 +21,11 @@ import org.n52.shetland.rdf.AbstractLang;
 
 public class Keyword extends AbstractLang implements DcatRdfPrefix {
 
-    public Keyword(String value) {
+    public Keyword(/*~~>*/String value) {
         super(value);
     }
 
-    public Keyword(String value, String language) {
+    public Keyword(/*~~>*/String value, /*~~>*/String language) {
         super(value, language);
     }
 

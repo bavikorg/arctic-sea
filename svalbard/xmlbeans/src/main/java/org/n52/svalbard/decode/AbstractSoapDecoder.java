@@ -54,7 +54,7 @@ public abstract class AbstractSoapDecoder extends AbstractXmlDecoder<XmlObject, 
 
     private SchemaRepository schemaRepository;
 
-    public AbstractSoapDecoder(String namespace) {
+    public AbstractSoapDecoder(/*~~>*/String namespace) {
         this.decoderKeys = Collections.<DecoderKey> singleton(new XmlNamespaceDecoderKey(namespace, XmlObject.class));
     }
 
@@ -82,12 +82,12 @@ public abstract class AbstractSoapDecoder extends AbstractXmlDecoder<XmlObject, 
 
     protected abstract AbstractSoap<?> createFault(DecodingException xml);
 
-    protected String checkSoapAction(String soapAction, List<SoapHeader> soapHeaders) {
+    protected /*~~>*/String checkSoapAction(/*~~>*/String soapAction, List<SoapHeader> soapHeaders) {
         if (soapAction != null && !soapAction.isEmpty()) {
             return soapAction;
         } else if (CollectionHelper.isNotEmpty(soapHeaders)) {
             for (SoapHeader soapHeader : soapHeaders) {
-                if (WsaConstants.NS_WSA.equals(soapHeader.getNamespace()) && soapHeader instanceof WsaActionHeader) {
+                if (/*~~>*/WsaConstants.NS_WSA.equals(soapHeader.getNamespace()) && soapHeader instanceof WsaActionHeader) {
                     return ((WsaActionHeader) soapHeader).getValue();
                 }
             }
@@ -95,7 +95,7 @@ public abstract class AbstractSoapDecoder extends AbstractXmlDecoder<XmlObject, 
         return null;
     }
 
-    protected String getFaultReasons(DecodingException de) {
+    protected /*~~>*/String getFaultReasons(DecodingException de) {
         if (de.getCause() instanceof CompositeException) {
             return Joiner.on("\n")
                     .join(((CompositeException) de.getCause()).getExceptions()
@@ -110,20 +110,20 @@ public abstract class AbstractSoapDecoder extends AbstractXmlDecoder<XmlObject, 
         final XmlCursor cursor = content.newCursor();
         while (cursor.hasNextToken()) {
             if (cursor.toNextToken().isStart()) {
-                final String xsiType = cursor.getAttributeText(W3CConstants.QN_XSI_TYPE);
+                final /*~~>*/String xsiType = cursor.getAttributeText(W3CConstants.QN_XSI_TYPE);
                 if (xsiType != null) {
-                    final String[] toks = xsiType.split(":");
+                    final /*~~>*/String[] toks = xsiType.split(":");
                     if (toks.length > 1) {
-                        String prefix = toks[0];
-                        String localName = toks[1];
-                        String namespace = (String) namespaces.get(prefix);
+                        /*~~>*/String prefix = toks[0];
+                        /*~~>*/String localName = toks[1];
+                        /*~~>*/String namespace = (/*~~>*/String) namespaces.get(prefix);
                         if (Strings.isNullOrEmpty(namespace)) {
                             namespace = schemaRepository.getNamespaceFor(prefix);
                         }
                         if (!Strings.isNullOrEmpty(namespace)) {
                             cursor.setAttributeText(W3CConstants.QN_XSI_TYPE,
                                     Joiner.on(":").join(
-                                            XmlHelper.getPrefixForNamespace(content, (String) namespaces.get(prefix)),
+                                            XmlHelper.getPrefixForNamespace(content, (/*~~>*/String) namespaces.get(prefix)),
                                             localName));
                         }
                     }

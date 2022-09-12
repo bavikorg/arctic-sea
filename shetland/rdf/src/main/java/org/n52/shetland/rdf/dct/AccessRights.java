@@ -21,7 +21,7 @@ import org.n52.shetland.rdf.AbstractResource;
 
 public class AccessRights extends AbstractResource implements DctRdfPrefix {
 
-    public AccessRights(String value) {
+    public AccessRights(/*~~>*/String value) {
         super(value);
     }
 

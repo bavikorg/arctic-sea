@@ -84,7 +84,7 @@ public class FesEncoderv20Test {
     @Test
     public final void should_return_correct_encoder_keys() {
         final Set<EncoderKey> expectedKeySet =
-                CodingHelper.encoderKeysForElements(FilterConstants.NS_FES_2, TemporalFilter.class,
+                CodingHelper.encoderKeysForElements(/*~~>*/FilterConstants.NS_FES_2, TemporalFilter.class,
                         org.n52.shetland.ogc.filter.FilterCapabilities.class, SpatialFilter.class);
         final Set<EncoderKey> returnedKeySet = instance.getKeys();
 
@@ -100,17 +100,17 @@ public class FesEncoderv20Test {
 
     @Test
     public final void should_return_emptySet_for_conformanceClasses() {
-        assertThat(instance.getConformanceClasses(SosConstants.SOS, Sos2Constants.SERVICEVERSION), is(not(nullValue())));
-        assertThat(instance.getConformanceClasses(SosConstants.SOS, Sos2Constants.SERVICEVERSION).isEmpty(), is(TRUE));
+        assertThat(instance.getConformanceClasses(/*~~>*/SosConstants.SOS, /*~~>*/Sos2Constants.SERVICEVERSION), is(not(nullValue())));
+        assertThat(instance.getConformanceClasses(/*~~>*/SosConstants.SOS, /*~~>*/Sos2Constants.SERVICEVERSION).isEmpty(), is(TRUE));
     }
 
     @Test
     public final void should_add_own_prefix_to_prefixMap() {
-        final Map<String, String> prefixMap = Maps.newHashMap();
+        final Map</*~~>*/String, /*~~>*/String> prefixMap = Maps.newHashMap();
         instance.addNamespacePrefixToMap(prefixMap);
         assertThat(prefixMap.isEmpty(), is(FALSE));
-        assertThat(prefixMap.containsKey(FilterConstants.NS_FES_2), is(TRUE));
-        assertThat(prefixMap.containsValue(FilterConstants.NS_FES_2_PREFIX), is(TRUE));
+        assertThat(prefixMap.containsKey(/*~~>*/FilterConstants.NS_FES_2), is(TRUE));
+        assertThat(prefixMap.containsValue(/*~~>*/FilterConstants.NS_FES_2_PREFIX), is(TRUE));
     }
 
     @Test

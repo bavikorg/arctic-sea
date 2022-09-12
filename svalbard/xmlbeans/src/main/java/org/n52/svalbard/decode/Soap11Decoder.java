@@ -54,11 +54,11 @@ import com.google.common.collect.Lists;
  */
 public class Soap11Decoder extends AbstractSoapDecoder {
     private static final Logger LOGGER = LoggerFactory.getLogger(Soap11Decoder.class);
-    private static final String SOAP_ACTION = "SOAPAction:";
-    private static final QName QN_CLIENT = new QName(SoapConstants.NS_SOAP_11, "Client");
+    private static final /*~~>*/String SOAP_ACTION = "SOAPAction:";
+    private static final QName QN_CLIENT = new QName(/*~~>*/SoapConstants.NS_SOAP_11, "Client");
 
     public Soap11Decoder() {
-        super(SoapConstants.NS_SOAP_11);
+        super(/*~~>*/SoapConstants.NS_SOAP_11);
         LOGGER.debug("Decoder for the following keys initialized successfully: {}!", Joiner.on(", ").join(getKeys()));
     }
 
@@ -74,14 +74,14 @@ public class Soap11Decoder extends AbstractSoapDecoder {
     @Override
     protected AbstractSoap<?> createEnvelope(XmlObject doc) throws DecodingException {
         AbstractSoap<?> soap = null;
-        String soapAction = "";
+        /*~~>*/String soapAction = "";
         if (doc instanceof EnvelopeDocument) {
             EnvelopeDocument envDoc = (EnvelopeDocument) doc;
             OwsServiceCommunicationObject bodyContent = getBodyContent(envDoc);
             soap = bodyContent instanceof OwsServiceRequest
-                    ? new SoapRequest(SoapConstants.NS_SOAP_11, SoapConstants.SOAP_1_1_VERSION)
+                    ? new SoapRequest(/*~~>*/SoapConstants.NS_SOAP_11, /*~~>*/SoapConstants.SOAP_1_1_VERSION)
                             .setBodyContent((OwsServiceRequest) bodyContent)
-                    : new SoapResponse(SoapConstants.NS_SOAP_11, SoapConstants.SOAP_1_1_VERSION)
+                    : new SoapResponse(/*~~>*/SoapConstants.NS_SOAP_11, /*~~>*/SoapConstants.SOAP_1_1_VERSION)
                             .setBodyContent((OwsServiceResponse) bodyContent);
 
             // FIXME well... soapAction is always "" at this point
@@ -113,7 +113,7 @@ public class Soap11Decoder extends AbstractSoapDecoder {
         fault.setFaultCode(QN_CLIENT);
         fault.setLocale(Locale.ENGLISH);
         fault.setFaultReason(getFaultReasons(de));
-        SoapRequest r = new SoapRequest(SoapConstants.NS_SOAP_11, SoapConstants.SOAP_1_1_VERSION);
+        SoapRequest r = new SoapRequest(/*~~>*/SoapConstants.NS_SOAP_11, /*~~>*/SoapConstants.SOAP_1_1_VERSION);
         r.setSoapFault(fault);
         return r;
     }

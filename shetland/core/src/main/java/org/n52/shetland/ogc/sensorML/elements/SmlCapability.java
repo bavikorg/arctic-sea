@@ -32,7 +32,7 @@ public class SmlCapability extends AbstractDataComponentContainer<SmlCapability>
      * @param name
      *            name
      */
-    public SmlCapability(String name) {
+    public SmlCapability(/*~~>*/String name) {
         super(name);
     }
 
@@ -44,7 +44,7 @@ public class SmlCapability extends AbstractDataComponentContainer<SmlCapability>
      * @param abstractDataComponent
      *            data component
      */
-    public SmlCapability(String name, SweAbstractDataComponent abstractDataComponent) {
+    public SmlCapability(/*~~>*/String name, SweAbstractDataComponent abstractDataComponent) {
         super(name, abstractDataComponent);
     }
 }

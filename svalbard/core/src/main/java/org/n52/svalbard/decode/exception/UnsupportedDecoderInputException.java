@@ -31,8 +31,8 @@ public class UnsupportedDecoderInputException extends DecodingException {
         this(decoder, o == null ? null : o.getClass().getName());
     }
 
-    public UnsupportedDecoderInputException(Decoder<?, ?> decoder, String o) {
-        super(String.format("Decoder %s can not decode '%s'", decoder.getClass().getSimpleName(),
+    public UnsupportedDecoderInputException(Decoder<?, ?> decoder, /*~~>*/String o) {
+        super(/*~~>*/String.format("Decoder %s can not decode '%s'", decoder.getClass().getSimpleName(),
                 o == null ? "null" : o));
     }
 }

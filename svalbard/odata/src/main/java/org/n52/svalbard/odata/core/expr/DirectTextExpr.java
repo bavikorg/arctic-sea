@@ -24,7 +24,7 @@ import java.util.Optional;
  */
 public interface DirectTextExpr extends TextExpr {
 
-    String getValue();
+    /*~~>*/String getValue();
 
     default Optional<TextExpr> asTextValue() {
         return Optional.of(this);

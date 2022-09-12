@@ -47,7 +47,7 @@ public class Contact {
     /**
      * 0..1
      */
-    private Nillable<String> electronicMailAddress = Nillable.missing();
+    private Nillable</*~~>*/String> electronicMailAddress = Nillable.missing();
 
     /**
      * 0..1
@@ -57,17 +57,17 @@ public class Contact {
     /**
      * 0..*
      */
-    private Nillable<List<Nillable<String>>> telephoneFacsimile = Nillable.missing();
+    private Nillable<List<Nillable</*~~>*/String>>> telephoneFacsimile = Nillable.missing();
 
     /**
      * 0..*
      */
-    private Nillable<List<Nillable<String>>> telephoneVoice = Nillable.missing();
+    private Nillable<List<Nillable</*~~>*/String>>> telephoneVoice = Nillable.missing();
 
     /**
      * 0..1
      */
-    private Nillable<String> website;
+    private Nillable</*~~>*/String> website;
 
     /**
      * @return the address
@@ -116,7 +116,7 @@ public class Contact {
     /**
      * @return the electronicMailAddress
      */
-    public Nillable<String> getElectronicMailAddress() {
+    public Nillable</*~~>*/String> getElectronicMailAddress() {
         return electronicMailAddress;
     }
 
@@ -124,7 +124,7 @@ public class Contact {
      * @param electronicMailAddress
      *            the electronicMailAddress to set
      */
-    public Contact setElectronicMailAddress(String electronicMailAddress) {
+    public Contact setElectronicMailAddress(/*~~>*/String electronicMailAddress) {
         return setElectronicMailAddress(Nillable.of(electronicMailAddress));
     }
 
@@ -132,7 +132,7 @@ public class Contact {
      * @param electronicMailAddress
      *            the electronicMailAddress to set
      */
-    public Contact setElectronicMailAddress(Nillable<String> electronicMailAddress) {
+    public Contact setElectronicMailAddress(Nillable</*~~>*/String> electronicMailAddress) {
         this.electronicMailAddress = Preconditions.checkNotNull(electronicMailAddress);
         return this;
     }
@@ -164,7 +164,7 @@ public class Contact {
     /**
      * @return the telephoneFacsimile
      */
-    public Nillable<List<Nillable<String>>> getTelephoneFacsimile() {
+    public Nillable<List<Nillable</*~~>*/String>>> getTelephoneFacsimile() {
         return telephoneFacsimile;
     }
 
@@ -172,7 +172,7 @@ public class Contact {
      * @param telephoneFacsimile
      *            the telephoneFacsimile to set
      */
-    public Contact setTelephoneFacsimile(List<Nillable<String>> telephoneFacsimile) {
+    public Contact setTelephoneFacsimile(List<Nillable</*~~>*/String>> telephoneFacsimile) {
         return setTelephoneFacsimile(Nillable.of(telephoneFacsimile));
     }
 
@@ -180,7 +180,7 @@ public class Contact {
      * @param telephoneFacsimile
      *            the telephoneFacsimile to set
      */
-    public Contact setTelephoneFacsimile(Nillable<List<Nillable<String>>> telephoneFacsimile) {
+    public Contact setTelephoneFacsimile(Nillable<List<Nillable</*~~>*/String>>> telephoneFacsimile) {
         this.telephoneFacsimile = Preconditions.checkNotNull(telephoneFacsimile);
         return this;
     }
@@ -189,14 +189,14 @@ public class Contact {
      * @param telephoneFacsimile
      *            the telephoneFacsimile to add
      */
-    public Contact addTelephoneFacsimile(String telephoneFacsimile) {
+    public Contact addTelephoneFacsimile(/*~~>*/String telephoneFacsimile) {
         return addTelephoneFacsimile(Nillable.of(Preconditions.checkNotNull(telephoneFacsimile)));
     }
 
-    public Contact addTelephoneFacsimile(Nillable<String> telephoneFacsimile) {
+    public Contact addTelephoneFacsimile(Nillable</*~~>*/String> telephoneFacsimile) {
         if (this.telephoneFacsimile.isAbsent() || this.telephoneFacsimile.isNil()) {
-            this.telephoneFacsimile = Nillable.of((List<Nillable<String>>) Lists.<
-                    Nillable<String>> newArrayList());
+            this.telephoneFacsimile = Nillable.of((List<Nillable</*~~>*/String>>) Lists.<
+                    Nillable</*~~>*/String>> newArrayList());
         }
         if (this.telephoneFacsimile.isPresent()) {
             this.telephoneFacsimile.get().add(telephoneFacsimile);
@@ -207,7 +207,7 @@ public class Contact {
     /**
      * @return the telephoneVoice
      */
-    public Nillable<List<Nillable<String>>> getTelephoneVoice() {
+    public Nillable<List<Nillable</*~~>*/String>>> getTelephoneVoice() {
         return telephoneVoice;
     }
 
@@ -215,7 +215,7 @@ public class Contact {
      * @param telephoneVoice
      *            the telephoneVoice to set
      */
-    public Contact setTelephoneVoice(List<Nillable<String>> telephoneVoice) {
+    public Contact setTelephoneVoice(List<Nillable</*~~>*/String>> telephoneVoice) {
         return setTelephoneVoice(Nillable.of(telephoneVoice));
     }
 
@@ -223,7 +223,7 @@ public class Contact {
      * @param telephoneVoice
      *            the telephoneVoice to set
      */
-    public Contact setTelephoneVoice(Nillable<List<Nillable<String>>> telephoneVoice) {
+    public Contact setTelephoneVoice(Nillable<List<Nillable</*~~>*/String>>> telephoneVoice) {
         this.telephoneVoice = Preconditions.checkNotNull(telephoneVoice);
         return this;
     }
@@ -232,14 +232,14 @@ public class Contact {
      * @param telephoneVoice
      *            the telephoneVoice to add
      */
-    public Contact addTelephoneVoice(String telephoneVoice) {
+    public Contact addTelephoneVoice(/*~~>*/String telephoneVoice) {
         return addTelephoneVoice(Nillable.of(Preconditions.checkNotNull(telephoneVoice)));
     }
 
-    public Contact addTelephoneVoice(Nillable<String> telephoneVoice) {
+    public Contact addTelephoneVoice(Nillable</*~~>*/String> telephoneVoice) {
         if (this.telephoneVoice.isAbsent() || this.telephoneVoice.isNil()) {
-            this.telephoneVoice = Nillable.of((List<Nillable<String>>) Lists.<
-                    Nillable<String>> newArrayList());
+            this.telephoneVoice = Nillable.of((List<Nillable</*~~>*/String>>) Lists.<
+                    Nillable</*~~>*/String>> newArrayList());
         }
         if (telephoneVoice.isPresent()) {
             this.telephoneVoice.get().add(telephoneVoice);
@@ -250,7 +250,7 @@ public class Contact {
     /**
      * @return the website
      */
-    public Nillable<String> getWebsite() {
+    public Nillable</*~~>*/String> getWebsite() {
         return website;
     }
 
@@ -258,7 +258,7 @@ public class Contact {
      * @param website
      *            the website to set
      */
-    public Contact setWebsite(String website) {
+    public Contact setWebsite(/*~~>*/String website) {
         return setWebsite(Nillable.of(website));
     }
 
@@ -266,7 +266,7 @@ public class Contact {
      * @param website
      *            the website to set
      */
-    public Contact setWebsite(Nillable<String> website) {
+    public Contact setWebsite(Nillable</*~~>*/String> website) {
         this.website = Preconditions.checkNotNull(website);
         return this;
     }
@@ -293,7 +293,7 @@ public class Contact {
     }
 
     @Override
-    public String toString() {
+    public /*~~>*/String toString() {
         return MoreObjects.toStringHelper(this).add("AddressRepresentation", getAddress())
                 .add("contactInstructions", getContactInstructions())
                 .add("electronicMailAddressRepresentation", getElectronicMailAddress())

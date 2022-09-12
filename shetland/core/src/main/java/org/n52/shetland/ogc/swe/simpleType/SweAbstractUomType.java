@@ -36,7 +36,7 @@ public abstract class SweAbstractUomType<
      *
      * @return the uom
      */
-    public String getUom() {
+    public /*~~>*/String getUom() {
         if (uom != null) {
             return uom.getUom();
         }
@@ -59,7 +59,7 @@ public abstract class SweAbstractUomType<
      *            the uom to set
      * @return This SweAbstractUomType
      */
-    public SweAbstractUomType<T> setUom(final String uom) {
+    public SweAbstractUomType<T> setUom(final /*~~>*/String uom) {
         this.uom = new UoM(uom);
         return this;
     }
@@ -86,8 +86,8 @@ public abstract class SweAbstractUomType<
     }
 
     @Override
-    public String toString() {
-        return String.format("%s [simpleType=%s, value=%s, uom=%s, quality=%s]", getClass().getSimpleName(),
+    public /*~~>*/String toString() {
+        return /*~~>*/String.format("%s [simpleType=%s, value=%s, uom=%s, quality=%s]", getClass().getSimpleName(),
                 getDataComponentType(), getValue(), getUom(), getQuality());
     }
 

@@ -56,20 +56,20 @@ public interface ObservationEncoder<S, T> extends ConformanceClass, Encoder<S, T
      *
      * @return the response formats
      */
-    Set<String> getSupportedResponseFormats(String service, String version);
+    Set</*~~>*/String> getSupportedResponseFormats(/*~~>*/String service, /*~~>*/String version);
 
-    default Set<String> getSupportedResponseFormats(OwsServiceKey key) {
+    default Set</*~~>*/String> getSupportedResponseFormats(OwsServiceKey key) {
         return getSupportedResponseFormats(key.getService(), key.getVersion());
     }
 
-    Map<String, Set<SupportedType>> getSupportedResponseFormatObservationTypes();
+    Map</*~~>*/String, Set<SupportedType>> getSupportedResponseFormatObservationTypes();
 
     /**
      * Indicator whether the procedure is to be encoded
      *
      * @return Indicator
      */
-    default String getProcedureEncodingNamspace() {
+    default /*~~>*/String getProcedureEncodingNamspace() {
         return "";
     }
 

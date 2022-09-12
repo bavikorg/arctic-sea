@@ -37,14 +37,14 @@ public abstract class CompositeParallelAction<A extends ThreadableAction> extend
 
     private final ThreadFactory threadFactory;
     private final ExecutorService executor;
-    private final String threadGroupName;
+    private final /*~~>*/String threadGroupName;
     private CountDownLatch countDownLatch;
 
     @SafeVarargs
     @SuppressWarnings("varargs")
-    public CompositeParallelAction(int threads, String threadGroupName, A... actions) {
+    public CompositeParallelAction(int threads, /*~~>*/String threadGroupName, A... actions) {
         super(actions);
-        this.threadGroupName = threadGroupName;
+        /*~~>*/this.threadGroupName = threadGroupName;
         this.threadFactory = new GroupedAndNamedThreadFactory(threadGroupName);
         this.executor = Executors.newFixedThreadPool(threads, threadFactory);
     }

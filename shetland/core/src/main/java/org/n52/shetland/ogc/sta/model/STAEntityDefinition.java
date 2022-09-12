@@ -26,51 +26,51 @@ import org.n52.shetland.ogc.sta.StaConstants;
 @SuppressWarnings("VisibilityModifier")
 public abstract class STAEntityDefinition implements StaConstants {
 
-    public static String[] ALLCOLLECTIONS = new String[] { DATASTREAMS, OBSERVATIONS, THINGS, LOCATIONS,
+    public static /*~~>*/String[] ALLCOLLECTIONS = new /*~~>*/String[] { DATASTREAMS, OBSERVATIONS, THINGS, LOCATIONS,
             HISTORICAL_LOCATIONS, SENSORS, OBSERVED_PROPERTIES, FEATURES_OF_INTEREST };
 
     // Map from EntityName to Definition
-    public static Map<String, STAEntityDefinition> definitions = createMap();
+    public static Map</*~~>*/String, STAEntityDefinition> definitions = createMap();
 
-    private final Set<String> navPropsOptional;
-    private final Set<String> navPropsMandatory;
-    private final Set<String> entityPropsOptional;
-    private final Set<String> entityPropsMandatory;
+    private final Set</*~~>*/String> navPropsOptional;
+    private final Set</*~~>*/String> navPropsMandatory;
+    private final Set</*~~>*/String> entityPropsOptional;
+    private final Set</*~~>*/String> entityPropsMandatory;
 
-    protected STAEntityDefinition(Set<String> navPropOptional, Set<String> navPropMandatory,
-            Set<String> entityPropOptional, Set<String> entityPropMandatory) {
+    protected STAEntityDefinition(Set</*~~>*/String> navPropOptional, Set</*~~>*/String> navPropMandatory,
+            Set</*~~>*/String> entityPropOptional, Set</*~~>*/String> entityPropMandatory) {
         this.navPropsOptional = navPropOptional;
         this.navPropsMandatory = navPropMandatory;
         this.entityPropsOptional = entityPropOptional;
         this.entityPropsMandatory = entityPropMandatory;
     }
 
-    public Set<String> getNavPropsOptional() {
+    public Set</*~~>*/String> getNavPropsOptional() {
         return Collections.unmodifiableSet(navPropsOptional);
     }
 
-    public Set<String> getNavPropsMandatory() {
+    public Set</*~~>*/String> getNavPropsMandatory() {
         return Collections.unmodifiableSet(navPropsMandatory);
     }
 
-    public Set<String> getEntityPropsOptional() {
+    public Set</*~~>*/String> getEntityPropsOptional() {
         return Collections.unmodifiableSet(entityPropsOptional);
     }
 
-    public Set<String> getEntityPropsMandatory() {
+    public Set</*~~>*/String> getEntityPropsMandatory() {
         return Collections.unmodifiableSet(entityPropsMandatory);
     }
 
-    static Set<String> combineSets(Set<String>... sets) {
-        HashSet<String> result = new HashSet<>();
-        for (Set<String> set : sets) {
+    static Set</*~~>*/String> combineSets(Set</*~~>*/String>... sets) {
+        HashSet</*~~>*/String> result = new HashSet<>();
+        for (Set</*~~>*/String> set : sets) {
             result.addAll(set);
         }
         return result;
     }
 
-    private static Map<String, STAEntityDefinition> createMap() {
-        HashMap<String, STAEntityDefinition> map = new HashMap<>();
+    private static Map</*~~>*/String, STAEntityDefinition> createMap() {
+        HashMap</*~~>*/String, STAEntityDefinition> map = new HashMap<>();
         DatastreamEntityDefinition dsED = new DatastreamEntityDefinition();
         FeatureOfInterestEntityDefinition foiED = new FeatureOfInterestEntityDefinition();
         HistoricalLocationEntityDefinition hlED = new HistoricalLocationEntityDefinition();

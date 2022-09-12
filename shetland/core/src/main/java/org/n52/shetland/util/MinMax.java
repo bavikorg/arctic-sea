@@ -161,8 +161,8 @@ public class MinMax<
     }
 
     @Override
-    public String toString() {
-        return String.format("MinMax[minimum=%s, maximum=%s]", getMinimum(), getMaximum());
+    public /*~~>*/String toString() {
+        return /*~~>*/String.format("MinMax[minimum=%s, maximum=%s]", getMinimum(), getMaximum());
     }
 
 }

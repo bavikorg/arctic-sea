@@ -160,27 +160,27 @@ import net.opengis.swe.x20.VectorType.Coordinate;
 public class SweCommonEncoderv20 extends AbstractXmlEncoder<XmlObject, Object> implements ConformanceClass {
     private static final Logger LOGGER = LoggerFactory.getLogger(SweCommonEncoderv20.class);
 
-    private static final String URN = "urn:";
+    private static final /*~~>*/String URN = "urn:";
 
-    private static final String HTTP = "http://";
+    private static final /*~~>*/String HTTP = "http://";
 
-    private static final String DATA_RECORD_HAS_NO_FIELDS = "DataRecord contained no fields1";
+    private static final /*~~>*/String DATA_RECORD_HAS_NO_FIELDS = "DataRecord contained no fields1";
 
-    private static final String DATA_RECORD_FIELD_IS_NULL = "DataRcord field is null!";
+    private static final /*~~>*/String DATA_RECORD_FIELD_IS_NULL = "DataRcord field is null!";
 
-    private static final String QUALITY_NOT_SUPPORTED = "Quality encoding is not supported for {}!";
+    private static final /*~~>*/String QUALITY_NOT_SUPPORTED = "Quality encoding is not supported for {}!";
 
-    private static final Set<EncoderKey> ENCODER_KEYS = CodingHelper.encoderKeysForElements(SweConstants.NS_SWE_20,
+    private static final Set<EncoderKey> ENCODER_KEYS = CodingHelper.encoderKeysForElements(/*~~>*/SweConstants.NS_SWE_20,
             SweCoordinate.class, SweAbstractEncoding.class, SweAbstractDataComponent.class);
 
-    private static final Set<String> CONFORMANCE_CLASSES = new HashSet<>(Arrays.asList(ConformanceClasses.SWE_V2_CORE,
-            ConformanceClasses.SWE_V2_UML_SIMPLE_COMPONENTS, ConformanceClasses.SWE_V2_UML_RECORD_COMPONENTS,
-            ConformanceClasses.SWE_V2_UML_BLOCK_ENCODINGS, ConformanceClasses.SWE_V2_UML_SIMPLE_ENCODINGS,
-            ConformanceClasses.SWE_V2_XSD_SIMPLE_COMPONENTS, ConformanceClasses.SWE_V2_XSD_RECORD_COMPONENTS,
-            ConformanceClasses.SWE_V2_XSD_BLOCK_COMPONENTS, ConformanceClasses.SWE_V2_XSD_SIMPLE_ENCODINGS,
-            ConformanceClasses.SWE_V2_GENERAL_ENCODING_RULES, ConformanceClasses.SWE_V2_TEXT_ENCODING_RULES));
+    private static final Set</*~~>*/String> CONFORMANCE_CLASSES = new HashSet<>(Arrays.asList(/*~~>*/ConformanceClasses.SWE_V2_CORE,
+            /*~~>*/ConformanceClasses.SWE_V2_UML_SIMPLE_COMPONENTS, /*~~>*/ConformanceClasses.SWE_V2_UML_RECORD_COMPONENTS,
+            /*~~>*/ConformanceClasses.SWE_V2_UML_BLOCK_ENCODINGS, /*~~>*/ConformanceClasses.SWE_V2_UML_SIMPLE_ENCODINGS,
+            /*~~>*/ConformanceClasses.SWE_V2_XSD_SIMPLE_COMPONENTS, /*~~>*/ConformanceClasses.SWE_V2_XSD_RECORD_COMPONENTS,
+            /*~~>*/ConformanceClasses.SWE_V2_XSD_BLOCK_COMPONENTS, /*~~>*/ConformanceClasses.SWE_V2_XSD_SIMPLE_ENCODINGS,
+            /*~~>*/ConformanceClasses.SWE_V2_GENERAL_ENCODING_RULES, /*~~>*/ConformanceClasses.SWE_V2_TEXT_ENCODING_RULES));
 
-    private static final String DEFAULT_ELEMENT_TYPE_NAME = "Components";
+    private static final /*~~>*/String DEFAULT_ELEMENT_TYPE_NAME = "Components";
 
     public SweCommonEncoderv20() {
         LOGGER.debug("Encoder for the following keys initialized successfully: {}!",
@@ -193,16 +193,16 @@ public class SweCommonEncoderv20 extends AbstractXmlEncoder<XmlObject, Object> i
     }
 
     @Override
-    public Set<String> getConformanceClasses(String service, String version) {
-        if (SosConstants.SOS.equals(service) && Sos2Constants.SERVICEVERSION.equals(version)) {
+    public Set</*~~>*/String> getConformanceClasses(/*~~>*/String service, /*~~>*/String version) {
+        if (/*~~>*/SosConstants.SOS.equals(service) && /*~~>*/Sos2Constants.SERVICEVERSION.equals(version)) {
             return Collections.unmodifiableSet(CONFORMANCE_CLASSES);
         }
         return Collections.emptySet();
     }
 
     @Override
-    public void addNamespacePrefixToMap(final Map<String, String> nameSpacePrefixMap) {
-        nameSpacePrefixMap.put(SweConstants.NS_SWE_20, SweConstants.NS_SWE_PREFIX);
+    public void addNamespacePrefixToMap(final Map</*~~>*/String, /*~~>*/String> nameSpacePrefixMap) {
+        nameSpacePrefixMap.put(/*~~>*/SweConstants.NS_SWE_20, /*~~>*/SweConstants.NS_SWE_PREFIX);
     }
 
     @Override
@@ -402,11 +402,11 @@ public class SweCommonEncoderv20 extends AbstractXmlEncoder<XmlObject, Object> i
         }
     }
 
-    private XmlString createValues(List<List<String>> values, SweAbstractEncoding encoding) {
+    private XmlString createValues(List<List</*~~>*/String>> values, SweAbstractEncoding encoding) {
         // TODO How to deal with the decimal separator - is it an issue here?
         SweTextEncoding textEncoding = (SweTextEncoding) encoding;
 
-        String valueString = values.stream().map(block -> String.join(textEncoding.getTokenSeparator(), block))
+        /*~~>*/String valueString = values.stream().map(block -> /*~~>*/String.join(textEncoding.getTokenSeparator(), block))
                 .collect(joining(textEncoding.getBlockSeparator()));
         // create XB result object
         XmlString xmlString = XmlString.Factory.newInstance(getXmlOptions());
@@ -445,7 +445,7 @@ public class SweCommonEncoderv20 extends AbstractXmlEncoder<XmlObject, Object> i
         }
 
         try {
-            String xml = encoding.getXml();
+            /*~~>*/String xml = encoding.getXml();
             if (xml != null && !xml.isEmpty()) {
                 XmlObject xmlObject = XmlObject.Factory.parse(xml, getXmlOptions());
                 if (xmlObject instanceof AbstractEncodingType) {
@@ -491,7 +491,7 @@ public class SweCommonEncoderv20 extends AbstractXmlEncoder<XmlObject, Object> i
         return unitReference;
     }
 
-    private UnitReference createUnitReference(final String uom) {
+    private UnitReference createUnitReference(final /*~~>*/String uom) {
         final UnitReference unitReference = UnitReference.Factory.newInstance(getXmlOptions());
         if (uom.startsWith(URN) || uom.startsWith(HTTP)) {
             unitReference.setHref(uom);
@@ -581,7 +581,7 @@ public class SweCommonEncoderv20 extends AbstractXmlEncoder<XmlObject, Object> i
                 att.setId(instance.get().getGmlId());
             }
             if (instance.get().isSetValue()) {
-                for (String value : instance.get().getValue()) {
+                for (/*~~>*/String value : instance.get().getValue()) {
                     att.addNewValue().setStringValue(value);
                 }
             }
@@ -604,7 +604,7 @@ public class SweCommonEncoderv20 extends AbstractXmlEncoder<XmlObject, Object> i
             }
             if (instance.get().isSetInterval()) {
                 for (RangeValue<DateTime> interval : instance.get().getInterval()) {
-                    List<String> list = Lists.newArrayListWithCapacity(2);
+                    List</*~~>*/String> list = Lists.newArrayListWithCapacity(2);
                     list.add(DateTimeHelper.formatDateTime2IsoString(interval.getRangeStart()));
                     if (interval.isSetEndValue()) {
                         list.add(DateTimeHelper.formatDateTime2IsoString(interval.getRangeEnd()));
@@ -647,7 +647,7 @@ public class SweCommonEncoderv20 extends AbstractXmlEncoder<XmlObject, Object> i
 
     private UnitReference createUnknownUnitReference() {
         UnitReference unitReference = UnitReference.Factory.newInstance(getXmlOptions());
-        unitReference.setHref(OGCConstants.UNKNOWN);
+        unitReference.setHref(/*~~>*/OGCConstants.UNKNOWN);
         return unitReference;
     }
 
@@ -711,7 +711,7 @@ public class SweCommonEncoderv20 extends AbstractXmlEncoder<XmlObject, Object> i
                 if (component.getElementType().isSetDefinition()) {
                     elementType.setName(component.getElementType().getDefinition());
                 } else {
-                    elementType.setName(SweCommonEncoderv20.DEFAULT_ELEMENT_TYPE_NAME);
+                    elementType.setName(/*~~>*/SweCommonEncoderv20.DEFAULT_ELEMENT_TYPE_NAME);
                 }
                 List<SweField> sosFields = ((SweAbstractDataRecord) component.getElementType()).getFields();
                 DataRecordType xbDataRecord = DataRecordType.Factory.newInstance(getXmlOptions());
@@ -958,12 +958,12 @@ public class SweCommonEncoderv20 extends AbstractXmlEncoder<XmlObject, Object> i
 
         @SuppressFBWarnings("VA_FORMAT_STRING_USES_NEWLINE")
         private AbstractDataComponentType unsupported(SweAbstractDataComponent component) throws EncodingException {
-            String xml = component.getXml();
+            /*~~>*/String xml = component.getXml();
             if (!Strings.isNullOrEmpty(xml)) {
                 try {
                     return (AbstractDataComponentType) XmlObject.Factory.parse(xml, getXmlOptions());
                 } catch (XmlException ex) {
-                    String message = String.format("Error while decoding %s:\n%s",
+                    /*~~>*/String message = /*~~>*/String.format("Error while decoding %s:\n%s",
                             SweAbstractDataComponent.class.getName(), xml);
                     throw new EncodingException(ex, message);
                 }

@@ -28,11 +28,11 @@ import edu.umd.cs.findbugs.annotations.SuppressFBWarnings;
 public class CountingOutputStreamEventResolver implements StatisticsServiceEventResolver<CountingOutputStreamEvent> {
 
     private CountingOutputStreamEvent event;
-    private Map<String, StatisticsServiceEventHandler<?>> handlers = new LinkedHashMap<>();
+    private Map</*~~>*/String, StatisticsServiceEventHandler<?>> handlers = new LinkedHashMap<>();
 
     @Override
     @SuppressFBWarnings({ "EI_EXPOSE_REP" })
-    public Map<String, Object> resolve() {
+    public Map</*~~>*/String, Object> resolve() {
         if (event == null) {
             return null;
         }
@@ -43,7 +43,7 @@ public class CountingOutputStreamEventResolver implements StatisticsServiceEvent
     }
 
     @Override
-    public void setHandlers(Map<String, StatisticsServiceEventHandler<?>> handlers) {
+    public void setHandlers(Map</*~~>*/String, StatisticsServiceEventHandler<?>> handlers) {
         this.handlers.clear();
         if (handlers != null) {
             this.handlers.putAll(handlers);

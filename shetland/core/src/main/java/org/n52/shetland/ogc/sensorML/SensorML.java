@@ -31,7 +31,7 @@ import edu.umd.cs.findbugs.annotations.SuppressFBWarnings;
  */
 public class SensorML extends AbstractSensorML {
 
-    private String version;
+    private /*~~>*/String version;
     private final List<AbstractProcess> members = new LinkedList<AbstractProcess>();
 
     /**
@@ -40,12 +40,12 @@ public class SensorML extends AbstractSensorML {
     public SensorML() {
     }
 
-    public String getVersion() {
+    public /*~~>*/String getVersion() {
         return version;
     }
 
-    public SensorML setVersion(final String version) {
-        this.version = version;
+    public SensorML setVersion(final /*~~>*/String version) {
+        /*~~>*/this.version = version;
         return this;
     }
 
@@ -92,7 +92,7 @@ public class SensorML extends AbstractSensorML {
     }
 
     @Override
-    public String getObservablePropertyName(String observableProperty) {
+    public /*~~>*/String getObservablePropertyName(/*~~>*/String observableProperty) {
         if (isWrapper()) {
             return getMembers().iterator().next().getObservablePropertyName(observableProperty);
         }
@@ -100,7 +100,7 @@ public class SensorML extends AbstractSensorML {
     }
 
     @Override
-    public String getObservablePropertyDescription(String observableProperty) {
+    public /*~~>*/String getObservablePropertyDescription(/*~~>*/String observableProperty) {
         if (isWrapper()) {
             return getMembers().iterator().next().getObservablePropertyDescription(observableProperty);
         }
@@ -108,7 +108,7 @@ public class SensorML extends AbstractSensorML {
     }
 
     @Override
-    public UoM getObservablePropertyUnit(String observableProperty) {
+    public UoM getObservablePropertyUnit(/*~~>*/String observableProperty) {
         if (isWrapper()) {
             return getMembers().iterator().next().getObservablePropertyUnit(observableProperty);
         }
@@ -116,7 +116,7 @@ public class SensorML extends AbstractSensorML {
     }
 
     @Override
-    public String getDefaultElementEncoding() {
-        return SensorMLConstants.NS_SML;
+    public /*~~>*/String getDefaultElementEncoding() {
+        return /*~~>*/SensorMLConstants.NS_SML;
     }
 }

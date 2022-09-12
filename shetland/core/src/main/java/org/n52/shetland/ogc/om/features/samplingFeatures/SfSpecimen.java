@@ -70,14 +70,14 @@ public class SfSpecimen extends SamplingFeature {
         this(featureIdentifier, null);
     }
 
-    public SfSpecimen(final CodeWithAuthority featureIdentifier, final String gmlId) {
+    public SfSpecimen(final CodeWithAuthority featureIdentifier, final /*~~>*/String gmlId) {
         super(featureIdentifier, gmlId);
-        setDefaultElementEncoding(SfConstants.NS_SPEC);
+        setDefaultElementEncoding(/*~~>*/SfConstants.NS_SPEC);
     }
 
     @Override
-    public String getFeatureType() {
-        return SfConstants.SAMPLING_FEAT_TYPE_SF_SPECIMEN;
+    public /*~~>*/String getFeatureType() {
+        return /*~~>*/SfConstants.SAMPLING_FEAT_TYPE_SF_SPECIMEN;
     }
 
     /**

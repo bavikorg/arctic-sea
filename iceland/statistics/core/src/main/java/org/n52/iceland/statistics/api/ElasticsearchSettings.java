@@ -47,32 +47,32 @@ public class ElasticsearchSettings {
     /**
      * In LAN mode the clustername to join to.
      */
-    private String clusterName;
+    private /*~~>*/String clusterName;
 
     /**
      * Is the connection type Remote or LAN or Embedded server
      */
-    private String nodeConnectionMode = ElasticsearchSettingsKeys.CONNECTION_MODE;
+    private /*~~>*/String nodeConnectionMode = /*~~>*/ElasticsearchSettingsKeys.CONNECTION_MODE;
 
     /**
      * The ElasticSearch indexId of the date to be persisted under
      */
-    private String indexId;
+    private /*~~>*/String indexId;
 
     /**
      * TypeId of the date to be persisted under
      */
-    private String typeId = "ogc-type";
+    private /*~~>*/String typeId = "ogc-type";
 
     /**
      * List of the nodes to try to connect to during startup
      */
-    private List<String> clusterNodes;
+    private List</*~~>*/String> clusterNodes;
 
     /**
      * Unique id of the running instance.
      */
-    private String uuid;
+    private /*~~>*/String uuid;
 
     /**
      * Enables the kibana configuration importing into elasticsearch. Controls the {@link this#kibanaConfPath} process
@@ -82,66 +82,66 @@ public class ElasticsearchSettings {
     /**
      * Path to the configuration file for the preconfigured kibana settings.
      */
-    private String kibanaConfPath;
+    private /*~~>*/String kibanaConfPath;
 
     // Getter Setters
     public boolean isLoggingEnabled() {
         return loggingEnabled;
     }
 
-    @Setting(ElasticsearchSettingsKeys.LOGGING_ENABLED)
+    @Setting(/*~~>*/ElasticsearchSettingsKeys.LOGGING_ENABLED)
     public void setLoggingEnabled(boolean loggingEnabled) {
         this.loggingEnabled = loggingEnabled;
     }
 
-    public String getIndexId() {
+    public /*~~>*/String getIndexId() {
         return indexId;
     }
 
-    @Setting(ElasticsearchSettingsKeys.INDEX_NAME)
-    public void setIndexId(String indexId) {
-        Validation.notNullOrEmpty(ElasticsearchSettingsKeys.INDEX_NAME, indexId);
-        this.indexId = indexId;
+    @Setting(/*~~>*/ElasticsearchSettingsKeys.INDEX_NAME)
+    public void setIndexId(/*~~>*/String indexId) {
+        Validation.notNullOrEmpty(/*~~>*/ElasticsearchSettingsKeys.INDEX_NAME, indexId);
+        /*~~>*/this.indexId = indexId;
     }
 
-    public String getTypeId() {
+    public /*~~>*/String getTypeId() {
         return typeId;
     }
 
-    @Setting(ElasticsearchSettingsKeys.TYPE_NAME)
-    public void setTypeId(String typeId) {
-        Validation.notNullOrEmpty(ElasticsearchSettingsKeys.TYPE_NAME, typeId);
-        if (typeId.equals(MetadataDataMapping.METADATA_TYPE_NAME)) {
+    @Setting(/*~~>*/ElasticsearchSettingsKeys.TYPE_NAME)
+    public void setTypeId(/*~~>*/String typeId) {
+        Validation.notNullOrEmpty(/*~~>*/ElasticsearchSettingsKeys.TYPE_NAME, typeId);
+        if (typeId.equals(/*~~>*/MetadataDataMapping.METADATA_TYPE_NAME)) {
             throw new ConfigurationError("The %s is reserved. Choose another one.", typeId);
         }
-        this.typeId = typeId;
+        /*~~>*/this.typeId = typeId;
     }
 
-    public String getUuid() {
+    public /*~~>*/String getUuid() {
         return uuid;
     }
 
-    @Setting(ElasticsearchSettingsKeys.UUID)
-    public void setUuid(String uuid) {
+    @Setting(/*~~>*/ElasticsearchSettingsKeys.UUID)
+    public void setUuid(/*~~>*/String uuid) {
         if (uuid == null || uuid.trim().isEmpty()) {
-            this.uuid = UUID.randomUUID().toString();
-            saveStringValueToConfigFile(ElasticsearchSettingsKeys.UUID, this.uuid);
+            /*~~>*/this.uuid = UUID.randomUUID().toString();
+            saveStringValueToConfigFile(/*~~>*/ElasticsearchSettingsKeys.UUID, /*~~>*/this.uuid);
         } else {
-            this.uuid = uuid;
+            /*~~>*/this.uuid = uuid;
         }
     }
 
-    public String getClusterName() {
+    public /*~~>*/String getClusterName() {
         return clusterName;
     }
 
-    @Setting(ElasticsearchSettingsKeys.CLUSTER_NAME)
-    public void setClusterName(String clusterName) {
-        Validation.notNullOrEmpty(ElasticsearchSettingsKeys.CLUSTER_NAME, clusterName);
-        this.clusterName = clusterName;
+    @Setting(/*~~>*/ElasticsearchSettingsKeys.CLUSTER_NAME)
+    public void setClusterName(/*~~>*/String clusterName) {
+        Validation.notNullOrEmpty(/*~~>*/ElasticsearchSettingsKeys.CLUSTER_NAME, clusterName);
+        /*~~>*/this.clusterName = clusterName;
     }
 
-    public List<String> getClusterNodes() {
+    public List</*~~>*/String> getClusterNodes() {
         return new LinkedList<>(clusterNodes);
     }
 
@@ -150,10 +150,10 @@ public class ElasticsearchSettings {
      *
      * @param clusterNodes list of the clusterNodes
      */
-    @Setting(ElasticsearchSettingsKeys.CLUSTER_NODES)
-    public void setClusterNodes(String clusterNodes) {
+    @Setting(/*~~>*/ElasticsearchSettingsKeys.CLUSTER_NODES)
+    public void setClusterNodes(/*~~>*/String clusterNodes) {
         this.clusterNodes = new ArrayList<>();
-        Validation.notNullOrEmpty(ElasticsearchSettingsKeys.CLUSTER_NODES, clusterNodes);
+        Validation.notNullOrEmpty(/*~~>*/ElasticsearchSettingsKeys.CLUSTER_NODES, clusterNodes);
         if (clusterNodes.contains(",")) {
             Arrays.stream(clusterNodes.split(","))
                     .peek(this::checkClustorNodeFormat)
@@ -164,9 +164,9 @@ public class ElasticsearchSettings {
         }
     }
 
-    private boolean checkClustorNodeFormat(String node) throws ConfigurationError {
+    private boolean checkClustorNodeFormat(/*~~>*/String node) throws ConfigurationError {
         if (node.contains(":")) {
-            String[] split = node.split(":");
+            /*~~>*/String[] split = node.split(":");
             if (split.length != 2) {
                 throw new ConfigurationError("Illegal format expected host[:port] but found %s", node);
             }
@@ -179,7 +179,7 @@ public class ElasticsearchSettings {
         return true;
     }
 
-    public String getNodeConnectionMode() {
+    public /*~~>*/String getNodeConnectionMode() {
         return nodeConnectionMode;
     }
 
@@ -192,8 +192,8 @@ public class ElasticsearchSettings {
      * @see ElasticsearchSettingsKeys#CONNECTION_MODE_TRANSPORT_CLIENT
      * @see ElasticsearchSettingsKeys#CONNECTION_MODE_EMBEDDED_SERVER
      */
-    @Setting(ElasticsearchSettingsKeys.CONNECTION_MODE)
-    public void setNodeConnectionMode(String choice) {
+    @Setting(/*~~>*/ElasticsearchSettingsKeys.CONNECTION_MODE)
+    public void setNodeConnectionMode(/*~~>*/String choice) {
         nodeConnectionMode = choice;
     }
 
@@ -203,36 +203,36 @@ public class ElasticsearchSettings {
      * @param key   key to save the value
      * @param value value to save under the key
      */
-    public void saveStringValueToConfigFile(String key, String value) {
+    public void saveStringValueToConfigFile(/*~~>*/String key, /*~~>*/String value) {
         settingsService.changeSetting(this.settingValueFactory.newStringSettingValue(key, value));
 
     }
 
-    public void saveBooleanValueToConfigFile(String key, Boolean value) {
+    public void saveBooleanValueToConfigFile(/*~~>*/String key, Boolean value) {
         settingsService.changeSetting(this.settingValueFactory.newBooleanSettingValue(key, value));
 
     }
 
-    public String getKibanaConfPath() {
+    public /*~~>*/String getKibanaConfPath() {
         return kibanaConfPath;
     }
 
-    @Setting(ElasticsearchSettingsKeys.KIBANA_CONFIG_PATH)
-    public void setKibanaConfPath(String kibanaConfPath) {
-        this.kibanaConfPath = kibanaConfPath;
+    @Setting(/*~~>*/ElasticsearchSettingsKeys.KIBANA_CONFIG_PATH)
+    public void setKibanaConfPath(/*~~>*/String kibanaConfPath) {
+        /*~~>*/this.kibanaConfPath = kibanaConfPath;
     }
 
     public boolean isKibanaConfigEnable() {
         return kibanaConfigEnable;
     }
 
-    @Setting(ElasticsearchSettingsKeys.KIBANA_CONFIG_ENABLE)
+    @Setting(/*~~>*/ElasticsearchSettingsKeys.KIBANA_CONFIG_ENABLE)
     public void setKibanaConfigEnable(boolean kibanaConfigEnable) {
         this.kibanaConfigEnable = kibanaConfigEnable;
     }
 
     @Override
-    public String toString() {
+    public /*~~>*/String toString() {
         return "ElasticsearchSettings [loggingEnabled=" + loggingEnabled + ", clusterName=" + clusterName +
                ", nodeConnectionMode=" +
                nodeConnectionMode + ", indexId=" + indexId + ", typeId=" + typeId + ", clusterNodes=" + clusterNodes +

@@ -27,7 +27,7 @@ import com.google.common.base.Strings;
  * @since 1.0.0
  *
  */
-public class TextValue extends SweText implements Value<String> {
+public class TextValue extends SweText implements Value</*~~>*/String> {
     /**
      * Unit of measure
      */
@@ -46,7 +46,7 @@ public class TextValue extends SweText implements Value<String> {
      * @param value
      *            Measurement value
      */
-    public TextValue(String value) {
+    public TextValue(/*~~>*/String value) {
         super();
         super.setValue(value);
     }
@@ -59,13 +59,13 @@ public class TextValue extends SweText implements Value<String> {
     }
 
     @Override
-    public TextValue setValue(String value) {
+    public TextValue setValue(/*~~>*/String value) {
         super.setValue(value);
         return this;
     }
 
     @Override
-    public void setUnit(String unit) {
+    public void setUnit(/*~~>*/String unit) {
         this.unit = new UoM(unit);
     }
 
@@ -76,7 +76,7 @@ public class TextValue extends SweText implements Value<String> {
     }
 
     @Override
-    public String getUnit() {
+    public /*~~>*/String getUnit() {
         if (isSetUnit()) {
             return unit.getUom();
         }
@@ -94,8 +94,8 @@ public class TextValue extends SweText implements Value<String> {
     }
 
     @Override
-    public String toString() {
-        return String.format("TextValue [value=%s, unit=%s]", getValue(), getUnit());
+    public /*~~>*/String toString() {
+        return /*~~>*/String.format("TextValue [value=%s, unit=%s]", getValue(), getUnit());
     }
 
     @Override

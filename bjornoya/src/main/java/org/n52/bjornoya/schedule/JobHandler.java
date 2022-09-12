@@ -38,7 +38,7 @@ public class JobHandler implements Constructable, CronExpressionValidator {
 
     private static final Logger LOGGER = LoggerFactory.getLogger(JobHandler.class);
     private Scheduler scheduler;
-    private Set<String> jobs = new HashSet<>();
+    private Set</*~~>*/String> jobs = new HashSet<>();
     private Set<ScheduledJob> scheduledJobs = new TreeSet<>();
     private DefaultJobConfiguration defaultJobConfiguration;
 
@@ -83,7 +83,7 @@ public class JobHandler implements Constructable, CronExpressionValidator {
         reschedule(defaultJobConfiguration.getDefaultJobNames());
     }
 
-    public void reschedule(Collection<String> defaultJobNames) {
+    public void reschedule(Collection</*~~>*/String> defaultJobNames) {
         for (ScheduledJob job : getScheduledJobs()) {
             if (jobs.contains(job.getJobName())) {
                 if (job instanceof FullHarvesterJob && defaultJobNames.contains(job.getJobName())) {

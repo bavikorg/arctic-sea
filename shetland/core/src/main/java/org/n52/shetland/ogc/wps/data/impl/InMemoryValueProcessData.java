@@ -73,7 +73,7 @@ public class InMemoryValueProcessData extends ValueProcessData {
     }
 
     @Override
-    public String toString() {
+    public /*~~>*/String toString() {
         return MoreObjects.toStringHelper(this).omitNullValues().add("id", getId()).add("format", getFormat())
                 .add("value", this.bytes).toString();
     }

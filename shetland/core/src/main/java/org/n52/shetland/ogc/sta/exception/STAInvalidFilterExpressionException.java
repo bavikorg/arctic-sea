@@ -22,11 +22,11 @@ public class STAInvalidFilterExpressionException extends STAInvalidQueryExceptio
 
     private static final long serialVersionUID = -4606310498863675929L;
 
-    public STAInvalidFilterExpressionException(String s) {
+    public STAInvalidFilterExpressionException(/*~~>*/String s) {
         super(s);
     }
 
-    public STAInvalidFilterExpressionException(String msg, Throwable nested) {
+    public STAInvalidFilterExpressionException(/*~~>*/String msg, Throwable nested) {
         super(msg, nested);
     }
 }

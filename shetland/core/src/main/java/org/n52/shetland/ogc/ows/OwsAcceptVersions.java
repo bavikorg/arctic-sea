@@ -28,12 +28,12 @@ import java.util.Objects;
  */
 public class OwsAcceptVersions {
 
-    private List<String> acceptVersions = new ArrayList<>();
+    private List</*~~>*/String> acceptVersions = new ArrayList<>();
 
     /**
      * @return the acceptVersions
      */
-    public List<String> getAcceptVersions() {
+    public List</*~~>*/String> getAcceptVersions() {
         return Collections.unmodifiableList(acceptVersions);
     }
 
@@ -42,7 +42,7 @@ public class OwsAcceptVersions {
      *            the acceptVersions to set
      * @return this
      */
-    public OwsAcceptVersions setAcceptVersions(Collection<String> acceptVersions) {
+    public OwsAcceptVersions setAcceptVersions(Collection</*~~>*/String> acceptVersions) {
         this.acceptVersions.clear();
         this.acceptVersions.addAll(Objects.requireNonNull(acceptVersions));
         return this;
@@ -53,7 +53,7 @@ public class OwsAcceptVersions {
      *            the acceptVersions to add
      * @return this
      */
-    public OwsAcceptVersions addAcceptVersions(Collection<String> acceptVersions) {
+    public OwsAcceptVersions addAcceptVersions(Collection</*~~>*/String> acceptVersions) {
         if (acceptVersions != null) {
             this.acceptVersions.addAll(acceptVersions);
         }
@@ -65,7 +65,7 @@ public class OwsAcceptVersions {
      *            the acceptVersion to add
      * @return this
      */
-    public OwsAcceptVersions addAcceptVersions(String acceptVersion) {
+    public OwsAcceptVersions addAcceptVersions(/*~~>*/String acceptVersion) {
         if (acceptVersion != null) {
             this.acceptVersions.add(acceptVersion);
         }

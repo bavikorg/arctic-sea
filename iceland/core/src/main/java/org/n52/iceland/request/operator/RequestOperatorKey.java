@@ -32,7 +32,7 @@ import com.google.common.collect.ComparisonChain;
 public class RequestOperatorKey implements Comparable<RequestOperatorKey>, DefaultActive {
     private final OwsServiceKey sok;
 
-    private final String operationName;
+    private final /*~~>*/String operationName;
 
     private final boolean defaultActive;
 
@@ -42,7 +42,7 @@ public class RequestOperatorKey implements Comparable<RequestOperatorKey>, Defau
      * @param sok           the service operator key
      * @param operationName the operation name
      */
-    public RequestOperatorKey(OwsServiceKey sok, String operationName) {
+    public RequestOperatorKey(OwsServiceKey sok, /*~~>*/String operationName) {
         this(sok, operationName, true);
     }
 
@@ -53,9 +53,9 @@ public class RequestOperatorKey implements Comparable<RequestOperatorKey>, Defau
      * @param operationName the operation name
      * @param defaultActive if this operation should be active by default
      */
-    public RequestOperatorKey(OwsServiceKey sok, String operationName, boolean defaultActive) {
+    public RequestOperatorKey(OwsServiceKey sok, /*~~>*/String operationName, boolean defaultActive) {
         this.sok = sok;
-        this.operationName = operationName;
+        /*~~>*/this.operationName = operationName;
         this.defaultActive = defaultActive;
     }
 
@@ -66,7 +66,7 @@ public class RequestOperatorKey implements Comparable<RequestOperatorKey>, Defau
      * @param version       the version
      * @param operationName the operation name
      */
-    public RequestOperatorKey(String service, String version, String operationName) {
+    public RequestOperatorKey(/*~~>*/String service, /*~~>*/String version, /*~~>*/String operationName) {
         this(new OwsServiceKey(service, version), operationName, true);
     }
 
@@ -78,7 +78,7 @@ public class RequestOperatorKey implements Comparable<RequestOperatorKey>, Defau
      * @param operationName the operation name
      * @param defaultActive if this operation should be active by default
      */
-    public RequestOperatorKey(String service, String version, String operationName, boolean defaultActive) {
+    public RequestOperatorKey(/*~~>*/String service, /*~~>*/String version, /*~~>*/String operationName, boolean defaultActive) {
         this(new OwsServiceKey(service, version), operationName, defaultActive);
     }
 
@@ -110,7 +110,7 @@ public class RequestOperatorKey implements Comparable<RequestOperatorKey>, Defau
      * @param version       the version
      * @param operationName the operation name
      */
-    public RequestOperatorKey(String service, String version, Enum<?> operationName) {
+    public RequestOperatorKey(/*~~>*/String service, /*~~>*/String version, Enum<?> operationName) {
         this(service, version, operationName.name());
     }
 
@@ -122,7 +122,7 @@ public class RequestOperatorKey implements Comparable<RequestOperatorKey>, Defau
      * @param operationName the operation name
      * @param defaultActive if this operation should be active by default
      */
-    public RequestOperatorKey(String service, String version, Enum<?> operationName, boolean defaultActive) {
+    public RequestOperatorKey(/*~~>*/String service, /*~~>*/String version, Enum<?> operationName, boolean defaultActive) {
         this(service, version, operationName.name(), defaultActive);
     }
 
@@ -136,21 +136,21 @@ public class RequestOperatorKey implements Comparable<RequestOperatorKey>, Defau
     /**
      * @return The service name
      */
-    public String getService() {
+    public /*~~>*/String getService() {
         return sok == null ? null : sok.getService();
     }
 
     /**
      * @return The service version
      */
-    public String getVersion() {
+    public /*~~>*/String getVersion() {
         return sok == null ? null : sok.getVersion();
     }
 
     /**
      * @return The operation name
      */
-    public String getOperationName() {
+    public /*~~>*/String getOperationName() {
         return operationName;
     }
 
@@ -182,7 +182,7 @@ public class RequestOperatorKey implements Comparable<RequestOperatorKey>, Defau
     }
 
     @Override
-    public String toString() {
+    public /*~~>*/String toString() {
         return MoreObjects.toStringHelper(this)
                 .add("serviceOperatorKey", getServiceOperatorKey())
                 .add("operationName", getOperationName())

@@ -78,12 +78,12 @@ public abstract class AbstractMultiPointCoverageTypeEncoder<T>
     }
 
     @Override
-    public void addNamespacePrefixToMap(Map<String, String> nameSpacePrefixMap) {
+    public void addNamespacePrefixToMap(Map</*~~>*/String, /*~~>*/String> nameSpacePrefixMap) {
         super.addNamespacePrefixToMap(nameSpacePrefixMap);
-        nameSpacePrefixMap.put(GmlConstants.NS_GML_32, GmlConstants.NS_GML_PREFIX);
+        nameSpacePrefixMap.put(/*~~>*/GmlConstants.NS_GML_32, /*~~>*/GmlConstants.NS_GML_PREFIX);
     }
 
     protected XmlObject encodeGML(Object o, EncodingContext ec) throws EncodingException {
-        return encodeObjectToXml(GmlConstants.NS_GML_32, o, ec);
+        return encodeObjectToXml(/*~~>*/GmlConstants.NS_GML_32, o, ec);
     }
 }

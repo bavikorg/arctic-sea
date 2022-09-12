@@ -89,7 +89,7 @@ public class EnvironmentalMonitoringFacility extends AbstractMonitoringFeature {
         this.measurementRegime = measurementRegime;
         this.mobile = mobile;
         this.operationalActivityPeriod.add(operationalActivityPeriod);
-        setDefaultElementEncoding(InspireEfConstants.NS_EF);
+        setDefaultElementEncoding(/*~~>*/InspireEfConstants.NS_EF);
     }
 
     public EnvironmentalMonitoringFacility(Identifier inspireId, Set<ReferenceType> mediaMonitored,
@@ -99,7 +99,7 @@ public class EnvironmentalMonitoringFacility extends AbstractMonitoringFeature {
         this.measurementRegime = measurementRegime;
         this.mobile = mobile;
         this.operationalActivityPeriod.addAll(operationalActivityPeriod);
-        setDefaultElementEncoding(InspireEfConstants.NS_EF);
+        setDefaultElementEncoding(/*~~>*/InspireEfConstants.NS_EF);
     }
 
     @Override
@@ -108,7 +108,7 @@ public class EnvironmentalMonitoringFacility extends AbstractMonitoringFeature {
     }
 
     @Override
-    public String getGmlId() {
+    public /*~~>*/String getGmlId() {
         if (!super.isSetGmlID()) {
             final StringBuilder builder = new StringBuilder();
             builder.append("emf");

@@ -21,24 +21,24 @@ import org.n52.shetland.ogc.filter.FilterConstants.SortOrder;
 
 public class OrderProperty {
 
-    private final String valueReference;
+    private final /*~~>*/String valueReference;
 
     private final SortOrder sortOrder;
 
-    public OrderProperty(String valueReference) {
-        this.valueReference = valueReference;
+    public OrderProperty(/*~~>*/String valueReference) {
+        /*~~>*/this.valueReference = valueReference;
         this.sortOrder = null;
     }
 
-    public OrderProperty(String valueReference, SortOrder order) {
-        this.valueReference = valueReference;
+    public OrderProperty(/*~~>*/String valueReference, SortOrder order) {
+        /*~~>*/this.valueReference = valueReference;
         this.sortOrder = order;
     }
 
     /**
      * @return the valueReference
      */
-    public String getValueReference() {
+    public /*~~>*/String getValueReference() {
         return valueReference;
     }
 
@@ -68,12 +68,12 @@ public class OrderProperty {
             return false;
         }
 
-        return Objects.equals(this.valueReference, ((OrderProperty) o).getValueReference())
+        return Objects.equals(/*~~>*/this.valueReference, ((OrderProperty) o).getValueReference())
                 && Objects.equals(this.sortOrder, ((OrderProperty) o).getSortOrder());
     }
 
     @Override
-    public String toString() {
+    public /*~~>*/String toString() {
         return valueReference + ((getSortOrder() != null) ? " " + getSortOrder().toString().toLowerCase() : "");
     }
 }

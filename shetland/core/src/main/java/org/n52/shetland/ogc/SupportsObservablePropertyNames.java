@@ -17,8 +17,8 @@ package org.n52.shetland.ogc;
 
 public interface SupportsObservablePropertyNames {
 
-    boolean isSetObservablePropertyNameFor(String observableProperty);
+    boolean isSetObservablePropertyNameFor(/*~~>*/String observableProperty);
 
-    String getObservablePropertyNameFor(String observableProperty);
+    /*~~>*/String getObservablePropertyNameFor(/*~~>*/String observableProperty);
 
 }

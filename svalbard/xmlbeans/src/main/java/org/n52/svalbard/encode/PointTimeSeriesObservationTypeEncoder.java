@@ -53,7 +53,7 @@ public class PointTimeSeriesObservationTypeEncoder
 
     private static final Logger LOGGER = LoggerFactory.getLogger(PointTimeSeriesObservationTypeEncoder.class);
     private static final Set<EncoderKey> ENCODER_KEYS =
-            CodingHelper.encoderKeysForElements(InspireOMSOConstants.NS_OMSO_30, PointTimeSeriesObservation.class);
+            CodingHelper.encoderKeysForElements(/*~~>*/InspireOMSOConstants.NS_OMSO_30, PointTimeSeriesObservation.class);
 
     public PointTimeSeriesObservationTypeEncoder() {
         LOGGER.debug("Encoder for the following keys initialized successfully: {}!",
@@ -72,7 +72,7 @@ public class PointTimeSeriesObservationTypeEncoder
 
     @Override
     protected XmlObject encodeResult(ObservationValue<?> observationValue) throws EncodingException {
-        return encodeObjectToXml(WaterMLConstants.NS_WML_20, observationValue);
+        return encodeObjectToXml(/*~~>*/WaterMLConstants.NS_WML_20, observationValue);
     }
 
     @Override
@@ -81,8 +81,8 @@ public class PointTimeSeriesObservationTypeEncoder
     }
 
     @Override
-    protected String getObservationType() {
-        return InspireOMSOConstants.OBS_TYPE_POINT_TIME_SERIES_OBSERVATION;
+    protected /*~~>*/String getObservationType() {
+        return /*~~>*/InspireOMSOConstants.OBS_TYPE_POINT_TIME_SERIES_OBSERVATION;
     }
 
     @Override

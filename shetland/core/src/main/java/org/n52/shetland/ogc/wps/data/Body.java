@@ -24,7 +24,7 @@ import java.net.URI;
  * @author Christian Autermann
  */
 public abstract class Body {
-    public abstract String getBody() throws IOException;
+    public abstract /*~~>*/String getBody() throws IOException;
 
     public boolean isReferenced() {
         return false;
@@ -42,7 +42,7 @@ public abstract class Body {
         throw new UnsupportedOperationException();
     }
 
-    public static Body inline(String body) {
+    public static Body inline(/*~~>*/String body) {
         return new InlineBody(body);
     }
 
@@ -50,7 +50,7 @@ public abstract class Body {
         return new ReferencedBody(uri);
     }
 
-    public static Body reference(String uri) {
+    public static Body reference(/*~~>*/String uri) {
         return reference(URI.create(uri));
     }
 

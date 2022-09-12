@@ -27,7 +27,7 @@ public class Service extends AbstractWsdl {
 
     private Collection<Port> ports = new TreeSet<>();
 
-    public Service(String name) {
+    public Service(/*~~>*/String name) {
         super(name);
     }
 

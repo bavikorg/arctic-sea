@@ -63,32 +63,32 @@ public final class JSONValidator {
         return jsonSchemaFactory;
     }
 
-    public ProcessingReport validate(String json, String schema)
+    public ProcessingReport validate(/*~~>*/String json, /*~~>*/String schema)
             throws IOException {
         return validate(Json.loadString(json), schema);
     }
 
-    public ProcessingReport validate(URL url, String schema)
+    public ProcessingReport validate(URL url, /*~~>*/String schema)
             throws IOException {
         return validate(Json.loadURL(url), schema);
     }
 
-    public ProcessingReport validate(File file, String schema)
+    public ProcessingReport validate(File file, /*~~>*/String schema)
             throws IOException {
         return validate(Json.loadFile(file), schema);
     }
 
-    public ProcessingReport validate(InputStream is, String schema)
+    public ProcessingReport validate(InputStream is, /*~~>*/String schema)
             throws IOException {
         return validate(Json.loadStream(is), schema);
     }
 
-    public ProcessingReport validate(Reader reader, String schema)
+    public ProcessingReport validate(Reader reader, /*~~>*/String schema)
             throws IOException {
         return validate(Json.loadReader(reader), schema);
     }
 
-    public ProcessingReport validate(JsonNode node, String schema) {
+    public ProcessingReport validate(JsonNode node, /*~~>*/String schema) {
         JsonSchema jsonSchema;
         try {
             jsonSchema = getJsonSchemaFactory().getJsonSchema(schema);
@@ -98,50 +98,50 @@ public final class JSONValidator {
         return jsonSchema.validateUnchecked(node);
     }
 
-    public boolean isValid(String json, String schema)
+    public boolean isValid(/*~~>*/String json, /*~~>*/String schema)
             throws IOException {
         return isValid(Json.loadString(json), schema);
     }
 
-    public boolean isValid(URL url, String schema)
+    public boolean isValid(URL url, /*~~>*/String schema)
             throws IOException {
         return isValid(Json.loadURL(url), schema);
     }
 
-    public boolean isValid(File file, String schema)
+    public boolean isValid(File file, /*~~>*/String schema)
             throws IOException {
         return isValid(Json.loadFile(file), schema);
     }
 
-    public boolean isValid(InputStream is, String schema)
+    public boolean isValid(InputStream is, /*~~>*/String schema)
             throws IOException {
         return isValid(Json.loadStream(is), schema);
     }
 
-    public boolean isValid(Reader reader, String schema)
+    public boolean isValid(Reader reader, /*~~>*/String schema)
             throws IOException {
         return isValid(Json.loadReader(reader), schema);
     }
 
-    public boolean isValid(JsonNode node, String schema) {
+    public boolean isValid(JsonNode node, /*~~>*/String schema) {
         return validate(node, schema).isSuccess();
     }
 
-    public String encode(ProcessingReport report, JsonNode instance) {
+    public /*~~>*/String encode(ProcessingReport report, JsonNode instance) {
         ObjectNode objectNode = Json.nodeFactory().objectNode();
-        objectNode.set(JSONConstants.INSTANCE, instance);
-        ArrayNode errors = objectNode.putArray(JSONConstants.ERRORS);
+        objectNode.set(/*~~>*/JSONConstants.INSTANCE, instance);
+        ArrayNode errors = objectNode.putArray(/*~~>*/JSONConstants.ERRORS);
         for (ProcessingMessage m : report) {
             errors.add(m.asJson());
         }
         return Json.print(objectNode);
     }
 
-    public void validateAndThrow(JsonNode instance, String schema)
+    public void validateAndThrow(JsonNode instance, /*~~>*/String schema)
             throws DecodingException {
         ProcessingReport report = JSONValidator.getInstance().validate(instance, schema);
         if (!report.isSuccess()) {
-            String message = encode(report, instance);
+            /*~~>*/String message = encode(report, instance);
             LOG.info("Invalid JSON instance:\n{}", message);
             throw new JSONDecodingException(message);
         }
@@ -168,8 +168,8 @@ public final class JSONValidator {
             return resource.fetch(URI.create(toResource(source)));
         }
 
-        protected String toResource(URI source) {
-            return String.format("resource://%s.json", source.getPath().replace("/json", ""));
+        protected /*~~>*/String toResource(URI source) {
+            return /*~~>*/String.format("resource://%s.json", source.getPath().replace("/json", ""));
         }
     }
 }

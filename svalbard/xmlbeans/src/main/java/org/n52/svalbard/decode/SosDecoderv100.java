@@ -76,10 +76,10 @@ public class SosDecoderv100 extends AbstractXmlDecoder<XmlObject, OwsServiceComm
     private static final Logger LOGGER = LoggerFactory.getLogger(SosDecoderv100.class);
 
     private static final Set<DecoderKey> DECODER_KEYS = CollectionHelper.union(
-            CodingHelper.decoderKeysForElements(Sos1Constants.NS_SOS, GetCapabilitiesDocument.class,
+            CodingHelper.decoderKeysForElements(/*~~>*/Sos1Constants.NS_SOS, GetCapabilitiesDocument.class,
                     DescribeSensorDocument.class, GetObservationDocument.class, GetFeatureOfInterestDocument.class,
                     GetObservationByIdDocument.class),
-            CodingHelper.xmlDecoderKeysForOperation(SosConstants.SOS, Sos1Constants.SERVICEVERSION,
+            CodingHelper.xmlDecoderKeysForOperation(/*~~>*/SosConstants.SOS, /*~~>*/Sos1Constants.SERVICEVERSION,
                     SosConstants.Operations.GetCapabilities, SosConstants.Operations.GetObservation,
                     SosConstants.Operations.GetFeatureOfInterest, SosConstants.Operations.GetObservationById,
                     SosConstants.Operations.DescribeSensor));
@@ -108,7 +108,7 @@ public class SosDecoderv100 extends AbstractXmlDecoder<XmlObject, OwsServiceComm
         if (xmlObject instanceof GetObservationDocument) {
             XmlCursor cursor = xmlObject.newCursor();
             cursor.toFirstChild();
-            cursor.insertNamespace(OmConstants.NS_OM_PREFIX, OmConstants.NS_OM);
+            cursor.insertNamespace(/*~~>*/OmConstants.NS_OM_PREFIX, /*~~>*/OmConstants.NS_OM);
             cursor.dispose();
         }
         // validate document
@@ -223,8 +223,8 @@ public class SosDecoderv100 extends AbstractXmlDecoder<XmlObject, OwsServiceComm
                     getObsRequest.setSpatialFilter((SpatialFilter) filter);
                 }
             } else if (featureOfInterest.getObjectIDArray() != null) {
-                Set<String> featureIdentifiers = Sets.newHashSet();
-                for (String string : featureOfInterest.getObjectIDArray()) {
+                Set</*~~>*/String> featureIdentifiers = Sets.newHashSet();
+                for (/*~~>*/String string : featureOfInterest.getObjectIDArray()) {
                     featureIdentifiers.add(string);
                 }
                 getObsRequest.setFeatureIdentifiers(Lists.newArrayList(featureIdentifiers));
@@ -287,8 +287,8 @@ public class SosDecoderv100 extends AbstractXmlDecoder<XmlObject, OwsServiceComm
             getObsByIdRequest.setResponseFormat(OmConstants.CONTENT_TYPE_OM.toString());
         }
         net.opengis.sos.x10.ResponseModeType.Enum responseMode = getObsById.getResponseMode();
-        if (responseMode != null && responseMode.toString().equalsIgnoreCase(SosConstants.RESPONSE_MODE_INLINE)) {
-            getObsByIdRequest.setResponseMode(SosConstants.RESPONSE_MODE_INLINE);
+        if (responseMode != null && responseMode.toString().equalsIgnoreCase(/*~~>*/SosConstants.RESPONSE_MODE_INLINE)) {
+            getObsByIdRequest.setResponseMode(/*~~>*/SosConstants.RESPONSE_MODE_INLINE);
         }
         if (getObsById.isSetResultModel()) {
             getObsByIdRequest.setResultModel(OMHelper.getObservationTypeFor(getObsById.getResultModel()));
@@ -357,7 +357,7 @@ public class SosDecoderv100 extends AbstractXmlDecoder<XmlObject, OwsServiceComm
         return null;
     }
 
-    private String decodeResponseFormat(String responseFormat) throws DecodingException {
+    private /*~~>*/String decodeResponseFormat(/*~~>*/String responseFormat) throws DecodingException {
         try {
             // parse responseFormat through MediaType to ensure it's a mime
             // type and eliminate whitespace variations

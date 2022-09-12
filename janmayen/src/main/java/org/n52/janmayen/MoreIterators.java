@@ -38,7 +38,7 @@ public final class MoreIterators {
      *
      * @return the iterator
      */
-    public static Iterator<String> split(String regex, CharSequence input) {
+    public static Iterator</*~~>*/String> split(/*~~>*/String regex, CharSequence input) {
         return split(Pattern.compile(regex), input);
     }
 
@@ -52,21 +52,21 @@ public final class MoreIterators {
      *
      * @see Pattern#splitAsStream(java.lang.CharSequence)
      */
-    public static Iterator<String> split(Pattern pattern, CharSequence input) {
+    public static Iterator</*~~>*/String> split(Pattern pattern, CharSequence input) {
         // copyied form Pattern.splitAsStream()
-        return new Iterator<String>() {
+        return new Iterator</*~~>*/String>() {
             private final Matcher matcher = pattern.matcher(input);
             private int current;
-            private String nextElement;
+            private /*~~>*/String nextElement;
             private int emptyElementCount;
 
             @Override
-            public String next() {
+            public /*~~>*/String next() {
                 if (!hasNext()) {
                     throw new NoSuchElementException();
                 }
                 if (emptyElementCount == 0) {
-                    String n = nextElement;
+                    /*~~>*/String n = nextElement;
                     nextElement = null;
                     return n;
                 } else {

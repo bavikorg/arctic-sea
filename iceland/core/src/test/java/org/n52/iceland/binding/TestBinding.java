@@ -27,7 +27,7 @@ import com.google.common.collect.Sets;
  *
  */
 public class TestBinding extends SimpleBinding {
-    private static final String URL_PATTERN = "/service/test";
+    private static final /*~~>*/String URL_PATTERN = "/service/test";
 
     @Override
     protected boolean isUseHttpResponseCodes() {

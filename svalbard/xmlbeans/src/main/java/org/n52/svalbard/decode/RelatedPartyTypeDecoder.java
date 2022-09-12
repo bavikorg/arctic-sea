@@ -45,7 +45,7 @@ public class RelatedPartyTypeDecoder
         extends AbstractXmlDecoder<XmlObject, RelatedParty> {
 
     private static final Set<DecoderKey> DECODER_KEYS =
-            CodingHelper.decoderKeysForElements(InspireOMPRConstants.NS_OMPR_30, RelatedPartyType.class);
+            CodingHelper.decoderKeysForElements(/*~~>*/InspireOMPRConstants.NS_OMPR_30, RelatedPartyType.class);
 
     @Override
     public Set<DecoderKey> getKeys() {
@@ -93,21 +93,21 @@ public class RelatedPartyTypeDecoder
         return Nillable.<PT_FreeText> of((PT_FreeText) decodeXmlElement(ct.getContactInstructions()));
     }
 
-    private Nillable<String> parseElectronicMailAddress(ContactType ct) {
+    private Nillable</*~~>*/String> parseElectronicMailAddress(ContactType ct) {
         if (ct.isNilElectronicMailAddress()) {
             if (ct.getElectronicMailAddress().isSetNilReason()) {
-                return Nillable.<String> nil(ct.getElectronicMailAddress().getNilReason().toString());
+                return Nillable.</*~~>*/String> nil(ct.getElectronicMailAddress().getNilReason().toString());
             }
-            return Nillable.<String> nil();
+            return Nillable.</*~~>*/String> nil();
         }
-        return Nillable.<String> of(ct.getElectronicMailAddress().getStringValue());
+        return Nillable.</*~~>*/String> of(ct.getElectronicMailAddress().getStringValue());
     }
 
-    private Nillable<List<Nillable<String>>> parseTelephoneFacsimile(ContactType ct) {
-        List<Nillable<String>> list = Lists.newArrayList();
+    private Nillable<List<Nillable</*~~>*/String>>> parseTelephoneFacsimile(ContactType ct) {
+        List<Nillable</*~~>*/String>> list = Lists.newArrayList();
         for (TelephoneFacsimile tf : ct.getTelephoneFacsimileArray()) {
             if (tf.isNil() && tf.isSetNilReason()) {
-                return Nillable.<List<Nillable<String>>> nil(tf.getNilReason().toString());
+                return Nillable.<List<Nillable</*~~>*/String>>> nil(tf.getNilReason().toString());
             } else {
                 list.add(Nillable.of(tf.getStringValue()));
             }
@@ -115,11 +115,11 @@ public class RelatedPartyTypeDecoder
         return Nillable.of(list);
     }
 
-    private Nillable<List<Nillable<String>>> parseTelephoneVoice(ContactType ct) {
-        List<Nillable<String>> list = Lists.newArrayList();
+    private Nillable<List<Nillable</*~~>*/String>>> parseTelephoneVoice(ContactType ct) {
+        List<Nillable</*~~>*/String>> list = Lists.newArrayList();
         for (TelephoneVoice tv : ct.getTelephoneVoiceArray()) {
             if (tv.isNil() && tv.isSetNilReason()) {
-                return Nillable.<List<Nillable<String>>> nil(tv.getNilReason().toString());
+                return Nillable.<List<Nillable</*~~>*/String>>> nil(tv.getNilReason().toString());
             } else {
                 list.add(Nillable.of(tv.getStringValue()));
             }
@@ -127,14 +127,14 @@ public class RelatedPartyTypeDecoder
         return Nillable.of(list);
     }
 
-    private Nillable<String> parseWebsite(ContactType ct) {
+    private Nillable</*~~>*/String> parseWebsite(ContactType ct) {
         if (ct.isNilWebsite()) {
             if (ct.getWebsite().isSetNilReason()) {
-                return Nillable.<String> nil(ct.getWebsite().getNilReason().toString());
+                return Nillable.</*~~>*/String> nil(ct.getWebsite().getNilReason().toString());
             }
-            return Nillable.<String> nil();
+            return Nillable.</*~~>*/String> nil();
         } else {
-            return Nillable.<String> present(ct.getWebsite().getStringValue());
+            return Nillable.</*~~>*/String> present(ct.getWebsite().getStringValue());
         }
     }
 

@@ -28,9 +28,9 @@ import com.google.common.base.Objects;
 public class SchemaLocation implements Comparable<SchemaLocation> {
     private static final Comparator<SchemaLocation> COMPARATOR =
             Comparator.comparing(SchemaLocation::getNamespace).thenComparing(SchemaLocation::getSchemaFileUrl);
-    private final String namespace;
-    private final String schemaFileUrl;
-    private final String schemaLocationString;
+    private final /*~~>*/String namespace;
+    private final /*~~>*/String schemaFileUrl;
+    private final /*~~>*/String schemaLocationString;
 
     /**
      * Constructor
@@ -40,10 +40,10 @@ public class SchemaLocation implements Comparable<SchemaLocation> {
      * @param schemaFileUrl
      *            Schema file URL
      */
-    public SchemaLocation(String namespace, String schemaFileUrl) {
-        this.namespace = namespace;
-        this.schemaFileUrl = schemaFileUrl;
-        this.schemaLocationString = String.format("%s %s", namespace, schemaFileUrl);
+    public SchemaLocation(/*~~>*/String namespace, /*~~>*/String schemaFileUrl) {
+        /*~~>*/this.namespace = namespace;
+        /*~~>*/this.schemaFileUrl = schemaFileUrl;
+        /*~~>*/this.schemaLocationString = /*~~>*/String.format("%s %s", namespace, schemaFileUrl);
     }
 
     /**
@@ -51,7 +51,7 @@ public class SchemaLocation implements Comparable<SchemaLocation> {
      *
      * @return namespace
      */
-    public String getNamespace() {
+    public /*~~>*/String getNamespace() {
         return namespace;
     }
 
@@ -60,14 +60,14 @@ public class SchemaLocation implements Comparable<SchemaLocation> {
      *
      * @return schema file URL
      */
-    public String getSchemaFileUrl() {
+    public /*~~>*/String getSchemaFileUrl() {
         return schemaFileUrl;
     }
 
     /**
      * @return Schema location string
      */
-    public String getSchemaLocationString() {
+    public /*~~>*/String getSchemaLocationString() {
         return schemaLocationString;
     }
 

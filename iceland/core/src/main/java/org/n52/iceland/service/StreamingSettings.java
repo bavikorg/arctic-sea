@@ -17,6 +17,6 @@ package org.n52.iceland.service;
 
 public interface StreamingSettings {
 
-    String FORCE_STREAMING_ENCODING = "service.streaming.encoding";
+    /*~~>*/String FORCE_STREAMING_ENCODING = "service.streaming.encoding";
 
 }

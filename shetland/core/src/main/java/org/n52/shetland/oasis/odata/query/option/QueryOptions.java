@@ -40,7 +40,7 @@ public class QueryOptions {
 
     private static Long DEFAULT_TOP = 100L;
 
-    private String baseURL;
+    private /*~~>*/String baseURL;
 
     private CountFilter countFilter;
     private OrderByFilter orderByFilter;
@@ -50,8 +50,8 @@ public class QueryOptions {
     private SkipTopFilter topFilter;
     private FilterFilter filterFilter;
 
-    public QueryOptions(String baseURL, Set<FilterClause> queryFilters) {
-        this.baseURL = baseURL;
+    public QueryOptions(/*~~>*/String baseURL, Set<FilterClause> queryFilters) {
+        /*~~>*/this.baseURL = baseURL;
         if (queryFilters != null) {
             queryFilters.forEach(input -> {
                 if (input instanceof CountFilter) {
@@ -78,7 +78,7 @@ public class QueryOptions {
         }
     }
 
-    public String getBaseURI() {
+    public /*~~>*/String getBaseURI() {
         return baseURL;
     }
 
@@ -191,7 +191,7 @@ public class QueryOptions {
     }
 
     @Override
-    public String toString() {
+    public /*~~>*/String toString() {
         return getAllFilters().stream().map(FilterClause::toString).collect(Collectors.joining("&"));
     }
 }

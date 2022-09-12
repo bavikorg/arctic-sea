@@ -37,8 +37,8 @@ public class CiContact extends AbstractObject {
     private Referenceable<CiTelephone> phone;
     private Referenceable<CiAddress> address;
     private Referenceable<CiOnlineResource> onlineResource;
-    private Nillable<String> hoursOfService;
-    private Nillable<String> contactInstructions;
+    private Nillable</*~~>*/String> hoursOfService;
+    private Nillable</*~~>*/String> contactInstructions;
 
     /**
      * @return the phone
@@ -71,14 +71,14 @@ public class CiContact extends AbstractObject {
         return isSetPhoneInstance() && getPhoneInstance().isSetVoice();
     }
 
-    public List<String> getPhoneVoice() {
+    public List</*~~>*/String> getPhoneVoice() {
         if (isSetPhoneVoice()) {
             return getPhoneInstance().getVoice();
         }
         return null;
     }
 
-    public CiContact setPhoneVoice(final List<String> phoneVoice) {
+    public CiContact setPhoneVoice(final List</*~~>*/String> phoneVoice) {
         if (isSetPhoneInstance()) {
             getPhoneInstance().setVoice(phoneVoice);
         } else {
@@ -87,7 +87,7 @@ public class CiContact extends AbstractObject {
         return this;
     }
 
-    public CiContact addPhoneVoice(final String phoneVoice) {
+    public CiContact addPhoneVoice(final /*~~>*/String phoneVoice) {
         if (isSetPhoneInstance()) {
             getPhoneInstance().addVoice(phoneVoice);
         } else {
@@ -100,14 +100,14 @@ public class CiContact extends AbstractObject {
         return isSetPhoneInstance() && getPhoneInstance().isSetFacsimile();
     }
 
-    public List<String> getPhoneFax() {
+    public List</*~~>*/String> getPhoneFax() {
         if (isSetPhoneFax()) {
             return getPhoneInstance().getFacsimile();
         }
         return null;
     }
 
-    public CiContact addPhoneFax(final String phoneFax) {
+    public CiContact addPhoneFax(final /*~~>*/String phoneFax) {
         if (isSetPhoneInstance()) {
             getPhoneInstance().addFacsimile(phoneFax);
         } else {
@@ -116,7 +116,7 @@ public class CiContact extends AbstractObject {
         return this;
     }
 
-    public CiContact setPhoneFax(final List<String> phoneFax) {
+    public CiContact setPhoneFax(final List</*~~>*/String> phoneFax) {
         if (isSetPhoneInstance()) {
             getPhoneInstance().setFacsimile(phoneFax);
         } else {
@@ -156,14 +156,14 @@ public class CiContact extends AbstractObject {
         return isSetAddressInstance() && getAddressInstance().hasDeliveryPoints();
     }
 
-    public List<String> getDeliveryPoint() {
+    public List</*~~>*/String> getDeliveryPoint() {
         if (isSetDeliveryPoint()) {
             return getAddressInstance().getDeliveryPoints();
         }
         return null;
     }
 
-    public CiContact setDeliveryPoint(final List<String> deliveryPoints) {
+    public CiContact setDeliveryPoint(final List</*~~>*/String> deliveryPoints) {
         if (isSetAddressInstance()) {
             getAddressInstance().setDeliveryPoints(deliveryPoints);
         } else {
@@ -172,7 +172,7 @@ public class CiContact extends AbstractObject {
         return this;
     }
 
-    public CiContact addDeliveryPoint(final String deliveryPoint) {
+    public CiContact addDeliveryPoint(final /*~~>*/String deliveryPoint) {
         if (isSetAddressInstance()) {
             getAddressInstance().addDeliveryPoints(deliveryPoint);
         } else {
@@ -185,14 +185,14 @@ public class CiContact extends AbstractObject {
         return isSetAddressInstance() && !getAddressInstance().isSetCity();
     }
 
-    public String getCity() {
+    public /*~~>*/String getCity() {
         if (isSetCity()) {
             return getAddressInstance().getCity();
         }
         return null;
     }
 
-    public CiContact setCity(final String city) {
+    public CiContact setCity(final /*~~>*/String city) {
         if (isSetAddressInstance()) {
             getAddressInstance().setCity(city);
         } else {
@@ -205,14 +205,14 @@ public class CiContact extends AbstractObject {
         return isSetAddressInstance() && !getAddressInstance().isSetAdministrativeArea();
     }
 
-    public String getAdministrativeArea() {
+    public /*~~>*/String getAdministrativeArea() {
         if (isSetAdministrativeArea()) {
             return getAddressInstance().getAdministrativeArea();
         }
         return null;
     }
 
-    public CiContact setAdministrativeArea(final String administrativeArea) {
+    public CiContact setAdministrativeArea(final /*~~>*/String administrativeArea) {
         if (isSetAddressInstance()) {
             getAddressInstance().setAdministrativeArea(administrativeArea);
         } else {
@@ -225,14 +225,14 @@ public class CiContact extends AbstractObject {
         return isSetAddressInstance() && !getAddressInstance().isSetPostalCode();
     }
 
-    public String getPostalCode() {
+    public /*~~>*/String getPostalCode() {
         if (isSetAdministrativeArea()) {
             return getAddressInstance().getPostalCode();
         }
         return null;
     }
 
-    public CiContact setPostalCode(final String postalCode) {
+    public CiContact setPostalCode(final /*~~>*/String postalCode) {
         if (isSetAddressInstance()) {
             getAddressInstance().setPostalCode(postalCode);
         } else {
@@ -245,14 +245,14 @@ public class CiContact extends AbstractObject {
         return isSetAddressInstance() && !getAddressInstance().isSetCountry();
     }
 
-    public String getCountry() {
+    public /*~~>*/String getCountry() {
         if (isSetAdministrativeArea()) {
             return getAddressInstance().getCountry();
         }
         return null;
     }
 
-    public CiContact setCountry(final String country) {
+    public CiContact setCountry(final /*~~>*/String country) {
         if (isSetAddressInstance()) {
             getAddressInstance().setCountry(country);
         } else {
@@ -265,14 +265,14 @@ public class CiContact extends AbstractObject {
         return isSetAddressInstance() && !getAddressInstance().hasElectronicMailAddresses();
     }
 
-    public String getEmail() {
+    public /*~~>*/String getEmail() {
         if (isSetAdministrativeArea()) {
             return getAddressInstance().getElectronicMailAddresses().iterator().next();
         }
         return null;
     }
 
-    public CiContact setEmail(final String email) {
+    public CiContact setEmail(final /*~~>*/String email) {
         if (isSetAddressInstance()) {
             getAddressInstance().setElectronicMailAddresses(Lists.newArrayList(email));
         } else {
@@ -291,7 +291,7 @@ public class CiContact extends AbstractObject {
         return onlineResource;
     }
 
-    public String getOnlineResource() {
+    public /*~~>*/String getOnlineResource() {
         if (onlineResource != null) {
             if (onlineResource.isReference() && onlineResource.getReference().getHref().isPresent()) {
                 return onlineResource.getReference().getHref().get().toString();
@@ -308,7 +308,7 @@ public class CiContact extends AbstractObject {
         return this;
     }
 
-    public CiContact setOnlineResource(final String onlineResource) {
+    public CiContact setOnlineResource(final /*~~>*/String onlineResource) {
         try {
             this.onlineResource = Referenceable.of(new Reference().setHref(new URI(onlineResource)));
         } catch (URISyntaxException e) {
@@ -321,23 +321,23 @@ public class CiContact extends AbstractObject {
         return hoursOfService != null && !hoursOfService.isNull();
     }
 
-    public String getHoursOfService() {
+    public /*~~>*/String getHoursOfService() {
         if (hoursOfService.isPresent()) {
             return hoursOfService.get();
         }
         return null;
     }
 
-    public Nillable<String> getHoursOfServiceNillable() {
+    public Nillable</*~~>*/String> getHoursOfServiceNillable() {
         return hoursOfService;
     }
 
-    public CiContact setHoursOfService(final Nillable<String> hoursOfService) {
+    public CiContact setHoursOfService(final Nillable</*~~>*/String> hoursOfService) {
         this.hoursOfService = hoursOfService;
         return this;
     }
 
-    public CiContact setHoursOfService(final String hoursOfService) {
+    public CiContact setHoursOfService(final /*~~>*/String hoursOfService) {
         this.hoursOfService = Nillable.of(hoursOfService);
         return this;
     }
@@ -346,23 +346,23 @@ public class CiContact extends AbstractObject {
         return contactInstructions != null && !contactInstructions.isNull();
     }
 
-    public String getContactInstructions() {
+    public /*~~>*/String getContactInstructions() {
         if (contactInstructions.isPresent()) {
             return contactInstructions.get();
         }
         return null;
     }
 
-    public Nillable<String> getContactInstructionsNillable() {
+    public Nillable</*~~>*/String> getContactInstructionsNillable() {
         return contactInstructions;
     }
 
-    public CiContact setContactInstructions(final Nillable<String> contactInstructions) {
+    public CiContact setContactInstructions(final Nillable</*~~>*/String> contactInstructions) {
         this.contactInstructions = contactInstructions;
         return this;
     }
 
-    public CiContact setContactInstructions(final String contactInstructions) {
+    public CiContact setContactInstructions(final /*~~>*/String contactInstructions) {
         this.contactInstructions = Nillable.of(contactInstructions);
         return this;
     }

@@ -36,7 +36,7 @@ import static java.util.stream.Collectors.joining;
  */
 public class MethodCallExpr implements BooleanExpr, ArithmeticExpr, TemporalExpr, TextExpr {
 
-    private final String name;
+    private final /*~~>*/String name;
     private final List<Expr> parameters;
 
     /**
@@ -46,8 +46,8 @@ public class MethodCallExpr implements BooleanExpr, ArithmeticExpr, TemporalExpr
      * @param parameters the parameters
      */
     @SuppressFBWarnings({"EI_EXPOSE_REP2"})
-    public MethodCallExpr(String name, List<Expr> parameters) {
-        this.name = Objects.requireNonNull(name);
+    public MethodCallExpr(/*~~>*/String name, List<Expr> parameters) {
+        /*~~>*/this.name = Objects.requireNonNull(name);
         this.parameters = Objects.requireNonNull(parameters);
     }
 
@@ -57,8 +57,8 @@ public class MethodCallExpr implements BooleanExpr, ArithmeticExpr, TemporalExpr
      * @param name      the method name
      * @param parameter the parameter
      */
-    public MethodCallExpr(String name, Expr... parameter) {
-        this.name = Objects.requireNonNull(name);
+    public MethodCallExpr(/*~~>*/String name, Expr... parameter) {
+        /*~~>*/this.name = Objects.requireNonNull(name);
         this.parameters = Objects.requireNonNull(Arrays.asList(parameter));
     }
 
@@ -67,7 +67,7 @@ public class MethodCallExpr implements BooleanExpr, ArithmeticExpr, TemporalExpr
      *
      * @return the name
      */
-    public String getName() {
+    public /*~~>*/String getName() {
         return name;
     }
 
@@ -91,17 +91,17 @@ public class MethodCallExpr implements BooleanExpr, ArithmeticExpr, TemporalExpr
     }
 
     @Override
-    public String toString() {
+    public /*~~>*/String toString() {
         return format(this.parameters.stream().map(Expr::toString).collect(joining(", ")));
     }
 
     @Override
-    public String toODataString() {
+    public /*~~>*/String toODataString() {
         return format(this.parameters.stream().map(Expr::toODataString).collect(joining(", ")));
     }
 
-    private String format(String parameters) {
-        return String.format("%s(%s)", this.name, parameters);
+    private /*~~>*/String format(/*~~>*/String parameters) {
+        return /*~~>*/String.format("%s(%s)", /*~~>*/this.name, parameters);
     }
 
     @Override
@@ -110,7 +110,7 @@ public class MethodCallExpr implements BooleanExpr, ArithmeticExpr, TemporalExpr
     }
 
     @Override public int hashCode() {
-        return Objects.hash(this.parameters, this.name);
+        return Objects.hash(this.parameters, /*~~>*/this.name);
     }
 
     @Override public boolean equals(Object o) {
@@ -120,7 +120,7 @@ public class MethodCallExpr implements BooleanExpr, ArithmeticExpr, TemporalExpr
         if (!(o instanceof MethodCallExpr)) {
             return false;
         }
-        return Objects.equals(this.name, ((MethodCallExpr) o).getName())
+        return Objects.equals(/*~~>*/this.name, ((MethodCallExpr) o).getName())
                 && Objects.equals(this.parameters, ((MethodCallExpr) o).getParameters());
     }
 

@@ -22,10 +22,10 @@ package org.n52.shetland.inspire;
  * @since 1.0.0
  *
  */
-public class InspireKeyword extends AbstractInspireKeyword<String> {
+public class InspireKeyword extends AbstractInspireKeyword</*~~>*/String> {
 
     /* 1..1 */
-    private String keywordValue;
+    private /*~~>*/String keywordValue;
 
     /**
      * constructor
@@ -33,7 +33,7 @@ public class InspireKeyword extends AbstractInspireKeyword<String> {
      * @param keywordValue
      *            the keyword value
      */
-    public InspireKeyword(String keywordValue) {
+    public InspireKeyword(/*~~>*/String keywordValue) {
         super();
         setKeywordValue(keywordValue);
     }
@@ -46,20 +46,20 @@ public class InspireKeyword extends AbstractInspireKeyword<String> {
      * @param originatingControlledVocabulary
      *            the originating controlled vocabulary
      */
-    public InspireKeyword(String keywordValue,
+    public InspireKeyword(/*~~>*/String keywordValue,
             InspireOriginatingControlledVocabulary originatingControlledVocabulary) {
         super(originatingControlledVocabulary);
         setKeywordValue(keywordValue);
     }
 
     @Override
-    public String getKeywordValue() {
+    public /*~~>*/String getKeywordValue() {
         return keywordValue;
     }
 
     @Override
-    protected void setKeywordValue(String keywordValue) {
-        this.keywordValue = keywordValue;
+    protected void setKeywordValue(/*~~>*/String keywordValue) {
+        /*~~>*/this.keywordValue = keywordValue;
     }
 
 }

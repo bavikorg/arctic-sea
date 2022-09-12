@@ -33,7 +33,7 @@ public class SoapResponse extends AbstractSoap<OwsServiceResponse> {
     public SoapResponse() {
     }
 
-    public SoapResponse(String soapNamespace, String soapVersion) {
+    public SoapResponse(/*~~>*/String soapNamespace, /*~~>*/String soapVersion) {
         super(soapNamespace, soapVersion);
     }
 

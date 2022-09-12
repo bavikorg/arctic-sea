@@ -23,19 +23,19 @@ import javax.servlet.ServletContext;
 import org.n52.janmayen.ConfigLocationProvider;
 
 public class ServletConfigLocationProvider implements ConfigLocationProvider {
-    private static final String RELATIVE_PATH = "/";
+    private static final /*~~>*/String RELATIVE_PATH = "/";
 
-    private String path;
+    private /*~~>*/String path;
 
     @Override
-    public String get() {
-        return this.path;
+    public /*~~>*/String get() {
+        return /*~~>*/this.path;
     }
 
     @Inject
     public void setServletContext(ServletContext servletContext) {
-        String relativePath = servletContext.getRealPath(RELATIVE_PATH);
-        this.path = new File(relativePath).getAbsolutePath();
+        /*~~>*/String relativePath = servletContext.getRealPath(RELATIVE_PATH);
+        /*~~>*/this.path = new File(relativePath).getAbsolutePath();
     }
 
 }

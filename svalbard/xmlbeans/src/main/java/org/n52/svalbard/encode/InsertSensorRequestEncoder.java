@@ -89,7 +89,7 @@ public class InsertSensorRequestEncoder extends AbstractSwesRequestEncoder<Inser
     }
 
     private void addMetadata(InsertSensorRequest request, InsertSensorType insertSensor) throws EncodingException {
-        XmlObject encodedMetadata = encodeObjectToXmlPropertyType(Sos2Constants.NS_SOS_20, request.getMetadata());
+        XmlObject encodedMetadata = encodeObjectToXmlPropertyType(/*~~>*/Sos2Constants.NS_SOS_20, request.getMetadata());
         insertSensor.addNewMetadata().addNewInsertionMetadata().set(encodedMetadata);
     }
 
@@ -105,11 +105,11 @@ public class InsertSensorRequestEncoder extends AbstractSwesRequestEncoder<Inser
     }
 
     private void addService(InsertSensorType insertSensor) {
-        insertSensor.setService(SosConstants.SOS);
+        insertSensor.setService(/*~~>*/SosConstants.SOS);
     }
 
     private void addVersion(InsertSensorType insertSensor) {
-        insertSensor.setVersion(Sos2Constants.SERVICEVERSION);
+        insertSensor.setVersion(/*~~>*/Sos2Constants.SERVICEVERSION);
     }
 
 }

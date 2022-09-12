@@ -21,39 +21,39 @@ package org.n52.shetland.ogc.swe.encoding;
  */
 public class SweTextEncoding extends SweAbstractEncoding {
 
-    private String blockSeparator;
+    private /*~~>*/String blockSeparator;
 
-    private String tokenSeparator;
+    private /*~~>*/String tokenSeparator;
 
-    private String decimalSeparator = ".";
+    private /*~~>*/String decimalSeparator = ".";
 
     private Boolean collapseWhiteSpaces = Boolean.TRUE;
 
-    public String getBlockSeparator() {
+    public /*~~>*/String getBlockSeparator() {
         return blockSeparator;
     }
 
-    public String getTokenSeparator() {
+    public /*~~>*/String getTokenSeparator() {
         return tokenSeparator;
     }
 
-    public void setBlockSeparator(String blockSeparator) {
-        this.blockSeparator = blockSeparator;
+    public void setBlockSeparator(/*~~>*/String blockSeparator) {
+        /*~~>*/this.blockSeparator = blockSeparator;
     }
 
-    public void setTokenSeparator(String tokenSeparator) {
-        this.tokenSeparator = tokenSeparator;
+    public void setTokenSeparator(/*~~>*/String tokenSeparator) {
+        /*~~>*/this.tokenSeparator = tokenSeparator;
     }
 
-    public void setDecimalSeparator(String decimalSeparator) {
-        this.decimalSeparator = decimalSeparator;
+    public void setDecimalSeparator(/*~~>*/String decimalSeparator) {
+        /*~~>*/this.decimalSeparator = decimalSeparator;
     }
 
     public void setCollapseWhiteSpaces(boolean collapseWhiteSpaces) {
         this.collapseWhiteSpaces = collapseWhiteSpaces ? Boolean.TRUE : Boolean.FALSE;
     }
 
-    public String getDecimalSeparator() {
+    public /*~~>*/String getDecimalSeparator() {
         return decimalSeparator;
     }
 

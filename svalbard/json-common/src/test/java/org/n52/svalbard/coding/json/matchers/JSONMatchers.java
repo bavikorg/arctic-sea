@@ -68,7 +68,7 @@ public class JSONMatchers {
         return new IsBooleanEqualsNode(false);
     }
 
-    public static Matcher<JsonNode> equalTo(final String value) {
+    public static Matcher<JsonNode> equalTo(final /*~~>*/String value) {
         return new IsStringEqualsNode(value);
     }
 
@@ -200,10 +200,10 @@ public class JSONMatchers {
     }
 
     private static class IsStringEqualsNode extends TypeSafeDiagnosingMatcher<JsonNode> {
-        private final String value;
+        private final /*~~>*/String value;
 
-        IsStringEqualsNode(String value) {
-            this.value = value;
+        IsStringEqualsNode(/*~~>*/String value) {
+            /*~~>*/this.value = value;
         }
 
         @Override

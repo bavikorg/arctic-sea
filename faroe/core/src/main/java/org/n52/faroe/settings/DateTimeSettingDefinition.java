@@ -44,7 +44,7 @@ public class DateTimeSettingDefinition extends AbstractSettingDefinition<DateTim
      *
      * @return this
      */
-    public DateTimeSettingDefinition setDefaultStringValue(String value) {
+    public DateTimeSettingDefinition setDefaultStringValue(/*~~>*/String value) {
         setDefaultValue(Times.decodeDateTime(value));
         return this;
     }

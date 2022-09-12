@@ -40,8 +40,8 @@ import edu.umd.cs.findbugs.annotations.SuppressFBWarnings;
  */
 public class AqdDecoderv10 implements Decoder<OwsServiceCommunicationObject, XmlObject> {
 
-    private static final Set<DecoderKey> DECODER_KEYS = CodingHelper.xmlDecoderKeysForOperation(AqdConstants.AQD,
-            AqdConstants.VERSION, AqdConstants.Operations.GetCapabilities, AqdConstants.Operations.GetObservation,
+    private static final Set<DecoderKey> DECODER_KEYS = CodingHelper.xmlDecoderKeysForOperation(/*~~>*/AqdConstants.AQD,
+            /*~~>*/AqdConstants.VERSION, AqdConstants.Operations.GetCapabilities, AqdConstants.Operations.GetObservation,
             AqdConstants.Operations.DescribeSensor);
 
     private DecoderRepository decoderRepository;

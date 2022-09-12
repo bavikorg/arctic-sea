@@ -127,7 +127,7 @@ public class OwsEncoderv110 extends AbstractXmlEncoder<XmlObject, Object> {
     private static final Set<EncoderKey> ENCODER_KEYS = CollectionHelper.union(
             Sets.<EncoderKey> newHashSet(new ExceptionEncoderKey(MediaTypes.TEXT_XML),
                     new ExceptionEncoderKey(MediaTypes.APPLICATION_XML)),
-            CodingHelper.encoderKeysForElements(OWSConstants.NS_OWS, OwsServiceIdentification.class,
+            CodingHelper.encoderKeysForElements(/*~~>*/OWSConstants.NS_OWS, OwsServiceIdentification.class,
                     OwsServiceProvider.class, OwsOperationsMetadata.class, OwsExceptionReport.class, OwsMetadata.class,
                     OwsDomain.class, OwsSections.class));
 
@@ -138,7 +138,7 @@ public class OwsEncoderv110 extends AbstractXmlEncoder<XmlObject, Object> {
                 Joiner.on(", ").join(ENCODER_KEYS));
     }
 
-    @Setting(value = OwsEncoderSettings.INCLUDE_STACK_TRACE_IN_EXCEPTION_REPORT, required = false)
+    @Setting(value = /*~~>*/OwsEncoderSettings.INCLUDE_STACK_TRACE_IN_EXCEPTION_REPORT, required = false)
     public void setIncludeStackTraceInExceptionReport(boolean includeStackTraceInExceptionReport) {
         this.includeStackTraceInExceptionReport = includeStackTraceInExceptionReport;
     }
@@ -149,8 +149,8 @@ public class OwsEncoderv110 extends AbstractXmlEncoder<XmlObject, Object> {
     }
 
     @Override
-    public void addNamespacePrefixToMap(final Map<String, String> nameSpacePrefixMap) {
-        nameSpacePrefixMap.put(OWSConstants.NS_OWS, OWSConstants.NS_OWS_PREFIX);
+    public void addNamespacePrefixToMap(final Map</*~~>*/String, /*~~>*/String> nameSpacePrefixMap) {
+        nameSpacePrefixMap.put(/*~~>*/OWSConstants.NS_OWS, /*~~>*/OWSConstants.NS_OWS_PREFIX);
     }
 
     @Override
@@ -251,7 +251,7 @@ public class OwsEncoderv110 extends AbstractXmlEncoder<XmlObject, Object> {
     private ExceptionDocument encodeOwsException(CodedException owsException) {
         ExceptionDocument exceptionDoc = ExceptionDocument.Factory.newInstance(getXmlOptions());
         ExceptionType exceptionType = exceptionDoc.addNewException();
-        String exceptionCode;
+        /*~~>*/String exceptionCode;
         if (owsException.getCode() == null) {
             exceptionCode = OwsExceptionCode.NoApplicableCode.toString();
         } else {
@@ -268,8 +268,8 @@ public class OwsEncoderv110 extends AbstractXmlEncoder<XmlObject, Object> {
         }
         if (owsException.getCause() != null) {
             exceptionText.append("[EXEPTION]: \n");
-            final String localizedMessage = owsException.getCause().getLocalizedMessage();
-            final String message = owsException.getCause().getMessage();
+            final /*~~>*/String localizedMessage = owsException.getCause().getLocalizedMessage();
+            final /*~~>*/String message = owsException.getCause().getMessage();
             if (localizedMessage != null && message != null) {
                 if (!message.equals(localizedMessage)) {
                     exceptionText.append(message).append('\n');
@@ -423,10 +423,10 @@ public class OwsEncoderv110 extends AbstractXmlEncoder<XmlObject, Object> {
             requestMethods.forEach(method -> {
                 RequestMethodType xmethod;
                 switch (method.getHttpMethod()) {
-                    case HTTPMethods.GET:
+                    case /*~~>*/HTTPMethods.GET:
                         xmethod = xhttp.addNewGet();
                         break;
-                    case HTTPMethods.POST:
+                    case /*~~>*/HTTPMethods.POST:
                         xmethod = xhttp.addNewPost();
                         break;
                     default:

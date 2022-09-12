@@ -30,7 +30,7 @@ public class Spatial extends AbstractResource implements DctRdfPrefix {
 
     private List<Location> locations = new LinkedList<Location>();
 
-    public Spatial(String value) {
+    public Spatial(/*~~>*/String value) {
         super(value);
     }
 

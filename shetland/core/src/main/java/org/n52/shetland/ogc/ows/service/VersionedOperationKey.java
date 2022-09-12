@@ -27,18 +27,18 @@ public class VersionedOperationKey extends OwsOperationKey implements Comparable
                     .thenComparing(VersionedOperationKey::getOperation)
                     .thenComparing(VersionedOperationKey::getOperationVersion);
 
-    private final String operationVersion;
+    private final /*~~>*/String operationVersion;
 
-    public VersionedOperationKey(String service, String version, String operation, String operationVersion) {
+    public VersionedOperationKey(/*~~>*/String service, /*~~>*/String version, /*~~>*/String operation, /*~~>*/String operationVersion) {
         super(service, version, operation);
-        this.operationVersion = operationVersion;
+        /*~~>*/this.operationVersion = operationVersion;
     }
 
-    public VersionedOperationKey(String service, String version, Enum<?> operation, String operationVersion) {
+    public VersionedOperationKey(/*~~>*/String service, /*~~>*/String version, Enum<?> operation, /*~~>*/String operationVersion) {
         this(service, version, operation.name(), operationVersion);
     }
 
-    public VersionedOperationKey(OwsOperationKey key, String operationVersion) {
+    public VersionedOperationKey(OwsOperationKey key, /*~~>*/String operationVersion) {
         this(key.getService(), key.getVersion(), key.getOperation(), operationVersion);
     }
 
@@ -46,7 +46,7 @@ public class VersionedOperationKey extends OwsOperationKey implements Comparable
         this(key.getService(), key.getVersion(), key.getOperation(), key.getOperationVersion());
     }
 
-    public String getOperationVersion() {
+    public /*~~>*/String getOperationVersion() {
         return operationVersion;
     }
 
@@ -62,7 +62,7 @@ public class VersionedOperationKey extends OwsOperationKey implements Comparable
     }
 
     @Override
-    public String toString() {
+    public /*~~>*/String toString() {
         return MoreObjects.toStringHelper(getClass()).add("service", getService()).add("version", getVersion())
                 .add("operation", getOperation()).add("operationVersion", getOperationVersion()).toString();
     }

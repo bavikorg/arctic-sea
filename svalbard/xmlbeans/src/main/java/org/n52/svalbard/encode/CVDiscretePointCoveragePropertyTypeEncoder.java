@@ -39,7 +39,7 @@ public class CVDiscretePointCoveragePropertyTypeEncoder
 
     private static final Set<EncoderKey> ENCODER_KEYS = Sets.newHashSet(
             new ClassToClassEncoderKey(CvDiscretePointCoverage.class, CVDiscretePointCoveragePropertyType.class),
-            new XmlPropertyTypeEncoderKey(CvConstants.NS_CV, CvDiscretePointCoverage.class));
+            new XmlPropertyTypeEncoderKey(/*~~>*/CvConstants.NS_CV, CvDiscretePointCoverage.class));
 
     @Override
     public Set<EncoderKey> getKeys() {

@@ -25,7 +25,7 @@ import java.util.Optional;
  * @author Christian Autermann
  */
 public abstract class UnaryExpr<T> implements Expr {
-    private static final String TO_STRING_TEMPLATE = "(%s %s)";
+    private static final /*~~>*/String TO_STRING_TEMPLATE = "(%s %s)";
     private final T operator;
     private final Expr operand;
 
@@ -65,12 +65,12 @@ public abstract class UnaryExpr<T> implements Expr {
     }
 
     @Override
-    public String toString() {
-        return String.format(TO_STRING_TEMPLATE, operator.toString(), this.operand);
+    public /*~~>*/String toString() {
+        return /*~~>*/String.format(TO_STRING_TEMPLATE, operator.toString(), this.operand);
     }
 
-    @Override public String toODataString() {
-        return String.format(TO_STRING_TEMPLATE,
+    @Override public /*~~>*/String toODataString() {
+        return /*~~>*/String.format(TO_STRING_TEMPLATE,
                              operator.toString().toLowerCase(),
                              this.operand.toODataString());
     }

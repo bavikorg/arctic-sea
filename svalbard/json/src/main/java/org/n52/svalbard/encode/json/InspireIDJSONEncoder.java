@@ -37,9 +37,9 @@ public class InspireIDJSONEncoder extends JSONEncoder<Identifier> {
     public JsonNode encodeJSON(Identifier t)
             throws EncodingException {
         ObjectNode j = nodeFactory().objectNode();
-        j.put(AQDJSONConstants.LOCAL_ID, t.getLocalId());
-        j.put(AQDJSONConstants.NAMESPACE, t.getNamespace());
-        j.set(AQDJSONConstants.VERSION_ID, encodeObjectToJson(t.getVersionId()));
+        j.put(/*~~>*/AQDJSONConstants.LOCAL_ID, t.getLocalId());
+        j.put(/*~~>*/AQDJSONConstants.NAMESPACE, t.getNamespace());
+        j.set(/*~~>*/AQDJSONConstants.VERSION_ID, encodeObjectToJson(t.getVersionId()));
         return j;
     }
 

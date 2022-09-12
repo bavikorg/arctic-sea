@@ -34,11 +34,11 @@ public class GetResultTemplateResponse extends OwsServiceResponse {
         super(null, null, Sos2Constants.Operations.GetResultTemplate.name());
     }
 
-    public GetResultTemplateResponse(String service, String version) {
+    public GetResultTemplateResponse(/*~~>*/String service, /*~~>*/String version) {
         super(service, version, Sos2Constants.Operations.GetResultTemplate.name());
     }
 
-    public GetResultTemplateResponse(String service, String version, String operationName) {
+    public GetResultTemplateResponse(/*~~>*/String service, /*~~>*/String version, /*~~>*/String operationName) {
         super(service, version, operationName);
     }
 

@@ -37,7 +37,7 @@ public class MediaTypeBindingKey implements BindingKey {
     }
 
     @Override
-    public String toString() {
+    public /*~~>*/String toString() {
         return "MediaTypeBindingKey{" + "mediaType=" + mediaType + '}';
     }
 
@@ -64,7 +64,7 @@ public class MediaTypeBindingKey implements BindingKey {
     }
 
     @Override
-    public String getKeyAsString() {
+    public /*~~>*/String getKeyAsString() {
         return getMediaType().toString();
     }
 }

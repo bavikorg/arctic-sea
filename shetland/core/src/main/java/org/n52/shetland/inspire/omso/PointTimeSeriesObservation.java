@@ -49,7 +49,7 @@ public class PointTimeSeriesObservation extends AbstractInspireObservation {
         }
         observation.setParameter(Sets.<
                 NamedValue<?>> newHashSet());
-        getObservationConstellation().setObservationType(InspireOMSOConstants.OBS_TYPE_POINT_TIME_SERIES_OBSERVATION);
+        getObservationConstellation().setObservationType(/*~~>*/InspireOMSOConstants.OBS_TYPE_POINT_TIME_SERIES_OBSERVATION);
     }
 
     @Override

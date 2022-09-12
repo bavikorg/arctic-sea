@@ -70,11 +70,11 @@ public class Fault extends AbstractWsdl {
 
     private QName message;
 
-    public Fault(String name, URI action) {
-        this(name, action, new QName(WSDLConstants.NS_SOSW, name, WSDLConstants.NS_SOSW_PREFIX));
+    public Fault(/*~~>*/String name, URI action) {
+        this(name, action, new QName(/*~~>*/WSDLConstants.NS_SOSW, name, /*~~>*/WSDLConstants.NS_SOSW_PREFIX));
     }
 
-    public Fault(String name, URI action, QName message) {
+    public Fault(/*~~>*/String name, URI action, QName message) {
         super(name);
         this.action = action;
         this.message = message;

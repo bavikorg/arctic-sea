@@ -57,12 +57,12 @@ public abstract class AbstractAqdResponseEncoder<T extends OwsServiceResponse> e
 
     private Optional<EReportObligationRepository> reportObligationRepository;
 
-    private String namespace;
+    private /*~~>*/String namespace;
 
-    private String observationPrefix;
+    private /*~~>*/String observationPrefix;
 
-    public AbstractAqdResponseEncoder(String operation, Class<T> responseType) {
-        super(AqdConstants.AQD, AqdConstants.VERSION, operation, AqdConstants.NS_AQD, AqdConstants.NS_AQD_PREFIX,
+    public AbstractAqdResponseEncoder(/*~~>*/String operation, Class<T> responseType) {
+        super(/*~~>*/AqdConstants.AQD, /*~~>*/AqdConstants.VERSION, operation, /*~~>*/AqdConstants.NS_AQD, /*~~>*/AqdConstants.NS_AQD_PREFIX,
                 responseType);
     }
 
@@ -90,7 +90,7 @@ public abstract class AbstractAqdResponseEncoder<T extends OwsServiceResponse> e
         }
     }
 
-    protected String getObservationXlink(String gmlId) {
+    protected /*~~>*/String getObservationXlink(/*~~>*/String gmlId) {
         StringBuilder id = new StringBuilder();
         if (isSetEReportingNamespace()) {
             id.append(getEReportingNamespace());
@@ -105,30 +105,30 @@ public abstract class AbstractAqdResponseEncoder<T extends OwsServiceResponse> e
 
     }
 
-    protected String getObservationId(int counter) {
+    protected /*~~>*/String getObservationId(int counter) {
         return (isSetEReportingObservationPrefix() ? getEReportingObservationPrefix() : "o_")
                 .concat(Integer.toString(counter));
     }
 
-    public String getEReportingNamespace() {
+    public /*~~>*/String getEReportingNamespace() {
         return namespace;
     }
 
-    @Setting(value = EReportingSetting.EREPORTING_NAMESPACE, required = false)
-    public void setEReportingNamespace(String namespace) throws ConfigurationError {
-        this.namespace = namespace;
+    @Setting(value = /*~~>*/EReportingSetting.EREPORTING_NAMESPACE, required = false)
+    public void setEReportingNamespace(/*~~>*/String namespace) throws ConfigurationError {
+        /*~~>*/this.namespace = namespace;
     }
 
     protected boolean isSetEReportingNamespace() {
         return !Strings.isNullOrEmpty(getEReportingNamespace());
     }
 
-    @Setting(value = EReportingSetting.EREPORTING_OBSERVATION_PREFIX, required = false)
-    public void setEReportingObservationPrefix(String observationPrefix) throws ConfigurationError {
-        this.observationPrefix = observationPrefix;
+    @Setting(value = /*~~>*/EReportingSetting.EREPORTING_OBSERVATION_PREFIX, required = false)
+    public void setEReportingObservationPrefix(/*~~>*/String observationPrefix) throws ConfigurationError {
+        /*~~>*/this.observationPrefix = observationPrefix;
     }
 
-    protected String getEReportingObservationPrefix() {
+    protected /*~~>*/String getEReportingObservationPrefix() {
         return observationPrefix;
     }
 
@@ -145,40 +145,40 @@ public abstract class AbstractAqdResponseEncoder<T extends OwsServiceResponse> e
     }
 
     protected XmlObject encodeGml(Object o) throws EncodingException {
-        return encodeObjectToXml(GmlConstants.NS_GML_32, o);
+        return encodeObjectToXml(/*~~>*/GmlConstants.NS_GML_32, o);
     }
 
     protected XmlObject encodeGml(EncodingContext context, Object o) throws EncodingException {
-        return encodeObjectToXml(GmlConstants.NS_GML_32, o, context);
+        return encodeObjectToXml(/*~~>*/GmlConstants.NS_GML_32, o, context);
     }
 
     protected XmlObject encodeOws(Object o) throws EncodingException {
-        return encodeObjectToXml(OWSConstants.NS_OWS, o);
+        return encodeObjectToXml(/*~~>*/OWSConstants.NS_OWS, o);
     }
 
     protected XmlObject encodeOws(EncodingContext context, Object o) throws EncodingException {
-        return encodeObjectToXml(OWSConstants.NS_OWS, o, context);
+        return encodeObjectToXml(/*~~>*/OWSConstants.NS_OWS, o, context);
     }
 
     protected XmlObject encodeFes(Object o) throws EncodingException {
-        return encodeObjectToXml(FilterConstants.NS_FES_2, o);
+        return encodeObjectToXml(/*~~>*/FilterConstants.NS_FES_2, o);
     }
 
     protected XmlObject encodeFes(EncodingContext context, Object o) throws EncodingException {
-        return encodeObjectToXml(FilterConstants.NS_FES_2, o, context);
+        return encodeObjectToXml(/*~~>*/FilterConstants.NS_FES_2, o, context);
     }
 
     protected XmlObject encodeSwe(Object o) throws EncodingException {
-        return encodeObjectToXml(SweConstants.NS_SWE_20, o);
+        return encodeObjectToXml(/*~~>*/SweConstants.NS_SWE_20, o);
     }
 
     protected XmlObject encodeSwe(EncodingContext context, Object o) throws EncodingException {
-        return encodeObjectToXml(SweConstants.NS_SWE_20, o, context);
+        return encodeObjectToXml(/*~~>*/SweConstants.NS_SWE_20, o, context);
     }
 
     protected OwsServiceResponse changeResponseServiceVersion(OwsServiceResponse response) {
-        response.setService(SosConstants.SOS);
-        response.setVersion(Sos2Constants.SERVICEVERSION);
+        response.setService(/*~~>*/SosConstants.SOS);
+        response.setVersion(/*~~>*/Sos2Constants.SERVICEVERSION);
         return response;
     }
 

@@ -119,7 +119,7 @@ public interface HasExtension<
      *
      * @return <code>true</code>, if {@link Extensions} is available for the identifier
      */
-    default boolean hasExtension(String identifier) {
+    default boolean hasExtension(/*~~>*/String identifier) {
         return getExtensions().containsExtension(identifier);
     }
 
@@ -145,15 +145,15 @@ public interface HasExtension<
      * @return The requested {@link Extension}
      *
      */
-    default Optional<Extension<?>> getExtension(String identifier) {
+    default Optional<Extension<?>> getExtension(/*~~>*/String identifier) {
         return getExtensions().getExtension(identifier);
     }
 
-    default int getExtensionCount(String identifier) {
+    default int getExtensionCount(/*~~>*/String identifier) {
         return getExtensions().countExtensions(identifier);
     }
 
-    default boolean getBooleanExtension(String identifier) {
+    default boolean getBooleanExtension(/*~~>*/String identifier) {
         return getExtensions().getBooleanExtension(identifier);
     }
 
@@ -165,30 +165,30 @@ public interface HasExtension<
         return getExtensions().getBooleanExtension(identifier, defaultValue);
     }
 
-    default boolean getBooleanExtension(String identifier, boolean defaultValue) {
+    default boolean getBooleanExtension(/*~~>*/String identifier, boolean defaultValue) {
         return getExtensions().getBooleanExtension(identifier, defaultValue);
     }
 
     default <
-            V extends SweAbstractDataComponent> void addSwesExtension(String name, V value) {
+            V extends SweAbstractDataComponent> void addSwesExtension(/*~~>*/String name, V value) {
         SwesExtension<V> extension = new SwesExtension<V>();
         extension.setIdentifier(name);
         extension.setValue(value);
         addExtension(extension);
     }
 
-    default void addSweTextExtension(String name, String value) {
+    default void addSweTextExtension(/*~~>*/String name, /*~~>*/String value) {
         SweText sweText = new SweText();
         sweText.setValue(value);
         sweText.setIdentifier(name);
         addSwesExtension(name, sweText);
     }
 
-    default void addSweBooleanExtension(String name, String value) {
+    default void addSweBooleanExtension(/*~~>*/String name, /*~~>*/String value) {
         addSweBooleanExtension(name, Boolean.parseBoolean(value));
     }
 
-    default void addSweBooleanExtension(String name, boolean value) {
+    default void addSweBooleanExtension(/*~~>*/String name, boolean value) {
         SweBoolean sweBoolean = new SweBoolean();
         sweBoolean.setValue(value);
         sweBoolean.setIdentifier(name);

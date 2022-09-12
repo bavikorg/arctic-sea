@@ -34,7 +34,7 @@ public class Soap12StringDecoder extends AbstractSoapStringDecoder {
     private static final Logger LOGGER = LoggerFactory.getLogger(Soap12StringDecoder.class);
 
     public Soap12StringDecoder() {
-        super(SoapConstants.NS_SOAP_12);
+        super(/*~~>*/SoapConstants.NS_SOAP_12);
         LOGGER.debug("Decoder for the following keys initialized successfully: {}!", Joiner.on(", ").join(getKeys()));
     }
 

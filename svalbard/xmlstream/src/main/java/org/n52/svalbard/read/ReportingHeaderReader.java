@@ -27,7 +27,7 @@ public class ReportingHeaderReader extends XmlReader<EReportingHeader> {
 
     private EReportingHeader header;
     private boolean change;
-    private String changeDescription;
+    private /*~~>*/String changeDescription;
 
     @Override
     protected void begin() {
@@ -52,7 +52,7 @@ public class ReportingHeaderReader extends XmlReader<EReportingHeader> {
         } else if (name.equals(AqdConstants.QN_AQD_CHANGE)) {
             this.change = Boolean.valueOf(chars());
         } else if (name.equals(AqdConstants.QN_AQD_CHANGE_DESCRIPTION)) {
-            this.changeDescription = chars();
+            /*~~>*/this.changeDescription = chars();
         } else {
             ignore();
         }

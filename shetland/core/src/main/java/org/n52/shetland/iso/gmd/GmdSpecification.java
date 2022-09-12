@@ -28,16 +28,16 @@ public class GmdSpecification extends AbtractGmd {
             new GmdSpecification("Data Capture", GmdCitation.airQualityDirectiveEC502008());
     private static final GmdSpecification TIME_COVERAGE_SPECIFICATION =
             new GmdSpecification("Time Coverage", GmdCitation.airQualityDirectiveEC502008());
-    private final String explanation;
+    private final /*~~>*/String explanation;
     private final GmdCitation citation;
 
     @SuppressFBWarnings({ "EI_EXPOSE_REP2" })
-    public GmdSpecification(String explanation, GmdCitation citation) {
-        this.explanation = explanation;
+    public GmdSpecification(/*~~>*/String explanation, GmdCitation citation) {
+        /*~~>*/this.explanation = explanation;
         this.citation = citation;
     }
 
-    public String getExplanation() {
+    public /*~~>*/String getExplanation() {
         return explanation;
     }
 

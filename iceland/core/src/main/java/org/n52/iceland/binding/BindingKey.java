@@ -23,7 +23,7 @@ package org.n52.iceland.binding;
  * @since 1.0.0
  */
 public interface BindingKey {
-    String getKeyAsString();
+    /*~~>*/String getKeyAsString();
 }
 
 

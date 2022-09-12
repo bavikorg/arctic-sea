@@ -34,7 +34,7 @@ public class TimeValueExpr implements TemporalExpr {
      *
      * @param value the value
      */
-    public TimeValueExpr(String value) {
+    public TimeValueExpr(/*~~>*/String value) {
         this.value = Objects.requireNonNull(value);
     }
 
@@ -52,7 +52,7 @@ public class TimeValueExpr implements TemporalExpr {
     }
 
     @Override
-    public String toString() {
+    public /*~~>*/String toString() {
         return (value instanceof TimeInstant) ? ((TimeInstant) value).getValue().toString() : value.toString();
     }
 

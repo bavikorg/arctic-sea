@@ -58,18 +58,18 @@ public class GwmlEncoderv22
     private static final Logger LOGGER = LoggerFactory.getLogger(GwmlEncoderv22.class);
 
     private static final Set<EncoderKey> ENCODER_KEYS = CollectionHelper.union(
-            CodingHelper.encoderKeysForElements(GWMLConstants.NS_GWML_22, OmObservation.class, NamedValue.class,
+            CodingHelper.encoderKeysForElements(/*~~>*/GWMLConstants.NS_GWML_22, OmObservation.class, NamedValue.class,
                     SingleObservationValue.class, MultiObservationValues.class),
-            CodingHelper.encoderKeysForElements(GWMLConstants.NS_GWML_WELL_22, OmObservation.class, NamedValue.class,
+            CodingHelper.encoderKeysForElements(/*~~>*/GWMLConstants.NS_GWML_WELL_22, OmObservation.class, NamedValue.class,
                     SingleObservationValue.class, MultiObservationValues.class));
 
     private static final Set<SupportedType> SUPPORTED_TYPES =
-            Sets.newHashSet(new ObservationType(GWMLConstants.OBS_TYPE_GEOLOGY_LOG),
-                    new ObservationType(OmConstants.OBS_TYPE_PROFILE_OBSERVATION));
+            Sets.newHashSet(new ObservationType(/*~~>*/GWMLConstants.OBS_TYPE_GEOLOGY_LOG),
+                    new ObservationType(/*~~>*/OmConstants.OBS_TYPE_PROFILE_OBSERVATION));
 
-    private static final Map<String, Map<String, Set<String>>> SUPPORTED_RESPONSE_FORMATS = Collections.singletonMap(
-            SosConstants.SOS,
-            Collections.singletonMap(Sos2Constants.SERVICEVERSION, Collections.singleton(GWMLConstants.NS_GWML_22)));
+    private static final Map</*~~>*/String, Map</*~~>*/String, Set</*~~>*/String>>> SUPPORTED_RESPONSE_FORMATS = Collections.singletonMap(
+            /*~~>*/SosConstants.SOS,
+            Collections.singletonMap(/*~~>*/Sos2Constants.SERVICEVERSION, Collections.singleton(/*~~>*/GWMLConstants.NS_GWML_22)));
 
     public GwmlEncoderv22() {
         LOGGER.debug("Encoder for the following keys initialized successfully: {}!",
@@ -87,8 +87,8 @@ public class GwmlEncoderv22
     }
 
     @Override
-    public Map<String, Set<SupportedType>> getSupportedResponseFormatObservationTypes() {
-        return Collections.singletonMap(GWMLConstants.NS_GWML_22, getSupportedTypes());
+    public Map</*~~>*/String, Set<SupportedType>> getSupportedResponseFormatObservationTypes() {
+        return Collections.singletonMap(/*~~>*/GWMLConstants.NS_GWML_22, getSupportedTypes());
     }
 
     @Override
@@ -97,7 +97,7 @@ public class GwmlEncoderv22
     }
 
     @Override
-    public Set<String> getSupportedResponseFormats(String service, String version) {
+    public Set</*~~>*/String> getSupportedResponseFormats(/*~~>*/String service, /*~~>*/String version) {
         if (SUPPORTED_RESPONSE_FORMATS.get(service) != null
                 && SUPPORTED_RESPONSE_FORMATS.get(service).get(version) != null) {
             return SUPPORTED_RESPONSE_FORMATS.get(service).get(version);

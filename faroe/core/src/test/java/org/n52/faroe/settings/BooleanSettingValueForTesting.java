@@ -26,12 +26,12 @@ public class BooleanSettingValueForTesting implements SettingValue<Boolean> {
 
     private static final long serialVersionUID = 2591791402790665055L;
 
-    private String key;
+    private /*~~>*/String key;
 
     private Boolean value;
 
     @Override
-    public String getKey() {
+    public /*~~>*/String getKey() {
         return key;
     }
 
@@ -41,8 +41,8 @@ public class BooleanSettingValueForTesting implements SettingValue<Boolean> {
     }
 
     @Override
-    public void setKey(String key) {
-        this.key = key;
+    public void setKey(/*~~>*/String key) {
+        /*~~>*/this.key = key;
     }
 
     @Override

@@ -34,15 +34,15 @@ import com.google.common.base.Joiner;
  * @since 1.0.0
  *
  */
-public abstract class AbstractSoapStringDecoder extends AbstractXmlDecoder<String, SoapRequest> {
+public abstract class AbstractSoapStringDecoder extends AbstractXmlDecoder</*~~>*/String, SoapRequest> {
 
     private static final Logger LOGGER = LoggerFactory.getLogger(AbstractSoapStringDecoder.class);
 
     private final Set<DecoderKey> decoderKeys;
 
-    public AbstractSoapStringDecoder(String namespace) {
+    public AbstractSoapStringDecoder(/*~~>*/String namespace) {
         this.decoderKeys = Collections.<DecoderKey> singleton(
-                new XmlNamespaceOperationDecoderKey(namespace, SoapConstants.EN_SOAP_ENVELOPE));
+                new XmlNamespaceOperationDecoderKey(namespace, /*~~>*/SoapConstants.EN_SOAP_ENVELOPE));
         LOGGER.debug("Decoder for the following keys initialized successfully: {}!", Joiner.on(", ").join(getKeys()));
     }
 
@@ -52,7 +52,7 @@ public abstract class AbstractSoapStringDecoder extends AbstractXmlDecoder<Strin
     }
 
     @Override
-    public SoapRequest decode(String xmlString) throws DecodingException {
+    public SoapRequest decode(/*~~>*/String xmlString) throws DecodingException {
         return (SoapRequest) decodeXmlObject(xmlString);
     }
 }

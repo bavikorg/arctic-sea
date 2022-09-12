@@ -22,7 +22,7 @@ public class STANotFoundException extends Exception {
 
     private static final long serialVersionUID = 418405043939307112L;
 
-    public STANotFoundException(String s) {
+    public STANotFoundException(/*~~>*/String s) {
         super(s);
     }
 }

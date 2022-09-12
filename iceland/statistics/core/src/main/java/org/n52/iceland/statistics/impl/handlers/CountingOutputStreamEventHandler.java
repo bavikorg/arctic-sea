@@ -31,8 +31,8 @@ public class CountingOutputStreamEventHandler extends AbstractElasticSearchDataH
         implements StatisticsServiceEventHandler<CountingOutputStreamEvent> {
 
     @Override
-    public Map<String, Object> resolveAsMap(CountingOutputStreamEvent event) {
-        Map<String, Object> data = new HashMap<>();
+    public Map</*~~>*/String, Object> resolveAsMap(CountingOutputStreamEvent event) {
+        Map</*~~>*/String, Object> data = new HashMap<>();
         data.put(ObjectEsParameterFactory.BYTES.getName(), event.getBytesWritten());
         data.put(ObjectEsParameterFactory.DISPLAY_BYTES.getName(),
                  FileUtils.byteCountToDisplaySize(event.getBytesWritten()));

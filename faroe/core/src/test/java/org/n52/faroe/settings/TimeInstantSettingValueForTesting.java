@@ -24,18 +24,18 @@ public class TimeInstantSettingValueForTesting implements SettingValue<DateTime>
 
     private static final long serialVersionUID = 4229148095795282142L;
 
-    private String key;
+    private /*~~>*/String key;
 
     private DateTime value;
 
     @Override
-    public String getKey() {
+    public /*~~>*/String getKey() {
         return key;
     }
 
     @Override
-    public void setKey(String key) {
-        this.key = key;
+    public void setKey(/*~~>*/String key) {
+        /*~~>*/this.key = key;
     }
 
     @Override

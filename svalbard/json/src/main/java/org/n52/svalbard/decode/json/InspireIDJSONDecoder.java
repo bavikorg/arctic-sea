@@ -31,18 +31,18 @@ public class InspireIDJSONDecoder extends AbstractJSONDecoder<Identifier> {
     @Override
     public Identifier decodeJSON(JsonNode node, boolean validate) throws DecodingException {
         Identifier inspireID = new Identifier(getLocalId(node), getNamespace(node));
-        inspireID.setVersionId(parseNillableString(node.path(AQDJSONConstants.VERSION_ID)));
+        inspireID.setVersionId(parseNillableString(node.path(/*~~>*/AQDJSONConstants.VERSION_ID)));
         return inspireID;
     }
 
-    private String getNamespace(JsonNode node) throws DecodingException {
-        String namespace = node.path(AQDJSONConstants.NAMESPACE).textValue();
+    private /*~~>*/String getNamespace(JsonNode node) throws DecodingException {
+        /*~~>*/String namespace = node.path(/*~~>*/AQDJSONConstants.NAMESPACE).textValue();
         Validation.notNullOrEmpty("Identifier namespace", namespace);
         return namespace;
     }
 
-    private String getLocalId(JsonNode node) throws DecodingException {
-        String localId = node.path(AQDJSONConstants.LOCAL_ID).textValue();
+    private /*~~>*/String getLocalId(JsonNode node) throws DecodingException {
+        /*~~>*/String localId = node.path(/*~~>*/AQDJSONConstants.LOCAL_ID).textValue();
         Validation.notNullOrEmpty("Identifier localId", localId);
         return localId;
     }

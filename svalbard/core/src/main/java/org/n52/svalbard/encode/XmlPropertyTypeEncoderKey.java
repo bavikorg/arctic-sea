@@ -21,13 +21,13 @@ import com.google.common.base.Objects;
 
 public class XmlPropertyTypeEncoderKey extends XmlEncoderKey {
 
-    public XmlPropertyTypeEncoderKey(String namespace, Class<?> type) {
+    public XmlPropertyTypeEncoderKey(/*~~>*/String namespace, Class<?> type) {
         super(namespace, type);
     }
 
     @Override
-    public String toString() {
-        return String.format("XmlPropertyTypeEncoderKey[namespace=%s, type=%s]", getNamespace(),
+    public /*~~>*/String toString() {
+        return /*~~>*/String.format("XmlPropertyTypeEncoderKey[namespace=%s, type=%s]", getNamespace(),
                 getType().getSimpleName());
     }
 

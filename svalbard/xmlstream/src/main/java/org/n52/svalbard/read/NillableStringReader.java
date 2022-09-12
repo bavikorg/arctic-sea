@@ -15,10 +15,10 @@
  */
 package org.n52.svalbard.read;
 
-public class NillableStringReader extends NillableReader<String> {
+public class NillableStringReader extends NillableReader</*~~>*/String> {
 
     @Override
-    public XmlReader<String> getDelegate() {
+    public XmlReader</*~~>*/String> getDelegate() {
         return new StringReader();
     }
 

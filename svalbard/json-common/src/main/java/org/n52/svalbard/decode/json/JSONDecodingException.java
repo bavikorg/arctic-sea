@@ -28,7 +28,7 @@ public class JSONDecodingException extends DecodingException {
 
     private static final long serialVersionUID = 8960081053988570614L;
 
-    public JSONDecodingException(String message) {
+    public JSONDecodingException(/*~~>*/String message) {
         super(message);
     }
 

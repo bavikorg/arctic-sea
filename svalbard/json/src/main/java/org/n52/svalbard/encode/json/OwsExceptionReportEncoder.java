@@ -40,11 +40,11 @@ public class OwsExceptionReportEncoder
         extends JSONEncoder<OwsExceptionReport> {
 
     public static final char LF = '\n';
-    public static final String LINE = "line";
-    public static final String CLASS = "class";
-    public static final String FILE = "file";
-    public static final String METHOD = "method";
-    public static final String STACK_TRACE = "stackTrace";
+    public static final /*~~>*/String LINE = "line";
+    public static final /*~~>*/String CLASS = "class";
+    public static final /*~~>*/String FILE = "file";
+    public static final /*~~>*/String METHOD = "method";
+    public static final /*~~>*/String STACK_TRACE = "stackTrace";
     private static final Logger log = LoggerFactory.getLogger(OwsExceptionReportEncoder.class);
 
     public OwsExceptionReportEncoder() {
@@ -55,18 +55,18 @@ public class OwsExceptionReportEncoder
     public JsonNode encodeJSON(OwsExceptionReport t)
             throws JSONEncodingException {
         final ObjectNode exceptionReport = Json.nodeFactory().objectNode();
-        exceptionReport.put(JSONConstants.VERSION, t.getVersion());
-        final ArrayNode exceptions = exceptionReport.putArray(JSONConstants.EXCEPTIONS);
+        exceptionReport.put(/*~~>*/JSONConstants.VERSION, t.getVersion());
+        final ArrayNode exceptions = exceptionReport.putArray(/*~~>*/JSONConstants.EXCEPTIONS);
         for (CodedException ce : t.getExceptions()) {
             final ObjectNode exception = exceptions.addObject();
-            exception.put(JSONConstants.CODE,
+            exception.put(/*~~>*/JSONConstants.CODE,
                     ce.getCode() != null ? ce.getCode().toString() : OwsExceptionCode.NoApplicableCode.toString());
             if (ce.getLocator() != null && !ce.getLocator().isEmpty()) {
-                exception.put(JSONConstants.LOCATOR, ce.getLocator());
+                exception.put(/*~~>*/JSONConstants.LOCATOR, ce.getLocator());
             }
-            final String message = getExceptionText(ce);
+            final /*~~>*/String message = getExceptionText(ce);
             if (message != null && !message.isEmpty()) {
-                exception.put(JSONConstants.TEXT, message);
+                exception.put(/*~~>*/JSONConstants.TEXT, message);
             }
             if (log.isDebugEnabled()) {
                 exception.set(STACK_TRACE, encodeStackTrace(ce));
@@ -75,7 +75,7 @@ public class OwsExceptionReportEncoder
         return exceptionReport;
     }
 
-    protected String getExceptionText(CodedException ce) {
+    protected /*~~>*/String getExceptionText(CodedException ce) {
         final StringBuilder exceptionText = new StringBuilder();
         if (ce.getMessage() != null) {
             exceptionText.append(ce.getMessage());
@@ -85,8 +85,8 @@ public class OwsExceptionReportEncoder
                 exceptionText.append(LF);
             }
             exceptionText.append("[EXCEPTION]: ").append(LF);
-            String localizedMessage = ce.getCause().getLocalizedMessage();
-            String message = ce.getCause().getMessage();
+            /*~~>*/String localizedMessage = ce.getCause().getLocalizedMessage();
+            /*~~>*/String message = ce.getCause().getMessage();
             if (localizedMessage != null && message != null) {
                 if (!message.equals(localizedMessage)) {
                     exceptionText.append(message).append(LF);
@@ -103,7 +103,7 @@ public class OwsExceptionReportEncoder
     private JsonNode encodeStackTrace(Throwable t) {
         ArrayNode json = nodeFactory().arrayNode();
         for (StackTraceElement e : t.getStackTrace()) {
-            json.add(String.format("%s.%s(:%d)", e.getClassName(), e.getMethodName(), e.getLineNumber()));
+            json.add(/*~~>*/String.format("%s.%s(:%d)", e.getClassName(), e.getMethodName(), e.getLineNumber()));
         }
         return json;
     }

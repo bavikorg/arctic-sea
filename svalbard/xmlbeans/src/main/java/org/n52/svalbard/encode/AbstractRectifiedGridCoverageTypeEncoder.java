@@ -79,7 +79,7 @@ public abstract class AbstractRectifiedGridCoverageTypeEncoder<T>
             SimpleMultiPointType smpt = smpd.addNewSimpleMultiPoint();
             smpt.setId("smp_" + rectifiedGridCoverage.getGmlId());
             DirectPositionListType dplt = smpt.addNewPosList();
-            List<String> uoms = getUoms(domainSet);
+            List</*~~>*/String> uoms = getUoms(domainSet);
             if (!uoms.isEmpty()) {
                 dplt.setUomLabels(Lists.newArrayList(uoms));
             }
@@ -117,8 +117,8 @@ public abstract class AbstractRectifiedGridCoverageTypeEncoder<T>
         return domainSet.stream().map(Value::getValue).anyMatch(Predicates.instanceOf(RangeValue.class));
     }
 
-    private List<String> getUoms(List<ComparableValue<?, ?>> domainSet) {
-        SortedSet<String> uoms = Sets.newTreeSet();
+    private List</*~~>*/String> getUoms(List<ComparableValue<?, ?>> domainSet) {
+        SortedSet</*~~>*/String> uoms = Sets.newTreeSet();
         for (ComparableValue<?, ?> values : domainSet) {
             uoms.add(values.getUnit());
         }
@@ -126,9 +126,9 @@ public abstract class AbstractRectifiedGridCoverageTypeEncoder<T>
     }
 
     @Override
-    public void addNamespacePrefixToMap(Map<String, String> nameSpacePrefixMap) {
+    public void addNamespacePrefixToMap(Map</*~~>*/String, /*~~>*/String> nameSpacePrefixMap) {
         super.addNamespacePrefixToMap(nameSpacePrefixMap);
-        nameSpacePrefixMap.put(GmlConstants.NS_GML_32, GmlConstants.NS_GML_PREFIX);
+        nameSpacePrefixMap.put(/*~~>*/GmlConstants.NS_GML_32, /*~~>*/GmlConstants.NS_GML_PREFIX);
     }
 
 }

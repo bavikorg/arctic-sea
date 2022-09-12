@@ -22,32 +22,32 @@ import org.n52.faroe.SettingValue;
  * @since 1.0.0
  *
  */
-public class StringSettingValueForTesting implements SettingValue<String> {
+public class StringSettingValueForTesting implements SettingValue</*~~>*/String> {
 
     private static final long serialVersionUID = -4039693152730867188L;
 
-    private String key;
+    private /*~~>*/String key;
 
-    private String value;
+    private /*~~>*/String value;
 
     @Override
-    public String getKey() {
+    public /*~~>*/String getKey() {
         return key;
     }
 
     @Override
-    public void setKey(String key) {
-        this.key = key;
+    public void setKey(/*~~>*/String key) {
+        /*~~>*/this.key = key;
     }
 
     @Override
-    public String getValue() {
+    public /*~~>*/String getValue() {
         return value;
     }
 
     @Override
-    public void setValue(String value) {
-        this.value = value;
+    public void setValue(/*~~>*/String value) {
+        /*~~>*/this.value = value;
     }
 
     @Override

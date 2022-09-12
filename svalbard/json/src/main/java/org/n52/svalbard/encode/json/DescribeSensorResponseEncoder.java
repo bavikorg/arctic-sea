@@ -58,13 +58,13 @@ public class DescribeSensorResponseEncoder extends AbstractSosResponseEncoder<De
 
     @Override
     protected void encodeResponse(ObjectNode json, DescribeSensorResponse t) throws EncodingException {
-        json.put(JSONConstants.PROCEDURE_DESCRIPTION_FORMAT, t.getOutputFormat());
-        json.set(JSONConstants.PROCEDURE_DESCRIPTION,
+        json.put(/*~~>*/JSONConstants.PROCEDURE_DESCRIPTION_FORMAT, t.getOutputFormat());
+        json.set(/*~~>*/JSONConstants.PROCEDURE_DESCRIPTION,
                 encodeDescriptions(t.getProcedureDescriptions(), t.getOutputFormat()));
 
     }
 
-    private String toString(AbstractFeature desc, String format) throws EncodingException {
+    private /*~~>*/String toString(AbstractFeature desc, /*~~>*/String format) throws EncodingException {
         if (desc instanceof SosProcedureDescriptionUnknownType && desc.isSetXml()) {
             return desc.getXml();
         } else if (desc instanceof SosProcedureDescription) {
@@ -77,19 +77,19 @@ public class DescribeSensorResponseEncoder extends AbstractSosResponseEncoder<De
                 .encode(desc)).xmlText(xmlOptions.get());
     }
 
-    private JsonNode encodeDescription(SosProcedureDescription<?> desc, String format) throws EncodingException {
-        String xml = toString(desc, format);
+    private JsonNode encodeDescription(SosProcedureDescription<?> desc, /*~~>*/String format) throws EncodingException {
+        /*~~>*/String xml = toString(desc, format);
         if (desc.isSetValidTime()) {
             ObjectNode j = nodeFactory().objectNode();
-            j.set(JSONConstants.VALID_TIME, encodeObjectToJson(desc.getValidTime()));
-            j.put(JSONConstants.DESCRIPTION, xml);
+            j.set(/*~~>*/JSONConstants.VALID_TIME, encodeObjectToJson(desc.getValidTime()));
+            j.put(/*~~>*/JSONConstants.DESCRIPTION, xml);
             return j;
         } else {
             return nodeFactory().textNode(xml);
         }
     }
 
-    private JsonNode encodeDescriptions(List<SosProcedureDescription<?>> descs, String format)
+    private JsonNode encodeDescriptions(List<SosProcedureDescription<?>> descs, /*~~>*/String format)
             throws EncodingException {
         if (descs.size() == 1) {
             return encodeDescription(descs.get(0), format);

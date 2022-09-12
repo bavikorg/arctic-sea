@@ -45,13 +45,13 @@ public class SpatialFilterDecoder
             return null;
         }
         if (validate) {
-            JSONValidator.getInstance().validateAndThrow(node, SchemaConstants.Common.SPATIAL_FILTER);
+            JSONValidator.getInstance().validateAndThrow(node, /*~~>*/SchemaConstants.Common.SPATIAL_FILTER);
         }
         if (node.isObject()) {
-            final String oName = node.fields().next().getKey();
+            final /*~~>*/String oName = node.fields().next().getKey();
             final SOp o = SOp.valueOf(oName);
-            JsonNode value = node.path(oName).path(JSONConstants.VALUE);
-            JsonNode ref = node.path(oName).path(JSONConstants.REF);
+            JsonNode value = node.path(oName).path(/*~~>*/JSONConstants.VALUE);
+            JsonNode ref = node.path(oName).path(/*~~>*/JSONConstants.REF);
             return new SpatialFilter(o.getOp(), decodeGeometry(value), ref.textValue());
         } else {
             return null;

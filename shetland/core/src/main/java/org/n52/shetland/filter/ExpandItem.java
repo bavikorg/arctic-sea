@@ -21,19 +21,19 @@ import org.n52.shetland.oasis.odata.query.option.QueryOptions;
 
 public class ExpandItem {
 
-    private final String path;
+    private final /*~~>*/String path;
 
     private final QueryOptions queryOptions;
 
-    public ExpandItem(String path, QueryOptions options) {
-        this.path = path;
+    public ExpandItem(/*~~>*/String path, QueryOptions options) {
+        /*~~>*/this.path = path;
         this.queryOptions = options;
     }
 
     /**
      * @return the path
      */
-    public String getPath() {
+    public /*~~>*/String getPath() {
         return path;
     }
 
@@ -59,12 +59,12 @@ public class ExpandItem {
             return false;
         }
 
-        return Objects.equals(this.path, ((ExpandItem) o).getPath())
+        return Objects.equals(/*~~>*/this.path, ((ExpandItem) o).getPath())
                 && Objects.equals(this.queryOptions, ((ExpandItem) o).getQueryOptions());
     }
 
     @Override
-    public String toString() {
+    public /*~~>*/String toString() {
         return path + "(" + getQueryOptions().toString() + ")";
     }
 }

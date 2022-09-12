@@ -36,7 +36,7 @@ import edu.umd.cs.findbugs.annotations.SuppressFBWarnings;
 public abstract class InspireExtendedCapabilities implements OwsOperationMetadataExtension,
         InspireExtendedCapabilitiesSupportedLanguage, InspireExtendedCapabilitiesResponseLanguage, InspireObject {
 
-    private String inspireId;
+    private /*~~>*/String inspireId;
 
     /* SupportedLanguages 1..1 */
     private InspireSupportedLanguages supportedLanguages;
@@ -59,13 +59,13 @@ public abstract class InspireExtendedCapabilities implements OwsOperationMetadat
     }
 
     @Override
-    public String getService() {
-        return SosConstants.SOS;
+    public /*~~>*/String getService() {
+        return /*~~>*/SosConstants.SOS;
     }
 
     @Override
-    public String getNamespace() {
-        return InspireConstants.NS_INSPIRE_COMMON;
+    public /*~~>*/String getNamespace() {
+        return /*~~>*/InspireConstants.NS_INSPIRE_COMMON;
     }
 
     @Override
@@ -109,8 +109,8 @@ public abstract class InspireExtendedCapabilities implements OwsOperationMetadat
      *            INSPIRE id to set
      * @return this
      */
-    public InspireExtendedCapabilities setInspireId(String inspireId) {
-        this.inspireId = inspireId;
+    public InspireExtendedCapabilities setInspireId(/*~~>*/String inspireId) {
+        /*~~>*/this.inspireId = inspireId;
         return this;
     }
 
@@ -119,7 +119,7 @@ public abstract class InspireExtendedCapabilities implements OwsOperationMetadat
      *
      * @return the INSPIRE id
      */
-    public String getInspireId() {
+    public /*~~>*/String getInspireId() {
         return inspireId;
     }
 

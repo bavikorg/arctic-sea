@@ -69,63 +69,63 @@ public enum SettingType {
      */
     CHOICE;
 
-    public static SettingType fromString(String type) {
+    public static SettingType fromString(/*~~>*/String type) {
         switch (type) {
-            case JSONSettingConstants.INTEGER_TYPE:
+            case /*~~>*/JSONSettingConstants.INTEGER_TYPE:
                 return SettingType.INTEGER;
-            case JSONSettingConstants.NUMBER_TYPE:
+            case /*~~>*/JSONSettingConstants.NUMBER_TYPE:
                 return SettingType.NUMERIC;
-            case JSONSettingConstants.BOOLEAN_TYPE:
+            case /*~~>*/JSONSettingConstants.BOOLEAN_TYPE:
                 return SettingType.BOOLEAN;
-            case JSONSettingConstants.TIME_INSTANT_TYPE:
+            case /*~~>*/JSONSettingConstants.TIME_INSTANT_TYPE:
                 return SettingType.TIMEINSTANT;
-            case JSONSettingConstants.FILE_TYPE:
+            case /*~~>*/JSONSettingConstants.FILE_TYPE:
                 return SettingType.FILE;
-            case JSONSettingConstants.STRING_TYPE:
+            case /*~~>*/JSONSettingConstants.STRING_TYPE:
                 return SettingType.STRING;
-            case JSONSettingConstants.URI_TYPE:
+            case /*~~>*/JSONSettingConstants.URI_TYPE:
                 return SettingType.URI;
-            case JSONSettingConstants.MULTILINGUAL_TYPE:
+            case /*~~>*/JSONSettingConstants.MULTILINGUAL_TYPE:
                 return SettingType.MULTILINGUAL_STRING;
-            case JSONSettingConstants.CHOICE_TYPE:
+            case /*~~>*/JSONSettingConstants.CHOICE_TYPE:
                 return SettingType.CHOICE;
             default:
                 throw unknownType(type);
         }
     }
 
-    public static String toString(SettingType type) {
+    public static /*~~>*/String toString(SettingType type) {
         switch (type) {
             case INTEGER:
-                return JSONSettingConstants.INTEGER_TYPE;
+                return /*~~>*/JSONSettingConstants.INTEGER_TYPE;
             case NUMERIC:
-                return JSONSettingConstants.NUMBER_TYPE;
+                return /*~~>*/JSONSettingConstants.NUMBER_TYPE;
             case BOOLEAN:
-                return JSONSettingConstants.BOOLEAN_TYPE;
+                return /*~~>*/JSONSettingConstants.BOOLEAN_TYPE;
             case TIMEINSTANT:
-                return JSONSettingConstants.TIME_INSTANT_TYPE;
+                return /*~~>*/JSONSettingConstants.TIME_INSTANT_TYPE;
             case FILE:
-                return JSONSettingConstants.FILE_TYPE;
+                return /*~~>*/JSONSettingConstants.FILE_TYPE;
             case STRING:
-                return JSONSettingConstants.STRING_TYPE;
+                return /*~~>*/JSONSettingConstants.STRING_TYPE;
             case URI:
-                return JSONSettingConstants.URI_TYPE;
+                return /*~~>*/JSONSettingConstants.URI_TYPE;
             case MULTILINGUAL_STRING:
-                return JSONSettingConstants.MULTILINGUAL_TYPE;
+                return /*~~>*/JSONSettingConstants.MULTILINGUAL_TYPE;
             case CHOICE:
-                return JSONSettingConstants.CHOICE_TYPE;
+                return /*~~>*/JSONSettingConstants.CHOICE_TYPE;
             default:
                 throw unknownType(type);
         }
     }
 
     @Override
-    public String toString() {
+    public /*~~>*/String toString() {
         return toString(this);
     }
 
     private static IllegalArgumentException unknownType(Object type) {
-        return new IllegalArgumentException(String.format("Unknown Type %s", type));
+        return new IllegalArgumentException(/*~~>*/String.format("Unknown Type %s", type));
     }
 
 }

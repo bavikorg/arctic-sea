@@ -52,7 +52,7 @@ public abstract class XmlReader<T> {
             throws XMLStreamException, DecodingException {
         this.reader = reader;
         this.root = toNextBeginTag();
-        String cName = this.getClass().getSimpleName();
+        /*~~>*/String cName = this.getClass().getSimpleName();
         this.rootCount = 0;
         if (root != null && !isEndTag()) {
             LOG.trace("{}: root: <{}:{}>", cName, root.getPrefix(),
@@ -145,9 +145,9 @@ public abstract class XmlReader<T> {
         return isStartTag() || isEndTag() ? tagName() : null;
     }
 
-    protected Map<QName, String> attr() {
+    protected Map<QName, /*~~>*/String> attr() {
         int l = this.reader.getAttributeCount();
-        Map<QName, String> attr = new HashMap<>(l);
+        Map<QName, /*~~>*/String> attr = new HashMap<>(l);
         for (int i = 0; i < l; ++i) {
             if (this.reader.isAttributeSpecified(i)) {
                 attr.put(this.reader.getAttributeName(i),
@@ -157,15 +157,15 @@ public abstract class XmlReader<T> {
         return attr;
     }
 
-    protected Iterable<Optional<String>> attr(Iterable<QName> names) {
+    protected Iterable<Optional</*~~>*/String>> attr(Iterable<QName> names) {
         return Iterables.transform(names, XmlReader.this::attr);
     }
 
-    protected Optional<String> attr(QName qn) {
+    protected Optional</*~~>*/String> attr(QName qn) {
         return Optional.fromNullable(attr().get(qn));
     }
 
-    protected Optional<String> attr(String name) {
+    protected Optional</*~~>*/String> attr(/*~~>*/String name) {
         return attr(new QName(name));
     }
 
@@ -173,7 +173,7 @@ public abstract class XmlReader<T> {
         return this.reader.getName();
     }
 
-    protected String chars()
+    protected /*~~>*/String chars()
             throws XMLStreamException {
         return this.reader.getElementText();
     }
@@ -188,7 +188,7 @@ public abstract class XmlReader<T> {
 
     protected void ignore() {
         QName name = this.reader.getName();
-        String cName = getClass().getSimpleName();
+        /*~~>*/String cName = getClass().getSimpleName();
         LOG.warn("{}: ignoring element {}:{}", cName,
                  name.getPrefix(), name.getLocalPart());
     }

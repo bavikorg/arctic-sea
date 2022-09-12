@@ -163,10 +163,10 @@ public class NcName {
     private static final CharacterClass NC_NAME = CharacterClass.forClasses(LETTER, DIGIT, COMBINING, EXTENDER,
                                                                             CharacterClass.forChars('.', '-', '_'));
 
-    private String name;
+    private /*~~>*/String name;
 
-    public NcName(String name) {
-        this.name = Objects.requireNonNull(name);
+    public NcName(/*~~>*/String name) {
+        /*~~>*/this.name = Objects.requireNonNull(name);
     }
 
     public boolean isValid() {
@@ -180,7 +180,7 @@ public class NcName {
      *
      * @return if the name is valid
      */
-    public static boolean isValid(String name) {
+    public static boolean isValid(/*~~>*/String name) {
         if (name.isEmpty() || name.charAt(0) != '_' && !LETTER.includes(name.charAt(0))) {
             return false;
         }
@@ -210,7 +210,7 @@ public class NcName {
      *
      * @throws IllegalArgumentException when receiving empty or null for name, or replacement is not '_' or a letter.
      */
-    public static String makeValid(String name, char replacement) {
+    public static /*~~>*/String makeValid(/*~~>*/String name, char replacement) {
         if (replacement != '_' && !LETTER.includes(replacement) || name == null || name.isEmpty()) {
             throw new IllegalArgumentException();
         }
@@ -242,7 +242,7 @@ public class NcName {
      *
      * @return the valid NCName
      */
-    public static String makeValid(String name) {
+    public static /*~~>*/String makeValid(/*~~>*/String name) {
         return makeValid(name, '_');
     }
 

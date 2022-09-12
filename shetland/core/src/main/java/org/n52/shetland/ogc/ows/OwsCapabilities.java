@@ -33,22 +33,22 @@ import com.google.common.base.Strings;
  * @author Christian Autermann
  */
 public class OwsCapabilities {
-    private Optional<String> service;
-    private String version;
-    private Optional<String> updateSequence;
+    private Optional</*~~>*/String> service;
+    private /*~~>*/String version;
+    private Optional</*~~>*/String> updateSequence;
     private Optional<OwsServiceIdentification> serviceIdentification;
     private Optional<OwsServiceProvider> serviceProvider;
     private Optional<OwsOperationsMetadata> operationsMetadata;
-    private Optional<SortedSet<String>> languages;
+    private Optional<SortedSet</*~~>*/String>> languages;
     private SortedSet<OwsCapabilitiesExtension> extensions;
 
-    public OwsCapabilities(String service, String version, String updateSequence,
+    public OwsCapabilities(/*~~>*/String service, /*~~>*/String version, /*~~>*/String updateSequence,
             OwsServiceIdentification serviceIdentification, OwsServiceProvider serviceProvider,
-            OwsOperationsMetadata operationsMetadata, Collection<String> languages,
+            OwsOperationsMetadata operationsMetadata, Collection</*~~>*/String> languages,
             Collection<OwsCapabilitiesExtension> extensions) {
         this.service = Optional.ofNullable(Strings.emptyToNull(service));
         Preconditions.checkArgument(!Objects.requireNonNull(version).isEmpty());
-        this.version = version;
+        /*~~>*/this.version = version;
         this.updateSequence = Optional.ofNullable(Strings.emptyToNull(updateSequence));
         this.serviceIdentification = Optional.ofNullable(serviceIdentification);
         this.serviceProvider = Optional.ofNullable(serviceProvider);
@@ -63,28 +63,28 @@ public class OwsCapabilities {
                 other.getOperationsMetadata().orElse(null), other.getLanguages().orElse(null), other.getExtensions());
     }
 
-    public String getVersion() {
+    public /*~~>*/String getVersion() {
         return version;
     }
 
-    public void setVersion(String version) {
+    public void setVersion(/*~~>*/String version) {
         Preconditions.checkArgument(!Objects.requireNonNull(version).isEmpty());
-        this.version = version;
+        /*~~>*/this.version = version;
     }
 
-    public Optional<String> getService() {
+    public Optional</*~~>*/String> getService() {
         return service;
     }
 
-    public void setService(String service) {
+    public void setService(/*~~>*/String service) {
         this.service = Optional.ofNullable(Strings.emptyToNull(service));
     }
 
-    public Optional<String> getUpdateSequence() {
+    public Optional</*~~>*/String> getUpdateSequence() {
         return updateSequence;
     }
 
-    public void setUpdateSequence(String updateSequence) {
+    public void setUpdateSequence(/*~~>*/String updateSequence) {
         this.updateSequence = Optional.ofNullable(Strings.emptyToNull(updateSequence));
     }
 
@@ -112,12 +112,12 @@ public class OwsCapabilities {
         this.operationsMetadata = Optional.ofNullable(operationsMetadata);
     }
 
-    public Optional<SortedSet<String>> getLanguages() {
+    public Optional<SortedSet</*~~>*/String>> getLanguages() {
         return this.languages;
     }
 
-    public void setLanguages(SortedSet<String> languages) {
-        this.languages = Optional.ofNullable(languages).map(TreeSet<String>::new);
+    public void setLanguages(SortedSet</*~~>*/String> languages) {
+        this.languages = Optional.ofNullable(languages).map(TreeSet</*~~>*/String>::new);
     }
 
     public SortedSet<OwsCapabilitiesExtension> getExtensions() {

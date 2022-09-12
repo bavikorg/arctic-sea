@@ -119,7 +119,7 @@ public class OwsAllowedValues implements OwsPossibleValues, Iterable<OwsValueRes
     }
 
     @Override
-    public String toString() {
+    public /*~~>*/String toString() {
         return "OwsAllowedValues{" + "restrictions=" + restrictions + '}';
     }
 

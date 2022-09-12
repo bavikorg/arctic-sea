@@ -81,15 +81,15 @@ public class OwsEncoderv110Test {
 
     private NoApplicableCodeException generateException() {
         final NoApplicableCodeException nace = new NoApplicableCodeException();
-        nace.setVersion(Sos2Constants.SERVICEVERSION);
+        nace.setVersion(/*~~>*/Sos2Constants.SERVICEVERSION);
         return nace;
     }
 
     @Test
     public void should_encode_service_identification_without_service_type_codespace() throws EncodingException {
-        String serviceTypeValue = "serviceType";
+        /*~~>*/String serviceTypeValue = "serviceType";
         OwsServiceIdentification serviceId = new OwsServiceIdentification(new OwsCode(serviceTypeValue), null, null, null, null, null, null, null);
-        XmlObject xbEncoded = encodeObjectToXml(OWSConstants.NS_OWS, serviceId);
+        XmlObject xbEncoded = encodeObjectToXml(/*~~>*/OWSConstants.NS_OWS, serviceId);
         assertThat(xbEncoded, instanceOf(ServiceIdentification.class));
         ServiceIdentification xbServiceId = (ServiceIdentification) xbEncoded;
         assertThat(xbServiceId.getServiceType().getStringValue(), equalTo(serviceTypeValue));
@@ -98,17 +98,17 @@ public class OwsEncoderv110Test {
 
     @Test
     public void should_encode_service_identification_with_service_type_codespace() throws EncodingException {
-        String serviceTypeValue = "serviceType";
-        String serviceTypeCodeSpaceValue = "codeSpace";
+        /*~~>*/String serviceTypeValue = "serviceType";
+        /*~~>*/String serviceTypeCodeSpaceValue = "codeSpace";
         OwsServiceIdentification serviceId = new OwsServiceIdentification(new OwsCode(serviceTypeValue, URI.create(serviceTypeCodeSpaceValue)), null, null, null, null, null, null, null);
-        XmlObject xbEncoded = encodeObjectToXml(OWSConstants.NS_OWS, serviceId);
+        XmlObject xbEncoded = encodeObjectToXml(/*~~>*/OWSConstants.NS_OWS, serviceId);
         assertThat(xbEncoded, instanceOf(ServiceIdentification.class));
         ServiceIdentification xbServiceId = (ServiceIdentification) xbEncoded;
         assertThat(xbServiceId.getServiceType().getStringValue(), equalTo(serviceTypeValue));
         assertThat(xbServiceId.getServiceType().getCodeSpace(), equalTo(serviceTypeCodeSpaceValue));
     }
 
-    private XmlObject encodeObjectToXml(String namespace, OwsServiceIdentification o) throws EncodingException {
+    private XmlObject encodeObjectToXml(/*~~>*/String namespace, OwsServiceIdentification o) throws EncodingException {
         return (XmlObject)encoderRepository.getEncoder(CodingHelper.getEncoderKey(namespace, o)).encode(o);
     }
 }

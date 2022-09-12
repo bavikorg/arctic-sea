@@ -97,13 +97,13 @@ public abstract class AbstractOmV20XmlStreamWriter extends XmlStreamWriter<OmObs
      */
     protected void writeObservation(OmObservation observation) throws XMLStreamException, EncodingException {
         start(getDocumentName());
-        namespace(W3CConstants.NS_XLINK_PREFIX, W3CConstants.NS_XLINK);
-        namespace(W3CConstants.NS_XSI_PREFIX, W3CConstants.NS_XSI);
-        namespace(OmConstants.NS_OM_PREFIX, OmConstants.NS_OM_2);
-        namespace(GmlConstants.NS_GML_PREFIX, GmlConstants.NS_GML_32);
+        namespace(/*~~>*/W3CConstants.NS_XLINK_PREFIX, /*~~>*/W3CConstants.NS_XLINK);
+        namespace(/*~~>*/W3CConstants.NS_XSI_PREFIX, /*~~>*/W3CConstants.NS_XSI);
+        namespace(/*~~>*/OmConstants.NS_OM_PREFIX, /*~~>*/OmConstants.NS_OM_2);
+        namespace(/*~~>*/GmlConstants.NS_GML_PREFIX, /*~~>*/GmlConstants.NS_GML_32);
 
         writeAddtitionalNamespaces();
-        String observationID = addGmlId(observation);
+        /*~~>*/String observationID = addGmlId(observation);
         checkAndWriteIdentifier();
         checkAndWriteName();
         checkAndWriteDescription();
@@ -117,7 +117,7 @@ public abstract class AbstractOmV20XmlStreamWriter extends XmlStreamWriter<OmObs
         }
         Time phenomenonTime = observation.getPhenomenonTime();
         if (phenomenonTime.getGmlId() == null) {
-            phenomenonTime.setGmlId(OmConstants.PHENOMENON_TIME_NAME + "_" + observationID);
+            phenomenonTime.setGmlId(/*~~>*/OmConstants.PHENOMENON_TIME_NAME + "_" + observationID);
         }
         writePhenomenonTime(phenomenonTime);
         writeResultTime();
@@ -166,12 +166,12 @@ public abstract class AbstractOmV20XmlStreamWriter extends XmlStreamWriter<OmObs
      *             If an error occurs when writing to stream
      */
     protected void writeIdentifier(CodeWithAuthority identifier) throws EncodingException, XMLStreamException {
-        Encoder<?, CodeWithAuthority> encoder = getEncoder(GmlConstants.NS_GML_32, identifier);
+        Encoder<?, CodeWithAuthority> encoder = getEncoder(/*~~>*/GmlConstants.NS_GML_32, identifier);
         writeXmlObject((XmlObject) encoder.encode(identifier), GmlConstants.QN_IDENTIFIER_32);
     }
 
     protected void writeName(CodeType name) throws XMLStreamException, EncodingException {
-        Encoder<?, CodeType> encoder = getEncoder(GmlConstants.NS_GML_32, name);
+        Encoder<?, CodeType> encoder = getEncoder(/*~~>*/GmlConstants.NS_GML_32, name);
         if (encoder != null) {
             writeXmlObject((XmlObject) encoder.encode(name), GmlConstants.QN_NAME_32);
         } else {
@@ -188,7 +188,7 @@ public abstract class AbstractOmV20XmlStreamWriter extends XmlStreamWriter<OmObs
      * @throws XMLStreamException
      *             If an error occurs when writing to stream
      */
-    protected void writeDescription(String description) throws XMLStreamException {
+    protected void writeDescription(/*~~>*/String description) throws XMLStreamException {
         start(GmlConstants.QN_DESCRIPTION_32);
         chars(description);
         endInline(GmlConstants.QN_DESCRIPTION_32);
@@ -206,10 +206,10 @@ public abstract class AbstractOmV20XmlStreamWriter extends XmlStreamWriter<OmObs
      * @throws EncodingException
      *             If an error occurs when creating elements to be written
      */
-    protected void writeMetadata(Map<String, NamedValue<?>> map, QName element)
+    protected void writeMetadata(Map</*~~>*/String, NamedValue<?>> map, QName element)
             throws XMLStreamException, EncodingException {
-        for (Entry<String, NamedValue<?>> entry : map.entrySet()) {
-            Object o = getEncoder(OmConstants.NS_OM_2, entry.getValue()).encode(entry.getValue(),
+        for (Entry</*~~>*/String, NamedValue<?>> entry : map.entrySet()) {
+            Object o = getEncoder(/*~~>*/OmConstants.NS_OM_2, entry.getValue()).encode(entry.getValue(),
                     EncodingContext.of(XmlBeansEncodingFlags.DOCUMENT));
             if (o != null && o instanceof XmlObject) {
                 start(GetDataAvailabilityConstants.GDA_EXTENSION);
@@ -223,7 +223,7 @@ public abstract class AbstractOmV20XmlStreamWriter extends XmlStreamWriter<OmObs
     protected void writeMetaDataProperty(List<AbstractMetaData> metaDataProperty)
             throws XMLStreamException, EncodingException {
         for (AbstractMetaData abstractMetaData : metaDataProperty) {
-            Object o = getEncoder(GmlConstants.NS_GML_32, abstractMetaData).encode(abstractMetaData,
+            Object o = getEncoder(/*~~>*/GmlConstants.NS_GML_32, abstractMetaData).encode(abstractMetaData,
                     EncodingContext.of(XmlBeansEncodingFlags.DOCUMENT));
             if (o != null && o instanceof XmlObject) {
                 start(GmlConstants.QN_OM_20_META_DATA_PROPERTY_32);
@@ -242,7 +242,7 @@ public abstract class AbstractOmV20XmlStreamWriter extends XmlStreamWriter<OmObs
      * @throws XMLStreamException
      *             If an error occurs when writing to stream
      */
-    protected void writeObservationType(String observationType) throws XMLStreamException {
+    protected void writeObservationType(/*~~>*/String observationType) throws XMLStreamException {
         empty(OmConstants.QN_OM_20_OBSERVATION_TYPE);
         addXlinkHrefAttr(observationType);
     }
@@ -345,7 +345,7 @@ public abstract class AbstractOmV20XmlStreamWriter extends XmlStreamWriter<OmObs
      *             If an error occurs when creating elements to be written
      */
     protected void writeParameter() throws XMLStreamException, EncodingException {
-        XmlEncoderKey key = new XmlEncoderKey(OmConstants.NS_OM_2, NamedValue.class);
+        XmlEncoderKey key = new XmlEncoderKey(/*~~>*/OmConstants.NS_OM_2, NamedValue.class);
         Encoder<XmlObject, NamedValue<?>> encoder = getEncoder(key);
         if (encoder != null) {
             for (NamedValue<?> namedValue : getElement().getParameter()) {
@@ -392,13 +392,13 @@ public abstract class AbstractOmV20XmlStreamWriter extends XmlStreamWriter<OmObs
      */
     protected void writeFeatureOfIntererst() throws XMLStreamException, EncodingException {
 
-        Optional<String> namespace = getDefaultFeatureEncodingNamespace();
+        Optional</*~~>*/String> namespace = getDefaultFeatureEncodingNamespace();
         AbstractFeature foi = getElement().getObservationConstellation()
                 .getFeatureOfInterest();
 
         if (namespace.isPresent()) {
             EncodingContext codingContext = EncodingContext.of(XmlEncoderFlags.ENCODE_NAMESPACE, namespace.get());
-            Encoder<XmlObject, AbstractFeature> encoder = getEncoder(GmlConstants.NS_GML_32, foi);
+            Encoder<XmlObject, AbstractFeature> encoder = getEncoder(/*~~>*/GmlConstants.NS_GML_32, foi);
             writeXmlObject(encoder.encode(foi, codingContext), OmConstants.QN_OM_20_FEATURE_OF_INTEREST);
         } else {
             empty(OmConstants.QN_OM_20_FEATURE_OF_INTEREST);
@@ -411,7 +411,7 @@ public abstract class AbstractOmV20XmlStreamWriter extends XmlStreamWriter<OmObs
         }
     }
 
-    protected abstract Optional<String> getDefaultFeatureEncodingNamespace();
+    protected abstract Optional</*~~>*/String> getDefaultFeatureEncodingNamespace();
 
     /**
      * write om:result to stream
@@ -427,7 +427,7 @@ public abstract class AbstractOmV20XmlStreamWriter extends XmlStreamWriter<OmObs
             ((AbstractObservationValue<?>) observation.getValue()).setValuesForResultEncoding(observation);
         }
         XmlObject createResult =
-                (XmlObject) getEncoder(getEncodeNamespace().orElse(OmConstants.NS_OM_2), observation.getValue())
+                (XmlObject) getEncoder(getEncodeNamespace().orElse(/*~~>*/OmConstants.NS_OM_2), observation.getValue())
                         .encode(observation.getValue());
         if (createResult != null) {
             if (createResult.xmlText()
@@ -440,7 +440,7 @@ public abstract class AbstractOmV20XmlStreamWriter extends XmlStreamWriter<OmObs
                 if (check(createResult)) {
                     QName name = createResult.schemaType()
                             .getName();
-                    String prefix = name.getPrefix();
+                    /*~~>*/String prefix = name.getPrefix();
                     if (Strings.isNullOrEmpty(prefix)) {
                         XmlCursor newCursor = createResult.newCursor();
                         prefix = newCursor.prefixForNamespace(name.getNamespaceURI());
@@ -479,7 +479,7 @@ public abstract class AbstractOmV20XmlStreamWriter extends XmlStreamWriter<OmObs
      * @throws DateTimeFormatException
      *             If a formatting error occurs
      */
-    protected String getTimeString(Time time) throws DateTimeFormatException {
+    protected /*~~>*/String getTimeString(Time time) throws DateTimeFormatException {
         DateTime dateTime = getTime(time);
         return DateTimeHelper.formatDateTime2String(dateTime, time.getTimeFormat());
     }
@@ -522,8 +522,8 @@ public abstract class AbstractOmV20XmlStreamWriter extends XmlStreamWriter<OmObs
      * @throws XMLStreamException
      *             If an error occurs when writing to stream
      */
-    private String addGmlId(OmObservation observation) throws XMLStreamException {
-        String observationID = IdGenerator.generate(Double.toString(System.currentTimeMillis() * Math.random()));
+    private /*~~>*/String addGmlId(OmObservation observation) throws XMLStreamException {
+        /*~~>*/String observationID = IdGenerator.generate(Double.toString(System.currentTimeMillis() * Math.random()));
         if (observation.isSetObservationID()) {
             observationID = observation.getObservationID();
         } else {
@@ -546,7 +546,7 @@ public abstract class AbstractOmV20XmlStreamWriter extends XmlStreamWriter<OmObs
      */
     private void writeTimeContent(Time time) throws EncodingException, XMLStreamException {
         XmlObject xmlObject =
-                (XmlObject) getEncoder(GmlConstants.NS_GML_32, time).encode(time, getDocumentAdditionalHelperValues());
+                (XmlObject) getEncoder(/*~~>*/GmlConstants.NS_GML_32, time).encode(time, getDocumentAdditionalHelperValues());
         writeXmlObject(xmlObject, GmlHelper.getGml321QnameForITime(time));
     }
 
@@ -564,7 +564,7 @@ public abstract class AbstractOmV20XmlStreamWriter extends XmlStreamWriter<OmObs
     private void addResultTime(TimeInstant time) throws EncodingException, XMLStreamException {
         start(OmConstants.QN_OM_20_RESULT_TIME);
         XmlObject xmlObject =
-                (XmlObject) getEncoder(GmlConstants.NS_GML_32, time).encode(time, getDocumentAdditionalHelperValues());
+                (XmlObject) getEncoder(/*~~>*/GmlConstants.NS_GML_32, time).encode(time, getDocumentAdditionalHelperValues());
         writeXmlObject(xmlObject, GmlConstants.QN_TIME_INSTANT_32);
         end(OmConstants.QN_OM_20_RESULT_TIME);
     }

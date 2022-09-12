@@ -124,27 +124,27 @@ public class SensorMLDecoderV101 extends AbstractSensorMLDecoder {
     private static final Logger LOGGER = LoggerFactory.getLogger(SensorMLDecoderV101.class);
 
     private static final Set<DecoderKey> DECODER_KEYS = CodingHelper.decoderKeysForElements(
-            SensorMLConstants.NS_SML,
+            /*~~>*/SensorMLConstants.NS_SML,
             SensorMLDocument.class,
             SystemDocument.class,
             SystemType.class,
             ProcessModelType.class);
 
-    private static final Set<String> REMOVABLE_CAPABILITIES_NAMES = Sets
-            .newHashSet(SensorMLConstants.ELEMENT_NAME_PARENT_PROCEDURES, SensorMLConstants.ELEMENT_NAME_OFFERINGS);
+    private static final Set</*~~>*/String> REMOVABLE_CAPABILITIES_NAMES = Sets
+            .newHashSet(/*~~>*/SensorMLConstants.ELEMENT_NAME_PARENT_PROCEDURES, /*~~>*/SensorMLConstants.ELEMENT_NAME_OFFERINGS);
 
-    private static final Set<String> REMOVABLE_COMPONENTS_ROLES = Collections
-            .singleton(SensorMLConstants.ELEMENT_NAME_CHILD_PROCEDURES);
+    private static final Set</*~~>*/String> REMOVABLE_COMPONENTS_ROLES = Collections
+            .singleton(/*~~>*/SensorMLConstants.ELEMENT_NAME_CHILD_PROCEDURES);
 
     //CHECKSTYLE:OFF
-    private static final Map<String, ImmutableMap<String, Set<String>>> SUPPORTED_TRANSACTIONAL_PROCEDURE_DESCRIPTION_FORMATS
-            = ImmutableMap.of(SosConstants.SOS, ImmutableMap.<String, Set<String>>builder()
-                              .put(Sos2Constants.SERVICEVERSION, ImmutableSet.of(SensorMLConstants.SENSORML_OUTPUT_FORMAT_URL))
+    private static final Map</*~~>*/String, ImmutableMap</*~~>*/String, Set</*~~>*/String>>> SUPPORTED_TRANSACTIONAL_PROCEDURE_DESCRIPTION_FORMATS
+            = ImmutableMap.of(/*~~>*/SosConstants.SOS, ImmutableMap.</*~~>*/String, Set</*~~>*/String>>builder()
+                              .put(/*~~>*/Sos2Constants.SERVICEVERSION, ImmutableSet.of(/*~~>*/SensorMLConstants.SENSORML_OUTPUT_FORMAT_URL))
                               .build());
     //CHECKSTYLE:ON
 
     private static final ImmutableSet<SupportedType> SUPPORTED_TYPES = ImmutableSet.<SupportedType>builder()
-            .add(new ProcedureDescriptionFormat(SensorMLConstants.SENSORML_OUTPUT_FORMAT_URL)).build();
+            .add(new ProcedureDescriptionFormat(/*~~>*/SensorMLConstants.SENSORML_OUTPUT_FORMAT_URL)).build();
 
     public SensorMLDecoderV101() {
         LOGGER.debug("Decoder for the following keys initialized successfully: {}!",
@@ -162,7 +162,7 @@ public class SensorMLDecoderV101 extends AbstractSensorMLDecoder {
     }
 
     @Override
-    public Set<String> getSupportedProcedureDescriptionFormats(final String service, final String version) {
+    public Set</*~~>*/String> getSupportedProcedureDescriptionFormats(final /*~~>*/String service, final /*~~>*/String version) {
         if (SUPPORTED_TRANSACTIONAL_PROCEDURE_DESCRIPTION_FORMATS.containsKey(service) &&
                  SUPPORTED_TRANSACTIONAL_PROCEDURE_DESCRIPTION_FORMATS.get(service).containsKey(version)) {
             return SUPPORTED_TRANSACTIONAL_PROCEDURE_DESCRIPTION_FORMATS.get(service).get(version);
@@ -319,7 +319,7 @@ public class SensorMLDecoderV101 extends AbstractSensorMLDecoder {
             checkComponentsForRemoval(componentList).forEach(componentList::removeComponent);
             checkAndRemoveEmptyComponents(xbSystemType);
         }
-        final String xmlDescription = addSensorMLWrapperForXmlDescription(xbSystemType);
+        final /*~~>*/String xmlDescription = addSensorMLWrapperForXmlDescription(xbSystemType);
         system.setXml(xmlDescription);
         return system;
     }
@@ -414,9 +414,9 @@ public class SensorMLDecoderV101 extends AbstractSensorMLDecoder {
                 .map(ClassifierList::getClassifierArray).flatMap(Arrays::stream)
                 .map(c -> {
                     net.opengis.sensorML.x101.TermDocument.Term term = c.getTerm();
-                    String definition = term.isSetDefinition() ? term.getDefinition() : null;
-                    String codespace = term.isSetCodeSpace() ? term.getCodeSpace().getHref() : null;
-                    String value = term.getValue();
+                    /*~~>*/String definition = term.isSetDefinition() ? term.getDefinition() : null;
+                    /*~~>*/String codespace = term.isSetCodeSpace() ? term.getCodeSpace().getHref() : null;
+                    /*~~>*/String value = term.getValue();
                     return new SmlClassifier(c.getName(), definition, codespace, value);
                 }).collect(Collectors.toList());
     }
@@ -667,7 +667,7 @@ public class SensorMLDecoderV101 extends AbstractSensorMLDecoder {
                         smlRespParty.setCountry(address.getCountry());
                     }
                     if (address.getDeliveryPointArray() != null && address.getDeliveryPointArray().length > 0) {
-                        for (String deliveryPoint : address.getDeliveryPointArray()) {
+                        for (/*~~>*/String deliveryPoint : address.getDeliveryPointArray()) {
                             smlRespParty.addDeliveryPoint(deliveryPoint);
                         }
                     }
@@ -694,12 +694,12 @@ public class SensorMLDecoderV101 extends AbstractSensorMLDecoder {
                 if (contactInfo.getPhone() != null) {
                     Phone phone = contactInfo.getPhone();
                     if (phone.getVoiceArray() != null && phone.getVoiceArray().length > 0) {
-                        for (String phoneVoice : phone.getVoiceArray()) {
+                        for (/*~~>*/String phoneVoice : phone.getVoiceArray()) {
                             smlRespParty.addPhoneVoice(phoneVoice);
                         }
                     }
                     if (phone.getFacsimileArray() != null && phone.getFacsimileArray().length > 0) {
-                        for (String phoneFax : phone.getFacsimileArray()) {
+                        for (/*~~>*/String phoneFax : phone.getFacsimileArray()) {
                             smlRespParty.addPhoneFax(phoneFax);
                         }
                     }
@@ -715,12 +715,12 @@ public class SensorMLDecoderV101 extends AbstractSensorMLDecoder {
         return abstractDocumentation;
     }
 
-    private List<String> parseKeywords(final Keywords[] keywordsArray) {
-        final Set<String> keywords = Sets.newHashSet();
+    private List</*~~>*/String> parseKeywords(final Keywords[] keywordsArray) {
+        final Set</*~~>*/String> keywords = Sets.newHashSet();
         if (keywordsArray != null && keywordsArray.length > 0) {
             for (final Keywords keyword : keywordsArray) {
                 if (keyword.isSetKeywordList()) {
-                    final String[] array = keyword.getKeywordList().getKeywordArray();
+                    final /*~~>*/String[] array = keyword.getKeywordList().getKeywordArray();
                     if (array != null && array.length > 0) {
                         keywords.addAll(Arrays.asList(array));
                     }
@@ -730,7 +730,7 @@ public class SensorMLDecoderV101 extends AbstractSensorMLDecoder {
         return Lists.newArrayList(keywords);
     }
 
-    private String parseHistory(final History[] historyArray) {
+    private /*~~>*/String parseHistory(final History[] historyArray) {
         // TODO Auto-generated method stub
         return "";
     }
@@ -910,10 +910,10 @@ public class SensorMLDecoderV101 extends AbstractSensorMLDecoder {
         return smlParameter;
     }
 
-    private String addSensorMLWrapperForXmlDescription(final AbstractProcessType xbProcessType) {
+    private /*~~>*/String addSensorMLWrapperForXmlDescription(final AbstractProcessType xbProcessType) {
         final SensorMLDocument xbSensorMLDoc = SensorMLDocument.Factory.newInstance(getXmlOptions());
         final net.opengis.sensorML.x101.SensorMLDocument.SensorML xbSensorML = xbSensorMLDoc.addNewSensorML();
-        xbSensorML.setVersion(SensorMLConstants.VERSION_V101);
+        xbSensorML.setVersion(/*~~>*/SensorMLConstants.VERSION_V101);
         final Member member = xbSensorML.addNewMember();
         final AbstractProcessType xbAbstractProcessType = (AbstractProcessType) member.addNewProcess()
                 .substitute(getQnameForType(xbProcessType.schemaType()), xbProcessType.schemaType());
@@ -935,7 +935,7 @@ public class SensorMLDecoderV101 extends AbstractSensorMLDecoder {
     private List<Integer> checkCapabilitiesForRemoval(final Capabilities[] capabilitiesArray) {
         final List<Integer> removeableCaps = new ArrayList<>(capabilitiesArray.length);
         for (int i = 0; i < capabilitiesArray.length; i++) {
-            final String name = capabilitiesArray[i].getName();
+            final /*~~>*/String name = capabilitiesArray[i].getName();
             if (name != null && REMOVABLE_CAPABILITIES_NAMES.contains(name)) {
                 removeableCaps.add(i);
             }

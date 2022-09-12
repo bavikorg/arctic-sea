@@ -61,7 +61,7 @@ public class GetCapabilitiesRequestEncoder extends AbstractSosRequestEncoder<Get
         if (request.isSetService()) {
             gct.setService(request.getService());
         } else {
-            gct.setService(SosConstants.SOS);
+            gct.setService(/*~~>*/SosConstants.SOS);
         }
     }
 
@@ -72,7 +72,7 @@ public class GetCapabilitiesRequestEncoder extends AbstractSosRequestEncoder<Get
         } else if (request.isSetVersion()) {
             gct.addNewAcceptVersions().addVersion(request.getVersion());
         } else {
-            gct.addNewAcceptVersions().addVersion(Sos2Constants.SERVICEVERSION);
+            gct.addNewAcceptVersions().addVersion(/*~~>*/Sos2Constants.SERVICEVERSION);
         }
     }
 

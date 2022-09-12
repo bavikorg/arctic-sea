@@ -98,18 +98,18 @@ public abstract class AbstractWmlEncoderv20 extends AbstractOmEncoderv20
         implements ProcedureEncoder<XmlObject, Object>, WmlTmlHelper {
     private static final Logger LOGGER = LoggerFactory.getLogger(AbstractWmlEncoderv20.class);
 
-    private static final Map<String, ImmutableMap<String, Set<String>>> SUPPORTED_PROCEDURE_DESCRIPTION_FORMATS =
-            ImmutableMap.of(SosConstants.SOS, ImmutableMap.<String, Set<String>> builder()
-                    .put(Sos2Constants.SERVICEVERSION, ImmutableSet.of(WaterMLConstants.NS_WML_20_PROCEDURE_ENCODING))
+    private static final Map</*~~>*/String, ImmutableMap</*~~>*/String, Set</*~~>*/String>>> SUPPORTED_PROCEDURE_DESCRIPTION_FORMATS =
+            ImmutableMap.of(/*~~>*/SosConstants.SOS, ImmutableMap.</*~~>*/String, Set</*~~>*/String>> builder()
+                    .put(/*~~>*/Sos2Constants.SERVICEVERSION, ImmutableSet.of(/*~~>*/WaterMLConstants.NS_WML_20_PROCEDURE_ENCODING))
                     .build());
 
-    private static final String PROCESS_ID_PREFIX = "process.";
+    private static final /*~~>*/String PROCESS_ID_PREFIX = "process.";
 
-    private static final String SF_ID_PREFIX = "sf_";
+    private static final /*~~>*/String SF_ID_PREFIX = "sf_";
 
     private static final Set<EncoderKey> DEFAULT_ENCODER_KEYS = CollectionHelper
-            .union(CodingHelper.encoderKeysForElements(WaterMLConstants.NS_WML_20, AbstractFeature.class), CodingHelper
-                    .encoderKeysForElements(WaterMLConstants.NS_WML_20_PROCEDURE_ENCODING, ObservationProcess.class));
+            .union(CodingHelper.encoderKeysForElements(/*~~>*/WaterMLConstants.NS_WML_20, AbstractFeature.class), CodingHelper
+                    .encoderKeysForElements(/*~~>*/WaterMLConstants.NS_WML_20_PROCEDURE_ENCODING, ObservationProcess.class));
 
     protected static Set<EncoderKey> getDefaultEncoderKeys() {
         return Collections.unmodifiableSet(DEFAULT_ENCODER_KEYS);
@@ -131,7 +131,7 @@ public abstract class AbstractWmlEncoderv20 extends AbstractOmEncoderv20
     }
 
     @Override
-    public Set<String> getSupportedProcedureDescriptionFormats(String service, String version) {
+    public Set</*~~>*/String> getSupportedProcedureDescriptionFormats(/*~~>*/String service, /*~~>*/String version) {
         if (SUPPORTED_PROCEDURE_DESCRIPTION_FORMATS.containsKey(service)
                 && SUPPORTED_PROCEDURE_DESCRIPTION_FORMATS.get(service).containsKey(version)) {
             return SUPPORTED_PROCEDURE_DESCRIPTION_FORMATS.get(service).get(version);
@@ -167,19 +167,19 @@ public abstract class AbstractWmlEncoderv20 extends AbstractOmEncoderv20
     }
 
     @Override
-    public String getDefaultFeatureEncodingNamespace() {
-        return WaterMLConstants.NS_WML_20;
+    public /*~~>*/String getDefaultFeatureEncodingNamespace() {
+        return /*~~>*/WaterMLConstants.NS_WML_20;
     }
 
     @Override
-    protected String getDefaultProcedureEncodingNamspace() {
-        return WaterMLConstants.NS_WML_20_PROCEDURE_ENCODING;
+    protected /*~~>*/String getDefaultProcedureEncodingNamspace() {
+        return /*~~>*/WaterMLConstants.NS_WML_20_PROCEDURE_ENCODING;
     }
 
     @Override
-    public void addNamespacePrefixToMap(Map<String, String> nameSpacePrefixMap) {
+    public void addNamespacePrefixToMap(Map</*~~>*/String, /*~~>*/String> nameSpacePrefixMap) {
         super.addNamespacePrefixToMap(nameSpacePrefixMap);
-        nameSpacePrefixMap.put(WaterMLConstants.NS_WML_20, WaterMLConstants.NS_WML_20_PREFIX);
+        nameSpacePrefixMap.put(/*~~>*/WaterMLConstants.NS_WML_20, /*~~>*/WaterMLConstants.NS_WML_20_PREFIX);
     }
 
     @Override
@@ -201,7 +201,7 @@ public abstract class AbstractWmlEncoderv20 extends AbstractOmEncoderv20
     protected XmlObject createWmlGetObservationResponse(GetObservationResponse getObservationResonse)
             throws EncodingException {
         // TODO: set schemaLocation if final
-        Map<CodeWithAuthority, String> gmlID4sfIdentifier = Maps.newHashMap();
+        Map<CodeWithAuthority, /*~~>*/String> gmlID4sfIdentifier = Maps.newHashMap();
         int sfIdCounter = 1;
         try {
             if (getObservationResonse.getObservationCollection() != null
@@ -238,9 +238,9 @@ public abstract class AbstractWmlEncoderv20 extends AbstractOmEncoderv20
     }
 
     private OMObservationType encodeObservation(OmObservation observation,
-            Map<CodeWithAuthority, String> gmlID4sfIdentifier, int sfIdCounter) throws EncodingException {
+            Map<CodeWithAuthority, /*~~>*/String> gmlID4sfIdentifier, int sfIdCounter) throws EncodingException {
         EncodingContext foiContext;
-        String gmlId;
+        /*~~>*/String gmlId;
         // FIXME CodeWithAuthority VS. String keys
         if (gmlID4sfIdentifier.containsKey(
                 observation.getObservationConstellation().getFeatureOfInterest().getIdentifierCodeWithAuthority())) {
@@ -280,7 +280,7 @@ public abstract class AbstractWmlEncoderv20 extends AbstractOmEncoderv20
             if (sampFeat.isSetXml()) {
                 try {
                     XmlObject feature = XmlObject.Factory.parse(sampFeat.getXml());
-                    if (XmlHelper.getNamespace(feature).equals(WaterMLConstants.NS_WML_20)) {
+                    if (XmlHelper.getNamespace(feature).equals(/*~~>*/WaterMLConstants.NS_WML_20)) {
                         if (feature instanceof MonitoringPointDocument) {
                             monitoringPointDoc = (MonitoringPointDocument) feature;
                         } else if (feature instanceof MonitoringPointType) {
@@ -328,7 +328,7 @@ public abstract class AbstractWmlEncoderv20 extends AbstractOmEncoderv20
             if (sampFeat.getSampledFeatures() != null && !sampFeat.getSampledFeatures().isEmpty()) {
                 if (sampFeat.getSampledFeatures().size() == 1) {
                     XmlObject encodeObjectToXml =
-                            encodeObjectToXml(GmlConstants.NS_GML_32, sampFeat.getSampledFeatures().get(0));
+                            encodeObjectToXml(/*~~>*/GmlConstants.NS_GML_32, sampFeat.getSampledFeatures().get(0));
                     mpt.addNewSampledFeature().set(encodeObjectToXml);
                 } else {
                     FeatureCollection featureCollection = new FeatureCollection();
@@ -340,7 +340,7 @@ public abstract class AbstractWmlEncoderv20 extends AbstractOmEncoderv20
                     mpt.addNewSampledFeature().set(encodeObjectToXml);
                 }
             } else {
-                mpt.addNewSampledFeature().setHref(GmlConstants.NIL_UNKNOWN);
+                mpt.addNewSampledFeature().setHref(/*~~>*/GmlConstants.NIL_UNKNOWN);
             }
 
             if (sampFeat.isSetParameter()) {
@@ -350,7 +350,7 @@ public abstract class AbstractWmlEncoderv20 extends AbstractOmEncoderv20
             // set position
             ShapeType xbShape = mpt.addNewShape();
             Encoder<XmlObject, Geometry> encoder =
-                    getEncoder(getEncoderKey(GmlConstants.NS_GML_32, sampFeat.getGeometry()));
+                    getEncoder(getEncoderKey(/*~~>*/GmlConstants.NS_GML_32, sampFeat.getGeometry()));
             if (encoder != null) {
                 XmlObject xmlObject = encoder.encode(sampFeat.getGeometry(),
                         new EncodingContext().with(XmlBeansEncodingFlags.GMLID, absFeature.getGmlId()));
@@ -429,7 +429,7 @@ public abstract class AbstractWmlEncoderv20 extends AbstractOmEncoderv20
         if (op.isSetIdentifier() && !opt.isSetIdentifier()) {
             CodeWithAuthority codeWithAuthority = op.getIdentifierCodeWithAuthority();
             Encoder<?, CodeWithAuthority> encoder =
-                    getEncoder(getEncoderKey(GmlConstants.NS_GML_32, codeWithAuthority));
+                    getEncoder(getEncoderKey(/*~~>*/GmlConstants.NS_GML_32, codeWithAuthority));
             if (encoder != null) {
                 XmlObject xmlObject = (XmlObject) encoder.encode(codeWithAuthority);
                 opt.addNewIdentifier().set(xmlObject);
@@ -565,7 +565,7 @@ public abstract class AbstractWmlEncoderv20 extends AbstractOmEncoderv20
      */
     private void addComment(ObservationProcessType observationProcess, ObservationProcess procedure) {
         if (procedure.isSetComments()) {
-            for (String comment : procedure.getComments()) {
+            for (/*~~>*/String comment : procedure.getComments()) {
                 if (comment != null && !comment.isEmpty()) {
                     observationProcess.addComment(comment);
                 }
@@ -670,7 +670,7 @@ public abstract class AbstractWmlEncoderv20 extends AbstractOmEncoderv20
      */
     private XmlObject encodeReferenceType(ReferenceType sosReferenceType) throws EncodingException {
         Encoder<XmlObject, ReferenceType> encoder =
-                getEncoder(getEncoderKey(GmlConstants.NS_GML_32, sosReferenceType));
+                getEncoder(getEncoderKey(/*~~>*/GmlConstants.NS_GML_32, sosReferenceType));
         if (encoder != null) {
             return encoder.encode(sosReferenceType);
         } else {
@@ -688,7 +688,7 @@ public abstract class AbstractWmlEncoderv20 extends AbstractOmEncoderv20
      * @throws DateTimeFormatException
      *             If a formatting error occurs
      */
-    protected String getTimeString(Time time) throws DateTimeFormatException {
+    protected /*~~>*/String getTimeString(Time time) throws DateTimeFormatException {
         DateTime dateTime = getTime(time);
         return DateTimeHelper.formatDateTime2String(dateTime, time.getTimeFormat());
     }

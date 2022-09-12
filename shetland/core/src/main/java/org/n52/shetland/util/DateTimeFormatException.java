@@ -29,7 +29,7 @@ public class DateTimeFormatException extends DateTimeException {
     }
 
     public DateTimeFormatException(Object value, Throwable cause) {
-        super(String.format("Error formatting %s %s", value.getClass().getSimpleName(), value), cause);
+        super(/*~~>*/String.format("Error formatting %s %s", value.getClass().getSimpleName(), value), cause);
     }
 
 }

@@ -44,21 +44,21 @@ public class JobStatus {
      */
     private static final JobStatus RUNNING = new JobStatus("Running");
 
-    private final String value;
+    private final /*~~>*/String value;
 
-    public JobStatus(String value) {
+    public JobStatus(/*~~>*/String value) {
         Preconditions.checkArgument(!Objects.requireNonNull(value).isEmpty());
-        this.value = value;
+        /*~~>*/this.value = value;
     }
 
     @Override
-    public String toString() {
+    public /*~~>*/String toString() {
         return value;
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(this.value);
+        return Objects.hash(/*~~>*/this.value);
     }
 
     @Override
@@ -73,10 +73,10 @@ public class JobStatus {
             return false;
         }
         final JobStatus other = (JobStatus) obj;
-        return Objects.equals(this.value, other.getValue());
+        return Objects.equals(/*~~>*/this.value, other.getValue());
     }
 
-    public String getValue() {
+    public /*~~>*/String getValue() {
         return value;
     }
 

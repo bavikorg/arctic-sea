@@ -43,7 +43,7 @@ import org.n52.svalbard.decode.exception.DecodingException;
  */
 public class OmDecoderV20Test {
 
-    String getComplexObservationXml() {
+    /*~~>*/String getComplexObservationXml() {
         return "<om:OM_Observation \n" +
                "    xmlns:om=\"http://www.opengis.net/om/2.0\"\n" +
                "    xmlns:gml=\"http://www.opengis.net/gml/3.2\"\n" +

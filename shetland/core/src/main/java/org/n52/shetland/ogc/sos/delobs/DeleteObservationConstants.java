@@ -27,39 +27,39 @@ import com.google.common.collect.Sets;
  */
 public interface DeleteObservationConstants {
 
-    String NS_SOSDO_1_0 = "http://www.opengis.net/sosdo/1.0";
+    /*~~>*/String NS_SOSDO_1_0 = "http://www.opengis.net/sosdo/1.0";
 
-    String NS_SOSDO_PREFIX = "sosdo";
+    /*~~>*/String NS_SOSDO_PREFIX = "sosdo";
 
-    String NS_SOSDO_2_0 = "http://www.opengis.net/sosdo/2.0";
+    /*~~>*/String NS_SOSDO_2_0 = "http://www.opengis.net/sosdo/2.0";
 
-    String PARAM_OBSERVATION = "observation";
+    /*~~>*/String PARAM_OBSERVATION = "observation";
 
-    String PARAM_PROCEDURE = "procedure";
+    /*~~>*/String PARAM_PROCEDURE = "procedure";
 
-    String PARAM_OBSERVED_PROPERTY = "observedProperty";
+    /*~~>*/String PARAM_OBSERVED_PROPERTY = "observedProperty";
 
-    String PARAM_FEATURE_OF_INTEREST = "featureOfInterest";
+    /*~~>*/String PARAM_FEATURE_OF_INTEREST = "featureOfInterest";
 
-    String PARAM_OFFERING = "offering";
+    /*~~>*/String PARAM_OFFERING = "offering";
 
-    String PARAM_TEMPORAL_FILTER = "temporalFilter";
+    /*~~>*/String PARAM_TEMPORAL_FILTER = "temporalFilter";
 
-    String CONFORMANCE_CLASS_10 = "http://www.opengis.net/extension/SOSDO/1.0/observationDeletion";
+    /*~~>*/String CONFORMANCE_CLASS_10 = "http://www.opengis.net/extension/SOSDO/1.0/observationDeletion";
 
-    String CONFORMANCE_CLASS_20 = "http://www.opengis.net/extension/SOSDO/2.0/observationDeletion";
+    /*~~>*/String CONFORMANCE_CLASS_20 = "http://www.opengis.net/extension/SOSDO/2.0/observationDeletion";
 
-    Set<String> CONFORMANCE_CLASSES =
+    Set</*~~>*/String> CONFORMANCE_CLASSES =
             Collections.unmodifiableSet(Sets.newHashSet(CONFORMANCE_CLASS_10, CONFORMANCE_CLASS_20));
 
-    String NS_SOSDO_1_0_SCHEMA_LOCATION = "http://52north.org/schema/sosdo/1.0/sosdo.xsd";
+    /*~~>*/String NS_SOSDO_1_0_SCHEMA_LOCATION = "http://52north.org/schema/sosdo/1.0/sosdo.xsd";
 
-    String NS_SOSDO_2_0_SCHEMA_LOCATION = "http://52north.org/schema/sosdo/2.0/sosdo.xsd";
+    /*~~>*/String NS_SOSDO_2_0_SCHEMA_LOCATION = "http://52north.org/schema/sosdo/2.0/sosdo.xsd";
 
     enum Operations {
         DeleteObservation;
 
-        public static boolean contains(final String s) {
+        public static boolean contains(final /*~~>*/String s) {
             for (final Enum<?> p : values()) {
                 if (p.name().equals(s)) {
                     return true;

@@ -53,10 +53,10 @@ public class GetDataAvailabilityV20StreamWriter extends AbstractGetDataAvailabil
     @Override
     protected void writeGetDataAvailabilityResponse() throws XMLStreamException, EncodingException {
         start(GetDataAvailabilityConstants.GDA_GET_DATA_AVAILABILITY_20_RESPONSE);
-        namespace(GetDataAvailabilityConstants.NS_GDA_PREFIX, GetDataAvailabilityConstants.NS_GDA_20);
-        namespace(GmlConstants.NS_GML_PREFIX, GmlConstants.NS_GML_32);
-        namespace(SweConstants.NS_SWE_PREFIX, SweConstants.NS_SWE_20);
-        namespace(W3CConstants.NS_XLINK_PREFIX, W3CConstants.NS_XLINK);
+        namespace(/*~~>*/GetDataAvailabilityConstants.NS_GDA_PREFIX, /*~~>*/GetDataAvailabilityConstants.NS_GDA_20);
+        namespace(/*~~>*/GmlConstants.NS_GML_PREFIX, /*~~>*/GmlConstants.NS_GML_32);
+        namespace(/*~~>*/SweConstants.NS_SWE_PREFIX, /*~~>*/SweConstants.NS_SWE_20);
+        namespace(/*~~>*/W3CConstants.NS_XLINK_PREFIX, /*~~>*/W3CConstants.NS_XLINK);
         schemaLocation(Sets.newHashSet(GetDataAvailabilityConstants.GET_DATA_AVAILABILITY_20_SCHEMA_LOCATION));
         for (DataAvailability da : getElement()) {
             wirteDataAvailabilityMember(da);
@@ -120,25 +120,25 @@ public class GetDataAvailabilityV20StreamWriter extends AbstractGetDataAvailabil
             throws XMLStreamException {
         start(GetDataAvailabilityConstants.GDA_20_OBSERVATION_FORMAT_DESCRIPTOR);
         writeResponseFormat(formatDescriptor.getResponseFormat());
-        for (String observationType : formatDescriptor.getObservationTypes()) {
+        for (/*~~>*/String observationType : formatDescriptor.getObservationTypes()) {
             writeObservationType(observationType);
         }
         end(GetDataAvailabilityConstants.GDA_20_OBSERVATION_FORMAT_DESCRIPTOR);
     }
 
-    private void writeProcedureDescriptionFormat(String procedureDescriptionFormat) throws XMLStreamException {
+    private void writeProcedureDescriptionFormat(/*~~>*/String procedureDescriptionFormat) throws XMLStreamException {
         start(GetDataAvailabilityConstants.GDA_20_PROCEDURE_DESCRIPTION_FORMAT);
         chars(procedureDescriptionFormat);
         end(GetDataAvailabilityConstants.GDA_20_PROCEDURE_DESCRIPTION_FORMAT);
     }
 
-    private void writeObservationType(String observationType) throws XMLStreamException {
+    private void writeObservationType(/*~~>*/String observationType) throws XMLStreamException {
         start(GetDataAvailabilityConstants.GDA_20_OBSERVATION_TYPE);
         chars(observationType);
         end(GetDataAvailabilityConstants.GDA_20_OBSERVATION_TYPE);
     }
 
-    private void writeResponseFormat(String responseFormat) throws XMLStreamException {
+    private void writeResponseFormat(/*~~>*/String responseFormat) throws XMLStreamException {
         start(GetDataAvailabilityConstants.GDA_20_RESPONSE_FORMAT);
         chars(responseFormat);
         end(GetDataAvailabilityConstants.GDA_20_RESPONSE_FORMAT);

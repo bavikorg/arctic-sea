@@ -65,8 +65,8 @@ public class ElasticsearchAdminHandlerIT extends ElasticsearchAwareTest {
         Assertions.assertTrue(index);
 
         GetResponse resp = getEmbeddedClient()
-                .get(new GetRequest(clientSettings.getIndexId(), MetadataDataMapping.METADATA_TYPE_NAME,
-                        MetadataDataMapping.METADATA_ROW_ID), RequestOptions.DEFAULT);
+                .get(new GetRequest(clientSettings.getIndexId(), /*~~>*/MetadataDataMapping.METADATA_TYPE_NAME,
+                        /*~~>*/MetadataDataMapping.METADATA_ROW_ID), RequestOptions.DEFAULT);
 
         Assertions.assertEquals(1, resp.getSourceAsMap().get(MetadataDataMapping.METADATA_VERSION_FIELD.getName()));
     }
@@ -86,15 +86,15 @@ public class ElasticsearchAdminHandlerIT extends ElasticsearchAwareTest {
         adminHandler.createSchema();
 
         GetResponse resp = getEmbeddedClient()
-                .get(new GetRequest(clientSettings.getIndexId(), MetadataDataMapping.METADATA_TYPE_NAME,
-                        MetadataDataMapping.METADATA_ROW_ID), RequestOptions.DEFAULT);
+                .get(new GetRequest(clientSettings.getIndexId(), /*~~>*/MetadataDataMapping.METADATA_TYPE_NAME,
+                        /*~~>*/MetadataDataMapping.METADATA_ROW_ID), RequestOptions.DEFAULT);
 
-        Map<String, Object> map = resp.getSourceAsMap();
+        Map</*~~>*/String, Object> map = resp.getSourceAsMap();
         Assertions.assertNotNull(map.get(MetadataDataMapping.METADATA_CREATION_TIME_FIELD.getName()));
         Assertions.assertNotNull(map.get(MetadataDataMapping.METADATA_UUIDS_FIELD.getName()));
         Assertions.assertNotNull(map.get(MetadataDataMapping.METADATA_UPDATE_TIME_FIELD.getName()));
 
-        List<String> object = (List<String>) map.get(MetadataDataMapping.METADATA_UUIDS_FIELD.getName());
+        List</*~~>*/String> object = (List</*~~>*/String>) map.get(MetadataDataMapping.METADATA_UUIDS_FIELD.getName());
         Assertions.assertEquals(2, object.size());
         MatcherAssert.assertThat(object, CoreMatchers.hasItem("lofasz janos"));
     }
@@ -102,7 +102,7 @@ public class ElasticsearchAdminHandlerIT extends ElasticsearchAwareTest {
     @Test
     public void failOnVersionMismatch()
             throws SecurityException, NoSuchFieldException, IllegalArgumentException, IllegalAccessException, InterruptedException, IOException {
-        Map<String, Object> data = new HashMap<>();
+        Map</*~~>*/String, Object> data = new HashMap<>();
         data.put(MetadataDataMapping.METADATA_VERSION_FIELD.getName(), 123456);
         getEmbeddedClient().indices().create(new CreateIndexRequest(clientSettings.getIndexId()).source(data), RequestOptions.DEFAULT);
 
@@ -134,16 +134,16 @@ public class ElasticsearchAdminHandlerIT extends ElasticsearchAwareTest {
 
     @Test
     public void connectTransportMode() throws InterruptedException, IOException {
-        settings.setNodeConnectionMode(ElasticsearchSettingsKeys.CONNECTION_MODE_TRANSPORT_CLIENT);
+        settings.setNodeConnectionMode(/*~~>*/ElasticsearchSettingsKeys.CONNECTION_MODE_TRANSPORT_CLIENT);
         adminHandler.init();
 
-        Map<String, Object> data = new HashMap<>();
+        Map</*~~>*/String, Object> data = new HashMap<>();
         data.put("test", "test-string");
         IndexResponse idx = dataHandler.persist(data);
 
         Thread.sleep(2000);
 
-        String ret = getEmbeddedClient().get(new GetRequest(idx.getIndex(), idx.getType(),
+        /*~~>*/String ret = getEmbeddedClient().get(new GetRequest(idx.getIndex(), idx.getType(),
                 idx.getId()), RequestOptions.DEFAULT).getSourceAsString();
 
         Assertions.assertNotNull(ret);

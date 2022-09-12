@@ -26,15 +26,15 @@ public class GmdCitation extends AbtractGmd {
 
     private static final GmdCitation EC_50_2008 =
             new GmdCitation("EC/50/2008", new GmdCitationDate(GmdDateType.publication(), "2008"));
-    private String title;
+    private /*~~>*/String title;
     private GmdCitationDate date;
 
-    public GmdCitation(String title, GmdCitationDate date) {
-        this.title = title;
+    public GmdCitation(/*~~>*/String title, GmdCitationDate date) {
+        /*~~>*/this.title = title;
         this.date = date;
     }
 
-    public String getTitle() {
+    public /*~~>*/String getTitle() {
         return title;
     }
 

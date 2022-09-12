@@ -33,15 +33,15 @@ public class CiOnlineResource extends AbstractObject {
     /* 1..1 */
     private Nillable<URI> linkage;
     /* 0..1 */
-    private Nillable<String> protocol;
+    private Nillable</*~~>*/String> protocol;
     /* 0..1 */
-    private String applicationProfile;
+    private /*~~>*/String applicationProfile;
     /* 0..1 */
-    private String name;
+    private /*~~>*/String name;
     /* 0..1 */
-    private String description;
+    private /*~~>*/String description;
     /* 0..1 */
-    private String function;
+    private /*~~>*/String function;
 
     // <xs:element name="linkage" type="gmd:URL_PropertyType"/>
     // <xs:element name="protocol" type="gco:CharacterString_PropertyType"
@@ -63,7 +63,7 @@ public class CiOnlineResource extends AbstractObject {
         this.linkage = Nillable.of(linkage);
     }
 
-    public CiOnlineResource(String linkage) {
+    public CiOnlineResource(/*~~>*/String linkage) {
         this.linkage = Nillable.of(URI.create(linkage));
     }
 
@@ -85,7 +85,7 @@ public class CiOnlineResource extends AbstractObject {
     /**
      * @return the protocol
      */
-    public Nillable<String> getProtocol() {
+    public Nillable</*~~>*/String> getProtocol() {
         return protocol;
     }
 
@@ -93,7 +93,7 @@ public class CiOnlineResource extends AbstractObject {
      * @param protocol
      *            the protocol to set
      */
-    public void setProtocol(Nillable<String> protocol) {
+    public void setProtocol(Nillable</*~~>*/String> protocol) {
         this.protocol = protocol;
     }
 
@@ -101,7 +101,7 @@ public class CiOnlineResource extends AbstractObject {
      * @param protocol
      *            the protocol to set
      */
-    public void setProtocol(String protocol) {
+    public void setProtocol(/*~~>*/String protocol) {
         this.protocol = Nillable.of(protocol);
     }
 
@@ -112,7 +112,7 @@ public class CiOnlineResource extends AbstractObject {
     /**
      * @return the applicationProfile
      */
-    public String getApplicationProfile() {
+    public /*~~>*/String getApplicationProfile() {
         return applicationProfile;
     }
 
@@ -120,8 +120,8 @@ public class CiOnlineResource extends AbstractObject {
      * @param applicationProfile
      *            the applicationProfile to set
      */
-    public void setApplicationProfile(String applicationProfile) {
-        this.applicationProfile = applicationProfile;
+    public void setApplicationProfile(/*~~>*/String applicationProfile) {
+        /*~~>*/this.applicationProfile = applicationProfile;
     }
 
     public boolean isSetApplicationProfile() {
@@ -131,7 +131,7 @@ public class CiOnlineResource extends AbstractObject {
     /**
      * @return the name
      */
-    public String getName() {
+    public /*~~>*/String getName() {
         return name;
     }
 
@@ -139,8 +139,8 @@ public class CiOnlineResource extends AbstractObject {
      * @param name
      *            the name to set
      */
-    public void setName(String name) {
-        this.name = name;
+    public void setName(/*~~>*/String name) {
+        /*~~>*/this.name = name;
     }
 
     public boolean isSetName() {
@@ -150,7 +150,7 @@ public class CiOnlineResource extends AbstractObject {
     /**
      * @return the description
      */
-    public String getDescription() {
+    public /*~~>*/String getDescription() {
         return description;
     }
 
@@ -158,8 +158,8 @@ public class CiOnlineResource extends AbstractObject {
      * @param description
      *            the description to set
      */
-    public void setDescription(String description) {
-        this.description = description;
+    public void setDescription(/*~~>*/String description) {
+        /*~~>*/this.description = description;
     }
 
     public boolean isSetDescription() {
@@ -169,7 +169,7 @@ public class CiOnlineResource extends AbstractObject {
     /**
      * @return the function
      */
-    public String getFunction() {
+    public /*~~>*/String getFunction() {
         return function;
     }
 
@@ -177,8 +177,8 @@ public class CiOnlineResource extends AbstractObject {
      * @param function
      *            the function to set
      */
-    public void setFunction(String function) {
-        this.function = function;
+    public void setFunction(/*~~>*/String function) {
+        /*~~>*/this.function = function;
     }
 
     public boolean isSetFunction() {

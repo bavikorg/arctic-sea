@@ -56,7 +56,7 @@ public abstract class AbstractResponseEncoder<T extends OwsServiceResponse> exte
      * @param responseType Response type
      * @param validate     Indicator if the created/encoded object should be validated
      */
-    public AbstractResponseEncoder(String service, String version, String operation, String namespace, String prefix,
+    public AbstractResponseEncoder(/*~~>*/String service, /*~~>*/String version, /*~~>*/String operation, /*~~>*/String namespace, /*~~>*/String prefix,
                                    Class<T> responseType, boolean validate) {
         super(service, version, operation, namespace, prefix, responseType, validate);
         OwsOperationKey key = new OwsOperationKey(service, version, operation);
@@ -77,7 +77,7 @@ public abstract class AbstractResponseEncoder<T extends OwsServiceResponse> exte
      * @param prefix       Service XML schema prefix
      * @param responseType Response type
      */
-    public AbstractResponseEncoder(String service, String version, String operation, String namespace, String prefix,
+    public AbstractResponseEncoder(/*~~>*/String service, /*~~>*/String version, /*~~>*/String operation, /*~~>*/String namespace, /*~~>*/String prefix,
                                    Class<T> responseType) {
         this(service, version, operation, namespace, prefix, responseType, false);
     }

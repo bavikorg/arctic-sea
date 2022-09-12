@@ -26,14 +26,14 @@ import com.google.common.base.MoreObjects;
  */
 public class InlineBody extends Body {
 
-    private final String body;
+    private final /*~~>*/String body;
 
-    public InlineBody(String body) {
-        this.body = Objects.requireNonNull(body);
+    public InlineBody(/*~~>*/String body) {
+        /*~~>*/this.body = Objects.requireNonNull(body);
     }
 
     @Override
-    public String getBody() {
+    public /*~~>*/String getBody() {
         return body;
     }
 
@@ -50,7 +50,7 @@ public class InlineBody extends Body {
     @Override
     public int hashCode() {
         int hash = 5;
-        hash = 97 * hash + Objects.hashCode(this.body);
+        hash = 97 * hash + Objects.hashCode(/*~~>*/this.body);
         return hash;
     }
 
@@ -66,11 +66,11 @@ public class InlineBody extends Body {
             return false;
         }
         final InlineBody other = (InlineBody) obj;
-        return Objects.equals(this.body, other.getBody());
+        return Objects.equals(/*~~>*/this.body, other.getBody());
     }
 
     @Override
-    public String toString() {
+    public /*~~>*/String toString() {
         return MoreObjects.toStringHelper(this).add("body", getBody()).toString();
     }
 

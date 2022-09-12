@@ -25,7 +25,7 @@ import org.n52.shetland.ogc.swe.simpleType.SweCategory;
  * @since 1.0.0
  *
  */
-public class CategoryValue extends SweCategory implements Value<String> {
+public class CategoryValue extends SweCategory implements Value</*~~>*/String> {
 
     /**
      * constructor
@@ -40,7 +40,7 @@ public class CategoryValue extends SweCategory implements Value<String> {
      * @param value
      *            Measurement value
      */
-    public CategoryValue(String value) {
+    public CategoryValue(/*~~>*/String value) {
         super();
         super.setValue(value);
     }
@@ -53,7 +53,7 @@ public class CategoryValue extends SweCategory implements Value<String> {
      * @param unit
      *            Unit of measure
      */
-    public CategoryValue(String value, String unit) {
+    public CategoryValue(/*~~>*/String value, /*~~>*/String unit) {
         super(value, unit);
     }
 
@@ -65,18 +65,18 @@ public class CategoryValue extends SweCategory implements Value<String> {
      * @param unit
      *            Unit of measure
      */
-    public CategoryValue(String value, UoM unit) {
+    public CategoryValue(/*~~>*/String value, UoM unit) {
         super(value, unit);
     }
 
     @Override
-    public CategoryValue setValue(final String value) {
+    public CategoryValue setValue(final /*~~>*/String value) {
         super.setValue(value);
         return this;
     }
 
     @Override
-    public void setUnit(String unit) {
+    public void setUnit(/*~~>*/String unit) {
         super.setUom(unit);
     }
 
@@ -87,7 +87,7 @@ public class CategoryValue extends SweCategory implements Value<String> {
     }
 
     @Override
-    public String getUnit() {
+    public /*~~>*/String getUnit() {
         return super.getUom();
     }
 
@@ -102,8 +102,8 @@ public class CategoryValue extends SweCategory implements Value<String> {
     }
 
     @Override
-    public String toString() {
-        return String.format("CategoryValue [value=%s, unit=%s]", getValue(), getUnit());
+    public /*~~>*/String toString() {
+        return /*~~>*/String.format("CategoryValue [value=%s, unit=%s]", getValue(), getUnit());
     }
 
     @Override

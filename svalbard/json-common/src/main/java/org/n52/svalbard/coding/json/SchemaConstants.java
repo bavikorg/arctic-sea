@@ -25,55 +25,55 @@ import com.github.fge.jsonschema.SchemaVersion;
  * @since 1.0.0
  */
 public interface SchemaConstants {
-    String SCHEMA_URI = SchemaVersion.DRAFTV4.getLocation().toASCIIString();
+    /*~~>*/String SCHEMA_URI = SchemaVersion.DRAFTV4.getLocation().toASCIIString();
 
     interface Request {
-        String INSERT_OBSERVATION
+        /*~~>*/String INSERT_OBSERVATION
                 = "http://www.52north.org/schema/json/sos/request/InsertObservation#";
 
-        String GET_OBSERVATION
+        /*~~>*/String GET_OBSERVATION
                 = "http://www.52north.org/schema/json/sos/request/GetObservation#";
 
-        String GET_OBSERVATION_BY_ID
+        /*~~>*/String GET_OBSERVATION_BY_ID
                 = "http://www.52north.org/schema/json/sos/request/GetObservationById#";
 
-        String BULK_REQUEST
+        /*~~>*/String BULK_REQUEST
                 = "http://www.52north.org/schema/json/sos/request/Batch#";
 
-        String INSERT_SENSOR
+        /*~~>*/String INSERT_SENSOR
                 = "http://www.52north.org/schema/json/sos/request/InsertSensor#";
 
-        String INSERT_RESULT_TEMPLATE
+        /*~~>*/String INSERT_RESULT_TEMPLATE
                 = "http://www.52north.org/schema/json/sos/request/InsertResultTemplate#";
 
-        String GET_DATA_AVAILABILITY
+        /*~~>*/String GET_DATA_AVAILABILITY
                 = "http://www.52north.org/schema/json/sos/request/GetDataAvailability#";
 
-        String DELETE_OBSERVATION
+        /*~~>*/String DELETE_OBSERVATION
                 = "http://www.52north.org/schema/json/sos/request/DeleteObservation#";
 
-        String UPDATE_SENSOR_DESCRIPTION
+        /*~~>*/String UPDATE_SENSOR_DESCRIPTION
                 = "http://www.52north.org/schema/json/sos/request/UpdateSensorDescription#";
 
-        String GET_CAPABILITIES
+        /*~~>*/String GET_CAPABILITIES
                 = "http://www.52north.org/schema/json/sos/request/GetCapabilities#";
 
-        String DELETE_SENSOR
+        /*~~>*/String DELETE_SENSOR
                 = "http://www.52north.org/schema/json/sos/request/DeleteSensor#";
 
-        String DESCRIBE_SENSOR
+        /*~~>*/String DESCRIBE_SENSOR
                 = "http://www.52north.org/schema/json/sos/request/DescribeSensor#";
 
-        String GET_FEATURE_OF_INTEREST
+        /*~~>*/String GET_FEATURE_OF_INTEREST
                 = "http://www.52north.org/schema/json/sos/request/GetFeatureOfInterest#";
 
-        String INSERT_RESULT
+        /*~~>*/String INSERT_RESULT
                 = "http://www.52north.org/schema/json/sos/request/InsertResult#";
 
-        String GET_RESULT
+        /*~~>*/String GET_RESULT
                 = "http://www.52north.org/schema/json/sos/request/GetResult#";
 
-        String GET_RESULT_TEMPLATE
+        /*~~>*/String GET_RESULT_TEMPLATE
                 = "http://www.52north.org/schema/json/sos/request/GetResultTemplate#";
     }
 
@@ -81,66 +81,66 @@ public interface SchemaConstants {
     }
 
     interface Observation {
-        String OBSERVATION = "http://www.52north.org/schema/json/Observation#";
+        /*~~>*/String OBSERVATION = "http://www.52north.org/schema/json/Observation#";
 
-        String CATEGORY_OBSERVATION
+        /*~~>*/String CATEGORY_OBSERVATION
                 = "http://www.52north.org/schema/json/CategoryObservation#";
 
-        String COUNT_OBSERVATION
+        /*~~>*/String COUNT_OBSERVATION
                 = "http://www.52north.org/schema/json/CountObservation#";
 
-        String COMPLEX_OBSERVATION
+        /*~~>*/String COMPLEX_OBSERVATION
                 = "http://www.52north.org/schema/json/ComplexObservation#";
 
-        String TRUTH_OBSERVATION
+        /*~~>*/String TRUTH_OBSERVATION
                 = "http://www.52north.org/schema/json/TruthObservation#";
 
-        String TEXT_OBSERVATION
+        /*~~>*/String TEXT_OBSERVATION
                 = "http://www.52north.org/schema/json/TextObservation#";
 
-        String GEOMETRY_OBSERVATION
+        /*~~>*/String GEOMETRY_OBSERVATION
                 = "http://www.52north.org/schema/json/GeometryObservation#";
 
-        String MEASUREMENT = "http://www.52north.org/schema/json/Measurement#";
+        /*~~>*/String MEASUREMENT = "http://www.52north.org/schema/json/Measurement#";
 
-        String SWE_ARRAY_OBSERVATION = "http://www.52north.org/schema/json/SWEArrayObservation#";
+        /*~~>*/String SWE_ARRAY_OBSERVATION = "http://www.52north.org/schema/json/SWEArrayObservation#";
 
-        String REFERENCE_OBSERVATION = "http://www.52north.org/schema/json/ReferenceObservation#";
+        /*~~>*/String REFERENCE_OBSERVATION = "http://www.52north.org/schema/json/ReferenceObservation#";
 
-        String TEMPLATE_OBSERVATION
+        /*~~>*/String TEMPLATE_OBSERVATION
                 = "http://www.52north.org/schema/json/TemplateObservation#";
     }
 
     interface Common {
-        String GEOMETRY = "http://www.52north.org/schema/json/Geometry#";
+        /*~~>*/String GEOMETRY = "http://www.52north.org/schema/json/Geometry#";
 
-        String FEATURE_OF_INTEREST
+        /*~~>*/String FEATURE_OF_INTEREST
                 = "http://www.52north.org/schema/json/FeatureOfInterest#";
 
-        String EXCEPTION_REPORT
+        /*~~>*/String EXCEPTION_REPORT
                 = "http://www.52north.org/schema/json/ExceptionReport#";
 
-        String FIELD = "http://www.52north.org/schema/json/Field#";
+        /*~~>*/String FIELD = "http://www.52north.org/schema/json/Field#";
 
-        String SPATIAL_FILTER
+        /*~~>*/String SPATIAL_FILTER
                 = "http://www.52north.org/schema/json/SpatialFilter#";
 
-        String TEMPORAL_FILTER
+        /*~~>*/String TEMPORAL_FILTER
                 = "http://www.52north.org/schema/json/TemporalFilter#";
 
-        String FIELD_WITH_VALUE
+        /*~~>*/String FIELD_WITH_VALUE
                 = "http://www.52north.org/schema/json/FieldWithValue#";
 
-        String TIME_PRIMITIVE
+        /*~~>*/String TIME_PRIMITIVE
                 = "http://www.52north.org/schema/json/TimePrimitive#";
 
-        String TIME_PERIOD = "http://www.52north.org/schema/json/TimePeriod#";
+        /*~~>*/String TIME_PERIOD = "http://www.52north.org/schema/json/TimePeriod#";
 
-        String TIME_INSTANT = "http://www.52north.org/schema/json/TimeInstant#";
+        /*~~>*/String TIME_INSTANT = "http://www.52north.org/schema/json/TimeInstant#";
 
-        String ENVELOPE = "http://www.52north.org/schema/json/Envelope#";
+        /*~~>*/String ENVELOPE = "http://www.52north.org/schema/json/Envelope#";
 
-        String PARAMETER = "http://www.52north.org/schema/json/Parameter#";
+        /*~~>*/String PARAMETER = "http://www.52north.org/schema/json/Parameter#";
 
     }
 }

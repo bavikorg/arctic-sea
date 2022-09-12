@@ -36,15 +36,15 @@ public class ApplicationPackageEncoder extends JSONEncoder<ApplicationPackage> {
             return nodeFactory().nullNode();
         }
         ObjectNode root = nodeFactory().objectNode();
-        root.set(JSONConstants.PROCESS_DESCRIPTION, encodeObjectToJson(applicationPackage.getProcessDescription()));
+        root.set(/*~~>*/JSONConstants.PROCESS_DESCRIPTION, encodeObjectToJson(applicationPackage.getProcessDescription()));
         if (applicationPackage.getDeploymentProfileName() != null) {
-            root.put(JSONConstants.DEPLOYMENT_PROFILE_NAME, applicationPackage.getDeploymentProfileName().toString());
+            root.put(/*~~>*/JSONConstants.DEPLOYMENT_PROFILE_NAME, applicationPackage.getDeploymentProfileName().toString());
         }
         if (applicationPackage.getImmediateDeployment() != null) {
-            root.put(JSONConstants.IMMEDIATE_DEPLOYMENT, applicationPackage.getImmediateDeployment());
+            root.put(/*~~>*/JSONConstants.IMMEDIATE_DEPLOYMENT, applicationPackage.getImmediateDeployment());
         }
 
-        ArrayNode executionUnits = root.putArray(JSONConstants.EXECUTION_UNIT);
+        ArrayNode executionUnits = root.putArray(/*~~>*/JSONConstants.EXECUTION_UNIT);
         for (ExecutionUnit executionUnit : applicationPackage.getExecutionUnits()) {
             executionUnits.add(encodeObjectToJson(executionUnit));
         }

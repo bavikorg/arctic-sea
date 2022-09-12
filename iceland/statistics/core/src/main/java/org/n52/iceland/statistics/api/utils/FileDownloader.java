@@ -47,7 +47,7 @@ public final class FileDownloader {
      * @throws FileNotFoundException if an error occurs
      * @throws IOException           if an error occurs
      */
-    public static void downloadFile(String url, String outfilePath) throws FileNotFoundException, IOException {
+    public static void downloadFile(/*~~>*/String url, /*~~>*/String outfilePath) throws FileNotFoundException, IOException {
         Objects.requireNonNull(url);
         Objects.requireNonNull(outfilePath);
 
@@ -58,9 +58,9 @@ public final class FileDownloader {
     }
 
     @SuppressFBWarnings("OBL_UNSATISFIED_OBLIGATION")
-    public static void gunzipFile(String filePath) throws IOException {
+    public static void gunzipFile(/*~~>*/String filePath) throws IOException {
         File file = new File(filePath);
-        String outPath = null;
+        /*~~>*/String outPath = null;
         final byte[] buff = new byte[1024];
 
         if (!file.getName().endsWith("gz")) {
@@ -83,7 +83,7 @@ public final class FileDownloader {
         }
     }
 
-    public static boolean isPathExists(String fullPath) {
+    public static boolean isPathExists(/*~~>*/String fullPath) {
         if (fullPath == null) {
             return false;
         }

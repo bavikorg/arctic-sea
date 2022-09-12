@@ -63,24 +63,24 @@ public class ProcessTypeEncoder
     private final Logger LOGGER = LoggerFactory.getLogger(ProcessTypeEncoder.class);
 
     private final Set<SupportedType> SUPPORTED_TYPES =
-            Sets.newHashSet(new ProcedureDescriptionFormat(InspireOMPRConstants.OMPR_30_OUTPUT_FORMAT_URL),
-                    new ProcedureDescriptionFormat(InspireOMPRConstants.OMPR_30_OUTPUT_FORMAT_MIME_TYPE));
+            Sets.newHashSet(new ProcedureDescriptionFormat(/*~~>*/InspireOMPRConstants.OMPR_30_OUTPUT_FORMAT_URL),
+                    new ProcedureDescriptionFormat(/*~~>*/InspireOMPRConstants.OMPR_30_OUTPUT_FORMAT_MIME_TYPE));
 
-    private final Map<String, ImmutableMap<String, Set<String>>> SUPPORTED_PROCEDURE_DESCRIPTION_FORMATS =
-            ImmutableMap.of(SosConstants.SOS,
-                    ImmutableMap.<String, Set<String>> builder()
-                            .put(Sos2Constants.SERVICEVERSION,
-                                    ImmutableSet.of(InspireOMPRConstants.OMPR_30_OUTPUT_FORMAT_URL))
-                            .put(Sos1Constants.SERVICEVERSION,
-                                    ImmutableSet.of(InspireOMPRConstants.OMPR_30_OUTPUT_FORMAT_MIME_TYPE))
+    private final Map</*~~>*/String, ImmutableMap</*~~>*/String, Set</*~~>*/String>>> SUPPORTED_PROCEDURE_DESCRIPTION_FORMATS =
+            ImmutableMap.of(/*~~>*/SosConstants.SOS,
+                    ImmutableMap.</*~~>*/String, Set</*~~>*/String>> builder()
+                            .put(/*~~>*/Sos2Constants.SERVICEVERSION,
+                                    ImmutableSet.of(/*~~>*/InspireOMPRConstants.OMPR_30_OUTPUT_FORMAT_URL))
+                            .put(/*~~>*/Sos1Constants.SERVICEVERSION,
+                                    ImmutableSet.of(/*~~>*/InspireOMPRConstants.OMPR_30_OUTPUT_FORMAT_MIME_TYPE))
                             .build());
 
     private final Set<EncoderKey> ENCODER_KEYS = CollectionHelper.union(
-            CodingHelper.encoderKeysForElements(InspireOMPRConstants.NS_OMPR_30, SosProcedureDescription.class,
+            CodingHelper.encoderKeysForElements(/*~~>*/InspireOMPRConstants.NS_OMPR_30, SosProcedureDescription.class,
                     Process.class),
-            CodingHelper.encoderKeysForElements(InspireOMPRConstants.OMPR_30_OUTPUT_FORMAT_MIME_TYPE,
+            CodingHelper.encoderKeysForElements(/*~~>*/InspireOMPRConstants.OMPR_30_OUTPUT_FORMAT_MIME_TYPE,
                     SosProcedureDescription.class, Process.class),
-            CodingHelper.encoderKeysForElements(InspireOMPRConstants.FEATURE_CONCEPT_PROCESS,
+            CodingHelper.encoderKeysForElements(/*~~>*/InspireOMPRConstants.FEATURE_CONCEPT_PROCESS,
                     SosProcedureDescription.class, Process.class));
 
     public ProcessTypeEncoder() {
@@ -99,8 +99,8 @@ public class ProcessTypeEncoder
     }
 
     @Override
-    public void addNamespacePrefixToMap(final Map<String, String> nameSpacePrefixMap) {
-        nameSpacePrefixMap.put(InspireOMPRConstants.NS_OMPR_30, InspireOMPRConstants.NS_OMPR_PREFIX);
+    public void addNamespacePrefixToMap(final Map</*~~>*/String, /*~~>*/String> nameSpacePrefixMap) {
+        nameSpacePrefixMap.put(/*~~>*/InspireOMPRConstants.NS_OMPR_30, /*~~>*/InspireOMPRConstants.NS_OMPR_PREFIX);
     }
 
     @Override
@@ -114,7 +114,7 @@ public class ProcessTypeEncoder
     }
 
     @Override
-    public Set<String> getSupportedProcedureDescriptionFormats(final String service, final String version) {
+    public Set</*~~>*/String> getSupportedProcedureDescriptionFormats(final /*~~>*/String service, final /*~~>*/String version) {
         if (SUPPORTED_PROCEDURE_DESCRIPTION_FORMATS.containsKey(service)
                 && SUPPORTED_PROCEDURE_DESCRIPTION_FORMATS.get(service).containsKey(version)) {
             return SUPPORTED_PROCEDURE_DESCRIPTION_FORMATS.get(service).get(version);
@@ -237,43 +237,43 @@ public class ProcessTypeEncoder
     }
 
     protected XmlObject encodeOMPR(Object o) throws EncodingException {
-        return encodeObjectToXml(InspireOMPRConstants.NS_OMPR_30, o);
+        return encodeObjectToXml(/*~~>*/InspireOMPRConstants.NS_OMPR_30, o);
     }
 
     protected XmlObject encodeOMPRDocument(Object o) throws EncodingException {
-        return encodeObjectToXmlDocument(InspireBaseConstants.NS_BASE, o);
+        return encodeObjectToXmlDocument(/*~~>*/InspireBaseConstants.NS_BASE, o);
     }
 
     protected XmlObject encodeBASE(Object o) throws EncodingException {
-        return encodeObjectToXml(InspireBaseConstants.NS_BASE, o);
+        return encodeObjectToXml(/*~~>*/InspireBaseConstants.NS_BASE, o);
     }
 
     protected XmlObject encodeBASE(Object o, EncodingContext encodingContext) throws EncodingException {
-        return encodeObjectToXml(InspireBaseConstants.NS_BASE, o, encodingContext);
+        return encodeObjectToXml(/*~~>*/InspireBaseConstants.NS_BASE, o, encodingContext);
     }
 
     protected XmlObject encodeBASEPropertyType(Object o) throws EncodingException {
-        return encodeObjectToXmlPropertyType(InspireBaseConstants.NS_BASE, o);
+        return encodeObjectToXmlPropertyType(/*~~>*/InspireBaseConstants.NS_BASE, o);
     }
 
     protected XmlObject encodeBASEDocument(Object o) throws EncodingException {
-        return encodeObjectToXmlDocument(InspireBaseConstants.NS_BASE, o);
+        return encodeObjectToXmlDocument(/*~~>*/InspireBaseConstants.NS_BASE, o);
     }
 
     protected XmlObject encodeBASE2(Object o) throws EncodingException {
-        return encodeObjectToXml(InspireBase2Constants.NS_BASE2, o);
+        return encodeObjectToXml(/*~~>*/InspireBase2Constants.NS_BASE2, o);
     }
 
     protected XmlObject encodeBASE2(Object o, EncodingContext encodingContext) throws EncodingException {
-        return encodeObjectToXml(InspireBase2Constants.NS_BASE2, o, encodingContext);
+        return encodeObjectToXml(/*~~>*/InspireBase2Constants.NS_BASE2, o, encodingContext);
     }
 
     protected XmlObject encodeBASE2PropertyType(Object o) throws EncodingException {
-        return encodeObjectToXmlPropertyType(InspireBase2Constants.NS_BASE2, o);
+        return encodeObjectToXmlPropertyType(/*~~>*/InspireBase2Constants.NS_BASE2, o);
     }
 
     protected XmlObject encodeBASE2Document(Object o) throws EncodingException {
-        return encodeObjectToXmlDocument(InspireBase2Constants.NS_BASE2, o);
+        return encodeObjectToXmlDocument(/*~~>*/InspireBase2Constants.NS_BASE2, o);
     }
 
 }

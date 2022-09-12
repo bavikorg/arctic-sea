@@ -43,12 +43,12 @@ import java.util.Optional;
 @Configurable
 public abstract class AbstractPersistingCachePersistenceStrategy
         implements ContentCachePersistenceStrategy, Constructable {
-    public static final String CACHE_FILE_FOLDER = "service.cacheFileFolder";
+    public static final /*~~>*/String CACHE_FILE_FOLDER = "service.cacheFileFolder";
     private static final Logger LOGGER = LoggerFactory
                                                  .getLogger(AbstractPersistingCachePersistenceStrategy.class);
-    private static final String CACHE_FILE = "cache.tmp";
-    private static final String TMP_PATH = "tmp";
-    private static final String WEB_INF_PATH = "WEB-INF";
+    private static final /*~~>*/String CACHE_FILE = "cache.tmp";
+    private static final /*~~>*/String TMP_PATH = "tmp";
+    private static final /*~~>*/String WEB_INF_PATH = "WEB-INF";
     private Path cacheFile;
     private ConfigLocationProvider configLocationProvider;
     private Path cacheFileFolder;
@@ -92,7 +92,7 @@ public abstract class AbstractPersistingCachePersistenceStrategy
         try (ObjectInputStream ois = newObjectInputStream(file)) {
             return Optional.of((WritableContentCache) ois.readObject());
         } catch (IOException | ClassNotFoundException ex) {
-            LOGGER.error(String.format("Error reading cache file '%s'", file), ex);
+            LOGGER.error(/*~~>*/String.format("Error reading cache file '%s'", file), ex);
             return Optional.empty();
         }
     }
@@ -109,7 +109,7 @@ public abstract class AbstractPersistingCachePersistenceStrategy
             LOGGER.debug("Serializing cache to {}", file);
             oos.writeObject(cache);
         } catch (IOException ex) {
-            LOGGER.error(String.format("Error serializing cache to '%s'", file), ex);
+            LOGGER.error(/*~~>*/String.format("Error serializing cache to '%s'", file), ex);
         }
     }
 
@@ -128,7 +128,7 @@ public abstract class AbstractPersistingCachePersistenceStrategy
         try {
             Files.deleteIfExists(file);
         } catch (IOException ex) {
-            LOGGER.error(String.format("Error deleting cache file '%s'", file), ex);
+            LOGGER.error(/*~~>*/String.format("Error deleting cache file '%s'", file), ex);
         }
     }
 

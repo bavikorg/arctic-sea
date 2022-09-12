@@ -256,8 +256,8 @@ public class GeoJSONTest {
             Geometry parsed = dec.decodeJSON(json, false);
             JsonNode json2 = enc.encodeJSON(parsed);
             assertThat(geom, is(equalTo(parsed)));
-            assertThat(json, is(ValidationMatchers.instanceOf(SchemaConstants.Common.GEOMETRY)));
-            assertThat(json2, is(ValidationMatchers.instanceOf(SchemaConstants.Common.GEOMETRY)));
+            assertThat(json, is(ValidationMatchers.instanceOf(/*~~>*/SchemaConstants.Common.GEOMETRY)));
+            assertThat(json2, is(ValidationMatchers.instanceOf(/*~~>*/SchemaConstants.Common.GEOMETRY)));
             assertThat(json, is(equalTo(json2)));
         } catch (EncodingException | DecodingException ex) {
             Assertions.fail(ex);
@@ -298,7 +298,7 @@ public class GeoJSONTest {
         }
 
         @Override
-        public String getGeometryType() {
+        public /*~~>*/String getGeometryType() {
             return "geom";
         }
 

@@ -37,11 +37,11 @@ public abstract class OwsServiceResponse extends OwsServiceCommunicationObject
     public OwsServiceResponse() {
     }
 
-    public OwsServiceResponse(String service, String version) {
+    public OwsServiceResponse(/*~~>*/String service, /*~~>*/String version) {
         super(service, version);
     }
 
-    public OwsServiceResponse(String service, String version, String operationName) {
+    public OwsServiceResponse(/*~~>*/String service, /*~~>*/String version, /*~~>*/String operationName) {
         super(service, version, operationName);
     }
 

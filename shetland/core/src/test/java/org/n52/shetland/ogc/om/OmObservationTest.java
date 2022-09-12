@@ -42,7 +42,7 @@ public class OmObservationTest {
     public final void should_have_SpatialFilteringProfileParameter() throws OwsExceptionReport, DecodingException {
         OmObservation omObservation = new OmObservation();
         NamedValue<Geometry> namedValue = new NamedValue<>();
-        namedValue.setName(new ReferenceType(OmConstants.PARAM_NAME_SAMPLING_GEOMETRY));
+        namedValue.setName(new ReferenceType(/*~~>*/OmConstants.PARAM_NAME_SAMPLING_GEOMETRY));
         GeometryFactory fac = new GeometryFactory(new PrecisionModel(PrecisionModel.FLOATING), 4326);
         namedValue.setValue(new GeometryValue(fac.createPoint(new Coordinate(34.5, 76.4))));
         // test no parameter is set

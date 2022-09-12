@@ -35,7 +35,7 @@ import edu.umd.cs.findbugs.annotations.SuppressFBWarnings;
  *
  */
 public class SweEnvelope extends SweAbstractDataComponent {
-    private String referenceFrame;
+    private /*~~>*/String referenceFrame;
     private SweVector upperCorner;
     private SweVector lowerCorner;
     private SweTimeRange time;
@@ -46,27 +46,27 @@ public class SweEnvelope extends SweAbstractDataComponent {
     }
 
     @SuppressFBWarnings({ "EI_EXPOSE_REP2" })
-    public SweEnvelope(String referenceFrame, SweVector upperCorner, SweVector lowerCorner, boolean northingFirst) {
+    public SweEnvelope(/*~~>*/String referenceFrame, SweVector upperCorner, SweVector lowerCorner, boolean northingFirst) {
         this(referenceFrame, upperCorner, lowerCorner, null, northingFirst);
     }
 
     @SuppressFBWarnings({ "EI_EXPOSE_REP2" })
-    public SweEnvelope(ReferencedEnvelope sosEnvelope, String uom, boolean northingFirst) {
-        this(String.valueOf(sosEnvelope.getSrid()), createUpperCorner(sosEnvelope, uom, northingFirst),
+    public SweEnvelope(ReferencedEnvelope sosEnvelope, /*~~>*/String uom, boolean northingFirst) {
+        this(/*~~>*/String.valueOf(sosEnvelope.getSrid()), createUpperCorner(sosEnvelope, uom, northingFirst),
                 createLowerCorner(sosEnvelope, uom, northingFirst), northingFirst);
     }
 
     @SuppressFBWarnings({ "EI_EXPOSE_REP2" })
-    public SweEnvelope(String referenceFrame, SweVector upperCorner, SweVector lowerCorner, SweTimeRange time,
+    public SweEnvelope(/*~~>*/String referenceFrame, SweVector upperCorner, SweVector lowerCorner, SweTimeRange time,
             boolean northingFirst) {
-        this.referenceFrame = referenceFrame;
+        /*~~>*/this.referenceFrame = referenceFrame;
         this.upperCorner = upperCorner;
         this.lowerCorner = lowerCorner;
         this.time = time;
         this.northingFirst = northingFirst;
     }
 
-    public String getReferenceFrame() {
+    public /*~~>*/String getReferenceFrame() {
         return referenceFrame;
     }
 
@@ -74,8 +74,8 @@ public class SweEnvelope extends SweAbstractDataComponent {
         return getReferenceFrame() != null;
     }
 
-    public SweEnvelope setReferenceFrame(String referenceFrame) {
-        this.referenceFrame = referenceFrame;
+    public SweEnvelope setReferenceFrame(/*~~>*/String referenceFrame) {
+        /*~~>*/this.referenceFrame = referenceFrame;
         return this;
     }
 
@@ -125,7 +125,7 @@ public class SweEnvelope extends SweAbstractDataComponent {
     }
 
     @Override
-    public String toString() {
+    public /*~~>*/String toString() {
         return MoreObjects.toStringHelper(getClass()).add("upperCorner", getUpperCorner())
                 .add("lowerCorner", getLowerCorner()).add("time", getTime()).add("referenceFrame", getReferenceFrame())
                 .toString();
@@ -231,7 +231,7 @@ public class SweEnvelope extends SweAbstractDataComponent {
         return clone;
     }
 
-    private static SweVector createLowerCorner(ReferencedEnvelope env, String uom, boolean northingFirst) {
+    private static SweVector createLowerCorner(ReferencedEnvelope env, /*~~>*/String uom, boolean northingFirst) {
         if (northingFirst) {
             return createSweVector(env.getEnvelope().getMinY(), env.getEnvelope().getMinX(), uom);
         } else {
@@ -239,7 +239,7 @@ public class SweEnvelope extends SweAbstractDataComponent {
         }
     }
 
-    private static SweVector createUpperCorner(ReferencedEnvelope env, String uom, boolean northingFirst) {
+    private static SweVector createUpperCorner(ReferencedEnvelope env, /*~~>*/String uom, boolean northingFirst) {
         if (northingFirst) {
             return createSweVector(env.getEnvelope().getMaxY(), env.getEnvelope().getMaxX(), uom);
         } else {
@@ -247,10 +247,10 @@ public class SweEnvelope extends SweAbstractDataComponent {
         }
     }
 
-    private static SweVector createSweVector(double x, double y, String uom) {
-        SweQuantity xCoord = new SweQuantity().setAxisID(SweConstants.X_AXIS).setValue(x).setUom(uom);
-        SweQuantity yCoord = new SweQuantity().setAxisID(SweConstants.Y_AXIS).setValue(y).setUom(uom);
-        return new SweVector(new SweCoordinate<>(SweCoordinateNames.EASTING, xCoord),
-                new SweCoordinate<>(SweCoordinateNames.NORTHING, yCoord));
+    private static SweVector createSweVector(double x, double y, /*~~>*/String uom) {
+        SweQuantity xCoord = new SweQuantity().setAxisID(/*~~>*/SweConstants.X_AXIS).setValue(x).setUom(uom);
+        SweQuantity yCoord = new SweQuantity().setAxisID(/*~~>*/SweConstants.Y_AXIS).setValue(y).setUom(uom);
+        return new SweVector(new SweCoordinate<>(/*~~>*/SweCoordinateNames.EASTING, xCoord),
+                new SweCoordinate<>(/*~~>*/SweCoordinateNames.NORTHING, yCoord));
     }
 }

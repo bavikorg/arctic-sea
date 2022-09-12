@@ -31,11 +31,11 @@ public class NoImplementationFoundException extends NoApplicableCodeException {
         this(required.getSimpleName());
     }
 
-    public NoImplementationFoundException(String format, Object... args) {
-        this(String.format(format, args));
+    public NoImplementationFoundException(/*~~>*/String format, Object... args) {
+        this(/*~~>*/String.format(format, args));
     }
 
-    public NoImplementationFoundException(String required) {
+    public NoImplementationFoundException(/*~~>*/String required) {
         withMessage("No implementation for '%s' found.", required);
         setStatus(HTTPStatus.INTERNAL_SERVER_ERROR);
     }

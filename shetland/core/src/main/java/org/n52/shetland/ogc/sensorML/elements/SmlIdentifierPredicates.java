@@ -26,27 +26,27 @@ public final class SmlIdentifierPredicates {
     private SmlIdentifierPredicates() {
     }
 
-    public static Predicate<SmlIdentifier> name(String name) {
+    public static Predicate<SmlIdentifier> name(/*~~>*/String name) {
         return new NamePredicate(name);
     }
 
-    public static Predicate<SmlIdentifier> definition(String definition) {
+    public static Predicate<SmlIdentifier> definition(/*~~>*/String definition) {
         return new DefinitionPredicate(definition);
     }
 
-    public static Predicate<SmlIdentifier> nameOrDefinition(String name, String definition) {
+    public static Predicate<SmlIdentifier> nameOrDefinition(/*~~>*/String name, /*~~>*/String definition) {
         return name(name).or(definition(definition));
     }
 
-    public static Predicate<SmlIdentifier> nameAndDefinition(String name, String definition) {
+    public static Predicate<SmlIdentifier> nameAndDefinition(/*~~>*/String name, /*~~>*/String definition) {
         return name(name).and(definition(definition));
     }
 
     private static class DefinitionPredicate implements Predicate<SmlIdentifier> {
-        private final String definition;
+        private final /*~~>*/String definition;
 
-        DefinitionPredicate(String definition) {
-            this.definition = definition;
+        DefinitionPredicate(/*~~>*/String definition) {
+            /*~~>*/this.definition = definition;
         }
 
         @Override
@@ -56,10 +56,10 @@ public final class SmlIdentifierPredicates {
     }
 
     private static class NamePredicate implements Predicate<SmlIdentifier> {
-        private final String name;
+        private final /*~~>*/String name;
 
-        NamePredicate(String name) {
-            this.name = name;
+        NamePredicate(/*~~>*/String name) {
+            /*~~>*/this.name = name;
         }
 
         @Override

@@ -51,11 +51,11 @@ public class RelatedOfferingXmlStreamWriter extends XmlStreamWriter<RelatedOffer
 
     private void writeRelatedOfferingsDoc() throws XMLStreamException {
         start(RelatedOfferingConstants.QN_RO_RELATED_OFFERINGS);
-        namespace(W3CConstants.NS_XLINK_PREFIX, W3CConstants.NS_XLINK);
-        namespace(RelatedOfferingConstants.NS_RO_PREFIX, RelatedOfferingConstants.NS_RO);
-        namespace(GmlConstants.NS_GML_PREFIX, GmlConstants.NS_GML_32);
-        addXlinkHrefAttr(RelatedOfferingConstants.RELATED_OFFERINGS);
-        addXlinkTitleAttr(RelatedOfferingConstants.RELATED_OFFERINGS);
+        namespace(/*~~>*/W3CConstants.NS_XLINK_PREFIX, /*~~>*/W3CConstants.NS_XLINK);
+        namespace(/*~~>*/RelatedOfferingConstants.NS_RO_PREFIX, /*~~>*/RelatedOfferingConstants.NS_RO);
+        namespace(/*~~>*/GmlConstants.NS_GML_PREFIX, /*~~>*/GmlConstants.NS_GML_32);
+        addXlinkHrefAttr(/*~~>*/RelatedOfferingConstants.RELATED_OFFERINGS);
+        addXlinkTitleAttr(/*~~>*/RelatedOfferingConstants.RELATED_OFFERINGS);
         for (OfferingContext offeringContext : getElement().getValue()) {
             start(RelatedOfferingConstants.QN_RO_RELATED_OFFERING);
             writeOfferingContext(offeringContext);
@@ -87,8 +87,8 @@ public class RelatedOfferingXmlStreamWriter extends XmlStreamWriter<RelatedOffer
         }
     }
 
-    private String getTitleFromHref(String href) {
-        String title = href;
+    private /*~~>*/String getTitleFromHref(/*~~>*/String href) {
+        /*~~>*/String title = href;
         if (title.startsWith("http")) {
             title = title.substring(title.lastIndexOf('/') + 1, title.length());
         } else if (title.startsWith("urn")) {

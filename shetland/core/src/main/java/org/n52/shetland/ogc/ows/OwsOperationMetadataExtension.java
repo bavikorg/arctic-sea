@@ -27,13 +27,13 @@ public interface OwsOperationMetadataExtension {
      *
      * @return Related service
      */
-    String getService();
+    /*~~>*/String getService();
 
     /**
      * Get the encoding namespace for this OWS ExtendedCapabilitiy.
      *
      * @return Encoding namespace.
      */
-    String getNamespace();
+    /*~~>*/String getNamespace();
 
 }

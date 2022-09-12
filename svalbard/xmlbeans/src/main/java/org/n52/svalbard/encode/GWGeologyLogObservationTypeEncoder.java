@@ -46,19 +46,19 @@ public class GWGeologyLogObservationTypeEncoder
         extends OmEncoderv20 {
 
     private static final Set<EncoderKey> ENCODER_KEYS =
-            CollectionHelper.union(CodingHelper.encoderKeysForElements(GWMLConstants.NS_GWML_22, OmObservation.class),
-                    CodingHelper.encoderKeysForElements(GWMLConstants.NS_GWML_WELL_22, OmObservation.class));
+            CollectionHelper.union(CodingHelper.encoderKeysForElements(/*~~>*/GWMLConstants.NS_GWML_22, OmObservation.class),
+                    CodingHelper.encoderKeysForElements(/*~~>*/GWMLConstants.NS_GWML_WELL_22, OmObservation.class));
 
     private static final Set<SupportedType> SUPPORTED_TYPES =
-            Sets.newHashSet(new ObservationType(GWMLConstants.OBS_TYPE_GEOLOGY_LOG),
-                    new ObservationType(GWMLConstants.OBS_TYPE_GEOLOGY_LOG),
-                    new ObservationType(OmConstants.OBS_TYPE_CATEGORY_OBSERVATION),
-                    new ObservationType(OmConstants.OBS_TYPE_TEXT_OBSERVATION),
-                    new ObservationType(OmConstants.OBS_TYPE_PROFILE_OBSERVATION));
+            Sets.newHashSet(new ObservationType(/*~~>*/GWMLConstants.OBS_TYPE_GEOLOGY_LOG),
+                    new ObservationType(/*~~>*/GWMLConstants.OBS_TYPE_GEOLOGY_LOG),
+                    new ObservationType(/*~~>*/OmConstants.OBS_TYPE_CATEGORY_OBSERVATION),
+                    new ObservationType(/*~~>*/OmConstants.OBS_TYPE_TEXT_OBSERVATION),
+                    new ObservationType(/*~~>*/OmConstants.OBS_TYPE_PROFILE_OBSERVATION));
 
-    private static final Map<String, Map<String, Set<String>>> SUPPORTED_RESPONSE_FORMATS = Collections.singletonMap(
-            SosConstants.SOS,
-            Collections.singletonMap(Sos2Constants.SERVICEVERSION, Collections.singleton(GWMLConstants.NS_GWML_22)));
+    private static final Map</*~~>*/String, Map</*~~>*/String, Set</*~~>*/String>>> SUPPORTED_RESPONSE_FORMATS = Collections.singletonMap(
+            /*~~>*/SosConstants.SOS,
+            Collections.singletonMap(/*~~>*/Sos2Constants.SERVICEVERSION, Collections.singleton(/*~~>*/GWMLConstants.NS_GWML_22)));
 
     @Override
     public Set<EncoderKey> getKeys() {
@@ -71,8 +71,8 @@ public class GWGeologyLogObservationTypeEncoder
     }
 
     @Override
-    public Map<String, Set<SupportedType>> getSupportedResponseFormatObservationTypes() {
-        return Collections.singletonMap(GWMLConstants.NS_GWML_22, getSupportedTypes());
+    public Map</*~~>*/String, Set<SupportedType>> getSupportedResponseFormatObservationTypes() {
+        return Collections.singletonMap(/*~~>*/GWMLConstants.NS_GWML_22, getSupportedTypes());
     }
 
     @Override
@@ -96,7 +96,7 @@ public class GWGeologyLogObservationTypeEncoder
     }
 
     @Override
-    public Set<String> getSupportedResponseFormats(String service, String version) {
+    public Set</*~~>*/String> getSupportedResponseFormats(/*~~>*/String service, /*~~>*/String version) {
         if (SUPPORTED_RESPONSE_FORMATS.get(service) != null
                 && SUPPORTED_RESPONSE_FORMATS.get(service).get(version) != null) {
             return SUPPORTED_RESPONSE_FORMATS.get(service).get(version);
@@ -105,12 +105,12 @@ public class GWGeologyLogObservationTypeEncoder
     }
 
     @Override
-    public String getDefaultFeatureEncodingNamespace() {
+    public /*~~>*/String getDefaultFeatureEncodingNamespace() {
         return super.getDefaultFeatureEncodingNamespace();
     }
 
     @Override
-    protected String getDefaultProcedureEncodingNamspace() {
+    protected /*~~>*/String getDefaultProcedureEncodingNamspace() {
         return super.getDefaultProcedureEncodingNamspace();
     }
 
@@ -125,8 +125,8 @@ public class GWGeologyLogObservationTypeEncoder
     }
 
     @Override
-    protected void addObservationType(OMObservationType xbObservation, String observationType) {
-        xbObservation.addNewType().setHref(GWMLConstants.OBS_TYPE_GEOLOGY_LOG);
+    protected void addObservationType(OMObservationType xbObservation, /*~~>*/String observationType) {
+        xbObservation.addNewType().setHref(/*~~>*/GWMLConstants.OBS_TYPE_GEOLOGY_LOG);
     }
 
     @Override
@@ -144,9 +144,9 @@ public class GWGeologyLogObservationTypeEncoder
     }
 
     @Override
-    public void addNamespacePrefixToMap(Map<String, String> nameSpacePrefixMap) {
-        nameSpacePrefixMap.put(GWMLConstants.NS_GWML_22, GWMLConstants.NS_GWML_2_PREFIX);
-        nameSpacePrefixMap.put(GWMLConstants.NS_GWML_WELL_22, GWMLConstants.NS_GWML_WELL_2_PREFIX);
+    public void addNamespacePrefixToMap(Map</*~~>*/String, /*~~>*/String> nameSpacePrefixMap) {
+        nameSpacePrefixMap.put(/*~~>*/GWMLConstants.NS_GWML_22, /*~~>*/GWMLConstants.NS_GWML_2_PREFIX);
+        nameSpacePrefixMap.put(/*~~>*/GWMLConstants.NS_GWML_WELL_22, /*~~>*/GWMLConstants.NS_GWML_WELL_2_PREFIX);
     }
 
     @Override

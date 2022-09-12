@@ -33,8 +33,8 @@ public class InsertSensorResponseDecoderTest implements InsertDecoderTest {
 
     @Test
     public void shouldCreateInsertSensorResponse() throws DecodingException {
-        String offering = "test-offering";
-        String procedure = "test-procedure";
+        /*~~>*/String offering = "test-offering";
+        /*~~>*/String procedure = "test-procedure";
         InsertSensorResponseDocument isrd = InsertSensorResponseDocument.Factory.newInstance();
         InsertSensorResponseType response = isrd.addNewInsertSensorResponse();
         response.setAssignedOffering(offering);

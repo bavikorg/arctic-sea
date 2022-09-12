@@ -28,11 +28,11 @@ public class GeoJSONEncodingException extends EncodingException {
 
     private static final long serialVersionUID = -8203818559729187312L;
 
-    public GeoJSONEncodingException(String message) {
+    public GeoJSONEncodingException(/*~~>*/String message) {
         super(message);
     }
 
-    public GeoJSONEncodingException(String message, Throwable cause) {
+    public GeoJSONEncodingException(/*~~>*/String message, Throwable cause) {
         super(message, cause);
     }
 

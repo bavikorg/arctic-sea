@@ -82,7 +82,7 @@ public class ProfileValueTest {
         return profileLevel;
     }
 
-    private QuantityValue createQuantity(String definition, double value, String unit) {
+    private QuantityValue createQuantity(/*~~>*/String definition, double value, /*~~>*/String unit) {
         QuantityValue quantity = new QuantityValue(value, unit);
         quantity.setValue(value).setUom(unit).setDefinition(definition);
         return quantity;

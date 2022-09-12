@@ -83,7 +83,7 @@ public class OmDecoderv20 extends AbstractOmDecoderv20 {
     private static final Logger LOGGER = LoggerFactory.getLogger(OmDecoderv20.class);
 
     private static final Set<DecoderKey> DECODER_KEYS =
-            CodingHelper.decoderKeysForElements(OmConstants.NS_OM_2, OMObservationType.class,
+            CodingHelper.decoderKeysForElements(/*~~>*/OmConstants.NS_OM_2, OMObservationType.class,
                     NamedValuePropertyType.class, OMObservationDocument.class, NamedValuePropertyType[].class);
 
     private static final Set<SupportedType> SUPPORTED_TYPES = ImmutableSet.of(
@@ -92,10 +92,10 @@ public class OmDecoderv20 extends AbstractOmDecoderv20 {
             OmConstants.OBS_TYPE_COUNT_OBSERVATION_TYPE, OmConstants.OBS_TYPE_MEASUREMENT_TYPE,
             OmConstants.OBS_TYPE_TEXT_OBSERVATION_TYPE, OmConstants.OBS_TYPE_TRUTH_OBSERVATION_TYPE);
 
-    private static final Set<String> CONFORMANCE_CLASSES = ImmutableSet.of(ConformanceClasses.OM_V2_MEASUREMENT,
-            ConformanceClasses.OM_V2_CATEGORY_OBSERVATION, ConformanceClasses.OM_V2_COUNT_OBSERVATION,
-            ConformanceClasses.OM_V2_TRUTH_OBSERVATION, ConformanceClasses.OM_V2_GEOMETRY_OBSERVATION,
-            ConformanceClasses.OM_V2_COMPLEX_OBSERVATION, ConformanceClasses.OM_V2_TEXT_OBSERVATION);
+    private static final Set</*~~>*/String> CONFORMANCE_CLASSES = ImmutableSet.of(/*~~>*/ConformanceClasses.OM_V2_MEASUREMENT,
+            /*~~>*/ConformanceClasses.OM_V2_CATEGORY_OBSERVATION, /*~~>*/ConformanceClasses.OM_V2_COUNT_OBSERVATION,
+            /*~~>*/ConformanceClasses.OM_V2_TRUTH_OBSERVATION, /*~~>*/ConformanceClasses.OM_V2_GEOMETRY_OBSERVATION,
+            /*~~>*/ConformanceClasses.OM_V2_COMPLEX_OBSERVATION, /*~~>*/ConformanceClasses.OM_V2_TEXT_OBSERVATION);
 
     public OmDecoderv20() {
         LOGGER.debug("Decoder for the following keys initialized successfully: {}!",
@@ -113,8 +113,8 @@ public class OmDecoderv20 extends AbstractOmDecoderv20 {
     }
 
     @Override
-    public Set<String> getConformanceClasses(String service, String version) {
-        if (SosConstants.SOS.equals(service) && Sos2Constants.SERVICEVERSION.equals(version)) {
+    public Set</*~~>*/String> getConformanceClasses(/*~~>*/String service, /*~~>*/String version) {
+        if (/*~~>*/SosConstants.SOS.equals(service) && /*~~>*/Sos2Constants.SERVICEVERSION.equals(version)) {
             return Collections.unmodifiableSet(CONFORMANCE_CLASSES);
         }
         return Collections.emptySet();
@@ -135,7 +135,7 @@ public class OmDecoderv20 extends AbstractOmDecoderv20 {
     }
 
     private OmObservation parseOmObservation(OMObservationType omObservation) throws DecodingException {
-        Map<String, AbstractFeature> featureMap = Maps.newHashMap();
+        Map</*~~>*/String, AbstractFeature> featureMap = Maps.newHashMap();
         OmObservation sosObservation = new OmObservation();
         // parse identifier, description
         parseAbstractFeatureType(omObservation, sosObservation);
@@ -154,7 +154,7 @@ public class OmDecoderv20 extends AbstractOmDecoderv20 {
     }
 
     private OmObservationConstellation getObservationConstellation(OMObservationType omot,
-            Map<String, AbstractFeature> featureMap) throws DecodingException {
+            Map</*~~>*/String, AbstractFeature> featureMap) throws DecodingException {
         OmObservationConstellation observationConstellation = new OmObservationConstellation();
         observationConstellation.setObservationType(getObservationType(omot));
         observationConstellation.setProcedure(createProcedure(omot));
@@ -163,7 +163,7 @@ public class OmDecoderv20 extends AbstractOmDecoderv20 {
         return observationConstellation;
     }
 
-    private String getObservationType(OMObservationType omObservation) {
+    private /*~~>*/String getObservationType(OMObservationType omObservation) {
         if (omObservation.getType() != null) {
             return omObservation.getType().getHref();
         }
@@ -183,8 +183,8 @@ public class OmDecoderv20 extends AbstractOmDecoderv20 {
             TimeInstant timeInstant = new TimeInstant();
             timeInstant.setGmlId(phenomenonTime.getHref());
             return timeInstant;
-        } else if (phenomenonTime.isSetNilReason() && phenomenonTime.getNilReason() instanceof String
-                && ((String) phenomenonTime.getNilReason()).equals(IndeterminateValue.TEMPLATE.getValue())) {
+        } else if (phenomenonTime.isSetNilReason() && phenomenonTime.getNilReason() instanceof /*~~>*/String
+                && ((/*~~>*/String) phenomenonTime.getNilReason()).equals(IndeterminateValue.TEMPLATE.getValue())) {
             return new TimeInstant(IndeterminateValue.TEMPLATE);
         } else if (phenomenonTime.isSetAbstractTimeObject()) {
             Object decodedObject = decodeXmlObject(phenomenonTime.getAbstractTimeObject());
@@ -204,17 +204,17 @@ public class OmDecoderv20 extends AbstractOmDecoderv20 {
             if (omObservation.getResultTime().getHref().charAt(0) == '#') {
                 // document internal link
                 // TODO parse linked element
-                timeInstant.setReference(Sos2Constants.EN_PHENOMENON_TIME);
+                timeInstant.setReference(/*~~>*/Sos2Constants.EN_PHENOMENON_TIME);
             } else {
                 timeInstant.setReference(omObservation.getResultTime().getHref());
             }
             return timeInstant;
         } else if (omObservation.getResultTime().isSetNilReason()
-                && omObservation.getResultTime().getNilReason() instanceof String && NilReason.template
-                        .equals(NilReason.getEnumForString((String) omObservation.getResultTime().getNilReason()))) {
+                && omObservation.getResultTime().getNilReason() instanceof /*~~>*/String && NilReason.template
+                        .equals(NilReason.getEnumForString((/*~~>*/String) omObservation.getResultTime().getNilReason()))) {
             TimeInstant timeInstant = new TimeInstant();
             timeInstant
-                    .setNilReason(NilReason.getEnumForString((String) omObservation.getResultTime().getNilReason()));
+                    .setNilReason(NilReason.getEnumForString((/*~~>*/String) omObservation.getResultTime().getNilReason()));
             return timeInstant;
         } else if (omObservation.getResultTime().isSetTimeInstant()) {
             Object decodedObject = decodeXmlObject(omObservation.getResultTime().getTimeInstant());
@@ -299,7 +299,7 @@ public class OmDecoderv20 extends AbstractOmDecoderv20 {
                 return new SingleObservationValue<>(quantitiyValue);
             } else if (decodedObject instanceof ReferenceType) {
                 if (omObservation.isSetType() && omObservation.getType().isSetHref()
-                        && omObservation.getType().getHref().equals(OmConstants.OBS_TYPE_REFERENCE_OBSERVATION)) {
+                        && omObservation.getType().getHref().equals(/*~~>*/OmConstants.OBS_TYPE_REFERENCE_OBSERVATION)) {
                     return new SingleObservationValue<>(new ReferenceValue((ReferenceType) decodedObject));
                 }
                 return new SingleObservationValue<>(new CategoryValue(((ReferenceType) decodedObject).getHref()));
@@ -321,7 +321,7 @@ public class OmDecoderv20 extends AbstractOmDecoderv20 {
     }
 
     private AbstractFeature checkFeatureWithMap(AbstractFeature featureOfInterest,
-            Map<String, AbstractFeature> featureMap) {
+            Map</*~~>*/String, AbstractFeature> featureMap) {
         if (featureOfInterest.getGmlId() != null && !featureOfInterest.getGmlId().isEmpty()) {
             if (featureMap.containsKey(featureOfInterest.getGmlId())) {
                 return featureMap.get(featureOfInterest.getGmlId());
@@ -346,7 +346,7 @@ public class OmDecoderv20 extends AbstractOmDecoderv20 {
     }
 
     private Nillable<AbstractFeature> createFeatureOfInterest(OMObservationType omot,
-            Map<String, AbstractFeature> featureMap) throws DecodingException {
+            Map</*~~>*/String, AbstractFeature> featureMap) throws DecodingException {
         if (omot.getFeatureOfInterest().isNil() || omot.getFeatureOfInterest().isSetNilReason()) {
             if (omot.getFeatureOfInterest().isSetNilReason()) {
                 return Nillable.<AbstractFeature> nil(omot.getFeatureOfInterest().getNilReason().toString());

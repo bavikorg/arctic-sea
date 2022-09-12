@@ -27,7 +27,7 @@ public class OutgoingResponseEventHandler extends AbstractElasticSearchDataHolde
         implements StatisticsServiceEventHandler<OutgoingResponseEvent> {
 
     @Override
-    public Map<String, Object> resolveAsMap(OutgoingResponseEvent event) {
+    public Map</*~~>*/String, Object> resolveAsMap(OutgoingResponseEvent event) {
         put(ServiceEventDataMapping.ORE_EXEC_TIME.getName(), event.getElapsedTime());
         put(ServiceEventDataMapping.ORE_COUNT.getName(), event.getRequestNumber());
         return new LinkedHashMap<>(dataMap);

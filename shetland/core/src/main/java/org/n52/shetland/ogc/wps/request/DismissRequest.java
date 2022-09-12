@@ -25,11 +25,11 @@ public class DismissRequest extends AbstractJobIdRequest {
         super(null, null, WPSConstants.Operations.Dismiss.name());
     }
 
-    public DismissRequest(String service, String version) {
+    public DismissRequest(/*~~>*/String service, /*~~>*/String version) {
         super(service, version, WPSConstants.Operations.Dismiss.name());
     }
 
-    public DismissRequest(String service, String version, String operationName) {
+    public DismissRequest(/*~~>*/String service, /*~~>*/String version, /*~~>*/String operationName) {
         super(service, version, operationName);
     }
 

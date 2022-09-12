@@ -32,16 +32,16 @@ public class JsonSettingValue<T> implements SettingValue<T> {
 
     private static final long serialVersionUID = 5229173471522674423L;
     private final SettingType type;
-    private String key;
+    private /*~~>*/String key;
     private T value;
 
-    public JsonSettingValue(SettingType type, String key, T value) {
+    public JsonSettingValue(SettingType type, /*~~>*/String key, T value) {
         this.type = type;
-        this.key = key;
+        /*~~>*/this.key = key;
         this.value = value;
     }
 
-    public JsonSettingValue(SettingType type, String key) {
+    public JsonSettingValue(SettingType type, /*~~>*/String key) {
         this(type, key, null);
     }
 
@@ -50,8 +50,8 @@ public class JsonSettingValue<T> implements SettingValue<T> {
     }
 
     @Override
-    public String getKey() {
-        return this.key;
+    public /*~~>*/String getKey() {
+        return /*~~>*/this.key;
     }
 
     @Override
@@ -60,8 +60,8 @@ public class JsonSettingValue<T> implements SettingValue<T> {
     }
 
     @Override
-    public void setKey(String key) {
-        this.key = key;
+    public void setKey(/*~~>*/String key) {
+        /*~~>*/this.key = key;
     }
 
     @Override
@@ -92,7 +92,7 @@ public class JsonSettingValue<T> implements SettingValue<T> {
     }
 
     @Override
-    public String toString() {
+    public /*~~>*/String toString() {
         return MoreObjects.toStringHelper(this)
                 .add("type", getType())
                 .add("key", getKey())

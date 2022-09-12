@@ -30,17 +30,17 @@ import com.google.common.collect.Sets;
  *
  */
 public class RelatedOfferings implements Extension<Set<OfferingContext>> {
-    private String identifier;
-    private String definition;
+    private /*~~>*/String identifier;
+    private /*~~>*/String definition;
     private Set<OfferingContext> offeringRelations = Sets.newHashSet();
 
     @Override
-    public String getNamespace() {
-        return RelatedOfferingConstants.NS_RO;
+    public /*~~>*/String getNamespace() {
+        return /*~~>*/RelatedOfferingConstants.NS_RO;
     }
 
     @Override
-    public Extension<Set<OfferingContext>> setNamespace(String namespace) {
+    public Extension<Set<OfferingContext>> setNamespace(/*~~>*/String namespace) {
         return this;
     }
 
@@ -50,13 +50,13 @@ public class RelatedOfferings implements Extension<Set<OfferingContext>> {
     }
 
     @Override
-    public String getIdentifier() {
+    public /*~~>*/String getIdentifier() {
         return identifier;
     }
 
     @Override
-    public Extension<Set<OfferingContext>> setIdentifier(String identifier) {
-        this.identifier = identifier;
+    public Extension<Set<OfferingContext>> setIdentifier(/*~~>*/String identifier) {
+        /*~~>*/this.identifier = identifier;
         return this;
     }
 
@@ -66,13 +66,13 @@ public class RelatedOfferings implements Extension<Set<OfferingContext>> {
     }
 
     @Override
-    public String getDefinition() {
+    public /*~~>*/String getDefinition() {
         return definition;
     }
 
     @Override
-    public Extension<Set<OfferingContext>> setDefinition(String definition) {
-        this.definition = definition;
+    public Extension<Set<OfferingContext>> setDefinition(/*~~>*/String definition) {
+        /*~~>*/this.definition = definition;
         return this;
     }
 
@@ -93,7 +93,7 @@ public class RelatedOfferings implements Extension<Set<OfferingContext>> {
         return this;
     }
 
-    public Extension<Set<OfferingContext>> addValue(String role, String offering) {
+    public Extension<Set<OfferingContext>> addValue(/*~~>*/String role, /*~~>*/String offering) {
         this.offeringRelations.add(new OfferingContext(new ReferenceType(role), new ReferenceType(offering)));
         return this;
     }

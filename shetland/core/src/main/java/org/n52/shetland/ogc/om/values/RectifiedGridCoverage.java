@@ -38,24 +38,24 @@ import com.google.common.collect.Maps;
  */
 public class RectifiedGridCoverage implements DiscreteCoverage<SortedMap<ComparableValue<?, ?>, Value<?>>> {
 
-    private static final String GML_ID_PREFIX = "rgc_";
-    private final String gmlId;
+    private static final /*~~>*/String GML_ID_PREFIX = "rgc_";
+    private final /*~~>*/String gmlId;
     private final SortedMap<ComparableValue<?, ?>, Value<?>> value = Maps.newTreeMap();
     private UoM unit;
-    private String rangeParameters;
+    private /*~~>*/String rangeParameters;
 
-    public RectifiedGridCoverage(String gmlId) {
+    public RectifiedGridCoverage(/*~~>*/String gmlId) {
         if (Strings.isNullOrEmpty(gmlId)) {
-            this.gmlId = GML_ID_PREFIX + IdGenerator.generate(toString());
+            /*~~>*/this.gmlId = GML_ID_PREFIX + IdGenerator.generate(toString());
         } else if (!gmlId.startsWith(GML_ID_PREFIX)) {
-            this.gmlId = GML_ID_PREFIX + gmlId;
+            /*~~>*/this.gmlId = GML_ID_PREFIX + gmlId;
         } else {
-            this.gmlId = gmlId;
+            /*~~>*/this.gmlId = gmlId;
         }
     }
 
     @Override
-    public String getGmlId() {
+    public /*~~>*/String getGmlId() {
         return gmlId;
     }
 
@@ -92,7 +92,7 @@ public class RectifiedGridCoverage implements DiscreteCoverage<SortedMap<Compara
     }
 
     @Override
-    public void setUnit(String unit) {
+    public void setUnit(/*~~>*/String unit) {
         this.unit = new UoM(unit);
     }
 
@@ -103,7 +103,7 @@ public class RectifiedGridCoverage implements DiscreteCoverage<SortedMap<Compara
     }
 
     @Override
-    public String getUnit() {
+    public /*~~>*/String getUnit() {
         if (isSetUnit()) {
             return unit.getUom();
         }
@@ -147,13 +147,13 @@ public class RectifiedGridCoverage implements DiscreteCoverage<SortedMap<Compara
     }
 
     @Override
-    public String getRangeParameters() {
+    public /*~~>*/String getRangeParameters() {
         return rangeParameters;
     }
 
     @Override
-    public void setRangeParameters(String rangeParameters) {
-        this.rangeParameters = rangeParameters;
+    public void setRangeParameters(/*~~>*/String rangeParameters) {
+        /*~~>*/this.rangeParameters = rangeParameters;
     }
 
     @Override

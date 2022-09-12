@@ -34,31 +34,31 @@ import edu.umd.cs.findbugs.annotations.SuppressFBWarnings;
  */
 public class CvDiscretePointCoverage implements Value<PointValuePair> {
 
-    private static final String GML_ID_PREFIX = "dpc_";
-    private final String gmlId;
-    private String domainExtent;
+    private static final /*~~>*/String GML_ID_PREFIX = "dpc_";
+    private final /*~~>*/String gmlId;
+    private /*~~>*/String domainExtent;
     private ReferenceType rangeType;
     private PointValuePair value;
     private UoM unit;
 
-    public CvDiscretePointCoverage(String gmlId) {
+    public CvDiscretePointCoverage(/*~~>*/String gmlId) {
         if (Strings.isNullOrEmpty(gmlId)) {
-            this.gmlId = GML_ID_PREFIX + IdGenerator.generate(toString());
+            /*~~>*/this.gmlId = GML_ID_PREFIX + IdGenerator.generate(toString());
         } else if (!gmlId.startsWith(GML_ID_PREFIX)) {
-            this.gmlId = GML_ID_PREFIX + gmlId;
+            /*~~>*/this.gmlId = GML_ID_PREFIX + gmlId;
         } else {
-            this.gmlId = gmlId;
+            /*~~>*/this.gmlId = gmlId;
         }
     }
 
-    public String getGmlId() {
+    public /*~~>*/String getGmlId() {
         return gmlId;
     }
 
     /**
      * @return the domainExtent
      */
-    public String getDomainExtent() {
+    public /*~~>*/String getDomainExtent() {
         return domainExtent;
     }
 
@@ -66,8 +66,8 @@ public class CvDiscretePointCoverage implements Value<PointValuePair> {
      * @param domainExtent
      *            the domainExtent to set
      */
-    public void setDomainExtent(String domainExtent) {
-        this.domainExtent = domainExtent;
+    public void setDomainExtent(/*~~>*/String domainExtent) {
+        /*~~>*/this.domainExtent = domainExtent;
     }
 
     public boolean isSetDomainExtent() {
@@ -108,7 +108,7 @@ public class CvDiscretePointCoverage implements Value<PointValuePair> {
     }
 
     @Override
-    public void setUnit(String unit) {
+    public void setUnit(/*~~>*/String unit) {
         this.unit = new UoM(unit);
     }
 
@@ -119,7 +119,7 @@ public class CvDiscretePointCoverage implements Value<PointValuePair> {
     }
 
     @Override
-    public String getUnit() {
+    public /*~~>*/String getUnit() {
         if (isSetUnit()) {
             return unit.getUom();
         }

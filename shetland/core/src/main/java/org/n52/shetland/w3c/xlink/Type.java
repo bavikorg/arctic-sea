@@ -32,11 +32,11 @@ public enum Type {
     NONE;
 
     @Override
-    public String toString() {
+    public /*~~>*/String toString() {
         return this.name().toLowerCase();
     }
 
-    public static Type fromString(String str) {
+    public static Type fromString(/*~~>*/String str) {
         if (str == null || str.isEmpty()) {
             return null;
         }

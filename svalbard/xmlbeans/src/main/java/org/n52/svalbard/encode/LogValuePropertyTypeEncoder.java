@@ -31,7 +31,7 @@ public class LogValuePropertyTypeEncoder
 
     private static final Set<EncoderKey> ENCODER_KEYS =
             Sets.newHashSet(new ClassToClassEncoderKey(ProfileLevel.class, LogValuePropertyType.class),
-                    new XmlPropertyTypeEncoderKey(GWMLConstants.NS_GWML_22, ProfileLevel.class));
+                    new XmlPropertyTypeEncoderKey(/*~~>*/GWMLConstants.NS_GWML_22, ProfileLevel.class));
 
     @Override
     public Set<EncoderKey> getKeys() {

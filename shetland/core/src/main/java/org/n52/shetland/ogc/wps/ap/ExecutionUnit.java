@@ -16,5 +16,5 @@
 package org.n52.shetland.ogc.wps.ap;
 
 public interface ExecutionUnit {
-    String getType();
+    /*~~>*/String getType();
 }

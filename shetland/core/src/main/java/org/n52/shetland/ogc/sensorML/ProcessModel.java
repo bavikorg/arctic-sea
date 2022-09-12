@@ -36,7 +36,7 @@ public class ProcessModel extends AbstractProcess implements HasProcessMethod {
     }
 
     @Override
-    public String getDefaultElementEncoding() {
-        return SensorMLConstants.NS_SML;
+    public /*~~>*/String getDefaultElementEncoding() {
+        return /*~~>*/SensorMLConstants.NS_SML;
     }
 }

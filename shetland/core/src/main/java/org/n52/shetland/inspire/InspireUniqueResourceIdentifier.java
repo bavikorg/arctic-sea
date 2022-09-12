@@ -27,13 +27,13 @@ import com.google.common.base.Strings;
 public class InspireUniqueResourceIdentifier implements InspireObject {
 
     /* Element Code 1..1 */
-    private String code;
+    private /*~~>*/String code;
 
     /* Element Namespace 0..1 */
-    private String namespace;
+    private /*~~>*/String namespace;
 
     /* Attribute metadataURL */
-    private String metadataUrl;
+    private /*~~>*/String metadataUrl;
 
     /**
      * constructor
@@ -41,8 +41,8 @@ public class InspireUniqueResourceIdentifier implements InspireObject {
      * @param code
      *            the code of the identifier
      */
-    public InspireUniqueResourceIdentifier(String code) {
-        this.code = code;
+    public InspireUniqueResourceIdentifier(/*~~>*/String code) {
+        /*~~>*/this.code = code;
     }
 
     /**
@@ -50,7 +50,7 @@ public class InspireUniqueResourceIdentifier implements InspireObject {
      *
      * @return the code
      */
-    public String getCode() {
+    public /*~~>*/String getCode() {
         return code;
     }
 
@@ -59,7 +59,7 @@ public class InspireUniqueResourceIdentifier implements InspireObject {
      *
      * @return the namespaces
      */
-    public String getNamespace() {
+    public /*~~>*/String getNamespace() {
         return namespace;
     }
 
@@ -70,8 +70,8 @@ public class InspireUniqueResourceIdentifier implements InspireObject {
      *            the namespace to set
      * @return this
      */
-    public InspireUniqueResourceIdentifier setNamespace(String namespace) {
-        this.namespace = namespace;
+    public InspireUniqueResourceIdentifier setNamespace(/*~~>*/String namespace) {
+        /*~~>*/this.namespace = namespace;
         return this;
     }
 
@@ -89,7 +89,7 @@ public class InspireUniqueResourceIdentifier implements InspireObject {
      *
      * @return the metadataUrl
      */
-    public String getMetadataUrl() {
+    public /*~~>*/String getMetadataUrl() {
         return metadataUrl;
     }
 
@@ -100,8 +100,8 @@ public class InspireUniqueResourceIdentifier implements InspireObject {
      *            the metadataUrl to set
      * @return this
      */
-    public InspireUniqueResourceIdentifier setMetadataUrl(String metadataUrl) {
-        this.metadataUrl = metadataUrl;
+    public InspireUniqueResourceIdentifier setMetadataUrl(/*~~>*/String metadataUrl) {
+        /*~~>*/this.metadataUrl = metadataUrl;
         return this;
     }
 

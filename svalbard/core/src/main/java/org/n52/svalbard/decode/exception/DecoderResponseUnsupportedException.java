@@ -25,8 +25,8 @@ package org.n52.svalbard.decode.exception;
 public class DecoderResponseUnsupportedException extends DecodingException {
     private static final long serialVersionUID = 7821283328920709066L;
 
-    public DecoderResponseUnsupportedException(String valueToDecode, Object decodedValue) {
-        super(String.format("Decoding of string \"%s\" failed. Returned type is \"%s\".", valueToDecode,
+    public DecoderResponseUnsupportedException(/*~~>*/String valueToDecode, Object decodedValue) {
+        super(/*~~>*/String.format("Decoding of string \"%s\" failed. Returned type is \"%s\".", valueToDecode,
                 decodedValue == null ? null : decodedValue.getClass().getName()));
     }
 }

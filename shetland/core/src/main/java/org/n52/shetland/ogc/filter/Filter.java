@@ -33,7 +33,7 @@ public abstract class Filter<
     /**
      * Value reference.
      */
-    private String valueReference;
+    private /*~~>*/String valueReference;
 
     /**
      * constructor.
@@ -45,8 +45,8 @@ public abstract class Filter<
      * @param valueReference
      *            the value reference
      */
-    public Filter(String valueReference) {
-        this.valueReference = valueReference;
+    public Filter(/*~~>*/String valueReference) {
+        /*~~>*/this.valueReference = valueReference;
     }
 
     /**
@@ -54,7 +54,7 @@ public abstract class Filter<
      *
      * @return value reference
      */
-    public String getValueReference() {
+    public /*~~>*/String getValueReference() {
         return valueReference;
     }
 
@@ -66,8 +66,8 @@ public abstract class Filter<
      *
      * @return This filter
      */
-    public Filter<T> setValueReference(String valueReference) {
-        this.valueReference = valueReference;
+    public Filter<T> setValueReference(/*~~>*/String valueReference) {
+        /*~~>*/this.valueReference = valueReference;
         return this;
     }
 
@@ -77,7 +77,7 @@ public abstract class Filter<
      * @return <code>true</code>, if valueReference is set
      */
     public boolean hasValueReference() {
-        return this.valueReference != null && !this.valueReference.isEmpty();
+        return /*~~>*/this.valueReference != null && !/*~~>*/this.valueReference.isEmpty();
     }
 
     /**

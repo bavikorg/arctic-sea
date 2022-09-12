@@ -26,10 +26,10 @@ import java.util.Objects;
  * @since 1.0.0
  */
 public abstract class NamespaceDecoderKey<T> implements DecoderKey {
-    private final String namespace;
+    private final /*~~>*/String namespace;
 
-    public NamespaceDecoderKey(String namespace, T type) {
-        this.namespace = namespace;
+    public NamespaceDecoderKey(/*~~>*/String namespace, T type) {
+        /*~~>*/this.namespace = namespace;
         setType(type);
     }
 
@@ -53,7 +53,7 @@ public abstract class NamespaceDecoderKey<T> implements DecoderKey {
      *
      * @return {@link String} representation of the type.
      */
-    protected abstract String getTypeName();
+    protected abstract /*~~>*/String getTypeName();
 
     /**
      * Check for similarity
@@ -67,7 +67,7 @@ public abstract class NamespaceDecoderKey<T> implements DecoderKey {
      */
     protected abstract int getSimilarity(DecoderKey key, T type);
 
-    public String getNamespace() {
+    public /*~~>*/String getNamespace() {
         return namespace;
     }
 
@@ -77,8 +77,8 @@ public abstract class NamespaceDecoderKey<T> implements DecoderKey {
     }
 
     @Override
-    public String toString() {
-        return String.format("%s[namespace=%s, type=%s]", getClass().getName(), getNamespace(), getTypeName());
+    public /*~~>*/String toString() {
+        return /*~~>*/String.format("%s[namespace=%s, type=%s]", getClass().getName(), getNamespace(), getTypeName());
     }
 
     @Override

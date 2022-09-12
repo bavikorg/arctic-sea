@@ -40,17 +40,17 @@ public class GetFeatureOfInterestRequest extends OwsServiceRequest {
     /**
      * FOI identifiers list
      */
-    private List<String> featureIdentifiers = new LinkedList<>();
+    private List</*~~>*/String> featureIdentifiers = new LinkedList<>();
 
     /**
      * FOI observedProperties list
      */
-    private List<String> observedProperties = new LinkedList<>();
+    private List</*~~>*/String> observedProperties = new LinkedList<>();
 
     /**
      * FOI procedures list
      */
-    private List<String> procedures = new LinkedList<>();
+    private List</*~~>*/String> procedures = new LinkedList<>();
 
     /**
      * FOI spatial filters list
@@ -62,17 +62,17 @@ public class GetFeatureOfInterestRequest extends OwsServiceRequest {
      */
     private List<TemporalFilter> temporalFilters = new LinkedList<>();
 
-    private Map<String, String> namespaces = new LinkedHashMap<>();
+    private Map</*~~>*/String, /*~~>*/String> namespaces = new LinkedHashMap<>();
 
     public GetFeatureOfInterestRequest() {
         super(null, null, SosConstants.Operations.GetFeatureOfInterest.name());
     }
 
-    public GetFeatureOfInterestRequest(String service, String version) {
+    public GetFeatureOfInterestRequest(/*~~>*/String service, /*~~>*/String version) {
         super(service, version, SosConstants.Operations.GetFeatureOfInterest.name());
     }
 
-    public GetFeatureOfInterestRequest(String service, String version, String operationName) {
+    public GetFeatureOfInterestRequest(/*~~>*/String service, /*~~>*/String version, /*~~>*/String operationName) {
         super(service, version, operationName);
     }
 
@@ -105,7 +105,7 @@ public class GetFeatureOfInterestRequest extends OwsServiceRequest {
      *
      * @return FOI identifiers
      */
-    public List<String> getFeatureIdentifiers() {
+    public List</*~~>*/String> getFeatureIdentifiers() {
         return Collections.unmodifiableList(featureIdentifiers);
     }
 
@@ -115,7 +115,7 @@ public class GetFeatureOfInterestRequest extends OwsServiceRequest {
      * @param featureIDs
      *            FOI identifiers
      */
-    public GetFeatureOfInterestRequest setFeatureIdentifiers(Collection<String> featureIDs) {
+    public GetFeatureOfInterestRequest setFeatureIdentifiers(Collection</*~~>*/String> featureIDs) {
         this.featureIdentifiers.clear();
         if (featureIDs != null) {
             this.featureIdentifiers.addAll(featureIDs);
@@ -128,7 +128,7 @@ public class GetFeatureOfInterestRequest extends OwsServiceRequest {
      *
      * @return FOI observedProperties
      */
-    public List<String> getObservedProperties() {
+    public List</*~~>*/String> getObservedProperties() {
         return Collections.unmodifiableList(observedProperties);
     }
 
@@ -139,7 +139,7 @@ public class GetFeatureOfInterestRequest extends OwsServiceRequest {
      *            FOI observedProperties
      */
     @SuppressFBWarnings({ "EI_EXPOSE_REP2" })
-    public GetFeatureOfInterestRequest setObservedProperties(List<String> observedProperties) {
+    public GetFeatureOfInterestRequest setObservedProperties(List</*~~>*/String> observedProperties) {
         this.observedProperties.clear();
         if (observedProperties != null) {
             this.observedProperties.addAll(observedProperties);
@@ -152,7 +152,7 @@ public class GetFeatureOfInterestRequest extends OwsServiceRequest {
      *
      * @return FOI procedures
      */
-    public List<String> getProcedures() {
+    public List</*~~>*/String> getProcedures() {
         return Collections.unmodifiableList(procedures);
     }
 
@@ -163,7 +163,7 @@ public class GetFeatureOfInterestRequest extends OwsServiceRequest {
      *            FOI procedures
      */
     @SuppressFBWarnings({ "EI_EXPOSE_REP2" })
-    public GetFeatureOfInterestRequest setProcedures(List<String> procedures) {
+    public GetFeatureOfInterestRequest setProcedures(List</*~~>*/String> procedures) {
         this.procedures.clear();
         if (procedures != null) {
             this.procedures.addAll(procedures);
@@ -196,7 +196,7 @@ public class GetFeatureOfInterestRequest extends OwsServiceRequest {
     }
 
     @SuppressFBWarnings({ "EI_EXPOSE_REP2" })
-    public GetFeatureOfInterestRequest setNamespaces(Map<String, String> namespaces) {
+    public GetFeatureOfInterestRequest setNamespaces(Map</*~~>*/String, /*~~>*/String> namespaces) {
         this.namespaces.clear();
         if (namespaces != null) {
             this.namespaces.putAll(namespaces);
@@ -204,7 +204,7 @@ public class GetFeatureOfInterestRequest extends OwsServiceRequest {
         return this;
     }
 
-    public Map<String, String> getNamespaces() {
+    public Map</*~~>*/String, /*~~>*/String> getNamespaces() {
         return Collections.unmodifiableMap(namespaces);
     }
 

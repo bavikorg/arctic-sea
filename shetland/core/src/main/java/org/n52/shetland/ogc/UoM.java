@@ -21,18 +21,18 @@ import com.google.common.base.Strings;
 
 public class UoM {
 
-    private String uom;
-    private String name;
-    private String link;
+    private /*~~>*/String uom;
+    private /*~~>*/String name;
+    private /*~~>*/String link;
 
-    public UoM(String uom) {
-        this.uom = uom;
+    public UoM(/*~~>*/String uom) {
+        /*~~>*/this.uom = uom;
     }
 
     /**
      * @return the uom
      */
-    public String getUom() {
+    public /*~~>*/String getUom() {
         return uom;
     }
 
@@ -42,15 +42,15 @@ public class UoM {
      *
      * @return {@code this}
      */
-    public UoM setUom(String uom) {
-        this.uom = uom;
+    public UoM setUom(/*~~>*/String uom) {
+        /*~~>*/this.uom = uom;
         return this;
     }
 
     /**
      * @return the name
      */
-    public String getName() {
+    public /*~~>*/String getName() {
         return name;
     }
 
@@ -60,8 +60,8 @@ public class UoM {
      *
      * @return {@code this}
      */
-    public UoM setName(String name) {
-        this.name = name;
+    public UoM setName(/*~~>*/String name) {
+        /*~~>*/this.name = name;
         return this;
     }
 
@@ -72,7 +72,7 @@ public class UoM {
     /**
      * @return the link
      */
-    public String getLink() {
+    public /*~~>*/String getLink() {
         return link;
     }
 
@@ -82,8 +82,8 @@ public class UoM {
      *
      * @return {@code this}
      */
-    public UoM setLink(String link) {
-        this.link = link;
+    public UoM setLink(/*~~>*/String link) {
+        /*~~>*/this.link = link;
         return this;
     }
 
@@ -106,7 +106,7 @@ public class UoM {
     @Override
     public int hashCode() {
         int hash = 7;
-        hash = 79 * hash + Objects.hashCode(this.uom);
+        hash = 79 * hash + Objects.hashCode(/*~~>*/this.uom);
         return hash;
     }
 }

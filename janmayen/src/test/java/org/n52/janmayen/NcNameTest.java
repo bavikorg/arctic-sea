@@ -24,9 +24,9 @@ public class NcNameTest {
 
     @Test
     public void testFixNcName() {
-        String noFixString = "this_one_needs_no_fixing";
-        String needsFixString = "1string&_needs_fixing";
-        String fixedString = "_string__needs_fixing";
+        /*~~>*/String noFixString = "this_one_needs_no_fixing";
+        /*~~>*/String needsFixString = "1string&_needs_fixing";
+        /*~~>*/String fixedString = "_string__needs_fixing";
         assertEquals(noFixString, NcName.makeValid(noFixString));
         assertEquals(fixedString, NcName.makeValid(needsFixString));
     }
@@ -47,7 +47,7 @@ public class NcNameTest {
 
     @Test
     public void testHyphen() {
-        String test = "test-nc-name";
+        /*~~>*/String test = "test-nc-name";
         assertEquals(test, NcName.makeValid(test));
     }
 }

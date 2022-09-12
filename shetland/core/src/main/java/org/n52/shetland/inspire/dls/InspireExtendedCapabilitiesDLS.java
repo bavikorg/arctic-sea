@@ -76,8 +76,8 @@ public abstract class InspireExtendedCapabilitiesDLS extends InspireExtendedCapa
     }
 
     @Override
-    public String getNamespace() {
-        return InspireConstants.NS_INSPIRE_DLS;
+    public /*~~>*/String getNamespace() {
+        return /*~~>*/InspireConstants.NS_INSPIRE_DLS;
     }
 
     @Override

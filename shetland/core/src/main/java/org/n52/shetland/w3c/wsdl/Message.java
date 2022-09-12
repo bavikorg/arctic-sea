@@ -27,7 +27,7 @@ public class Message extends AbstractWsdl {
 
     private Collection<Part> parts = new TreeSet<>();
 
-    public Message(String name) {
+    public Message(/*~~>*/String name) {
         super(name);
     }
 

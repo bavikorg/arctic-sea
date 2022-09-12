@@ -74,7 +74,7 @@ public abstract class AbstractGetCapabilitiesHandler<T> extends AbstractOperatio
     private RequestOperatorRepository requestOperatorRepository;
     private ServiceOperatorRepository serviceOperatorRepository;
 
-    public AbstractGetCapabilitiesHandler(String service) {
+    public AbstractGetCapabilitiesHandler(/*~~>*/String service) {
         this.key = new OperationHandlerKey(service, OWSConstants.Operations.GetCapabilities);
     }
 
@@ -95,7 +95,7 @@ public abstract class AbstractGetCapabilitiesHandler<T> extends AbstractOperatio
     }
 
     @Override
-    public String getOperationName() {
+    public /*~~>*/String getOperationName() {
         return OWSConstants.Operations.GetCapabilities.toString();
     }
 
@@ -108,20 +108,20 @@ public abstract class AbstractGetCapabilitiesHandler<T> extends AbstractOperatio
     public GetCapabilitiesResponse handle(GetCapabilitiesRequest request)
             throws OwsExceptionReport {
 
-        String service = request.getService();
-        String version = negotiateVersion(request);
+        /*~~>*/String service = request.getService();
+        /*~~>*/String version = negotiateVersion(request);
 
         GetCapabilitiesResponse response = createResponse(service, version);
         response.setCapabilities(createCapabilities(request, service, version));
         return response;
     }
 
-    protected GetCapabilitiesResponse createResponse(String service, String version) {
+    protected GetCapabilitiesResponse createResponse(/*~~>*/String service, /*~~>*/String version) {
         return new GetCapabilitiesResponse(service, version);
     }
 
     public List<OwsServiceKey> getServiceOperatorKeys(GetCapabilitiesRequest request) {
-        String service = request.getService();
+        /*~~>*/String service = request.getService();
         if (request.isSetAcceptVersions()) {
             return request.getAcceptVersions().stream()
                     .map(version -> new OwsServiceKey(service, version))
@@ -142,12 +142,12 @@ public abstract class AbstractGetCapabilitiesHandler<T> extends AbstractOperatio
      *
      * @throws OwsExceptionReport If the requested version is not supported
      */
-    private String negotiateVersion(GetCapabilitiesRequest request) throws OwsExceptionReport {
+    private /*~~>*/String negotiateVersion(GetCapabilitiesRequest request) throws OwsExceptionReport {
         if (request.isSetVersion()) {
             return request.getVersion();
         } else {
-            String service = request.getService();
-            String version;
+            /*~~>*/String service = request.getService();
+            /*~~>*/String version;
 
             if (request.isSetAcceptVersions()) {
                 version = request.getAcceptVersions().stream()
@@ -170,7 +170,7 @@ public abstract class AbstractGetCapabilitiesHandler<T> extends AbstractOperatio
     }
 
     @Override
-    protected Set<OwsDomain> getOperationParameters(String service, String version) {
+    protected Set<OwsDomain> getOperationParameters(/*~~>*/String service, /*~~>*/String version) {
         OwsDomain acceptFormats = getAcceptFormatsDomain();
         OwsDomain acceptVersions = getAcceptVersionsDomain(service);
         OwsDomain sections = getSectionsDomain();
@@ -179,7 +179,7 @@ public abstract class AbstractGetCapabilitiesHandler<T> extends AbstractOperatio
         return new HashSet<>(Arrays.asList(acceptFormats, acceptVersions, acceptLanguages, sections, updateSequence));
     }
 
-    private OwsOperationsMetadata getOperations(String service, String version) throws OwsExceptionReport {
+    private OwsOperationsMetadata getOperations(/*~~>*/String service, /*~~>*/String version) throws OwsExceptionReport {
         Collection<OwsDomain> parameters = getCommonParameters(service);
         Collection<OwsDomain> constraints = null;
         Collection<OwsOperation> operations = new LinkedList<>();
@@ -194,11 +194,11 @@ public abstract class AbstractGetCapabilitiesHandler<T> extends AbstractOperatio
         return new OwsOperationsMetadata(operations, parameters, constraints, extension);
     }
 
-    protected OwsOperationMetadataExtension getOperationsMetadataExtension(String service, String version) {
+    protected OwsOperationMetadataExtension getOperationsMetadataExtension(/*~~>*/String service, /*~~>*/String version) {
         return null;
     }
 
-    private Collection<OwsDomain> getCommonParameters(String service) {
+    private Collection<OwsDomain> getCommonParameters(/*~~>*/String service) {
         OwsDomain serviceParameter = new OwsDomain(OWSConstants.RequestParams.service,
                                                    new OwsAllowedValues(new OwsValue(service)));
         OwsDomain versionParameter = new OwsDomain(OWSConstants.RequestParams.version,
@@ -206,16 +206,16 @@ public abstract class AbstractGetCapabilitiesHandler<T> extends AbstractOperatio
         return Arrays.asList(serviceParameter, versionParameter);
     }
 
-    private OwsAllowedValues getSupportedVersions(String service) {
-        Set<String> supportedVersions = this.serviceOperatorRepository.getSupportedVersions(service);
+    private OwsAllowedValues getSupportedVersions(/*~~>*/String service) {
+        Set</*~~>*/String> supportedVersions = this.serviceOperatorRepository.getSupportedVersions(service);
         return new OwsAllowedValues(supportedVersions.stream().map(OwsValue::new));
     }
 
-    private OwsServiceProvider getServiceProvider(String service, Locale locale) {
+    private OwsServiceProvider getServiceProvider(/*~~>*/String service, Locale locale) {
         return this.serviceMetadataRepository.getServiceProviderFactory(service).get(locale);
     }
 
-    private OwsServiceIdentification getServiceIdentification(String service, Locale locale) {
+    private OwsServiceIdentification getServiceIdentification(/*~~>*/String service, Locale locale) {
         return this.serviceMetadataRepository.getServiceIdentificationFactory(service).get(locale);
     }
 
@@ -236,8 +236,8 @@ public abstract class AbstractGetCapabilitiesHandler<T> extends AbstractOperatio
         return new OwsDomain(GetCapabilitiesParams.AcceptFormats, possibleValues, defaultValue);
     }
 
-    private OwsDomain getAcceptVersionsDomain(String service) {
-        Set<String> supportedVersions = this.serviceOperatorRepository.getSupportedVersions(service);
+    private OwsDomain getAcceptVersionsDomain(/*~~>*/String service) {
+        Set</*~~>*/String> supportedVersions = this.serviceOperatorRepository.getSupportedVersions(service);
         OwsValue defaultValue = new OwsValue(Comparables.version().max(supportedVersions));
         OwsPossibleValues possibleValues = new OwsAllowedValues(supportedVersions.stream().map(OwsValue::new));
         return new OwsDomain(GetCapabilitiesParams.AcceptVersions, possibleValues, defaultValue);
@@ -262,19 +262,19 @@ public abstract class AbstractGetCapabilitiesHandler<T> extends AbstractOperatio
         return new OwsDomain(GetCapabilitiesParams.AcceptLanguages, possibleValues);
     }
 
-    private Set<String> getLanguages() {
+    private Set</*~~>*/String> getLanguages() {
         Set<Locale> availableLocales = serviceMetadataRepository.getAvailableLocales();
         return availableLocales.stream().map(LocaleHelper::encode).collect(toSet());
     }
 
     private OwsCapabilities createCapabilities(GetCapabilitiesRequest request,
-                                               String service, String version)
+                                               /*~~>*/String service, /*~~>*/String version)
             throws OwsExceptionReport {
 
         Set<CapabilitiesSection> sections = getRequestedSections(request);
         Locale requestedLocale = getRequestedLocale(request);
 
-        String updateSequence = null;
+        /*~~>*/String updateSequence = null;
 
         OwsServiceIdentification serviceIdentification = null;
         if (sections.contains(CapabilitiesSection.ServiceIdentification)) {
@@ -291,7 +291,7 @@ public abstract class AbstractGetCapabilitiesHandler<T> extends AbstractOperatio
             operationsMetadata = getOperations(service, version);
         }
 
-        Set<String> languages = null;
+        Set</*~~>*/String> languages = null;
         if (sections.contains(CapabilitiesSection.Languages)) {
             languages = getLanguages();
         }
@@ -316,10 +316,10 @@ public abstract class AbstractGetCapabilitiesHandler<T> extends AbstractOperatio
 
     protected abstract OwsCapabilities createCapabilities(OwsCapabilities owsCapabilities, T contents);
 
-    protected Collection<OwsCapabilitiesExtension> getExtensions(GetCapabilitiesRequest request, String service,
-                                                                 String version) {
+    protected Collection<OwsCapabilitiesExtension> getExtensions(GetCapabilitiesRequest request, /*~~>*/String service,
+                                                                 /*~~>*/String version) {
         return Collections.emptyList();
     }
 
-    protected abstract T createContents(String service, String version);
+    protected abstract T createContents(/*~~>*/String service, /*~~>*/String version);
 }

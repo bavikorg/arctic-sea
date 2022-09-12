@@ -31,11 +31,11 @@ public class OwsOnlineResource extends Link {
         super(href);
     }
 
-    public OwsOnlineResource(URI href, String title) {
+    public OwsOnlineResource(URI href, /*~~>*/String title) {
         super(href, title);
     }
 
-    public OwsOnlineResource(URI href, URI role, URI arcrole, String title, Show show, Actuate actuate) {
+    public OwsOnlineResource(URI href, URI role, URI arcrole, /*~~>*/String title, Show show, Actuate actuate) {
         super(href, role, arcrole, title, show, actuate);
     }
 

@@ -34,10 +34,10 @@ import com.google.common.collect.Sets;
 public class InspireSupportedCRS implements InspireObject {
 
     /* element DefaultCRS 1..1 */
-    private String defaultCRS;
+    private /*~~>*/String defaultCRS;
 
     /* element otherCRS 0..* */
-    private Set<String> otherCRS = Sets.newHashSet();
+    private Set</*~~>*/String> otherCRS = Sets.newHashSet();
 
     /**
      * constructor
@@ -45,7 +45,7 @@ public class InspireSupportedCRS implements InspireObject {
      * @param defaultCRS
      *            the mandatory default CRS
      */
-    public InspireSupportedCRS(String defaultCRS) {
+    public InspireSupportedCRS(/*~~>*/String defaultCRS) {
         setDefaultCRS(defaultCRS);
     }
 
@@ -54,7 +54,7 @@ public class InspireSupportedCRS implements InspireObject {
      *
      * @return the defaultCRS
      */
-    public String getDefaultCRS() {
+    public /*~~>*/String getDefaultCRS() {
         return defaultCRS;
     }
 
@@ -64,8 +64,8 @@ public class InspireSupportedCRS implements InspireObject {
      * @param defaultCRS
      *            the defaultCRS to set
      */
-    private void setDefaultCRS(String defaultCRS) {
-        this.defaultCRS = defaultCRS;
+    private void setDefaultCRS(/*~~>*/String defaultCRS) {
+        /*~~>*/this.defaultCRS = defaultCRS;
     }
 
     /**
@@ -73,7 +73,7 @@ public class InspireSupportedCRS implements InspireObject {
      *
      * @return the other CRS
      */
-    public Set<String> getOtherCRS() {
+    public Set</*~~>*/String> getOtherCRS() {
         return Collections.unmodifiableSet(otherCRS);
     }
 
@@ -84,7 +84,7 @@ public class InspireSupportedCRS implements InspireObject {
      *            the otherCRS to set
      * @return this
      */
-    public InspireSupportedCRS setOtherCRS(Collection<String> otherCRS) {
+    public InspireSupportedCRS setOtherCRS(Collection</*~~>*/String> otherCRS) {
         this.otherCRS.clear();
         if (CollectionHelper.isNotEmpty(otherCRS)) {
             this.otherCRS.addAll(otherCRS);
@@ -99,7 +99,7 @@ public class InspireSupportedCRS implements InspireObject {
      *            the other CRS to add
      * @return this
      */
-    public InspireSupportedCRS addOtherCRS(String otherCRS) {
+    public InspireSupportedCRS addOtherCRS(/*~~>*/String otherCRS) {
         if (!Strings.isNullOrEmpty(otherCRS)) {
             this.otherCRS.add(otherCRS);
         }
@@ -116,8 +116,8 @@ public class InspireSupportedCRS implements InspireObject {
     }
 
     @Override
-    public String toString() {
-        return String.format("%s %n[%n defaultCRS=%s,%n otherCRS=%s%n]", this.getClass().getSimpleName(),
+    public /*~~>*/String toString() {
+        return /*~~>*/String.format("%s %n[%n defaultCRS=%s,%n otherCRS=%s%n]", this.getClass().getSimpleName(),
                 getDefaultCRS(), CollectionHelper.collectionToString(getOtherCRS()));
     }
 

@@ -26,26 +26,26 @@ import com.google.common.base.Strings;
  */
 public class InsertResultRequest extends OwsServiceRequest {
 
-    private String templateIdentifier;
-    private String resultValues;
+    private /*~~>*/String templateIdentifier;
+    private /*~~>*/String resultValues;
 
     public InsertResultRequest() {
         super(null, null, Sos2Constants.Operations.InsertResult.name());
     }
 
-    public InsertResultRequest(String service, String version) {
+    public InsertResultRequest(/*~~>*/String service, /*~~>*/String version) {
         super(service, version, Sos2Constants.Operations.InsertResult.name());
     }
 
-    public InsertResultRequest(String service, String version, String operationName) {
+    public InsertResultRequest(/*~~>*/String service, /*~~>*/String version, /*~~>*/String operationName) {
         super(service, version, operationName);
     }
 
-    public void setTemplateIdentifier(String templateIdentifier) {
-        this.templateIdentifier = templateIdentifier;
+    public void setTemplateIdentifier(/*~~>*/String templateIdentifier) {
+        /*~~>*/this.templateIdentifier = templateIdentifier;
     }
 
-    public String getTemplateIdentifier() {
+    public /*~~>*/String getTemplateIdentifier() {
         return templateIdentifier;
     }
 
@@ -53,11 +53,11 @@ public class InsertResultRequest extends OwsServiceRequest {
         return !Strings.isNullOrEmpty(getTemplateIdentifier());
     }
 
-    public void setResultValues(String resultValues) {
-        this.resultValues = resultValues;
+    public void setResultValues(/*~~>*/String resultValues) {
+        /*~~>*/this.resultValues = resultValues;
     }
 
-    public String getResultValues() {
+    public /*~~>*/String getResultValues() {
         return resultValues;
     }
 

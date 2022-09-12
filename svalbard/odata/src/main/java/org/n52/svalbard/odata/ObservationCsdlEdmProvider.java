@@ -73,16 +73,16 @@ import java.util.List;
  */
 public class ObservationCsdlEdmProvider extends CsdlAbstractEdmProvider {
 
-    private static final String CONTAINER_NAME = "Container";
-    private static final String NS_OM = OmConstants.NS_OM_PREFIX;
-    private static final String NS_GML = GmlConstants.NS_GML_PREFIX;
+    private static final /*~~>*/String CONTAINER_NAME = "Container";
+    private static final /*~~>*/String NS_OM = /*~~>*/OmConstants.NS_OM_PREFIX;
+    private static final /*~~>*/String NS_GML = /*~~>*/GmlConstants.NS_GML_PREFIX;
 
     @Override
     public CsdlEntityContainer getEntityContainer() throws ODataException {
         CsdlEntityContainer entityContainer = new CsdlEntityContainer();
         entityContainer.setName(CONTAINER_NAME);
         entityContainer.setEntitySets(Collections
-                                              .singletonList(getEntitySet(FQN.CONTAINER, Prop.OBSERVATION_COLLECTION)));
+                                              .singletonList(getEntitySet(FQN.CONTAINER, /*~~>*/Prop.OBSERVATION_COLLECTION)));
         return entityContainer;
     }
 
@@ -95,10 +95,10 @@ public class ObservationCsdlEdmProvider extends CsdlAbstractEdmProvider {
     }
 
     @Override
-    public CsdlEntitySet getEntitySet(FullQualifiedName container, String name) throws ODataException {
+    public CsdlEntitySet getEntitySet(FullQualifiedName container, /*~~>*/String name) throws ODataException {
         if (container.equals(FQN.CONTAINER)) {
-            if (name.equals(Prop.OBSERVATION_COLLECTION)) {
-                return newEntitySet(Prop.OBSERVATION_COLLECTION, FQN.OBSERVATION);
+            if (name.equals(/*~~>*/Prop.OBSERVATION_COLLECTION)) {
+                return newEntitySet(/*~~>*/Prop.OBSERVATION_COLLECTION, FQN.OBSERVATION);
             }
         }
         return super.getEntitySet(container, name);
@@ -110,55 +110,55 @@ public class ObservationCsdlEdmProvider extends CsdlAbstractEdmProvider {
      * @param property the property
      * @return the value reference
      */
-    public String mapProperty(String property) {
+    public /*~~>*/String mapProperty(/*~~>*/String property) {
         if (property == null) {
             return null;
         }
         switch (property) {
-            case Prop.VALUE:
-            case Prop.VALUES:
-            case Prop.COUNT_VALUE:
-            case Prop.COUNT_VALUES:
-            case Prop.NUMERIC_VALUE:
-            case Prop.NUMERIC_VALUES:
-            case Prop.TEXT_VALUE:
-            case Prop.TEXT_VALUES:
-            case Prop.QUANTITY:
-            case Prop.QUANTITIES:
-            case Prop.RESULT:
-                return ValueReference.RESULT;
+            case /*~~>*/Prop.VALUE:
+            case /*~~>*/Prop.VALUES:
+            case /*~~>*/Prop.COUNT_VALUE:
+            case /*~~>*/Prop.COUNT_VALUES:
+            case /*~~>*/Prop.NUMERIC_VALUE:
+            case /*~~>*/Prop.NUMERIC_VALUES:
+            case /*~~>*/Prop.TEXT_VALUE:
+            case /*~~>*/Prop.TEXT_VALUES:
+            case /*~~>*/Prop.QUANTITY:
+            case /*~~>*/Prop.QUANTITIES:
+            case /*~~>*/Prop.RESULT:
+                return /*~~>*/ValueReference.RESULT;
 
-            case Prop.SAMPLING_GEOMETRY:
-                return ValueReference.SAMPLING_GEOMETRY;
+            case /*~~>*/Prop.SAMPLING_GEOMETRY:
+                return /*~~>*/ValueReference.SAMPLING_GEOMETRY;
 
-            case Prop.PHENOMENON_TIME:
-                return ValueReference.PHENOMENON_TIME;
+            case /*~~>*/Prop.PHENOMENON_TIME:
+                return /*~~>*/ValueReference.PHENOMENON_TIME;
 
-            case Prop.RESULT_TIME:
-                return ValueReference.RESULT_TIME;
+            case /*~~>*/Prop.RESULT_TIME:
+                return /*~~>*/ValueReference.RESULT_TIME;
 
-            case Prop.VALID_TIME:
-                return ValueReference.VALID_TIME;
+            case /*~~>*/Prop.VALID_TIME:
+                return /*~~>*/ValueReference.VALID_TIME;
 
-            case Prop.OBSERVED_PROPERTY:
-                return ValueReference.OBSERVED_PROPERTY;
+            case /*~~>*/Prop.OBSERVED_PROPERTY:
+                return /*~~>*/ValueReference.OBSERVED_PROPERTY;
 
-            case Prop.PROCEDURE:
-                return ValueReference.PROCEDURE;
+            case /*~~>*/Prop.PROCEDURE:
+                return /*~~>*/ValueReference.PROCEDURE;
 
-            case Prop.FEATURE_OF_INTEREST_ID:
-            case Prop.FEATURE_OF_INTEREST:
-                return ValueReference.FEATURE_OF_INTEREST;
-            case Prop.FEATURE:
-            case Prop.FEATURE_OF_INTEREST_SHAPE:
-                return ValueReference.FEATURE_OF_INTEREST_SHAPE;
+            case /*~~>*/Prop.FEATURE_OF_INTEREST_ID:
+            case /*~~>*/Prop.FEATURE_OF_INTEREST:
+                return /*~~>*/ValueReference.FEATURE_OF_INTEREST;
+            case /*~~>*/Prop.FEATURE:
+            case /*~~>*/Prop.FEATURE_OF_INTEREST_SHAPE:
+                return /*~~>*/ValueReference.FEATURE_OF_INTEREST_SHAPE;
 
-            case Prop.OFFERING:
-                return ValueReference.OFFERING;
+            case /*~~>*/Prop.OFFERING:
+                return /*~~>*/ValueReference.OFFERING;
 
-            case Prop.ID:
-            case Prop.IDENTIFIER:
-                return ValueReference.IDENTIFIER;
+            case /*~~>*/Prop.ID:
+            case /*~~>*/Prop.IDENTIFIER:
+                return /*~~>*/ValueReference.IDENTIFIER;
 
             default:
                 return property;
@@ -170,31 +170,31 @@ public class ObservationCsdlEdmProvider extends CsdlAbstractEdmProvider {
         if (name.equals(FQN.OBSERVATION)) {
             return new CsdlEntityType()
                            .setName(FQN.OBSERVATION.getName())
-                           .setKey(Collections.singletonList(newPropertyRef(Prop.IDENTIFIER)))
+                           .setKey(Collections.singletonList(newPropertyRef(/*~~>*/Prop.IDENTIFIER)))
                            .setOpenType(true)
                            .setProperties(Arrays.asList(
-                                   newProperty(Prop.IDENTIFIER, FQN.STRING),
-                                   newProperty(Prop.ID, FQN.STRING),
-                                   newProperty(Prop.VALUE, FQN.STRING),
-                                   newProperty(Prop.VALUES, FQN.STRING),
-                                   newProperty(Prop.COUNT_VALUE, FQN.COUNT),
-                                   newProperty(Prop.COUNT_VALUES, FQN.COUNT),
-                                   newProperty(Prop.NUMERIC_VALUE, FQN.QUANTITY),
-                                   newProperty(Prop.NUMERIC_VALUES, FQN.QUANTITY),
-                                   newProperty(Prop.QUANTITY, FQN.QUANTITY),
-                                   newProperty(Prop.QUANTITIES, FQN.QUANTITY),
-                                   newProperty(Prop.TEXT_VALUE, FQN.STRING),
-                                   newProperty(Prop.TEXT_VALUES, FQN.STRING),
-                                   newProperty(Prop.RESULT, FQN.STRING),
-                                   newProperty(Prop.PHENOMENON_TIME, FQN.ABSTRACT_TIME_OBJECT),
-                                   newProperty(Prop.RESULT_TIME, FQN.ABSTRACT_TIME_OBJECT),
-                                   newProperty(Prop.VALID_TIME, FQN.TIME_PERIOD),
-                                   newProperty(Prop.OBSERVED_PROPERTY, FQN.STRING),
-                                   newProperty(Prop.PROCEDURE, FQN.STRING),
-                                   newProperty(Prop.FEATURE, FQN.FEATURE_OF_INTEREST),
-                                   newProperty(Prop.FEATURE_OF_INTEREST, FQN.FEATURE_OF_INTEREST),
-                                   newProperty(Prop.SAMPLING_GEOMETRY, FQN.GEOMETRY_POINT),
-                                   newProperty(Prop.OFFERING, FQN.STRING)));
+                                   newProperty(/*~~>*/Prop.IDENTIFIER, FQN.STRING),
+                                   newProperty(/*~~>*/Prop.ID, FQN.STRING),
+                                   newProperty(/*~~>*/Prop.VALUE, FQN.STRING),
+                                   newProperty(/*~~>*/Prop.VALUES, FQN.STRING),
+                                   newProperty(/*~~>*/Prop.COUNT_VALUE, FQN.COUNT),
+                                   newProperty(/*~~>*/Prop.COUNT_VALUES, FQN.COUNT),
+                                   newProperty(/*~~>*/Prop.NUMERIC_VALUE, FQN.QUANTITY),
+                                   newProperty(/*~~>*/Prop.NUMERIC_VALUES, FQN.QUANTITY),
+                                   newProperty(/*~~>*/Prop.QUANTITY, FQN.QUANTITY),
+                                   newProperty(/*~~>*/Prop.QUANTITIES, FQN.QUANTITY),
+                                   newProperty(/*~~>*/Prop.TEXT_VALUE, FQN.STRING),
+                                   newProperty(/*~~>*/Prop.TEXT_VALUES, FQN.STRING),
+                                   newProperty(/*~~>*/Prop.RESULT, FQN.STRING),
+                                   newProperty(/*~~>*/Prop.PHENOMENON_TIME, FQN.ABSTRACT_TIME_OBJECT),
+                                   newProperty(/*~~>*/Prop.RESULT_TIME, FQN.ABSTRACT_TIME_OBJECT),
+                                   newProperty(/*~~>*/Prop.VALID_TIME, FQN.TIME_PERIOD),
+                                   newProperty(/*~~>*/Prop.OBSERVED_PROPERTY, FQN.STRING),
+                                   newProperty(/*~~>*/Prop.PROCEDURE, FQN.STRING),
+                                   newProperty(/*~~>*/Prop.FEATURE, FQN.FEATURE_OF_INTEREST),
+                                   newProperty(/*~~>*/Prop.FEATURE_OF_INTEREST, FQN.FEATURE_OF_INTEREST),
+                                   newProperty(/*~~>*/Prop.SAMPLING_GEOMETRY, FQN.GEOMETRY_POINT),
+                                   newProperty(/*~~>*/Prop.OFFERING, FQN.STRING)));
         }
         return super.getEntityType(name);
     }
@@ -222,12 +222,12 @@ public class ObservationCsdlEdmProvider extends CsdlAbstractEdmProvider {
         } else if (name.equals(FQN.TIME_PERIOD)) {
             return newComplexType(FQN.TIME_PERIOD,
                                   FQN.ABSTRACT_TIME_OBJECT,
-                                  newProperty(Prop.EN_BEGIN_POSITION, FQN.DATE_TIME),
-                                  newProperty(Prop.EN_END_POSITION, FQN.DATE_TIME));
+                                  newProperty(/*~~>*/Prop.EN_BEGIN_POSITION, FQN.DATE_TIME),
+                                  newProperty(/*~~>*/Prop.EN_END_POSITION, FQN.DATE_TIME));
         } else if (name.equals(FQN.FEATURE_OF_INTEREST)) {
             return newComplexType(FQN.FEATURE_OF_INTEREST,
-                                  newProperty(Prop.ID, FQN.STRING),
-                                  newProperty(Prop.SHAPE, FQN.GEOMETRY_POINT));
+                                  newProperty(/*~~>*/Prop.ID, FQN.STRING),
+                                  newProperty(/*~~>*/Prop.SHAPE, FQN.GEOMETRY_POINT));
         } else if (name.equals(FQN.RESULT)) {
             return newAbstractComplexType(FQN.RESULT);
         } else {
@@ -235,11 +235,11 @@ public class ObservationCsdlEdmProvider extends CsdlAbstractEdmProvider {
         }
     }
 
-    private static CsdlProperty newProperty(String name, FullQualifiedName type) {
+    private static CsdlProperty newProperty(/*~~>*/String name, FullQualifiedName type) {
         return new CsdlProperty().setName(name).setType(type);
     }
 
-    private static CsdlEntitySet newEntitySet(String name, FullQualifiedName type) {
+    private static CsdlEntitySet newEntitySet(/*~~>*/String name, FullQualifiedName type) {
         return new CsdlEntitySet().setName(name).setType(type);
     }
 
@@ -247,7 +247,7 @@ public class ObservationCsdlEdmProvider extends CsdlAbstractEdmProvider {
         return new CsdlEntityContainerInfo().setContainerName(name);
     }
 
-    private static CsdlPropertyRef newPropertyRef(String name) {
+    private static CsdlPropertyRef newPropertyRef(/*~~>*/String name) {
         return new CsdlPropertyRef().setName(name);
     }
 
@@ -275,12 +275,12 @@ public class ObservationCsdlEdmProvider extends CsdlAbstractEdmProvider {
      */
     private interface FQN {
         FullQualifiedName CONTAINER = new FullQualifiedName(NS_OM, CONTAINER_NAME);
-        FullQualifiedName OBSERVATION = new FullQualifiedName(NS_OM, Prop.OBSERVATION);
-        FullQualifiedName TIME_PERIOD = new FullQualifiedName(NS_OM, Prop.TIME_PERIOD);
-        FullQualifiedName ABSTRACT_TIME_OBJECT = new FullQualifiedName(NS_GML, Prop.ABSTRACT_TIME_OBJECT);
-        FullQualifiedName TIME_INSTANT = new FullQualifiedName(NS_OM, Prop.TIME_INSTANT);
-        FullQualifiedName RESULT = new FullQualifiedName(NS_OM, Prop.RESULT);
-        FullQualifiedName FEATURE_OF_INTEREST = new FullQualifiedName(NS_OM, Prop.FEATURE_OF_INTEREST);
+        FullQualifiedName OBSERVATION = new FullQualifiedName(NS_OM, /*~~>*/Prop.OBSERVATION);
+        FullQualifiedName TIME_PERIOD = new FullQualifiedName(NS_OM, /*~~>*/Prop.TIME_PERIOD);
+        FullQualifiedName ABSTRACT_TIME_OBJECT = new FullQualifiedName(NS_GML, /*~~>*/Prop.ABSTRACT_TIME_OBJECT);
+        FullQualifiedName TIME_INSTANT = new FullQualifiedName(NS_OM, /*~~>*/Prop.TIME_INSTANT);
+        FullQualifiedName RESULT = new FullQualifiedName(NS_OM, /*~~>*/Prop.RESULT);
+        FullQualifiedName FEATURE_OF_INTEREST = new FullQualifiedName(NS_OM, /*~~>*/Prop.FEATURE_OF_INTEREST);
         FullQualifiedName STRING = EdmPrimitiveTypeKind.String.getFullQualifiedName();
         FullQualifiedName DATE_TIME = EdmPrimitiveTypeKind.String.getFullQualifiedName();
         FullQualifiedName QUANTITY = EdmPrimitiveTypeKind.Decimal.getFullQualifiedName();
@@ -292,40 +292,40 @@ public class ObservationCsdlEdmProvider extends CsdlAbstractEdmProvider {
      * Property constants.
      */
     private interface Prop {
-        String VALUE = "value";
-        String VALUES = "values";
-        String COUNT_VALUE = "countValue";
-        String COUNT_VALUES = "countValues";
-        String NUMERIC_VALUE = "numericValue";
-        String NUMERIC_VALUES = "numericValues";
-        String TEXT_VALUE = "textValue";
-        String TEXT_VALUES = "textValues";
-        String OFFERING = "offering";
-        String SAMPLING_GEOMETRY = "samplingGeometry";
-        String QUANTITIES = "quantities";
-        String QUANTITY = "quantity";
-        String ID = "id";
-        String IDENTIFIER = GmlConstants.EN_IDENTIFIER;
-        String RESULT = OmConstants.EN_RESULT;
-        String PHENOMENON_TIME = OmConstants.EN_PHENOMENON_TIME;
-        String RESULT_TIME = OmConstants.EN_RESULT_TIME;
-        String VALID_TIME = OmConstants.EN_VALID_TIME;
-        String PROCEDURE = OmConstants.EN_PROCEDURE;
-        String FEATURE_OF_INTEREST = OmConstants.EN_FEATURE_OF_INTEREST;
-        String OBSERVED_PROPERTY = OmConstants.EN_OBSERVED_PROPERTY;
+        /*~~>*/String VALUE = "value";
+        /*~~>*/String VALUES = "values";
+        /*~~>*/String COUNT_VALUE = "countValue";
+        /*~~>*/String COUNT_VALUES = "countValues";
+        /*~~>*/String NUMERIC_VALUE = "numericValue";
+        /*~~>*/String NUMERIC_VALUES = "numericValues";
+        /*~~>*/String TEXT_VALUE = "textValue";
+        /*~~>*/String TEXT_VALUES = "textValues";
+        /*~~>*/String OFFERING = "offering";
+        /*~~>*/String SAMPLING_GEOMETRY = "samplingGeometry";
+        /*~~>*/String QUANTITIES = "quantities";
+        /*~~>*/String QUANTITY = "quantity";
+        /*~~>*/String ID = "id";
+        /*~~>*/String IDENTIFIER = /*~~>*/GmlConstants.EN_IDENTIFIER;
+        /*~~>*/String RESULT = /*~~>*/OmConstants.EN_RESULT;
+        /*~~>*/String PHENOMENON_TIME = /*~~>*/OmConstants.EN_PHENOMENON_TIME;
+        /*~~>*/String RESULT_TIME = /*~~>*/OmConstants.EN_RESULT_TIME;
+        /*~~>*/String VALID_TIME = /*~~>*/OmConstants.EN_VALID_TIME;
+        /*~~>*/String PROCEDURE = /*~~>*/OmConstants.EN_PROCEDURE;
+        /*~~>*/String FEATURE_OF_INTEREST = /*~~>*/OmConstants.EN_FEATURE_OF_INTEREST;
+        /*~~>*/String OBSERVED_PROPERTY = /*~~>*/OmConstants.EN_OBSERVED_PROPERTY;
 
-        String OBSERVATION_COLLECTION = OmConstants.EN_OBSERVATION_COLLECTION;
-        String OBSERVATION = OmConstants.EN_OBSERVATION;
-        String ABSTRACT_TIME_OBJECT = GmlConstants.EN_ABSTRACT_TIME_OBJECT;
-        String TIME_INSTANT = GmlConstants.EN_TIME_INSTANT;
-        String TIME_PERIOD = GmlConstants.EN_TIME_PERIOD;
-        String SHAPE = "shape";
-        String EN_END_POSITION = GmlConstants.EN_END_POSITION;
-        String EN_BEGIN_POSITION = GmlConstants.EN_BEGIN_POSITION;
+        /*~~>*/String OBSERVATION_COLLECTION = /*~~>*/OmConstants.EN_OBSERVATION_COLLECTION;
+        /*~~>*/String OBSERVATION = /*~~>*/OmConstants.EN_OBSERVATION;
+        /*~~>*/String ABSTRACT_TIME_OBJECT = /*~~>*/GmlConstants.EN_ABSTRACT_TIME_OBJECT;
+        /*~~>*/String TIME_INSTANT = /*~~>*/GmlConstants.EN_TIME_INSTANT;
+        /*~~>*/String TIME_PERIOD = /*~~>*/GmlConstants.EN_TIME_PERIOD;
+        /*~~>*/String SHAPE = "shape";
+        /*~~>*/String EN_END_POSITION = /*~~>*/GmlConstants.EN_END_POSITION;
+        /*~~>*/String EN_BEGIN_POSITION = /*~~>*/GmlConstants.EN_BEGIN_POSITION;
 
-        String FEATURE = "feature";
-        String FEATURE_OF_INTEREST_ID = "featureOfInterest/id";
-        String FEATURE_OF_INTEREST_SHAPE = "featureOfInterest/shape";
+        /*~~>*/String FEATURE = "feature";
+        /*~~>*/String FEATURE_OF_INTEREST_ID = "featureOfInterest/id";
+        /*~~>*/String FEATURE_OF_INTEREST_SHAPE = "featureOfInterest/shape";
 
     }
 
@@ -333,17 +333,17 @@ public class ObservationCsdlEdmProvider extends CsdlAbstractEdmProvider {
      * Value reference constants.
      */
     private interface ValueReference {
-        String RESULT = "om:result";
-        String PHENOMENON_TIME = "om:phenomenonTime";
-        String RESULT_TIME = "om:resultTime";
-        String VALID_TIME = "om:validTime";
-        String OBSERVED_PROPERTY = "om:observedProperty";
-        String PROCEDURE = "om:procedure";
-        String FEATURE_OF_INTEREST = "om:featureOfInterest";
-        String OFFERING = "sos:offering";
-        String IDENTIFIER = "gml:identifier";
-        String FEATURE_OF_INTEREST_SHAPE = "om:featureOfInterest/*/sams:shape";
-        String SAMPLING_GEOMETRY = Sos2Constants.VALUE_REFERENCE_SPATIAL_FILTERING_PROFILE;
+        /*~~>*/String RESULT = "om:result";
+        /*~~>*/String PHENOMENON_TIME = "om:phenomenonTime";
+        /*~~>*/String RESULT_TIME = "om:resultTime";
+        /*~~>*/String VALID_TIME = "om:validTime";
+        /*~~>*/String OBSERVED_PROPERTY = "om:observedProperty";
+        /*~~>*/String PROCEDURE = "om:procedure";
+        /*~~>*/String FEATURE_OF_INTEREST = "om:featureOfInterest";
+        /*~~>*/String OFFERING = "sos:offering";
+        /*~~>*/String IDENTIFIER = "gml:identifier";
+        /*~~>*/String FEATURE_OF_INTEREST_SHAPE = "om:featureOfInterest/*/sams:shape";
+        /*~~>*/String SAMPLING_GEOMETRY = /*~~>*/Sos2Constants.VALUE_REFERENCE_SPATIAL_FILTERING_PROFILE;
     }
 
 }

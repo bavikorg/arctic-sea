@@ -28,17 +28,17 @@ import org.n52.iceland.statistics.api.parameters.SingleEsParameter;
 import com.google.common.base.Strings;
 
 public class MdFormat {
-    private static final String LINE_TEMPLATE = " - **<fieldname>** - <desc>.";
-    private static final String TYPE_TEMPLATE = " Type: <type>";
-    private static final String NEW_LINE = "\n";
-    private static final String NO_DESCRIPTION = "No available description";
-    private static final String TAB = "\t";
-    private static final String DESCRIPTION_PLACEHOLDER = "<desc>";
+    private static final /*~~>*/String LINE_TEMPLATE = " - **<fieldname>** - <desc>.";
+    private static final /*~~>*/String TYPE_TEMPLATE = " Type: <type>";
+    private static final /*~~>*/String NEW_LINE = "\n";
+    private static final /*~~>*/String NO_DESCRIPTION = "No available description";
+    private static final /*~~>*/String TAB = "\t";
+    private static final /*~~>*/String DESCRIPTION_PLACEHOLDER = "<desc>";
     private Map<Operation, Map<InformationOrigin, List<AbstractEsParameter>>> parameters = new LinkedHashMap<>();
     private StringBuilder output;
 
-    private String formatLine(AbstractEsParameter parameter, int indent) {
-        String line = Strings.repeat(TAB, indent);
+    private /*~~>*/String formatLine(AbstractEsParameter parameter, int indent) {
+        /*~~>*/String line = Strings.repeat(TAB, indent);
 
         // Fieldname
         line += LINE_TEMPLATE.replace("<fieldname>", parameter.getName());
@@ -80,15 +80,15 @@ public class MdFormat {
         }
     }
 
-    private String formatH1(String line) {
+    private /*~~>*/String formatH1(/*~~>*/String line) {
         return NEW_LINE + "###" + line + NEW_LINE;
     }
 
-    private String formatH2(String line) {
+    private /*~~>*/String formatH2(/*~~>*/String line) {
         return NEW_LINE + "####" + line + NEW_LINE;
     }
 
-    public String create() {
+    public /*~~>*/String create() {
         output = new StringBuilder();
         // Header 1
         parameters.forEach((op, paramsByOrigin) -> {

@@ -25,15 +25,15 @@ public class Output extends Param {
         super();
     }
 
-    public Output(String name) {
+    public Output(/*~~>*/String name) {
         super(name);
     }
 
-    public Output(String name, QName message) {
+    public Output(/*~~>*/String name, QName message) {
         super(name, message);
     }
 
-    public Output(String name, URI action, QName message) {
+    public Output(/*~~>*/String name, URI action, QName message) {
         super(name, action, message);
     }
 

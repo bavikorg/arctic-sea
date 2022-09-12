@@ -33,17 +33,17 @@ import com.google.common.base.Strings;
  */
 public class EXExtent extends AbstractObject {
 
-    private String description;
+    private /*~~>*/String description;
     // private List<Object> exGeographicalExtent = new ArrayList<>();
     // private List<Object> exTemporalExtent = new ArrayList<>();
     private List<Referenceable<EXVerticalExtent>> exVerticalExtent = new ArrayList<>();
 
-    public String getDescription() {
+    public /*~~>*/String getDescription() {
         return description;
     }
 
-    public EXExtent setDescription(String description) {
-        this.description = description;
+    public EXExtent setDescription(/*~~>*/String description) {
+        /*~~>*/this.description = description;
         return this;
     }
 

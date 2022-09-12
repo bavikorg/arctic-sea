@@ -34,27 +34,27 @@ public class ComparisonFilter extends Filter<ComparisonOperator> {
     /**
      * filter value
      */
-    private String value;
+    private /*~~>*/String value;
 
     /**
      * filter value for between filter, value contains the lower value then
      */
-    private String valueUpper;
+    private /*~~>*/String valueUpper;
 
     /**
      * escape character
      */
-    private String escapeString;
+    private /*~~>*/String escapeString;
 
     /**
      * wild card character
      */
-    private String wildCard;
+    private /*~~>*/String wildCard;
 
     /**
      * single char character
      */
-    private String singleChar;
+    private /*~~>*/String singleChar;
 
     /**
      * match case flag
@@ -77,10 +77,10 @@ public class ComparisonFilter extends Filter<ComparisonOperator> {
      * @param value
      *            value
      */
-    public ComparisonFilter(ComparisonOperator operator, String valueReference, String value) {
+    public ComparisonFilter(ComparisonOperator operator, /*~~>*/String valueReference, /*~~>*/String value) {
         super(valueReference);
         this.operator = operator;
-        this.value = value;
+        /*~~>*/this.value = value;
     }
 
     /**
@@ -98,13 +98,13 @@ public class ComparisonFilter extends Filter<ComparisonOperator> {
      * @throws OwsExceptionReport
      *             If operator is not {@link ComparisonOperator#PropertyIsBetween}
      */
-    public ComparisonFilter(ComparisonOperator operator, String valueReference, String value, String valueUpper)
+    public ComparisonFilter(ComparisonOperator operator, /*~~>*/String valueReference, /*~~>*/String value, /*~~>*/String valueUpper)
             throws OwsExceptionReport {
         super(valueReference);
         if (operator == ComparisonOperator.PropertyIsBetween) {
             this.operator = operator;
-            this.value = value;
-            this.valueUpper = valueUpper;
+            /*~~>*/this.value = value;
+            /*~~>*/this.valueUpper = valueUpper;
         } else {
             throw new NoApplicableCodeException()
                     .withMessage("Use other constructor for ComparisonFilter! This constructor can only "
@@ -129,14 +129,14 @@ public class ComparisonFilter extends Filter<ComparisonOperator> {
      * @throws OwsExceptionReport
      *             If operator is not {@link ComparisonOperator#PropertyIsLike}
      */
-    public ComparisonFilter(ComparisonOperator operator, String valueReference, String value, String valueUpper,
-            String escapeString) throws OwsExceptionReport {
+    public ComparisonFilter(ComparisonOperator operator, /*~~>*/String valueReference, /*~~>*/String value, /*~~>*/String valueUpper,
+            /*~~>*/String escapeString) throws OwsExceptionReport {
         super(valueReference);
         if (operator == ComparisonOperator.PropertyIsLike) {
             this.operator = operator;
-            this.value = value;
-            this.valueUpper = valueUpper;
-            this.escapeString = escapeString;
+            /*~~>*/this.value = value;
+            /*~~>*/this.valueUpper = valueUpper;
+            /*~~>*/this.escapeString = escapeString;
         } else {
             throw new NoApplicableCodeException().withMessage("Use other constructor for ComparisonFilter! "
                     + "This constructor can only be used for operator 'PropertyIsLike'");
@@ -159,7 +159,7 @@ public class ComparisonFilter extends Filter<ComparisonOperator> {
      *
      * @return filter value
      */
-    public String getValue() {
+    public /*~~>*/String getValue() {
         return value;
     }
 
@@ -168,7 +168,7 @@ public class ComparisonFilter extends Filter<ComparisonOperator> {
      *
      * @return upper filter value
      */
-    public String getValueUpper() {
+    public /*~~>*/String getValueUpper() {
         return valueUpper;
     }
 
@@ -178,8 +178,8 @@ public class ComparisonFilter extends Filter<ComparisonOperator> {
      * @param value
      *            filter value
      */
-    public void setValue(String value) {
-        this.value = value;
+    public void setValue(/*~~>*/String value) {
+        /*~~>*/this.value = value;
     }
 
     /**
@@ -188,8 +188,8 @@ public class ComparisonFilter extends Filter<ComparisonOperator> {
      * @param valueUpper
      *            upper filter value
      */
-    public void setValueUpper(String valueUpper) {
-        this.valueUpper = valueUpper;
+    public void setValueUpper(/*~~>*/String valueUpper) {
+        /*~~>*/this.valueUpper = valueUpper;
     }
 
     /**
@@ -197,7 +197,7 @@ public class ComparisonFilter extends Filter<ComparisonOperator> {
      *
      * @return escape characters
      */
-    public String getEscapeString() {
+    public /*~~>*/String getEscapeString() {
         return escapeString;
     }
 
@@ -207,8 +207,8 @@ public class ComparisonFilter extends Filter<ComparisonOperator> {
      * @param escapeString
      *            escape characters
      */
-    public void setEscapeString(String escapeString) {
-        this.escapeString = escapeString;
+    public void setEscapeString(/*~~>*/String escapeString) {
+        /*~~>*/this.escapeString = escapeString;
     }
 
     /**
@@ -216,7 +216,7 @@ public class ComparisonFilter extends Filter<ComparisonOperator> {
      *
      * @return wild card character
      */
-    public String getWildCard() {
+    public /*~~>*/String getWildCard() {
         return wildCard;
     }
 
@@ -226,8 +226,8 @@ public class ComparisonFilter extends Filter<ComparisonOperator> {
      * @param wildCard
      *            wild card character
      */
-    public void setWildCard(String wildCard) {
-        this.wildCard = wildCard;
+    public void setWildCard(/*~~>*/String wildCard) {
+        /*~~>*/this.wildCard = wildCard;
     }
 
     /**
@@ -235,7 +235,7 @@ public class ComparisonFilter extends Filter<ComparisonOperator> {
      *
      * @return single char character
      */
-    public String getSingleChar() {
+    public /*~~>*/String getSingleChar() {
         return singleChar;
     }
 
@@ -245,8 +245,8 @@ public class ComparisonFilter extends Filter<ComparisonOperator> {
      * @param singleChar
      *            single char character
      */
-    public void setSingleChar(String singleChar) {
-        this.singleChar = singleChar;
+    public void setSingleChar(/*~~>*/String singleChar) {
+        /*~~>*/this.singleChar = singleChar;
     }
 
     /**
@@ -255,7 +255,7 @@ public class ComparisonFilter extends Filter<ComparisonOperator> {
      * @return <code>true</code>, if value is not empty
      */
     public boolean isSetValue() {
-        return this.value != null && !this.value.isEmpty();
+        return /*~~>*/this.value != null && !/*~~>*/this.value.isEmpty();
     }
 
     /**
@@ -264,7 +264,7 @@ public class ComparisonFilter extends Filter<ComparisonOperator> {
      * @return <code>true</code>, if value upper is not empty
      */
     public boolean isSetValueUpper() {
-        return this.valueUpper != null && !this.valueUpper.isEmpty();
+        return /*~~>*/this.valueUpper != null && !/*~~>*/this.valueUpper.isEmpty();
     }
 
     /**
@@ -273,7 +273,7 @@ public class ComparisonFilter extends Filter<ComparisonOperator> {
      * @return <code>true</code>, if escape string is not empty
      */
     public boolean isSetEscapeString() {
-        return this.escapeString != null && !this.escapeString.isEmpty();
+        return /*~~>*/this.escapeString != null && !/*~~>*/this.escapeString.isEmpty();
     }
 
     /**
@@ -282,7 +282,7 @@ public class ComparisonFilter extends Filter<ComparisonOperator> {
      * @return <code>true</code>, if wild card is not empty
      */
     public boolean isSetWildCard() {
-        return this.wildCard != null && !this.wildCard.isEmpty();
+        return /*~~>*/this.wildCard != null && !/*~~>*/this.wildCard.isEmpty();
     }
 
     /**
@@ -291,7 +291,7 @@ public class ComparisonFilter extends Filter<ComparisonOperator> {
      * @return <code>true</code>, if single char is not empty
      */
     public boolean isSetSingleChar() {
-        return this.singleChar != null && !this.singleChar.isEmpty();
+        return /*~~>*/this.singleChar != null && !/*~~>*/this.singleChar.isEmpty();
     }
 
     /**
@@ -336,8 +336,8 @@ public class ComparisonFilter extends Filter<ComparisonOperator> {
     }
 
     @Override
-    public String toString() {
-        String result = "ComparisonFilter: ";
+    public /*~~>*/String toString() {
+        /*~~>*/String result = "ComparisonFilter: ";
         if (isSetValueUpper()) {
             return result + getValueReference() + " " + getValue() + " " + getOperator().name() + " "
                     + getValueUpper();

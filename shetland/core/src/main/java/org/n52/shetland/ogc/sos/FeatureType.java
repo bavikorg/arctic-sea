@@ -23,7 +23,7 @@ import org.n52.shetland.ogc.AbstractSupportedStringType;
  * @author Christian Autermann
  */
 public class FeatureType extends AbstractSupportedStringType {
-    public FeatureType(String value) {
+    public FeatureType(/*~~>*/String value) {
         super(value);
     }
 

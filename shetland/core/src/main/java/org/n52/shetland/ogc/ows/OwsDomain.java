@@ -28,13 +28,13 @@ import edu.umd.cs.findbugs.annotations.SuppressFBWarnings;
  * @author Christian Autermann
  */
 public class OwsDomain extends OwsUnNamedDomain implements Comparable<OwsDomain> {
-    private String name;
+    private /*~~>*/String name;
 
     public OwsDomain(Enum<?> name, OwsPossibleValues possibleValues) {
         this(name.toString(), possibleValues, null, null, null, null, null);
     }
 
-    public OwsDomain(String name, OwsPossibleValues possibleValues) {
+    public OwsDomain(/*~~>*/String name, OwsPossibleValues possibleValues) {
         this(name, possibleValues, null, null, null, null, null);
     }
 
@@ -47,25 +47,25 @@ public class OwsDomain extends OwsUnNamedDomain implements Comparable<OwsDomain>
         this(name.toString(), possibleValues, defaultValue, meaning, dataType, valuesUnit, metadata);
     }
 
-    public OwsDomain(String name, OwsPossibleValues possibleValues, OwsValue defaultValue) {
+    public OwsDomain(/*~~>*/String name, OwsPossibleValues possibleValues, OwsValue defaultValue) {
         this(name, possibleValues, defaultValue, null, null, null, null);
 
     }
 
     @SuppressFBWarnings("NP_NULL_ON_SOME_PATH_FROM_RETURN_VALUE")
-    public OwsDomain(String name, OwsPossibleValues possibleValues, OwsValue defaultValue, OwsDomainMetadata meaning,
+    public OwsDomain(/*~~>*/String name, OwsPossibleValues possibleValues, OwsValue defaultValue, OwsDomainMetadata meaning,
             OwsDomainMetadata dataType, OwsValuesUnit valuesUnit, Collection<OwsMetadata> metadata) {
         super(possibleValues, defaultValue, meaning, dataType, valuesUnit, metadata);
-        this.name = Objects.requireNonNull(Strings.emptyToNull(name), "name");
+        /*~~>*/this.name = Objects.requireNonNull(Strings.emptyToNull(name), "name");
     }
 
-    public String getName() {
-        return this.name;
+    public /*~~>*/String getName() {
+        return /*~~>*/this.name;
     }
 
     @SuppressFBWarnings("NP_NULL_ON_SOME_PATH_FROM_RETURN_VALUE")
-    public void setName(String name) {
-        this.name = Objects.requireNonNull(Strings.emptyToNull(name));
+    public void setName(/*~~>*/String name) {
+        /*~~>*/this.name = Objects.requireNonNull(Strings.emptyToNull(name));
     }
 
     public void setName(Enum<?> name) {
@@ -80,7 +80,7 @@ public class OwsDomain extends OwsUnNamedDomain implements Comparable<OwsDomain>
     @Override
     public int hashCode() {
         int hash = super.hashCode();
-        hash = 41 * hash + Objects.hashCode(this.name);
+        hash = 41 * hash + Objects.hashCode(/*~~>*/this.name);
         return hash;
     }
 
@@ -96,11 +96,11 @@ public class OwsDomain extends OwsUnNamedDomain implements Comparable<OwsDomain>
             return false;
         }
         final OwsDomain other = (OwsDomain) obj;
-        return super.equals(obj) && Objects.equals(this.name, other.name);
+        return super.equals(obj) && Objects.equals(/*~~>*/this.name, /*~~>*/other.name);
     }
 
     @Override
-    public String toString() {
+    public /*~~>*/String toString() {
         return "OwsDomain{" + "name=" + name + '}';
     }
 

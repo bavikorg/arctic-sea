@@ -26,24 +26,24 @@ import javax.annotation.Nullable;
  */
 public abstract class LocationHintException extends StringInterpolationException {
     private static final long serialVersionUID = -5034943514826747244L;
-    private final String location;
+    private final /*~~>*/String location;
 
-    public LocationHintException(@Nullable String message,
+    public LocationHintException(@Nullable /*~~>*/String message,
                                  @Nullable Object... args) {
-        this(null, (String) null, message, args);
+        this(null, (/*~~>*/String) null, message, args);
     }
 
-    public LocationHintException(@Nullable String message,
+    public LocationHintException(@Nullable /*~~>*/String message,
                                  @Nullable Throwable cause) {
-        this(cause, (String) null, message, (Object[]) null);
+        this(cause, (/*~~>*/String) null, message, (Object[]) null);
     }
 
     public LocationHintException(@Nullable Throwable cause) {
-        this(cause, (String) null, null, (Object[]) null);
+        this(cause, (/*~~>*/String) null, null, (Object[]) null);
     }
 
     public LocationHintException(@Nullable Throwable cause,
-                                 @Nullable String location) {
+                                 @Nullable /*~~>*/String location) {
         this(cause, location, null, (Object[]) null);
     }
 
@@ -52,40 +52,40 @@ public abstract class LocationHintException extends StringInterpolationException
         this(cause, location, null, (Object[]) null);
     }
 
-    public LocationHintException(@Nullable String location,
-                                 @Nullable String message,
+    public LocationHintException(@Nullable /*~~>*/String location,
+                                 @Nullable /*~~>*/String message,
                                  @Nullable Object... args) {
         this(null, location, message, args);
     }
 
     public LocationHintException(@Nullable Enum<?> location,
-                                 @Nullable String message,
+                                 @Nullable /*~~>*/String message,
                                  @Nullable Object... args) {
         this(null, location, message, args);
     }
 
     public LocationHintException(@Nullable Throwable cause,
-                                 @Nullable String message,
+                                 @Nullable /*~~>*/String message,
                                  @Nullable Object... args) {
-        this(cause, (String) null, message, args);
+        this(cause, (/*~~>*/String) null, message, args);
     }
 
     public LocationHintException(@Nullable Throwable cause,
                                  @Nullable Enum<?> location,
-                                 @Nullable String message,
+                                 @Nullable /*~~>*/String message,
                                  @Nullable Object... args) {
-        this(cause, location == null ? (String) null : location.name(), message, args);
+        this(cause, location == null ? (/*~~>*/String) null : location.name(), message, args);
     }
 
     public LocationHintException(@Nullable Throwable cause,
-                                 @Nullable String location,
-                                 @Nullable String message,
+                                 @Nullable /*~~>*/String location,
+                                 @Nullable /*~~>*/String message,
                                  @Nullable Object... args) {
         super(cause, message, args);
-        this.location = (location == null || location.isEmpty()) ? null : location;
+        /*~~>*/this.location = (location == null || location.isEmpty()) ? null : location;
     }
 
-    public Optional<String> getLocation() {
+    public Optional</*~~>*/String> getLocation() {
         return Optional.ofNullable(location);
     }
 

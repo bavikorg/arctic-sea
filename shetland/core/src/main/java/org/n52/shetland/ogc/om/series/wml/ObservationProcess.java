@@ -28,7 +28,7 @@ public class ObservationProcess extends AbstractObservationProcess {
         super();
     }
 
-    public ObservationProcess(String identifier) {
+    public ObservationProcess(/*~~>*/String identifier) {
         super(identifier);
     }
 
@@ -36,12 +36,12 @@ public class ObservationProcess extends AbstractObservationProcess {
         super(featureIdentifier);
     }
 
-    public ObservationProcess(CodeWithAuthority featureIdentifier, String gmlId) {
+    public ObservationProcess(CodeWithAuthority featureIdentifier, /*~~>*/String gmlId) {
         super(featureIdentifier, gmlId);
     }
 
     @Override
-    public String getDefaultElementEncoding() {
-        return WaterMLConstants.NS_WML_20_PROCEDURE_ENCODING;
+    public /*~~>*/String getDefaultElementEncoding() {
+        return /*~~>*/WaterMLConstants.NS_WML_20_PROCEDURE_ENCODING;
     }
 }

@@ -37,13 +37,13 @@ public class ResultNotReadyException extends CodedWpsException {
         setStatus(HTTPStatus.BAD_REQUEST);
     }
 
-    public ResultNotReadyException(final String parameterName, final String value) {
+    public ResultNotReadyException(final /*~~>*/String parameterName, final /*~~>*/String value) {
         super(WpsExceptionCode.ResultNotReady);
         withMessage("The result for the job with id '%s' is not ready.", value).at(parameterName);
         setStatus(HTTPStatus.BAD_REQUEST);
     }
 
-    public ResultNotReadyException(final Enum<?> parameterName, final String value) {
+    public ResultNotReadyException(final Enum<?> parameterName, final /*~~>*/String value) {
         this(parameterName.name(), value);
     }
 }

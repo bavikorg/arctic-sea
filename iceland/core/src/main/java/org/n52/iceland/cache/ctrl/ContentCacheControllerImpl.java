@@ -264,8 +264,8 @@ public class ContentCacheControllerImpl extends AbstractSchedulingContentCacheCo
         }
 
         @Override
-        public String toString() {
-            return String.format("PartialUpdate[#%d]", nr);
+        public /*~~>*/String toString() {
+            return /*~~>*/String.format("PartialUpdate[#%d]", nr);
         }
     }
 
@@ -390,8 +390,8 @@ public class ContentCacheControllerImpl extends AbstractSchedulingContentCacheCo
         }
 
         @Override
-        public String toString() {
-            return String.format("CompleteUpdate[#%d]", nr);
+        public /*~~>*/String toString() {
+            return /*~~>*/String.format("CompleteUpdate[#%d]", nr);
         }
 
         protected void unlock() {

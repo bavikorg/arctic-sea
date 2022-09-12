@@ -51,9 +51,9 @@ public class SweDataRecordTest {
         final SweDataRecord dataRecord = new SweDataRecord();
         dataRecord.addField(new SweField("identifier", new SweBoolean()));
         final SweBoolean b = new SweBoolean();
-        final String definition = "test-element-definition";
+        final /*~~>*/String definition = "test-element-definition";
         b.setDefinition(definition);
-        final String name = "test-field-name";
+        final /*~~>*/String name = "test-field-name";
         dataRecord.addField(new SweField(name, b));
 
         assertThat(dataRecord.getFieldIndexByIdentifier(definition), is(1));

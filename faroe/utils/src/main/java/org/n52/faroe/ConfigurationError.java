@@ -26,15 +26,15 @@ public class ConfigurationError extends Error {
         super();
     }
 
-    public ConfigurationError(String format, Object... args) {
-        super(String.format(format, args));
+    public ConfigurationError(/*~~>*/String format, Object... args) {
+        super(/*~~>*/String.format(format, args));
     }
 
     public ConfigurationError(Throwable exception) {
         super(exception);
     }
 
-    public ConfigurationError(String message, Throwable exception) {
+    public ConfigurationError(/*~~>*/String message, Throwable exception) {
         super(message, exception);
     }
 

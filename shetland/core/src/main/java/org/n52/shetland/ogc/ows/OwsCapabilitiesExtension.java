@@ -25,7 +25,7 @@ import java.util.Comparator;
  */
 public interface OwsCapabilitiesExtension extends Comparable<OwsCapabilitiesExtension> {
     Comparator<OwsCapabilitiesExtension> COMPARATOR =
-            Comparator.comparing(OwsCapabilitiesExtension::getSectionName, Comparator.nullsLast(String::compareTo));
+            Comparator.comparing(OwsCapabilitiesExtension::getSectionName, Comparator.nullsLast(/*~~>*/String::compareTo));
 
     /**
      * Get the section name if it should be listed in the GetCapabilities OperationMetadata. E.g
@@ -33,7 +33,7 @@ public interface OwsCapabilitiesExtension extends Comparable<OwsCapabilitiesExte
      *
      * @return Section name to be listed
      */
-    String getSectionName();
+    /*~~>*/String getSectionName();
 
     @Override
     default int compareTo(OwsCapabilitiesExtension o) {

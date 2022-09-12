@@ -81,10 +81,10 @@ public class DeleteSensorResponseEncoderTest {
     public void should_return_correct_encoder_keys() {
         Set<EncoderKey> returnedKeySet = instance.getKeys();
         assertEquals(returnedKeySet.size(), 3);
-        assertTrue(returnedKeySet.contains(new XmlEncoderKey(SwesConstants.NS_SWES_20, DeleteSensorResponse.class)));
-        assertTrue(returnedKeySet.contains(new OperationResponseEncoderKey(SosConstants.SOS, Sos2Constants.SERVICEVERSION,
+        assertTrue(returnedKeySet.contains(new XmlEncoderKey(/*~~>*/SwesConstants.NS_SWES_20, DeleteSensorResponse.class)));
+        assertTrue(returnedKeySet.contains(new OperationResponseEncoderKey(/*~~>*/SosConstants.SOS, /*~~>*/Sos2Constants.SERVICEVERSION,
                                                                            Sos2Constants.Operations.DeleteSensor, MediaTypes.TEXT_XML)));
-        assertTrue(returnedKeySet.contains(new OperationResponseEncoderKey(SosConstants.SOS, Sos2Constants.SERVICEVERSION,
+        assertTrue(returnedKeySet.contains(new OperationResponseEncoderKey(/*~~>*/SosConstants.SOS, /*~~>*/Sos2Constants.SERVICEVERSION,
                                                                            Sos2Constants.Operations.DeleteSensor, MediaTypes.APPLICATION_XML)));
     }
 
@@ -96,18 +96,18 @@ public class DeleteSensorResponseEncoderTest {
 
     @Test
     public void should_return_emptySet_for_conformanceClasses() {
-        assertNotNull(instance.getConformanceClasses(SosConstants.SOS, Sos2Constants.SERVICEVERSION));
-        assertTrue(instance.getConformanceClasses(SosConstants.SOS, Sos2Constants.SERVICEVERSION)
+        assertNotNull(instance.getConformanceClasses(/*~~>*/SosConstants.SOS, /*~~>*/Sos2Constants.SERVICEVERSION));
+        assertTrue(instance.getConformanceClasses(/*~~>*/SosConstants.SOS, /*~~>*/Sos2Constants.SERVICEVERSION)
                 .isEmpty());
     }
 
     @Test
     public void should_add_own_prefix_to_prefixMap() {
-        Map<String, String> prefixMap = Maps.newHashMap();
+        Map</*~~>*/String, /*~~>*/String> prefixMap = Maps.newHashMap();
         instance.addNamespacePrefixToMap(prefixMap);
         assertFalse(prefixMap.isEmpty());
-        assertTrue(prefixMap.containsKey(SwesConstants.NS_SWES_20));
-        assertTrue(prefixMap.containsValue(SwesConstants.NS_SWES_PREFIX));
+        assertTrue(prefixMap.containsKey(/*~~>*/SwesConstants.NS_SWES_20));
+        assertTrue(prefixMap.containsValue(/*~~>*/SwesConstants.NS_SWES_PREFIX));
     }
 
     @Test
@@ -147,7 +147,7 @@ public class DeleteSensorResponseEncoderTest {
     @Test
     public void should_encode_DeleteSensor_response() throws EncodingException {
         final DeleteSensorResponse response = new DeleteSensorResponse();
-        final String deletedProcedure = "deletedProcedure";
+        final /*~~>*/String deletedProcedure = "deletedProcedure";
         response.setDeletedProcedure(deletedProcedure);
         final XmlObject encodedResponse = instance.encode(response);
         assertTrue(encodedResponse instanceof DeleteSensorResponseDocument);

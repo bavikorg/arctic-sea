@@ -59,7 +59,7 @@ public class PoxBinding extends AbstractXmlBinding<OwsServiceRequest> {
 
     private boolean useHttpResponseCodes;
 
-    @Setting(MiscSettings.HTTP_STATUS_CODE_USE_IN_KVP_POX_BINDING)
+    @Setting(/*~~>*/MiscSettings.HTTP_STATUS_CODE_USE_IN_KVP_POX_BINDING)
     public void setUseHttpResponseCodes(boolean useHttpResponseCodes) {
         this.useHttpResponseCodes = useHttpResponseCodes;
     }

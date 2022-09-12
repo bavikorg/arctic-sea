@@ -33,13 +33,13 @@ public class GetStatusResponse extends OwsServiceResponse {
     }
 
     @SuppressFBWarnings({ "EI_EXPOSE_REP2" })
-    public GetStatusResponse(String service, String version, StatusInfo status) {
+    public GetStatusResponse(/*~~>*/String service, /*~~>*/String version, StatusInfo status) {
         super(service, version);
         this.status = status;
     }
 
     @Override
-    public String getOperationName() {
+    public /*~~>*/String getOperationName() {
         return WPSConstants.Operations.GetStatus.toString();
     }
 

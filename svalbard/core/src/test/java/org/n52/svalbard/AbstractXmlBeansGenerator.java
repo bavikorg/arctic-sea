@@ -24,13 +24,13 @@ import org.reflections.Reflections;
 
 public abstract class AbstractXmlBeansGenerator {
 
-    protected void printBeans(Collection<String> data) {
-        for (String d : data) {
+    protected void printBeans(Collection</*~~>*/String> data) {
+        for (/*~~>*/String d : data) {
             System.out.println("    <bean class=\"" + d + "\"/>");
         }
     }
 
-    protected Set<String> getClasses(String packageName, Class<?> clazz) {
+    protected Set</*~~>*/String> getClasses(/*~~>*/String packageName, Class<?> clazz) {
         return new Reflections(packageName).getSubTypesOf(clazz).stream()
                 .filter(d -> !Modifier.isAbstract(d.getModifiers()) && !d.isMemberClass()).map(d -> d.getName())
                 .filter(n -> !n.contains("Abstract") || !n.contains("Test"))

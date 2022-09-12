@@ -24,7 +24,7 @@ public class MultilingualStringValueForTesting implements
 
     private static final long serialVersionUID = 5191915361015161989L;
 
-    private String key;
+    private /*~~>*/String key;
 
     private MultilingualString value;
 
@@ -32,13 +32,13 @@ public class MultilingualStringValueForTesting implements
     }
 
     @Override
-    public String getKey() {
-        return this.key;
+    public /*~~>*/String getKey() {
+        return /*~~>*/this.key;
     }
 
     @Override
-    public void setKey(String key) {
-        this.key = key;
+    public void setKey(/*~~>*/String key) {
+        /*~~>*/this.key = key;
     }
 
     @Override

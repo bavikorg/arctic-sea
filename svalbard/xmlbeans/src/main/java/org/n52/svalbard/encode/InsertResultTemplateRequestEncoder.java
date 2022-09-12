@@ -89,7 +89,7 @@ public class InsertResultTemplateRequestEncoder extends AbstractSwesRequestEncod
     private void addObservationTemplate(ResultTemplateType resultTemplate, InsertResultTemplateRequest request)
             throws EncodingException {
         resultTemplate.addNewObservationTemplate().addNewOMObservation()
-            .set(encodeObjectToXml(OmConstants.NS_OM_2,
+            .set(encodeObjectToXml(/*~~>*/OmConstants.NS_OM_2,
                     request.getObservationTemplate(),
                     EncodingContext.empty().with(XmlBeansEncodingFlags.PROPERTY_TYPE)));
     }
@@ -97,7 +97,7 @@ public class InsertResultTemplateRequestEncoder extends AbstractSwesRequestEncod
     private void addResultStructure(ResultTemplateType resultTemplate,
             SweAbstractDataComponent sweAbstractDataComponent) throws EncodingException {
         resultTemplate.addNewResultStructure()
-            .set(encodeObjectToXml(SweConstants.NS_SWE_20,
+            .set(encodeObjectToXml(/*~~>*/SweConstants.NS_SWE_20,
                 sweAbstractDataComponent,
                 EncodingContext.empty().with(XmlBeansEncodingFlags.PROPERTY_TYPE)));
     }
@@ -105,7 +105,7 @@ public class InsertResultTemplateRequestEncoder extends AbstractSwesRequestEncod
     private void addResultEncoding(ResultTemplateType resultTemplate, SweAbstractEncoding sweAbstractEncoding)
             throws EncodingException {
         resultTemplate.addNewResultEncoding()
-            .set(encodeObjectToXml(SweConstants.NS_SWE_20,
+            .set(encodeObjectToXml(/*~~>*/SweConstants.NS_SWE_20,
                     sweAbstractEncoding,
                     EncodingContext.empty().with(XmlBeansEncodingFlags.DOCUMENT)));
     }

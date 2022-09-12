@@ -58,7 +58,7 @@ public class ProfileValue extends AbstractFeature implements Value<List<ProfileL
     private boolean queriedToLevel;
     private List<ProfileLevel> values = Lists.newArrayList();
 
-    public ProfileValue(String identifier) {
+    public ProfileValue(/*~~>*/String identifier) {
         super(identifier);
     }
 
@@ -66,7 +66,7 @@ public class ProfileValue extends AbstractFeature implements Value<List<ProfileL
         super(identifier);
     }
 
-    public ProfileValue(CodeWithAuthority identifier, String gmlId) {
+    public ProfileValue(CodeWithAuthority identifier, /*~~>*/String gmlId) {
         super(identifier, gmlId);
     }
 
@@ -99,7 +99,7 @@ public class ProfileValue extends AbstractFeature implements Value<List<ProfileL
     }
 
     @Override
-    public void setUnit(String unit) {
+    public void setUnit(/*~~>*/String unit) {
 
     }
 
@@ -110,7 +110,7 @@ public class ProfileValue extends AbstractFeature implements Value<List<ProfileL
     }
 
     @Override
-    public String getUnit() {
+    public /*~~>*/String getUnit() {
         return null;
     }
 
@@ -237,8 +237,8 @@ public class ProfileValue extends AbstractFeature implements Value<List<ProfileL
     }
 
     @Override
-    public String getDefaultElementEncoding() {
-        return GWMLConstants.NS_GWML_22;
+    public /*~~>*/String getDefaultElementEncoding() {
+        return /*~~>*/GWMLConstants.NS_GWML_22;
     }
 
     @Override

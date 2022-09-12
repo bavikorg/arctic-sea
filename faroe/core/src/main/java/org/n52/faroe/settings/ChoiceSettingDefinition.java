@@ -39,40 +39,40 @@ import org.n52.janmayen.stream.MoreCollectors;
  * @since 1.0.0
  *
  */
-public class ChoiceSettingDefinition extends AbstractSettingDefinition<String> {
+public class ChoiceSettingDefinition extends AbstractSettingDefinition</*~~>*/String> {
 
     private static final long serialVersionUID = 4783164088023177712L;
-    private final Map<String, String> options = new HashMap<>();
+    private final Map</*~~>*/String, /*~~>*/String> options = new HashMap<>();
 
     public ChoiceSettingDefinition() {
         super(SettingType.CHOICE);
     }
 
-    public Map<String, String> getOptions() {
+    public Map</*~~>*/String, /*~~>*/String> getOptions() {
         return Collections.unmodifiableMap(options.entrySet().stream()
                 .sorted(Map.Entry.comparingByValue())
                 .collect(MoreCollectors.toLinkedHashMap()));
     }
 
-    public boolean hasOption(String value) {
+    public boolean hasOption(/*~~>*/String value) {
         return this.options.containsKey(value);
     }
 
-    public ChoiceSettingDefinition setOptions(Map<String, String> options) {
+    public ChoiceSettingDefinition setOptions(Map</*~~>*/String, /*~~>*/String> options) {
         this.options.clear();
-        for (Entry<String, String> entry : options.entrySet()) {
+        for (Entry</*~~>*/String, /*~~>*/String> entry : options.entrySet()) {
             addOption(entry.getKey(), entry.getValue());
         }
         return this;
     }
 
-    public ChoiceSettingDefinition addOption(String option) {
-        String value = Objects.requireNonNull(option);
+    public ChoiceSettingDefinition addOption(/*~~>*/String option) {
+        /*~~>*/String value = Objects.requireNonNull(option);
         this.options.put(value, value);
         return this;
     }
 
-    public ChoiceSettingDefinition addOption(String option, String displayName) {
+    public ChoiceSettingDefinition addOption(/*~~>*/String option, /*~~>*/String displayName) {
         this.options.put(
                 Objects.requireNonNull(option),
                 Objects.requireNonNull(displayName));

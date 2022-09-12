@@ -31,12 +31,12 @@ import org.n52.janmayen.function.Predicates;
 import com.neovisionaries.i18n.LanguageAlpha3Code;
 
 public final class LocaleHelper {
-    private static final Map<String, Locale> CACHE = Collections.synchronizedMap(new HashMap<>());
+    private static final Map</*~~>*/String, Locale> CACHE = Collections.synchronizedMap(new HashMap<>());
 
     private LocaleHelper() {
     }
 
-    public static Locale decode(String locale) {
+    public static Locale decode(/*~~>*/String locale) {
         if (locale == null) {
             throw new NullPointerException();
         }
@@ -46,20 +46,20 @@ public final class LocaleHelper {
         return decode(locale, null);
     }
 
-    public static Locale decode(String locale, @Nullable Locale defaultLocale) {
+    public static Locale decode(/*~~>*/String locale, @Nullable Locale defaultLocale) {
         return Optional.ofNullable(locale)
-                .map(String::trim)
-                .filter(Predicates.not(String::isEmpty))
+                .map(/*~~>*/String::trim)
+                .filter(Predicates.not(/*~~>*/String::isEmpty))
                 .map(l -> CACHE.computeIfAbsent(l, LocaleHelper::decode1))
                 .orElse(defaultLocale);
     }
 
-    public static String encode(Locale input) {
+    public static /*~~>*/String encode(Locale input) {
         if (input == null) {
             return null;
         }
-        String country = input.getCountry();
-        String language = input.getLanguage();
+        /*~~>*/String country = input.getCountry();
+        /*~~>*/String language = input.getLanguage();
         StringBuilder sb = new StringBuilder(language);
         if (!country.isEmpty()) {
             sb.append("-").append(country);
@@ -78,20 +78,20 @@ public final class LocaleHelper {
         return locales;
     }
 
-    public static Set<String> getEquivalents(String locale) {
+    public static Set</*~~>*/String> getEquivalents(/*~~>*/String locale) {
         return getEquivalents(decode(locale)).stream().map(l -> encode(l)).collect(Collectors.toSet());
     }
 
-    private static Locale decode1(String locale) {
-        String strippedQualifiers = stripQualityFactorWeights(locale);
-        String firstLanguage = getFirstLanguageCode(strippedQualifiers);
-        String[] tokens = firstLanguage.split("[-_# ]");
+    private static Locale decode1(/*~~>*/String locale) {
+        /*~~>*/String strippedQualifiers = stripQualityFactorWeights(locale);
+        /*~~>*/String firstLanguage = getFirstLanguageCode(strippedQualifiers);
+        /*~~>*/String[] tokens = firstLanguage.split("[-_# ]");
         if (tokens.length > 3) {
             throw new IllegalArgumentException("Unparsable language parameter: " + locale);
         }
-        String language = tokens.length > 0 ? tokens[0].toLowerCase() : "";
-        String country = tokens.length > 1 ? tokens[1].toUpperCase() : "";
-        String variant = tokens.length > 2 ? tokens[2] : "";
+        /*~~>*/String language = tokens.length > 0 ? tokens[0].toLowerCase() : "";
+        /*~~>*/String country = tokens.length > 1 ? tokens[1].toUpperCase() : "";
+        /*~~>*/String variant = tokens.length > 2 ? tokens[2] : "";
         return new Locale(language, country, variant);
     }
 
@@ -101,7 +101,7 @@ public final class LocaleHelper {
      * @param locale the locale potentially containing quality factor weights
      * @return the locale without quality factor weights
      */
-    private static String stripQualityFactorWeights(String locale) {
+    private static /*~~>*/String stripQualityFactorWeights(/*~~>*/String locale) {
         int semicolonIndex = locale.indexOf(";");
         boolean hasQualityFactorWeights = semicolonIndex != -1;
         return hasQualityFactorWeights
@@ -109,7 +109,7 @@ public final class LocaleHelper {
                 : locale;
     }
 
-    private static String getFirstLanguageCode(String locale) {
+    private static /*~~>*/String getFirstLanguageCode(/*~~>*/String locale) {
         return locale.split(",")[0];
     }
 }

@@ -21,7 +21,7 @@ import org.n52.shetland.rdf.AbstractValue;
 
 public class Name extends AbstractValue implements FoafRdfPrefix {
 
-    public Name(String value) {
+    public Name(/*~~>*/String value) {
         super(value);
     }
 

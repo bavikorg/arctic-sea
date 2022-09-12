@@ -32,12 +32,12 @@ public class SosInsertionMetadata {
     /**
      * list of valid feature types
      */
-    private Set<String> featureOfInterestTypes = new LinkedHashSet<>();
+    private Set</*~~>*/String> featureOfInterestTypes = new LinkedHashSet<>();
 
     /**
      * list of valid observation types
      */
-    private Set<String> observationTypes = new LinkedHashSet<>();
+    private Set</*~~>*/String> observationTypes = new LinkedHashSet<>();
 
     /**
      * constructor
@@ -49,7 +49,7 @@ public class SosInsertionMetadata {
     /**
      * @return the featureOfInterestTypes
      */
-    public Set<String> getFeatureOfInterestTypes() {
+    public Set</*~~>*/String> getFeatureOfInterestTypes() {
         return Collections.unmodifiableSet(featureOfInterestTypes);
     }
 
@@ -58,7 +58,7 @@ public class SosInsertionMetadata {
      *            the featureOfInterestTypes to set
      */
     @SuppressFBWarnings({ "EI_EXPOSE_REP2" })
-    public SosInsertionMetadata setFeatureOfInterestTypes(Collection<String> featureOfInterestTypes) {
+    public SosInsertionMetadata setFeatureOfInterestTypes(Collection</*~~>*/String> featureOfInterestTypes) {
         this.featureOfInterestTypes.clear();
         if (featureOfInterestTypes != null) {
             this.featureOfInterestTypes.addAll(featureOfInterestTypes);
@@ -69,7 +69,7 @@ public class SosInsertionMetadata {
     /**
      * @return the observationTypes
      */
-    public Set<String> getObservationTypes() {
+    public Set</*~~>*/String> getObservationTypes() {
         return Collections.unmodifiableSet(observationTypes);
     }
 
@@ -78,7 +78,7 @@ public class SosInsertionMetadata {
      *            the observationTypes to set
      */
     @SuppressFBWarnings({ "EI_EXPOSE_REP2" })
-    public SosInsertionMetadata setObservationTypes(Collection<String> observationTypes) {
+    public SosInsertionMetadata setObservationTypes(Collection</*~~>*/String> observationTypes) {
         this.observationTypes.clear();
         if (observationTypes != null) {
             this.observationTypes.addAll(observationTypes);

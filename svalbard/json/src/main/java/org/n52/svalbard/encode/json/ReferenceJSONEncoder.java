@@ -38,28 +38,28 @@ public class ReferenceJSONEncoder extends JSONEncoder<Reference> {
             throws EncodingException {
         ObjectNode ref = nodeFactory().objectNode();
         if (t.getHref().isPresent()) {
-            ref.put(AQDJSONConstants.HREF, t.getHref().get().toString());
+            ref.put(/*~~>*/AQDJSONConstants.HREF, t.getHref().get().toString());
         }
         if (t.getActuate().isPresent()) {
-            ref.put(AQDJSONConstants.ACTUATE, t.getActuate().get().toString());
+            ref.put(/*~~>*/AQDJSONConstants.ACTUATE, t.getActuate().get().toString());
         }
         if (t.getArcrole().isPresent()) {
-            ref.put(AQDJSONConstants.ARCROLE, t.getArcrole().get());
+            ref.put(/*~~>*/AQDJSONConstants.ARCROLE, t.getArcrole().get());
         }
         if (t.getRemoteSchema().isPresent()) {
-            ref.put(AQDJSONConstants.REMOTE_SCHEMA, t.getRemoteSchema().get());
+            ref.put(/*~~>*/AQDJSONConstants.REMOTE_SCHEMA, t.getRemoteSchema().get());
         }
         if (t.getRole().isPresent()) {
-            ref.put(AQDJSONConstants.ROLE, t.getRole().get());
+            ref.put(/*~~>*/AQDJSONConstants.ROLE, t.getRole().get());
         }
         if (t.getShow().isPresent()) {
-            ref.put(AQDJSONConstants.SHOW, t.getShow().get().toString());
+            ref.put(/*~~>*/AQDJSONConstants.SHOW, t.getShow().get().toString());
         }
         if (t.getTitle().isPresent()) {
-            ref.put(AQDJSONConstants.TITLE, t.getTitle().get());
+            ref.put(/*~~>*/AQDJSONConstants.TITLE, t.getTitle().get());
         }
         if (t.getType().isPresent()) {
-            ref.put(AQDJSONConstants.TYPE, t.getType().get().toString());
+            ref.put(/*~~>*/AQDJSONConstants.TYPE, t.getType().get().toString());
         }
         return ref;
     }

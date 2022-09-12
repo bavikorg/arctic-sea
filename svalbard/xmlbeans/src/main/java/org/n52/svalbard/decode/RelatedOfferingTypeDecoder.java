@@ -40,7 +40,7 @@ public class RelatedOfferingTypeDecoder extends AbstractXmlDecoder<RelatedOfferi
     private static final Logger LOGGER = LoggerFactory.getLogger(RelatedOfferingTypeDecoder.class);
 
     private static final Set<DecoderKey> DECODER_KEYS = CodingHelper.decoderKeysForElements(
-            RelatedOfferingConstants.NS_RO,
+            /*~~>*/RelatedOfferingConstants.NS_RO,
             RelatedOfferingsPropertyType.class);
 
     public RelatedOfferingTypeDecoder() {
@@ -56,9 +56,9 @@ public class RelatedOfferingTypeDecoder extends AbstractXmlDecoder<RelatedOfferi
     @Override
     public RelatedOfferings decode(RelatedOfferingsPropertyType rot) throws DecodingException {
         RelatedOfferings relatedOfferings = new RelatedOfferings();
-        relatedOfferings.setNamespace(RelatedOfferingConstants.NS_RO)
-                .setDefinition(RelatedOfferingConstants.RELATED_OFFERINGS)
-                .setIdentifier(RelatedOfferingConstants.RELATED_OFFERINGS);
+        relatedOfferings.setNamespace(/*~~>*/RelatedOfferingConstants.NS_RO)
+                .setDefinition(/*~~>*/RelatedOfferingConstants.RELATED_OFFERINGS)
+                .setIdentifier(/*~~>*/RelatedOfferingConstants.RELATED_OFFERINGS);
         for (RelatedOffering relatedOffering : rot.getRelatedOfferings().getRelatedOfferingArray()) {
             relatedOfferings.getValue().add(parseRelatedOffering(relatedOffering));
         }

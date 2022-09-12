@@ -49,7 +49,7 @@ public enum InspireEuLanguageISO6392B {
     SPA("spa"),
     SWE("swe");
 
-    private final String value;
+    private final /*~~>*/String value;
 
     /**
      * constructor
@@ -57,7 +57,7 @@ public enum InspireEuLanguageISO6392B {
      * @param v
      *            the three character language string
      */
-    InspireEuLanguageISO6392B(String v) {
+    InspireEuLanguageISO6392B(/*~~>*/String v) {
         value = v;
     }
 
@@ -66,7 +66,7 @@ public enum InspireEuLanguageISO6392B {
      *
      * @return the value
      */
-    public String value() {
+    public /*~~>*/String value() {
         return value;
     }
 
@@ -79,9 +79,9 @@ public enum InspireEuLanguageISO6392B {
      * @throws IllegalArgumentException
      *             if the string value is invalid
      */
-    public static InspireEuLanguageISO6392B fromValue(String v) {
+    public static InspireEuLanguageISO6392B fromValue(/*~~>*/String v) {
         for (InspireEuLanguageISO6392B c : InspireEuLanguageISO6392B.values()) {
-            if (c.value.equals(v)) {
+            if (/*~~>*/c.value.equals(v)) {
                 return c;
             }
         }
@@ -99,7 +99,7 @@ public enum InspireEuLanguageISO6392B {
      */
     public static InspireEuLanguageISO6392B fromValue(InspireLanguageISO6392B v) {
         for (InspireEuLanguageISO6392B c : InspireEuLanguageISO6392B.values()) {
-            if (c.value.equals(v.value())) {
+            if (/*~~>*/c.value.equals(v.value())) {
                 return c;
             }
         }
@@ -117,7 +117,7 @@ public enum InspireEuLanguageISO6392B {
      */
     public static InspireEuLanguageISO6392B fromValue(Locale v) {
         for (InspireEuLanguageISO6392B c : InspireEuLanguageISO6392B.values()) {
-            if (c.value.equals(v.getISO3Country())) {
+            if (/*~~>*/c.value.equals(v.getISO3Country())) {
                 return c;
             }
         }

@@ -20,15 +20,15 @@ import org.n52.shetland.rdf.RdfPrefix;
 
 public interface DcatRdfPrefix extends RdfPrefix {
 
-    String NS_PREFIX = "dcat";
+    /*~~>*/String NS_PREFIX = "dcat";
 
     @Override
-    default String getPrefix() {
+    default /*~~>*/String getPrefix() {
         return NS_PREFIX;
     }
 
     @Override
-    default String getNamespace() {
-        return DCAT.NS;
+    default /*~~>*/String getNamespace() {
+        return /*~~>*/DCAT.NS;
     }
 }

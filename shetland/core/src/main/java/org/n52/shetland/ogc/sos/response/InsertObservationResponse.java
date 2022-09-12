@@ -27,11 +27,11 @@ public class InsertObservationResponse extends OwsServiceResponse {
         super(null, null, SosConstants.Operations.InsertObservation.name());
     }
 
-    public InsertObservationResponse(String service, String version) {
+    public InsertObservationResponse(/*~~>*/String service, /*~~>*/String version) {
         super(service, version, SosConstants.Operations.InsertObservation.name());
     }
 
-    public InsertObservationResponse(String service, String version, String operationName) {
+    public InsertObservationResponse(/*~~>*/String service, /*~~>*/String version, /*~~>*/String operationName) {
         super(service, version, operationName);
     }
 

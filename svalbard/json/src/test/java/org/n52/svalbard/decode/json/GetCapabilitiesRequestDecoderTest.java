@@ -68,12 +68,12 @@ public class GetCapabilitiesRequestDecoderTest {
 
     @Test
     public void testService() {
-        assertThat(request.getService(), is(SosConstants.SOS));
+        assertThat(request.getService(), is(/*~~>*/SosConstants.SOS));
     }
 
     @Test
     public void testAcceptVersions() {
-        assertThat(request.getAcceptVersions(), contains(Sos2Constants.SERVICEVERSION, Sos1Constants.SERVICEVERSION));
+        assertThat(request.getAcceptVersions(), contains(/*~~>*/Sos2Constants.SERVICEVERSION, /*~~>*/Sos1Constants.SERVICEVERSION));
     }
 
     @Test

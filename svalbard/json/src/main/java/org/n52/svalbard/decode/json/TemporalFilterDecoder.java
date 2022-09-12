@@ -44,7 +44,7 @@ public class TemporalFilterDecoder
             return null;
         }
         if (validate) {
-            JSONValidator.getInstance().validateAndThrow(node, SchemaConstants.Common.TEMPORAL_FILTER);
+            JSONValidator.getInstance().validateAndThrow(node, /*~~>*/SchemaConstants.Common.TEMPORAL_FILTER);
         }
         if (node.isObject()) {
             return parseTemporalFilter(node);
@@ -56,10 +56,10 @@ public class TemporalFilterDecoder
     protected TemporalFilter parseTemporalFilter(JsonNode node)
             throws DecodingException {
         if (node.isObject()) {
-            final String oName = node.fields().next().getKey();
+            final /*~~>*/String oName = node.fields().next().getKey();
             final TOp o = TOp.valueOf(oName);
-            return new TemporalFilter(o.getOp(), parseTime(node.path(oName).path(JSONConstants.VALUE)),
-                    node.path(oName).path(JSONConstants.REF).textValue());
+            return new TemporalFilter(o.getOp(), parseTime(node.path(oName).path(/*~~>*/JSONConstants.VALUE)),
+                    node.path(oName).path(/*~~>*/JSONConstants.REF).textValue());
         } else {
             return null;
         }

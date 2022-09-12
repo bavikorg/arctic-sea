@@ -34,7 +34,7 @@ public class LOCN {
      * The namespace of the vocabulary as a string.
      */
 
-    public static final String NS = "http://www.w3.org/ns/locn#";
+    public static final /*~~>*/String NS = "http://www.w3.org/ns/locn#";
 
     /**
      * The namespace of the vocabulary as a resource.
@@ -68,7 +68,7 @@ public class LOCN {
      *
      * @return URI
      */
-    public static String getURI() {
+    public static /*~~>*/String getURI() {
         return NS;
     }
 }

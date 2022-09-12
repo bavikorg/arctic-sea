@@ -37,14 +37,14 @@ public class GeographicNameJSONEncoder extends JSONEncoder<GeographicalName> {
     public JsonNode encodeJSON(GeographicalName t)
             throws EncodingException {
         ObjectNode j = nodeFactory().objectNode();
-        j.set(AQDJSONConstants.GRAMMATICAL_GENDER, encodeObjectToJson(t.getGrammaticalGender()));
-        j.set(AQDJSONConstants.GRAMMATICAL_NUMBER, encodeObjectToJson(t.getGrammaticalNumber()));
-        j.set(AQDJSONConstants.LANGUAGE, encodeObjectToJson(t.getLanguage()));
-        j.set(AQDJSONConstants.NAME_STATUS, encodeObjectToJson(t.getNameStatus()));
-        j.set(AQDJSONConstants.NATIVENESS, encodeObjectToJson(t.getNativeness()));
-        j.set(AQDJSONConstants.PRONUNCIATION, encodeObjectToJson(t.getPronunciation()));
-        j.set(AQDJSONConstants.SOURCE_OF_NAME, encodeObjectToJson(t.getSourceOfName()));
-        j.set(AQDJSONConstants.SPELLING, encodeObjectToJson(t.getSpelling()));
+        j.set(/*~~>*/AQDJSONConstants.GRAMMATICAL_GENDER, encodeObjectToJson(t.getGrammaticalGender()));
+        j.set(/*~~>*/AQDJSONConstants.GRAMMATICAL_NUMBER, encodeObjectToJson(t.getGrammaticalNumber()));
+        j.set(/*~~>*/AQDJSONConstants.LANGUAGE, encodeObjectToJson(t.getLanguage()));
+        j.set(/*~~>*/AQDJSONConstants.NAME_STATUS, encodeObjectToJson(t.getNameStatus()));
+        j.set(/*~~>*/AQDJSONConstants.NATIVENESS, encodeObjectToJson(t.getNativeness()));
+        j.set(/*~~>*/AQDJSONConstants.PRONUNCIATION, encodeObjectToJson(t.getPronunciation()));
+        j.set(/*~~>*/AQDJSONConstants.SOURCE_OF_NAME, encodeObjectToJson(t.getSourceOfName()));
+        j.set(/*~~>*/AQDJSONConstants.SPELLING, encodeObjectToJson(t.getSpelling()));
         return j;
     }
 

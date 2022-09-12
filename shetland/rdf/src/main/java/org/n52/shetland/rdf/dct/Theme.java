@@ -21,7 +21,7 @@ import org.n52.shetland.rdf.AbstractResource;
 
 public class Theme extends AbstractResource implements DctRdfPrefix {
 
-    public Theme(String value) {
+    public Theme(/*~~>*/String value) {
         super(value);
     }
 

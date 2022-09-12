@@ -122,7 +122,7 @@ public class OmEncoderv100
             .add(OmConstants.OBS_TYPE_TRUTH_OBSERVATION_TYPE).build();
 
     // TODO: change to correct conformance class
-    private static final Set<String> CONFORMANCE_CLASSES =
+    private static final Set</*~~>*/String> CONFORMANCE_CLASSES =
             ImmutableSet.of("http://www.opengis.net/spec/OMXML/1.0/conf/measurement",
                     "http://www.opengis.net/spec/OMXML/1.0/conf/categoryObservation",
                     "http://www.opengis.net/spec/OMXML/1.0/conf/countObservation",
@@ -130,17 +130,17 @@ public class OmEncoderv100
                     "http://www.opengis.net/spec/OMXML/1.0/conf/geometryObservation",
                     "http://www.opengis.net/spec/OMXML/1.0/conf/textObservation");
 
-    private static final Map<String, Map<String, Set<String>>> SUPPORTED_RESPONSE_FORMATS =
-            Collections.singletonMap(SosConstants.SOS, Collections.singletonMap(Sos1Constants.SERVICEVERSION,
-                    (Set<String>) ImmutableSet.of(OmConstants.CONTENT_TYPE_OM.toString())));
+    private static final Map</*~~>*/String, Map</*~~>*/String, Set</*~~>*/String>>> SUPPORTED_RESPONSE_FORMATS =
+            Collections.singletonMap(/*~~>*/SosConstants.SOS, Collections.singletonMap(/*~~>*/Sos1Constants.SERVICEVERSION,
+                    (Set</*~~>*/String>) ImmutableSet.of(OmConstants.CONTENT_TYPE_OM.toString())));
 
     private static final Set<EncoderKey> ENCODER_KEYS = CollectionHelper.union(
-            CodingHelper.encoderKeysForElements(OmConstants.NS_OM, OmObservation.class, GetObservationResponse.class,
+            CodingHelper.encoderKeysForElements(/*~~>*/OmConstants.NS_OM, OmObservation.class, GetObservationResponse.class,
                     GetObservationByIdResponse.class),
             CodingHelper.encoderKeysForElements(OmConstants.CONTENT_TYPE_OM.toString(), OmObservation.class,
                     GetObservationResponse.class, GetObservationByIdResponse.class));
-    private static final String RESULT_TIME_ID_PREFIX = "resultTime_";
-    private static final String OBSERVATION_ID_PREFIX = "o_";
+    private static final /*~~>*/String RESULT_TIME_ID_PREFIX = "resultTime_";
+    private static final /*~~>*/String OBSERVATION_ID_PREFIX = "o_";
     private SweHelper sweHelper;
 
     public OmEncoderv100() {
@@ -165,21 +165,21 @@ public class OmEncoderv100
     }
 
     @Override
-    public Map<String, Set<SupportedType>> getSupportedResponseFormatObservationTypes() {
+    public Map</*~~>*/String, Set<SupportedType>> getSupportedResponseFormatObservationTypes() {
         return Collections.singletonMap(OmConstants.CONTENT_TYPE_OM.toString(), getSupportedTypes());
     }
 
     @Override
-    public Set<String> getConformanceClasses(String service, String version) {
-        if (SosConstants.SOS.equals(service) && Sos2Constants.SERVICEVERSION.equals(version)) {
+    public Set</*~~>*/String> getConformanceClasses(/*~~>*/String service, /*~~>*/String version) {
+        if (/*~~>*/SosConstants.SOS.equals(service) && /*~~>*/Sos2Constants.SERVICEVERSION.equals(version)) {
             return Collections.unmodifiableSet(CONFORMANCE_CLASSES);
         }
         return Collections.emptySet();
     }
 
     @Override
-    public void addNamespacePrefixToMap(Map<String, String> nameSpacePrefixMap) {
-        nameSpacePrefixMap.put(OmConstants.NS_OM, OmConstants.NS_OM_PREFIX);
+    public void addNamespacePrefixToMap(Map</*~~>*/String, /*~~>*/String> nameSpacePrefixMap) {
+        nameSpacePrefixMap.put(/*~~>*/OmConstants.NS_OM, /*~~>*/OmConstants.NS_OM_PREFIX);
     }
 
     @Override
@@ -188,7 +188,7 @@ public class OmEncoderv100
     }
 
     @Override
-    public Set<String> getSupportedResponseFormats(String service, String version) {
+    public Set</*~~>*/String> getSupportedResponseFormats(/*~~>*/String service, /*~~>*/String version) {
         if (SUPPORTED_RESPONSE_FORMATS.get(service) != null
                 && SUPPORTED_RESPONSE_FORMATS.get(service).get(version) != null) {
             return SUPPORTED_RESPONSE_FORMATS.get(service).get(version);
@@ -239,18 +239,18 @@ public class OmEncoderv100
 
     private XmlObject createObservation(OmObservation sosObservation, EncodingContext additionalValues)
             throws EncodingException {
-        String observationType = checkObservationType(sosObservation);
+        /*~~>*/String observationType = checkObservationType(sosObservation);
         if (null != observationType) {
             switch (observationType) {
-                case OmConstants.OBS_TYPE_MEASUREMENT:
+                case /*~~>*/OmConstants.OBS_TYPE_MEASUREMENT:
                     return createMeasurement(sosObservation, additionalValues);
-                case OmConstants.OBS_TYPE_CATEGORY_OBSERVATION:
+                case /*~~>*/OmConstants.OBS_TYPE_CATEGORY_OBSERVATION:
                     return createCategoryObservation(sosObservation, additionalValues);
-                case OmConstants.OBS_TYPE_COUNT_OBSERVATION:
+                case /*~~>*/OmConstants.OBS_TYPE_COUNT_OBSERVATION:
                     return createCountObservation(sosObservation, additionalValues);
-                case OmConstants.OBS_TYPE_TRUTH_OBSERVATION:
+                case /*~~>*/OmConstants.OBS_TYPE_TRUTH_OBSERVATION:
                     return createTruthObservation(sosObservation, additionalValues);
-                case OmConstants.OBS_TYPE_GEOMETRY_OBSERVATION:
+                case /*~~>*/OmConstants.OBS_TYPE_GEOMETRY_OBSERVATION:
                     return createGeometryObservation(sosObservation, additionalValues);
                 default:
                     return createOmObservation(sosObservation, additionalValues);
@@ -260,7 +260,7 @@ public class OmEncoderv100
         }
     }
 
-    private String checkObservationType(OmObservation sosObservation)
+    private /*~~>*/String checkObservationType(OmObservation sosObservation)
             throws EncodingException {
         if (sosObservation.isSetResultType()) {
             return sosObservation.getResultType();
@@ -268,17 +268,17 @@ public class OmEncoderv100
             SingleObservationValue<?> observationValue = (SingleObservationValue<?>) sosObservation.getValue();
             return OMHelper.getObservationTypeFor(observationValue.getValue());
         }
-        return OmConstants.OBS_TYPE_OBSERVATION;
+        return /*~~>*/OmConstants.OBS_TYPE_OBSERVATION;
     }
 
     private XmlObject createObservationCollection(AbstractObservationResponse response)
             throws EncodingException {
         ObservationStream sosObservationCollectionIterable = response.getObservationCollection();
-        String resultModel =  response.getResultModel();
+        /*~~>*/String resultModel =  response.getResultModel();
         ObservationCollectionDocument xbObservationCollectionDoc =
                 ObservationCollectionDocument.Factory.newInstance(getXmlOptions());
         ObservationCollectionType xbObservationCollection = xbObservationCollectionDoc.addNewObservationCollection();
-        xbObservationCollection.setId(SosConstants.OBS_COL_ID_PREFIX + new DateTime().getMillis());
+        xbObservationCollection.setId(/*~~>*/SosConstants.OBS_COL_ID_PREFIX + new DateTime().getMillis());
         if (response.hasExtensions()) {
             createMetadataProperty(xbObservationCollection, response.getExtensions());
         }
@@ -288,11 +288,11 @@ public class OmEncoderv100
                 sosObservationCollectionIterable.forEachRemaining(sosObservationCollection::add);
                 ReferencedEnvelope sosEnvelope = getEnvelope(sosObservationCollection);
                 if (sosEnvelope.isSetEnvelope()) {
-                    Encoder<XmlObject, ReferencedEnvelope> envEncoder = getEncoder(GmlConstants.NS_GML, sosEnvelope);
+                    Encoder<XmlObject, ReferencedEnvelope> envEncoder = getEncoder(/*~~>*/GmlConstants.NS_GML, sosEnvelope);
                     xbObservationCollection.addNewBoundedBy().addNewEnvelope().set(envEncoder.encode(sosEnvelope));
                 }
                 for (OmObservation sosObservation : sosObservationCollection) {
-                    String observationType = checkObservationType(sosObservation);
+                    /*~~>*/String observationType = checkObservationType(sosObservation);
                     if (Strings.isNullOrEmpty(resultModel)
                             || !Strings.isNullOrEmpty(resultModel) && observationType.equals(resultModel)) {
                         if (sosObservation.getValue() instanceof StreamingValue) {
@@ -316,7 +316,7 @@ public class OmEncoderv100
             }
         } else {
             ObservationPropertyType xbObservation = xbObservationCollection.addNewMember();
-            xbObservation.setHref(GmlConstants.NIL_INAPPLICABLE);
+            xbObservation.setHref(/*~~>*/GmlConstants.NIL_INAPPLICABLE);
         }
         XmlHelper.makeGmlIdsUnique(xbObservationCollectionDoc.getDomNode());
         N52XmlHelper.setSchemaLocationsToDocument(xbObservationCollectionDoc,
@@ -401,11 +401,11 @@ public class OmEncoderv100
         if (!sosObservation.isSetObservationID()) {
             sosObservation.setObservationID(xbObs.getId().replace(OBSERVATION_ID_PREFIX, ""));
         }
-        String observationID = sosObservation.getObservationID();
+        /*~~>*/String observationID = sosObservation.getObservationID();
         // set samplingTime
         Time samplingTime = sosObservation.getPhenomenonTime();
         if (samplingTime.getGmlId() == null) {
-            samplingTime.setGmlId(OmConstants.PHENOMENON_TIME_NAME + "_" + observationID);
+            samplingTime.setGmlId(/*~~>*/OmConstants.PHENOMENON_TIME_NAME + "_" + observationID);
         }
         addSamplingTime(xbObs, samplingTime);
         // set resultTime
@@ -435,7 +435,7 @@ public class OmEncoderv100
 
     private void addSamplingTime(ObservationType xbObservation, Time iTime)
             throws EncodingException {
-        XmlObject xmlObject = encodeObjectToXml(GmlConstants.NS_GML, iTime);
+        XmlObject xmlObject = encodeObjectToXml(/*~~>*/GmlConstants.NS_GML, iTime);
         XmlObject substitution = xbObservation.addNewSamplingTime().addNewTimeObject()
                 .substitute(GmlHelper.getGml311QnameForITime(iTime), xmlObject.schemaType());
         substitution.set(xmlObject);
@@ -467,7 +467,7 @@ public class OmEncoderv100
 
     private void addResultTime(ObservationType xbObs, TimeInstant iTime)
             throws EncodingException {
-        XmlObject xmlObject = encodeObjectToXml(GmlConstants.NS_GML, iTime);
+        XmlObject xmlObject = encodeObjectToXml(/*~~>*/GmlConstants.NS_GML, iTime);
         XmlObject substitution = xbObs.addNewResultTime().addNewTimeObject()
                 .substitute(GmlHelper.getGml311QnameForITime(iTime), xmlObject.schemaType());
         substitution.set(xmlObject);
@@ -488,11 +488,11 @@ public class OmEncoderv100
     // FIXME String.equals(QName) !?
     private void addSingleObservationToResult(XmlObject xbResult, OmObservation sosObservation)
             throws EncodingException {
-        String observationType = sosObservation.getObservationConstellation().getObservationType();
+        /*~~>*/String observationType = sosObservation.getObservationConstellation().getObservationType();
         SingleObservationValue<?> observationValue = (SingleObservationValue<?>) sosObservation.getValue();
         if (observationValue.getValue() instanceof QuantityValue) {
             QuantityValue quantityValue = (QuantityValue) observationValue.getValue();
-            xbResult.set(encodeObjectToXml(GmlConstants.NS_GML, quantityValue));
+            xbResult.set(encodeObjectToXml(/*~~>*/GmlConstants.NS_GML, quantityValue));
         } else if (observationValue.getValue() instanceof CountValue) {
             CountValue countValue = (CountValue) observationValue.getValue();
             XmlInteger xbInteger = XmlInteger.Factory.newInstance(getXmlOptions());
@@ -523,23 +523,23 @@ public class OmEncoderv100
         } else if (observationValue.getValue() instanceof CategoryValue) {
             CategoryValue categoryValue = (CategoryValue) observationValue.getValue();
             if (categoryValue.getValue() != null && !categoryValue.getValue().isEmpty()) {
-                xbResult.set(encodeObjectToXml(GmlConstants.NS_GML, categoryValue, EncodingContext.of(
-                        XmlBeansEncodingFlags.GMLID, SosConstants.OBS_ID_PREFIX + sosObservation.getObservationID())));
+                xbResult.set(encodeObjectToXml(/*~~>*/GmlConstants.NS_GML, categoryValue, EncodingContext.of(
+                        XmlBeansEncodingFlags.GMLID, /*~~>*/SosConstants.OBS_ID_PREFIX + sosObservation.getObservationID())));
             } else {
                 xbResult.setNil();
             }
         } else if (observationValue.getValue() instanceof GeometryValue) {
             GeometryValue geometryValue = (GeometryValue) observationValue.getValue();
             if (geometryValue.getValue() != null) {
-                xbResult.set(encodeObjectToXml(GmlConstants.NS_GML, geometryValue.getValue(), EncodingContext.of(
-                        XmlBeansEncodingFlags.GMLID, SosConstants.OBS_ID_PREFIX + sosObservation.getObservationID())));
+                xbResult.set(encodeObjectToXml(/*~~>*/GmlConstants.NS_GML, geometryValue.getValue(), EncodingContext.of(
+                        XmlBeansEncodingFlags.GMLID, /*~~>*/SosConstants.OBS_ID_PREFIX + sosObservation.getObservationID())));
             } else {
                 xbResult.setNil();
             }
-        } else if (OmConstants.OBS_TYPE_SWE_ARRAY_OBSERVATION.equals(observationType)
+        } else if (/*~~>*/OmConstants.OBS_TYPE_SWE_ARRAY_OBSERVATION.equals(observationType)
                 || OmConstants.RESULT_MODEL_OBSERVATION.getLocalPart().equals(observationType)) {
             SweDataArray dataArray = sweHelper.createSosSweDataArray(sosObservation);
-            xbResult.set(encodeObjectToXml(SweConstants.NS_SWE_101, dataArray,
+            xbResult.set(encodeObjectToXml(/*~~>*/SweConstants.NS_SWE_101, dataArray,
                     EncodingContext.of(XmlBeansEncodingFlags.FOR_OBSERVATION)));
         }
     }
@@ -547,7 +547,7 @@ public class OmEncoderv100
     private void addMultiObservationValueToResult(XmlObject xbResult, OmObservation sosObservation)
             throws EncodingException {
         SweDataArray dataArray = sweHelper.createSosSweDataArray(sosObservation);
-        xbResult.set(encodeObjectToXml(SweConstants.NS_SWE_101, dataArray,
+        xbResult.set(encodeObjectToXml(/*~~>*/SweConstants.NS_SWE_101, dataArray,
                 EncodingContext.of(XmlBeansEncodingFlags.FOR_OBSERVATION)));
     }
 
@@ -566,7 +566,7 @@ public class OmEncoderv100
     private void addFeatureOfInterest(ObservationType observation, AbstractFeature feature)
             throws EncodingException {
         EncodingContext ctx = EncodingContext.of(XmlBeansEncodingFlags.ENCODE, feature.getDefaultElementEncoding());
-        XmlObject encodeObjectToXml = encodeObjectToXml(GmlConstants.NS_GML, feature, ctx);
+        XmlObject encodeObjectToXml = encodeObjectToXml(/*~~>*/GmlConstants.NS_GML, feature, ctx);
         observation.addNewFeatureOfInterest().set(encodeObjectToXml);
     }
 
@@ -582,11 +582,11 @@ public class OmEncoderv100
 
     protected XmlObject encodeGML311(Object o)
             throws EncodingException {
-        return encodeObjectToXml(GmlConstants.NS_GML, o);
+        return encodeObjectToXml(/*~~>*/GmlConstants.NS_GML, o);
     }
 
     protected XmlObject encodeGML311(Object o, EncodingContext context)
             throws EncodingException {
-        return encodeObjectToXml(GmlConstants.NS_GML, o, context);
+        return encodeObjectToXml(/*~~>*/GmlConstants.NS_GML, o, context);
     }
 }

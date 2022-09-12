@@ -46,14 +46,14 @@ public class ExpandQueryOptionTest extends QueryOptionTests {
 
     @Test
     public void testValidExpandOption() {
-        String val, nested;
+        /*~~>*/String val, nested;
         ExpandFilter actual, reference;
         QueryOptions defaultQO = new QueryOptions("", null);
         Set<FilterClause> nestedFilters;
 
         // Simple
         val = "test";
-        init(ODataConstants.QueryOptions.EXPAND + EQ + val);
+        init(/*~~>*/ODataConstants.QueryOptions.EXPAND + EQ + val);
         actual = ((QueryOptions) parser.queryOptions()
                                        .accept(new STAQueryOptionVisitor())).getExpandFilter();
         reference = new ExpandFilter(new ExpandItem(val, defaultQO));
@@ -62,7 +62,7 @@ public class ExpandQueryOptionTest extends QueryOptionTests {
         // Resolve nested Expand
         val = "test";
         nested = "nested";
-        init(ODataConstants.QueryOptions.EXPAND + EQ + val + "/" + nested);
+        init(/*~~>*/ODataConstants.QueryOptions.EXPAND + EQ + val + "/" + nested);
         actual = ((QueryOptions) parser.queryOptions()
                                        .accept(new STAQueryOptionVisitor())).getExpandFilter();
         nestedFilters = new HashSet<>();
@@ -72,8 +72,8 @@ public class ExpandQueryOptionTest extends QueryOptionTests {
 
         // Expand with queryOptions
         val = "test";
-        String queryOption = "($filter=id eq '2')";
-        init(ODataConstants.QueryOptions.EXPAND + EQ + val + queryOption);
+        /*~~>*/String queryOption = "($filter=id eq '2')";
+        init(/*~~>*/ODataConstants.QueryOptions.EXPAND + EQ + val + queryOption);
         actual = ((QueryOptions) parser.queryOptions()
                                        .accept(new STAQueryOptionVisitor())).getExpandFilter();
         nestedFilters = new HashSet<>();
@@ -86,7 +86,7 @@ public class ExpandQueryOptionTest extends QueryOptionTests {
         // Expand with queryOptions
         val = "test";
         queryOption = "($top=52)";
-        init(ODataConstants.QueryOptions.EXPAND + EQ + val + queryOption);
+        init(/*~~>*/ODataConstants.QueryOptions.EXPAND + EQ + val + queryOption);
         actual = ((QueryOptions) parser.queryOptions()
                                        .accept(new STAQueryOptionVisitor())).getExpandFilter();
         nestedFilters = new HashSet<>();
@@ -97,7 +97,7 @@ public class ExpandQueryOptionTest extends QueryOptionTests {
         // Expand with queryOptions
         val = "test";
         queryOption = "($skip=52)";
-        init(ODataConstants.QueryOptions.EXPAND + EQ + val + queryOption);
+        init(/*~~>*/ODataConstants.QueryOptions.EXPAND + EQ + val + queryOption);
         actual = ((QueryOptions) parser.queryOptions()
                                        .accept(new STAQueryOptionVisitor())).getExpandFilter();
         nestedFilters = new HashSet<>();
@@ -108,7 +108,7 @@ public class ExpandQueryOptionTest extends QueryOptionTests {
         // Expand with queryOptions
         val = "test";
         queryOption = "($select=id)";
-        init(ODataConstants.QueryOptions.EXPAND + EQ + val + queryOption);
+        init(/*~~>*/ODataConstants.QueryOptions.EXPAND + EQ + val + queryOption);
         actual = ((QueryOptions) parser.queryOptions()
                                        .accept(new STAQueryOptionVisitor())).getExpandFilter();
         nestedFilters = new HashSet<>();
@@ -119,7 +119,7 @@ public class ExpandQueryOptionTest extends QueryOptionTests {
         // Expand with queryOptions
         val = "test";
         queryOption = "($expand=nested)";
-        init(ODataConstants.QueryOptions.EXPAND + EQ + val + queryOption);
+        init(/*~~>*/ODataConstants.QueryOptions.EXPAND + EQ + val + queryOption);
         actual = ((QueryOptions) parser.queryOptions()
                                        .accept(new STAQueryOptionVisitor())).getExpandFilter();
         nestedFilters = new HashSet<>();
@@ -130,7 +130,7 @@ public class ExpandQueryOptionTest extends QueryOptionTests {
         // Expand with queryOptions
         val = "test";
         queryOption = "($orderby=id asc)";
-        init(ODataConstants.QueryOptions.EXPAND + EQ + val + queryOption);
+        init(/*~~>*/ODataConstants.QueryOptions.EXPAND + EQ + val + queryOption);
         actual = ((QueryOptions) parser.queryOptions()
                                        .accept(new STAQueryOptionVisitor())).getExpandFilter();
         nestedFilters = new HashSet<>();
@@ -143,24 +143,24 @@ public class ExpandQueryOptionTest extends QueryOptionTests {
     public void testInvalidExpandOption() {
 
         // May not be empty
-        init(ODataConstants.QueryOptions.EXPAND + EQ + "");
+        init(/*~~>*/ODataConstants.QueryOptions.EXPAND + EQ + "");
         Assertions.assertThrows(
                 Exception.class,
                 () -> parser.queryOptions().accept(new STAQueryOptionVisitor())
         );
 
         // May not be malformed
-        init(ODataConstants.QueryOptions.EXPAND + EQ + "test.test");
+        init(/*~~>*/ODataConstants.QueryOptions.EXPAND + EQ + "test.test");
         Assertions.assertThrows(
                 Exception.class,
                 () -> parser.queryOptions().accept(new STAQueryOptionVisitor())
         );
-        init(ODataConstants.QueryOptions.EXPAND + EQ + "test()");
+        init(/*~~>*/ODataConstants.QueryOptions.EXPAND + EQ + "test()");
         Assertions.assertThrows(
                 Exception.class,
                 () -> parser.queryOptions().accept(new STAQueryOptionVisitor())
         );
-        init(ODataConstants.QueryOptions.EXPAND + EQ + "test($to)");
+        init(/*~~>*/ODataConstants.QueryOptions.EXPAND + EQ + "test($to)");
         Assertions.assertThrows(
                 Exception.class,
                 () -> parser.queryOptions().accept(new STAQueryOptionVisitor())
@@ -169,7 +169,7 @@ public class ExpandQueryOptionTest extends QueryOptionTests {
 
     @Test
     public void complexExpandOption() {
-        init(ODataConstants.QueryOptions.EXPAND
+        init(/*~~>*/ODataConstants.QueryOptions.EXPAND
                      + EQ
                      + "Observations($filter=result eq 1;$expand=FeatureOfInterest;$select=id;$orderby=id;"
                      + "$skip=5;$top=10;$count=true),ObservedProperty");
@@ -234,7 +234,7 @@ public class ExpandQueryOptionTest extends QueryOptionTests {
         QueryOptions options;
         Set<ExpandItem> items;
 
-        init(ODataConstants.QueryOptions.EXPAND
+        init(/*~~>*/ODataConstants.QueryOptions.EXPAND
                      + EQ
                      + "Datastreams/Sensors/Datastreams");
         options =
@@ -278,7 +278,7 @@ public class ExpandQueryOptionTest extends QueryOptionTests {
         Assertions.assertFalse(level3.getQueryOptions().hasCountFilter());
         Assertions.assertEquals("Datastreams", level3.getPath());
 
-        init(ODataConstants.QueryOptions.EXPAND
+        init(/*~~>*/ODataConstants.QueryOptions.EXPAND
                      + EQ
                      + "Things/Datastreams/Thing,Things/Locations," +
                      "Things/Datastreams/ObservedProperty,Things/Datastreams/Sensor");
@@ -380,7 +380,7 @@ public class ExpandQueryOptionTest extends QueryOptionTests {
             }
         }
 
-        init(ODataConstants.QueryOptions.EXPAND
+        init(/*~~>*/ODataConstants.QueryOptions.EXPAND
                      + EQ
                      + "Observations/FeatureOfInterest($select=id),Thing/Locations");
         options = (QueryOptions) parser.queryOptions().accept(new STAQueryOptionVisitor());
@@ -402,7 +402,7 @@ public class ExpandQueryOptionTest extends QueryOptionTests {
      */
     @Test
     public void invalidAmbiguousQueryOptions() {
-        init(ODataConstants.QueryOptions.EXPAND
+        init(/*~~>*/ODataConstants.QueryOptions.EXPAND
                      + EQ
                      + "Datastreams($select=name),Datastreams($select=test)");
         Assertions.assertThrows(
@@ -410,7 +410,7 @@ public class ExpandQueryOptionTest extends QueryOptionTests {
                 () -> parser.queryOptions().accept(new STAQueryOptionVisitor())
         );
 
-        init(ODataConstants.QueryOptions.EXPAND
+        init(/*~~>*/ODataConstants.QueryOptions.EXPAND
                      + EQ
                      + "Datastreams($orderby=name),Datastreams($orderby=test)");
         Assertions.assertThrows(
@@ -418,7 +418,7 @@ public class ExpandQueryOptionTest extends QueryOptionTests {
                 () -> parser.queryOptions().accept(new STAQueryOptionVisitor())
         );
 
-        init(ODataConstants.QueryOptions.EXPAND
+        init(/*~~>*/ODataConstants.QueryOptions.EXPAND
                      + EQ
                      + "Datastreams($filter=id eq '2'),Datastreams($filter=id eq '4')");
         Assertions.assertThrows(
@@ -426,7 +426,7 @@ public class ExpandQueryOptionTest extends QueryOptionTests {
                 () -> parser.queryOptions().accept(new STAQueryOptionVisitor())
         );
 
-        init(ODataConstants.QueryOptions.EXPAND
+        init(/*~~>*/ODataConstants.QueryOptions.EXPAND
                      + EQ
                      + "Datastreams($skip=15),Datastreams($skip=52)");
         Assertions.assertThrows(
@@ -434,7 +434,7 @@ public class ExpandQueryOptionTest extends QueryOptionTests {
                 () -> parser.queryOptions().accept(new STAQueryOptionVisitor())
         );
 
-        init(ODataConstants.QueryOptions.EXPAND
+        init(/*~~>*/ODataConstants.QueryOptions.EXPAND
                      + EQ
                      + "Datastreams($top=15),Datastreams($top=52)");
         Assertions.assertThrows(

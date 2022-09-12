@@ -37,8 +37,8 @@ public class SwesExtension<
     }
 
     @Override
-    public String getNamespace() {
-        return SwesConstants.NS_SWES_20;
+    public /*~~>*/String getNamespace() {
+        return /*~~>*/SwesConstants.NS_SWES_20;
     }
 
     @Override
@@ -58,8 +58,8 @@ public class SwesExtension<
     }
 
     @Override
-    public String toString() {
-        return String.format("SwesExtension [value=%s, identifier=%s, definition=%s]", value, getIdentifier(),
+    public /*~~>*/String toString() {
+        return /*~~>*/String.format("SwesExtension [value=%s, identifier=%s, definition=%s]", value, getIdentifier(),
                 getDefinition());
     }
 }

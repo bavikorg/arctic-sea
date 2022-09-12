@@ -25,7 +25,7 @@ public class SmlClassifierTest {
     @Test public void
     shouldReturnTrueIfCodeSpaceIsSetAndNotEmpty()
     {
-        final String codeSpace = "test-codespace";
+        final /*~~>*/String codeSpace = "test-codespace";
         final SmlClassifier smlClassifier = new SmlClassifier("name", "definition", codeSpace, "value");
         assertThat(smlClassifier.isSetCodeSpace(), is(true));
         assertThat(smlClassifier.getCodeSpace(), is(codeSpace));
@@ -34,7 +34,7 @@ public class SmlClassifierTest {
     @Test public void
     shouldReturnFalseIfCodeSpaceIsEmptyOrNotSet()
     {
-        final String codeSpace = null;
+        final /*~~>*/String codeSpace = null;
         final SmlClassifier smlClassifier = new SmlClassifier("name", "definition", codeSpace, "value");
         assertThat(smlClassifier.isSetCodeSpace(), is(false));
 
@@ -45,7 +45,7 @@ public class SmlClassifierTest {
     @Test public void
     shouldReturnTrueIfDefinitionIsSetAndNotEmpty()
     {
-        final String definition = "test-definition";
+        final /*~~>*/String definition = "test-definition";
         final SmlClassifier smlClassifier = new SmlClassifier(null, definition, null, null);
         assertThat(smlClassifier.isSetDefinition(), is(true));
         assertThat(smlClassifier.getDefinition(), is(definition));
@@ -54,7 +54,7 @@ public class SmlClassifierTest {
     @Test public void
     shouldReturnFalseIfDefinitionIsEmptyOrNotSet()
     {
-        final String definition = null;
+        final /*~~>*/String definition = null;
         final SmlClassifier smlClassifier = new SmlClassifier("name", definition, "codeSpace", "value");
         assertThat(smlClassifier.isSetDefinition(), is(false));
 

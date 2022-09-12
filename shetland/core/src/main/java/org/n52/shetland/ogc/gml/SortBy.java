@@ -25,7 +25,7 @@ import org.n52.shetland.ogc.gml.GmlConstants.SortingOrder;
 public class SortBy {
 
     /** name of the property, by which should be sorted */
-    private String property;
+    private /*~~>*/String property;
 
     /**
      * order of the sorting (currently only ascending (ASC) or descending (DESC)
@@ -40,8 +40,8 @@ public class SortBy {
      * @param orderp
      *            sorting order (currently only ascending ('ASC') or descending ('DESC')
      */
-    public SortBy(String propertyp, SortingOrder orderp) {
-        this.property = propertyp;
+    public SortBy(/*~~>*/String propertyp, SortingOrder orderp) {
+        /*~~>*/this.property = propertyp;
         this.order = orderp;
     }
 
@@ -55,8 +55,8 @@ public class SortBy {
      *
      * @return Returns String representation with values of this object
      */
-    public String toString() {
-        return String.format("Sort by [property=%s, order=%s]", getProperty(), getOrder());
+    public /*~~>*/String toString() {
+        return /*~~>*/String.format("Sort by [property=%s, order=%s]", getProperty(), getOrder());
     }
 
     /**
@@ -83,7 +83,7 @@ public class SortBy {
      *
      * @return the property
      */
-    public String getProperty() {
+    public /*~~>*/String getProperty() {
         return property;
     }
 
@@ -93,7 +93,7 @@ public class SortBy {
      * @param property
      *            the property to set
      */
-    public void setProperty(String property) {
-        this.property = property;
+    public void setProperty(/*~~>*/String property) {
+        /*~~>*/this.property = property;
     }
 }

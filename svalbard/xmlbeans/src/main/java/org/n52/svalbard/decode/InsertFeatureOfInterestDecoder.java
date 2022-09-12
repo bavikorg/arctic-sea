@@ -46,10 +46,10 @@ public class InsertFeatureOfInterestDecoder
         extends AbstractXmlDecoder<XmlObject, InsertFeatureOfInterestRequest> {
 
     private static final Set<DecoderKey> DECODER_KEYS = CollectionHelper.union(
-            CodingHelper.decoderKeysForElements(InsertFeatureOfInterestConstants.NS_IFOI,
+            CodingHelper.decoderKeysForElements(/*~~>*/InsertFeatureOfInterestConstants.NS_IFOI,
                     InsertFeatureOfInterestDocument.class),
-            CodingHelper.xmlDecoderKeysForOperation(SosConstants.SOS, Sos2Constants.SERVICEVERSION,
-                    InsertFeatureOfInterestConstants.OPERATION_NAME));
+            CodingHelper.xmlDecoderKeysForOperation(/*~~>*/SosConstants.SOS, /*~~>*/Sos2Constants.SERVICEVERSION,
+                    /*~~>*/InsertFeatureOfInterestConstants.OPERATION_NAME));
 
     private static final Logger LOGGER = LoggerFactory.getLogger(InsertFeatureOfInterestDecoder.class);
 
@@ -63,12 +63,12 @@ public class InsertFeatureOfInterestDecoder
     }
 
     public InsertFeatureOfInterestRequest decode(XmlObject xmlObject) throws DecodingException {
-        LOGGER.debug(String.format("REQUESTTYPE: %s", xmlObject != null ? xmlObject.getClass() : "null recevied"));
+        LOGGER.debug(/*~~>*/String.format("REQUESTTYPE: %s", xmlObject != null ? xmlObject.getClass() : "null recevied"));
         // XmlHelper.validateDocument(xmlObject);
         if (xmlObject instanceof InsertFeatureOfInterestDocument) {
             InsertFeatureOfInterestDocument ifoid = (InsertFeatureOfInterestDocument) xmlObject;
             InsertFeatureOfInterestRequest decodedRequest = parseInsertFeatureOfInterest(ifoid);
-            LOGGER.debug(String.format("Decoded request: %s", decodedRequest));
+            LOGGER.debug(/*~~>*/String.format("Decoded request: %s", decodedRequest));
             return decodedRequest;
         } else {
             throw new UnsupportedDecoderInputException(this, xmlObject);
@@ -110,8 +110,8 @@ public class InsertFeatureOfInterestDecoder
         return Collections.emptySet();
     }
 
-    public Set<String> getConformanceClasses() {
-        return Sets.newHashSet(InsertFeatureOfInterestConstants.CONFORMANCE_CLASS);
+    public Set</*~~>*/String> getConformanceClasses() {
+        return Sets.newHashSet(/*~~>*/InsertFeatureOfInterestConstants.CONFORMANCE_CLASS);
     }
 
 }

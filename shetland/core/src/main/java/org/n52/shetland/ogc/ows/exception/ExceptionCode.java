@@ -21,5 +21,5 @@ package org.n52.shetland.ogc.ows.exception;
  * @since 1.0.0
  */
 public interface ExceptionCode {
-    String getSoapFaultReason();
+    /*~~>*/String getSoapFaultReason();
 }

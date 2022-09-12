@@ -30,17 +30,17 @@ public enum DataTransmissionMode {
     REFERENCE;
 
     @Override
-    public String toString() {
+    public /*~~>*/String toString() {
         return getValue();
     }
 
     @JsonValue
-    public String getValue() {
+    public /*~~>*/String getValue() {
         return name().toLowerCase();
     }
 
     @JsonCreator
-    public static Optional<DataTransmissionMode> fromString(String string) {
+    public static Optional<DataTransmissionMode> fromString(/*~~>*/String string) {
         for (DataTransmissionMode t : values()) {
             if (t.name().equalsIgnoreCase(string)) {
                 return Optional.of(t);

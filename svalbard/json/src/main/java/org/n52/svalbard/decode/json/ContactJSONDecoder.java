@@ -32,14 +32,14 @@ public class ContactJSONDecoder extends AbstractJSONDecoder<Contact> {
     public Contact decodeJSON(JsonNode node, boolean validate)
             throws DecodingException {
         Contact contact = new Contact();
-        contact.setAddress(decodeJsonToNillable(node.path(AQDJSONConstants.ADDRESS), AddressRepresentation.class));
+        contact.setAddress(decodeJsonToNillable(node.path(/*~~>*/AQDJSONConstants.ADDRESS), AddressRepresentation.class));
         contact.setContactInstructions(
-                parseNillable(node.path(AQDJSONConstants.CONTACT_INSTRUCTIONS)).map(this::parseFreeText));
-        contact.setElectronicMailAddress(parseNillableString(node.path(AQDJSONConstants.ELECTRONIC_MAIL_ADDRESS)));
+                parseNillable(node.path(/*~~>*/AQDJSONConstants.CONTACT_INSTRUCTIONS)).map(this::parseFreeText));
+        contact.setElectronicMailAddress(parseNillableString(node.path(/*~~>*/AQDJSONConstants.ELECTRONIC_MAIL_ADDRESS)));
         contact.setHoursOfService(
-                parseNillable(node.path(AQDJSONConstants.HOURS_OF_SERVICE)).map(this::parseFreeText));
-        contact.setWebsite(parseNillableString(node.path(AQDJSONConstants.WEBSITE)));
-        JsonNode tfNode = node.path(AQDJSONConstants.TELEPHONE_FACSIMILE);
+                parseNillable(node.path(/*~~>*/AQDJSONConstants.HOURS_OF_SERVICE)).map(this::parseFreeText));
+        contact.setWebsite(parseNillableString(node.path(/*~~>*/AQDJSONConstants.WEBSITE)));
+        JsonNode tfNode = node.path(/*~~>*/AQDJSONConstants.TELEPHONE_FACSIMILE);
         if (tfNode.isArray()) {
             for (JsonNode n : tfNode) {
                 contact.addTelephoneFacsimile(parseNillableString(n));
@@ -47,7 +47,7 @@ public class ContactJSONDecoder extends AbstractJSONDecoder<Contact> {
         } else {
             contact.addTelephoneFacsimile(parseNillableString(tfNode));
         }
-        JsonNode tvNode = node.path(AQDJSONConstants.TELEPHONE_VOICE);
+        JsonNode tvNode = node.path(/*~~>*/AQDJSONConstants.TELEPHONE_VOICE);
         if (tvNode.isArray()) {
             for (JsonNode n : tvNode) {
                 contact.addTelephoneVoice(parseNillableString(n));

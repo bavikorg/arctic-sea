@@ -30,7 +30,7 @@ public class LocaleHelperTest {
 
     @Test
     public void testSerialization() {
-        String string = LocaleHelper.encode(Locale.GERMAN);
+        /*~~>*/String string = LocaleHelper.encode(Locale.GERMAN);
         assertThat(LocaleHelper.decode(string, null), is(Locale.GERMAN));
     }
 
@@ -39,7 +39,7 @@ public class LocaleHelperTest {
 
         //IETF BCP 47
         // ISO 639 alpha-2 or alpha-3
-        String string = LocaleHelper.encode(Locale.GERMAN);
+        /*~~>*/String string = LocaleHelper.encode(Locale.GERMAN);
         //System.out.println(Locale.GERMAN.toLanguageTag());
         assertThat(LocaleHelper.decode(string, null), is(Locale.GERMAN));
         assertThat(LocaleHelper.decode("de_DE", null), is(Locale.GERMANY));
@@ -55,28 +55,28 @@ public class LocaleHelperTest {
 
     @Test
     public void parseFirstOfMultipleLanguages() {
-        String multiLanguageString = "de-DE,en";
+        /*~~>*/String multiLanguageString = "de-DE,en";
         Locale locale = LocaleHelper.decode(multiLanguageString);
         assertThat(locale, is(Locale.GERMANY));
     }
 
     @Test
     public void parseWithEmptyRelativeQualityFactors() {
-        String headerWithQualityFactors = "de-DE;";
+        /*~~>*/String headerWithQualityFactors = "de-DE;";
         Locale locale = LocaleHelper.decode(headerWithQualityFactors);
         assertThat(locale, is(Locale.GERMANY));
     }
 
     @Test
     public void parseWithSingleRelativeQualityFactors() {
-        String headerWithQualityFactors = "de-DE;q=0.9";
+        /*~~>*/String headerWithQualityFactors = "de-DE;q=0.9";
         Locale locale = LocaleHelper.decode(headerWithQualityFactors);
         assertThat(locale, is(Locale.GERMANY));
     }
 
     @Test
     public void parseWithMultipleRelativeQualityFactors() {
-        String headerWithQualityFactors = "de-DE,en;q=0.9,en-GB;q=0.8,en;q=0.7,en-US;q=0.6";
+        /*~~>*/String headerWithQualityFactors = "de-DE,en;q=0.9,en-GB;q=0.8,en;q=0.7,en-US;q=0.6";
         Locale locale = LocaleHelper.decode(headerWithQualityFactors);
         assertThat(locale, is(Locale.GERMANY));
     }

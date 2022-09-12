@@ -47,16 +47,16 @@ import java.util.function.Supplier;
  * @param <R> the request type
  * @author Christian Autermann
  */
-public abstract class AbstractKvpDecoder<R extends OwsServiceRequest> implements Decoder<R, Map<String, String>> {
+public abstract class AbstractKvpDecoder<R extends OwsServiceRequest> implements Decoder<R, Map</*~~>*/String, /*~~>*/String>> {
 
     private final Set<DecoderKey> keys;
     private final Supplier<? extends R> supplier;
 
-    public AbstractKvpDecoder(Supplier<? extends R> supplier, String service, String version, String operation) {
+    public AbstractKvpDecoder(Supplier<? extends R> supplier, /*~~>*/String service, /*~~>*/String version, /*~~>*/String operation) {
         this(supplier, new OperationDecoderKey(service, version, operation, MediaTypes.APPLICATION_KVP));
     }
 
-    public AbstractKvpDecoder(Supplier<? extends R> supplier, String service, String version, Enum<?> operation) {
+    public AbstractKvpDecoder(Supplier<? extends R> supplier, /*~~>*/String service, /*~~>*/String version, Enum<?> operation) {
         this(supplier, service, version, operation.name());
     }
 
@@ -75,7 +75,7 @@ public abstract class AbstractKvpDecoder<R extends OwsServiceRequest> implements
     }
 
     @Override
-    public R decode(Map<String, String> parameters) throws DecodingException {
+    public R decode(Map</*~~>*/String, /*~~>*/String> parameters) throws DecodingException {
         if (parameters == null) {
             throw new DecodingException("The request does not contain any parameter!");
         }
@@ -100,17 +100,17 @@ public abstract class AbstractKvpDecoder<R extends OwsServiceRequest> implements
         builder.add(OWSConstants.RequestParams.request, OwsServiceRequest::setOperationName);
     }
 
-    protected List<String> decodeList(String value) {
+    protected List</*~~>*/String> decodeList(/*~~>*/String value) {
         return value == null ? null : StringHelper.splitToList(value, ",");
     }
 
-    protected ThrowingBiConsumer<R, String, DecodingException> decodeList(
-            ThrowingBiConsumer<? super R, ? super List<String>, DecodingException> delegate) {
+    protected ThrowingBiConsumer<R, /*~~>*/String, DecodingException> decodeList(
+            ThrowingBiConsumer<? super R, ? super List</*~~>*/String>, DecodingException> delegate) {
         return (request, value) -> delegate.accept(request, decodeList(value));
     }
 
-    protected ThrowingTriConsumer<R, String, String, DecodingException> decodeList(
-            ThrowingTriConsumer<? super R, ? super String, ? super List<String>, DecodingException> delegate) {
+    protected ThrowingTriConsumer<R, /*~~>*/String, /*~~>*/String, DecodingException> decodeList(
+            ThrowingTriConsumer<? super R, ? super /*~~>*/String, ? super List</*~~>*/String>, DecodingException> delegate) {
         return (request, name, value) -> delegate.accept(request, name, decodeList(value));
     }
 
@@ -119,15 +119,15 @@ public abstract class AbstractKvpDecoder<R extends OwsServiceRequest> implements
         return (request, value) -> delegate.accept(request, Collections.singletonList(value));
     }
 
-    protected ThrowingBiConsumer<R, String, DecodingException> normalizeMediaType(
-            ThrowingBiConsumer<? super R, ? super String, DecodingException> delegate) {
+    protected ThrowingBiConsumer<R, /*~~>*/String, DecodingException> normalizeMediaType(
+            ThrowingBiConsumer<? super R, ? super /*~~>*/String, DecodingException> delegate) {
         return (request, value) -> delegate.accept(request, MediaType.normalizeString(value));
     }
 
     protected abstract void getRequestParameterDefinitions(Builder<R> builder);
 
-    private ThrowingTriConsumer<R, String, String, DecodingException> getDecoder(
-            Map<String, ThrowingBiConsumer<? super R, String, DecodingException>> parsers) {
+    private ThrowingTriConsumer<R, /*~~>*/String, /*~~>*/String, DecodingException> getDecoder(
+            Map</*~~>*/String, ThrowingBiConsumer<? super R, /*~~>*/String, DecodingException>> parsers) {
         return (request, name, value) -> {
             if (parsers.containsKey(name)) {
                 parsers.get(name).accept(request, value);
@@ -138,30 +138,30 @@ public abstract class AbstractKvpDecoder<R extends OwsServiceRequest> implements
     }
 
     protected static final class Builder<R extends OwsServiceRequest> {
-        private final Map<String, ThrowingBiConsumer<? super R, String, DecodingException>> parsers
+        private final Map</*~~>*/String, ThrowingBiConsumer<? super R, /*~~>*/String, DecodingException>> parsers
                 = new TreeMap<>(String.CASE_INSENSITIVE_ORDER);
 
         private Builder() {
         }
 
         @SuppressWarnings("unchecked")
-        public Builder<R> add(String name, ThrowingBiConsumer<? super R, String, DecodingException> parser) {
+        public Builder<R> add(/*~~>*/String name, ThrowingBiConsumer<? super R, /*~~>*/String, DecodingException> parser) {
             Preconditions.checkArgument(!Objects.requireNonNull(name).isEmpty());
             Objects.requireNonNull(parser);
-            this.parsers.merge(name, parser, (f1, f2) -> ((ThrowingBiConsumer<R, String, DecodingException>) f1)
+            this.parsers.merge(name, parser, (f1, f2) -> ((ThrowingBiConsumer<R, /*~~>*/String, DecodingException>) f1)
                                                                  .andThen(f2));
             return this;
         }
 
-        public Builder<R> add(Enum<?> name, ThrowingBiConsumer<? super R, String, DecodingException> parser) {
+        public Builder<R> add(Enum<?> name, ThrowingBiConsumer<? super R, /*~~>*/String, DecodingException> parser) {
             return add(name.name(), parser);
         }
 
-        public Builder<R> add(String name, ThrowingTriConsumer<? super R, String, String, DecodingException> parser) {
+        public Builder<R> add(/*~~>*/String name, ThrowingTriConsumer<? super R, /*~~>*/String, /*~~>*/String, DecodingException> parser) {
             return add(name, parser.currySecond(name));
         }
 
-        public Builder<R> add(Enum<?> name, ThrowingTriConsumer<? super R, String, String, DecodingException> parser) {
+        public Builder<R> add(Enum<?> name, ThrowingTriConsumer<? super R, /*~~>*/String, /*~~>*/String, DecodingException> parser) {
             return add(name.name(), parser);
         }
 
@@ -170,7 +170,7 @@ public abstract class AbstractKvpDecoder<R extends OwsServiceRequest> implements
             return this;
         }
 
-        public Map<String, ThrowingBiConsumer<? super R, String, DecodingException>> build() {
+        public Map</*~~>*/String, ThrowingBiConsumer<? super R, /*~~>*/String, DecodingException>> build() {
             return Collections.unmodifiableMap(this.parsers);
         }
     }

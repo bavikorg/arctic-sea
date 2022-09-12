@@ -23,11 +23,11 @@ import java.net.URI;
  * @author Christian Autermann
  */
 public class OwsReferenceSystem extends OwsValuesUnit {
-    public OwsReferenceSystem(URI reference, String value) {
+    public OwsReferenceSystem(URI reference, /*~~>*/String value) {
         super(reference, value);
     }
 
-    public OwsReferenceSystem(String value) {
+    public OwsReferenceSystem(/*~~>*/String value) {
         super(value);
     }
 

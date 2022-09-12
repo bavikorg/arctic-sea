@@ -33,39 +33,39 @@ import com.google.common.collect.Sets;
  */
 public interface FilterConstants {
 
-    String NS_FES_2 = "http://www.opengis.net/fes/2.0";
+    /*~~>*/String NS_FES_2 = "http://www.opengis.net/fes/2.0";
 
-    String NS_FES_110 = "http://www.opengis.net/ogc";
+    /*~~>*/String NS_FES_110 = "http://www.opengis.net/ogc";
 
-    String NS_FES_2_PREFIX = "fes";
+    /*~~>*/String NS_FES_2_PREFIX = "fes";
 
-    String NS_FES_110_PREFIX = NS_FES_2_PREFIX;
+    /*~~>*/String NS_FES_110_PREFIX = NS_FES_2_PREFIX;
 
-    String SCHEMA_LOCATION_URL_FES_20 = "http://schemas.opengis.net/filter/2.0/filterAll.xsd";
+    /*~~>*/String SCHEMA_LOCATION_URL_FES_20 = "http://schemas.opengis.net/filter/2.0/filterAll.xsd";
 
-    String SCHEMA_LOCATION_URL_FES_110 = "http://schemas.opengis.net/filter/1.1.0/filter.xsd";
+    /*~~>*/String SCHEMA_LOCATION_URL_FES_110 = "http://schemas.opengis.net/filter/1.1.0/filter.xsd";
 
     SchemaLocation FES_20_SCHEMA_LOCATION = new SchemaLocation(NS_FES_2, SCHEMA_LOCATION_URL_FES_20);
 
     SchemaLocation FES_110_SCHEMA_LOCATION = new SchemaLocation(NS_FES_110, SCHEMA_LOCATION_URL_FES_110);
 
-    String FILTER_LANGUAGE_FES_FILTER = OGCConstants.QUERY_LANGUAGE_PREFIX + "OGC-FES:Filter";
+    /*~~>*/String FILTER_LANGUAGE_FES_FILTER = /*~~>*/OGCConstants.QUERY_LANGUAGE_PREFIX + "OGC-FES:Filter";
 
-    String SHORT_NAME = "Filter";
+    /*~~>*/String SHORT_NAME = "Filter";
 
-    String VERSION_STRING_FES_110 = "1.1.0";
+    /*~~>*/String VERSION_STRING_FES_110 = "1.1.0";
 
-    String VERSION_STRING_FES_2 = "2.0";
+    /*~~>*/String VERSION_STRING_FES_2 = "2.0";
 
     /*
      * element names
      */
-    String EN_TEQUALS = "TEquals";
-    String EN_VALUE_REFERENCE = "ValueReference";
-    String EN_PROPERTY_NAME = "PropertyName";
-    String EN_LITERAL = "Literal";
-    String EN_PROPERTY_IS_EQUAL_TO = "PropertyIsEqualTo";
-    String EN_FILTER = SHORT_NAME;
+    /*~~>*/String EN_TEQUALS = "TEquals";
+    /*~~>*/String EN_VALUE_REFERENCE = "ValueReference";
+    /*~~>*/String EN_PROPERTY_NAME = "PropertyName";
+    /*~~>*/String EN_LITERAL = "Literal";
+    /*~~>*/String EN_PROPERTY_IS_EQUAL_TO = "PropertyIsEqualTo";
+    /*~~>*/String EN_FILTER = SHORT_NAME;
 
     /*
      * QNames
@@ -150,7 +150,7 @@ public interface FilterConstants {
             return TimeOperatorMapping.get(this);
         }
 
-        public static TimeOperator from(String s) {
+        public static TimeOperator from(/*~~>*/String s) {
             for (TimeOperator to : TimeOperator.values()) {
                 if (to.name().equalsIgnoreCase(s)) {
                     return to;
@@ -187,7 +187,7 @@ public interface FilterConstants {
             return TimeOperatorMapping.get(this);
         }
 
-        public static TimeOperator2 from(String s) {
+        public static TimeOperator2 from(/*~~>*/String s) {
             for (TimeOperator2 to : TimeOperator2.values()) {
                 if (to.name().equalsIgnoreCase(s)) {
                     return to;
@@ -262,7 +262,7 @@ public interface FilterConstants {
         PropertyIsNull,
         PropertyIsBetween;
 
-        public static String asString(ComparisonOperator co) {
+        public static /*~~>*/String asString(ComparisonOperator co) {
             switch (co) {
                 case PropertyIsEqualTo:
                     return "EqualTo";
@@ -285,7 +285,7 @@ public interface FilterConstants {
                 case PropertyIsBetween:
                     return "Between";
                 default:
-                    throw new IllegalArgumentException(String.format("Operators %s is not supported.", co));
+                    throw new IllegalArgumentException(/*~~>*/String.format("Operators %s is not supported.", co));
             }
         }
     }

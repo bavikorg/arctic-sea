@@ -26,12 +26,12 @@ public abstract class AbstractMDIdentification extends AbstractObject {
     /**
      * 1..1
      */
-    private String abstrakt;
+    private /*~~>*/String abstrakt;
 
     @SuppressFBWarnings({ "EI_EXPOSE_REP2" })
-    public AbstractMDIdentification(GmdCitation citation, String abstrakt) {
+    public AbstractMDIdentification(GmdCitation citation, /*~~>*/String abstrakt) {
         this.citation = citation;
-        this.abstrakt = abstrakt;
+        /*~~>*/this.abstrakt = abstrakt;
     }
 
     /**
@@ -45,7 +45,7 @@ public abstract class AbstractMDIdentification extends AbstractObject {
     /**
      * @return the abstrakt
      */
-    public String getAbstrakt() {
+    public /*~~>*/String getAbstrakt() {
         return abstrakt;
     }
 

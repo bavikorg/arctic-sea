@@ -43,9 +43,9 @@ public class InsertSensorResponseDecoder extends AbstractXmlDecoder<XmlObject, I
     private static final Logger LOGGER = LoggerFactory.getLogger(InsertSensorResponseDecoder.class);
 
     private static final Set<DecoderKey> DECODER_KEYS = CollectionHelper.union(
-            CodingHelper.decoderKeysForElements(SwesConstants.NS_SWES_20,
+            CodingHelper.decoderKeysForElements(/*~~>*/SwesConstants.NS_SWES_20,
                     InsertSensorResponseDocument.class),
-            CodingHelper.xmlDecoderKeysForOperation(Sos2Constants.SOS, Sos2Constants.SERVICEVERSION,
+            CodingHelper.xmlDecoderKeysForOperation(/*~~>*/Sos2Constants.SOS, /*~~>*/Sos2Constants.SERVICEVERSION,
                     Sos2Constants.Operations.InsertSensor));
 
     public InsertSensorResponseDecoder() {
@@ -70,7 +70,7 @@ public class InsertSensorResponseDecoder extends AbstractXmlDecoder<XmlObject, I
             throw new DecodingException(
                     "Received XML document is not valid. Set log level to debug to get more details");
         }
-        InsertSensorResponse decodedResponse = new InsertSensorResponse(SosConstants.SOS, Sos2Constants.SERVICEVERSION);
+        InsertSensorResponse decodedResponse = new InsertSensorResponse(/*~~>*/SosConstants.SOS, /*~~>*/Sos2Constants.SERVICEVERSION);
         decodedResponse.setAssignedOffering(isr.getAssignedOffering());
         decodedResponse.setAssignedProcedure(isr.getAssignedProcedure());
         return decodedResponse;

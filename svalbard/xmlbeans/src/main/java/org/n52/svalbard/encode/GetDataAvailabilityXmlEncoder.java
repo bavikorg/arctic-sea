@@ -50,8 +50,8 @@ public class GetDataAvailabilityXmlEncoder
         extends AbstractResponseEncoder<GetDataAvailabilityResponse> {
 
     public GetDataAvailabilityXmlEncoder() {
-        super(SosConstants.SOS, Sos2Constants.SERVICEVERSION, GetDataAvailabilityConstants.OPERATION_NAME,
-                Sos2Constants.NS_SOS_20, SosConstants.NS_SOS_PREFIX, GetDataAvailabilityResponse.class, false);
+        super(/*~~>*/SosConstants.SOS, /*~~>*/Sos2Constants.SERVICEVERSION, /*~~>*/GetDataAvailabilityConstants.OPERATION_NAME,
+                /*~~>*/Sos2Constants.NS_SOS_20, /*~~>*/SosConstants.NS_SOS_PREFIX, GetDataAvailabilityResponse.class, false);
     }
 
     @Override
@@ -59,12 +59,12 @@ public class GetDataAvailabilityXmlEncoder
         return Collections.emptySet();
     }
 
-    protected Set<SchemaLocation> getConcreteSchemaLocations(String namespace) {
+    protected Set<SchemaLocation> getConcreteSchemaLocations(/*~~>*/String namespace) {
         if (!Strings.isNullOrEmpty(namespace)) {
             switch (namespace) {
-                case GetDataAvailabilityConstants.NS_GDA:
+                case /*~~>*/GetDataAvailabilityConstants.NS_GDA:
                     return Sets.newHashSet(GetDataAvailabilityConstants.GET_DATA_AVAILABILITY_SCHEMA_LOCATION);
-                case GetDataAvailabilityConstants.NS_GDA_20:
+                case /*~~>*/GetDataAvailabilityConstants.NS_GDA_20:
                     return Sets.newHashSet(GetDataAvailabilityConstants.GET_DATA_AVAILABILITY_20_SCHEMA_LOCATION);
                 default:
                     return getConcreteSchemaLocations();
@@ -81,9 +81,9 @@ public class GetDataAvailabilityXmlEncoder
             EncodingContext ctx = EncodingContext.empty()
                     .with(EncoderFlags.ENCODER_REPOSITORY, getEncoderRepository())
                     .with(XmlEncoderFlags.XML_OPTIONS, (Supplier<XmlOptions>) this::getXmlOptions);
-            if (GetDataAvailabilityConstants.NS_GDA.equals(response.getResponseFormat())) {
+            if (/*~~>*/GetDataAvailabilityConstants.NS_GDA.equals(response.getResponseFormat())) {
                 new GetDataAvailabilityStreamWriter(ctx, baos, response.getDataAvailabilities()).write();
-            } else if (GetDataAvailabilityConstants.NS_GDA_20.equals(response.getResponseFormat())) {
+            } else if (/*~~>*/GetDataAvailabilityConstants.NS_GDA_20.equals(response.getResponseFormat())) {
                 new GetDataAvailabilityV20StreamWriter(ctx, baos, response.getDataAvailabilities()).write();
             }
             XmlObject encodedObject = XmlObject.Factory.parse(baos.toString("UTF8"));

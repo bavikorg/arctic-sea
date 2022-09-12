@@ -22,5 +22,5 @@ import org.n52.janmayen.Producer;
  * @author Christian Autermann
  */
 public interface IdentifiedProducer<T> extends Producer<T> {
-    T get(String identification);
+    T get(/*~~>*/String identification);
 }

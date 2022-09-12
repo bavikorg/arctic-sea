@@ -21,7 +21,7 @@ import org.n52.iceland.statistics.api.parameters.Description.InformationOrigin;
 import org.n52.iceland.statistics.api.parameters.Description.Operation;
 
 public interface ObjectEsParameterFactory {
-    String VALUE_REFERENCE = "value-reference";
+    /*~~>*/String VALUE_REFERENCE = "value-reference";
 
     // ----------------- OBJECTS DETEILS -----------------//
     // ---------------- COUNTRY CODE ---------------------//
@@ -171,41 +171,41 @@ public interface ObjectEsParameterFactory {
     // ---------------------------------------//
     // --------- COMPOSITE PARAMETERS --------//
     // ---------------------------------------//
-    static ObjectEsParameter geoLocation(String objectName, Description description) {
+    static ObjectEsParameter geoLocation(/*~~>*/String objectName, Description description) {
         Objects.requireNonNull(objectName);
 
         return new ObjectEsParameter(objectName, description, GEOLOC_COUNTRY_CODE,
                                      GEOLOC_CITY_NAME, GEOLOC_GEO_POINT);
     }
 
-    static ObjectEsParameter bytesWritten(String objectName, Description description) {
+    static ObjectEsParameter bytesWritten(/*~~>*/String objectName, Description description) {
         Objects.requireNonNull(objectName);
 
         return new ObjectEsParameter(objectName, description, BYTES, DISPLAY_BYTES);
     }
 
-    static ObjectEsParameter extension(String objectName, Description description) {
+    static ObjectEsParameter extension(/*~~>*/String objectName, Description description) {
         Objects.requireNonNull(objectName);
 
         return new ObjectEsParameter(objectName, description, EXTENSION_DEFINITION,
                                      EXTENSION_IDENTIFIER, EXTENSION_VALUE);
     }
 
-    static ObjectEsParameter spatialFilter(String objectName, Description description) {
+    static ObjectEsParameter spatialFilter(/*~~>*/String objectName, Description description) {
         Objects.requireNonNull(objectName);
 
         return new ObjectEsParameter(objectName, description, SPATIAL_FILTER_OPERATOR,
                                      SPATIAL_FILTER_SHAPE, SPATIAL_FILTER_VALUE_REF);
     }
 
-    static ObjectEsParameter time(String objectName, Description description) {
+    static ObjectEsParameter time(/*~~>*/String objectName, Description description) {
         Objects.requireNonNull(objectName);
 
         return new ObjectEsParameter(objectName, description, TIME_DURARTION, TIME_START,
                                      TIME_END, TIME_TIMEINSTANT, TIME_SPAN_AS_DAYS);
     }
 
-    static ObjectEsParameter temporalFilter(String objectName, Description description) {
+    static ObjectEsParameter temporalFilter(/*~~>*/String objectName, Description description) {
         Objects.requireNonNull(objectName);
 
         return new ObjectEsParameter(objectName, description, TIME_DURARTION, TIME_START,
@@ -213,7 +213,7 @@ public interface ObjectEsParameterFactory {
                                      TEMPORAL_FILTER_OPERATOR, TEMPORAL_FILTER_VALUE_REF);
     }
 
-    static ObjectEsParameter omObservationConstellation(String objectName, Description description) {
+    static ObjectEsParameter omObservationConstellation(/*~~>*/String objectName, Description description) {
         Objects.requireNonNull(objectName);
 
         return new ObjectEsParameter(objectName, description, OMOCONSTELL_PROCEDURE,
@@ -221,7 +221,7 @@ public interface ObjectEsParameterFactory {
                                      OMOCONSTELL_OBSERVATION_TYPE);
     }
 
-    static ObjectEsParameter omObservation(String objectName, Description description) {
+    static ObjectEsParameter omObservation(/*~~>*/String objectName, Description description) {
         Objects.requireNonNull(objectName);
 
         return new ObjectEsParameter(objectName, description, OMOBS_CONSTELLATION,

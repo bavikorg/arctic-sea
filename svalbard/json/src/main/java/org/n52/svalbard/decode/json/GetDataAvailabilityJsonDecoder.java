@@ -33,32 +33,32 @@ import com.fasterxml.jackson.databind.JsonNode;
  */
 public class GetDataAvailabilityJsonDecoder extends AbstractSosRequestDecoder<GetDataAvailabilityRequest> {
     public GetDataAvailabilityJsonDecoder() {
-        super(GetDataAvailabilityRequest.class, SosConstants.SOS, Sos2Constants.SERVICEVERSION,
-                GetDataAvailabilityConstants.OPERATION_NAME);
+        super(GetDataAvailabilityRequest.class, /*~~>*/SosConstants.SOS, /*~~>*/Sos2Constants.SERVICEVERSION,
+                /*~~>*/GetDataAvailabilityConstants.OPERATION_NAME);
     }
 
     @Override
-    protected String getSchemaURI() {
-        return SchemaConstants.Request.GET_DATA_AVAILABILITY;
+    protected /*~~>*/String getSchemaURI() {
+        return /*~~>*/SchemaConstants.Request.GET_DATA_AVAILABILITY;
     }
 
     @Override
     protected GetDataAvailabilityRequest decodeRequest(JsonNode node) {
         GetDataAvailabilityRequest req = new GetDataAvailabilityRequest();
-        if (node.has(JSONConstants.PROCEDURE)) {
-            parseStringOrStringList(node.path(JSONConstants.PROCEDURE)).forEach(req::addProcedure);
+        if (node.has(/*~~>*/JSONConstants.PROCEDURE)) {
+            parseStringOrStringList(node.path(/*~~>*/JSONConstants.PROCEDURE)).forEach(req::addProcedure);
         }
-        if (node.has(JSONConstants.OBSERVED_PROPERTY)) {
-            parseStringOrStringList(node.path(JSONConstants.OBSERVED_PROPERTY)).forEach(req::addObservedProperty);
+        if (node.has(/*~~>*/JSONConstants.OBSERVED_PROPERTY)) {
+            parseStringOrStringList(node.path(/*~~>*/JSONConstants.OBSERVED_PROPERTY)).forEach(req::addObservedProperty);
         }
-        if (node.has(JSONConstants.FEATURE_OF_INTEREST)) {
-            parseStringOrStringList(node.path(JSONConstants.FEATURE_OF_INTEREST)).forEach(req::addFeatureOfInterest);
+        if (node.has(/*~~>*/JSONConstants.FEATURE_OF_INTEREST)) {
+            parseStringOrStringList(node.path(/*~~>*/JSONConstants.FEATURE_OF_INTEREST)).forEach(req::addFeatureOfInterest);
         }
-        if (node.has(JSONConstants.OFFERING)) {
-            parseStringOrStringList(node.path(JSONConstants.OFFERING)).forEach(req::addOffering);
+        if (node.has(/*~~>*/JSONConstants.OFFERING)) {
+            parseStringOrStringList(node.path(/*~~>*/JSONConstants.OFFERING)).forEach(req::addOffering);
         }
-        if (node.has(JSONConstants.RESPONSE_FORMAT)) {
-            req.setResponseFormat(node.path(JSONConstants.RESPONSE_FORMAT).textValue());
+        if (node.has(/*~~>*/JSONConstants.RESPONSE_FORMAT)) {
+            req.setResponseFormat(node.path(/*~~>*/JSONConstants.RESPONSE_FORMAT).textValue());
         }
         return req;
     }

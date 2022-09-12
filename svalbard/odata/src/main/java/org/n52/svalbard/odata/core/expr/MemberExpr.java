@@ -27,15 +27,15 @@ import java.util.Optional;
  */
 public final class MemberExpr implements ArithmeticExpr, DirectTextExpr {
 
-    private final String value;
+    private final /*~~>*/String value;
 
     /**
      * Create a new {@code MemberExpr}.
      *
      * @param value the value
      */
-    public MemberExpr(String value) {
-        this.value = Objects.requireNonNull(value);
+    public MemberExpr(/*~~>*/String value) {
+        /*~~>*/this.value = Objects.requireNonNull(value);
     }
 
     /**
@@ -43,7 +43,7 @@ public final class MemberExpr implements ArithmeticExpr, DirectTextExpr {
      *
      * @return the value
      */
-    public String getValue() {
+    public /*~~>*/String getValue() {
         return value;
     }
 
@@ -58,8 +58,8 @@ public final class MemberExpr implements ArithmeticExpr, DirectTextExpr {
     }
 
     @Override
-    public String toString() {
-        return this.value;
+    public /*~~>*/String toString() {
+        return /*~~>*/this.value;
     }
 
     @Override
@@ -68,7 +68,7 @@ public final class MemberExpr implements ArithmeticExpr, DirectTextExpr {
     }
 
     @Override public int hashCode() {
-        return Objects.hash(this.value);
+        return Objects.hash(/*~~>*/this.value);
     }
 
     @Override public boolean equals(Object o) {
@@ -78,6 +78,6 @@ public final class MemberExpr implements ArithmeticExpr, DirectTextExpr {
         if (!(o instanceof MemberExpr)) {
             return false;
         }
-        return Objects.equals(this.value, ((MemberExpr) o).getValue());
+        return Objects.equals(/*~~>*/this.value, ((MemberExpr) o).getValue());
     }
 }

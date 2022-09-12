@@ -23,9 +23,9 @@ import org.n52.shetland.w3c.wsdl.WSDLConstants;
 
 public class HttpOperation extends ExtensibilityElement {
 
-    private String location;
+    private /*~~>*/String location;
 
-    public HttpOperation(String location) {
+    public HttpOperation(/*~~>*/String location) {
         super(WSDLConstants.QN_HTTP_OPERATION);
         this.setLocation(location);
     }
@@ -33,7 +33,7 @@ public class HttpOperation extends ExtensibilityElement {
     /**
      * @return the location
      */
-    public String getLocation() {
+    public /*~~>*/String getLocation() {
         return location;
     }
 
@@ -41,8 +41,8 @@ public class HttpOperation extends ExtensibilityElement {
      * @param location
      *            the location to set
      */
-    public void setLocation(String location) {
-        this.location = location;
+    public void setLocation(/*~~>*/String location) {
+        /*~~>*/this.location = location;
     }
 
     @Override

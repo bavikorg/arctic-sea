@@ -42,17 +42,17 @@ public class OwsRequestMethod extends OwsOnlineResource implements Comparable<Ow
             .thenComparing(OwsRequestMethod::getTitle, Optionals.nullsLast()));
 
     private final SortedSet<OwsDomain> constraints;
-    private final String httpMethod;
+    private final /*~~>*/String httpMethod;
 
-    public OwsRequestMethod(URI href, String httpMethod, Collection<OwsDomain> constraints) {
+    public OwsRequestMethod(URI href, /*~~>*/String httpMethod, Collection<OwsDomain> constraints) {
         this(href, constraints, httpMethod, null, null, null, null, null);
     }
 
     @SuppressFBWarnings("NP_NULL_ON_SOME_PATH_FROM_RETURN_VALUE")
-    public OwsRequestMethod(URI href, Collection<OwsDomain> constraints, String httpMethod, URI role, URI arcrole,
-            String title, Show show, Actuate actuate) {
+    public OwsRequestMethod(URI href, Collection<OwsDomain> constraints, /*~~>*/String httpMethod, URI role, URI arcrole,
+            /*~~>*/String title, Show show, Actuate actuate) {
         super(href, role, arcrole, title, show, actuate);
-        this.httpMethod = Objects.requireNonNull(Strings.emptyToNull(httpMethod));
+        /*~~>*/this.httpMethod = Objects.requireNonNull(Strings.emptyToNull(httpMethod));
         this.constraints = CollectionHelper.newSortedSet(constraints);
     }
 
@@ -60,8 +60,8 @@ public class OwsRequestMethod extends OwsOnlineResource implements Comparable<Ow
         return Collections.unmodifiableSortedSet(this.constraints);
     }
 
-    public String getHttpMethod() {
-        return this.httpMethod;
+    public /*~~>*/String getHttpMethod() {
+        return /*~~>*/this.httpMethod;
     }
 
     @Override
@@ -73,7 +73,7 @@ public class OwsRequestMethod extends OwsOnlineResource implements Comparable<Ow
     public int hashCode() {
         int hash = 3;
         hash = 47 * hash + Objects.hashCode(this.constraints);
-        hash = 47 * hash + Objects.hashCode(this.httpMethod);
+        hash = 47 * hash + Objects.hashCode(/*~~>*/this.httpMethod);
         return hash;
     }
 
@@ -83,12 +83,12 @@ public class OwsRequestMethod extends OwsOnlineResource implements Comparable<Ow
             return false;
         }
         final OwsRequestMethod other = (OwsRequestMethod) obj;
-        return Objects.equals(this.httpMethod, other.httpMethod)
+        return Objects.equals(/*~~>*/this.httpMethod, /*~~>*/other.httpMethod)
                 && Objects.equals(this.constraints, other.constraints);
     }
 
     @Override
-    public String toString() {
+    public /*~~>*/String toString() {
         return "OwsRequestMethod{" + "constraints=" + constraints + ", httpMethod=" + httpMethod + '}';
     }
 

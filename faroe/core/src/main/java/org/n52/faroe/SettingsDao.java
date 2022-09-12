@@ -35,14 +35,14 @@ public interface SettingsDao {
      *
      * @return the value
      */
-    SettingValue<?> getSettingValue(String key);
+    SettingValue<?> getSettingValue(/*~~>*/String key);
 
     /**
      * Deletes the setting with the specified key.
      *
      * @param key the key
      */
-    void deleteSettingValue(String key);
+    void deleteSettingValue(/*~~>*/String key);
 
     /**
      * Saves the setting value.

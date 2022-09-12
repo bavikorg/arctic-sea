@@ -26,18 +26,18 @@ import com.google.common.base.Strings;
  */
 public abstract class Term {
 
-    private String name;
+    private /*~~>*/String name;
 
-    private String label;
+    private /*~~>*/String label;
 
-    private String definition;
+    private /*~~>*/String definition;
 
     /**
      * Classifier codeSpace href.
      */
-    private String codeSpace;
+    private /*~~>*/String codeSpace;
 
-    private String value;
+    private /*~~>*/String value;
 
     public Term() {
 
@@ -46,7 +46,7 @@ public abstract class Term {
     /**
      * @return the name
      */
-    public String getName() {
+    public /*~~>*/String getName() {
         return name;
     }
 
@@ -54,14 +54,14 @@ public abstract class Term {
      * @param name
      *            the name to set
      */
-    public void setName(final String name) {
-        this.name = name;
+    public void setName(final /*~~>*/String name) {
+        /*~~>*/this.name = name;
     }
 
     /**
      * @return the Identifier label
      */
-    public String getLabel() {
+    public /*~~>*/String getLabel() {
         return name;
     }
 
@@ -69,15 +69,15 @@ public abstract class Term {
      * @param label
      *            Identifier label
      */
-    public void setLabel(final String label) {
-        this.label = label;
-        this.name = label;
+    public void setLabel(final /*~~>*/String label) {
+        /*~~>*/this.label = label;
+        /*~~>*/this.name = label;
     }
 
     /**
      * @return the Classifier definition
      */
-    public String getDefinition() {
+    public /*~~>*/String getDefinition() {
         return definition;
     }
 
@@ -85,14 +85,14 @@ public abstract class Term {
      * @param definition
      *            Identifier definition
      */
-    public void setDefinition(final String definition) {
-        this.definition = definition;
+    public void setDefinition(final /*~~>*/String definition) {
+        /*~~>*/this.definition = definition;
     }
 
     /**
      * @return the Classifier codeSpace href
      */
-    public String getCodeSpace() {
+    public /*~~>*/String getCodeSpace() {
         return codeSpace;
     }
 
@@ -100,14 +100,14 @@ public abstract class Term {
      * @param codeSpace
      *            href Classifier codeSpace href
      */
-    public void setCodeSpace(final String codeSpace) {
-        this.codeSpace = codeSpace;
+    public void setCodeSpace(final /*~~>*/String codeSpace) {
+        /*~~>*/this.codeSpace = codeSpace;
     }
 
     /**
      * @return the value
      */
-    public String getValue() {
+    public /*~~>*/String getValue() {
         return value;
     }
 
@@ -115,8 +115,8 @@ public abstract class Term {
      * @param value
      *            the value to set
      */
-    public void setValue(final String value) {
-        this.value = value;
+    public void setValue(final /*~~>*/String value) {
+        /*~~>*/this.value = value;
     }
 
     /**

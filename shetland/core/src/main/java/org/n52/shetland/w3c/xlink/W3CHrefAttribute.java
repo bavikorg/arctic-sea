@@ -24,7 +24,7 @@ package org.n52.shetland.w3c.xlink;
  */
 public class W3CHrefAttribute {
 
-    private String href;
+    private /*~~>*/String href;
 
     /**
      * Constructor
@@ -38,14 +38,14 @@ public class W3CHrefAttribute {
      * @param href
      *            value to set
      */
-    public W3CHrefAttribute(String href) {
+    public W3CHrefAttribute(/*~~>*/String href) {
         setHref(href);
     }
 
     /**
      * @return get href
      */
-    public String getHref() {
+    public /*~~>*/String getHref() {
         return href;
     }
 
@@ -55,8 +55,8 @@ public class W3CHrefAttribute {
      *
      * @return this
      */
-    public W3CHrefAttribute setHref(String href) {
-        this.href = href;
+    public W3CHrefAttribute setHref(/*~~>*/String href) {
+        /*~~>*/this.href = href;
         return this;
     }
 
@@ -64,6 +64,6 @@ public class W3CHrefAttribute {
      * @return <code>true</code>, if href is not null or empty
      */
     public boolean isSetHref() {
-        return this.href != null && !this.href.isEmpty();
+        return /*~~>*/this.href != null && !/*~~>*/this.href.isEmpty();
     }
 }

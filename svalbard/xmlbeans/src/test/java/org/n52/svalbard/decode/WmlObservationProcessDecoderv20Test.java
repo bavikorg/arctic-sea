@@ -33,9 +33,9 @@ public class WmlObservationProcessDecoderv20Test {
 
     WmlObservationProcessDecoderv20 decoder = new WmlObservationProcessDecoderv20();
 
-    final String REF_OFFERING = "refOffering";
+    final /*~~>*/String REF_OFFERING = "refOffering";
 
-    final String TEXT_OFFERING = "textOffering";
+    final /*~~>*/String TEXT_OFFERING = "textOffering";
 
     private ObservationProcess getObservationProcess() {
         ObservationProcess op = new ObservationProcess();
@@ -51,14 +51,14 @@ public class WmlObservationProcessDecoderv20Test {
         return nv;
     }
 
-    private NamedValue<String> getTextNamedValue() {
-        NamedValue<String> nv = new NamedValue<String>();
+    private NamedValue</*~~>*/String> getTextNamedValue() {
+        NamedValue</*~~>*/String> nv = new NamedValue</*~~>*/String>();
         nv.setName(getNameValueOfferingName());
         nv.setValue(new TextValue(TEXT_OFFERING));
         return nv;
     }
 
     private ReferenceType getNameValueOfferingName() {
-        return new ReferenceType(SensorMLConstants.ELEMENT_NAME_OFFERINGS);
+        return new ReferenceType(/*~~>*/SensorMLConstants.ELEMENT_NAME_OFFERINGS);
     }
 }

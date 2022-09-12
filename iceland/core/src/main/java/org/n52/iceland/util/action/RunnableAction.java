@@ -30,7 +30,7 @@ public abstract class RunnableAction implements Action, Runnable {
         startTimeMillis = System.currentTimeMillis();
     }
 
-    public String getStopwatchResult() {
+    public /*~~>*/String getStopwatchResult() {
         if (startTimeMillis == null) {
             return "stopwatch not initialized";
         }

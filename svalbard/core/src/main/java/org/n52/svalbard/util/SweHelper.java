@@ -98,32 +98,32 @@ public final class SweHelper {
 
     private final Logger LOGGER = LoggerFactory.getLogger(SweHelper.class);
 
-    private String tokenSeparator;
+    private /*~~>*/String tokenSeparator;
 
-    private String tupleSeparator;
+    private /*~~>*/String tupleSeparator;
 
-    private String decimalSeparator;
+    private /*~~>*/String decimalSeparator;
 
-    private Set<String> northingNames = Collections.emptySet();
+    private Set</*~~>*/String> northingNames = Collections.emptySet();
 
-    private Set<String> eastingNames = Collections.emptySet();
+    private Set</*~~>*/String> eastingNames = Collections.emptySet();
 
-    private Set<String> altitudeNames = Collections.emptySet();
+    private Set</*~~>*/String> altitudeNames = Collections.emptySet();
 
-    @Setting(value = CodingSettings.TOKEN_SEPARATOR, required = false)
-    public void setTokenSeparator(final String separator) throws ConfigurationError {
+    @Setting(value = /*~~>*/CodingSettings.TOKEN_SEPARATOR, required = false)
+    public void setTokenSeparator(final /*~~>*/String separator) throws ConfigurationError {
         Validation.notNullOrEmpty("Token separator", separator);
         tokenSeparator = separator;
     }
 
-    @Setting(value = CodingSettings.TUPLE_SEPARATOR, required = false)
-    public void setTupleSeparator(final String separator) throws ConfigurationError {
+    @Setting(value = /*~~>*/CodingSettings.TUPLE_SEPARATOR, required = false)
+    public void setTupleSeparator(final /*~~>*/String separator) throws ConfigurationError {
         Validation.notNullOrEmpty("Tuple separator", separator);
         tupleSeparator = separator;
     }
 
-    @Setting(value = CodingSettings.DECIMAL_SEPARATOR, required = false)
-    public void setDecimalSeparator(final String separator) throws ConfigurationError {
+    @Setting(value = /*~~>*/CodingSettings.DECIMAL_SEPARATOR, required = false)
+    public void setDecimalSeparator(final /*~~>*/String separator) throws ConfigurationError {
         Validation.notNullOrEmpty("Decimal separator", separator);
         decimalSeparator = separator;
     }
@@ -141,7 +141,7 @@ public final class SweHelper {
      *             creation from value of {@link OmObservation}
      */
     public SweDataArray createSosSweDataArray(OmObservation sosObservation) throws EncodingException {
-        String observablePropertyIdentifier =
+        /*~~>*/String observablePropertyIdentifier =
                 sosObservation.getObservationConstellation().getObservableProperty().getIdentifier();
         SweDataArrayValue dataArrayValue = new SweDataArrayValue();
         SweDataArray dataArray = new SweDataArray();
@@ -168,7 +168,7 @@ public final class SweHelper {
                         if (!dataArray.isSetElementTyp()) {
                             dataArray.setElementType(createElementType(timeValuePair, observablePropertyIdentifier));
                         }
-                        List<String> newBlock = createBlock(dataArray.getElementType(), timeValuePair.getTime(),
+                        List</*~~>*/String> newBlock = createBlock(dataArray.getElementType(), timeValuePair.getTime(),
                                 observablePropertyIdentifier, timeValuePair.getValue());
                         dataArrayValue.addBlock(newBlock);
                     }
@@ -192,7 +192,7 @@ public final class SweHelper {
      *             creation from {@link AbstractObservationValue}
      */
     public SweDataArray createSosSweDataArray(AbstractObservationValue<?> observationValue) throws EncodingException {
-        String observablePropertyIdentifier = observationValue.getObservableProperty();
+        /*~~>*/String observablePropertyIdentifier = observationValue.getObservableProperty();
         SweDataArrayValue dataArrayValue = new SweDataArrayValue();
         SweDataArray dataArray = new SweDataArray();
         dataArray.setEncoding(createTextEncoding(observationValue));
@@ -218,7 +218,7 @@ public final class SweHelper {
                         if (!dataArray.isSetElementTyp()) {
                             dataArray.setElementType(createElementType(timeValuePair, observablePropertyIdentifier));
                         }
-                        List<String> newBlock = createBlock(dataArray.getElementType(), timeValuePair.getTime(),
+                        List</*~~>*/String> newBlock = createBlock(dataArray.getElementType(), timeValuePair.getTime(),
                                 observablePropertyIdentifier, timeValuePair.getValue());
                         dataArrayValue.addBlock(newBlock);
                     }
@@ -228,14 +228,14 @@ public final class SweHelper {
         return dataArray;
     }
 
-    private SweAbstractDataComponent createElementType(TimeValuePair tvp, String name) throws EncodingException {
+    private SweAbstractDataComponent createElementType(TimeValuePair tvp, /*~~>*/String name) throws EncodingException {
         SweDataRecord dataRecord = new SweDataRecord();
         dataRecord.addField(getPhenomenonTimeField(tvp.getTime()));
         dataRecord.addField(getFieldForValue(tvp.getValue(), name));
         return dataRecord;
     }
 
-    private SweAbstractDataComponent createElementType(SingleObservationValue<?> sov, String name)
+    private SweAbstractDataComponent createElementType(SingleObservationValue<?> sov, /*~~>*/String name)
             throws EncodingException {
         SweDataRecord dataRecord = new SweDataRecord();
         dataRecord.addField(getPhenomenonTimeField(sov.getPhenomenonTime()));
@@ -250,12 +250,12 @@ public final class SweHelper {
         } else {
             time = new SweTime();
         }
-        time.setDefinition(OmConstants.PHENOMENON_TIME);
-        time.setUom(OmConstants.PHEN_UOM_ISO8601);
-        return new SweField(OmConstants.PHENOMENON_TIME_NAME, time);
+        time.setDefinition(/*~~>*/OmConstants.PHENOMENON_TIME);
+        time.setUom(/*~~>*/OmConstants.PHEN_UOM_ISO8601);
+        return new SweField(/*~~>*/OmConstants.PHENOMENON_TIME_NAME, time);
     }
 
-    private SweField getFieldForValue(Value<?> iValue, String name) throws EncodingException {
+    private SweField getFieldForValue(Value<?> iValue, /*~~>*/String name) throws EncodingException {
         SweAbstractDataComponent value = getValue(iValue);
         value.setDefinition(name);
         return new SweField(name, value);
@@ -306,7 +306,7 @@ public final class SweHelper {
             @Override
             public SweAbstractDataComponent visit(ComplexValue value) throws EncodingException {
                 throw new EncodingException("The merging of '%s' is not yet supported!",
-                        OmConstants.OBS_TYPE_COMPLEX_OBSERVATION);
+                        /*~~>*/OmConstants.OBS_TYPE_COMPLEX_OBSERVATION);
             }
 
             @Override
@@ -406,9 +406,9 @@ public final class SweHelper {
      * @return TextEncoding
      */
     public SweAbstractEncoding createTextEncoding(OmObservation o) {
-        String tuple = o.isSetTupleSeparator() ? o.getTupleSeparator() : this.tupleSeparator;
-        String token = o.isSetTokenSeparator() ? o.getTokenSeparator() : this.tokenSeparator;
-        String decimal = o.isSetDecimalSeparator() ? o.getDecimalSeparator() : this.decimalSeparator;
+        /*~~>*/String tuple = o.isSetTupleSeparator() ? o.getTupleSeparator() : /*~~>*/this.tupleSeparator;
+        /*~~>*/String token = o.isSetTokenSeparator() ? o.getTokenSeparator() : /*~~>*/this.tokenSeparator;
+        /*~~>*/String decimal = o.isSetDecimalSeparator() ? o.getDecimalSeparator() : /*~~>*/this.decimalSeparator;
         return createTextEncoding(tuple, token, decimal);
     }
 
@@ -423,9 +423,9 @@ public final class SweHelper {
      * @return TextEncoding
      */
     private SweAbstractEncoding createTextEncoding(AbstractObservationValue<?> v) {
-        String tuple = v.isSetTupleSeparator() ? v.getTupleSeparator() : this.tupleSeparator;
-        String token = v.isSetTokenSeparator() ? v.getTokenSeparator() : this.tokenSeparator;
-        String decimal = v.isSetDecimalSeparator() ? v.getDecimalSeparator() : this.decimalSeparator;
+        /*~~>*/String tuple = v.isSetTupleSeparator() ? v.getTupleSeparator() : /*~~>*/this.tupleSeparator;
+        /*~~>*/String token = v.isSetTokenSeparator() ? v.getTokenSeparator() : /*~~>*/this.tokenSeparator;
+        /*~~>*/String decimal = v.isSetDecimalSeparator() ? v.getDecimalSeparator() : /*~~>*/this.decimalSeparator;
         return createTextEncoding(tuple, token, decimal);
     }
 
@@ -441,7 +441,7 @@ public final class SweHelper {
      *
      * @return TextEncoding
      */
-    public SweAbstractEncoding createTextEncoding(String tuple, String token, String decimal) {
+    public SweAbstractEncoding createTextEncoding(/*~~>*/String tuple, /*~~>*/String token, /*~~>*/String decimal) {
         SweTextEncoding sosTextEncoding = new SweTextEncoding();
         sosTextEncoding.setBlockSeparator(tuple);
         sosTextEncoding.setTokenSeparator(token);
@@ -462,11 +462,11 @@ public final class SweHelper {
     }
 
     @SuppressFBWarnings("BC_VACUOUS_INSTANCEOF")
-    private List<String> createBlock(SweAbstractDataComponent elementType, Time phenomenonTime, String phenID,
+    private List</*~~>*/String> createBlock(SweAbstractDataComponent elementType, Time phenomenonTime, /*~~>*/String phenID,
             Value<?> value) {
         if (elementType instanceof SweDataRecord) {
             SweDataRecord elementTypeRecord = (SweDataRecord) elementType;
-            List<String> block = new ArrayList<>(elementTypeRecord.getFields().size());
+            List</*~~>*/String> block = new ArrayList<>(elementTypeRecord.getFields().size());
             if (!(value instanceof NilTemplateValue)) {
                 elementTypeRecord.getFields().forEach(field -> {
                     if (field.getElement() instanceof SweTime || field.getElement() instanceof SweTimeRange) {
@@ -481,7 +481,7 @@ public final class SweHelper {
             }
             return block;
         }
-        String exceptionMsg = String.format("Type of ElementType is not supported: %s",
+        /*~~>*/String exceptionMsg = /*~~>*/String.format("Type of ElementType is not supported: %s",
                 elementType != null ? elementType.getClass().getName() : "null");
         LOGGER.debug(exceptionMsg);
         throw new IllegalArgumentException(exceptionMsg);
@@ -499,14 +499,14 @@ public final class SweHelper {
      *
      * @return the {@link SweQuantity} from parameter
      */
-    public SweQuantity createSweQuantity(Object value, String axis, String uom) {
+    public SweQuantity createSweQuantity(Object value, /*~~>*/String axis, /*~~>*/String uom) {
         return new SweQuantity().setAxisID(axis).setUom(uom).setValue(JavaHelper.asDouble(value));
     }
 
     /**
      * @return the northingNames
      */
-    public Set<String> getNorthingNames() {
+    public Set</*~~>*/String> getNorthingNames() {
         return new LinkedHashSet<>(northingNames);
     }
 
@@ -514,8 +514,8 @@ public final class SweHelper {
      * @param northingNames
      *            the northingNames to set
      */
-    @Setting(value = CoordinateSettingsProvider.NORTHING_COORDINATE_NAME, required = false)
-    public void setNorthingNames(String northingNames) {
+    @Setting(value = /*~~>*/CoordinateSettingsProvider.NORTHING_COORDINATE_NAME, required = false)
+    public void setNorthingNames(/*~~>*/String northingNames) {
         if (!Strings.isNullOrEmpty(northingNames)) {
             this.northingNames = CollectionHelper.csvStringToSet(northingNames);
         }
@@ -528,14 +528,14 @@ public final class SweHelper {
      *            Names to check
      * @return <code>true</code>, if the name is defined.
      */
-    public boolean hasNorthingName(String... names) {
+    public boolean hasNorthingName(/*~~>*/String... names) {
         return check(getNorthingNames(), names);
     }
 
     /**
      * @return the eastingNames
      */
-    public Set<String> getEastingNames() {
+    public Set</*~~>*/String> getEastingNames() {
         return new LinkedHashSet<>(eastingNames);
     }
 
@@ -543,8 +543,8 @@ public final class SweHelper {
      * @param eastingNames
      *            the eastingNames to set
      */
-    @Setting(value = CoordinateSettingsProvider.EASTING_COORDINATE_NAME, required = false)
-    public void setEastingNames(String eastingNames) {
+    @Setting(value = /*~~>*/CoordinateSettingsProvider.EASTING_COORDINATE_NAME, required = false)
+    public void setEastingNames(/*~~>*/String eastingNames) {
         if (!Strings.isNullOrEmpty(eastingNames)) {
             this.eastingNames = CollectionHelper.csvStringToSet(eastingNames);
         }
@@ -557,14 +557,14 @@ public final class SweHelper {
      *            Names to check
      * @return <code>true</code>, if the name is defined.
      */
-    public boolean hasEastingName(String... names) {
+    public boolean hasEastingName(/*~~>*/String... names) {
         return check(getEastingNames(), names);
     }
 
     /**
      * @return the altitudeNames
      */
-    public Set<String> getAltitudeNames() {
+    public Set</*~~>*/String> getAltitudeNames() {
         return new LinkedHashSet<>(altitudeNames);
     }
 
@@ -572,8 +572,8 @@ public final class SweHelper {
      * @param altitudeNames
      *            the altitudeNames to set
      */
-    @Setting(value = CoordinateSettingsProvider.ALTITUDE_COORDINATE_NAME, required = false)
-    public void setAltitudeNames(String altitudeNames) {
+    @Setting(value = /*~~>*/CoordinateSettingsProvider.ALTITUDE_COORDINATE_NAME, required = false)
+    public void setAltitudeNames(/*~~>*/String altitudeNames) {
         if (!Strings.isNullOrEmpty(altitudeNames)) {
             this.altitudeNames = CollectionHelper.csvStringToSet(altitudeNames);
         }
@@ -586,13 +586,13 @@ public final class SweHelper {
      *            Names to check
      * @return <code>true</code>, if the name is defined.
      */
-    public boolean hasAltitudeName(String... names) {
+    public boolean hasAltitudeName(/*~~>*/String... names) {
         return check(getAltitudeNames(), names);
     }
 
-    private boolean check(Set<String> set, String... names) {
-        for (String string : set) {
-            for (String name : names) {
+    private boolean check(Set</*~~>*/String> set, /*~~>*/String... names) {
+        for (/*~~>*/String string : set) {
+            for (/*~~>*/String name : names) {
                 if (string.equalsIgnoreCase(name)) {
                     return true;
                 }

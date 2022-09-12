@@ -47,9 +47,9 @@ public class DeleteObservationV20Decoder
         extends AbstractXmlDecoder<XmlObject, DeleteObservationRequest> {
 
     private static final Set<DecoderKey> DECODER_KEYS = CollectionHelper.union(
-            CodingHelper.decoderKeysForElements(DeleteObservationConstants.NS_SOSDO_2_0,
+            CodingHelper.decoderKeysForElements(/*~~>*/DeleteObservationConstants.NS_SOSDO_2_0,
                     DeleteObservationDocument.class),
-            CodingHelper.xmlDecoderKeysForOperation(Sos2Constants.SOS, Sos2Constants.SERVICEVERSION,
+            CodingHelper.xmlDecoderKeysForOperation(/*~~>*/Sos2Constants.SOS, /*~~>*/Sos2Constants.SERVICEVERSION,
                     DeleteObservationConstants.Operations.DeleteObservation));
 
     private static final Logger LOGGER = LoggerFactory.getLogger(DeleteObservationV20Decoder.class);
@@ -64,12 +64,12 @@ public class DeleteObservationV20Decoder
     }
 
     public DeleteObservationRequest decode(XmlObject xmlObject) throws DecodingException {
-        LOGGER.debug(String.format("REQUESTTYPE: %s", xmlObject != null ? xmlObject.getClass() : "null recevied"));
+        LOGGER.debug(/*~~>*/String.format("REQUESTTYPE: %s", xmlObject != null ? xmlObject.getClass() : "null recevied"));
         // XmlHelper.validateDocument(xmlObject);
         if (xmlObject instanceof DeleteObservationDocument) {
             DeleteObservationDocument delObsDoc = (DeleteObservationDocument) xmlObject;
             DeleteObservationRequest decodedRequest = parseDeleteObservation(delObsDoc);
-            LOGGER.debug(String.format("Decoded request: %s", decodedRequest));
+            LOGGER.debug(/*~~>*/String.format("Decoded request: %s", decodedRequest));
             return decodedRequest;
         } else {
             throw new UnsupportedDecoderInputException(this, xmlObject);
@@ -83,7 +83,7 @@ public class DeleteObservationV20Decoder
         DeleteObservationType xbDelObsType = xbDelObsDoc.getDeleteObservation();
 
         if (xbDelObsType != null) {
-            delObsRequest = new DeleteObservationRequest(DeleteObservationConstants.NS_SOSDO_2_0);
+            delObsRequest = new DeleteObservationRequest(/*~~>*/DeleteObservationConstants.NS_SOSDO_2_0);
             delObsRequest.setVersion(xbDelObsType.getVersion());
             delObsRequest.setService(xbDelObsType.getService());
             if (CollectionHelper.isNotNullOrEmpty(xbDelObsType.getObservationArray())) {

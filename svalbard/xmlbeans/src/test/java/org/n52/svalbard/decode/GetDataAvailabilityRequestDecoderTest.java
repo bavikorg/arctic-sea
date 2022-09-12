@@ -66,7 +66,7 @@ public class GetDataAvailabilityRequestDecoderTest {
         gda.addOffering("offering2");
         gda.addProcedure("procedure1");
         gda.addProcedure("procedure2");
-        checkRequest(getDecoder(document).decode(document), GetDataAvailabilityConstants.NS_GDA_20);
+        checkRequest(getDecoder(document).decode(document), /*~~>*/GetDataAvailabilityConstants.NS_GDA_20);
 
     }
 
@@ -86,12 +86,12 @@ public class GetDataAvailabilityRequestDecoderTest {
         gda.addProcedure("procedure1");
         gda.addProcedure("procedure2");
 
-        checkRequest(getDecoder(document).decode(document), GetDataAvailabilityConstants.NS_GDA);
+        checkRequest(getDecoder(document).decode(document), /*~~>*/GetDataAvailabilityConstants.NS_GDA);
 
     }
 
     private Decoder<GetDataAvailabilityRequest, XmlObject> getDecoder(XmlObject document) {
-        String namespace = XmlHelper.getNamespace(document);
+        /*~~>*/String namespace = XmlHelper.getNamespace(document);
         Class<? extends XmlObject> clazz = document.getClass();
         XmlNamespaceDecoderKey key = new XmlNamespaceDecoderKey(namespace, clazz);
         Decoder<GetDataAvailabilityRequest, XmlObject> decoder = decoderRepository.getDecoder(key);
@@ -100,7 +100,7 @@ public class GetDataAvailabilityRequestDecoderTest {
 
     }
 
-    private void checkRequest(GetDataAvailabilityRequest request, String namespace) {
+    private void checkRequest(GetDataAvailabilityRequest request, /*~~>*/String namespace) {
         assertThat(request, is(notNullValue()));
         assertThat(request.getNamespace(), is(namespace));
         assertThat(request.getResponseFormat(), is(namespace));

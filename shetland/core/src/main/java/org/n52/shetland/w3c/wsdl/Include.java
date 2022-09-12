@@ -19,12 +19,12 @@ import javax.xml.namespace.QName;
 
 public class Include extends AbstractWsdl {
 
-    private String namespace;
-    private String schemaLocation;
+    private /*~~>*/String namespace;
+    private /*~~>*/String schemaLocation;
 
-    public Include(String namespace, String schemaLocation) {
-        this.namespace = namespace;
-        this.schemaLocation = schemaLocation;
+    public Include(/*~~>*/String namespace, /*~~>*/String schemaLocation) {
+        /*~~>*/this.namespace = namespace;
+        /*~~>*/this.schemaLocation = schemaLocation;
     }
 
     @Override
@@ -32,11 +32,11 @@ public class Include extends AbstractWsdl {
         return WSDLConstants.QN_XSD_INCLUDE;
     }
 
-    public String getNamespace() {
+    public /*~~>*/String getNamespace() {
         return namespace;
     }
 
-    public String getSchemaLocation() {
+    public /*~~>*/String getSchemaLocation() {
         return schemaLocation;
     }
 }

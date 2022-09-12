@@ -26,7 +26,7 @@ import edu.umd.cs.findbugs.annotations.SuppressFBWarnings;
 
 public class Identifier extends CodeWithAuthority {
 
-    private Nillable<String> versionId = Nillable.absent();
+    private Nillable</*~~>*/String> versionId = Nillable.absent();
 
     /**
      * @param localId
@@ -34,7 +34,7 @@ public class Identifier extends CodeWithAuthority {
      * @param namespace
      *            the namespace
      */
-    public Identifier(String localId, String namespace) {
+    public Identifier(/*~~>*/String localId, /*~~>*/String namespace) {
         super(localId, namespace);
     }
 
@@ -50,7 +50,7 @@ public class Identifier extends CodeWithAuthority {
      *
      * @return LocalId
      */
-    public String getLocalId() {
+    public /*~~>*/String getLocalId() {
         return getValue();
     }
 
@@ -59,7 +59,7 @@ public class Identifier extends CodeWithAuthority {
      *
      * @return Code space
      */
-    public String getNamespace() {
+    public /*~~>*/String getNamespace() {
         return getCodeSpace();
     }
 
@@ -70,7 +70,7 @@ public class Identifier extends CodeWithAuthority {
      *            LocalId to set
      * @return This Identifier object
      */
-    public Identifier setLocalId(String localId) {
+    public Identifier setLocalId(/*~~>*/String localId) {
         setValue(localId);
         return this;
     }
@@ -82,7 +82,7 @@ public class Identifier extends CodeWithAuthority {
      *            Code space to set
      * @return This Identifier object
      */
-    public Identifier setNamespace(String namespace) {
+    public Identifier setNamespace(/*~~>*/String namespace) {
         setCodeSpace(namespace);
         return this;
     }
@@ -105,15 +105,15 @@ public class Identifier extends CodeWithAuthority {
         return !Strings.isNullOrEmpty(getNamespace());
     }
 
-    public Nillable<String> getVersionId() {
+    public Nillable</*~~>*/String> getVersionId() {
         return versionId;
     }
 
-    public void setVersionId(String versionId) {
+    public void setVersionId(/*~~>*/String versionId) {
         this.versionId = Nillable.of(versionId);
     }
 
-    public Identifier setVersionId(Nillable<String> versionId) {
+    public Identifier setVersionId(Nillable</*~~>*/String> versionId) {
         this.versionId = versionId;
         return this;
     }
@@ -136,7 +136,7 @@ public class Identifier extends CodeWithAuthority {
     }
 
     @Override
-    public String toString() {
+    public /*~~>*/String toString() {
         return MoreObjects.toStringHelper(this).add("localId", getLocalId()).add("namespace", getNamespace())
                 .add("versionId", getVersionId()).toString();
     }

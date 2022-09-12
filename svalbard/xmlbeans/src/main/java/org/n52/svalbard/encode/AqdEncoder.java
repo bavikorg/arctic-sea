@@ -77,14 +77,14 @@ public class AqdEncoder extends AbstractXmlEncoder<XmlObject, Object>
 
     private static final Logger LOGGER = LoggerFactory.getLogger(AqdEncoder.class);
 
-    private static final Set<EncoderKey> ENCODER_KEY_TYPES = CodingHelper.encoderKeysForElements(AqdConstants.NS_AQD,
+    private static final Set<EncoderKey> ENCODER_KEY_TYPES = CodingHelper.encoderKeysForElements(/*~~>*/AqdConstants.NS_AQD,
             GetObservationResponse.class, OmObservation.class, EReportingHeader.class);
 
     private Optional<EReportObligationRepository> reportObligationRepository;
 
-    private String namespace;
+    private /*~~>*/String namespace;
 
-    private String observationPrefix;
+    private /*~~>*/String observationPrefix;
 
     public AqdEncoder() {
         LOGGER.debug("Encoder for the following keys initialized successfully: {}!",
@@ -102,8 +102,8 @@ public class AqdEncoder extends AbstractXmlEncoder<XmlObject, Object>
     }
 
     @Override
-    public void addNamespacePrefixToMap(Map<String, String> nameSpacePrefixMap) {
-        nameSpacePrefixMap.put(AqdConstants.NS_AQD, AqdConstants.NS_AQD_PREFIX);
+    public void addNamespacePrefixToMap(Map</*~~>*/String, /*~~>*/String> nameSpacePrefixMap) {
+        nameSpacePrefixMap.put(/*~~>*/AqdConstants.NS_AQD, /*~~>*/AqdConstants.NS_AQD_PREFIX);
     }
 
     @Override
@@ -122,15 +122,15 @@ public class AqdEncoder extends AbstractXmlEncoder<XmlObject, Object>
     }
 
     @Override
-    public Set<String> getSupportedResponseFormats(String service, String version) {
-        if (SosConstants.SOS.equals(service) && Sos1Constants.SERVICEVERSION.equals(version)) {
+    public Set</*~~>*/String> getSupportedResponseFormats(/*~~>*/String service, /*~~>*/String version) {
+        if (/*~~>*/SosConstants.SOS.equals(service) && /*~~>*/Sos1Constants.SERVICEVERSION.equals(version)) {
             return Sets.newHashSet(AqdConstants.AQD_CONTENT_TYPE.toString());
         }
-        return Sets.newHashSet(AqdConstants.NS_AQD);
+        return Sets.newHashSet(/*~~>*/AqdConstants.NS_AQD);
     }
 
     @Override
-    public Map<String, Set<SupportedType>> getSupportedResponseFormatObservationTypes() {
+    public Map</*~~>*/String, Set<SupportedType>> getSupportedResponseFormatObservationTypes() {
         return Collections.emptyMap();
     }
 
@@ -182,15 +182,15 @@ public class AqdEncoder extends AbstractXmlEncoder<XmlObject, Object>
             if (!timePeriod.isEmpty()) {
                 eReportingHeader.setReportingPeriod(Referenceable.of((Time) timePeriod));
             }
-            return encodeObjectToXml(GmlConstants.NS_GML_32, featureCollection, ctx
-                    .with(XmlEncoderFlags.ENCODE_NAMESPACE, OmConstants.NS_OM_2).with(XmlBeansEncodingFlags.DOCUMENT));
+            return encodeObjectToXml(/*~~>*/GmlConstants.NS_GML_32, featureCollection, ctx
+                    .with(XmlEncoderFlags.ENCODE_NAMESPACE, /*~~>*/OmConstants.NS_OM_2).with(XmlBeansEncodingFlags.DOCUMENT));
         } catch (OwsExceptionReport ex) {
             throw new EncodingException(ex);
         }
     }
 
     private XmlObject encodeOmObservation(OmObservation element, EncodingContext context) throws EncodingException {
-        return encodeObjectToXml(OmConstants.NS_OM_2, element, context);
+        return encodeObjectToXml(/*~~>*/OmConstants.NS_OM_2, element, context);
     }
 
     private XmlObject encodeEReportingHeader(EReportingHeader element, EncodingContext ctx) throws EncodingException {
@@ -239,7 +239,7 @@ public class AqdEncoder extends AbstractXmlEncoder<XmlObject, Object>
         }
     }
 
-    protected String getObservationXlink(String gmlId) {
+    protected /*~~>*/String getObservationXlink(/*~~>*/String gmlId) {
         StringBuilder id = new StringBuilder();
         if (isSetEReportingNamespace()) {
             id.append(getEReportingNamespace());
@@ -254,30 +254,30 @@ public class AqdEncoder extends AbstractXmlEncoder<XmlObject, Object>
 
     }
 
-    protected String getObservationId(int counter) {
+    protected /*~~>*/String getObservationId(int counter) {
         return (isSetEReportingObservationPrefix() ? getEReportingObservationPrefix() : "o_")
                 .concat(Integer.toString(counter));
     }
 
-    public String getEReportingNamespace() {
+    public /*~~>*/String getEReportingNamespace() {
         return namespace;
     }
 
-    @Setting(value = EReportingSetting.EREPORTING_NAMESPACE, required = false)
-    public void setEReportingNamespace(String namespace) throws ConfigurationError {
-        this.namespace = namespace;
+    @Setting(value = /*~~>*/EReportingSetting.EREPORTING_NAMESPACE, required = false)
+    public void setEReportingNamespace(/*~~>*/String namespace) throws ConfigurationError {
+        /*~~>*/this.namespace = namespace;
     }
 
     protected boolean isSetEReportingNamespace() {
         return !Strings.isNullOrEmpty(getEReportingNamespace());
     }
 
-    @Setting(value = EReportingSetting.EREPORTING_OBSERVATION_PREFIX, required = false)
-    public void setEReportingObservationPrefix(String observationPrefix) throws ConfigurationError {
-        this.observationPrefix = observationPrefix;
+    @Setting(value = /*~~>*/EReportingSetting.EREPORTING_OBSERVATION_PREFIX, required = false)
+    public void setEReportingObservationPrefix(/*~~>*/String observationPrefix) throws ConfigurationError {
+        /*~~>*/this.observationPrefix = observationPrefix;
     }
 
-    protected String getEReportingObservationPrefix() {
+    protected /*~~>*/String getEReportingObservationPrefix() {
         return observationPrefix;
     }
 

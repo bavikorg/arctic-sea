@@ -36,7 +36,7 @@ public class FormatTest {
         assertThat(new Format("text/xml", StandardCharsets.UTF_8).isCompatible(new Format("text/xml", StandardCharsets.UTF_8)), is(true));
         assertThat(new Format("text/xml", StandardCharsets.ISO_8859_1).isCompatible(new Format("text/xml", StandardCharsets.UTF_8)), is(false));
         assertThat(new Format("text/xml").isCompatible(new Format("text/xml", StandardCharsets.UTF_8)), is(true));
-        assertThat(new Format("text/xml").isCompatible(new Format("text/xml", Format.BASE64_ENCODING)), is(false));
+        assertThat(new Format("text/xml").isCompatible(new Format("text/xml", /*~~>*/Format.BASE64_ENCODING)), is(false));
         assertThat(new Format("text/*").isCompatible(new Format("text/plain")), is(true));
         assertThat(new Format("*/*").isCompatible(new Format("text/*")), is(true));
         assertThat(new Format("*/*").isCompatible(new Format("*/*")), is(true));

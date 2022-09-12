@@ -24,7 +24,7 @@ import java.util.Set;
  */
 public interface ConformanceClass {
 
-    default Set<String> getConformanceClasses(String service, String version) {
+    default Set</*~~>*/String> getConformanceClasses(/*~~>*/String service, /*~~>*/String version) {
         return Collections.emptySet();
     }
 

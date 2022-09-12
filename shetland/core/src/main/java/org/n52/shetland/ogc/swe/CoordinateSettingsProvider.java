@@ -17,8 +17,8 @@ package org.n52.shetland.ogc.swe;
 
 public interface CoordinateSettingsProvider {
 
-    String NORTHING_COORDINATE_NAME = "swe.coordinate.northing";
-    String EASTING_COORDINATE_NAME = "swe.coordinate.easting";
-    String ALTITUDE_COORDINATE_NAME = "swe.coordinate.altitude";
+    /*~~>*/String NORTHING_COORDINATE_NAME = "swe.coordinate.northing";
+    /*~~>*/String EASTING_COORDINATE_NAME = "swe.coordinate.easting";
+    /*~~>*/String ALTITUDE_COORDINATE_NAME = "swe.coordinate.altitude";
 
 }

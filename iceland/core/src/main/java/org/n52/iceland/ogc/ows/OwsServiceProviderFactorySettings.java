@@ -24,38 +24,38 @@ package org.n52.iceland.ogc.ows;
  */
 public interface OwsServiceProviderFactorySettings {
 
-    String STATE = "serviceProvider.state";
+    /*~~>*/String STATE = "serviceProvider.state";
 
-    String PHONE = "serviceProvider.phone";
+    /*~~>*/String PHONE = "serviceProvider.phone";
 
-    String FACSIMILE = "serviceProvider.facsimile";
+    /*~~>*/String FACSIMILE = "serviceProvider.facsimile";
 
-    String ADDRESS = "serviceProvider.address";
+    /*~~>*/String ADDRESS = "serviceProvider.address";
 
-    String SITE = "serviceProvider.site";
+    /*~~>*/String SITE = "serviceProvider.site";
 
-    String CITY = "serviceProvider.city";
+    /*~~>*/String CITY = "serviceProvider.city";
 
-    String POSITION_NAME = "serviceProvider.positionName";
+    /*~~>*/String POSITION_NAME = "serviceProvider.positionName";
 
-    String NAME = "serviceProvider.name";
+    /*~~>*/String NAME = "serviceProvider.name";
 
-    String INDIVIDUAL_NAME = "serviceProvider.individualName";
+    /*~~>*/String INDIVIDUAL_NAME = "serviceProvider.individualName";
 
-    String POSTAL_CODE = "serviceProvider.postalCode";
+    /*~~>*/String POSTAL_CODE = "serviceProvider.postalCode";
 
-    String EMAIL = "serviceProvider.email";
+    /*~~>*/String EMAIL = "serviceProvider.email";
 
-    String COUNTRY = "serviceProvider.country";
+    /*~~>*/String COUNTRY = "serviceProvider.country";
 
-    String HOURS_OF_SERVICE = "serviceProvider.hoursOfService";
+    /*~~>*/String HOURS_OF_SERVICE = "serviceProvider.hoursOfService";
 
-    String CONTACT_INSTRUCTIONS = "serviceProvider.contactInstructions";
+    /*~~>*/String CONTACT_INSTRUCTIONS = "serviceProvider.contactInstructions";
 
-    String ONLINE_RESOURCE = "serviceProvider.onlineResource";
+    /*~~>*/String ONLINE_RESOURCE = "serviceProvider.onlineResource";
 
-    String ROLE_VALUE = "serviceProvider.role.value";
+    /*~~>*/String ROLE_VALUE = "serviceProvider.role.value";
 
-    String ROLE_CODESPACE = "serviceProvider.role.codespace";
+    /*~~>*/String ROLE_CODESPACE = "serviceProvider.role.codespace";
 
 }

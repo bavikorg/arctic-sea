@@ -28,7 +28,7 @@ public class DistributionProperty extends AbstractResource implements DcatRdfPre
 
     private Distribution distribution;
 
-    public DistributionProperty(String value) {
+    public DistributionProperty(/*~~>*/String value) {
         super(value);
     }
 

@@ -43,7 +43,7 @@ public class HTTPException extends Exception {
     }
 
     @Override
-    public String toString() {
-        return String.format("HttpException[status=%s]", status);
+    public /*~~>*/String toString() {
+        return /*~~>*/String.format("HttpException[status=%s]", status);
     }
 }

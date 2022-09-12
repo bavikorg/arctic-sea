@@ -19,18 +19,18 @@ import org.n52.iceland.statistics.api.parameters.ElasticsearchTypeRegistry.Elast
 
 public class SingleEsParameter extends AbstractEsParameter {
 
-    public SingleEsParameter(String name, ElasticsearchType type) {
+    public SingleEsParameter(/*~~>*/String name, ElasticsearchType type) {
         super(name);
         setType(type);
     }
 
-    public SingleEsParameter(String name, Description description, ElasticsearchType type) {
+    public SingleEsParameter(/*~~>*/String name, Description description, ElasticsearchType type) {
         super(name, description);
         setType(type);
     }
 
     @Override
-    public String toString() {
+    public /*~~>*/String toString() {
         return getName();
     }
 

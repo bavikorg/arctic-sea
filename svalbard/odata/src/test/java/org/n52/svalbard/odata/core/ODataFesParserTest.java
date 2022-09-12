@@ -46,7 +46,7 @@ public class ODataFesParserTest {
     private ODataFesParser parser;
     private Polygon polygon;
     private GeometryFactory geometryFactory;
-    private String wktGeometry;
+    private /*~~>*/String wktGeometry;
 
     @BeforeEach
     public void setup() {
@@ -57,7 +57,7 @@ public class ODataFesParserTest {
                         new Coordinate(-15.46, 77.98), new Coordinate(-93.51, 38.27),
                         new Coordinate(47.10, -1.05), new Coordinate(58.71, 70.61), new Coordinate(-15.46, 77.98)
                 });
-        this.wktGeometry = new WKTWriter().write(polygon).replaceFirst(" ", "").replaceAll(", ", ",");
+        /*~~>*/this.wktGeometry = new WKTWriter().write(polygon).replaceFirst(" ", "").replaceAll(", ", ",");
     }
 
     @Test
@@ -234,7 +234,7 @@ public class ODataFesParserTest {
     public void testFeatureOfInterestShapeGeoIntersectsPolygon()
             throws Exception {
 
-        Filter<?> filter = parser.decode(String
+        Filter<?> filter = parser.decode(/*~~>*/String
                                                  // >=4.2.0
                                                  .format("geo.intersects(featureOfInterest/shape,geometry'SRID=%s;%s')",
                                                          // >=4.0.0 <4.2.0
@@ -256,7 +256,7 @@ public class ODataFesParserTest {
             throws Exception {
 
         Filter<?> filter = parser.decode(
-                String.format("geo.intersects(featureOfInterest/shape,'SRID=%s;%s')", polygon.getSRID(), wktGeometry));
+                /*~~>*/String.format("geo.intersects(featureOfInterest/shape,'SRID=%s;%s')", polygon.getSRID(), wktGeometry));
 
         assertThat(filter, is(instanceOf(SpatialFilter.class)));
         SpatialFilter sf = (SpatialFilter) filter;
@@ -271,7 +271,7 @@ public class ODataFesParserTest {
     public void testFeatureOfInterestGeoIntersectsPolygon()
             throws Exception {
 
-        Filter<?> filter = parser.decode(String.format("geo.intersects(featureOfInterest,geometry'SRID=%s;%s')",
+        Filter<?> filter = parser.decode(/*~~>*/String.format("geo.intersects(featureOfInterest,geometry'SRID=%s;%s')",
                                                        polygon.getSRID(), wktGeometry));
 
         assertThat(filter, is(instanceOf(SpatialFilter.class)));
@@ -287,7 +287,7 @@ public class ODataFesParserTest {
     public void testFeatureOfInterestGeoIntersectsPolygonLt420()
             throws Exception {
         Filter<?> filter = parser.decode(
-                String.format("geo.intersects(featureOfInterest,'SRID=%s;%s')", polygon.getSRID(), wktGeometry));
+                /*~~>*/String.format("geo.intersects(featureOfInterest,'SRID=%s;%s')", polygon.getSRID(), wktGeometry));
 
         assertThat(filter, is(instanceOf(SpatialFilter.class)));
         SpatialFilter sf = (SpatialFilter) filter;
@@ -302,7 +302,7 @@ public class ODataFesParserTest {
     public void testSamplingGeometryGeoIntersectsPolygon()
             throws Exception {
 
-        Filter<?> filter = parser.decode(String.format("geo.intersects(samplingGeometry,geometry'SRID=%s;%s')",
+        Filter<?> filter = parser.decode(/*~~>*/String.format("geo.intersects(samplingGeometry,geometry'SRID=%s;%s')",
                                                        polygon.getSRID(), wktGeometry));
 
         assertThat(filter, is(instanceOf(SpatialFilter.class)));
@@ -319,7 +319,7 @@ public class ODataFesParserTest {
             throws Exception {
 
         Filter<?> filter = parser.decode(
-                String.format("geo.intersects(samplingGeometry,'SRID=%s;%s')", polygon.getSRID(), wktGeometry));
+                /*~~>*/String.format("geo.intersects(samplingGeometry,'SRID=%s;%s')", polygon.getSRID(), wktGeometry));
 
         assertThat(filter, is(instanceOf(SpatialFilter.class)));
         SpatialFilter sf = (SpatialFilter) filter;

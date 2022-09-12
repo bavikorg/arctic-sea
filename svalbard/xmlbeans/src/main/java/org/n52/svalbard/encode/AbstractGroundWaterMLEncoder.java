@@ -33,9 +33,9 @@ import net.opengis.gml.x32.FeaturePropertyType;
 public abstract class AbstractGroundWaterMLEncoder<T, S> extends AbstractGmlEncoderv321<T, S> {
 
     @Override
-    public void addNamespacePrefixToMap(Map<String, String> nameSpacePrefixMap) {
-        nameSpacePrefixMap.put(GWMLConstants.NS_GWML_22, GWMLConstants.NS_GWML_2_PREFIX);
-        nameSpacePrefixMap.put(GWMLConstants.NS_GWML_WELL_22, GWMLConstants.NS_GWML_WELL_2_PREFIX);
+    public void addNamespacePrefixToMap(Map</*~~>*/String, /*~~>*/String> nameSpacePrefixMap) {
+        nameSpacePrefixMap.put(/*~~>*/GWMLConstants.NS_GWML_22, /*~~>*/GWMLConstants.NS_GWML_2_PREFIX);
+        nameSpacePrefixMap.put(/*~~>*/GWMLConstants.NS_GWML_WELL_22, /*~~>*/GWMLConstants.NS_GWML_WELL_2_PREFIX);
     }
 
     @Override
@@ -44,39 +44,39 @@ public abstract class AbstractGroundWaterMLEncoder<T, S> extends AbstractGmlEnco
     }
 
     protected XmlObject encodeGML(Object o) throws EncodingException {
-        return encodeObjectToXml(GmlConstants.NS_GML_32, o);
+        return encodeObjectToXml(/*~~>*/GmlConstants.NS_GML_32, o);
     }
 
     protected XmlObject encodeGML(Object o, EncodingContext ec) throws EncodingException {
-        return encodeObjectToXml(GmlConstants.NS_GML_32, o, ec);
+        return encodeObjectToXml(/*~~>*/GmlConstants.NS_GML_32, o, ec);
     }
 
     protected XmlObject encodeSweCommon(Object o) throws EncodingException {
-        return encodeObjectToXml(SweConstants.NS_SWE_20, o);
+        return encodeObjectToXml(/*~~>*/SweConstants.NS_SWE_20, o);
     }
 
     protected XmlObject encodeSweCommon(Object o, EncodingContext ec) throws EncodingException {
-        return encodeObjectToXml(SweConstants.NS_SWE_20, o, ec);
+        return encodeObjectToXml(/*~~>*/SweConstants.NS_SWE_20, o, ec);
     }
 
     protected XmlObject encodeGWML(Object o) throws EncodingException {
-        return encodeObjectToXml(GWMLConstants.NS_GWML_22, o);
+        return encodeObjectToXml(/*~~>*/GWMLConstants.NS_GWML_22, o);
     }
 
     protected XmlObject encodeGWML(Object o, EncodingContext ec) throws EncodingException {
-        return encodeObjectToXml(GWMLConstants.NS_GWML_22, o, ec);
+        return encodeObjectToXml(/*~~>*/GWMLConstants.NS_GWML_22, o, ec);
     }
 
     protected XmlObject encodeGWMLProperty(Object o) throws EncodingException {
-        return encodeObjectToXmlPropertyType(GWMLConstants.NS_GWML_22, o);
+        return encodeObjectToXmlPropertyType(/*~~>*/GWMLConstants.NS_GWML_22, o);
     }
 
     protected XmlObject encodeGWMLProperty(Object o, EncodingContext ec) throws EncodingException {
-        return encodeObjectToXmlPropertyType(GWMLConstants.NS_GWML_22, o, ec);
+        return encodeObjectToXmlPropertyType(/*~~>*/GWMLConstants.NS_GWML_22, o, ec);
     }
 
     protected XmlObject encodeGWMLDocument(Object o) throws EncodingException {
-        return encodeObjectToXmlDocument(GWMLConstants.NS_GWML_22, o);
+        return encodeObjectToXmlDocument(/*~~>*/GWMLConstants.NS_GWML_22, o);
     }
 
     @Override

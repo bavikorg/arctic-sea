@@ -48,7 +48,7 @@ public class ProviderAwareListableBeanFactory extends DefaultListableBeanFactory
     }
 
     @Override
-    protected Map<String, Object> findAutowireCandidates(String beanName, Class<?> requiredType,
+    protected Map</*~~>*/String, Object> findAutowireCandidates(/*~~>*/String beanName, Class<?> requiredType,
                                                          DependencyDescriptor descriptor) {
 
         if (!requiredType.equals(Provider.class)) {
@@ -58,7 +58,7 @@ public class ProviderAwareListableBeanFactory extends DefaultListableBeanFactory
         DependencyDescriptor providedDescriptor = new DependencyDescriptor(descriptor);
         providedDescriptor.increaseNestingLevel();
         Class<?> type = providedDescriptor.getDependencyType();
-        Set<String> candidates = findAutowireCandidates(beanName, type, providedDescriptor).keySet();
+        Set</*~~>*/String> candidates = findAutowireCandidates(beanName, type, providedDescriptor).keySet();
         return candidates.stream()
                 .collect(toMap(Function.identity(), name -> new DependencyProvider(this, descriptor, name)));
 
@@ -82,23 +82,23 @@ public class ProviderAwareListableBeanFactory extends DefaultListableBeanFactory
         private static final long serialVersionUID = 2498323681896163119L;
         private final DependencyDescriptor descriptor;
         private final boolean optional;
-        private final String beanName;
+        private final /*~~>*/String beanName;
         private final ProviderAwareListableBeanFactory beanFactory;
 
         DependencyProvider(ProviderAwareListableBeanFactory beanFactory,
-                           DependencyDescriptor descriptor, String beanName) {
+                           DependencyDescriptor descriptor, /*~~>*/String beanName) {
             this.beanFactory = beanFactory;
             DependencyDescriptor d = new DependencyDescriptor(descriptor);
             d.increaseNestingLevel();
             this.optional = d.getDependencyType().equals(Optional.class);
             this.descriptor = this.optional ? new OptionalDependencyDescriptor(d) : d;
-            this.beanName = beanName;
+            /*~~>*/this.beanName = beanName;
         }
 
         @Override
         public Object getObject()
                 throws BeansException {
-            Object resolved = this.beanFactory.getBean(this.beanName);
+            Object resolved = this.beanFactory.getBean(/*~~>*/this.beanName);
             //Object resolved = doResolveDependency(this.descriptor, beanName, null, null);
             return this.optional ? Optional.ofNullable(resolved) : Objects.requireNonNull(resolved);
         }

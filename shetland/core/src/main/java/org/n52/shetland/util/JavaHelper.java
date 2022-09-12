@@ -43,7 +43,7 @@ public final class JavaHelper {
      * @deprecated See {@link IdGenerator#generate(String)}
      */
     @Deprecated
-    public static String generateID(String message) {
+    public static /*~~>*/String generateID(/*~~>*/String message) {
         return IdGenerator.generate(message);
     }
 
@@ -55,9 +55,9 @@ public final class JavaHelper {
      *
      * @return String value
      */
-    public static String asString(final Object object) {
-        if (object instanceof String) {
-            return (String) object;
+    public static /*~~>*/String asString(final Object object) {
+        if (object instanceof /*~~>*/String) {
+            return (/*~~>*/String) object;
         } else if (object instanceof BigDecimal) {
             return ((BigDecimal) object).toPlainString();
         } else if (object instanceof Double) {
@@ -78,8 +78,8 @@ public final class JavaHelper {
      * @return Double value
      */
     public static Double asDouble(final Object object) {
-        if (object instanceof String) {
-            return Double.parseDouble((String) object);
+        if (object instanceof /*~~>*/String) {
+            return Double.parseDouble((/*~~>*/String) object);
         } else if (object instanceof Number) {
             return ((Number) object).doubleValue();
         }
@@ -99,8 +99,8 @@ public final class JavaHelper {
             return null;
         } else if (object instanceof Integer) {
             return (Integer) object;
-        } else if (object instanceof String) {
-            return Integer.valueOf((String) object);
+        } else if (object instanceof /*~~>*/String) {
+            return Integer.valueOf((/*~~>*/String) object);
         }
         return null;
     }
@@ -119,13 +119,13 @@ public final class JavaHelper {
             return null;
         } else if (object instanceof Boolean) {
             return (Boolean) object;
-        } else if (object instanceof String) {
-            return Boolean.valueOf((String) object);
+        } else if (object instanceof /*~~>*/String) {
+            return Boolean.valueOf((/*~~>*/String) object);
         }
         return null;
     }
 
-    public static Set<Integer> getIntegerSetFromString(String s) {
+    public static Set<Integer> getIntegerSetFromString(/*~~>*/String s) {
         return StringHelper.splitToStream(s, ",").map(Integer::parseInt).collect(toSet());
     }
 }

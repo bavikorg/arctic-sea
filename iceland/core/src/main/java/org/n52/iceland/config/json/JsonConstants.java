@@ -20,25 +20,25 @@ package org.n52.iceland.config.json;
  * @author Christian Autermann
  */
 public interface JsonConstants {
-    String DISABLED = "disabled";
-    String EXTENSION = "extension";
-    String NAMESPACE = "namespace";
-    String CAPABILITIES = "capabilities";
-    String DEFINITION = "definition";
-    String CAPABILITIES_EXTENSIONS = "capabiltiesExtensions";
-    String OFFERING_EXTENSIONS = "offeringExtensions";
-    String STATIC_CAPABILITIES = "staticCapabilities";
-    String ACTIVE = "active";
-    String ACTIVATION = "activation";
-    String SERVICE = "service";
-    String VERSION = "version";
-    String OWS_EXTENDED_CAPABILITIES_PROVIDERS
+    /*~~>*/String DISABLED = "disabled";
+    /*~~>*/String EXTENSION = "extension";
+    /*~~>*/String NAMESPACE = "namespace";
+    /*~~>*/String CAPABILITIES = "capabilities";
+    /*~~>*/String DEFINITION = "definition";
+    /*~~>*/String CAPABILITIES_EXTENSIONS = "capabiltiesExtensions";
+    /*~~>*/String OFFERING_EXTENSIONS = "offeringExtensions";
+    /*~~>*/String STATIC_CAPABILITIES = "staticCapabilities";
+    /*~~>*/String ACTIVE = "active";
+    /*~~>*/String ACTIVATION = "activation";
+    /*~~>*/String SERVICE = "service";
+    /*~~>*/String VERSION = "version";
+    /*~~>*/String OWS_EXTENDED_CAPABILITIES_PROVIDERS
             = "owsExtendedCapabilitiesProviders";
-    String BY_MEDIA_TYPE = "byMediaType";
-    String BY_PATH = "byPath";
-    String DOMAIN = "domain";
-    String OPERATION_NAME = "operationName";
-    String OPERATIONS = "operations";
-    String BINDINGS = "bindings";
-    String USERS = "users";
+    /*~~>*/String BY_MEDIA_TYPE = "byMediaType";
+    /*~~>*/String BY_PATH = "byPath";
+    /*~~>*/String DOMAIN = "domain";
+    /*~~>*/String OPERATION_NAME = "operationName";
+    /*~~>*/String OPERATIONS = "operations";
+    /*~~>*/String BINDINGS = "bindings";
+    /*~~>*/String USERS = "users";
 }

@@ -32,7 +32,7 @@ public class InspireConformityCitation extends InspireCitation {
      * @param dateOf
      *            the {@link InspireDateOf}
      */
-    public InspireConformityCitation(String title, InspireDateOf dateOf) {
+    public InspireConformityCitation(/*~~>*/String title, InspireDateOf dateOf) {
         super(title, dateOf);
     }
 }

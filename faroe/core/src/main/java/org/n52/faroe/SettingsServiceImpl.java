@@ -64,10 +64,10 @@ import org.n52.janmayen.function.Functions;
 public class SettingsServiceImpl implements SettingsService {
 
     private static final Logger LOG = LoggerFactory.getLogger(SettingsServiceImpl.class);
-    private final Map<String, Set<ConfigurableObject>> configurableObjects = new HashMap<>();
+    private final Map</*~~>*/String, Set<ConfigurableObject>> configurableObjects = new HashMap<>();
     private final ReadWriteLock configurableObjectsLock = new ReentrantReadWriteLock();
     private Set<SettingDefinition<?>> definitions = new HashSet<>();
-    private Map<String, SettingDefinition<?>> definitionByKey = new TreeMap<>();
+    private Map</*~~>*/String, SettingDefinition<?>> definitionByKey = new TreeMap<>();
     private SettingsDao settingsManagerDao;
     private SettingValueFactory settingValueFactory;
     private EventBus serviceEventBus;
@@ -155,17 +155,17 @@ public class SettingsServiceImpl implements SettingsService {
         for (Method method : clazz.getMethods()) {
             Setting s = method.getAnnotation(Setting.class);
             if (s != null) {
-                String key = s.value();
+                /*~~>*/String key = s.value();
                 if (key == null || key.isEmpty()) {
-                    throw new ConfigurationError(String.format("Invalid value for @Setting: '%s'", key));
+                    throw new ConfigurationError(/*~~>*/String.format("Invalid value for @Setting: '%s'", key));
                 } else if (getDefinitionByKey(key) == null && s.required()) {
                     throw noSettingDefinitionFound(key);
                 } else if (method.getParameterTypes().length != 1) {
-                    throw new ConfigurationError(String.format(
+                    throw new ConfigurationError(/*~~>*/String.format(
                             "Method %s annotated with @Setting in %s has a invalid method signature", method, clazz));
                 } else if (!Modifier.isPublic(method.getModifiers())) {
                     throw new ConfigurationError(
-                            String.format("Non-public method %s annotated with @Setting in %s", method, clazz));
+                            /*~~>*/String.format("Non-public method %s annotated with @Setting in %s", method, clazz));
                 } else {
                     configure(new ConfigurableObject(method, object, key, s.required()), persist);
                 }
@@ -199,7 +199,7 @@ public class SettingsServiceImpl implements SettingsService {
      * @return the definition or {@code null} if there is no definition for the key
      */
     @Override
-    public SettingDefinition<?> getDefinitionByKey(String key) {
+    public SettingDefinition<?> getDefinitionByKey(/*~~>*/String key) {
         return this.definitionByKey.get(key);
     }
 
@@ -231,7 +231,7 @@ public class SettingsServiceImpl implements SettingsService {
      */
     @SuppressWarnings("unchecked")
     @Override
-    public <T> SettingValue<T> getSetting(String key) {
+    public <T> SettingValue<T> getSetting(/*~~>*/String key) {
         SettingDefinition<?> def = getDefinitionByKey(key);
         if (def == null) {
             return null;
@@ -287,7 +287,7 @@ public class SettingsServiceImpl implements SettingsService {
      * @return the keys for all definitions
      */
     @Override
-    public Set<String> getKeys() {
+    public Set</*~~>*/String> getKeys() {
         return getSettingDefinitions().stream().map(SettingDefinition::getKey).collect(toSet());
     }
 
@@ -348,7 +348,7 @@ public class SettingsServiceImpl implements SettingsService {
     }
 
     @SuppressWarnings("unchecked")
-    private SettingValue<Object> getSettingValue(String key, boolean required) {
+    private SettingValue<Object> getSettingValue(/*~~>*/String key, boolean required) {
         SettingValue<Object> val = (SettingValue<Object>) this.settingsManagerDao.getSettingValue(key);
         if (val != null) {
             return val;
@@ -371,7 +371,7 @@ public class SettingsServiceImpl implements SettingsService {
                 this.settingsManagerDao.saveSettingValue(val);
             } else {
                 throw new ConfigurationError(
-                        String.format("No value found for required Setting '%s' with no default value.", key));
+                        /*~~>*/String.format("No value found for required Setting '%s' with no default value.", key));
             }
             return val;
         }
@@ -404,7 +404,7 @@ public class SettingsServiceImpl implements SettingsService {
 
         if (def.getType() != newValue.getType()) {
             throw new IllegalArgumentException(
-                    String.format("Invalid type for definition (%s vs. %s)", def.getType(), newValue.getType()));
+                    /*~~>*/String.format("Invalid type for definition (%s vs. %s)", def.getType(), newValue.getType()));
         }
 
         SettingValue<?> oldValue = this.settingsManagerDao.getSettingValue(newValue.getKey());
@@ -447,26 +447,26 @@ public class SettingsServiceImpl implements SettingsService {
         }
     }
 
-    private static ConfigurationError noSettingDefinitionFound(String key) {
-        return new ConfigurationError(String.format("No SettingDefinition found for key %s", key));
+    private static ConfigurationError noSettingDefinitionFound(/*~~>*/String key) {
+        return new ConfigurationError(/*~~>*/String.format("No SettingDefinition found for key %s", key));
     }
 
     private static final class NullSettingValue<T> implements SettingValue<T> {
 
         private static final long serialVersionUID = -8873828673362504798L;
-        private final String key;
+        private final /*~~>*/String key;
 
-        NullSettingValue(String key) {
-            this.key = key;
+        NullSettingValue(/*~~>*/String key) {
+            /*~~>*/this.key = key;
         }
 
         @Override
-        public String getKey() {
-            return this.key;
+        public /*~~>*/String getKey() {
+            return /*~~>*/this.key;
         }
 
         @Override
-        public void setKey(String key) {
+        public void setKey(/*~~>*/String key) {
             throw new UnsupportedOperationException();
         }
 
@@ -491,7 +491,7 @@ public class SettingsServiceImpl implements SettingsService {
 
         private final Method method;
         private final WeakReference<Object> target;
-        private final String key;
+        private final /*~~>*/String key;
         private final boolean required;
 
         /**
@@ -506,10 +506,10 @@ public class SettingsServiceImpl implements SettingsService {
          * @param required
          *            if the setting is required
          */
-        ConfigurableObject(Method method, Object target, String key, boolean required) {
+        ConfigurableObject(Method method, Object target, /*~~>*/String key, boolean required) {
             this.method = method;
             this.target = new WeakReference<>(target);
-            this.key = key;
+            /*~~>*/this.key = key;
             this.required = required;
         }
 
@@ -530,7 +530,7 @@ public class SettingsServiceImpl implements SettingsService {
         /**
          * @return the settings key
          */
-        public String getKey() {
+        public /*~~>*/String getKey() {
             return key;
         }
 
@@ -571,15 +571,15 @@ public class SettingsServiceImpl implements SettingsService {
         }
 
         private void logAndThrowError(Object val, Throwable t) throws ConfigurationError {
-            String message = String.format("Error while setting value '%s' (%s) for property '%s' with method '%s'",
+            /*~~>*/String message = /*~~>*/String.format("Error while setting value '%s' (%s) for property '%s' with method '%s'",
                     val, val == null ? null : val.getClass(), getKey(), getMethod());
             LOG.error(message);
             throw new ConfigurationError(message, t);
         }
 
         @Override
-        public String toString() {
-            return String.format("ConfigurableObject[key=%s, method=%s, target=%s]", getKey(), getMethod(),
+        public /*~~>*/String toString() {
+            return /*~~>*/String.format("ConfigurableObject[key=%s, method=%s, target=%s]", getKey(), getMethod(),
                     getTarget().get());
         }
 

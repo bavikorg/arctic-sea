@@ -30,7 +30,7 @@ public enum ResponseMode {
     DOCUMENT;
 
     @JsonCreator
-    public static Optional<ResponseMode> fromString(String string) {
+    public static Optional<ResponseMode> fromString(/*~~>*/String string) {
         for (ResponseMode t : values()) {
             if (t.name().equalsIgnoreCase(string)) {
                 return Optional.of(t);
@@ -41,7 +41,7 @@ public enum ResponseMode {
 
     @JsonValue
     @Override
-    public String toString() {
+    public /*~~>*/String toString() {
         return this.name().toLowerCase();
     }
 }

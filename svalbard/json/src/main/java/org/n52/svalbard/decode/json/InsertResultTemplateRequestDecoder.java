@@ -39,48 +39,48 @@ public class InsertResultTemplateRequestDecoder
     private final ObservationDecoder observationDecoder = new ObservationDecoder();
 
     public InsertResultTemplateRequestDecoder() {
-        super(InsertResultTemplateRequest.class, SosConstants.SOS, Sos2Constants.SERVICEVERSION,
+        super(InsertResultTemplateRequest.class, /*~~>*/SosConstants.SOS, /*~~>*/Sos2Constants.SERVICEVERSION,
                 Sos2Constants.Operations.InsertResultTemplate);
     }
 
     @Override
-    public String getSchemaURI() {
-        return SchemaConstants.Request.INSERT_RESULT_TEMPLATE;
+    public /*~~>*/String getSchemaURI() {
+        return /*~~>*/SchemaConstants.Request.INSERT_RESULT_TEMPLATE;
     }
 
     @Override
     public InsertResultTemplateRequest decodeRequest(JsonNode node)
             throws DecodingException {
         InsertResultTemplateRequest irtr = new InsertResultTemplateRequest();
-        if (!node.path(JSONConstants.IDENTIFIER).isMissingNode()) {
-            irtr.setIdentifier(node.path(JSONConstants.IDENTIFIER).textValue());
+        if (!node.path(/*~~>*/JSONConstants.IDENTIFIER).isMissingNode()) {
+            irtr.setIdentifier(node.path(/*~~>*/JSONConstants.IDENTIFIER).textValue());
         }
         irtr.setObservationTemplate(parseObservationTemplate(node));
-        irtr.setResultStructure(parseResultStructure(node.path(JSONConstants.RESULT_STRUCTURE)));
-        irtr.setResultEncoding(parseResultEncoding(node.path(JSONConstants.RESULT_ENCODING)));
+        irtr.setResultStructure(parseResultStructure(node.path(/*~~>*/JSONConstants.RESULT_STRUCTURE)));
+        irtr.setResultEncoding(parseResultEncoding(node.path(/*~~>*/JSONConstants.RESULT_ENCODING)));
         return irtr;
     }
 
     private OmObservationConstellation parseObservationTemplate(JsonNode node)
             throws DecodingException {
         OmObservationConstellation oc =
-                observationDecoder.parseObservationConstellation(node.path(JSONConstants.OBSERVATION_TEMPLATE));
-        oc.addOffering(node.path(JSONConstants.OFFERING).textValue());
+                observationDecoder.parseObservationConstellation(node.path(/*~~>*/JSONConstants.OBSERVATION_TEMPLATE));
+        oc.addOffering(node.path(/*~~>*/JSONConstants.OFFERING).textValue());
         return oc;
     }
 
     private SosResultStructure parseResultStructure(JsonNode node)
             throws DecodingException {
-        SweDataRecord dataRecord = parseFields(node.path(JSONConstants.FIELDS));
+        SweDataRecord dataRecord = parseFields(node.path(/*~~>*/JSONConstants.FIELDS));
         return new SosResultStructure(dataRecord);
     }
 
     private SosResultEncoding parseResultEncoding(JsonNode node) {
         SweTextEncoding textEncoding = new SweTextEncoding();
-        textEncoding.setTokenSeparator(node.path(JSONConstants.TOKEN_SEPARATOR).textValue());
-        textEncoding.setBlockSeparator(node.path(JSONConstants.BLOCK_SEPARATOR).textValue());
-        if (!node.path(JSONConstants.DECIMAL_SEPARATOR).isMissingNode()) {
-            textEncoding.setDecimalSeparator(node.path(JSONConstants.DECIMAL_SEPARATOR).textValue());
+        textEncoding.setTokenSeparator(node.path(/*~~>*/JSONConstants.TOKEN_SEPARATOR).textValue());
+        textEncoding.setBlockSeparator(node.path(/*~~>*/JSONConstants.BLOCK_SEPARATOR).textValue());
+        if (!node.path(/*~~>*/JSONConstants.DECIMAL_SEPARATOR).isMissingNode()) {
+            textEncoding.setDecimalSeparator(node.path(/*~~>*/JSONConstants.DECIMAL_SEPARATOR).textValue());
         }
         return new SosResultEncoding(textEncoding);
     }

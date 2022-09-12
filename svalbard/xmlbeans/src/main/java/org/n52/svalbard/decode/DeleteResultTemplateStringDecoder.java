@@ -37,7 +37,7 @@ public class DeleteResultTemplateStringDecoder
         AbstractStringRequestDecoder {
 
     private static final Set<DecoderKey> DECODER_KEYS = CodingHelper.xmlStringDecoderKeysForOperationAndMediaType(
-            SosConstants.SOS, Sos2Constants.SERVICEVERSION, DeleteResultTemplateConstants.OPERATION_NAME);
+            /*~~>*/SosConstants.SOS, /*~~>*/Sos2Constants.SERVICEVERSION, /*~~>*/DeleteResultTemplateConstants.OPERATION_NAME);
 
     private static final Logger LOGGER = LoggerFactory.getLogger(DeleteResultTemplateStringDecoder.class);
 

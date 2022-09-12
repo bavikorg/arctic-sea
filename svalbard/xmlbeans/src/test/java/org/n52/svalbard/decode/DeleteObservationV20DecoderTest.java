@@ -38,7 +38,7 @@ import net.opengis.sosdo.x20.DeleteObservationDocument;
  */
 public class DeleteObservationV20DecoderTest implements DeleteDecoderTest {
 
-    private static String observationId = "test_obs_id";
+    private static /*~~>*/String observationId = "test_obs_id";
     private static XmlObject incorrectXmlObject;
     private static DeleteObservationDocument correctXmlObject;
     private DeleteObservationV20Decoder decoder;
@@ -72,7 +72,7 @@ public class DeleteObservationV20DecoderTest implements DeleteDecoderTest {
 
     @Test
     public void constructorReturnsdecoder() {
-        String className = DeleteObservationV20Decoder.class.getName();
+        /*~~>*/String className = DeleteObservationV20Decoder.class.getName();
         assertNotNull(decoder, "decoder is null. Constructor failed");
         assertTrue(
                 decoder.getClass().getName().equals(className), "decoder of constructed object is not of class" + className);
@@ -91,7 +91,7 @@ public class DeleteObservationV20DecoderTest implements DeleteDecoderTest {
 
     @Test
     public void decodingCorrectXmlObjectReturnsCorrectServiceRequest() throws DecodingException {
-        String className = DeleteObservationRequest.class.getName();
+        /*~~>*/String className = DeleteObservationRequest.class.getName();
         assertNotNull(decoder.decode(correctXmlObject), "Decoding of correct XmlObject returned null");
         assertEquals(className, decoder.decode(correctXmlObject).getClass().getName(), "Class of Result ");
     }

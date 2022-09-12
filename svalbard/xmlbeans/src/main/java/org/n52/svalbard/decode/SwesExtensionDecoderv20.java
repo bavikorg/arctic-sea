@@ -47,8 +47,8 @@ public class SwesExtensionDecoderv20 extends AbstractXmlDecoder<XmlObject, Exten
     private static final Logger LOGGER = LoggerFactory.getLogger(SwesDecoderv20.class);
 
     private static final Set<DecoderKey> DECODER_KEYS =
-            CollectionHelper.union(CodingHelper.decoderKeysForElements(W3CConstants.NS_XS, XmlAnyTypeImpl.class),
-                    CodingHelper.decoderKeysForElements(SwesConstants.NS_SWES_20, XmlAnyTypeImpl.class));
+            CollectionHelper.union(CodingHelper.decoderKeysForElements(/*~~>*/W3CConstants.NS_XS, XmlAnyTypeImpl.class),
+                    CodingHelper.decoderKeysForElements(/*~~>*/SwesConstants.NS_SWES_20, XmlAnyTypeImpl.class));
 
     public SwesExtensionDecoderv20() {
         LOGGER.debug("Decoder for the following keys initialized successfully: {}!",
@@ -88,8 +88,8 @@ public class SwesExtensionDecoderv20 extends AbstractXmlDecoder<XmlObject, Exten
 
     private boolean isSwesExtension(XmlObject xmlObject) {
         Node node = xmlObject.getDomNode();
-        return node.getNamespaceURI().equalsIgnoreCase(SwesConstants.NS_SWES_20)
-                && node.getLocalName().equalsIgnoreCase(SwesConstants.EN_EXTENSION);
+        return node.getNamespaceURI().equalsIgnoreCase(/*~~>*/SwesConstants.NS_SWES_20)
+                && node.getLocalName().equalsIgnoreCase(/*~~>*/SwesConstants.EN_EXTENSION);
     }
 
 }

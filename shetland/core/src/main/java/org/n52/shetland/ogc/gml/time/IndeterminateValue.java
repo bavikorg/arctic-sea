@@ -37,22 +37,22 @@ public class IndeterminateValue implements Serializable {
     public static final IndeterminateValue TEMPLATE = new IndeterminateValue("template");
     private static final long serialVersionUID = -3624227423960325361L;
 
-    private final String value;
-    private final TreeSet<String> alias;
+    private final /*~~>*/String value;
+    private final TreeSet</*~~>*/String> alias;
 
     @SuppressFBWarnings("NP_NULL_ON_SOME_PATH_FROM_RETURN_VALUE")
-    public IndeterminateValue(String value, String... alias) {
-        this.value = Objects.requireNonNull(Strings.emptyToNull(value));
+    public IndeterminateValue(/*~~>*/String value, /*~~>*/String... alias) {
+        /*~~>*/this.value = Objects.requireNonNull(Strings.emptyToNull(value));
         this.alias = new TreeSet<>(String.CASE_INSENSITIVE_ORDER);
         this.alias.addAll(Arrays.asList(alias));
         this.alias.add(value);
     }
 
-    public String getValue() {
-        return this.value;
+    public /*~~>*/String getValue() {
+        return /*~~>*/this.value;
     }
 
-    public Set<String> getAlias() {
+    public Set</*~~>*/String> getAlias() {
         return Collections.unmodifiableSet(alias);
     }
 

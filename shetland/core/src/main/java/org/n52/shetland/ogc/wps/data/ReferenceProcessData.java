@@ -79,7 +79,7 @@ public class ReferenceProcessData extends FormattedProcessData {
     }
 
     @Override
-    public String toString() {
+    public /*~~>*/String toString() {
         return MoreObjects.toStringHelper(this).omitNullValues().add("id", getId()).add("format", getFormat())
                 .add("uri", getURI()).add("body", getBody().orElse(null)).toString();
     }

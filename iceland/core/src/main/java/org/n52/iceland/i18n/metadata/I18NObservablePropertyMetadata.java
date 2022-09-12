@@ -19,12 +19,12 @@ import org.n52.janmayen.i18n.MultilingualString;
 
 public class I18NObservablePropertyMetadata extends AbstractI18NMetadata {
 
-    public I18NObservablePropertyMetadata(String id, MultilingualString name,
+    public I18NObservablePropertyMetadata(/*~~>*/String id, MultilingualString name,
                                         MultilingualString description) {
         super(id, name, description);
     }
 
-    public I18NObservablePropertyMetadata(String id) {
+    public I18NObservablePropertyMetadata(/*~~>*/String id) {
         super(id);
     }
 

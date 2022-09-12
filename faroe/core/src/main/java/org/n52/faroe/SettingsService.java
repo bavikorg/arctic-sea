@@ -79,12 +79,12 @@ public interface SettingsService {
      *
      * @return the definition or {@code null} if there is no definition for the key
      */
-    SettingDefinition<?> getDefinitionByKey(String key);
+    SettingDefinition<?> getDefinitionByKey(/*~~>*/String key);
 
     /**
      * @return the keys for all definitions
      */
-    Set<String> getKeys();
+    Set</*~~>*/String> getKeys();
 
     /**
      * Gets the value of the setting defined by {@code key}.
@@ -106,7 +106,7 @@ public interface SettingsService {
      * @return the value of the setting
      */
     @SuppressWarnings(value = "unchecked")
-    <T> SettingValue<T> getSetting(String key);
+    <T> SettingValue<T> getSetting(/*~~>*/String key);
 
     /**
      * Gets all {@code SettingDefinition}s known by this class.

@@ -53,8 +53,8 @@ public abstract class AbstractSchedulingContentCacheController implements Conten
     private Optional<StaticCapabilitiesProvider> staticCapabilitiesProvider = Optional.empty();
 
 
-    @Setting(ScheduledContentCacheControllerSettings.CAPABILITIES_CACHE_UPDATE)
-    public void setCronExpression(String cronExpression) {
+    @Setting(/*~~>*/ScheduledContentCacheControllerSettings.CAPABILITIES_CACHE_UPDATE)
+    public void setCronExpression(/*~~>*/String cronExpression) {
         Validation.notNullOrEmpty("Cron expression for cache update", cronExpression);
         try {
             DateTime now = DateTime.now();
@@ -64,7 +64,7 @@ public abstract class AbstractSchedulingContentCacheController implements Conten
             setUpdateInterval(DateTimeHelper.getMinutesSince(new DateTime(first), new DateTime(next)));
         } catch (ParseException e) {
 
-            throw new ConfigurationError(String.format("The defined cron expression '%s' is invalid!", cronExpression),
+            throw new ConfigurationError(/*~~>*/String.format("The defined cron expression '%s' is invalid!", cronExpression),
                     e);
         }
     }

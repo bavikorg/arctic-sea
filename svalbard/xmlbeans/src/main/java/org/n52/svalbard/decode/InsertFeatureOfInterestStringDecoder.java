@@ -35,7 +35,7 @@ public class InsertFeatureOfInterestStringDecoder
         AbstractStringRequestDecoder {
 
     private static final Set<DecoderKey> DECODER_KEYS = CodingHelper.xmlStringDecoderKeysForOperationAndMediaType(
-            SosConstants.SOS, Sos2Constants.SERVICEVERSION, InsertFeatureOfInterestConstants.OPERATION_NAME);
+            /*~~>*/SosConstants.SOS, /*~~>*/Sos2Constants.SERVICEVERSION, /*~~>*/InsertFeatureOfInterestConstants.OPERATION_NAME);
 
     private static final Logger LOGGER = LoggerFactory.getLogger(InsertFeatureOfInterestStringDecoder.class);
 

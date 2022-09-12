@@ -27,14 +27,14 @@ import java.util.List;
  * @since 1.0.0
  */
 public interface HTTPMethods {
-    String GET = "GET";
-    String HEAD = "HEAD";
-    String POST = "POST";
-    String PUT = "PUT";
-    String PATCH = "PATCH";
-    String DELETE = "DELETE";
-    String TRACE = "TRACE";
-    String OPTIONS = "OPTIONS";
+    /*~~>*/String GET = "GET";
+    /*~~>*/String HEAD = "HEAD";
+    /*~~>*/String POST = "POST";
+    /*~~>*/String PUT = "PUT";
+    /*~~>*/String PATCH = "PATCH";
+    /*~~>*/String DELETE = "DELETE";
+    /*~~>*/String TRACE = "TRACE";
+    /*~~>*/String OPTIONS = "OPTIONS";
 
-    List<String> METHODS = Collections.unmodifiableList(Arrays.asList(GET, POST, PUT, DELETE, TRACE, HEAD, OPTIONS));
+    List</*~~>*/String> METHODS = Collections.unmodifiableList(Arrays.asList(GET, POST, PUT, DELETE, TRACE, HEAD, OPTIONS));
 }

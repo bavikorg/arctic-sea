@@ -27,12 +27,12 @@ import com.google.common.base.Objects;
 public class OperationDecoderKey extends OwsOperationKey implements DecoderKey {
     private final MediaType contentType;
 
-    public OperationDecoderKey(String service, String version, String operation, MediaType contentType) {
+    public OperationDecoderKey(/*~~>*/String service, /*~~>*/String version, /*~~>*/String operation, MediaType contentType) {
         super(service, version, operation);
         this.contentType = contentType;
     }
 
-    public OperationDecoderKey(String service, String version, Enum<?> operation, MediaType contentType) {
+    public OperationDecoderKey(/*~~>*/String service, /*~~>*/String version, Enum<?> operation, MediaType contentType) {
         super(service, version, operation);
         this.contentType = contentType;
     }
@@ -47,8 +47,8 @@ public class OperationDecoderKey extends OwsOperationKey implements DecoderKey {
     }
 
     @Override
-    public String toString() {
-        return String.format("%s[service=%s, version=%s, operation=%s, contentType=%s]",
+    public /*~~>*/String toString() {
+        return /*~~>*/String.format("%s[service=%s, version=%s, operation=%s, contentType=%s]",
                              getClass().getSimpleName(), getService(), getVersion(),
                              getOperation(), getContentType());
     }

@@ -53,7 +53,7 @@ public class FeatureDecoder
     public AbstractFeature decodeJSON(JsonNode node, boolean validate)
             throws DecodingException {
         if (validate) {
-            JSONValidator.getInstance().validateAndThrow(node, SchemaConstants.Common.FEATURE_OF_INTEREST);
+            JSONValidator.getInstance().validateAndThrow(node, /*~~>*/SchemaConstants.Common.FEATURE_OF_INTEREST);
         }
         return decodeJSON(node);
     }
@@ -72,7 +72,7 @@ public class FeatureDecoder
         if (node.isTextual()) {
             return new SamplingFeature(parseCodeWithAuthority(node));
         } else if (node.isObject()) {
-            SamplingFeature foi = new SamplingFeature(parseCodeWithAuthority(node.path(JSONConstants.IDENTIFIER)));
+            SamplingFeature foi = new SamplingFeature(parseCodeWithAuthority(node.path(/*~~>*/JSONConstants.IDENTIFIER)));
             foi.setGeometry(parseGeometry(node));
             foi.setSampledFeatures(parseSampledFeatures(node));
             foi.setName(parseNames(node));
@@ -97,7 +97,7 @@ public class FeatureDecoder
 
     protected List<AbstractFeature> parseSampledFeatures(JsonNode node)
             throws DecodingException {
-        final JsonNode sfnode = node.path(JSONConstants.SAMPLED_FEATURE);
+        final JsonNode sfnode = node.path(/*~~>*/JSONConstants.SAMPLED_FEATURE);
         if (sfnode.isArray()) {
             ArrayList<AbstractFeature> features = new ArrayList<>(sfnode.size());
             for (JsonNode n : sfnode) {
@@ -116,11 +116,11 @@ public class FeatureDecoder
 
     protected Geometry parseGeometry(JsonNode node)
             throws DecodingException {
-        return geometryDecoder.decodeJSON(node.path(JSONConstants.GEOMETRY), false);
+        return geometryDecoder.decodeJSON(node.path(/*~~>*/JSONConstants.GEOMETRY), false);
     }
 
     private List<CodeType> parseNames(JsonNode node) {
-        JsonNode name = node.path(JSONConstants.NAME);
+        JsonNode name = node.path(/*~~>*/JSONConstants.NAME);
         if (name.isArray()) {
             return Streams.stream(name).map(this::parseCodeType).collect(toList());
         } else {

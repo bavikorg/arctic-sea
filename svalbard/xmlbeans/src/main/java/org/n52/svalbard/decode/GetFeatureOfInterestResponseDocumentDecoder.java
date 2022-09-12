@@ -50,7 +50,7 @@ public class GetFeatureOfInterestResponseDocumentDecoder
     private static final Logger LOGGER = LoggerFactory.getLogger(GetFeatureOfInterestResponseDocumentDecoder.class);
 
     private static final Set<DecoderKey> DECODER_KEYS =
-            CodingHelper.decoderKeysForElements(Sos2Constants.NS_SOS_20, GetFeatureOfInterestResponseDocument.class);
+            CodingHelper.decoderKeysForElements(/*~~>*/Sos2Constants.NS_SOS_20, GetFeatureOfInterestResponseDocument.class);
 
     public GetFeatureOfInterestResponseDocumentDecoder() {
         LOGGER.debug("Decoder for the following keys initialized successfully: {}!",

@@ -73,7 +73,7 @@ public final class XmlHelper {
 
     private static final Logger LOGGER = LoggerFactory.getLogger(XmlHelper.class);
 
-    private static final Set<String> GML_NAMESPACES = Sets.newHashSet(GmlConstants.NS_GML, GmlConstants.NS_GML_32);
+    private static final Set</*~~>*/String> GML_NAMESPACES = Sets.newHashSet(/*~~>*/GmlConstants.NS_GML, /*~~>*/GmlConstants.NS_GML_32);
 
     private XmlHelper() {
     }
@@ -119,11 +119,11 @@ public final class XmlHelper {
      * @throws DecodingException
      *             * If the parameter is not supported by this SOS.
      */
-    public static String parseHttpPostBodyWithParameter(Map<String, String[]> parameterMap) throws DecodingException {
-        for (Entry<String, String[]> e : parameterMap.entrySet()) {
-            String paramName = e.getKey();
+    public static /*~~>*/String parseHttpPostBodyWithParameter(Map</*~~>*/String, /*~~>*//*~~>*/String[]> parameterMap) throws DecodingException {
+        for (Entry</*~~>*/String, /*~~>*//*~~>*/String[]> e : parameterMap.entrySet()) {
+            /*~~>*/String paramName = e.getKey();
             if (RequestParams.request.name().equalsIgnoreCase(paramName)) {
-                String[] paramValues = parameterMap.get(paramName);
+                /*~~>*/String[] paramValues = parameterMap.get(paramName);
                 if (paramValues.length == 1) {
                     return paramValues[0];
                 } else {
@@ -141,7 +141,7 @@ public final class XmlHelper {
         throw new DecodingException("No request parameter forund for HTTP-Post!");
     }
 
-    public static XmlObject parseXmlString(String xmlString) throws DecodingException {
+    public static XmlObject parseXmlString(/*~~>*/String xmlString) throws DecodingException {
         try {
             return XmlObject.Factory.parse(xmlString);
         } catch (final XmlException xmle) {
@@ -186,11 +186,11 @@ public final class XmlHelper {
         // Create an XmlOptions instance and set the error listener.
         LinkedList<XmlError> validationErrors = new LinkedList<>();
         XmlOptions validationOptions = new XmlOptions().setErrorListener(validationErrors)
-                .setLoadLineNumbers(XmlOptions.LOAD_LINE_NUMBERS_END_ELEMENT);
+                .setLoadLineNumbers(/*~~>*/XmlOptions.LOAD_LINE_NUMBERS_END_ELEMENT);
 
         // Create Exception with error message if the xml document is invalid
         if (!doc.validate(validationOptions)) {
-            String message;
+            /*~~>*/String message;
             // getValidation error and throw service exception for the first
             // error
             Iterator<XmlError> iter = validationErrors.iterator();
@@ -271,16 +271,16 @@ public final class XmlHelper {
      * @param node The node to examine
      * @param foundIds the already found ids
      */
-    public static void makeGmlIdsUnique(Node node, Map<String, Integer> foundIds) {
+    public static void makeGmlIdsUnique(Node node, Map</*~~>*/String, Integer> foundIds) {
         // check this node's attributes
         NamedNodeMap attributes = node.getAttributes();
-        String nodeNamespace = node.getNamespaceURI();
+        /*~~>*/String nodeNamespace = node.getNamespaceURI();
         if (attributes != null) {
             for (int i = 0, len = attributes.getLength(); i < len; i++) {
                 Attr attr = (Attr) attributes.item(i);
-                if (attr.getLocalName().equals(GmlConstants.AN_ID)) {
+                if (attr.getLocalName().equals(/*~~>*/GmlConstants.AN_ID)) {
                     if (checkAttributeForGmlId(attr, nodeNamespace)) {
-                        final String gmlId = attr.getValue();
+                        final /*~~>*/String gmlId = attr.getValue();
                         if (foundIds.containsKey(gmlId)) {
                             /*
                              * id has already been found, suffix this one with
@@ -308,21 +308,21 @@ public final class XmlHelper {
     }
 
     //CHECKSTYLE:OFF
-    public static void updateGmlIDs(Node node, String gmlID, String oldGmlID) {
+    public static void updateGmlIDs(Node node, /*~~>*/String gmlID, /*~~>*/String oldGmlID) {
         // check this node's attributes
         if (node != null) {
-            final String nodeNamespace = node.getNamespaceURI();
+            final /*~~>*/String nodeNamespace = node.getNamespaceURI();
             final NamedNodeMap attributes = node.getAttributes();
             if (attributes != null) {
                 for (int i = 0, len = attributes.getLength(); i < len; i++) {
                     final Attr attr = (Attr) attributes.item(i);
-                    if (attr.getLocalName().equals(GmlConstants.AN_ID)) {
+                    if (attr.getLocalName().equals(/*~~>*/GmlConstants.AN_ID)) {
                         if (checkAttributeForGmlId(attr, nodeNamespace)) {
                             if (oldGmlID == null) {
                                 oldGmlID = attr.getValue();
                                 attr.setValue(gmlID);
                             } else {
-                                String helperString = attr.getValue();
+                                /*~~>*/String helperString = attr.getValue();
                                 helperString = helperString.replace(oldGmlID, gmlID);
                                 attr.setValue(helperString);
                             }
@@ -350,9 +350,9 @@ public final class XmlHelper {
      *            Node namespace
      * @return <code>true</code>, if attribute or node is a GML id
      */
-    private static boolean checkAttributeForGmlId(Attr attr, String nodeNamespace) {
-        final String attrNamespace = attr.getNamespaceURI();
-        if (GmlConstants.GML_ID_WITH_PREFIX.equals(attr.getName())) {
+    private static boolean checkAttributeForGmlId(Attr attr, /*~~>*/String nodeNamespace) {
+        final /*~~>*/String attrNamespace = attr.getNamespaceURI();
+        if (/*~~>*/GmlConstants.GML_ID_WITH_PREFIX.equals(attr.getName())) {
             return true;
         } else {
             if (!Strings.isNullOrEmpty(attrNamespace)) {
@@ -373,7 +373,7 @@ public final class XmlHelper {
      *            GML namespaces
      * @return <code>true</code>, if namespaceToCheck is a GML namespace
      */
-    private static boolean isNotNullAndEqualsNSs(String namespaceToCheck, Collection<String> namespaces) {
+    private static boolean isNotNullAndEqualsNSs(/*~~>*/String namespaceToCheck, Collection</*~~>*/String> namespaces) {
         return !Strings.isNullOrEmpty(namespaceToCheck) && namespaces.contains(namespaceToCheck);
     }
 
@@ -382,13 +382,13 @@ public final class XmlHelper {
      *
      * @return GML namespace set
      */
-    private static Collection<String> getGmlNSs() {
+    private static Collection</*~~>*/String> getGmlNSs() {
         return Collections.unmodifiableCollection(GML_NAMESPACES);
     }
 
-    public static String getNamespace(final XmlObject doc) {
+    public static /*~~>*/String getNamespace(final XmlObject doc) {
         Node domNode = doc.getDomNode();
-        String namespaceURI = domNode.getNamespaceURI();
+        /*~~>*/String namespaceURI = domNode.getNamespaceURI();
         if (namespaceURI == null && domNode.getFirstChild() != null) {
             namespaceURI = domNode.getFirstChild().getNamespaceURI();
         }
@@ -401,7 +401,7 @@ public final class XmlHelper {
             namespaceURI = domNode.getFirstChild().getNextSibling().getNamespaceURI();
         }
         // check with schemaType namespace, necessary for anyType elements
-        final String schemaTypeNamespace = getSchemaTypeNamespace(doc);
+        final /*~~>*/String schemaTypeNamespace = getSchemaTypeNamespace(doc);
         if (schemaTypeNamespace == null) {
             return namespaceURI;
         } else {
@@ -414,7 +414,7 @@ public final class XmlHelper {
 
     }
 
-    private static String getSchemaTypeNamespace(XmlObject doc) {
+    private static /*~~>*/String getSchemaTypeNamespace(XmlObject doc) {
         QName name;
         if (doc.schemaType().isAttributeType()) {
             name = doc.schemaType().getAttributeTypeAttributeName();
@@ -432,7 +432,7 @@ public final class XmlHelper {
         final Node domNode = substitutionElement.getDomNode();
         QName name;
         if (domNode.getNamespaceURI() != null && domNode.getLocalName() != null) {
-            final String prefix = getPrefixForNamespace(elementToSubstitute, domNode.getNamespaceURI());
+            final /*~~>*/String prefix = getPrefixForNamespace(elementToSubstitute, domNode.getNamespaceURI());
             if (prefix != null && !prefix.isEmpty()) {
                 name = new QName(domNode.getNamespaceURI(), domNode.getLocalName(), prefix);
             } else {
@@ -440,7 +440,7 @@ public final class XmlHelper {
             }
         } else {
             final QName nameOfElement = substitutionElement.schemaType().getName();
-            final String localPart = nameOfElement.getLocalPart().replace(GmlConstants.EN_PART_TYPE, "");
+            final /*~~>*/String localPart = nameOfElement.getLocalPart().replace(/*~~>*/GmlConstants.EN_PART_TYPE, "");
             name = new QName(nameOfElement.getNamespaceURI(), localPart,
                     getPrefixForNamespace(elementToSubstitute, nameOfElement.getNamespaceURI()));
         }
@@ -451,16 +451,16 @@ public final class XmlHelper {
         return elementToSubstitute.substitute(name, schemaType);
     }
 
-    public static String getPrefixForNamespace(XmlObject element, String namespace) {
+    public static /*~~>*/String getPrefixForNamespace(XmlObject element, /*~~>*/String namespace) {
         final XmlCursor cursor = element.newCursor();
-        final String prefix = cursor.prefixForNamespace(namespace);
+        final /*~~>*/String prefix = cursor.prefixForNamespace(namespace);
         cursor.dispose();
         return prefix;
     }
 
 
 
-    public static String getLocalName(XmlObject element) {
+    public static /*~~>*/String getLocalName(XmlObject element) {
         return element == null ? null : element.getDomNode().getLocalName();
     }
 
@@ -527,18 +527,18 @@ public final class XmlHelper {
             public boolean shouldPass(final XmlValidationError xve) {
                 if (xve.getObjectLocation() != null && xve.getObjectLocation().getDomNode() != null
                         && xve.getObjectLocation().getDomNode().getFirstChild() != null) {
-                    String nodeName = xve.getObjectLocation().getDomNode().getFirstChild().getNodeName();
+                    /*~~>*/String nodeName = xve.getObjectLocation().getDomNode().getFirstChild().getNodeName();
                     return !Strings.isNullOrEmpty(nodeName) && nodeName.contains(GET_DATA_AVAILABILITY);
                 }
                 return false;
             }
         };
 
-        private static final String BEFORE_END_CONTENT_ELEMENT = "before the end of the content in element";
+        private static final /*~~>*/String BEFORE_END_CONTENT_ELEMENT = "before the end of the content in element";
 
-        private static final String SOS_INSERTION_METADATA_TYPE = "SosInsertionMetadataType";
+        private static final /*~~>*/String SOS_INSERTION_METADATA_TYPE = "SosInsertionMetadataType";
 
-        private static final String GET_DATA_AVAILABILITY = "GetDataAvailability";
+        private static final /*~~>*/String GET_DATA_AVAILABILITY = "GetDataAvailability";
 
         public abstract boolean shouldPass(XmlValidationError xve);
 
@@ -649,11 +649,11 @@ public final class XmlHelper {
         final XmlCursor cursor = object.newCursor();
         while (cursor.hasNextToken()) {
             if (cursor.toNextToken().isStart()) {
-                final String xsiType = cursor.getAttributeText(W3CConstants.QN_XSI_TYPE);
+                final /*~~>*/String xsiType = cursor.getAttributeText(W3CConstants.QN_XSI_TYPE);
                 if (xsiType != null) {
 
-                    final String[] toks = xsiType.split(":");
-                    String localName;
+                    final /*~~>*/String[] toks = xsiType.split(":");
+                    /*~~>*/String localName;
                     if (toks.length > 1) {
                         localName = toks[1];
                     } else {
@@ -675,17 +675,17 @@ public final class XmlHelper {
         final XmlCursor cursor = content.newCursor();
         while (cursor.hasNextToken()) {
             if (cursor.toNextToken().isStart()) {
-                final String xsiType = cursor.getAttributeText(W3CConstants.QN_XSI_TYPE);
+                final /*~~>*/String xsiType = cursor.getAttributeText(W3CConstants.QN_XSI_TYPE);
                 if (xsiType != null) {
-                    final String[] toks = xsiType.split(":");
+                    final /*~~>*/String[] toks = xsiType.split(":");
                     if (toks.length > 1) {
-                        String prefix = toks[0];
-                        String localName = toks[1];
+                        /*~~>*/String prefix = toks[0];
+                        /*~~>*/String localName = toks[1];
                         if (namespaces.containsKey(prefix)) {
                             cursor.setAttributeText(
                                     W3CConstants.QN_XSI_TYPE,
                                     Joiner.on(":").join(
-                                            XmlHelper.getPrefixForNamespace(content, (String) namespaces.get(prefix)),
+                                            XmlHelper.getPrefixForNamespace(content, (/*~~>*/String) namespaces.get(prefix)),
                                             localName));
                         }
                     }
@@ -710,8 +710,8 @@ public final class XmlHelper {
      * @param namespace The namespace
      * @return The path
      */
-    public static String getXPathPrefix(String prefix, String namespace) {
-        return String.format("declare namespace %s='%s';", prefix, namespace);
+    public static /*~~>*/String getXPathPrefix(/*~~>*/String prefix, /*~~>*/String namespace) {
+        return /*~~>*/String.format("declare namespace %s='%s';", prefix, namespace);
     }
 
 }

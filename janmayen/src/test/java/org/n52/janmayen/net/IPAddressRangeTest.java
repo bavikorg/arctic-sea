@@ -254,11 +254,11 @@ public class IPAddressRangeTest {
         testGetMaskForPrefix(0, "0.0.0.0");
     }
 
-    private boolean isAddressInRange(String range, String address) {
+    private boolean isAddressInRange(/*~~>*/String range, /*~~>*/String address) {
         return new IPAddressRange(range).contains(new IPAddress(address));
     }
 
-    private boolean isValidAddress(String address) {
+    private boolean isValidAddress(/*~~>*/String address) {
         try {
             new IPAddress(address);
         } catch (IllegalArgumentException e) {
@@ -268,7 +268,7 @@ public class IPAddressRangeTest {
 
     }
 
-    private boolean isValidAddressRange(String address) {
+    private boolean isValidAddressRange(/*~~>*/String address) {
         try {
             new IPAddressRange(address);
         } catch (IllegalArgumentException e) {
@@ -277,12 +277,12 @@ public class IPAddressRangeTest {
         return true;
     }
 
-    private void testGetPrefixForMask(String address, int subnet) {
+    private void testGetPrefixForMask(/*~~>*/String address, int subnet) {
         assertThat(IPAddressRange.getPrefixForMask(new IPAddress(address)), is(subnet));
     }
 
 
-    private void testGetMaskForPrefix(int subnet, String address) {
+    private void testGetMaskForPrefix(int subnet, /*~~>*/String address) {
         IPAddress ipAddress = new IPAddress(address);
         assertThat(IPAddressRange.getMaskForPrefix(subnet, ipAddress.getBitSize()), is(ipAddress));
     }

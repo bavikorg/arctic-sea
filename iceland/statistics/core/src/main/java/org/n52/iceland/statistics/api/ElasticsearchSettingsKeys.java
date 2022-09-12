@@ -23,22 +23,22 @@ import org.n52.faroe.SettingDefinitionGroup;
  */
 public interface ElasticsearchSettingsKeys {
 
-    String LOGGING_ENABLED = "statistics.elasticsearch.is_logging_enabled";
-    String CLUSTER_NAME = "statistics.elasticsearch.cluster_name";
-    String INDEX_NAME = "statistics.elasticsearch.index_name";
-    String TYPE_NAME = "statistics.elasticsearch.type_name";
-    String UUID = "statistics.elasticsearch.uuid";
-    String CLUSTER_NODES = "statistics.elasticsearch.cluster_nodes";
+    /*~~>*/String LOGGING_ENABLED = "statistics.elasticsearch.is_logging_enabled";
+    /*~~>*/String CLUSTER_NAME = "statistics.elasticsearch.cluster_name";
+    /*~~>*/String INDEX_NAME = "statistics.elasticsearch.index_name";
+    /*~~>*/String TYPE_NAME = "statistics.elasticsearch.type_name";
+    /*~~>*/String UUID = "statistics.elasticsearch.uuid";
+    /*~~>*/String CLUSTER_NODES = "statistics.elasticsearch.cluster_nodes";
 
     // lanMode vs transportclient mode vs embedded elasticsearch server
-    String CONNECTION_MODE = "statistics.elasticsearch.connection_mode";
-    String CONNECTION_MODE_TRANSPORT_CLIENT
+    /*~~>*/String CONNECTION_MODE = "statistics.elasticsearch.connection_mode";
+    /*~~>*/String CONNECTION_MODE_TRANSPORT_CLIENT
             = "statistics.elasticsearch.connection_mode.transport_client";
-    String CONNECTION_MODE_EMBEDDED_SERVER
+    /*~~>*/String CONNECTION_MODE_EMBEDDED_SERVER
             = "statistics.elasticsearch.connection_mode.embedded_server";
 
-    String KIBANA_CONFIG_PATH = "statistics.elasticsearch.kibana_config_file";
-    String KIBANA_CONFIG_ENABLE = "statistics.elasticsearch.kibana_config_enable";
+    /*~~>*/String KIBANA_CONFIG_PATH = "statistics.elasticsearch.kibana_config_file";
+    /*~~>*/String KIBANA_CONFIG_ENABLE = "statistics.elasticsearch.kibana_config_enable";
 
-    String STATISTICS_COUNTING_OUTPUTSTREAM = "statistics.counting-outputstream";
+    /*~~>*/String STATISTICS_COUNTING_OUTPUTSTREAM = "statistics.counting-outputstream";
 }

@@ -31,7 +31,7 @@ public class ContactPoint extends AbstractResource implements DcatRdfPrefix {
 
     private List<VCardOrganization> organizations = new LinkedList<VCardOrganization>();
 
-    public ContactPoint(String value) {
+    public ContactPoint(/*~~>*/String value) {
         super(value);
     }
 

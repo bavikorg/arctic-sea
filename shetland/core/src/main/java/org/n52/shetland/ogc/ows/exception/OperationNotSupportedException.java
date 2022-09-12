@@ -35,7 +35,7 @@ public class OperationNotSupportedException extends CodedOwsException {
         setStatus(org.n52.janmayen.http.HTTPStatus.BAD_REQUEST);
     }
 
-    public OperationNotSupportedException(final String operation) {
+    public OperationNotSupportedException(final /*~~>*/String operation) {
         super(OwsExceptionCode.OperationNotSupported);
         at(operation).withMessage("The requested operation '%s' is not supported by this service!", operation);
     }

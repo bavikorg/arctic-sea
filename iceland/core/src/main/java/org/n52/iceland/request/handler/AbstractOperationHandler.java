@@ -84,7 +84,7 @@ public abstract class AbstractOperationHandler implements OperationHandler {
         return bindingRepository;
     }
 
-    @Setting(ServiceSettings.SERVICE_URL)
+    @Setting(/*~~>*/ServiceSettings.SERVICE_URL)
     public void setServiceURL(final URI serviceURL)
             throws ConfigurationError {
         setURL(serviceURL);
@@ -100,8 +100,8 @@ public abstract class AbstractOperationHandler implements OperationHandler {
         return this.serviceURL;
     }
 
-    @Setting(value = I18NSettings.I18N_DEFAULT_LANGUAGE, required = false)
-    public void setDefaultLanguage(String defaultLanguage) {
+    @Setting(value = /*~~>*/I18NSettings.I18N_DEFAULT_LANGUAGE, required = false)
+    public void setDefaultLanguage(/*~~>*/String defaultLanguage) {
         this.defaultLanguage = LocaleHelper.decode(defaultLanguage);
     }
 
@@ -109,7 +109,7 @@ public abstract class AbstractOperationHandler implements OperationHandler {
         return defaultLanguage;
     }
 
-    @Setting(value = I18NSettings.I18N_SHOW_ALL_LANGUAGE_VALUES, required = false)
+    @Setting(value = /*~~>*/I18NSettings.I18N_SHOW_ALL_LANGUAGE_VALUES, required = false)
     public void setShowAllLanguages(boolean showAllLanguages) {
         this.showAllLanguages = showAllLanguages;
     }
@@ -122,7 +122,7 @@ public abstract class AbstractOperationHandler implements OperationHandler {
         return LocaleHelper.decode(request.getRequestedLanguage(), defaultLanguage);
     }
 
-    private Set<OwsDCP> getDCP(String service, String version) {
+    private Set<OwsDCP> getDCP(/*~~>*/String service, /*~~>*/String version) {
         return Collections.singleton(getDCP(new OwsOperationKey(service, version, getOperationName())));
     }
 
@@ -140,7 +140,7 @@ public abstract class AbstractOperationHandler implements OperationHandler {
     }
 
     private Stream<OwsRequestMethod> getRequestMethodsForServiceURL(OwsOperationKey operation) {
-        Map<String, Set<OwsValue>> mediaTypesByMethod = new HashMap<>(HTTPMethods.METHODS.size());
+        Map</*~~>*/String, Set<OwsValue>> mediaTypesByMethod = new HashMap<>(HTTPMethods.METHODS.size());
         this.bindingRepository.getBindings().values().stream()
                 .forEach(binding -> HTTPMethods.METHODS.stream()
                     .filter(isMethodSupported(binding, operation))
@@ -166,7 +166,7 @@ public abstract class AbstractOperationHandler implements OperationHandler {
     }
 
     private OwsDomain createContentTypeDomain(Set<OwsValue> value) {
-        return new OwsDomain(HTTPHeaders.CONTENT_TYPE, new OwsAllowedValues(value));
+        return new OwsDomain(/*~~>*/HTTPHeaders.CONTENT_TYPE, new OwsAllowedValues(value));
     }
 
     private Stream<OwsRequestMethod> getRequestMethods(Binding binding, OwsOperationKey operation) {
@@ -181,20 +181,20 @@ public abstract class AbstractOperationHandler implements OperationHandler {
                 .map(method -> new OwsRequestMethod(uri, method, constraints)));
     }
 
-    private Predicate<String> isMethodSupported(Binding binding, OwsOperationKey operation) {
+    private Predicate</*~~>*/String> isMethodSupported(Binding binding, OwsOperationKey operation) {
         return method -> isMethodSupported(binding, method, operation);
     }
 
-    private boolean isMethodSupported(Binding binding, String method, OwsOperationKey operation) {
+    private boolean isMethodSupported(Binding binding, /*~~>*/String method, OwsOperationKey operation) {
         try {
             switch (method) {
-                case HTTPMethods.GET:
+                case /*~~>*/HTTPMethods.GET:
                     return binding.checkOperationHttpGetSupported(operation);
-                case HTTPMethods.POST:
+                case /*~~>*/HTTPMethods.POST:
                     return binding.checkOperationHttpPostSupported(operation);
-                case HTTPMethods.PUT:
+                case /*~~>*/HTTPMethods.PUT:
                     return binding.checkOperationHttpPutSupported(operation);
-                case HTTPMethods.DELETE:
+                case /*~~>*/HTTPMethods.DELETE:
                     return binding.checkOperationHttpDeleteSupported(operation);
                 default:
                     return false;
@@ -205,8 +205,8 @@ public abstract class AbstractOperationHandler implements OperationHandler {
     }
 
     @Override
-    public OwsOperation getOperationsMetadata(String service, String version) throws OwsExceptionReport {
-        String name = getOperationName();
+    public OwsOperation getOperationsMetadata(/*~~>*/String service, /*~~>*/String version) throws OwsExceptionReport {
+        /*~~>*/String name = getOperationName();
         Set<OwsDomain> parameters = getOperationParameters(service, version);
         Set<OwsDomain> constraints = getOperationConstraints(service, version);
         Set<OwsMetadata> metadata = getOperationMetadata(service, version);
@@ -214,15 +214,15 @@ public abstract class AbstractOperationHandler implements OperationHandler {
         return new OwsOperation(name, parameters, constraints, metadata, dcp);
     }
 
-    protected Set<OwsDomain> getOperationParameters(String service, String version) throws OwsExceptionReport {
+    protected Set<OwsDomain> getOperationParameters(/*~~>*/String service, /*~~>*/String version) throws OwsExceptionReport {
         return null;
     }
 
-    protected Set<OwsDomain> getOperationConstraints(String service, String version) throws OwsExceptionReport {
+    protected Set<OwsDomain> getOperationConstraints(/*~~>*/String service, /*~~>*/String version) throws OwsExceptionReport {
         return null;
     }
 
-    protected Set<OwsMetadata> getOperationMetadata(String service, String version) throws OwsExceptionReport {
+    protected Set<OwsMetadata> getOperationMetadata(/*~~>*/String service, /*~~>*/String version) throws OwsExceptionReport {
         return null;
     }
 

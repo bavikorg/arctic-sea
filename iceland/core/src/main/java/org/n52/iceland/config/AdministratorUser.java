@@ -30,26 +30,26 @@ public interface AdministratorUser {
      *
      * @return the value of password
      */
-    String getPassword();
+    /*~~>*/String getPassword();
 
     /**
      * Get the value of username.
      *
      * @return the value of username
      */
-    String getUsername();
+    /*~~>*/String getUsername();
 
     /**
      * Set the value of password.
      *
      * @param password new value of password
      */
-    void setPassword(String password);
+    void setPassword(/*~~>*/String password);
 
     /**
      * Set the value of username.
      *
      * @param username new value of username
      */
-    void setUsername(String username);
+    void setUsername(/*~~>*/String username);
 }

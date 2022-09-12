@@ -39,7 +39,7 @@ import edu.umd.cs.findbugs.annotations.SuppressFBWarnings;
  */
 public class SchemaRepository implements Constructable {
 
-    private final Map<String, Set<SchemaLocation>> schemaLocations = Maps.newHashMap();
+    private final Map</*~~>*/String, Set<SchemaLocation>> schemaLocations = Maps.newHashMap();
 
     private EncoderRepository encoderRepository;
 
@@ -59,16 +59,16 @@ public class SchemaRepository implements Constructable {
                         .collect(groupingBy(SchemaLocation::getNamespace, Collectors.toSet())));
     }
 
-    public Set<SchemaLocation> getSchemaLocation(String namespace) {
+    public Set<SchemaLocation> getSchemaLocation(/*~~>*/String namespace) {
         if (this.schemaLocations.containsKey(namespace)) {
             return this.schemaLocations.get(namespace);
         }
         return Collections.emptySet();
     }
 
-    public String getNamespaceFor(String prefix) {
-        Map<String, String> prefixNamspaceMap = getPrefixNamspaceMap();
-        for (String namespace : prefixNamspaceMap.keySet()) {
+    public /*~~>*/String getNamespaceFor(/*~~>*/String prefix) {
+        Map</*~~>*/String, /*~~>*/String> prefixNamspaceMap = getPrefixNamspaceMap();
+        for (/*~~>*/String namespace : prefixNamspaceMap.keySet()) {
             if (prefix.equals(prefixNamspaceMap.get(prefix))) {
                 return namespace;
             }
@@ -76,12 +76,12 @@ public class SchemaRepository implements Constructable {
         return null;
     }
 
-    public String getPrefixFor(String namespace) {
+    public /*~~>*/String getPrefixFor(/*~~>*/String namespace) {
         return getPrefixNamspaceMap().get(namespace);
     }
 
-    private Map<String, String> getPrefixNamspaceMap() {
-        Map<String, String> prefixMap = Maps.newHashMap();
+    private Map</*~~>*/String, /*~~>*/String> getPrefixNamspaceMap() {
+        Map</*~~>*/String, /*~~>*/String> prefixMap = Maps.newHashMap();
         this.encoderRepository.getEncoders().stream().filter(encoder -> encoder instanceof SchemaAwareEncoder)
                 .map(encoder -> (SchemaAwareEncoder<?, ?>) encoder)
                 .forEach(encoder -> encoder.addNamespacePrefixToMap(prefixMap));

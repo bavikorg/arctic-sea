@@ -40,20 +40,20 @@ public class JobControlOption implements Comparable<JobControlOption> {
     private static final Comparator<JobControlOption> COMPARATOR =
             Comparator.nullsLast(Comparator.comparing(JobControlOption::getValue));
 
-    private final String value;
+    private final /*~~>*/String value;
 
     @SuppressFBWarnings("NP_NULL_ON_SOME_PATH_FROM_RETURN_VALUE")
-    public JobControlOption(String value) {
-        this.value = Objects.requireNonNull(Strings.emptyToNull(value));
+    public JobControlOption(/*~~>*/String value) {
+        /*~~>*/this.value = Objects.requireNonNull(Strings.emptyToNull(value));
     }
 
-    public String getValue() {
+    public /*~~>*/String getValue() {
         return value;
     }
 
     @Override
     public int hashCode() {
-        return Objects.hashCode(this.value);
+        return Objects.hashCode(/*~~>*/this.value);
     }
 
     @Override
@@ -72,7 +72,7 @@ public class JobControlOption implements Comparable<JobControlOption> {
     }
 
     @Override
-    public String toString() {
+    public /*~~>*/String toString() {
         return getValue();
     }
 

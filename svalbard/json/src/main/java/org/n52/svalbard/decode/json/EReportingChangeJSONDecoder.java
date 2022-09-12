@@ -31,8 +31,8 @@ public class EReportingChangeJSONDecoder extends AbstractJSONDecoder<EReportingC
     @Override
     public EReportingChange decodeJSON(JsonNode node, boolean validate)
             throws DecodingException {
-        boolean changed = node.path(AQDJSONConstants.CHANGED).asBoolean();
-        String description = node.path(AQDJSONConstants.DESCRIPTION).textValue();
+        boolean changed = node.path(/*~~>*/AQDJSONConstants.CHANGED).asBoolean();
+        /*~~>*/String description = node.path(/*~~>*/AQDJSONConstants.DESCRIPTION).textValue();
         return new EReportingChange(changed, description);
     }
 

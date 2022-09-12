@@ -21,28 +21,28 @@ import org.n52.shetland.ogc.ows.service.OwsOperationKey;
 import com.google.common.base.Objects;
 
 public class VersionedOperationEncoderKey extends OperationEncoderKey implements EncoderKey {
-    private final String operationVersion;
+    private final /*~~>*/String operationVersion;
 
-    public VersionedOperationEncoderKey(String service, String version, String operation, MediaType contentType,
-            String operationVersion) {
+    public VersionedOperationEncoderKey(/*~~>*/String service, /*~~>*/String version, /*~~>*/String operation, MediaType contentType,
+            /*~~>*/String operationVersion) {
         super(service, version, operation, contentType);
-        this.operationVersion = operationVersion;
+        /*~~>*/this.operationVersion = operationVersion;
     }
 
-    public VersionedOperationEncoderKey(String service, String version, Enum<?> operation, MediaType contentType,
-            String operationVersion) {
+    public VersionedOperationEncoderKey(/*~~>*/String service, /*~~>*/String version, Enum<?> operation, MediaType contentType,
+            /*~~>*/String operationVersion) {
         super(service, version, operation, contentType);
-        this.operationVersion = operationVersion;
+        /*~~>*/this.operationVersion = operationVersion;
     }
 
-    public VersionedOperationEncoderKey(OwsOperationKey key, MediaType contentType, String operationVersion) {
+    public VersionedOperationEncoderKey(OwsOperationKey key, MediaType contentType, /*~~>*/String operationVersion) {
         super(key, contentType);
-        this.operationVersion = operationVersion;
+        /*~~>*/this.operationVersion = operationVersion;
     }
 
     public VersionedOperationEncoderKey(VersionedOperationEncoderKey key, MediaType contentType) {
         super(key, contentType);
-        this.operationVersion = key.getOperationVersion();
+        /*~~>*/this.operationVersion = key.getOperationVersion();
     }
 
     @Override
@@ -50,13 +50,13 @@ public class VersionedOperationEncoderKey extends OperationEncoderKey implements
         return equals(key) ? 0 : -1;
     }
 
-    public String getOperationVersion() {
+    public /*~~>*/String getOperationVersion() {
         return operationVersion;
     }
 
     @Override
     public int hashCode() {
-        return Objects.hashCode(super.hashCode(), this.operationVersion);
+        return Objects.hashCode(super.hashCode(), /*~~>*/this.operationVersion);
     }
 
     @Override
@@ -71,8 +71,8 @@ public class VersionedOperationEncoderKey extends OperationEncoderKey implements
     }
 
     @Override
-    public String toString() {
-        return String.format("%s[service=%s, version=%s, operation=%s, contentType=%s, operationVersion=%s]",
+    public /*~~>*/String toString() {
+        return /*~~>*/String.format("%s[service=%s, version=%s, operation=%s, contentType=%s, operationVersion=%s]",
                 getClass().getSimpleName(), getService(), getVersion(), getOperation(), getContentType(),
                 getOperationVersion());
     }

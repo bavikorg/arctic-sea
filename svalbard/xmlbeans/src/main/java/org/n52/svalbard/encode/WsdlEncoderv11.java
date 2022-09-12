@@ -42,7 +42,7 @@ public class WsdlEncoderv11 extends AbstractXmlEncoder<XmlObject, Definitions>
     private static final Logger LOGGER = LoggerFactory.getLogger(WsdlEncoderv11.class);
 
     private static final Set<EncoderKey> ENCODER_KEYS =
-            CodingHelper.encoderKeysForElements(WSDLConstants.NS_WSDL, Definitions.class);
+            CodingHelper.encoderKeysForElements(/*~~>*/WSDLConstants.NS_WSDL, Definitions.class);
 
     public WsdlEncoderv11() {
         LOGGER.debug("Encoder for the following keys initialized successfully: {}!", Joiner.on(", ")

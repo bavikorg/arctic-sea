@@ -38,13 +38,13 @@ public class TsmlTDREncoderv10XmlStreamWriter extends AbstractOmV20XmlStreamWrit
     }
 
     @Override
-    protected Optional<String> getDefaultFeatureEncodingNamespace() {
-        return Optional.of(TimeseriesMLConstants.NS_TSML_10);
+    protected Optional</*~~>*/String> getDefaultFeatureEncodingNamespace() {
+        return Optional.of(/*~~>*/TimeseriesMLConstants.NS_TSML_10);
     }
 
     @Override
     protected void writeAddtitionalNamespaces() throws XMLStreamException {
-        namespace(TimeseriesMLConstants.NS_TSML_10_PREFIX, TimeseriesMLConstants.NS_TSML_10);
+        namespace(/*~~>*/TimeseriesMLConstants.NS_TSML_10_PREFIX, /*~~>*/TimeseriesMLConstants.NS_TSML_10);
     }
 
 }

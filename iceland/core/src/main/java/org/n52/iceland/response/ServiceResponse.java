@@ -65,7 +65,7 @@ public class ServiceResponse implements CommunicationObjectWithSoapHeader {
     /**
      * the header field and values to be set in the {@link HttpServletResponse}
      */
-    private final Map<String, String> headerMap = Maps.newHashMap();
+    private final Map</*~~>*/String, /*~~>*/String> headerMap = Maps.newHashMap();
 
     private final List<SoapHeader> soapHeaderMap = Lists.newArrayList();
 
@@ -127,11 +127,11 @@ public class ServiceResponse implements CommunicationObjectWithSoapHeader {
         return !headerMap.isEmpty();
     }
 
-    public void setHeader(String headerIdentifier, String headerValue) {
+    public void setHeader(/*~~>*/String headerIdentifier, /*~~>*/String headerValue) {
         headerMap.put(headerIdentifier, headerValue);
     }
 
-    public Map<String, String> getHeaderMap() {
+    public Map</*~~>*/String, /*~~>*/String> getHeaderMap() {
         return Collections.unmodifiableMap(headerMap);
     }
 
@@ -194,8 +194,8 @@ public class ServiceResponse implements CommunicationObjectWithSoapHeader {
     }
 
     @Override
-    public String toString() {
-        return String.format(
+    public /*~~>*/String toString() {
+        return /*~~>*/String.format(
                 "ServiceResponse [byteArrayOutputStream=%s, httpResponseCode=%s, contentType=%s, headerMap=%s]",
                 byteArrayOutputStream, status, contentType, headerMap);
     }

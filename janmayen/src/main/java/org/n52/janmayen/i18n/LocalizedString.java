@@ -34,23 +34,23 @@ public class LocalizedString implements Serializable {
     private static final Locale NULL_LOCALE = new Locale("");
     private static final long serialVersionUID = 8336541273458492969L;
     private final Locale lang;
-    private final String text;
+    private final /*~~>*/String text;
 
-    public LocalizedString(String value) {
+    public LocalizedString(/*~~>*/String value) {
         this(null, value);
     }
 
-    public LocalizedString(Locale lang, String value) {
+    public LocalizedString(Locale lang, /*~~>*/String value) {
         Preconditions.checkArgument(!Strings.isNullOrEmpty(value));
-        this.text = value;
+        /*~~>*/this.text = value;
         this.lang = lang == null ? NULL_LOCALE : lang;
     }
 
     /**
      * @return the value of this localized string
      */
-    public String getText() {
-        return this.text;
+    public /*~~>*/String getText() {
+        return /*~~>*/this.text;
     }
 
     /**
@@ -61,9 +61,9 @@ public class LocalizedString implements Serializable {
         return this.lang;
     }
 
-    public String getLangString() {
-        String country = this.lang.getISO3Country();
-        String language = this.lang.getISO3Language();
+    public /*~~>*/String getLangString() {
+        /*~~>*/String country = this.lang.getISO3Country();
+        /*~~>*/String language = this.lang.getISO3Language();
         StringBuilder sb = new StringBuilder(language);
         if (!country.isEmpty()) {
             sb.append("-").append(country);
@@ -72,7 +72,7 @@ public class LocalizedString implements Serializable {
     }
 
     @Override
-    public String toString() {
+    public /*~~>*/String toString() {
         return MoreObjects.toStringHelper(this)
                 .add("lang", getLang())
                 .add("text", getText())

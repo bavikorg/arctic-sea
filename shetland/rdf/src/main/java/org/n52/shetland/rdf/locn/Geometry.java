@@ -23,15 +23,15 @@ import org.n52.shetland.rdf.vocabulary.LOCN;
 public class Geometry extends AbstractDatatype implements LocnRdfPrefix {
 
     @Deprecated
-    public Geometry(DataType dataType, String value) {
+    public Geometry(DataType dataType, /*~~>*/String value) {
         super(dataType, value);
     }
 
-    public Geometry(RDFDatatype dataType, String value) {
+    public Geometry(RDFDatatype dataType, /*~~>*/String value) {
         super(dataType, value);
     }
 
-    public Geometry(String dataType, String value) {
+    public Geometry(/*~~>*/String dataType, /*~~>*/String value) {
         super(dataType, value);
     }
 

@@ -59,11 +59,11 @@ public class SpecimenEncoderv20
     private static final Logger LOGGER = LoggerFactory.getLogger(SpecimenEncoderv20.class);
 
     private static final Set<EncoderKey> ENCODER_KEYS = CollectionHelper.union(
-            CodingHelper.encoderKeysForElements(SfConstants.NS_SPEC, AbstractFeature.class, SfSpecimen.class),
-            CodingHelper.encoderKeysForElements(SfConstants.NS_SF, AbstractFeature.class, SfSpecimen.class));
+            CodingHelper.encoderKeysForElements(/*~~>*/SfConstants.NS_SPEC, AbstractFeature.class, SfSpecimen.class),
+            CodingHelper.encoderKeysForElements(/*~~>*/SfConstants.NS_SF, AbstractFeature.class, SfSpecimen.class));
 
-    private static final Set<SupportedType> SUPPORTED_TYPES = Sets.newHashSet(new FeatureType(OGCConstants.UNKNOWN),
-            new FeatureType(SfConstants.SAMPLING_FEAT_TYPE_SF_SPECIMEN));
+    private static final Set<SupportedType> SUPPORTED_TYPES = Sets.newHashSet(new FeatureType(/*~~>*/OGCConstants.UNKNOWN),
+            new FeatureType(/*~~>*/SfConstants.SAMPLING_FEAT_TYPE_SF_SPECIMEN));
 
     public SpecimenEncoderv20() {
         LOGGER.debug("Encoder for the following keys initialized successfully: {}!",
@@ -81,9 +81,9 @@ public class SpecimenEncoderv20
     }
 
     @Override
-    public void addNamespacePrefixToMap(final Map<String, String> nameSpacePrefixMap) {
-        nameSpacePrefixMap.put(SfConstants.NS_SPEC, SfConstants.NS_SPEC_PREFIX);
-        nameSpacePrefixMap.put(SfConstants.NS_SF, SfConstants.NS_SF_PREFIX);
+    public void addNamespacePrefixToMap(final Map</*~~>*/String, /*~~>*/String> nameSpacePrefixMap) {
+        nameSpacePrefixMap.put(/*~~>*/SfConstants.NS_SPEC, /*~~>*/SfConstants.NS_SPEC_PREFIX);
+        nameSpacePrefixMap.put(/*~~>*/SfConstants.NS_SF, /*~~>*/SfConstants.NS_SF_PREFIX);
     }
 
     @Override
@@ -111,7 +111,7 @@ public class SpecimenEncoderv20
             try {
                 final XmlObject feature = XmlObject.Factory.parse(specimen.getXml(), getXmlOptions());
                 XmlHelper.updateGmlIDs(feature.getDomNode().getFirstChild(), specimen.getGmlId(), null);
-                if (XmlHelper.getNamespace(feature).equals(SfConstants.NS_SPEC) && feature instanceof SFSpecimenType) {
+                if (XmlHelper.getNamespace(feature).equals(/*~~>*/SfConstants.NS_SPEC) && feature instanceof SFSpecimenType) {
                     sfsd.setSFSpecimen((SFSpecimenType) feature);
                     addName(sfsd.getSFSpecimen(), specimen);
                     addDescription(sfsd.getSFSpecimen(), specimen);
@@ -229,11 +229,11 @@ public class SpecimenEncoderv20
     }
 
     private XmlObject encodeGML32(Object o, EncodingContext ec) throws EncodingException {
-        return encodeObjectToXml(GmlConstants.NS_GML_32, o, ec);
+        return encodeObjectToXml(/*~~>*/GmlConstants.NS_GML_32, o, ec);
     }
 
     private XmlObject encodeGML32(Object o) throws EncodingException {
-        return encodeObjectToXml(GmlConstants.NS_GML_32, o);
+        return encodeObjectToXml(/*~~>*/GmlConstants.NS_GML_32, o);
     }
 
 }

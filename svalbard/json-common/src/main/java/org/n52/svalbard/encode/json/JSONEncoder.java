@@ -62,7 +62,7 @@ import edu.umd.cs.findbugs.annotations.SuppressFBWarnings;
  * @since 1.0.0
  */
 public abstract class JSONEncoder<T> implements Encoder<JsonNode, T> {
-    public static final String CONTENT_TYPE = "application/json";
+    public static final /*~~>*/String CONTENT_TYPE = "application/json";
     private final Set<EncoderKey> encoderKeys;
     private EncoderRepository encoderRepository;
 
@@ -118,7 +118,7 @@ public abstract class JSONEncoder<T> implements Encoder<JsonNode, T> {
         json.add(encoder.apply(obj));
     }
 
-    protected <T> void encode(ObjectNode json, String name, T obj, Function<T, JsonNode> encoder) {
+    protected <T> void encode(ObjectNode json, /*~~>*/String name, T obj, Function<T, JsonNode> encoder) {
         json.set(name, encoder.apply(obj));
     }
 
@@ -153,7 +153,7 @@ public abstract class JSONEncoder<T> implements Encoder<JsonNode, T> {
         return Json.nodeFactory();
     }
 
-    protected <T> void encodeOptional(ObjectNode json, String name, Optional<T> obj, Function<T, JsonNode> encoder) {
+    protected <T> void encodeOptional(ObjectNode json, /*~~>*/String name, Optional<T> obj, Function<T, JsonNode> encoder) {
         obj.map(encoder).ifPresent(node -> json.set(name, node));
     }
 
@@ -161,7 +161,7 @@ public abstract class JSONEncoder<T> implements Encoder<JsonNode, T> {
         obj.map(encoder).ifPresent(json::add);
     }
 
-    protected <T, X extends Exception> void encodeOptionalChecked(ObjectNode json, String name, Optional<T> obj,
+    protected <T, X extends Exception> void encodeOptionalChecked(ObjectNode json, /*~~>*/String name, Optional<T> obj,
                                                                   ThrowingFunction<T, JsonNode, X> encoder)
             throws X {
         if (obj.isPresent()) {
@@ -177,14 +177,14 @@ public abstract class JSONEncoder<T> implements Encoder<JsonNode, T> {
         }
     }
 
-    protected <T> void encodeList(ObjectNode json, String name, Collection<T> collection,
+    protected <T> void encodeList(ObjectNode json, /*~~>*/String name, Collection<T> collection,
                                   Function<T, JsonNode> encoder) {
         if (!collection.isEmpty()) {
             json.set(name, collection.stream().map(encoder).collect(toJsonArray()));
         }
     }
 
-    protected <T, X extends Exception> void encodeListChecked(ObjectNode json, String name, Collection<T> collection,
+    protected <T, X extends Exception> void encodeListChecked(ObjectNode json, /*~~>*/String name, Collection<T> collection,
                                                               ThrowingFunction<T, JsonNode, X> encoder)
             throws CompositeException {
         if (!collection.isEmpty()) {
@@ -197,7 +197,7 @@ public abstract class JSONEncoder<T> implements Encoder<JsonNode, T> {
         }
     }
 
-    protected <T, X extends Exception> void encodeChecked(ObjectNode json, String name, T obj,
+    protected <T, X extends Exception> void encodeChecked(ObjectNode json, /*~~>*/String name, T obj,
                                                           ThrowingFunction<T, JsonNode, X> encoder)
             throws X {
         json.set(name, encoder.apply(obj));
@@ -221,9 +221,9 @@ public abstract class JSONEncoder<T> implements Encoder<JsonNode, T> {
         return encodeCodeType(Optional.ofNullable(codeType.getCodeSpace()).map(URI::toString), codeType.getValue());
     }
 
-    protected JsonNode encodeCodeType(Optional<String> codeSpace, String value) {
+    protected JsonNode encodeCodeType(Optional</*~~>*/String> codeSpace, /*~~>*/String value) {
         if (codeSpace.isPresent()) {
-            return nodeFactory().objectNode().put(JSONConstants.CODESPACE, codeSpace.get()).put(JSONConstants.VALUE,
+            return nodeFactory().objectNode().put(/*~~>*/JSONConstants.CODESPACE, codeSpace.get()).put(/*~~>*/JSONConstants.VALUE,
                                                                                                 value);
         } else {
             return nodeFactory().textNode(value);
@@ -243,11 +243,11 @@ public abstract class JSONEncoder<T> implements Encoder<JsonNode, T> {
     }
 
     protected <T> Collector<T, ?, ObjectNode> toJsonObject(
-            Collector<T, ?, ? extends Map<String, ? extends JsonNode>> mapper) {
+            Collector<T, ?, ? extends Map</*~~>*/String, ? extends JsonNode>> mapper) {
         @SuppressWarnings("unchecked")
-        Collector<T, Object, Map<String, ? extends JsonNode>> m =
-                (Collector<T, Object, Map<String, ? extends JsonNode>>) mapper;
-        Function<Map<String, ? extends JsonNode>, ObjectNode> finisher = map -> {
+        Collector<T, Object, Map</*~~>*/String, ? extends JsonNode>> m =
+                (Collector<T, Object, Map</*~~>*/String, ? extends JsonNode>>) mapper;
+        Function<Map</*~~>*/String, ? extends JsonNode>, ObjectNode> finisher = map -> {
             ObjectNode node = nodeFactory().objectNode();
             node.setAll(map);
             return node;

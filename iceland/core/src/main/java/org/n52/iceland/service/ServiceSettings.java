@@ -22,8 +22,8 @@ package org.n52.iceland.service;
  */
 public interface ServiceSettings {
 
-    String SERVICE_URL = "service.serviceURL";
+    /*~~>*/String SERVICE_URL = "service.serviceURL";
 
-    String URL = "service.url";
+    /*~~>*/String URL = "service.url";
 
 }

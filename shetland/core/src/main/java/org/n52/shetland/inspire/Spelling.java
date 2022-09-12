@@ -29,45 +29,45 @@ import com.google.common.base.Strings;
  */
 public class Spelling {
 
-    private String text;
-    private Nillable<String> script = Nillable.missing();
-    private Nillable<String> transliterationScheme = Nillable.missing();
+    private /*~~>*/String text;
+    private Nillable</*~~>*/String> script = Nillable.missing();
+    private Nillable</*~~>*/String> transliterationScheme = Nillable.missing();
 
-    public String getText() {
+    public /*~~>*/String getText() {
         if (Strings.isNullOrEmpty(text)) {
             return "unknown";
         }
         return text;
     }
 
-    public Spelling setText(String text) {
-        this.text = Preconditions.checkNotNull(text);
+    public Spelling setText(/*~~>*/String text) {
+        /*~~>*/this.text = Preconditions.checkNotNull(text);
         return this;
     }
 
-    public Nillable<String> getScript() {
+    public Nillable</*~~>*/String> getScript() {
         return script;
     }
 
-    public Spelling setScript(Nillable<String> script) {
+    public Spelling setScript(Nillable</*~~>*/String> script) {
         this.script = Preconditions.checkNotNull(script);
         return this;
     }
 
-    public Spelling setScript(String script) {
+    public Spelling setScript(/*~~>*/String script) {
         return setScript(Nillable.of(script));
     }
 
-    public Nillable<String> getTransliterationScheme() {
+    public Nillable</*~~>*/String> getTransliterationScheme() {
         return transliterationScheme;
     }
 
-    public Spelling setTransliterationScheme(Nillable<String> transliterationScheme) {
+    public Spelling setTransliterationScheme(Nillable</*~~>*/String> transliterationScheme) {
         this.transliterationScheme = Preconditions.checkNotNull(transliterationScheme);
         return this;
     }
 
-    public Spelling setTransliterationScheme(String transliterationScheme) {
+    public Spelling setTransliterationScheme(/*~~>*/String transliterationScheme) {
         return this.setTransliterationScheme(Nillable.of(transliterationScheme));
     }
 
@@ -77,7 +77,7 @@ public class Spelling {
     }
 
     @Override
-    public String toString() {
+    public /*~~>*/String toString() {
         return MoreObjects.toStringHelper(this).add("text", getText()).add("script", getScript())
                 .add("transliterationScheme", getTransliterationScheme()).toString();
     }

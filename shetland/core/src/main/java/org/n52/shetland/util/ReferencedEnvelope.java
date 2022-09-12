@@ -126,10 +126,10 @@ public class ReferencedEnvelope implements Serializable {
      *
      * @return the {@code MinMax} describing the envelope
      */
-    public MinMax<String> getMinMaxFromEnvelope() {
+    public MinMax</*~~>*/String> getMinMaxFromEnvelope() {
         if (isSetEnvelope()) {
             Joiner joiner = Joiner.on(' ');
-            return new MinMax<String>().setMaximum(joiner.join(envelope.getMaxX(), envelope.getMaxY()))
+            return new MinMax</*~~>*/String>().setMaximum(joiner.join(envelope.getMaxX(), envelope.getMaxY()))
                     .setMinimum(joiner.join(envelope.getMinX(), envelope.getMinY()));
         }
         return new MinMax<>();
@@ -222,8 +222,8 @@ public class ReferencedEnvelope implements Serializable {
     }
 
     @Override
-    public String toString() {
-        return String.format("SosEnvelope[envelope=%s, srid=%s]", getEnvelope(), getSrid());
+    public /*~~>*/String toString() {
+        return /*~~>*/String.format("SosEnvelope[envelope=%s, srid=%s]", getEnvelope(), getSrid());
     }
 
     public double getMinX() {

@@ -24,14 +24,14 @@ import com.fasterxml.jackson.databind.JsonNode;
  *
  * @author Christian Autermann
  */
-public class StringJSONEncoder extends JSONEncoder<String> {
+public class StringJSONEncoder extends JSONEncoder</*~~>*/String> {
 
     public StringJSONEncoder() {
-        super(String.class);
+        super(/*~~>*/String.class);
     }
 
     @Override
-    public JsonNode encodeJSON(String t) {
+    public JsonNode encodeJSON(/*~~>*/String t) {
         return nodeFactory().textNode(t);
     }
 

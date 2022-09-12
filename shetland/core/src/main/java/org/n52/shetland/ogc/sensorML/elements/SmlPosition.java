@@ -47,7 +47,7 @@ public class SmlPosition extends SweAbstractDataComponent {
 
     private boolean fixed;
 
-    private String referenceFrame;
+    private /*~~>*/String referenceFrame;
 
     private List<? extends SweCoordinate<? extends Number>> position = new LinkedList<>();
 
@@ -75,12 +75,12 @@ public class SmlPosition extends SweAbstractDataComponent {
      *            Position coordinates
      */
     @SuppressFBWarnings({ "EI_EXPOSE_REP2" })
-    public SmlPosition(final String name, final boolean fixed, final String referenceFrame,
+    public SmlPosition(final /*~~>*/String name, final boolean fixed, final /*~~>*/String referenceFrame,
             final List<SweCoordinate<? extends Number>> position) {
         super();
         setName(name);
         this.fixed = fixed;
-        this.referenceFrame = referenceFrame;
+        /*~~>*/this.referenceFrame = referenceFrame;
         this.position = position;
     }
 
@@ -97,12 +97,12 @@ public class SmlPosition extends SweAbstractDataComponent {
      *            Position coordinates
      */
     @SuppressFBWarnings({ "EI_EXPOSE_REP2" })
-    public SmlPosition(final CodeType name, final boolean fixed, final String referenceFrame,
+    public SmlPosition(final CodeType name, final boolean fixed, final /*~~>*/String referenceFrame,
             final List<SweCoordinate<? extends Number>> position) {
         super();
         setName(name);
         this.fixed = fixed;
-        this.referenceFrame = referenceFrame;
+        /*~~>*/this.referenceFrame = referenceFrame;
         this.position = position;
     }
 
@@ -127,7 +127,7 @@ public class SmlPosition extends SweAbstractDataComponent {
     /**
      * @return the referenceFrame
      */
-    public String getReferenceFrame() {
+    public /*~~>*/String getReferenceFrame() {
         if (!isSetReferenceFrame() && isSetVector() && getVector().isSetReferenceFrame()) {
             return getVector().getReferenceFrame();
         }
@@ -140,8 +140,8 @@ public class SmlPosition extends SweAbstractDataComponent {
      *
      * @return This object
      */
-    public SmlPosition setReferenceFrame(final String referenceFrame) {
-        this.referenceFrame = referenceFrame;
+    public SmlPosition setReferenceFrame(final /*~~>*/String referenceFrame) {
+        /*~~>*/this.referenceFrame = referenceFrame;
         return this;
     }
 

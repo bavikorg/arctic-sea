@@ -30,14 +30,14 @@ public interface SrsNameRequest {
      * @param srsName
      *            SrsName
      */
-    void setSrsName(String srsName);
+    void setSrsName(/*~~>*/String srsName);
 
     /**
      * Get SrsName
      *
      * @return SrsName
      */
-    String getSrsName();
+    /*~~>*/String getSrsName();
 
     /**
      * Check if the SrsName parameter is set

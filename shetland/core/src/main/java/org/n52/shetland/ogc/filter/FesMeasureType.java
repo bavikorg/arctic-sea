@@ -42,7 +42,7 @@ public class FesMeasureType extends AbstractMeasureType {
      * @param unit
      *            Unit of measure
      */
-    public FesMeasureType(Double value, String unit) {
+    public FesMeasureType(Double value, /*~~>*/String unit) {
         super(value, unit);
     }
 }

@@ -37,7 +37,7 @@ public interface IStatisticsDataHandler {
      *             If an error occurs
      *
      */
-    IndexResponse persist(Map<String, Object> dataMap) throws ElasticsearchGenerationException, IOException;
+    IndexResponse persist(Map</*~~>*/String, Object> dataMap) throws ElasticsearchGenerationException, IOException;
 
     /**
      * Returns true if the statistics module is enabled otherwise false

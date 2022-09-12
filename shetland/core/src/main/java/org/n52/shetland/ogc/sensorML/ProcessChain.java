@@ -68,7 +68,7 @@ public class ProcessChain extends AbstractProcess
     }
 
     @Override
-    public String getDefaultElementEncoding() {
-        return SensorMLConstants.NS_SML;
+    public /*~~>*/String getDefaultElementEncoding() {
+        return /*~~>*/SensorMLConstants.NS_SML;
     }
 }

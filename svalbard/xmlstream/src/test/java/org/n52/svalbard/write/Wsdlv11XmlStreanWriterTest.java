@@ -126,7 +126,7 @@ public class Wsdlv11XmlStreanWriterTest {
         port.setName("SosKvpPort");
         port.addExtensibilityElement(new HttpAddress(URI.create("http://localhost:8080/52n-sos-webapp/service")));
 
-        Service service = new Service(SosConstants.SOS);
+        Service service = new Service(/*~~>*/SosConstants.SOS);
         service.addPort(port);
         definitions.addService(service);
 

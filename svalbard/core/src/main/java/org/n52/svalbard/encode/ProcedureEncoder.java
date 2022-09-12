@@ -37,6 +37,6 @@ public interface ProcedureEncoder<S, T> extends ConformanceClassEncoder<S, T>, P
      * @return the procedure description formats
      */
     @Override
-    Set<String> getSupportedProcedureDescriptionFormats(String service, String version);
+    Set</*~~>*/String> getSupportedProcedureDescriptionFormats(/*~~>*/String service, /*~~>*/String version);
 
 }

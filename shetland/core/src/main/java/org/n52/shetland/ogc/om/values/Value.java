@@ -49,7 +49,7 @@ public interface Value<T> {
      * @param unit
      *            Unit of measure
      */
-    void setUnit(String unit);
+    void setUnit(/*~~>*/String unit);
 
     /**
      * Set the unit of measure object
@@ -71,7 +71,7 @@ public interface Value<T> {
      *
      * @return Unit of measure
      */
-    String getUnit();
+    /*~~>*/String getUnit();
 
     /**
      * Check whether the value is set

@@ -28,18 +28,18 @@ public class FileSettingValueForTesting implements SettingValue<File> {
 
     private static final long serialVersionUID = 861199163939435975L;
 
-    private String key;
+    private /*~~>*/String key;
 
     private File value;
 
     @Override
-    public String getKey() {
+    public /*~~>*/String getKey() {
         return key;
     }
 
     @Override
-    public void setKey(String key) {
-        this.key = key;
+    public void setKey(/*~~>*/String key) {
+        /*~~>*/this.key = key;
     }
 
     @Override

@@ -62,11 +62,11 @@ public interface DataRecord {
      *            a definition identifying a {@link SweField} in this {@link DataRecord}.
      * @return the index of the first field with the given fieldDefinition or -1 if not found.
      */
-    int getFieldIndexByIdentifier(String fieldNameOrElementDefinition);
+    int getFieldIndexByIdentifier(/*~~>*/String fieldNameOrElementDefinition);
 
-    SweAbstractDataComponent getFieldByIdentifier(String fieldNameOrElementDefinition);
+    SweAbstractDataComponent getFieldByIdentifier(/*~~>*/String fieldNameOrElementDefinition);
 
-    boolean existsFieldForIdentifier(String fieldNameOrElementDefinition);
+    boolean existsFieldForIdentifier(/*~~>*/String fieldNameOrElementDefinition);
 
     Set<SweAbstractSimpleType<?>> getSweAbstractSimpleTypeFromFields(Class<?> clazz);
 

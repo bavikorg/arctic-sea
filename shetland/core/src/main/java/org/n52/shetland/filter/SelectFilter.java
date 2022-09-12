@@ -25,21 +25,21 @@ import org.n52.shetland.ogc.filter.FilterClause;
 
 public class SelectFilter implements FilterClause {
 
-    private final Set<String> items = new LinkedHashSet<>();
+    private final Set</*~~>*/String> items = new LinkedHashSet<>();
 
-    public SelectFilter(String item) {
+    public SelectFilter(/*~~>*/String item) {
         if (item != null) {
             this.items.add(item);
         }
     }
 
-    public SelectFilter(Collection<String> items) {
+    public SelectFilter(Collection</*~~>*/String> items) {
         if (items != null) {
             this.items.addAll(items);
         }
     }
 
-    public Set<String> getItems() {
+    public Set</*~~>*/String> getItems() {
         return Collections.unmodifiableSet(items);
     }
 
@@ -62,7 +62,7 @@ public class SelectFilter implements FilterClause {
     }
 
     @Override
-    public String toString() {
-        return "$select=" + String.join(",", this.items);
+    public /*~~>*/String toString() {
+        return "$select=" + /*~~>*/String.join(",", this.items);
     }
 }

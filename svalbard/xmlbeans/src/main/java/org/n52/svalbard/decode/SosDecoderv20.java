@@ -102,12 +102,12 @@ public class SosDecoderv20
     private static final Logger LOGGER = LoggerFactory.getLogger(SosDecoderv20.class);
 
     private static final Set<DecoderKey> DECODER_KEYS = CollectionHelper.union(
-            CodingHelper.decoderKeysForElements(Sos2Constants.NS_SOS_20, GetCapabilitiesDocument.class,
+            CodingHelper.decoderKeysForElements(/*~~>*/Sos2Constants.NS_SOS_20, GetCapabilitiesDocument.class,
                     GetObservationDocument.class, GetFeatureOfInterestDocument.class, GetObservationByIdDocument.class,
                     InsertObservationDocument.class, InsertResultTemplateDocument.class, InsertResultDocument.class,
                     GetResultTemplateDocument.class, GetResultDocument.class, GetResultTemplateResponseDocument.class,
                     GetResultResponseDocument.class),
-            CodingHelper.xmlDecoderKeysForOperation(SosConstants.SOS, Sos2Constants.SERVICEVERSION,
+            CodingHelper.xmlDecoderKeysForOperation(/*~~>*/SosConstants.SOS, /*~~>*/Sos2Constants.SERVICEVERSION,
                     SosConstants.Operations.GetCapabilities, SosConstants.Operations.GetObservation,
                     SosConstants.Operations.GetFeatureOfInterest, SosConstants.Operations.GetObservationById,
                     SosConstants.Operations.InsertObservation, Sos2Constants.Operations.InsertResultTemplate,
@@ -223,7 +223,7 @@ public class SosDecoderv20
         getObsRequest.setFeatureIdentifiers(Arrays.asList(getObsType.getFeatureOfInterestArray()));
         if (getObsType.isSetResponseFormat()) {
             try {
-                final String responseFormat = URLDecoder.decode(getObsType.getResponseFormat(), "UTF-8");
+                final /*~~>*/String responseFormat = URLDecoder.decode(getObsType.getResponseFormat(), "UTF-8");
                 getObsRequest.setResponseFormat(responseFormat);
             } catch (final UnsupportedEncodingException e) {
                 throw new DecodingException(e, "Error while encoding response format!");
@@ -279,8 +279,8 @@ public class SosDecoderv20
         // Fix for problem with XmlBeans: namespace is not set in child elements
         // when defined in root of request (SOAP)
         final XmlCursor cursor = insertObservationDoc.newCursor();
-        if (cursor.toFirstChild() && cursor.namespaceForPrefix(W3CConstants.NS_XS_PREFIX) == null) {
-            cursor.prefixForNamespace(W3CConstants.NS_XS);
+        if (cursor.toFirstChild() && cursor.namespaceForPrefix(/*~~>*/W3CConstants.NS_XS_PREFIX) == null) {
+            cursor.prefixForNamespace(/*~~>*/W3CConstants.NS_XS);
         }
         cursor.dispose();
         final InsertObservationRequest insertObservationRequest = new InsertObservationRequest();
@@ -405,7 +405,7 @@ public class SosDecoderv20
             throws DecodingException {
         final GetResultResponse sosGetResultResponse = new GetResultResponse();
         final GetResultResponseType getResultResponse = getResultResponseDoc.getGetResultResponse();
-        final String resultValues = parseResultValues(getResultResponse.getResultValues());
+        final /*~~>*/String resultValues = parseResultValues(getResultResponse.getResultValues());
         sosGetResultResponse.setResultValues(resultValues);
         return sosGetResultResponse;
     }
@@ -548,7 +548,7 @@ public class SosDecoderv20
         }
     }
 
-    private String parseResultValues(final XmlObject resultValues)
+    private /*~~>*/String parseResultValues(final XmlObject resultValues)
             throws DecodingException {
         if (resultValues.schemaType() == XmlString.type) {
             return ((XmlString) resultValues).getStringValue().trim();

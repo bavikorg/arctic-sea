@@ -28,7 +28,7 @@ public class SweQualityHolder {
 
     private List<SweQuality> quality = new LinkedList<>();
 
-    private Map<String, ReferenceType> references = new LinkedHashMap<>();
+    private Map</*~~>*/String, ReferenceType> references = new LinkedHashMap<>();
 
     public List<SweQuality> getQuality() {
         return Collections.unmodifiableList(quality);
@@ -53,20 +53,20 @@ public class SweQualityHolder {
         return getQuality() != null && !getQuality().isEmpty();
     }
 
-    public void addReference(String key, ReferenceType reference) {
+    public void addReference(/*~~>*/String key, ReferenceType reference) {
         if (reference != null) {
             this.references.put(key, reference);
         }
     }
 
-    public void setReferences(Map<String, ReferenceType> references) {
+    public void setReferences(Map</*~~>*/String, ReferenceType> references) {
         this.references.clear();
         if (references != null) {
             this.references.putAll(references);
         }
     }
 
-    public Map<String, ReferenceType> getReferences() {
+    public Map</*~~>*/String, ReferenceType> getReferences() {
         return Collections.unmodifiableMap(references);
     }
 

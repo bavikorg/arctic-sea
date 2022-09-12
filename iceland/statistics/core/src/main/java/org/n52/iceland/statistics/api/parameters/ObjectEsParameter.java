@@ -23,12 +23,12 @@ import java.util.Objects;
 public class ObjectEsParameter extends AbstractEsParameter {
     private final List<AbstractEsParameter> children;
 
-    public ObjectEsParameter(String name, Description description, AbstractEsParameter... abstractEsParameters) {
+    public ObjectEsParameter(/*~~>*/String name, Description description, AbstractEsParameter... abstractEsParameters) {
         super(name, description);
         children = Arrays.asList(abstractEsParameters);
     }
 
-    public ObjectEsParameter(String name, AbstractEsParameter... abstractEsParameters) {
+    public ObjectEsParameter(/*~~>*/String name, AbstractEsParameter... abstractEsParameters) {
         super(name);
         children = Arrays.asList(abstractEsParameters);
     }
@@ -46,7 +46,7 @@ public class ObjectEsParameter extends AbstractEsParameter {
     }
 
     @Override
-    public String toString() {
+    public /*~~>*/String toString() {
         return getName();
     }
 

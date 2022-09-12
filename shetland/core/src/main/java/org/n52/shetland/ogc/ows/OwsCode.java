@@ -39,25 +39,25 @@ public class OwsCode implements Comparable<OwsCode>, Serializable {
     private static final Comparator<OwsCode> COMPARATOR = Comparator.nullsLast(
             Comparator.comparing(OwsCode::getCodeSpace, Optionals.nullsLast()).thenComparing(OwsCode::getValue));
 
-    private final String value;
+    private final /*~~>*/String value;
     private final URI codeSpace;
 
     @SuppressFBWarnings("NP_NULL_ON_SOME_PATH_FROM_RETURN_VALUE")
-    public OwsCode(String value, URI codeSpace) {
-        this.value = Objects.requireNonNull(Strings.emptyToNull(value));
+    public OwsCode(/*~~>*/String value, URI codeSpace) {
+        /*~~>*/this.value = Objects.requireNonNull(Strings.emptyToNull(value));
         this.codeSpace = codeSpace;
     }
 
-    public OwsCode(String value, String codeSpace) {
+    public OwsCode(/*~~>*/String value, /*~~>*/String codeSpace) {
         this(value, Optional.ofNullable(codeSpace).map(URI::create).orElse(null));
     }
 
-    public OwsCode(String value) {
+    public OwsCode(/*~~>*/String value) {
         this(value, (URI) null);
     }
 
-    public String getValue() {
-        return this.value;
+    public /*~~>*/String getValue() {
+        return /*~~>*/this.value;
     }
 
     public Optional<URI> getCodeSpace() {
@@ -86,7 +86,7 @@ public class OwsCode implements Comparable<OwsCode>, Serializable {
     }
 
     @Override
-    public String toString() {
+    public /*~~>*/String toString() {
         return MoreObjects.toStringHelper(this).omitNullValues().add("value", getValue())
                 .add("codeSpace", getCodeSpace().orElse(null)).toString();
     }

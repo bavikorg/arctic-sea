@@ -27,28 +27,28 @@ import com.google.common.collect.ImmutableSetMultimap;
  */
 public final class MediaTypes {
 
-    private static final String PARAM_VERSION = "version";
+    private static final /*~~>*/String PARAM_VERSION = "version";
 
-    private static final String SUBTYPE_CSV            = "csv";
-    private static final String SUBTYPE_EXI            = "exi";
-    private static final String SUBTYPE_GEOTIFF        = "geotiff";
-    private static final String SUBTYPE_GML            = "gml+xml";
-    private static final String SUBTYPE_HTML           = "html";
-    private static final String SUBTYPE_JSON           = "json";
-    private static final String SUBTYPE_KVP            = "x-kvp";
-    private static final String SUBTYPE_NETCDF         = "netcdf";
-    private static final String SUBTYPE_OCTET_STREAM   = "octet-stream";
-    private static final String SUBTYPE_OM             = "om+xml";
-    private static final String SUBTYPE_PLAIN          = "plain";
-    private static final String SUBTYPE_RDATA          = "rData";
-    private static final String SUBTYPE_SOAP           = "soap+xml";
-    private static final String SUBTYPE_STA            = "sta+json";
-    private static final String SUBTYPE_XML            = "xml";
-    private static final String SUBTYPE_X_GEOTIFF      = "x-geotiff";
-    private static final String SUBTYPE_X_NETCDF       = "x-netcdf";
-    private static final String SUBTYPE_X_RDATA        = "x-rData";
-    private static final String SUBTYPE_X_ZIPPED_SHAPE = "x-zipped-shp";
-    private static final String SUBTYPE_ZIP            = "zip";
+    private static final /*~~>*/String SUBTYPE_CSV            = "csv";
+    private static final /*~~>*/String SUBTYPE_EXI            = "exi";
+    private static final /*~~>*/String SUBTYPE_GEOTIFF        = "geotiff";
+    private static final /*~~>*/String SUBTYPE_GML            = "gml+xml";
+    private static final /*~~>*/String SUBTYPE_HTML           = "html";
+    private static final /*~~>*/String SUBTYPE_JSON           = "json";
+    private static final /*~~>*/String SUBTYPE_KVP            = "x-kvp";
+    private static final /*~~>*/String SUBTYPE_NETCDF         = "netcdf";
+    private static final /*~~>*/String SUBTYPE_OCTET_STREAM   = "octet-stream";
+    private static final /*~~>*/String SUBTYPE_OM             = "om+xml";
+    private static final /*~~>*/String SUBTYPE_PLAIN          = "plain";
+    private static final /*~~>*/String SUBTYPE_RDATA          = "rData";
+    private static final /*~~>*/String SUBTYPE_SOAP           = "soap+xml";
+    private static final /*~~>*/String SUBTYPE_STA            = "sta+json";
+    private static final /*~~>*/String SUBTYPE_XML            = "xml";
+    private static final /*~~>*/String SUBTYPE_X_GEOTIFF      = "x-geotiff";
+    private static final /*~~>*/String SUBTYPE_X_NETCDF       = "x-netcdf";
+    private static final /*~~>*/String SUBTYPE_X_RDATA        = "x-rData";
+    private static final /*~~>*/String SUBTYPE_X_ZIPPED_SHAPE = "x-zipped-shp";
+    private static final /*~~>*/String SUBTYPE_ZIP            = "zip";
 
     public static final MediaType APPLICATION_EXI          = MediaType.application(SUBTYPE_EXI);
     public static final MediaType APPLICATION_GEOTIFF      = MediaType.application(SUBTYPE_GEOTIFF);

@@ -52,7 +52,7 @@ public final class CodingHelper {
     private CodingHelper() {
     }
 
-    public static Set<DecoderKey> decoderKeysForElements(String namespace, Class<?>... elements) {
+    public static Set<DecoderKey> decoderKeysForElements(/*~~>*/String namespace, Class<?>... elements) {
         HashSet<DecoderKey> keys = new HashSet<>(elements.length);
         for (Class<?> x : elements) {
             keys.add(new XmlNamespaceDecoderKey(namespace, x));
@@ -60,7 +60,7 @@ public final class CodingHelper {
         return keys;
     }
 
-    public static Set<DecoderKey> xmlDecoderKeysForOperation(String service, String version, Enum<?>... operations) {
+    public static Set<DecoderKey> xmlDecoderKeysForOperation(/*~~>*/String service, /*~~>*/String version, Enum<?>... operations) {
         HashSet<DecoderKey> set = new HashSet<>(operations.length);
         for (Enum<?> o : operations) {
             set.add(new OperationDecoderKey(service, version, o.name(), MediaTypes.TEXT_XML));
@@ -69,19 +69,19 @@ public final class CodingHelper {
         return set;
     }
 
-    public static Set<DecoderKey> xmlDecoderKeysForOperation(String service, String version, String... operations) {
+    public static Set<DecoderKey> xmlDecoderKeysForOperation(/*~~>*/String service, /*~~>*/String version, /*~~>*/String... operations) {
         HashSet<DecoderKey> set = new HashSet<>(operations.length);
-        for (String o : operations) {
+        for (/*~~>*/String o : operations) {
             set.add(new OperationDecoderKey(service, version, o, MediaTypes.TEXT_XML));
             set.add(new OperationDecoderKey(service, version, o, MediaTypes.APPLICATION_XML));
         }
         return set;
     }
 
-    public static Set<EncoderKey> xmlEncoderKeysForOperationAndMediaType(String service, String version,
-            String... operations) {
+    public static Set<EncoderKey> xmlEncoderKeysForOperationAndMediaType(/*~~>*/String service, /*~~>*/String version,
+            /*~~>*/String... operations) {
         HashSet<EncoderKey> set = new HashSet<>(operations.length);
-        for (String operation : operations) {
+        for (/*~~>*/String operation : operations) {
             set.add(new OperationRequestEncoderKey(service, version, operation, MediaTypes.TEXT_XML));
             set.add(new OperationRequestEncoderKey(service, version, operation, MediaTypes.APPLICATION_XML));
         }
@@ -89,15 +89,15 @@ public final class CodingHelper {
     }
 
 
-    public static Set<EncoderKey> xmlEncoderKeysForOperationAndMediaType(String service, String version,
+    public static Set<EncoderKey> xmlEncoderKeysForOperationAndMediaType(/*~~>*/String service, /*~~>*/String version,
             Enum<?>... operations) {
         return xmlEncoderKeysForOperationAndMediaType(service,
                 version,
                 Stream.of(operations).map(o -> o.name()).collect(Collectors.toList())
-                .toArray(new String[operations.length]));
+                .toArray(new /*~~>*/String[operations.length]));
     }
 
-    public static Set<DecoderKey> xmlStringDecoderKeysForOperationAndMediaType(String service, String version,
+    public static Set<DecoderKey> xmlStringDecoderKeysForOperationAndMediaType(/*~~>*/String service, /*~~>*/String version,
             Enum<?>... operations) {
         HashSet<DecoderKey> set = new HashSet<>(operations.length);
         for (Enum<?> o : operations) {
@@ -107,29 +107,29 @@ public final class CodingHelper {
         return set;
     }
 
-    public static Set<DecoderKey> xmlStringDecoderKeysForOperationAndMediaType(String service, String version,
-            String... operations) {
+    public static Set<DecoderKey> xmlStringDecoderKeysForOperationAndMediaType(/*~~>*/String service, /*~~>*/String version,
+            /*~~>*/String... operations) {
         HashSet<DecoderKey> set = new HashSet<>(operations.length);
-        for (String o : operations) {
+        for (/*~~>*/String o : operations) {
             set.add(new XmlStringOperationDecoderKey(service, version, o, MediaTypes.TEXT_XML));
             set.add(new XmlStringOperationDecoderKey(service, version, o, MediaTypes.APPLICATION_XML));
         }
         return set;
     }
 
-    public static Set<EncoderKey> encoderKeysForElements(String namespace, Class<?>... elements) {
+    public static Set<EncoderKey> encoderKeysForElements(/*~~>*/String namespace, Class<?>... elements) {
         return Arrays.stream(elements).map(x -> new XmlEncoderKey(namespace, x)).collect(toSet());
     }
 
-    public static EncoderKey getEncoderKey(String namespace, Object o) {
+    public static EncoderKey getEncoderKey(/*~~>*/String namespace, Object o) {
         return new XmlEncoderKey(namespace, o.getClass());
     }
 
-    public static EncoderKey getPropertyTypeEncoderKey(final String namespace, final Object o) {
+    public static EncoderKey getPropertyTypeEncoderKey(final /*~~>*/String namespace, final Object o) {
         return new XmlPropertyTypeEncoderKey(namespace, o.getClass());
     }
 
-    public static EncoderKey getDocumentEncoderKey(final String namespace, final Object o) {
+    public static EncoderKey getDocumentEncoderKey(final /*~~>*/String namespace, final Object o) {
         return new XmlDocumentEncoderKey(namespace, o.getClass());
     }
 
@@ -141,7 +141,7 @@ public final class CodingHelper {
         return new XmlNamespaceDecoderKey(XmlHelper.getNamespace(doc[0]), doc.getClass());
     }
 
-    public static XmlObject readXML(String string) throws XmlDecodingException {
+    public static XmlObject readXML(/*~~>*/String string) throws XmlDecodingException {
         try {
             return XmlObject.Factory.parse(string);
         } catch (XmlException e) {

@@ -24,17 +24,17 @@ import org.n52.shetland.ogc.sos.Sos2Constants;
  */
 public class DeleteSensorRequest extends OwsServiceRequest {
 
-    private String procedureIdentifier;
+    private /*~~>*/String procedureIdentifier;
 
     public DeleteSensorRequest() {
         super(null, null, Sos2Constants.Operations.DeleteSensor.name());
     }
 
-    public DeleteSensorRequest(String service, String version) {
+    public DeleteSensorRequest(/*~~>*/String service, /*~~>*/String version) {
         super(service, version, Sos2Constants.Operations.DeleteSensor.name());
     }
 
-    public DeleteSensorRequest(String service, String version, String operationName) {
+    public DeleteSensorRequest(/*~~>*/String service, /*~~>*/String version, /*~~>*/String operationName) {
         super(service, version, operationName);
     }
 
@@ -42,14 +42,14 @@ public class DeleteSensorRequest extends OwsServiceRequest {
      * @param procedureIdentifier
      *            the procedureIdentifier to set
      */
-    public void setProcedureIdentifier(String procedureIdentifier) {
-        this.procedureIdentifier = procedureIdentifier;
+    public void setProcedureIdentifier(/*~~>*/String procedureIdentifier) {
+        /*~~>*/this.procedureIdentifier = procedureIdentifier;
     }
 
     /**
      * @return the procedureIdentifier
      */
-    public String getProcedureIdentifier() {
+    public /*~~>*/String getProcedureIdentifier() {
         return procedureIdentifier;
     }
 

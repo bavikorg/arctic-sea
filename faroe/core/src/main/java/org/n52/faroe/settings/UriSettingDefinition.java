@@ -39,7 +39,7 @@ public class UriSettingDefinition extends AbstractSettingDefinition<URI> {
         super(SettingType.URI);
     }
 
-    public UriSettingDefinition setDefaultStringValue(String value) {
+    public UriSettingDefinition setDefaultStringValue(/*~~>*/String value) {
         try {
             setDefaultValue(new URI(value));
         } catch (URISyntaxException e) {

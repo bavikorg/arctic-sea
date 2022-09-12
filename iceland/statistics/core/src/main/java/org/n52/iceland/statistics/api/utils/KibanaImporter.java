@@ -37,28 +37,28 @@ import edu.umd.cs.findbugs.annotations.SuppressFBWarnings;
 
 public class KibanaImporter {
 
-    public static final String INDEX_NEEDLE = "##!NO_SPOON!##";
+    public static final /*~~>*/String INDEX_NEEDLE = "##!NO_SPOON!##";
 
     private static final Logger LOG = LoggerFactory.getLogger(KibanaImporter.class);
 
     private final RestHighLevelClient client;
 
-    private final String kibanaIndexName;
+    private final /*~~>*/String kibanaIndexName;
 
-    private final String statisticsIndexName;
+    private final /*~~>*/String statisticsIndexName;
 
     @SuppressFBWarnings({ "EI_EXPOSE_REP2" })
-    public KibanaImporter(RestHighLevelClient client, String kibanaIndexName, String statisticsIndexName) {
+    public KibanaImporter(RestHighLevelClient client, /*~~>*/String kibanaIndexName, /*~~>*/String statisticsIndexName) {
         Objects.requireNonNull(client);
         Objects.requireNonNull(kibanaIndexName);
         Objects.requireNonNull(statisticsIndexName);
 
-        this.kibanaIndexName = kibanaIndexName;
-        this.statisticsIndexName = statisticsIndexName;
+        /*~~>*/this.kibanaIndexName = kibanaIndexName;
+        /*~~>*/this.statisticsIndexName = statisticsIndexName;
         this.client = client;
     }
 
-    public void importJson(String jsonString) throws JsonParseException, JsonMappingException, IOException {
+    public void importJson(/*~~>*/String jsonString) throws JsonParseException, JsonMappingException, IOException {
         Objects.requireNonNull(jsonString);
 
         // delete .kibana index

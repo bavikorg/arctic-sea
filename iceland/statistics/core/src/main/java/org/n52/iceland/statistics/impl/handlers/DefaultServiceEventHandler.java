@@ -27,7 +27,7 @@ public class DefaultServiceEventHandler extends AbstractElasticSearchDataHolder
         implements StatisticsServiceEventHandler<Event> {
 
     @Override
-    public Map<String, Object> resolveAsMap(Event event) {
+    public Map</*~~>*/String, Object> resolveAsMap(Event event) {
         put(ServiceEventDataMapping.UNHANDLED_SERVICEEVENT_TYPE.getName(), event.getClass());
         return new LinkedHashMap<>(dataMap);
     }

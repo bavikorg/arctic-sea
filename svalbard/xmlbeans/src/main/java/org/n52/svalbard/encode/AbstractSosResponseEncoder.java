@@ -49,9 +49,9 @@ public abstract class AbstractSosResponseEncoder<T extends OwsServiceResponse> e
 
     // private ProfileHandler profileHandler;
 
-    public AbstractSosResponseEncoder(String operation, Class<T> responseType) {
-        super(SosConstants.SOS, Sos2Constants.SERVICEVERSION, operation, Sos2Constants.NS_SOS_20,
-                SosConstants.NS_SOS_PREFIX, responseType);
+    public AbstractSosResponseEncoder(/*~~>*/String operation, Class<T> responseType) {
+        super(/*~~>*/SosConstants.SOS, /*~~>*/Sos2Constants.SERVICEVERSION, operation, /*~~>*/Sos2Constants.NS_SOS_20,
+                /*~~>*/SosConstants.NS_SOS_PREFIX, responseType);
     }
 
     // @Inject
@@ -69,35 +69,35 @@ public abstract class AbstractSosResponseEncoder<T extends OwsServiceResponse> e
     // }
 
     protected XmlObject encodeGml(Object o) throws EncodingException {
-        return encodeObjectToXml(GmlConstants.NS_GML_32, o);
+        return encodeObjectToXml(/*~~>*/GmlConstants.NS_GML_32, o);
     }
 
     protected XmlObject encodeGml(EncodingContext helperValues, Object o) throws EncodingException {
-        return encodeObjectToXml(GmlConstants.NS_GML_32, o, helperValues);
+        return encodeObjectToXml(/*~~>*/GmlConstants.NS_GML_32, o, helperValues);
     }
 
     protected XmlObject encodeOws(Object o) throws EncodingException {
-        return encodeObjectToXml(OWSConstants.NS_OWS, o);
+        return encodeObjectToXml(/*~~>*/OWSConstants.NS_OWS, o);
     }
 
     protected XmlObject encodeOws(EncodingContext helperValues, Object o) throws EncodingException {
-        return encodeObjectToXml(OWSConstants.NS_OWS, o, helperValues);
+        return encodeObjectToXml(/*~~>*/OWSConstants.NS_OWS, o, helperValues);
     }
 
     protected XmlObject encodeFes(Object o) throws EncodingException {
-        return encodeObjectToXml(FilterConstants.NS_FES_2, o);
+        return encodeObjectToXml(/*~~>*/FilterConstants.NS_FES_2, o);
     }
 
     protected XmlObject encodeFes(EncodingContext helperValues, Object o) throws EncodingException {
-        return encodeObjectToXml(FilterConstants.NS_FES_2, o, helperValues);
+        return encodeObjectToXml(/*~~>*/FilterConstants.NS_FES_2, o, helperValues);
     }
 
     protected XmlObject encodeSwe(Object o) throws EncodingException {
-        return encodeObjectToXml(SweConstants.NS_SWE_20, o);
+        return encodeObjectToXml(/*~~>*/SweConstants.NS_SWE_20, o);
     }
 
     protected XmlObject encodeSwe(EncodingContext helperValues, Object o) throws EncodingException {
-        return encodeObjectToXml(SweConstants.NS_SWE_20, o, helperValues);
+        return encodeObjectToXml(/*~~>*/SweConstants.NS_SWE_20, o, helperValues);
     }
 
     protected void createExtension(ExtensibleResponseType xbResponse, Extensions extensions) throws EncodingException {

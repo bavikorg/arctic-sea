@@ -31,7 +31,7 @@ public interface UpdateableConnectionProvider extends ConnectionProvider {
      *
      * @throws ConnectionProviderException if the generation fails
      */
-    String getUpdateScript() throws ConnectionProviderException;
+    /*~~>*/String getUpdateScript() throws ConnectionProviderException;
 
     /**
      * @return <code>true</code>, if update script is supported

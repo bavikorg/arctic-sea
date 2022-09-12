@@ -35,7 +35,7 @@ public interface ExtensibleRequestEncoder {
         if (request.isSetService()) {
             ert.setService(request.getService());
         } else {
-            ert.setService(SosConstants.SOS);
+            ert.setService(/*~~>*/SosConstants.SOS);
         }
     }
 
@@ -43,7 +43,7 @@ public interface ExtensibleRequestEncoder {
         if (request.isSetVersion()) {
             ert.setVersion(request.getVersion());
         } else {
-            ert.setVersion(Sos2Constants.SERVICEVERSION);
+            ert.setVersion(/*~~>*/Sos2Constants.SERVICEVERSION);
         }
     }
 
@@ -53,6 +53,6 @@ public interface ExtensibleRequestEncoder {
         }
     }
 
-    XmlObject encodeObjectToXml(String namespace, Object object) throws EncodingException;
+    XmlObject encodeObjectToXml(/*~~>*/String namespace, Object object) throws EncodingException;
 
 }

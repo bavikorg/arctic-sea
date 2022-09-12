@@ -45,18 +45,18 @@ public class AbstractProcess extends AbstractSensorML {
     private List<SmlParameter> parameters = new ArrayList<>(0);
     private List<Time> validTime = new ArrayList<>(0);
 
-    public AbstractProcess setDescriptions(Collection<String> descriptions) {
+    public AbstractProcess setDescriptions(Collection</*~~>*/String> descriptions) {
         if (descriptions != null) {
             if (descriptions.size() == 1) {
                 setDescription(descriptions.iterator().next());
             } else {
-                setDescription(Arrays.toString(descriptions.toArray(new String[descriptions.size()])));
+                setDescription(Arrays.toString(descriptions.toArray(new /*~~>*/String[descriptions.size()])));
             }
         }
         return this;
     }
 
-    public AbstractProcess addDescription(final String description) {
+    public AbstractProcess addDescription(final /*~~>*/String description) {
         if (isSetDescription()) {
             setDescription(new StringBuilder(getDescription()).append(", ").append(description).toString());
         } else {
@@ -165,7 +165,7 @@ public class AbstractProcess extends AbstractSensorML {
     }
 
     @Override
-    public String getObservablePropertyName(String observableProperty) {
+    public /*~~>*/String getObservablePropertyName(/*~~>*/String observableProperty) {
         if (isOutputSet(createSmlIoPredicate(observableProperty))) {
             SmlIo smlIo = findOutputs(createSmlIoPredicate(observableProperty)).get();
             if (smlIo.getIoValue().isSetName()) {
@@ -182,7 +182,7 @@ public class AbstractProcess extends AbstractSensorML {
     }
 
     @Override
-    public String getObservablePropertyDescription(String observableProperty) {
+    public /*~~>*/String getObservablePropertyDescription(/*~~>*/String observableProperty) {
         if (isOutputSet(createSmlIoPredicate(observableProperty))) {
             SmlIo smlIo = findOutputs(createSmlIoPredicate(observableProperty)).get();
             if (smlIo.getIoValue().isSetDescription()) {
@@ -193,7 +193,7 @@ public class AbstractProcess extends AbstractSensorML {
     }
 
     @Override
-    public UoM getObservablePropertyUnit(String observableProperty) {
+    public UoM getObservablePropertyUnit(/*~~>*/String observableProperty) {
         if (isOutputSet(createSmlIoPredicate(observableProperty))) {
             SmlIo smlIo = findOutputs(createSmlIoPredicate(observableProperty)).get();
             if (smlIo.getIoValue() instanceof SweAbstractUomType
@@ -204,7 +204,7 @@ public class AbstractProcess extends AbstractSensorML {
         return null;
     }
 
-    protected Predicate<SmlIo> createSmlIoPredicate(String identifier) {
+    protected Predicate<SmlIo> createSmlIoPredicate(/*~~>*/String identifier) {
         return SmlIoPredicates.identifierOrNameOrDefinition(identifier, identifier, identifier);
     }
 

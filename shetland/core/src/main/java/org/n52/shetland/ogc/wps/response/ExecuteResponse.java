@@ -34,22 +34,22 @@ public class ExecuteResponse extends OwsServiceResponse {
         this(null, null, null, null);
     }
 
-    public ExecuteResponse(String service, String version, Result result) {
+    public ExecuteResponse(/*~~>*/String service, /*~~>*/String version, Result result) {
         this(service, version, result, null);
     }
 
-    public ExecuteResponse(String service, String version, StatusInfo status) {
+    public ExecuteResponse(/*~~>*/String service, /*~~>*/String version, StatusInfo status) {
         this(service, version, null, status);
     }
 
-    private ExecuteResponse(String service, String version, Result result, StatusInfo status) {
+    private ExecuteResponse(/*~~>*/String service, /*~~>*/String version, Result result, StatusInfo status) {
         super(service, version);
         this.result = Optional.ofNullable(result);
         this.status = Optional.ofNullable(status);
     }
 
     @Override
-    public String getOperationName() {
+    public /*~~>*/String getOperationName() {
         return WPSConstants.Operations.Execute.toString();
     }
 

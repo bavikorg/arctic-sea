@@ -36,7 +36,7 @@ public class UpdateSensorResponseEncoder extends AbstractSosResponseEncoder<Upda
 
     @Override
     protected void encodeResponse(ObjectNode json, UpdateSensorResponse t) {
-        json.put(JSONConstants.UPDATED_PROCEDURE, t.getUpdatedProcedure());
+        json.put(/*~~>*/JSONConstants.UPDATED_PROCEDURE, t.getUpdatedProcedure());
     }
 
 }

@@ -37,7 +37,7 @@ public class AddressRepresentation {
     /**
      * 0..*
      */
-    private final List<String> locatorDesignators = new LinkedList<>();
+    private final List</*~~>*/String> locatorDesignators = new LinkedList<>();
 
     /**
      * 0..*
@@ -57,7 +57,7 @@ public class AddressRepresentation {
     /**
      * 0..1
      */
-    private Nillable<String> postCode = Nillable.missing();
+    private Nillable</*~~>*/String> postCode = Nillable.missing();
 
     /**
      * 0..*
@@ -81,11 +81,11 @@ public class AddressRepresentation {
         return this;
     }
 
-    public List<String> getLocatorDesignators() {
+    public List</*~~>*/String> getLocatorDesignators() {
         return Collections.unmodifiableList(locatorDesignators);
     }
 
-    public AddressRepresentation addLocatorDesignator(String locatorDesignator) {
+    public AddressRepresentation addLocatorDesignator(/*~~>*/String locatorDesignator) {
         this.locatorDesignators.add(Preconditions.checkNotNull(locatorDesignator));
         return this;
     }
@@ -125,16 +125,16 @@ public class AddressRepresentation {
         return addPostName(Nillable.of(postName));
     }
 
-    public Nillable<String> getPostCode() {
+    public Nillable</*~~>*/String> getPostCode() {
         return postCode;
     }
 
-    public AddressRepresentation setPostCode(Nillable<String> postCode) {
+    public AddressRepresentation setPostCode(Nillable</*~~>*/String> postCode) {
         this.postCode = postCode;
         return this;
     }
 
-    public AddressRepresentation setPostCode(String postCode) {
+    public AddressRepresentation setPostCode(/*~~>*/String postCode) {
         return setPostCode(Nillable.of(postCode));
     }
 
@@ -187,7 +187,7 @@ public class AddressRepresentation {
     }
 
     @Override
-    public String toString() {
+    public /*~~>*/String toString() {
         return MoreObjects.toStringHelper(this).add("adminUnits", getAdminUnits())
                 .add("locatorDesignator", getLocatorDesignators()).add("locatorNames", getLocatorNames())
                 .add("addressAreas", getAddressAreas()).add("postNames", getPostNames()).add("postCode", getPostCode())

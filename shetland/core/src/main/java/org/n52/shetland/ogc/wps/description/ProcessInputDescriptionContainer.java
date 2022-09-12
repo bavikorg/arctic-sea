@@ -30,7 +30,7 @@ public interface ProcessInputDescriptionContainer extends Description {
 
     ProcessInputDescription getInput(OwsCode id);
 
-    default ProcessInputDescription getInput(String id) {
+    default ProcessInputDescription getInput(/*~~>*/String id) {
         return getInput(new OwsCode(id));
     }
 

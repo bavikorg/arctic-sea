@@ -26,11 +26,11 @@ public class UnsupportedDecoderXmlInputException extends UnsupportedDecoderInput
         super(decoder, o == null ? null : getName(o));
     }
 
-    private static String getName(XmlObject o) {
+    private static /*~~>*/String getName(XmlObject o) {
         return getName(o.getDomNode());
     }
 
-    private static String getName(Node n) {
+    private static /*~~>*/String getName(Node n) {
         if (n.getPrefix() == null || n.getPrefix().isEmpty()) {
             return n.getLocalName();
         } else {

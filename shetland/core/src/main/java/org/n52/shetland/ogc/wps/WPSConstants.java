@@ -30,17 +30,17 @@ import com.google.common.collect.ImmutableSet;
 public interface WPSConstants {
 
     @Deprecated
-    String NS_WPS_PREFIX = "wps";
+    /*~~>*/String NS_WPS_PREFIX = "wps";
 
     /**
      * Constant for the content types of the accept formats
      */
-    Set<String> ACCEPT_FORMATS = ImmutableSet.of(MediaTypes.APPLICATION_XML.toString());
+    Set</*~~>*/String> ACCEPT_FORMATS = ImmutableSet.of(MediaTypes.APPLICATION_XML.toString());
 
     /**
      * Constant for the service name of the WPS.
      */
-    String SERVICE = "WPS";
+    /*~~>*/String SERVICE = "WPS";
 
     /**
      * Constant 'inline' for response mode, which means that results are contained inline the ProcessOutputs
@@ -49,7 +49,7 @@ public interface WPSConstants {
      * @deprecated see {@link ResponseMode}
      */
     @Deprecated
-    String RESPONSE_MODE_INLINE = "inline";
+    /*~~>*/String RESPONSE_MODE_INLINE = "inline";
 
     /**
      * Constant 'raw' for response mode, which means that result values of an execute response are returned
@@ -58,7 +58,7 @@ public interface WPSConstants {
      * @deprecated see {@link ResponseMode}
      */
     @Deprecated
-    String RESPONSE_MODE_RAW = "raw";
+    /*~~>*/String RESPONSE_MODE_RAW = "raw";
 
     /**
      * Array of constants for response mode.
@@ -66,9 +66,9 @@ public interface WPSConstants {
      * @deprecated see {@link ResponseMode}
      */
     @Deprecated
-    Set<String> RESPONSE_MODES = ImmutableSet.of(RESPONSE_MODE_INLINE, RESPONSE_MODE_RAW);
+    Set</*~~>*/String> RESPONSE_MODES = ImmutableSet.of(RESPONSE_MODE_INLINE, RESPONSE_MODE_RAW);
 
-    String VERSION_200 = "2.0.0";
+    /*~~>*/String VERSION_200 = "2.0.0";
 
     /**
      * The names of the operations supported by all versions of the WPS specification.

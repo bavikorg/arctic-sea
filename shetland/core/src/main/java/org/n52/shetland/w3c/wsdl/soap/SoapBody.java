@@ -23,9 +23,9 @@ import org.n52.shetland.w3c.wsdl.WSDLConstants;
 
 public class SoapBody extends ExtensibilityElement {
 
-    private String use;
+    private /*~~>*/String use;
 
-    public SoapBody(String use) {
+    public SoapBody(/*~~>*/String use) {
         super(WSDLConstants.QN_SOAP_12_BODY);
         this.setUse(use);
     }
@@ -33,7 +33,7 @@ public class SoapBody extends ExtensibilityElement {
     /**
      * @return the use
      */
-    public String getUse() {
+    public /*~~>*/String getUse() {
         return use;
     }
 
@@ -41,8 +41,8 @@ public class SoapBody extends ExtensibilityElement {
      * @param use
      *            the use to set
      */
-    public void setUse(String use) {
-        this.use = use;
+    public void setUse(/*~~>*/String use) {
+        /*~~>*/this.use = use;
     }
 
     @Override

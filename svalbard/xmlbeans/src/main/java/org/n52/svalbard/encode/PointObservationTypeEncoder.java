@@ -49,7 +49,7 @@ public class PointObservationTypeEncoder
 
     private static final Logger LOGGER = LoggerFactory.getLogger(PointObservationTypeEncoder.class);
     private static final Set<EncoderKey> ENCODER_KEYS = CodingHelper
-            .encoderKeysForElements(InspireOMSOConstants.NS_OMSO_30, PointObservation.class);
+            .encoderKeysForElements(/*~~>*/InspireOMSOConstants.NS_OMSO_30, PointObservation.class);
 
     public PointObservationTypeEncoder() {
         LOGGER.debug("Encoder for the following keys initialized successfully: {}!",
@@ -71,14 +71,14 @@ public class PointObservationTypeEncoder
     protected XmlObject encodeResult(ObservationValue<?> observationValue)
             throws EncodingException {
         if (observationValue.getValue() instanceof CvDiscretePointCoverage) {
-            return encodeObjectToXmlPropertyType(CvConstants.NS_CV, observationValue.getValue());
+            return encodeObjectToXmlPropertyType(/*~~>*/CvConstants.NS_CV, observationValue.getValue());
         }
         return null;
     }
 
     @Override
-    protected String getObservationType() {
-        return InspireOMSOConstants.OBS_TYPE_POINT_OBSERVATION;
+    protected /*~~>*/String getObservationType() {
+        return /*~~>*/InspireOMSOConstants.OBS_TYPE_POINT_OBSERVATION;
     }
 
     @Override

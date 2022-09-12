@@ -77,7 +77,7 @@ public class KvpBinding extends SimpleBinding {
 
     private boolean includeOriginalRequest;
 
-    @Setting(MiscSettings.HTTP_STATUS_CODE_USE_IN_KVP_POX_BINDING)
+    @Setting(/*~~>*/MiscSettings.HTTP_STATUS_CODE_USE_IN_KVP_POX_BINDING)
     public void setUseHttpResponseCodes(boolean useHttpResponseCodes) {
         this.useHttpResponseCodes = useHttpResponseCodes;
     }
@@ -87,7 +87,7 @@ public class KvpBinding extends SimpleBinding {
         return this.useHttpResponseCodes;
     }
 
-    @Setting(MiscSettings.INCLUDE_ORIGINAL_REQUEST)
+    @Setting(/*~~>*/MiscSettings.INCLUDE_ORIGINAL_REQUEST)
     public void setIncludeOriginalRequest(boolean includeOriginalRequest) {
         this.includeOriginalRequest = includeOriginalRequest;
     }
@@ -129,12 +129,12 @@ public class KvpBinding extends SimpleBinding {
             throw new MissingRequestParameterException();
         }
 
-        Map<String, String> parameters = Streams.stream(req.getParameterNames())
+        Map</*~~>*/String, /*~~>*/String> parameters = Streams.stream(req.getParameterNames())
                 .collect(toMap(name -> name.replace("amp;", "").toLowerCase(Locale.ROOT), req::getParameter));
 
-        String service = parameters.get(RequestParams.service.name());
-        String version = parameters.get(RequestParams.version.name());
-        String operation = parameters.get(RequestParams.request.name());
+        /*~~>*/String service = parameters.get(RequestParams.service.name());
+        /*~~>*/String version = parameters.get(RequestParams.version.name());
+        /*~~>*/String operation = parameters.get(RequestParams.request.name());
 
         if (Strings.isNullOrEmpty(service)) {
             throw new MissingServiceParameterException();
@@ -152,7 +152,7 @@ public class KvpBinding extends SimpleBinding {
             throw new VersionNotSupportedException();
         }
 
-        Decoder<OwsServiceRequest, Map<String, String>> decoder
+        Decoder<OwsServiceRequest, Map</*~~>*/String, /*~~>*/String>> decoder
                 = getDecoder(new OperationDecoderKey(service, version, operation, MediaTypes.APPLICATION_KVP));
 
         if (decoder == null) {
@@ -168,7 +168,7 @@ public class KvpBinding extends SimpleBinding {
             throw toOwsExceptionReport(ex);
         }
         if (this.includeOriginalRequest) {
-            request.setOriginalRequest(String.join("?", req.getRequestURL(), req.getQueryString()));
+            request.setOriginalRequest(/*~~>*/String.join("?", req.getRequestURL(), req.getQueryString()));
         }
 
         return request;
@@ -200,7 +200,7 @@ public class KvpBinding extends SimpleBinding {
             return toOwsExceptionReport((CompositeException) cause);
         }
 
-        String location = null;
+        /*~~>*/String location = null;
         if (ex instanceof LocationHintException) {
             location = ((LocationHintException) ex).getLocation().orElse(null);
         } else if (cause instanceof LocationHintException) {

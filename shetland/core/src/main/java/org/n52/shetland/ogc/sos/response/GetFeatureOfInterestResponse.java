@@ -33,11 +33,11 @@ public class GetFeatureOfInterestResponse extends OwsServiceResponse {
         super(null, null, SosConstants.Operations.GetFeatureOfInterest.name());
     }
 
-    public GetFeatureOfInterestResponse(String service, String version) {
+    public GetFeatureOfInterestResponse(/*~~>*/String service, /*~~>*/String version) {
         super(service, version, SosConstants.Operations.GetFeatureOfInterest.name());
     }
 
-    public GetFeatureOfInterestResponse(String service, String version, String operationName) {
+    public GetFeatureOfInterestResponse(/*~~>*/String service, /*~~>*/String version, /*~~>*/String operationName) {
         super(service, version, operationName);
     }
 
@@ -46,12 +46,12 @@ public class GetFeatureOfInterestResponse extends OwsServiceResponse {
         this.abstractFeature = abstractFeature;
     }
 
-    public GetFeatureOfInterestResponse(String service, String version, AbstractFeature abstractFeature) {
+    public GetFeatureOfInterestResponse(/*~~>*/String service, /*~~>*/String version, AbstractFeature abstractFeature) {
         this(service, version, SosConstants.Operations.GetFeatureOfInterest.name(), abstractFeature);
     }
 
     @SuppressFBWarnings({ "EI_EXPOSE_REP2" })
-    public GetFeatureOfInterestResponse(String service, String version, String operationName,
+    public GetFeatureOfInterestResponse(/*~~>*/String service, /*~~>*/String version, /*~~>*/String operationName,
             AbstractFeature abstractFeature) {
         super(service, version, operationName);
         this.abstractFeature = abstractFeature;

@@ -34,7 +34,7 @@ public class DocumentCitationTypeEncoder
 
     private static final Set<EncoderKey> ENCODER_KEYS =
             Sets.newHashSet(new ClassToClassEncoderKey(DocumentCitationType.class, DocumentCitation.class),
-                    new XmlEncoderKey(InspireBase2Constants.NS_BASE2, DocumentCitation.class));
+                    new XmlEncoderKey(/*~~>*/InspireBase2Constants.NS_BASE2, DocumentCitation.class));
 
     @Override
     public Set<EncoderKey> getKeys() {
@@ -52,7 +52,7 @@ public class DocumentCitationTypeEncoder
             dct.setName2(documentCitation.getFirstName().getValue());
         }
         if (documentCitation.isSetLinks()) {
-            for (Nillable<String> link : documentCitation.getLinks()) {
+            for (Nillable</*~~>*/String> link : documentCitation.getLinks()) {
                 if (link.isPresent()) {
                     dct.addNewLink().setStringValue(link.get());
                 } else {

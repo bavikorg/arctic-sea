@@ -24,15 +24,15 @@ import java.util.Optional;
 public class GeoValueExpr implements Expr {
 
     // Geometry/Geography is stored as WKT
-    private final String value;
+    private final /*~~>*/String value;
 
     /**
      * Creates a new {@code ValueExpr}.
      *
      * @param value the value
      */
-    public GeoValueExpr(String value) {
-        this.value = Objects.requireNonNull(value);
+    public GeoValueExpr(/*~~>*/String value) {
+        /*~~>*/this.value = Objects.requireNonNull(value);
     }
 
     /**
@@ -40,8 +40,8 @@ public class GeoValueExpr implements Expr {
      *
      * @return the value
      */
-    public String getGeometry() {
-        return this.value;
+    public /*~~>*/String getGeometry() {
+        return /*~~>*/this.value;
     }
 
     @Override
@@ -55,12 +55,12 @@ public class GeoValueExpr implements Expr {
     }
 
     @Override
-    public String toString() {
-        return String.format("'%s'", this.value);
+    public /*~~>*/String toString() {
+        return /*~~>*/String.format("'%s'", /*~~>*/this.value);
     }
 
-    @Override public String toODataString() {
-        return this.value;
+    @Override public /*~~>*/String toODataString() {
+        return /*~~>*/this.value;
     }
 
     @Override
@@ -69,7 +69,7 @@ public class GeoValueExpr implements Expr {
     }
 
     @Override public int hashCode() {
-        return Objects.hash(this.value);
+        return Objects.hash(/*~~>*/this.value);
     }
 
     @Override public boolean equals(Object o) {
@@ -79,6 +79,6 @@ public class GeoValueExpr implements Expr {
         if (!(o instanceof GeoValueExpr)) {
             return false;
         }
-        return Objects.equals(this.value, ((GeoValueExpr) o).getGeometry());
+        return Objects.equals(/*~~>*/this.value, ((GeoValueExpr) o).getGeometry());
     }
 }

@@ -23,18 +23,18 @@ package org.n52.shetland.iso.gmd;
 public class GmdCitationDate {
 
     private final GmdDateType dateType;
-    private final String date;
+    private final /*~~>*/String date;
 
-    public GmdCitationDate(GmdDateType dateType, String date) {
+    public GmdCitationDate(GmdDateType dateType, /*~~>*/String date) {
         this.dateType = dateType;
-        this.date = date;
+        /*~~>*/this.date = date;
     }
 
     public GmdDateType getDateType() {
         return dateType;
     }
 
-    public String getDate() {
+    public /*~~>*/String getDate() {
         return date;
     }
 

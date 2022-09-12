@@ -57,12 +57,12 @@ public class JsonSettingsEncoder {
 
     public ObjectNode encode(Map<SettingDefinitionGroup, Set<SettingDefinition<?>>> grouped) {
         ObjectNode json = nodeFactory.objectNode();
-        ArrayNode sections = json.putArray(JSONSettingConstants.SECTIONS_KEY);
+        ArrayNode sections = json.putArray(/*~~>*/JSONSettingConstants.SECTIONS_KEY);
         grouped.keySet().stream().sorted().forEach(group -> {
             ObjectNode jgroup = sections.addObject();
-            jgroup.put(JSONSettingConstants.TITLE_KEY, group.getTitle());
-            jgroup.put(JSONSettingConstants.DESCRIPTION_KEY, group.getDescription());
-            jgroup.set(JSONSettingConstants.SETTINGS_KEY, encode(grouped.get(group)));
+            jgroup.put(/*~~>*/JSONSettingConstants.TITLE_KEY, group.getTitle());
+            jgroup.put(/*~~>*/JSONSettingConstants.DESCRIPTION_KEY, group.getDescription());
+            jgroup.set(/*~~>*/JSONSettingConstants.SETTINGS_KEY, encode(grouped.get(group)));
         });
         return json;
     }
@@ -74,33 +74,33 @@ public class JsonSettingsEncoder {
 
     public ObjectNode encode(SettingDefinition<?> def) {
         ObjectNode j = nodeFactory.objectNode();
-        j.put(JSONSettingConstants.TITLE_KEY, def.getTitle());
-        j.put(JSONSettingConstants.DESCRIPTION_KEY, def.getDescription());
-        j.put(JSONSettingConstants.TYPE_KEY, getType(def));
-        j.put(JSONSettingConstants.REQUIRED_KEY, !def.isOptional());
-        j.set(JSONSettingConstants.DEFAULT_KEY, def.hasDefaultValue() ? encodeDefaultValue(def) : null);
+        j.put(/*~~>*/JSONSettingConstants.TITLE_KEY, def.getTitle());
+        j.put(/*~~>*/JSONSettingConstants.DESCRIPTION_KEY, def.getDescription());
+        j.put(/*~~>*/JSONSettingConstants.TYPE_KEY, getType(def));
+        j.put(/*~~>*/JSONSettingConstants.REQUIRED_KEY, !def.isOptional());
+        j.set(/*~~>*/JSONSettingConstants.DEFAULT_KEY, def.hasDefaultValue() ? encodeDefaultValue(def) : null);
 
         if (def instanceof IntegerSettingDefinition) {
             IntegerSettingDefinition iDef = (IntegerSettingDefinition) def;
             if (iDef.hasMinimum()) {
-                j.put(JSONSettingConstants.MINIMUM_KEY, iDef.getMinimum());
-                j.put(JSONSettingConstants.MINIMUM_EXCLUSIVE_KEY, iDef.isExclusiveMinimum());
+                j.put(/*~~>*/JSONSettingConstants.MINIMUM_KEY, iDef.getMinimum());
+                j.put(/*~~>*/JSONSettingConstants.MINIMUM_EXCLUSIVE_KEY, iDef.isExclusiveMinimum());
             }
             if (iDef.hasMaximum()) {
-                j.put(JSONSettingConstants.MAXIMUM_KEY, iDef.getMaximum());
-                j.put(JSONSettingConstants.MAXIMUM_EXCLUSIVE_KEY, iDef.isExclusiveMaximum());
+                j.put(/*~~>*/JSONSettingConstants.MAXIMUM_KEY, iDef.getMaximum());
+                j.put(/*~~>*/JSONSettingConstants.MAXIMUM_EXCLUSIVE_KEY, iDef.isExclusiveMaximum());
             }
         }
 
         if (def instanceof ChoiceSettingDefinition) {
             ChoiceSettingDefinition cDef = (ChoiceSettingDefinition) def;
-            ObjectNode options = j.putObject(JSONSettingConstants.OPTIONS_KEY);
+            ObjectNode options = j.putObject(/*~~>*/JSONSettingConstants.OPTIONS_KEY);
             cDef.getOptions().entrySet().forEach(o -> options.put(o.getKey(), o.getValue()));
         }
         return j;
     }
 
-    protected String getType(SettingDefinition<?> def) {
+    protected /*~~>*/String getType(SettingDefinition<?> def) {
         return def.getType().toString();
     }
 
@@ -148,7 +148,7 @@ public class JsonSettingsEncoder {
                 return json;
             }
             default:
-                throw new IllegalArgumentException(String.format("Unknown Type %s", type));
+                throw new IllegalArgumentException(/*~~>*/String.format("Unknown Type %s", type));
         }
     }
 
@@ -165,7 +165,7 @@ public class JsonSettingsEncoder {
     }
 
     private TextNode textNode(Object value) {
-        return nodeFactory.textNode(String.valueOf(value));
+        return nodeFactory.textNode(/*~~>*/String.valueOf(value));
     }
 
     private static class SettingDefinitionComparator

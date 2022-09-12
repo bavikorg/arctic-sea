@@ -24,52 +24,52 @@ package org.n52.shetland.ogc.sensorML;
  */
 public class SmlPerson extends SmlContact {
 
-    private String affiliation;
+    private /*~~>*/String affiliation;
 
-    private String email;
+    private /*~~>*/String email;
 
-    private String name;
+    private /*~~>*/String name;
 
-    private String phoneNumber;
+    private /*~~>*/String phoneNumber;
 
-    private String surname;
+    private /*~~>*/String surname;
 
-    private String userID;
+    private /*~~>*/String userID;
 
     public SmlPerson() {
     }
 
-    public SmlPerson(final String surname, final String name, final String userID, final String affiliation,
-            final String phoneNumber, final String email) {
-        this.surname = surname;
-        this.name = name;
-        this.userID = userID;
-        this.affiliation = affiliation;
-        this.phoneNumber = phoneNumber;
-        this.email = email;
+    public SmlPerson(final /*~~>*/String surname, final /*~~>*/String name, final /*~~>*/String userID, final /*~~>*/String affiliation,
+            final /*~~>*/String phoneNumber, final /*~~>*/String email) {
+        /*~~>*/this.surname = surname;
+        /*~~>*/this.name = name;
+        /*~~>*/this.userID = userID;
+        /*~~>*/this.affiliation = affiliation;
+        /*~~>*/this.phoneNumber = phoneNumber;
+        /*~~>*/this.email = email;
     }
 
-    public String getAffiliation() {
+    public /*~~>*/String getAffiliation() {
         return affiliation;
     }
 
-    public String getEmail() {
+    public /*~~>*/String getEmail() {
         return email;
     }
 
-    public String getName() {
+    public /*~~>*/String getName() {
         return name;
     }
 
-    public String getPhoneNumber() {
+    public /*~~>*/String getPhoneNumber() {
         return phoneNumber;
     }
 
-    public String getSurname() {
+    public /*~~>*/String getSurname() {
         return surname;
     }
 
-    public String getUserID() {
+    public /*~~>*/String getUserID() {
         return userID;
     }
 
@@ -97,33 +97,33 @@ public class SmlPerson extends SmlContact {
         return userID != null && !userID.isEmpty();
     }
 
-    public SmlContact setAffiliation(final String affiliation) {
-        this.affiliation = affiliation;
+    public SmlContact setAffiliation(final /*~~>*/String affiliation) {
+        /*~~>*/this.affiliation = affiliation;
         return this;
     }
 
-    public SmlContact setEmail(final String email) {
-        this.email = email;
+    public SmlContact setEmail(final /*~~>*/String email) {
+        /*~~>*/this.email = email;
         return this;
     }
 
-    public SmlContact setName(final String name) {
-        this.name = name;
+    public SmlContact setName(final /*~~>*/String name) {
+        /*~~>*/this.name = name;
         return this;
     }
 
-    public SmlContact setPhoneNumber(final String phoneNumber) {
-        this.phoneNumber = phoneNumber;
+    public SmlContact setPhoneNumber(final /*~~>*/String phoneNumber) {
+        /*~~>*/this.phoneNumber = phoneNumber;
         return this;
     }
 
-    public SmlContact setSurname(final String surname) {
-        this.surname = surname;
+    public SmlContact setSurname(final /*~~>*/String surname) {
+        /*~~>*/this.surname = surname;
         return this;
     }
 
-    public SmlContact setUserID(final String userID) {
-        this.userID = userID;
+    public SmlContact setUserID(final /*~~>*/String userID) {
+        /*~~>*/this.userID = userID;
         return this;
     }
 

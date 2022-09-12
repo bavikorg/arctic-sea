@@ -47,9 +47,9 @@ import com.google.common.net.InetAddresses;
 public class OwsServiceRequestContext {
     private static final Logger LOG = LoggerFactory.getLogger(OwsServiceRequestContext.class);
     private Optional<IPAddress> address = Optional.empty();
-    private Optional<String> token = Optional.empty();
+    private Optional</*~~>*/String> token = Optional.empty();
     private Optional<ProxyChain> proxyChain = Optional.empty();
-    private Optional<String> contentType = Optional.empty();
+    private Optional</*~~>*/String> contentType = Optional.empty();
     private Optional<List<MediaType>> acceptType = Optional.empty();
 
     public Optional<IPAddress> getIPAddress() {
@@ -58,7 +58,7 @@ public class OwsServiceRequestContext {
 
     private static IPAddress getIPAddress(HttpServletRequest req) {
         InetAddress addr = null;
-        String addrAsString = req.getRemoteAddr();
+        /*~~>*/String addrAsString = req.getRemoteAddr();
         try {
             addr = InetAddresses.forString(addrAsString);
         } catch (IllegalArgumentException e) {
@@ -115,23 +115,23 @@ public class OwsServiceRequestContext {
         this.proxyChain = Preconditions.checkNotNull(chain);
     }
 
-    public Optional<String> getToken() {
+    public Optional</*~~>*/String> getToken() {
         return token;
     }
 
-    public void setToken(Optional<String> token) {
+    public void setToken(Optional</*~~>*/String> token) {
         this.token = Preconditions.checkNotNull(token);
     }
 
-    public void setToken(String token) {
+    public void setToken(/*~~>*/String token) {
         this.token = Optional.ofNullable(Strings.emptyToNull(token));
     }
 
-    public Optional<String> getContentType() {
+    public Optional</*~~>*/String> getContentType() {
         return contentType;
     }
 
-    public void setContentType(String contentType) {
+    public void setContentType(/*~~>*/String contentType) {
         this.contentType = Optional.ofNullable(contentType);
     }
 
@@ -144,7 +144,7 @@ public class OwsServiceRequestContext {
     }
 
     @Override
-    public String toString() {
+    public /*~~>*/String toString() {
         return MoreObjects.toStringHelper(this).omitNullValues().add("address", getIPAddress().orElse(null))
                 .add("token", getToken().orElse(null)).add("proxyChain", getForwardedForChain().orElse(null))
                 .toString();
@@ -153,9 +153,9 @@ public class OwsServiceRequestContext {
     public static OwsServiceRequestContext fromRequest(HttpServletRequest req) {
         OwsServiceRequestContext rc = new OwsServiceRequestContext();
         rc.setIPAddress(getIPAddress(req));
-        rc.setForwaredForChain(ProxyChain.fromForwardedForHeader(req.getHeader(HTTPHeaders.X_FORWARDED_FOR)));
-        rc.setToken(req.getHeader(HTTPHeaders.AUTHORIZATION));
-        rc.setContentType(req.getHeader(HTTPHeaders.CONTENT_TYPE));
+        rc.setForwaredForChain(ProxyChain.fromForwardedForHeader(req.getHeader(/*~~>*/HTTPHeaders.X_FORWARDED_FOR)));
+        rc.setToken(req.getHeader(/*~~>*/HTTPHeaders.AUTHORIZATION));
+        rc.setContentType(req.getHeader(/*~~>*/HTTPHeaders.CONTENT_TYPE));
         rc.setAcceptType(HTTPHeaders.getAcceptHeader(req));
         return rc;
 

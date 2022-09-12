@@ -55,7 +55,7 @@ public class OmObservation extends AbstractFeature implements ObservationParamet
      * ID of this observation; in the standard 52n SOS PostgreSQL database, this is implemented through a
      * sequence type.
      */
-    private String observationID;
+    private /*~~>*/String observationID;
 
     /**
      * result time of the observation.
@@ -75,7 +75,7 @@ public class OmObservation extends AbstractFeature implements ObservationParamet
     /**
      * type of the value or the result the value points to.
      */
-    private String resultType;
+    private /*~~>*/String resultType;
 
     /**
      * O&M parameter.
@@ -90,29 +90,29 @@ public class OmObservation extends AbstractFeature implements ObservationParamet
     /**
      * token separator for the value tuples contained in the result element of the generic observation.
      */
-    private String tokenSeparator;
+    private /*~~>*/String tokenSeparator;
 
     /**
      * no data value for the values contained in the result element.
      */
-    private String noDataValue;
+    private /*~~>*/String noDataValue;
 
     /**
      * separator of value tuples, which are contained in the resulte element.
      */
-    private String tupleSeparator;
+    private /*~~>*/String tupleSeparator;
 
     /**
      * separator of decimal values, which are contained in the resulte element.
      */
-    private String decimalSeparator;
+    private /*~~>*/String decimalSeparator;
 
     /**
      * Measurment quality.
      */
     private Set<OmResultQuality> qualityList = Sets.newHashSet();
 
-    private String additionalMergeIndicator;
+    private /*~~>*/String additionalMergeIndicator;
 
     private final Set<OmObservationContext> relatedObservations = new HashSet<>();
 
@@ -129,7 +129,7 @@ public class OmObservation extends AbstractFeature implements ObservationParamet
      * @param identifier
      *            Feature identifier
      */
-    public OmObservation(String identifier) {
+    public OmObservation(/*~~>*/String identifier) {
         super(identifier);
     }
 
@@ -151,7 +151,7 @@ public class OmObservation extends AbstractFeature implements ObservationParamet
      * @param gmlId
      *            GML id
      */
-    public OmObservation(CodeWithAuthority identifier, String gmlId) {
+    public OmObservation(CodeWithAuthority identifier, /*~~>*/String gmlId) {
         super(identifier, gmlId);
     }
 
@@ -190,7 +190,7 @@ public class OmObservation extends AbstractFeature implements ObservationParamet
      *
      * @return the observationID
      */
-    public String getObservationID() {
+    public /*~~>*/String getObservationID() {
         return observationID;
     }
 
@@ -201,8 +201,8 @@ public class OmObservation extends AbstractFeature implements ObservationParamet
      *            the observationID to set
      * @return this
      */
-    public OmObservation setObservationID(final String observationID) {
-        this.observationID = observationID;
+    public OmObservation setObservationID(final /*~~>*/String observationID) {
+        /*~~>*/this.observationID = observationID;
         return this;
     }
 
@@ -270,7 +270,7 @@ public class OmObservation extends AbstractFeature implements ObservationParamet
      *
      * @return the resultType
      */
-    public String getResultType() {
+    public /*~~>*/String getResultType() {
         return resultType;
     }
 
@@ -281,8 +281,8 @@ public class OmObservation extends AbstractFeature implements ObservationParamet
      *            the resultType to set
      * @return this
      */
-    public OmObservation setResultType(final String resultType) {
-        this.resultType = resultType;
+    public OmObservation setResultType(final /*~~>*/String resultType) {
+        /*~~>*/this.resultType = resultType;
         return this;
     }
 
@@ -291,7 +291,7 @@ public class OmObservation extends AbstractFeature implements ObservationParamet
      *
      * @return the tokenSeparator
      */
-    public String getTokenSeparator() {
+    public /*~~>*/String getTokenSeparator() {
         return tokenSeparator;
     }
 
@@ -302,8 +302,8 @@ public class OmObservation extends AbstractFeature implements ObservationParamet
      *            the tokenSeparator to set
      * @return this
      */
-    public OmObservation setTokenSeparator(final String tokenSeparator) {
-        this.tokenSeparator = tokenSeparator;
+    public OmObservation setTokenSeparator(final /*~~>*/String tokenSeparator) {
+        /*~~>*/this.tokenSeparator = tokenSeparator;
         return this;
     }
 
@@ -312,7 +312,7 @@ public class OmObservation extends AbstractFeature implements ObservationParamet
      *
      * @return the noDataValue
      */
-    public String getNoDataValue() {
+    public /*~~>*/String getNoDataValue() {
         return noDataValue;
     }
 
@@ -323,8 +323,8 @@ public class OmObservation extends AbstractFeature implements ObservationParamet
      *            the noDataValue to set
      * @return this
      */
-    public OmObservation setNoDataValue(final String noDataValue) {
-        this.noDataValue = noDataValue;
+    public OmObservation setNoDataValue(final /*~~>*/String noDataValue) {
+        /*~~>*/this.noDataValue = noDataValue;
         return this;
     }
 
@@ -333,7 +333,7 @@ public class OmObservation extends AbstractFeature implements ObservationParamet
      *
      * @return the tupleSeparator
      */
-    public String getTupleSeparator() {
+    public /*~~>*/String getTupleSeparator() {
         return tupleSeparator;
     }
 
@@ -344,8 +344,8 @@ public class OmObservation extends AbstractFeature implements ObservationParamet
      *            the tupleSeparator to set
      * @return this
      */
-    public OmObservation setTupleSeparator(final String tupleSeparator) {
-        this.tupleSeparator = tupleSeparator;
+    public OmObservation setTupleSeparator(final /*~~>*/String tupleSeparator) {
+        /*~~>*/this.tupleSeparator = tupleSeparator;
         return this;
     }
 
@@ -354,7 +354,7 @@ public class OmObservation extends AbstractFeature implements ObservationParamet
      *
      * @return the decimalSeparator
      */
-    public String getDecimalSeparator() {
+    public /*~~>*/String getDecimalSeparator() {
         return decimalSeparator;
     }
 
@@ -365,8 +365,8 @@ public class OmObservation extends AbstractFeature implements ObservationParamet
      *            the decimalSeparator to set
      * @return this
      */
-    public OmObservation setDecimalSeparator(final String decimalSeparator) {
-        this.decimalSeparator = decimalSeparator;
+    public OmObservation setDecimalSeparator(final /*~~>*/String decimalSeparator) {
+        /*~~>*/this.decimalSeparator = decimalSeparator;
         return this;
     }
 
@@ -805,7 +805,7 @@ public class OmObservation extends AbstractFeature implements ObservationParamet
     }
 
     @Override
-    public String getGmlId() {
+    public /*~~>*/String getGmlId() {
         if (Strings.isNullOrEmpty(super.getGmlId()) && isSetObservationID()) {
             setGmlId("o_" + getObservationID());
         }
@@ -916,12 +916,12 @@ public class OmObservation extends AbstractFeature implements ObservationParamet
         return CollectionHelper.isNotEmpty(getRelatedObservations());
     }
 
-    public OmObservation setAdditionalMergeIndicator(String additionalMergeIndicator) {
-        this.additionalMergeIndicator = additionalMergeIndicator;
+    public OmObservation setAdditionalMergeIndicator(/*~~>*/String additionalMergeIndicator) {
+        /*~~>*/this.additionalMergeIndicator = additionalMergeIndicator;
         return this;
     }
 
-    public String getAdditionalMergeIndicator() {
+    public /*~~>*/String getAdditionalMergeIndicator() {
         return additionalMergeIndicator;
     }
 
@@ -953,10 +953,10 @@ public class OmObservation extends AbstractFeature implements ObservationParamet
         if (indicator.isObservationType()) {
             OmObservationConstellation oc = observation.getObservationConstellation();
             return oc.isSetObservationType()
-                    && !OmConstants.OBS_TYPE_SWE_ARRAY_OBSERVATION.equals(oc.getObservationType())
-                    && !OmConstants.OBS_TYPE_COMPLEX_OBSERVATION.equals(oc.getObservationType())
-                    && !OmConstants.OBS_TYPE_OBSERVATION.equals(oc.getObservationType())
-                    && !OmConstants.OBS_TYPE_UNKNOWN.equals(oc.getObservationType());
+                    && !/*~~>*/OmConstants.OBS_TYPE_SWE_ARRAY_OBSERVATION.equals(oc.getObservationType())
+                    && !/*~~>*/OmConstants.OBS_TYPE_COMPLEX_OBSERVATION.equals(oc.getObservationType())
+                    && !/*~~>*/OmConstants.OBS_TYPE_OBSERVATION.equals(oc.getObservationType())
+                    && !/*~~>*/OmConstants.OBS_TYPE_UNKNOWN.equals(oc.getObservationType());
         }
         return true;
     }

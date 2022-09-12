@@ -25,27 +25,27 @@ import org.n52.shetland.util.CollectionHelper;
 
 public class DeleteResultTemplateResponse extends OwsServiceResponse {
 
-    private static String OPERATION_NAME = "DeleteResultTemplate";
-    private List<String> resultTemplates = new LinkedList<>();
+    private static /*~~>*/String OPERATION_NAME = "DeleteResultTemplate";
+    private List</*~~>*/String> resultTemplates = new LinkedList<>();
 
     public DeleteResultTemplateResponse() {
         super(null, null, OPERATION_NAME);
     }
 
-    public DeleteResultTemplateResponse(String service, String version) {
+    public DeleteResultTemplateResponse(/*~~>*/String service, /*~~>*/String version) {
         super(service, version, OPERATION_NAME);
     }
 
-    public DeleteResultTemplateResponse(String service, String version, String operationName) {
+    public DeleteResultTemplateResponse(/*~~>*/String service, /*~~>*/String version, /*~~>*/String operationName) {
         super(service, version, operationName);
     }
 
     @Override
-    public String getOperationName() {
+    public /*~~>*/String getOperationName() {
         return OPERATION_NAME;
     }
 
-    public List<String> getResultTemplates() {
+    public List</*~~>*/String> getResultTemplates() {
         return Collections.unmodifiableList(resultTemplates);
     }
 
@@ -53,7 +53,7 @@ public class DeleteResultTemplateResponse extends OwsServiceResponse {
         return CollectionHelper.isNotEmpty(resultTemplates);
     }
 
-    public DeleteResultTemplateResponse addDeletedResultTemplates(Collection<String> deletedResultTemplates) {
+    public DeleteResultTemplateResponse addDeletedResultTemplates(Collection</*~~>*/String> deletedResultTemplates) {
         this.resultTemplates.clear();
         if (deletedResultTemplates != null) {
             this.resultTemplates.addAll(deletedResultTemplates);

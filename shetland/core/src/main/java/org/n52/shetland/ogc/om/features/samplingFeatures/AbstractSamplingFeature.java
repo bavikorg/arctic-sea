@@ -47,12 +47,12 @@ public abstract class AbstractSamplingFeature extends AbstractFeature
     /**
      * Type of this feature
      */
-    private String featureType = OGCConstants.UNKNOWN;
+    private /*~~>*/String featureType = /*~~>*/OGCConstants.UNKNOWN;
 
     /**
      * URL to feature representation, e.g. to a WFS
      */
-    private String url;
+    private /*~~>*/String url;
 
     /**
      * Sampled features, domain feature
@@ -92,7 +92,7 @@ public abstract class AbstractSamplingFeature extends AbstractFeature
      * @param gmlId
      *            GML of this feature
      */
-    public AbstractSamplingFeature(final CodeWithAuthority featureIdentifier, final String gmlId) {
+    public AbstractSamplingFeature(final CodeWithAuthority featureIdentifier, final /*~~>*/String gmlId) {
         super(featureIdentifier, gmlId);
     }
 
@@ -102,7 +102,7 @@ public abstract class AbstractSamplingFeature extends AbstractFeature
     }
 
     @Override
-    public String getGmlId() {
+    public /*~~>*/String getGmlId() {
         if (!super.isSetGmlID()) {
             final StringBuilder builder = new StringBuilder();
             builder.append("ssf_");
@@ -128,23 +128,23 @@ public abstract class AbstractSamplingFeature extends AbstractFeature
     }
 
     @Override
-    public String getFeatureType() {
+    public /*~~>*/String getFeatureType() {
         return featureType;
     }
 
     @Override
-    public void setFeatureType(final String featureType) {
-        this.featureType = featureType;
+    public void setFeatureType(final /*~~>*/String featureType) {
+        /*~~>*/this.featureType = featureType;
     }
 
     @Override
-    public String getUrl() {
+    public /*~~>*/String getUrl() {
         return url;
     }
 
     @Override
-    public void setUrl(final String url) {
-        this.url = url;
+    public void setUrl(final /*~~>*/String url) {
+        /*~~>*/this.url = url;
     }
 
     /**
@@ -310,8 +310,8 @@ public abstract class AbstractSamplingFeature extends AbstractFeature
     }
 
     @Override
-    public String toString() {
-        return String.format("AbstractSamplingFeature [name=%s, description=%s, xmlDescription=%s, geometry=%s, "
+    public /*~~>*/String toString() {
+        return /*~~>*/String.format("AbstractSamplingFeature [name=%s, description=%s, xmlDescription=%s, geometry=%s, "
                 + "featureType=%s, url=%s, sampledFeatures=%s, parameters=%s, encode=%b, relatedSamplingFeatures=%s]",
                 getName(), getDescription(), getXml(), getGeometry(), getFeatureType(), getUrl(), getSampledFeatures(),
                 getParameters(), isEncode(), getRelatedSamplingFeatures());

@@ -39,10 +39,10 @@ public class ProcessPropertyTypeEncoder extends ProcessTypeEncoder {
 
     private static final Set<EncoderKey> ENCODER_KEYS =
             Sets.newHashSet(new ClassToClassEncoderKey(Process.class, ProcessDocument.class),
-                    new XmlPropertyTypeEncoderKey(InspireOMPRConstants.NS_OMPR_30, Process.class),
-                    new XmlPropertyTypeEncoderKey(InspireOMPRConstants.NS_OMPR_30, SosProcedureDescription.class),
-                    new XmlDocumentEncoderKey(InspireOMPRConstants.FEATURE_CONCEPT_PROCESS, Process.class),
-                    new XmlDocumentEncoderKey(InspireOMPRConstants.FEATURE_CONCEPT_PROCESS,
+                    new XmlPropertyTypeEncoderKey(/*~~>*/InspireOMPRConstants.NS_OMPR_30, Process.class),
+                    new XmlPropertyTypeEncoderKey(/*~~>*/InspireOMPRConstants.NS_OMPR_30, SosProcedureDescription.class),
+                    new XmlDocumentEncoderKey(/*~~>*/InspireOMPRConstants.FEATURE_CONCEPT_PROCESS, Process.class),
+                    new XmlDocumentEncoderKey(/*~~>*/InspireOMPRConstants.FEATURE_CONCEPT_PROCESS,
                             SosProcedureDescription.class));
 
     public ProcessPropertyTypeEncoder() {

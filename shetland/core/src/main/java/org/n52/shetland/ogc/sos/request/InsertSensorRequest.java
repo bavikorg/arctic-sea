@@ -38,20 +38,20 @@ import edu.umd.cs.findbugs.annotations.SuppressFBWarnings;
  */
 public class InsertSensorRequest extends OwsServiceRequest {
 
-    private static final String SENSOR_TYPE_FLAG = "isType";
-    private String procedureDescriptionFormat;
+    private static final /*~~>*/String SENSOR_TYPE_FLAG = "isType";
+    private /*~~>*/String procedureDescriptionFormat;
 
     /**
      * observableProperty parameter
      */
-    private List<String> observableProperty = new LinkedList<>();
+    private List</*~~>*/String> observableProperty = new LinkedList<>();
     private List<SwesFeatureRelationship> relatedFeatures = new LinkedList<>();
 
     /**
      * SOS SensorML description
      */
     private SosProcedureDescription<?> procedureDescription;
-    private String assignedProcedureIdentifier;
+    private /*~~>*/String assignedProcedureIdentifier;
     private List<SosOffering> assignedOfferings = new LinkedList<>();
 
     /**
@@ -66,21 +66,21 @@ public class InsertSensorRequest extends OwsServiceRequest {
         super(null, null, Sos2Constants.Operations.InsertSensor.name());
     }
 
-    public InsertSensorRequest(String service, String version) {
+    public InsertSensorRequest(/*~~>*/String service, /*~~>*/String version) {
         super(service, version, Sos2Constants.Operations.InsertSensor.name());
     }
 
-    public InsertSensorRequest(String service, String version, String operationName) {
+    public InsertSensorRequest(/*~~>*/String service, /*~~>*/String version, /*~~>*/String operationName) {
         super(service, version, operationName);
     }
 
-    public String getProcedureDescriptionFormat() {
+    public /*~~>*/String getProcedureDescriptionFormat() {
         return procedureDescriptionFormat;
     }
 
     @SuppressFBWarnings({ "EI_EXPOSE_REP2" })
-    public InsertSensorRequest setProcedureDescriptionFormat(String procedureDescriptionFormat) {
-        this.procedureDescriptionFormat = procedureDescriptionFormat;
+    public InsertSensorRequest setProcedureDescriptionFormat(/*~~>*/String procedureDescriptionFormat) {
+        /*~~>*/this.procedureDescriptionFormat = procedureDescriptionFormat;
         return this;
     }
 
@@ -93,7 +93,7 @@ public class InsertSensorRequest extends OwsServiceRequest {
      *
      * @return the observableProperty
      */
-    public List<String> getObservableProperty() {
+    public List</*~~>*/String> getObservableProperty() {
         return Collections.unmodifiableList(observableProperty);
     }
 
@@ -104,7 +104,7 @@ public class InsertSensorRequest extends OwsServiceRequest {
      *            the observableProperty to set
      */
     @SuppressFBWarnings({ "EI_EXPOSE_REP2" })
-    public InsertSensorRequest setObservableProperty(Collection<String> observableProperty) {
+    public InsertSensorRequest setObservableProperty(Collection</*~~>*/String> observableProperty) {
         this.observableProperty.clear();
         if (observableProperty != null) {
             this.observableProperty.addAll(observableProperty);
@@ -184,13 +184,13 @@ public class InsertSensorRequest extends OwsServiceRequest {
         return CollectionHelper.isNotEmpty(getRelatedFeatures());
     }
 
-    public String getAssignedProcedureIdentifier() {
+    public /*~~>*/String getAssignedProcedureIdentifier() {
         return assignedProcedureIdentifier;
     }
 
     @SuppressFBWarnings({ "EI_EXPOSE_REP2" })
-    public InsertSensorRequest setAssignedProcedureIdentifier(String assignedProcedureID) {
-        this.assignedProcedureIdentifier = assignedProcedureID;
+    public InsertSensorRequest setAssignedProcedureIdentifier(/*~~>*/String assignedProcedureID) {
+        /*~~>*/this.assignedProcedureIdentifier = assignedProcedureID;
         return this;
     }
 

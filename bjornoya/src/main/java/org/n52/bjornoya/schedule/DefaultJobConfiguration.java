@@ -33,29 +33,29 @@ import edu.umd.cs.findbugs.annotations.SuppressFBWarnings;
 @SuppressFBWarnings({ "EI_EXPOSE_REP", "EI_EXPOSE_REP2" })
 public class DefaultJobConfiguration implements CronExpressionValidator {
 
-    public static final String FULL_HARVEST_UPDATE = "harvest.full";
-    public static final String TEMPORAL_HARVEST_UPDATE = "harvest.temporal";
-    public static final String DEFUALT_FULL_HARVEST_JOB_NAME = "Default full harvest job";
-    public static final String DEFUALT_TEMPORAL_HARVEST_JOB_NAME = "Default temporal harvest job";
-    private static final String DOLLAR_BRACE = "${";
-    private static final String BRACE = "}";
-    private static final String COLON = ":";
-    private static final String DEFAULT_FULL = "0 0 03 * * ?";
-    private static final String DEFAULT_TEMPORAL = "0 0/5 * * * ?";
-    private static final String FULL_HARVEST_UPDATE_VALUE =
+    public static final /*~~>*/String FULL_HARVEST_UPDATE = "harvest.full";
+    public static final /*~~>*/String TEMPORAL_HARVEST_UPDATE = "harvest.temporal";
+    public static final /*~~>*/String DEFUALT_FULL_HARVEST_JOB_NAME = "Default full harvest job";
+    public static final /*~~>*/String DEFUALT_TEMPORAL_HARVEST_JOB_NAME = "Default temporal harvest job";
+    private static final /*~~>*/String DOLLAR_BRACE = "${";
+    private static final /*~~>*/String BRACE = "}";
+    private static final /*~~>*/String COLON = ":";
+    private static final /*~~>*/String DEFAULT_FULL = "0 0 03 * * ?";
+    private static final /*~~>*/String DEFAULT_TEMPORAL = "0 0/5 * * * ?";
+    private static final /*~~>*/String FULL_HARVEST_UPDATE_VALUE =
             DOLLAR_BRACE + FULL_HARVEST_UPDATE + COLON + DEFAULT_FULL + BRACE;
-    private static final String TEMPORAL_HARVEST_UPDATE_VALUE =
+    private static final /*~~>*/String TEMPORAL_HARVEST_UPDATE_VALUE =
             DOLLAR_BRACE + TEMPORAL_HARVEST_UPDATE + COLON + DEFAULT_TEMPORAL + BRACE;
     private static final Logger LOGGER = LoggerFactory.getLogger(DefaultJobConfiguration.class);
-    private String cronFullExpression = DEFAULT_FULL;
-    private String cronTemporalExpression = DEFAULT_TEMPORAL;
+    private /*~~>*/String cronFullExpression = DEFAULT_FULL;
+    private /*~~>*/String cronTemporalExpression = DEFAULT_TEMPORAL;
     private JobHandler jobHandler;
-    private Set<String> defaultJobNames = new LinkedHashSet<>();
+    private Set</*~~>*/String> defaultJobNames = new LinkedHashSet<>();
 
     /**
      * @return the cronFullExpression
      */
-    public String getFullCronExpression() {
+    public /*~~>*/String getFullCronExpression() {
         return cronFullExpression;
     }
 
@@ -65,14 +65,14 @@ public class DefaultJobConfiguration implements CronExpressionValidator {
      */
     @Setting(FULL_HARVEST_UPDATE)
     @Value(FULL_HARVEST_UPDATE_VALUE)
-    public void setFullCronExpression(String cronExpression) {
+    public void setFullCronExpression(/*~~>*/String cronExpression) {
         Validation.notNullOrEmpty("Cron expression for full update!", cronExpression);
         validate(cronExpression);
-        if (this.cronFullExpression == null) {
-            this.cronFullExpression = cronExpression;
+        if (/*~~>*/this.cronFullExpression == null) {
+            /*~~>*/this.cronFullExpression = cronExpression;
             reschedule();
-        } else if (!this.cronFullExpression.equalsIgnoreCase(cronExpression)) {
-            this.cronFullExpression = cronExpression;
+        } else if (!/*~~>*/this.cronFullExpression.equalsIgnoreCase(cronExpression)) {
+            /*~~>*/this.cronFullExpression = cronExpression;
             reschedule();
         }
 
@@ -81,7 +81,7 @@ public class DefaultJobConfiguration implements CronExpressionValidator {
     /**
      * @return the cronTemporalExpression
      */
-    public String getTemporalCronExpression() {
+    public /*~~>*/String getTemporalCronExpression() {
         return cronTemporalExpression;
     }
 
@@ -91,14 +91,14 @@ public class DefaultJobConfiguration implements CronExpressionValidator {
      */
     @Setting(TEMPORAL_HARVEST_UPDATE)
     @Value(TEMPORAL_HARVEST_UPDATE_VALUE)
-    public void setTemporalCronExpression(String cronExpression) {
+    public void setTemporalCronExpression(/*~~>*/String cronExpression) {
         Validation.notNullOrEmpty("Cron expression for temporal update!", cronExpression);
         validate(cronExpression);
-        if (this.cronTemporalExpression == null) {
-            this.cronTemporalExpression = cronExpression;
+        if (/*~~>*/this.cronTemporalExpression == null) {
+            /*~~>*/this.cronTemporalExpression = cronExpression;
             reschedule();
-        } else if (!this.cronTemporalExpression.equalsIgnoreCase(cronExpression)) {
-            this.cronTemporalExpression = cronExpression;
+        } else if (!/*~~>*/this.cronTemporalExpression.equalsIgnoreCase(cronExpression)) {
+            /*~~>*/this.cronTemporalExpression = cronExpression;
             reschedule();
         }
     }
@@ -118,7 +118,7 @@ public class DefaultJobConfiguration implements CronExpressionValidator {
         return getFullJobConfiguration(DEFUALT_FULL_HARVEST_JOB_NAME);
     }
 
-    public JobConfiguration getFullJobConfiguration(String name) {
+    public JobConfiguration getFullJobConfiguration(/*~~>*/String name) {
         addDefaultJobName(name);
         return new JobConfiguration().setEnabled(true).setTriggerAtStartup(true)
                 .setCronExpression(getFullCronExpression()).setJobType(JobType.full).setName(name);
@@ -128,34 +128,34 @@ public class DefaultJobConfiguration implements CronExpressionValidator {
         return getTemporalJobConfiguration(DEFUALT_TEMPORAL_HARVEST_JOB_NAME);
     }
 
-    public JobConfiguration getTemporalJobConfiguration(String name) {
+    public JobConfiguration getTemporalJobConfiguration(/*~~>*/String name) {
         addDefaultJobName(name);
         return new JobConfiguration().setEnabled(true).setTriggerAtStartup(true)
                 .setCronExpression(getTemporalCronExpression()).setJobType(JobType.temporal).setName(name);
     }
 
-    public DefaultJobConfiguration addDefaultJobNames(Collection<String> names) {
+    public DefaultJobConfiguration addDefaultJobNames(Collection</*~~>*/String> names) {
         if (names != null) {
             names.forEach(this::addDefaultJobName);
         }
         return this;
     }
 
-    public DefaultJobConfiguration addDefaultJobName(String name) {
+    public DefaultJobConfiguration addDefaultJobName(/*~~>*/String name) {
         if (name != null && !name.isEmpty()) {
             this.defaultJobNames.add(name);
         }
         return this;
     }
 
-    public DefaultJobConfiguration removeDefaultJobName(String name) {
+    public DefaultJobConfiguration removeDefaultJobName(/*~~>*/String name) {
         if (name != null && !name.isEmpty()) {
             this.defaultJobNames.remove(name);
         }
         return this;
     }
 
-    public Collection<String> getDefaultJobNames() {
+    public Collection</*~~>*/String> getDefaultJobNames() {
         return defaultJobNames;
     }
 

@@ -26,13 +26,13 @@ import com.google.common.base.Strings;
 
 public class SweAllowedTokens extends AbstractSWES {
 
-    private List<String> value = new LinkedList<>();
-    private String pattern;
+    private List</*~~>*/String> value = new LinkedList<>();
+    private /*~~>*/String pattern;
 
     /**
      * @return the value
      */
-    public List<String> getValue() {
+    public List</*~~>*/String> getValue() {
         return Collections.unmodifiableList(value);
     }
 
@@ -40,7 +40,7 @@ public class SweAllowedTokens extends AbstractSWES {
      * @param value
      *            the value to set
      */
-    public void setValue(List<String> value) {
+    public void setValue(List</*~~>*/String> value) {
         this.value.clear();
         if (value != null) {
             this.value.addAll(value);
@@ -54,7 +54,7 @@ public class SweAllowedTokens extends AbstractSWES {
     /**
      * @return the pattern
      */
-    public String getPattern() {
+    public /*~~>*/String getPattern() {
         return pattern;
     }
 
@@ -62,8 +62,8 @@ public class SweAllowedTokens extends AbstractSWES {
      * @param pattern
      *            the pattern to set
      */
-    public void setPattern(String pattern) {
-        this.pattern = pattern;
+    public void setPattern(/*~~>*/String pattern) {
+        /*~~>*/this.pattern = pattern;
     }
 
     public boolean isSetPattern() {

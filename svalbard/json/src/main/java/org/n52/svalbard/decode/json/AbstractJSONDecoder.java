@@ -39,7 +39,7 @@ public abstract class AbstractJSONDecoder<T> extends JSONDecoder<T> {
         super(type);
     }
 
-    protected Nillable<String> parseNillableString(JsonNode node) {
+    protected Nillable</*~~>*/String> parseNillableString(JsonNode node) {
         return parseNillable(node).map(JsonNode::textValue);
     }
 
@@ -50,8 +50,8 @@ public abstract class AbstractJSONDecoder<T> extends JSONDecoder<T> {
     protected Nillable<JsonNode> parseNillable(JsonNode node) {
         if (node.isMissingNode() || node.isNull()) {
             return Nillable.absent();
-        } else if (node.isObject() && node.path(AQDJSONConstants.NIL).asBoolean()) {
-            return Nillable.nil(node.path(AQDJSONConstants.REASON).textValue());
+        } else if (node.isObject() && node.path(/*~~>*/AQDJSONConstants.NIL).asBoolean()) {
+            return Nillable.nil(node.path(/*~~>*/AQDJSONConstants.REASON).textValue());
         }
         return Nillable.of(node);
     }
@@ -67,7 +67,7 @@ public abstract class AbstractJSONDecoder<T> extends JSONDecoder<T> {
             return Referenceable.of(nillable);
         }
 
-        if (node.has(AQDJSONConstants.HREF)) {
+        if (node.has(/*~~>*/AQDJSONConstants.HREF)) {
             return Referenceable.of(parseReference(node));
         }
 
@@ -76,14 +76,14 @@ public abstract class AbstractJSONDecoder<T> extends JSONDecoder<T> {
 
     protected Reference parseReference(JsonNode node) {
         Reference ref = new Reference();
-        ref.setHref(URI.create(node.path(AQDJSONConstants.HREF).textValue()));
-        ref.setActuate(node.path(AQDJSONConstants.ACTUATE).textValue());
-        ref.setArcrole(node.path(AQDJSONConstants.ARCROLE).textValue());
-        ref.setRemoteSchema(node.path(AQDJSONConstants.REMOTE_SCHEMA).textValue());
-        ref.setRole(node.path(AQDJSONConstants.ROLE).textValue());
-        ref.setShow(node.path(AQDJSONConstants.SHOW).textValue());
-        ref.setTitle(node.path(AQDJSONConstants.TITLE).textValue());
-        ref.setType(node.path(AQDJSONConstants.TYPE).textValue());
+        ref.setHref(URI.create(node.path(/*~~>*/AQDJSONConstants.HREF).textValue()));
+        ref.setActuate(node.path(/*~~>*/AQDJSONConstants.ACTUATE).textValue());
+        ref.setArcrole(node.path(/*~~>*/AQDJSONConstants.ARCROLE).textValue());
+        ref.setRemoteSchema(node.path(/*~~>*/AQDJSONConstants.REMOTE_SCHEMA).textValue());
+        ref.setRole(node.path(/*~~>*/AQDJSONConstants.ROLE).textValue());
+        ref.setShow(node.path(/*~~>*/AQDJSONConstants.SHOW).textValue());
+        ref.setTitle(node.path(/*~~>*/AQDJSONConstants.TITLE).textValue());
+        ref.setType(node.path(/*~~>*/AQDJSONConstants.TYPE).textValue());
         return ref;
     }
 
@@ -125,11 +125,11 @@ public abstract class AbstractJSONDecoder<T> extends JSONDecoder<T> {
     }
 
     private void checkAndAddTextAndLanguage(JsonNode n, LocalisedCharacterString localisedCharacterString) {
-        if (n.has(AQDJSONConstants.TEXT)) {
-            localisedCharacterString.setValue(n.get(AQDJSONConstants.TEXT).asText());
+        if (n.has(/*~~>*/AQDJSONConstants.TEXT)) {
+            localisedCharacterString.setValue(n.get(/*~~>*/AQDJSONConstants.TEXT).asText());
         }
-        if (n.has(AQDJSONConstants.LANGUAGE) && !n.get(AQDJSONConstants.LANGUAGE).isNull()) {
-            localisedCharacterString.setLocale(n.get(AQDJSONConstants.LANGUAGE).asText());
+        if (n.has(/*~~>*/AQDJSONConstants.LANGUAGE) && !n.get(/*~~>*/AQDJSONConstants.LANGUAGE).isNull()) {
+            localisedCharacterString.setLocale(n.get(/*~~>*/AQDJSONConstants.LANGUAGE).asText());
         }
     }
 

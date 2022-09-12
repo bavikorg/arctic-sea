@@ -23,12 +23,12 @@ import org.n52.shetland.ogc.gml.AbstractFeature;
  */
 public class SosProcedureDescriptionUnknownType extends SosProcedureDescription<AbstractFeature> {
 
-    public SosProcedureDescriptionUnknownType(String identifier, String procedureDescriptionFormat,
-            String xmlDescription) {
+    public SosProcedureDescriptionUnknownType(/*~~>*/String identifier, /*~~>*/String procedureDescriptionFormat,
+            /*~~>*/String xmlDescription) {
         super(new UnknownGMLDescription(identifier, procedureDescriptionFormat, xmlDescription));
     }
 
-    public SosProcedureDescriptionUnknownType(String identifier) {
+    public SosProcedureDescriptionUnknownType(/*~~>*/String identifier) {
         super(new UnknownGMLDescription(identifier, null, null));
     }
 
@@ -38,18 +38,18 @@ public class SosProcedureDescriptionUnknownType extends SosProcedureDescription<
     }
 
     @Override
-    public String getXml() {
+    public /*~~>*/String getXml() {
         return getProcedureDescription().getXml();
     }
 
     @Override
-    public AbstractFeature setXml(String xml) {
+    public AbstractFeature setXml(/*~~>*/String xml) {
         getProcedureDescription().setXml(xml);
         return this;
     }
 
     private static class UnknownGMLDescription extends AbstractFeature {
-        UnknownGMLDescription(String identifier, String procedureDescriptionFormat, String xmlDescription) {
+        UnknownGMLDescription(/*~~>*/String identifier, /*~~>*/String procedureDescriptionFormat, /*~~>*/String xmlDescription) {
             super(identifier);
             setDefaultElementEncoding(procedureDescriptionFormat);
             setXml(xmlDescription);

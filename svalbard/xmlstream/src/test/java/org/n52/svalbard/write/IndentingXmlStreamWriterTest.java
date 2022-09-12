@@ -41,7 +41,7 @@ public class IndentingXmlStreamWriterTest {
         ByteArrayOutputStream baos = new ByteArrayOutputStream();
         writeXML(baos);
 
-        String expected = "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n" +
+        /*~~>*/String expected = "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n" +
                           "<document attribute=\"attributeValue\">\n" +
                           "    <startElement attribute=\"attributeValue\"></startElement>\n" +
                           "    <emptyElement attribute=\"attributeValue\"/>\n" +

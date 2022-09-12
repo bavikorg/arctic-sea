@@ -39,28 +39,28 @@ import com.fasterxml.jackson.databind.JsonNode;
 public class GetObservationRequestDecoder extends AbstractSosRequestDecoder<GetObservationRequest> {
 
     public GetObservationRequestDecoder() {
-        super(GetObservationRequest.class, SosConstants.SOS, Sos2Constants.SERVICEVERSION,
+        super(GetObservationRequest.class, /*~~>*/SosConstants.SOS, /*~~>*/Sos2Constants.SERVICEVERSION,
                 SosConstants.Operations.GetObservation);
     }
 
     @Override
-    public String getSchemaURI() {
-        return SchemaConstants.Request.GET_OBSERVATION;
+    public /*~~>*/String getSchemaURI() {
+        return /*~~>*/SchemaConstants.Request.GET_OBSERVATION;
     }
 
     @Override
     public GetObservationRequest decodeRequest(JsonNode node) throws DecodingException {
         GetObservationRequest r = new GetObservationRequest();
-        r.setFeatureIdentifiers(parseStringOrStringList(node.path(JSONConstants.FEATURE_OF_INTEREST)));
-        r.setObservedProperties(parseStringOrStringList(node.path(JSONConstants.OBSERVED_PROPERTY)));
-        r.setOfferings(parseStringOrStringList(node.path(JSONConstants.OFFERING)));
-        r.setProcedures(parseStringOrStringList(node.path(JSONConstants.PROCEDURE)));
-        r.setResponseFormat(node.path(JSONConstants.RESPONSE_FORMAT).textValue());
-        r.setResponseMode(node.path(JSONConstants.RESPONSE_MODE).textValue());
-        r.setResultModel(node.path(JSONConstants.RESULT_MODEL).textValue());
-        r.setResultFilter(parseComparisonFilter(node.path(JSONConstants.RESULT_FILTER)));
-        r.setSpatialFilter(parseSpatialFilter(node.path(JSONConstants.SPATIAL_FILTER)));
-        r.setTemporalFilters(parseTemporalFilters(node.path(JSONConstants.TEMPORAL_FILTER)));
+        r.setFeatureIdentifiers(parseStringOrStringList(node.path(/*~~>*/JSONConstants.FEATURE_OF_INTEREST)));
+        r.setObservedProperties(parseStringOrStringList(node.path(/*~~>*/JSONConstants.OBSERVED_PROPERTY)));
+        r.setOfferings(parseStringOrStringList(node.path(/*~~>*/JSONConstants.OFFERING)));
+        r.setProcedures(parseStringOrStringList(node.path(/*~~>*/JSONConstants.PROCEDURE)));
+        r.setResponseFormat(node.path(/*~~>*/JSONConstants.RESPONSE_FORMAT).textValue());
+        r.setResponseMode(node.path(/*~~>*/JSONConstants.RESPONSE_MODE).textValue());
+        r.setResultModel(node.path(/*~~>*/JSONConstants.RESULT_MODEL).textValue());
+        r.setResultFilter(parseComparisonFilter(node.path(/*~~>*/JSONConstants.RESULT_FILTER)));
+        r.setSpatialFilter(parseSpatialFilter(node.path(/*~~>*/JSONConstants.SPATIAL_FILTER)));
+        r.setTemporalFilters(parseTemporalFilters(node.path(/*~~>*/JSONConstants.TEMPORAL_FILTER)));
         // TODO whats that for?
         r.setRequestString(Json.print(node));
         return r;

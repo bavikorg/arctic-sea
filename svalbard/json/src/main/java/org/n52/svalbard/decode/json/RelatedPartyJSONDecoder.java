@@ -33,14 +33,14 @@ public class RelatedPartyJSONDecoder
     public RelatedParty decodeJSON(JsonNode node, boolean validate)
             throws DecodingException {
         RelatedParty relatedParty = new RelatedParty();
-        relatedParty.setContact(decodeJsonToNillable(node.path(AQDJSONConstants.CONTACT), Contact.class));
+        relatedParty.setContact(decodeJsonToNillable(node.path(/*~~>*/AQDJSONConstants.CONTACT), Contact.class));
         relatedParty.setIndividualName(
-                parseNillable(node.path(AQDJSONConstants.INDIVIDUAL_NAME)).map(this::parseFreeText));
+                parseNillable(node.path(/*~~>*/AQDJSONConstants.INDIVIDUAL_NAME)).map(this::parseFreeText));
         relatedParty.setOrganisationName(
-                parseNillable(node.path(AQDJSONConstants.ORGANISATION_NAME)).map(this::parseFreeText));
+                parseNillable(node.path(/*~~>*/AQDJSONConstants.ORGANISATION_NAME)).map(this::parseFreeText));
         relatedParty.setPositionName(
-                parseNillable(node.path(AQDJSONConstants.POSITION_NAME)).map(this::parseFreeText));
-        for (JsonNode n : node.path(AQDJSONConstants.ROLES)) {
+                parseNillable(node.path(/*~~>*/AQDJSONConstants.POSITION_NAME)).map(this::parseFreeText));
+        for (JsonNode n : node.path(/*~~>*/AQDJSONConstants.ROLES)) {
             relatedParty.addRole(parseNillableReference(n));
         }
         return relatedParty;

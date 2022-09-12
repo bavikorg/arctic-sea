@@ -83,7 +83,7 @@ public class HttpUtils {
         return isCountingOutputStream;
     }
 
-    @Setting(value = MiscSettings.COUNTING_OUTPUTSTREAM, required = false)
+    @Setting(value = /*~~>*/MiscSettings.COUNTING_OUTPUTSTREAM, required = false)
     public void setIsCountingOutputStream(Boolean isCountingOutputStream) {
         this.isCountingOutputStream = isCountingOutputStream;
     }
@@ -114,7 +114,7 @@ public class HttpUtils {
             out = response.getOutputStream();
             if (HTTPHeaders.supportsGzipEncoding(request) && writable.supportsGZip()) {
                 out = new GZIPOutputStream(out);
-                response.setHeader(HTTPHeaders.CONTENT_ENCODING, HTTPConstants.GZIP_ENCODING);
+                response.setHeader(/*~~>*/HTTPHeaders.CONTENT_ENCODING, /*~~>*/HTTPConstants.GZIP_ENCODING);
             }
             if (isCountingOutputStream) {
                 out = new CountingOutputStream(out);

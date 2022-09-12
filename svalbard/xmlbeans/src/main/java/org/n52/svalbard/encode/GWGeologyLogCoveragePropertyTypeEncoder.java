@@ -32,7 +32,7 @@ public class GWGeologyLogCoveragePropertyTypeEncoder
 
     private static final Set<EncoderKey> ENCODER_KEYS =
             Sets.newHashSet(new ClassToClassEncoderKey(ProfileValue.class, GWGeologyLogCoveragePropertyType.class),
-                    new XmlPropertyTypeEncoderKey(GWMLConstants.NS_GWML_22, ProfileValue.class));
+                    new XmlPropertyTypeEncoderKey(/*~~>*/GWMLConstants.NS_GWML_22, ProfileValue.class));
 
     @Override
     public Set<EncoderKey> getKeys() {

@@ -25,11 +25,11 @@ import com.google.common.collect.ComparisonChain;
 
 public class SoapFault extends ExtensibilityElement {
 
-    private String name;
+    private /*~~>*/String name;
 
-    private String use;
+    private /*~~>*/String use;
 
-    public SoapFault(String name, String use) {
+    public SoapFault(/*~~>*/String name, /*~~>*/String use) {
         super(WSDLConstants.QN_SOAP_12_FAULT);
         this.setName(name);
         this.setUse(use);
@@ -38,7 +38,7 @@ public class SoapFault extends ExtensibilityElement {
     /**
      * @return the name
      */
-    public String getName() {
+    public /*~~>*/String getName() {
         return name;
     }
 
@@ -46,14 +46,14 @@ public class SoapFault extends ExtensibilityElement {
      * @param name
      *            the name to set
      */
-    public void setName(String name) {
-        this.name = name;
+    public void setName(/*~~>*/String name) {
+        /*~~>*/this.name = name;
     }
 
     /**
      * @return the use
      */
-    public String getUse() {
+    public /*~~>*/String getUse() {
         return use;
     }
 
@@ -61,8 +61,8 @@ public class SoapFault extends ExtensibilityElement {
      * @param use
      *            the use to set
      */
-    public void setUse(String use) {
-        this.use = use;
+    public void setUse(/*~~>*/String use) {
+        /*~~>*/this.use = use;
     }
 
     @Override

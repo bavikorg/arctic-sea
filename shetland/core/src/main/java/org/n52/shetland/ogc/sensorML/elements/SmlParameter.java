@@ -25,18 +25,18 @@ import edu.umd.cs.findbugs.annotations.SuppressFBWarnings;
  */
 public class SmlParameter extends AbstractReferenceType {
 
-    private String name;
+    private /*~~>*/String name;
     private SweAbstractDataComponent parameter;
 
     public SmlParameter() {
     }
 
-    public String getName() {
+    public /*~~>*/String getName() {
         return name;
     }
 
-    public SmlParameter setName(String name) {
-        this.name = name;
+    public SmlParameter setName(/*~~>*/String name) {
+        /*~~>*/this.name = name;
         return this;
     }
 

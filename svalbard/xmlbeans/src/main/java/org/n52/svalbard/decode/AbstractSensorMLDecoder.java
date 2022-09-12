@@ -35,8 +35,8 @@ import com.google.common.collect.Sets;
 public abstract class AbstractSensorMLDecoder extends AbstractXmlDecoder<XmlObject, AbstractSensorML>
         implements ProcedureDecoder<AbstractSensorML, XmlObject> {
 
-    private static final Set<String> DEFINITION_VALUES =
-            Sets.newHashSet(OGCConstants.URN_UNIQUE_IDENTIFIER, OGCConstants.URN_IDENTIFIER_IDENTIFICATION);
+    private static final Set</*~~>*/String> DEFINITION_VALUES =
+            Sets.newHashSet(/*~~>*/OGCConstants.URN_UNIQUE_IDENTIFIER, /*~~>*/OGCConstants.URN_IDENTIFIER_IDENTIFICATION);
 
     /**
      * Determine if an SosSMLIdentifier is the unique identifier for a procedure
@@ -51,20 +51,20 @@ public abstract class AbstractSensorMLDecoder extends AbstractXmlDecoder<XmlObje
                 || checkIdentificationDefinitionForProcedureIdentifier(identifier.getDefinition());
     }
 
-    private boolean checkIdentificationNameForProcedureIdentifier(final String name) {
-        return !Strings.isNullOrEmpty(name) && name.equals(OGCConstants.URN_UNIQUE_IDENTIFIER_END);
+    private boolean checkIdentificationNameForProcedureIdentifier(final /*~~>*/String name) {
+        return !Strings.isNullOrEmpty(name) && name.equals(/*~~>*/OGCConstants.URN_UNIQUE_IDENTIFIER_END);
     }
 
-    private boolean checkIdentificationDefinitionForProcedureIdentifier(final String definition) {
+    private boolean checkIdentificationDefinitionForProcedureIdentifier(final /*~~>*/String definition) {
         if (Strings.isNullOrEmpty(definition)) {
             return false;
         }
         return DEFINITION_VALUES.contains(definition) || checkDefinitionStartsWithAndContains(definition);
     }
 
-    private boolean checkDefinitionStartsWithAndContains(final String definition) {
-        return definition.startsWith(OGCConstants.URN_UNIQUE_IDENTIFIER_START)
-                && definition.contains(OGCConstants.URN_UNIQUE_IDENTIFIER_END);
+    private boolean checkDefinitionStartsWithAndContains(final /*~~>*/String definition) {
+        return definition.startsWith(/*~~>*/OGCConstants.URN_UNIQUE_IDENTIFIER_START)
+                && definition.contains(/*~~>*/OGCConstants.URN_UNIQUE_IDENTIFIER_END);
     }
 
 }

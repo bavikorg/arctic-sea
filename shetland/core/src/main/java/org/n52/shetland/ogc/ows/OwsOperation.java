@@ -32,29 +32,29 @@ import edu.umd.cs.findbugs.annotations.SuppressFBWarnings;
  * @author Christian Autermann
  */
 public class OwsOperation implements Comparable<OwsOperation> {
-    private String name;
+    private /*~~>*/String name;
     private SortedSet<OwsDomain> parameters;
     private SortedSet<OwsDomain> constraints;
     private SortedSet<OwsMetadata> metadata;
     private SortedSet<OwsDCP> dcp;
 
     @SuppressFBWarnings("NP_NULL_ON_SOME_PATH_FROM_RETURN_VALUE")
-    public OwsOperation(String name, Collection<OwsDomain> parameters, Collection<OwsDomain> constraints,
+    public OwsOperation(/*~~>*/String name, Collection<OwsDomain> parameters, Collection<OwsDomain> constraints,
             Collection<OwsMetadata> metadata, Collection<OwsDCP> dcp) {
-        this.name = Objects.requireNonNull(Strings.emptyToNull(name));
+        /*~~>*/this.name = Objects.requireNonNull(Strings.emptyToNull(name));
         this.parameters = CollectionHelper.newSortedSet(parameters);
         this.constraints = CollectionHelper.newSortedSet(constraints);
         this.metadata = CollectionHelper.newSortedSet(metadata);
         this.dcp = CollectionHelper.newSortedSet(dcp);
     }
 
-    public String getName() {
-        return this.name;
+    public /*~~>*/String getName() {
+        return /*~~>*/this.name;
     }
 
     @SuppressFBWarnings("NP_NULL_ON_SOME_PATH_FROM_RETURN_VALUE")
-    public void setName(String name) {
-        this.name = Objects.requireNonNull(Strings.emptyToNull(name));
+    public void setName(/*~~>*/String name) {
+        /*~~>*/this.name = Objects.requireNonNull(Strings.emptyToNull(name));
     }
 
     public SortedSet<OwsDomain> getParameters() {
@@ -113,7 +113,7 @@ public class OwsOperation implements Comparable<OwsOperation> {
     @Override
     public int hashCode() {
         int hash = 7;
-        hash = 83 * hash + Objects.hashCode(this.name);
+        hash = 83 * hash + Objects.hashCode(/*~~>*/this.name);
         hash = 83 * hash + Objects.hashCode(this.parameters);
         hash = 83 * hash + Objects.hashCode(this.constraints);
         hash = 83 * hash + Objects.hashCode(this.metadata);
@@ -133,7 +133,7 @@ public class OwsOperation implements Comparable<OwsOperation> {
             return false;
         }
         final OwsOperation other = (OwsOperation) obj;
-        if (!Objects.equals(this.name, other.name)) {
+        if (!Objects.equals(/*~~>*/this.name, /*~~>*/other.name)) {
             return false;
         }
         if (!Objects.equals(this.parameters, other.parameters)) {
@@ -149,7 +149,7 @@ public class OwsOperation implements Comparable<OwsOperation> {
     }
 
     @Override
-    public String toString() {
+    public /*~~>*/String toString() {
         return "OwsOperation{" + "name=" + name + ", parameters=" + parameters + ", constraints=" + constraints
                 + ", metadata=" + metadata + ", dcp=" + dcp + '}';
     }

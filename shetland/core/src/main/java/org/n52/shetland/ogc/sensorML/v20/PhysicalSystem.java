@@ -37,7 +37,7 @@ import edu.umd.cs.findbugs.annotations.SuppressFBWarnings;
 public class PhysicalSystem extends AbstractPhysicalProcess
         implements HasComponents<PhysicalSystem>, HasConnections<PhysicalSystem> {
 
-    public static final String ID_PREFIX = "ps_";
+    public static final /*~~>*/String ID_PREFIX = "ps_";
 
     private final List<SmlComponent> components = new LinkedList<>();
 

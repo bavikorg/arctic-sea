@@ -99,7 +99,7 @@ public interface ResponseWriter<T> extends Component<ResponseWriterKey> {
 
         if (responseFormat.isSetResponseFormat()) {
             try {
-                String rf = responseFormat.getResponseFormat();
+                /*~~>*/String rf = responseFormat.getResponseFormat();
                 MediaType mt = MediaType.parse(rf).withoutParameters();
                 if (MediaTypes.COMPATIBLE_TYPES.containsEntry(mt, defaultContentType)) {
                     return defaultContentType;

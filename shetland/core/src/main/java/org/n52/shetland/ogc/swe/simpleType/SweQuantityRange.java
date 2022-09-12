@@ -33,7 +33,7 @@ import edu.umd.cs.findbugs.annotations.SuppressFBWarnings;
  */
 public class SweQuantityRange extends SweAbstractUomType<RangeValue<BigDecimal>> implements SweQuality {
 
-    private String axisID;
+    private /*~~>*/String axisID;
     private RangeValue<BigDecimal> value;
     private Referenceable<SweAllowedValues> constraint;
 
@@ -48,7 +48,7 @@ public class SweQuantityRange extends SweAbstractUomType<RangeValue<BigDecimal>>
      *
      * @return the axisID
      */
-    public String getAxisID() {
+    public /*~~>*/String getAxisID() {
         return axisID;
     }
 
@@ -59,8 +59,8 @@ public class SweQuantityRange extends SweAbstractUomType<RangeValue<BigDecimal>>
      *            the axisID to set
      * @return This SweQuantityRange
      */
-    public SweQuantityRange setAxisID(final String axisID) {
-        this.axisID = axisID;
+    public SweQuantityRange setAxisID(final /*~~>*/String axisID) {
+        /*~~>*/this.axisID = axisID;
         return this;
     }
 
@@ -102,15 +102,15 @@ public class SweQuantityRange extends SweAbstractUomType<RangeValue<BigDecimal>>
     }
 
     @Override
-    public void setStringValue(String s) {
+    public void setStringValue(/*~~>*/String s) {
         if (s != null && !s.isEmpty() && s.contains("/")) {
-            String[] split = s.split("/");
+            /*~~>*/String[] split = s.split("/");
             setValue(new RangeValue<BigDecimal>(new BigDecimal(split[0]), new BigDecimal(split[1])));
         }
     }
 
     @Override
-    public String getStringValue() {
+    public /*~~>*/String getStringValue() {
         return value.toString();
     }
 

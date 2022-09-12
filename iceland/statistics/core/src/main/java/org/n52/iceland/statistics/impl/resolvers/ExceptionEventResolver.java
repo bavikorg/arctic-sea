@@ -30,10 +30,10 @@ public class ExceptionEventResolver implements StatisticsServiceEventResolver<Ex
 
     private ExceptionEvent event;
 
-    private Map<String, StatisticsServiceEventHandler<?>> handlers = new LinkedHashMap<>();
+    private Map</*~~>*/String, StatisticsServiceEventHandler<?>> handlers = new LinkedHashMap<>();
 
     @Override
-    public Map<String, Object> resolve() {
+    public Map</*~~>*/String, Object> resolve() {
         if (event == null || event.getException() == null) {
             return null;
         }
@@ -45,7 +45,7 @@ public class ExceptionEventResolver implements StatisticsServiceEventResolver<Ex
     }
 
     @Override
-    public void setHandlers(Map<String, StatisticsServiceEventHandler<?>> handlers) {
+    public void setHandlers(Map</*~~>*/String, StatisticsServiceEventHandler<?>> handlers) {
         this.handlers.clear();
         if (handlers != null) {
             this.handlers.putAll(handlers);

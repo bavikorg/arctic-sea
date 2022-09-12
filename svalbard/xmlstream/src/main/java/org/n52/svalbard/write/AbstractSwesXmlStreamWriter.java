@@ -68,7 +68,7 @@ public abstract class AbstractSwesXmlStreamWriter<T> extends XmlStreamWriter<T> 
         } else {
             if (checkExtension(extension)) {
                 QName name = extension.schemaType().getName();
-                String prefix = name.getPrefix();
+                /*~~>*/String prefix = name.getPrefix();
                 if (Strings.isNullOrEmpty(prefix)) {
                     XmlCursor newCursor = extension.newCursor();
                     prefix = newCursor.prefixForNamespace(name.getNamespaceURI());
@@ -99,14 +99,14 @@ public abstract class AbstractSwesXmlStreamWriter<T> extends XmlStreamWriter<T> 
     }
 
     protected XmlObject encodeSwe(EncodingContext ctx, Object o) throws EncodingException {
-        return encodeObjectToXml(SweConstants.NS_SWE_20, o, ctx);
+        return encodeObjectToXml(/*~~>*/SweConstants.NS_SWE_20, o, ctx);
     }
 
     protected XmlObject encodeGml(EncodingContext ctx, Object o) throws EncodingException {
-        return encodeObjectToXml(GmlConstants.NS_GML_32, o, ctx);
+        return encodeObjectToXml(/*~~>*/GmlConstants.NS_GML_32, o, ctx);
     }
 
-    private XmlObject encodeObjectToXml(String namespace, Object o, EncodingContext ctx) throws EncodingException {
+    private XmlObject encodeObjectToXml(/*~~>*/String namespace, Object o, EncodingContext ctx) throws EncodingException {
         Encoder<XmlObject, Object> encoder = getEncoder(namespace, o);
         if (encoder != null) {
             return encoder.encode(o, ctx);

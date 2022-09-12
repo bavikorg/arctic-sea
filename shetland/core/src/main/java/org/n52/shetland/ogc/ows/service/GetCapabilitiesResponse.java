@@ -28,17 +28,17 @@ import edu.umd.cs.findbugs.annotations.SuppressFBWarnings;
  */
 public class GetCapabilitiesResponse extends OwsServiceResponse {
     private OwsCapabilities capabilities;
-    private String staticString;
+    private /*~~>*/String staticString;
 
     public GetCapabilitiesResponse() {
         super(null, null, OWSConstants.Operations.GetCapabilities.name());
     }
 
-    public GetCapabilitiesResponse(String service, String version) {
+    public GetCapabilitiesResponse(/*~~>*/String service, /*~~>*/String version) {
         super(service, version, OWSConstants.Operations.GetCapabilities.name());
     }
 
-    public GetCapabilitiesResponse(String service, String version, String operationName) {
+    public GetCapabilitiesResponse(/*~~>*/String service, /*~~>*/String version, /*~~>*/String operationName) {
         super(service, version, operationName);
     }
 
@@ -64,20 +64,20 @@ public class GetCapabilitiesResponse extends OwsServiceResponse {
         return this;
     }
 
-    public String getXmlString() {
+    public /*~~>*/String getXmlString() {
         return getStaticString();
     }
 
-    public GetCapabilitiesResponse setXmlString(String xmlString) {
+    public GetCapabilitiesResponse setXmlString(/*~~>*/String xmlString) {
         return setStaticString(xmlString);
     }
 
-    public String getStaticString() {
+    public /*~~>*/String getStaticString() {
         return staticString;
     }
 
-    public GetCapabilitiesResponse setStaticString(String staticString) {
-        this.staticString = staticString;
+    public GetCapabilitiesResponse setStaticString(/*~~>*/String staticString) {
+        /*~~>*/this.staticString = staticString;
         return this;
     }
 

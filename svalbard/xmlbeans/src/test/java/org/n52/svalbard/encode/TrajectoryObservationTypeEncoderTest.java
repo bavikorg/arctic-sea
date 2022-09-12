@@ -58,10 +58,10 @@ import eu.europa.ec.inspire.schemas.omso.x30.TrajectoryObservationType;
 
 public class TrajectoryObservationTypeEncoderTest extends AbtractProcessDecodingTest {
 
-    private static final String PROCEDURE = "procedure";
-    private static final String OFFERING = "offering";
-    private static final String OBSERVABLE_PROPERTY  = "observableProperty";
-    private static final String CODE_SPACE = "codespace";
+    private static final /*~~>*/String PROCEDURE = "procedure";
+    private static final /*~~>*/String OFFERING = "offering";
+    private static final /*~~>*/String OBSERVABLE_PROPERTY  = "observableProperty";
+    private static final /*~~>*/String CODE_SPACE = "codespace";
     private TrajectoryObservationTypeEncoder encoder;
 
     @BeforeEach
@@ -209,7 +209,7 @@ public class TrajectoryObservationTypeEncoderTest extends AbtractProcessDecoding
     }
 
     private Geometry getGeometry() throws ParseException {
-    final String wktString = "POINT (52.7 7.52)";
+    final /*~~>*/String wktString = "POINT (52.7 7.52)";
     return JTSHelper.createGeometryFromWKT(wktString, 4326);
 }
 

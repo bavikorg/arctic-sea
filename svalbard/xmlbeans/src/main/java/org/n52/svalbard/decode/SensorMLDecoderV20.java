@@ -141,23 +141,23 @@ public class SensorMLDecoderV20
     private static final Logger LOGGER = LoggerFactory.getLogger(SensorMLDecoderV20.class);
 
     private static final Set<DecoderKey> DECODER_KEYS
-            = CodingHelper.decoderKeysForElements(SensorML20Constants.NS_SML_20, DescribedObjectDocument.class,
+            = CodingHelper.decoderKeysForElements(/*~~>*/SensorML20Constants.NS_SML_20, DescribedObjectDocument.class,
                     SimpleProcessDocument.class, PhysicalComponentDocument.class, PhysicalSystemDocument.class,
                     AggregateProcessDocument.class, AbstractProcessDocument.class);
 
-    private static final Set<String> REMOVABLE_CAPABILITIES_NAMES
-            = Sets.newHashSet(SensorMLConstants.ELEMENT_NAME_OFFERINGS);
+    private static final Set</*~~>*/String> REMOVABLE_CAPABILITIES_NAMES
+            = Sets.newHashSet(/*~~>*/SensorMLConstants.ELEMENT_NAME_OFFERINGS);
 
-    private static final Set<String> REMOVABLE_COMPONENTS_ROLES
-            = Collections.singleton(SensorMLConstants.ELEMENT_NAME_CHILD_PROCEDURES);
+    private static final Set</*~~>*/String> REMOVABLE_COMPONENTS_ROLES
+            = Collections.singleton(/*~~>*/SensorMLConstants.ELEMENT_NAME_CHILD_PROCEDURES);
 
     private static final ImmutableSet<SupportedType> SUPPORTED_TYPES = ImmutableSet.<SupportedType>builder()
-            .add(new ProcedureDescriptionFormat(SensorML20Constants.SENSORML_20_OUTPUT_FORMAT_URL)).build();
+            .add(new ProcedureDescriptionFormat(/*~~>*/SensorML20Constants.SENSORML_20_OUTPUT_FORMAT_URL)).build();
 
     // CHECKSTYLE:OFF
-    private static final Map<String, ImmutableMap<String, Set<String>>> SUPPORTED_TRANSACTIONAL_PROCEDURE_DESCRIPTION_FORMATS
-            = ImmutableMap.of(SosConstants.SOS, ImmutableMap.<String, Set<String>>builder()
-                    .put(Sos2Constants.SERVICEVERSION, ImmutableSet.of(SensorMLConstants.SENSORML_OUTPUT_FORMAT_URL))
+    private static final Map</*~~>*/String, ImmutableMap</*~~>*/String, Set</*~~>*/String>>> SUPPORTED_TRANSACTIONAL_PROCEDURE_DESCRIPTION_FORMATS
+            = ImmutableMap.of(/*~~>*/SosConstants.SOS, ImmutableMap.</*~~>*/String, Set</*~~>*/String>>builder()
+                    .put(/*~~>*/Sos2Constants.SERVICEVERSION, ImmutableSet.of(/*~~>*/SensorMLConstants.SENSORML_OUTPUT_FORMAT_URL))
                     .build());
     // CHECKSTYLE:ON
 
@@ -177,7 +177,7 @@ public class SensorMLDecoderV20
     }
 
     @Override
-    public Set<String> getSupportedProcedureDescriptionFormats(final String service, final String version) {
+    public Set</*~~>*/String> getSupportedProcedureDescriptionFormats(final /*~~>*/String service, final /*~~>*/String version) {
         if (SUPPORTED_TRANSACTIONAL_PROCEDURE_DESCRIPTION_FORMATS.containsKey(service)
                 && SUPPORTED_TRANSACTIONAL_PROCEDURE_DESCRIPTION_FORMATS.get(service).containsKey(version)) {
             return SUPPORTED_TRANSACTIONAL_PROCEDURE_DESCRIPTION_FORMATS.get(service).get(version);
@@ -438,12 +438,12 @@ public class SensorMLDecoderV20
         // }
     }
 
-    private List<String> parseKeywords(final KeywordListPropertyType[] keywordsArray) {
-        final Set<String> keywords = Sets.newHashSet();
+    private List</*~~>*/String> parseKeywords(final KeywordListPropertyType[] keywordsArray) {
+        final Set</*~~>*/String> keywords = Sets.newHashSet();
         if (keywordsArray != null && keywordsArray.length > 0) {
             for (final KeywordListPropertyType keyword : keywordsArray) {
                 if (keyword.isSetKeywordList()) {
-                    final String[] array = keyword.getKeywordList().getKeywordArray();
+                    final /*~~>*/String[] array = keyword.getKeywordList().getKeywordArray();
                     if (array != null && array.length > 0) {
                         keywords.addAll(Arrays.asList(array));
                     }
@@ -741,7 +741,7 @@ public class SensorMLDecoderV20
 
     private boolean checkIdentifierCodeSpace(AbstractProcessV20 ap) throws DecodingException {
         if (ap.getIdentifierCodeWithAuthority().isSetCodeSpace()
-                && OGCConstants.UNIQUE_ID.equals(ap.getIdentifierCodeWithAuthority().getCodeSpace())) {
+                && /*~~>*/OGCConstants.UNIQUE_ID.equals(ap.getIdentifierCodeWithAuthority().getCodeSpace())) {
             return true;
         } else {
             throw new DecodingException("gml:identifier[@codesSpace]",
@@ -752,7 +752,7 @@ public class SensorMLDecoderV20
     private List<Integer> checkCapabilitiesForRemoval(final Capabilities[] capabilitiesArray) {
         final List<Integer> removeableCaps = new ArrayList<>(capabilitiesArray.length);
         for (int i = 0; i < capabilitiesArray.length; i++) {
-            final String name = capabilitiesArray[i].getName();
+            final /*~~>*/String name = capabilitiesArray[i].getName();
             if (name != null && REMOVABLE_CAPABILITIES_NAMES.contains(name)) {
                 removeableCaps.add(i);
             }
@@ -793,7 +793,7 @@ public class SensorMLDecoderV20
     private SmlParameter parseSweParameter(Parameter xbParameter)
             throws DecodingException {
         SmlParameter param = new SmlParameter();
-        String name = xbParameter.getName();
+        /*~~>*/String name = xbParameter.getName();
         if (xbParameter.isSetHref()) {
             param.setHref(xbParameter.getHref());
             if (xbParameter.isSetTitle()) {

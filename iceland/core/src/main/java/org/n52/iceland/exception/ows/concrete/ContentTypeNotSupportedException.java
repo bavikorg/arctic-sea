@@ -26,10 +26,10 @@ public class ContentTypeNotSupportedException extends InvalidParameterValueExcep
     private static final long serialVersionUID = -4947423996380128523L;
 
     @SuppressWarnings("ThrowableResultIgnored")
-    public ContentTypeNotSupportedException(String contentType, String... supportedContentType) {
+    public ContentTypeNotSupportedException(/*~~>*/String contentType, /*~~>*/String... supportedContentType) {
         super("HTTP header Accept", contentType);
         withMessage("Requested content type '%s' as specified in 'Accept' header not supported. Please one of %s.",
-                    contentType, String.join(", ", supportedContentType));
+                    contentType, /*~~>*/String.join(", ", supportedContentType));
         setStatus(HTTPStatus.BAD_REQUEST);
     }
 

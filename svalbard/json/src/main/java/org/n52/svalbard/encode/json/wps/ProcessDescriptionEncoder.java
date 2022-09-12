@@ -93,24 +93,24 @@ public class ProcessDescriptionEncoder extends JSONEncoder<Object> {
 
     private JsonNode createProcessDescription(ProcessDescription processDescription) throws EncodingException {
         ObjectNode root = createDescription(processDescription);
-        root.put(JSONConstants.VERSION, processDescription.getVersion());
-        root.set(JSONConstants.INPUTS, encodeObjectsToJson(processDescription.getInputDescriptions()));
-        root.set(JSONConstants.OUTPUTS, encodeObjectsToJson(processDescription.getOutputDescriptions()));
+        root.put(/*~~>*/JSONConstants.VERSION, processDescription.getVersion());
+        root.set(/*~~>*/JSONConstants.INPUTS, encodeObjectsToJson(processDescription.getInputDescriptions()));
+        root.set(/*~~>*/JSONConstants.OUTPUTS, encodeObjectsToJson(processDescription.getOutputDescriptions()));
         return root;
     }
 
     private ObjectNode createDescription(Description description) {
         ObjectNode root = nodeFactory().objectNode();
-        root.put(JSONConstants.ID, description.getId().getValue());
-        root.put(JSONConstants.TITLE, description.getTitle().getValue());
+        root.put(/*~~>*/JSONConstants.ID, description.getId().getValue());
+        root.put(/*~~>*/JSONConstants.TITLE, description.getTitle().getValue());
         description.getAbstract().map(OwsLanguageString::getValue)
-                   .ifPresent(v -> root.put(JSONConstants.DESCRIPTION, v));
-        root.set(JSONConstants.KEYWORDS, description.getKeywords().stream()
+                   .ifPresent(v -> root.put(/*~~>*/JSONConstants.DESCRIPTION, v));
+        root.set(/*~~>*/JSONConstants.KEYWORDS, description.getKeywords().stream()
                                                     .map(OwsKeyword::getKeyword)
                                                     .map(OwsLanguageString::getValue)
                                                     .map(this::encodeAsString)
                                                     .collect(toJsonArray()));
-        root.set(JSONConstants.METADATA, description.getMetadata().stream()
+        root.set(/*~~>*/JSONConstants.METADATA, description.getMetadata().stream()
                                                     .map(this::createMetadata)
                                                     .collect(toJsonArray()));
         return root;
@@ -118,40 +118,40 @@ public class ProcessDescriptionEncoder extends JSONEncoder<Object> {
 
     private ObjectNode createMetadata(OwsMetadata x) {
         ObjectNode root = nodeFactory().objectNode();
-        x.getRole().map(URI::toString).ifPresent(v -> root.put(JSONConstants.ROLE, v));
-        x.getHref().map(URI::toString).ifPresent(v -> root.put(JSONConstants.HREF, v));
+        x.getRole().map(URI::toString).ifPresent(v -> root.put(/*~~>*/JSONConstants.ROLE, v));
+        x.getHref().map(URI::toString).ifPresent(v -> root.put(/*~~>*/JSONConstants.HREF, v));
         return root;
     }
 
     private ObjectNode createBoundingBoxOutput(BoundingBoxOutputDescription description) {
         ObjectNode root = createDescription(description);
-        root.putObject(JSONConstants.OUTPUT)
-            .set(JSONConstants.SUPPORTED_CRS, createSupportedCRS(description));
+        root.putObject(/*~~>*/JSONConstants.OUTPUT)
+            .set(/*~~>*/JSONConstants.SUPPORTED_CRS, createSupportedCRS(description));
         return root;
     }
 
     private ObjectNode createLiteralOutput(LiteralOutputDescription description) {
         ObjectNode root = createDescription(description);
-        root.putObject(JSONConstants.OUTPUT)
-            .set(JSONConstants.LITERAL_DATA_DOMAINS, createLiteralDataDomains(description));
+        root.putObject(/*~~>*/JSONConstants.OUTPUT)
+            .set(/*~~>*/JSONConstants.LITERAL_DATA_DOMAINS, createLiteralDataDomains(description));
         return root;
     }
 
     private ObjectNode createComplexOutput(ComplexOutputDescription description) {
         ObjectNode root = createDescription(description);
-        root.putObject(JSONConstants.OUTPUT)
-            .set(JSONConstants.FORMATS, createFormats(description));
+        root.putObject(/*~~>*/JSONConstants.OUTPUT)
+            .set(/*~~>*/JSONConstants.FORMATS, createFormats(description));
         return root;
     }
 
     private ArrayNode createLiteralDataDomains(LiteralDescription description) {
         ArrayNode root = nodeFactory().arrayNode();
-        root.add(createLiteralDataDomain(description.getDefaultLiteralDataDomain()).put(JSONConstants.DEFAULT, true));
+        root.add(createLiteralDataDomain(description.getDefaultLiteralDataDomain()).put(/*~~>*/JSONConstants.DEFAULT, true));
 
         description.getSupportedLiteralDataDomains().stream()
                    .filter(v -> !description.getDefaultLiteralDataDomain().equals(v))
                    .map(this::createLiteralDataDomain)
-                   .map(v -> v.put(JSONConstants.DEFAULT, false))
+                   .map(v -> v.put(/*~~>*/JSONConstants.DEFAULT, false))
                    .forEach(root::add);
 
         return root;
@@ -159,32 +159,32 @@ public class ProcessDescriptionEncoder extends JSONEncoder<Object> {
 
     private ObjectNode createInputDescription(ProcessInputDescription processInputDescription) {
         ObjectNode root = createDescription(processInputDescription);
-        root.put(JSONConstants.MIN_OCCURS, processInputDescription.getOccurence().getMin());
+        root.put(/*~~>*/JSONConstants.MIN_OCCURS, processInputDescription.getOccurence().getMin());
         Optional<BigInteger> max = processInputDescription.getOccurence().getMax();
         if (max.isPresent()) {
-            root.put(JSONConstants.MAX_OCCURS, max.get());
+            root.put(/*~~>*/JSONConstants.MAX_OCCURS, max.get());
         } else {
-            root.put(JSONConstants.MAX_OCCURS, "unbounded");
+            root.put(/*~~>*/JSONConstants.MAX_OCCURS, "unbounded");
         }
         return root;
     }
 
     private ObjectNode createBoundingBoxInput(BoundingBoxInputDescription description) {
         ObjectNode root = createInputDescription(description);
-        root.putObject(JSONConstants.INPUT).set(JSONConstants.SUPPORTED_CRS, createSupportedCRS(description));
+        root.putObject(/*~~>*/JSONConstants.INPUT).set(/*~~>*/JSONConstants.SUPPORTED_CRS, createSupportedCRS(description));
         return root;
     }
 
     private ObjectNode createLiteralInput(LiteralInputDescription description) {
         ObjectNode root = createInputDescription(description);
-        root.putObject(JSONConstants.INPUT).set(JSONConstants.LITERAL_DATA_DOMAINS,
+        root.putObject(/*~~>*/JSONConstants.INPUT).set(/*~~>*/JSONConstants.LITERAL_DATA_DOMAINS,
                                                 createLiteralDataDomains(description));
         return root;
     }
 
     private ObjectNode createComplexInput(ComplexInputDescription description) {
         ObjectNode root = createInputDescription(description);
-        root.putObject(JSONConstants.INPUT).set(JSONConstants.FORMATS, createFormats(description));
+        root.putObject(/*~~>*/JSONConstants.INPUT).set(/*~~>*/JSONConstants.FORMATS, createFormats(description));
         return root;
     }
 
@@ -192,13 +192,13 @@ public class ProcessDescriptionEncoder extends JSONEncoder<Object> {
         ArrayNode root = nodeFactory().arrayNode();
 
         ObjectNode def = root.addObject();
-        def.put(JSONConstants.CRS, description.getDefaultCRS().getValue().toString());
-        def.put(JSONConstants.DEFAULT, true);
+        def.put(/*~~>*/JSONConstants.CRS, description.getDefaultCRS().getValue().toString());
+        def.put(/*~~>*/JSONConstants.DEFAULT, true);
 
         description.getSupportedCRS().stream()
                    .filter(v -> !description.getDefaultCRS().equals(v))
                    .map(OwsCRS::getValue).map(URI::toString)
-                   .map(v -> nodeFactory().objectNode().put(JSONConstants.CRS, v).put(JSONConstants.DEFAULT, false))
+                   .map(v -> nodeFactory().objectNode().put(/*~~>*/JSONConstants.CRS, v).put(/*~~>*/JSONConstants.DEFAULT, false))
                    .forEach(root::add);
         return root;
     }
@@ -206,20 +206,20 @@ public class ProcessDescriptionEncoder extends JSONEncoder<Object> {
     private ObjectNode createLiteralDataDomain(LiteralDataDomain literalDataDomain) {
         ObjectNode root = nodeFactory().objectNode();
         literalDataDomain.getDataType().map(this::createOwsDomainMetadata)
-                         .ifPresent(v -> root.set(JSONConstants.DATA_TYPE, v));
+                         .ifPresent(v -> root.set(/*~~>*/JSONConstants.DATA_TYPE, v));
         literalDataDomain.getUOM().map(this::createOwsDomainMetadata)
-                         .ifPresent(v -> root.set(JSONConstants.UOM, v));
-        root.set(JSONConstants.VALUE_DEFINITION, createPossibleValues(literalDataDomain.getPossibleValues()));
+                         .ifPresent(v -> root.set(/*~~>*/JSONConstants.UOM, v));
+        root.set(/*~~>*/JSONConstants.VALUE_DEFINITION, createPossibleValues(literalDataDomain.getPossibleValues()));
 
         literalDataDomain.getDefaultValue().map(OwsValue::getValue)
-                         .ifPresent(v -> root.put(JSONConstants.DEFAULT_VALUE, v));
+                         .ifPresent(v -> root.put(/*~~>*/JSONConstants.DEFAULT_VALUE, v));
         return root;
     }
 
     private ObjectNode createOwsDomainMetadata(OwsDomainMetadata domainMetadata) {
         ObjectNode root = nodeFactory().objectNode();
-        domainMetadata.getValue().ifPresent(v -> root.put(JSONConstants.NAME, v));
-        domainMetadata.getReference().map(URI::toString).ifPresent(v -> root.put(JSONConstants.REFERENCE, v));
+        domainMetadata.getValue().ifPresent(v -> root.put(/*~~>*/JSONConstants.NAME, v));
+        domainMetadata.getReference().map(URI::toString).ifPresent(v -> root.put(/*~~>*/JSONConstants.REFERENCE, v));
         return root;
     }
 
@@ -236,14 +236,14 @@ public class ProcessDescriptionEncoder extends JSONEncoder<Object> {
     }
 
     private JsonNode createAnyValue(OwsAnyValue owsAnyValue) {
-        return nodeFactory().objectNode().put(JSONConstants.ANY_VALUE, true);
+        return nodeFactory().objectNode().put(/*~~>*/JSONConstants.ANY_VALUE, true);
     }
 
     private ObjectNode createValuesReference(OwsValuesReference valuesReference) {
         ObjectNode root = nodeFactory().objectNode();
-        root.put(JSONConstants.VALUE_REFERENCE, valuesReference.getReference().toString());
+        root.put(/*~~>*/JSONConstants.VALUE_REFERENCE, valuesReference.getReference().toString());
         if (!valuesReference.getValue().isEmpty()) {
-            root.put(JSONConstants.VALUE, valuesReference.getValue());
+            root.put(/*~~>*/JSONConstants.VALUE, valuesReference.getValue());
         }
         return root;
     }
@@ -268,31 +268,31 @@ public class ProcessDescriptionEncoder extends JSONEncoder<Object> {
 
     private JsonNode createRange(OwsRange owsRange) {
         ObjectNode root = nodeFactory().objectNode();
-        owsRange.getLowerBound().map(OwsValue::getValue).ifPresent(v -> root.put(JSONConstants.MINIMUM_VALUE, v));
-        owsRange.getUpperBound().map(OwsValue::getValue).ifPresent(v -> root.put(JSONConstants.MAXIMUM_VALUE, v));
-        owsRange.getSpacing().map(OwsValue::getValue).ifPresent(v -> root.put(JSONConstants.SPACING, v));
-        root.put(JSONConstants.RANGE_CLOSURE, owsRange.getType());
+        owsRange.getLowerBound().map(OwsValue::getValue).ifPresent(v -> root.put(/*~~>*/JSONConstants.MINIMUM_VALUE, v));
+        owsRange.getUpperBound().map(OwsValue::getValue).ifPresent(v -> root.put(/*~~>*/JSONConstants.MAXIMUM_VALUE, v));
+        owsRange.getSpacing().map(OwsValue::getValue).ifPresent(v -> root.put(/*~~>*/JSONConstants.SPACING, v));
+        root.put(/*~~>*/JSONConstants.RANGE_CLOSURE, owsRange.getType());
         return root;
     }
 
     private ArrayNode createFormats(ComplexDescription description) {
         ArrayNode formats = nodeFactory().arrayNode();
         formats.add(createFormat(description.getDefaultFormat(), description.getMaximumMegabytes())
-                            .put(JSONConstants.DEFAULT, true));
+                            .put(/*~~>*/JSONConstants.DEFAULT, true));
         description.getSupportedFormats().stream()
                    .filter(v -> !description.getDefaultFormat().equals(v))
                    .map(format -> createFormat(format, description.getMaximumMegabytes()))
-                   .map(n -> n.put(JSONConstants.DEFAULT, false))
+                   .map(n -> n.put(/*~~>*/JSONConstants.DEFAULT, false))
                    .forEach(formats::add);
         return formats;
     }
 
     private ObjectNode createFormat(Format format, Optional<BigInteger> maximumMegabytes) {
         ObjectNode formatDescription = nodeFactory().objectNode();
-        format.getMimeType().ifPresent(v -> formatDescription.put(JSONConstants.MIME_TYPE, v));
-        format.getSchema().ifPresent(v -> formatDescription.put(JSONConstants.SCHEMA, v));
-        format.getEncoding().ifPresent(v -> formatDescription.put(JSONConstants.ENCODING, v));
-        maximumMegabytes.ifPresent(v -> formatDescription.put(JSONConstants.MAXIMUM_MEGABYTES, v));
+        format.getMimeType().ifPresent(v -> formatDescription.put(/*~~>*/JSONConstants.MIME_TYPE, v));
+        format.getSchema().ifPresent(v -> formatDescription.put(/*~~>*/JSONConstants.SCHEMA, v));
+        format.getEncoding().ifPresent(v -> formatDescription.put(/*~~>*/JSONConstants.ENCODING, v));
+        maximumMegabytes.ifPresent(v -> formatDescription.put(/*~~>*/JSONConstants.MAXIMUM_MEGABYTES, v));
         return formatDescription;
     }
 }

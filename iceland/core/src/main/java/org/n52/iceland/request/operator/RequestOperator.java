@@ -56,7 +56,7 @@ public interface RequestOperator extends ConformanceClass, Component<RequestOper
      *             If an error occurs during the generation of
      *             {@link OwsOperation}
      */
-    OwsOperation getOperationMetadata(String service, String version) throws OwsExceptionReport;
+    OwsOperation getOperationMetadata(/*~~>*/String service, /*~~>*/String version) throws OwsExceptionReport;
 
     /**
      * Check if the operation and all necessary sources (e.g. tables) are available.

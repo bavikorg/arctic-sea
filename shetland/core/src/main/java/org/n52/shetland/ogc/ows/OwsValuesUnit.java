@@ -23,11 +23,11 @@ import java.net.URI;
  * @author Christian Autermann
  */
 public abstract class OwsValuesUnit extends OwsDomainMetadata {
-    public OwsValuesUnit(URI reference, String value) {
+    public OwsValuesUnit(URI reference, /*~~>*/String value) {
         super(reference, value);
     }
 
-    public OwsValuesUnit(String value) {
+    public OwsValuesUnit(/*~~>*/String value) {
         super(value);
     }
 

@@ -35,11 +35,11 @@ public class InsertResultResponse extends OwsServiceResponse {
         super(null, null, Sos2Constants.Operations.InsertResult.name());
     }
 
-    public InsertResultResponse(String service, String version) {
+    public InsertResultResponse(/*~~>*/String service, /*~~>*/String version) {
         super(service, version, Sos2Constants.Operations.InsertResult.name());
     }
 
-    public InsertResultResponse(String service, String version, String operationName) {
+    public InsertResultResponse(/*~~>*/String service, /*~~>*/String version, /*~~>*/String operationName) {
         super(service, version, operationName);
     }
 

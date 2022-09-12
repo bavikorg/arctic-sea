@@ -61,7 +61,7 @@ public abstract class AbstractOrdered implements Ordered {
         return compare;
     }
 
-    protected abstract String getSuborder();
+    protected abstract /*~~>*/String getSuborder();
 
     @Override
     public int hashCode() {

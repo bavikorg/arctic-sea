@@ -105,21 +105,21 @@ public class InspireEncoderTest {
     }
 
     @SuppressWarnings("unchecked")
-    public Set<String> getObservationTypesAsString() {
+    public Set</*~~>*/String> getObservationTypesAsString() {
         return getSupportedTypeAsString((Set<AbstractSupportedStringType>) typesFor(ObservationType.class));
     }
 
-    private Set<String> getSupportedTypeAsString(Set<? extends AbstractSupportedStringType> types) {
+    private Set</*~~>*/String> getSupportedTypeAsString(Set<? extends AbstractSupportedStringType> types) {
         return types.stream().map(AbstractSupportedStringType::getValue).collect(toSet());
     }
 
     @Test
     public void test_observationTypes() {
-        MatcherAssert.assertThat(getObservationTypesAsString().contains(InspireOMSOConstants.OBS_TYPE_POINT_OBSERVATION), Matchers.is(true));
-        MatcherAssert.assertThat(getObservationTypesAsString().contains(InspireOMSOConstants.OBS_TYPE_POINT_TIME_SERIES_OBSERVATION), Matchers.is(true));
-        MatcherAssert.assertThat(getObservationTypesAsString().contains(InspireOMSOConstants.OBS_TYPE_TRAJECTORY_OBSERVATION), Matchers.is(true));
-        MatcherAssert.assertThat(getObservationTypesAsString().contains(InspireOMSOConstants.OBS_TYPE_PROFILE_OBSERVATION), Matchers.is(true));
-        MatcherAssert.assertThat(getObservationTypesAsString().contains(InspireOMSOConstants.OBS_TYPE_MULTI_POINT_OBSERVATION), Matchers.is(true));
+        MatcherAssert.assertThat(getObservationTypesAsString().contains(/*~~>*/InspireOMSOConstants.OBS_TYPE_POINT_OBSERVATION), Matchers.is(true));
+        MatcherAssert.assertThat(getObservationTypesAsString().contains(/*~~>*/InspireOMSOConstants.OBS_TYPE_POINT_TIME_SERIES_OBSERVATION), Matchers.is(true));
+        MatcherAssert.assertThat(getObservationTypesAsString().contains(/*~~>*/InspireOMSOConstants.OBS_TYPE_TRAJECTORY_OBSERVATION), Matchers.is(true));
+        MatcherAssert.assertThat(getObservationTypesAsString().contains(/*~~>*/InspireOMSOConstants.OBS_TYPE_PROFILE_OBSERVATION), Matchers.is(true));
+        MatcherAssert.assertThat(getObservationTypesAsString().contains(/*~~>*/InspireOMSOConstants.OBS_TYPE_MULTI_POINT_OBSERVATION), Matchers.is(true));
     }
 
     /*
@@ -130,9 +130,9 @@ public class InspireEncoderTest {
 
     @BeforeAll
     public static void init() {
-        Map<String, String> prefixes = new HashMap<String, String>();
-        prefixes.put(InspireConstants.NS_INSPIRE_COMMON, InspireConstants.NS_INSPIRE_COMMON_PREFIX);
-        prefixes.put(InspireConstants.NS_INSPIRE_DLS, InspireConstants.NS_INSPIRE_DLS_PREFIX);
+        Map</*~~>*/String, /*~~>*/String> prefixes = new HashMap</*~~>*/String, /*~~>*/String>();
+        prefixes.put(/*~~>*/InspireConstants.NS_INSPIRE_COMMON, /*~~>*/InspireConstants.NS_INSPIRE_COMMON_PREFIX);
+        prefixes.put(/*~~>*/InspireConstants.NS_INSPIRE_DLS, /*~~>*/InspireConstants.NS_INSPIRE_DLS_PREFIX);
         xmlOptions.setSaveSuggestedPrefixes(prefixes);
         xmlOptions.setSaveImplicitNamespaces(prefixes);
         xmlOptions.setSaveAggressiveNamespaces();
@@ -160,29 +160,29 @@ public class InspireEncoderTest {
     @Test
     public void valid_iso8601() {
         // date
-        String datePattern = "\\d{4}-(1[0-2]|0[1-9])-(3[0-1]|0[1-9]|[1-2][0-9])";
-        String date = "2013-09-26";
+        /*~~>*/String datePattern = "\\d{4}-(1[0-2]|0[1-9])-(3[0-1]|0[1-9]|[1-2][0-9])";
+        /*~~>*/String date = "2013-09-26";
         Assertions.assertTrue(Pattern.matches(datePattern, date));
         // time
-        String timePattern = "(T(2[0-3]|[0-1][0-9]):([0-5][0-9]):([0-5][0-9])(\\.[0-9]+)?)?";
-        String time_HH_MM_SS_S = "T12:49:41.740";
+        /*~~>*/String timePattern = "(T(2[0-3]|[0-1][0-9]):([0-5][0-9]):([0-5][0-9])(\\.[0-9]+)?)?";
+        /*~~>*/String time_HH_MM_SS_S = "T12:49:41.740";
         Assertions.assertTrue(Pattern.matches(timePattern, time_HH_MM_SS_S));
-        String time_HH_MM_SS = "T12:49:41";
+        /*~~>*/String time_HH_MM_SS = "T12:49:41";
         Assertions.assertTrue(Pattern.matches(timePattern, time_HH_MM_SS));
         // offset
-        String offsetPattern = "(Z|[+|-](2[0-3]|[0-1][0-9]):([0-5][0-9]))?";
-        String offset_PLUS_HH_MM = "+02:00";
+        /*~~>*/String offsetPattern = "(Z|[+|-](2[0-3]|[0-1][0-9]):([0-5][0-9]))?";
+        /*~~>*/String offset_PLUS_HH_MM = "+02:00";
         Assertions.assertTrue(Pattern.matches(offsetPattern, offset_PLUS_HH_MM));
-        String offset_MINUS_HH_MM = "-02:00";
+        /*~~>*/String offset_MINUS_HH_MM = "-02:00";
         Assertions.assertTrue(Pattern.matches(offsetPattern, offset_MINUS_HH_MM));
-        String offset_Z = "Z";
+        /*~~>*/String offset_Z = "Z";
         Assertions.assertTrue(Pattern.matches(offsetPattern, offset_Z));
         // date time
-        String dtPattern = datePattern + timePattern;
+        /*~~>*/String dtPattern = datePattern + timePattern;
         Assertions.assertTrue(Pattern.matches(dtPattern, date + time_HH_MM_SS_S));
         Assertions.assertTrue(Pattern.matches(dtPattern, date + time_HH_MM_SS));
         // date time offset
-        String dtoPattern = dtPattern + offsetPattern;
+        /*~~>*/String dtoPattern = dtPattern + offsetPattern;
         Assertions.assertTrue(Pattern.matches(dtoPattern, date + time_HH_MM_SS_S + offset_PLUS_HH_MM));
         Assertions.assertTrue(Pattern.matches(dtoPattern, date + time_HH_MM_SS_S + offset_MINUS_HH_MM));
         Assertions.assertTrue(Pattern.matches(dtoPattern, date + time_HH_MM_SS_S + offset_Z));
@@ -217,7 +217,7 @@ public class InspireEncoderTest {
 
     private void validate(XmlObject xmlObject) throws SAXException, IOException {
         SchemaFactory sf = SchemaFactory.newInstance(
-        XMLConstants.XML_NS_URI );
+        /*~~>*/XMLConstants.XML_NS_URI );
         Schema schema = sf.newSchema(InspireEncoderTest.class.getResource("/inspire_dls/1.0/inspire_dls.xsd"));
         Validator validator = schema.newValidator();
         validator.validate(new DOMSource(xmlObject.getDomNode()));

@@ -28,17 +28,17 @@ import com.google.common.base.Joiner;
 public class NotYetSupportedException extends NoApplicableCodeException {
     private static final long serialVersionUID = 2406018601586191L;
 
-    public NotYetSupportedException(String feature) {
+    public NotYetSupportedException(/*~~>*/String feature) {
         withMessage("%s is not yet supported", feature);
         setStatus(HTTPStatus.INTERNAL_SERVER_ERROR);
     }
 
-    public NotYetSupportedException(String type, Object feature) {
+    public NotYetSupportedException(/*~~>*/String type, Object feature) {
         withMessage("The %s %s is not yet supported", type, feature);
         setStatus(HTTPStatus.INTERNAL_SERVER_ERROR);
     }
 
-    public NotYetSupportedException(String type, Object feature, Object... supportedFeatures) {
+    public NotYetSupportedException(/*~~>*/String type, Object feature, Object... supportedFeatures) {
         withMessage("The %s %s is not yet supported. Currently supported: %s",
                     type, feature, Joiner.on(", ").join(supportedFeatures));
         setStatus(HTTPStatus.INTERNAL_SERVER_ERROR);

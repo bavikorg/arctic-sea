@@ -42,7 +42,7 @@ public interface Value<
      *
      * @return The value as {@link String}
      */
-    String getStringValue();
+    /*~~>*/String getStringValue();
 
     /**
      * Is the values set

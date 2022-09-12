@@ -29,22 +29,22 @@ import org.n52.shetland.w3c.SchemaLocation;
  */
 public interface InspireConstants {
 
-    String INSPIRE = "INSPIRE";
+    /*~~>*/String INSPIRE = "INSPIRE";
 
-    String NS_INSPIRE_COMMON = "http://inspire.ec.europa.eu/schemas/common/1.0";
+    /*~~>*/String NS_INSPIRE_COMMON = "http://inspire.ec.europa.eu/schemas/common/1.0";
 
-    String NS_INSPIRE_COMMON_PREFIX = "inspire_common";
+    /*~~>*/String NS_INSPIRE_COMMON_PREFIX = "inspire_common";
 
-    String SCHEMA_LOCATION_URL_INSPIRE_COMMON = "http://inspire.ec.europa.eu/schemas/common/1.0/common.xsd";
+    /*~~>*/String SCHEMA_LOCATION_URL_INSPIRE_COMMON = "http://inspire.ec.europa.eu/schemas/common/1.0/common.xsd";
 
     SchemaLocation INSPIRE_COMMON_10_SCHEMA_LOCATION =
             new SchemaLocation(NS_INSPIRE_COMMON, SCHEMA_LOCATION_URL_INSPIRE_COMMON);
 
-    String NS_INSPIRE_DLS = "http://inspire.ec.europa.eu/schemas/inspire_dls/1.0";
+    /*~~>*/String NS_INSPIRE_DLS = "http://inspire.ec.europa.eu/schemas/inspire_dls/1.0";
 
-    String NS_INSPIRE_DLS_PREFIX = "inspire_dls";
+    /*~~>*/String NS_INSPIRE_DLS_PREFIX = "inspire_dls";
 
-    String SCHEMA_LOCATION_URL_INSPIRE_DLS = "http://inspire.ec.europa.eu/schemas/inspire_dls/1.0/inspire_dls.xsd";
+    /*~~>*/String SCHEMA_LOCATION_URL_INSPIRE_DLS = "http://inspire.ec.europa.eu/schemas/inspire_dls/1.0/inspire_dls.xsd";
 
     SchemaLocation INSPIRE_DLS_10_SCHEMA_LOCATION =
             new SchemaLocation(NS_INSPIRE_DLS, SCHEMA_LOCATION_URL_INSPIRE_DLS);
@@ -53,87 +53,87 @@ public interface InspireConstants {
      * element/attribute names (EL_/AN_)
      */
 
-    String EN_EXTENDED_CAPABILITIES = "ExtendedCapabilities";
+    /*~~>*/String EN_EXTENDED_CAPABILITIES = "ExtendedCapabilities";
 
-    String EN_METADATA_URL = "MetadataUrl";
+    /*~~>*/String EN_METADATA_URL = "MetadataUrl";
 
-    String EN_URL = "URL";
+    /*~~>*/String EN_URL = "URL";
 
-    String EN_MEDIA_TYPE = "MediaType";
+    /*~~>*/String EN_MEDIA_TYPE = "MediaType";
 
-    String EN_SUPPORTED_LANGUAGES = "SupportedLanguages";
+    /*~~>*/String EN_SUPPORTED_LANGUAGES = "SupportedLanguages";
 
-    String EN_SUPPORTED_LANGUAGE = "SupportedLanguage";
+    /*~~>*/String EN_SUPPORTED_LANGUAGE = "SupportedLanguage";
 
-    String EN_DEFAULT_LANGUAGE = "DefaultLanguage";
+    /*~~>*/String EN_DEFAULT_LANGUAGE = "DefaultLanguage";
 
-    String EN_LANGUAGE = "Language";
+    /*~~>*/String EN_LANGUAGE = "Language";
 
-    String EN_RESPONSE_LANGUAGE = "ResponseLanguage";
+    /*~~>*/String EN_RESPONSE_LANGUAGE = "ResponseLanguage";
 
-    String EN_SUPPORTED_CRS = "SupportedCRS";
+    /*~~>*/String EN_SUPPORTED_CRS = "SupportedCRS";
 
-    String EN_DEFAULT_CRS = "DefaultCRS";
+    /*~~>*/String EN_DEFAULT_CRS = "DefaultCRS";
 
-    String EN_OTHER_CRS = "OtherCRS";
+    /*~~>*/String EN_OTHER_CRS = "OtherCRS";
 
-    String EN_CRS = "CRS";
+    /*~~>*/String EN_CRS = "CRS";
 
-    String EN_SPATIAL_DATASET_IDENTIFIER = "SpatialDataSetIdentifier";
+    /*~~>*/String EN_SPATIAL_DATASET_IDENTIFIER = "SpatialDataSetIdentifier";
 
-    String EN_CODE = "Code";
+    /*~~>*/String EN_CODE = "Code";
 
-    String EN_NAMESPACE = "Namespace";
+    /*~~>*/String EN_NAMESPACE = "Namespace";
 
-    String EN_RESOURCE_TYPE = "ResourceType";
+    /*~~>*/String EN_RESOURCE_TYPE = "ResourceType";
 
-    String EN_RESOURCE_LOCATOR = "ResourceLocator";
+    /*~~>*/String EN_RESOURCE_LOCATOR = "ResourceLocator";
 
-    String EN_SPATIAL_DATA_SERVICE_TYPE = "SpatialDataServiceType";
+    /*~~>*/String EN_SPATIAL_DATA_SERVICE_TYPE = "SpatialDataServiceType";
 
-    String EN_TEMPORAL_REFERENCE = "TemporalReference";
+    /*~~>*/String EN_TEMPORAL_REFERENCE = "TemporalReference";
 
-    String EN_CONFORMITY = "Conformity";
+    /*~~>*/String EN_CONFORMITY = "Conformity";
 
-    String EN_SPECIFICATION = "Specification";
+    /*~~>*/String EN_SPECIFICATION = "Specification";
 
-    String EN_DATE_OF_PUBLICATION = "DateOfPublication";
+    /*~~>*/String EN_DATE_OF_PUBLICATION = "DateOfPublication";
 
-    String EN_DATE_OF_CREATION = "DateOfCreation";
+    /*~~>*/String EN_DATE_OF_CREATION = "DateOfCreation";
 
-    String EN_DATE_OF_LAST_REVISION = "DateOfLastRevision";
+    /*~~>*/String EN_DATE_OF_LAST_REVISION = "DateOfLastRevision";
 
-    String EN_DEGREE = "Degree";
+    /*~~>*/String EN_DEGREE = "Degree";
 
-    String EN_METADATA_POINT_OF_CONTACT = "MetadataPointOfContact";
+    /*~~>*/String EN_METADATA_POINT_OF_CONTACT = "MetadataPointOfContact";
 
-    String EN_METADATA_DATE = "MetadataDate";
+    /*~~>*/String EN_METADATA_DATE = "MetadataDate";
 
-    String EN_MANDATORY_KEYWORD = "MandatoryKeyword";
+    /*~~>*/String EN_MANDATORY_KEYWORD = "MandatoryKeyword";
 
-    String EN_KEYWORD_VALUE = "KeywordValue";
+    /*~~>*/String EN_KEYWORD_VALUE = "KeywordValue";
 
-    String EN_KEYWORD = "Keyword";
+    /*~~>*/String EN_KEYWORD = "Keyword";
 
-    String EN_ORIGINATING_CONTROLLED_VOCABULARY = "OriginatingControlledVocabulary";
+    /*~~>*/String EN_ORIGINATING_CONTROLLED_VOCABULARY = "OriginatingControlledVocabulary";
 
-    String EN_TITLE = "Title";
+    /*~~>*/String EN_TITLE = "Title";
 
-    String EN_URI = "URI";
+    /*~~>*/String EN_URI = "URI";
 
-    String EN_TEMPORAL_EXTENT = "TemporalExtent";
+    /*~~>*/String EN_TEMPORAL_EXTENT = "TemporalExtent";
 
-    String EN_INDIVIDUAL_DATE = "IndividualDate";
+    /*~~>*/String EN_INDIVIDUAL_DATE = "IndividualDate";
 
-    String EN_INTERVAL_OF_DATES = "IntervalOfDates";
+    /*~~>*/String EN_INTERVAL_OF_DATES = "IntervalOfDates";
 
-    String EN_STARTING_DATE = "StartingDate";
+    /*~~>*/String EN_STARTING_DATE = "StartingDate";
 
-    String EN_END_DATE = "EndDate";
+    /*~~>*/String EN_END_DATE = "EndDate";
 
-    String EN_ORGANISATION_NAME = "OrganisationName";
+    /*~~>*/String EN_ORGANISATION_NAME = "OrganisationName";
 
-    String EN_EMAIL_ADDRESS = "EmailAddress";
+    /*~~>*/String EN_EMAIL_ADDRESS = "EmailAddress";
 
     /*
      * QNames (QN_)

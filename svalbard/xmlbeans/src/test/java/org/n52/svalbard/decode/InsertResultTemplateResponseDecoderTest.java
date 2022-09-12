@@ -32,7 +32,7 @@ public class InsertResultTemplateResponseDecoderTest implements InsertDecoderTes
 
     @Test
     public void shouldCreateInsertSensorResponse() throws DecodingException {
-        String templateId = "test-template-id";
+        /*~~>*/String templateId = "test-template-id";
         InsertResultTemplateResponseDocument isrd = InsertResultTemplateResponseDocument.Factory.newInstance();
         isrd.addNewInsertResultTemplateResponse().setAcceptedTemplate(templateId );
 

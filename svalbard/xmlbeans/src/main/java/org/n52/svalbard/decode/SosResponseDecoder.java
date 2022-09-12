@@ -22,11 +22,11 @@ import org.n52.shetland.ogc.sos.SosConstants;
 public interface SosResponseDecoder extends ExtensibleResponseDecoder {
 
     default void setService(OwsServiceResponse response) {
-        response.setService(SosConstants.SOS);
+        response.setService(/*~~>*/SosConstants.SOS);
     }
 
     default void setVersions(OwsServiceResponse response) {
-        response.setService(Sos2Constants.SERVICEVERSION);
+        response.setService(/*~~>*/Sos2Constants.SERVICEVERSION);
     }
 
 }

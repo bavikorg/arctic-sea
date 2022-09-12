@@ -37,13 +37,13 @@ public class JsonSettingsDecoder {
         return values;
     }
 
-    public SettingValue<?> decode(String key, JsonNode node) {
+    public SettingValue<?> decode(/*~~>*/String key, JsonNode node) {
         return createSettingValue(key, node);
     }
 
-    protected SettingValue<?> createSettingValue(String key, JsonNode node) {
-        SettingType type = SettingType.fromString(node.path(JSONSettingConstants.TYPE_KEY).asText(null));
-        Object value = decodeValue(type, node.path(JSONSettingConstants.VALUE_KEY));
+    protected SettingValue<?> createSettingValue(/*~~>*/String key, JsonNode node) {
+        SettingType type = SettingType.fromString(node.path(/*~~>*/JSONSettingConstants.TYPE_KEY).asText(null));
+        Object value = decodeValue(type, node.path(/*~~>*/JSONSettingConstants.VALUE_KEY));
         return new JsonSettingValue<>(type, key, value);
     }
 
@@ -74,7 +74,7 @@ public class JsonSettingsDecoder {
             case CHOICE:
                 return node.textValue();
             default:
-                throw new ConfigurationError(String.format("Unknown Type %s", type));
+                throw new ConfigurationError(/*~~>*/String.format("Unknown Type %s", type));
         }
     }
 
@@ -88,7 +88,7 @@ public class JsonSettingsDecoder {
     }
 
     private void numberDecodeError(SettingType type, JsonNode node) {
-        throw new ConfigurationError(String.format("Cannot decode setting to %s type: node type = %s, value = >%s<",
+        throw new ConfigurationError(/*~~>*/String.format("Cannot decode setting to %s type: node type = %s, value = >%s<",
                                                    type, node.getNodeType(), node.toString()));
     }
 

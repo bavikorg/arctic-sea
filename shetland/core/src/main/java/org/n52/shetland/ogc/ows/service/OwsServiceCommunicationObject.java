@@ -24,28 +24,28 @@ import com.google.common.base.Strings;
 public abstract class OwsServiceCommunicationObject {
 
     /** service parameter */
-    private String service;
-    private String version;
-    private String operationName;
+    private /*~~>*/String service;
+    private /*~~>*/String version;
+    private /*~~>*/String operationName;
 
     public OwsServiceCommunicationObject() {
         this(null, null, null);
     }
 
-    public OwsServiceCommunicationObject(String service, String version) {
+    public OwsServiceCommunicationObject(/*~~>*/String service, /*~~>*/String version) {
         this(service, version, null);
     }
 
-    public OwsServiceCommunicationObject(String service, String version, String operationName) {
-        this.service = service;
-        this.version = version;
-        this.operationName = operationName;
+    public OwsServiceCommunicationObject(/*~~>*/String service, /*~~>*/String version, /*~~>*/String operationName) {
+        /*~~>*/this.service = service;
+        /*~~>*/this.version = version;
+        /*~~>*/this.operationName = operationName;
     }
 
     /**
      * @return the service
      */
-    public String getService() {
+    public /*~~>*/String getService() {
         return service;
     }
 
@@ -54,8 +54,8 @@ public abstract class OwsServiceCommunicationObject {
      *            the service to set
      * @return this
      */
-    public OwsServiceCommunicationObject setService(String service) {
-        this.service = service;
+    public OwsServiceCommunicationObject setService(/*~~>*/String service) {
+        /*~~>*/this.service = service;
         return this;
     }
 
@@ -64,15 +64,15 @@ public abstract class OwsServiceCommunicationObject {
      *            the version to set
      * @return this
      */
-    public OwsServiceCommunicationObject setVersion(String version) {
-        this.version = version;
+    public OwsServiceCommunicationObject setVersion(/*~~>*/String version) {
+        /*~~>*/this.version = version;
         return this;
     }
 
     /**
      * @return the version
      */
-    public String getVersion() {
+    public /*~~>*/String getVersion() {
         return version;
     }
 
@@ -106,24 +106,24 @@ public abstract class OwsServiceCommunicationObject {
     /**
      * @return the operationName
      */
-    public String getOperationName() {
-        return this.operationName;
+    public /*~~>*/String getOperationName() {
+        return /*~~>*/this.operationName;
     }
 
-    public void setOperationName(String operationName) {
-        this.operationName = operationName;
+    public void setOperationName(/*~~>*/String operationName) {
+        /*~~>*/this.operationName = operationName;
     }
 
     public boolean hasOperationName() {
-        return !Strings.isNullOrEmpty(this.operationName);
+        return !Strings.isNullOrEmpty(/*~~>*/this.operationName);
     }
 
     public OwsOperationKey getKey() {
-        return new OwsOperationKey(this.service, this.version, this.operationName);
+        return new OwsOperationKey(/*~~>*/this.service, /*~~>*/this.version, /*~~>*/this.operationName);
     }
 
     @Override
-    public String toString() {
-        return String.format("%s[service=%s, version=%s]", getClass().getName(), getService(), getVersion());
+    public /*~~>*/String toString() {
+        return /*~~>*/String.format("%s[service=%s, version=%s]", getClass().getName(), getService(), getVersion());
     }
 }

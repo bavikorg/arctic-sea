@@ -28,18 +28,18 @@ public class UriSettingValueForTesting implements SettingValue<URI> {
 
     private static final long serialVersionUID = -3212846305178900109L;
 
-    private String key;
+    private /*~~>*/String key;
 
     private URI value;
 
     @Override
-    public String getKey() {
+    public /*~~>*/String getKey() {
         return key;
     }
 
     @Override
-    public void setKey(String key) {
-        this.key = key;
+    public void setKey(/*~~>*/String key) {
+        /*~~>*/this.key = key;
     }
 
     @Override

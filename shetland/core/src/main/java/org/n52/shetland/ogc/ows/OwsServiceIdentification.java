@@ -33,13 +33,13 @@ import org.n52.shetland.util.CollectionHelper;
 public class OwsServiceIdentification extends OwsDescription {
 
     private OwsCode serviceType;
-    private SortedSet<String> serviceTypeVersion;
+    private SortedSet</*~~>*/String> serviceTypeVersion;
     private SortedSet<URI> profiles;
-    private SortedSet<String> fees;
-    private SortedSet<String> accessConstraints;
+    private SortedSet</*~~>*/String> fees;
+    private SortedSet</*~~>*/String> accessConstraints;
 
-    public OwsServiceIdentification(OwsCode serviceType, Set<String> serviceTypeVersion, Set<URI> profiles,
-            Set<String> fees, Set<String> accessConstraints, MultilingualString title, MultilingualString abstrakt,
+    public OwsServiceIdentification(OwsCode serviceType, Set</*~~>*/String> serviceTypeVersion, Set<URI> profiles,
+            Set</*~~>*/String> fees, Set</*~~>*/String> accessConstraints, MultilingualString title, MultilingualString abstrakt,
             Set<OwsKeyword> keywords) {
         super(title, abstrakt, keywords);
         this.serviceType = Objects.requireNonNull(serviceType);
@@ -57,11 +57,11 @@ public class OwsServiceIdentification extends OwsDescription {
         this.serviceType = Objects.requireNonNull(serviceType);
     }
 
-    public Set<String> getServiceTypeVersion() {
+    public Set</*~~>*/String> getServiceTypeVersion() {
         return Collections.unmodifiableSet(serviceTypeVersion);
     }
 
-    public void setServiceTypeVersion(Collection<String> serviceTypeVersion) {
+    public void setServiceTypeVersion(Collection</*~~>*/String> serviceTypeVersion) {
         this.serviceTypeVersion = CollectionHelper.newSortedSet(serviceTypeVersion);
     }
 
@@ -73,19 +73,19 @@ public class OwsServiceIdentification extends OwsDescription {
         this.profiles = CollectionHelper.newSortedSet(profiles);
     }
 
-    public Set<String> getFees() {
+    public Set</*~~>*/String> getFees() {
         return Collections.unmodifiableSet(fees);
     }
 
-    public void setFees(Collection<String> fees) {
+    public void setFees(Collection</*~~>*/String> fees) {
         this.fees = CollectionHelper.newSortedSet(fees);
     }
 
-    public Set<String> getAccessConstraints() {
+    public Set</*~~>*/String> getAccessConstraints() {
         return Collections.unmodifiableSet(accessConstraints);
     }
 
-    public void setAccessConstraints(Collection<String> accessConstraints) {
+    public void setAccessConstraints(Collection</*~~>*/String> accessConstraints) {
         this.accessConstraints = CollectionHelper.newSortedSet(accessConstraints);
     }
 
@@ -128,7 +128,7 @@ public class OwsServiceIdentification extends OwsDescription {
     }
 
     @Override
-    public String toString() {
+    public /*~~>*/String toString() {
         return "OwsServiceIdentification{" + "serviceType=" + serviceType + ", serviceTypeVersion="
                 + serviceTypeVersion + ", profiles=" + profiles + ", fees=" + fees + ", accessConstraints="
                 + accessConstraints + '}';

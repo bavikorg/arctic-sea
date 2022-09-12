@@ -43,34 +43,34 @@ public class IdFilter extends Filter<Id> {
 
     private Id operator;
 
-    private Set<String> ids = new LinkedHashSet<>();
+    private Set</*~~>*/String> ids = new LinkedHashSet<>();
 
     public IdFilter() {
         this(Sets.<
-                String> newHashSet());
+                /*~~>*/String> newHashSet());
     }
 
-    public IdFilter(String id) {
+    public IdFilter(/*~~>*/String id) {
         this(Sets.newHashSet(id));
     }
 
     @SuppressFBWarnings({ "EI_EXPOSE_REP2" })
-    public IdFilter(Collection<String> ids) {
+    public IdFilter(Collection</*~~>*/String> ids) {
         if (ids != null) {
             this.ids.addAll(ids);
         }
     }
 
     @Override
-    public String toString() {
+    public /*~~>*/String toString() {
         return MoreObjects.toStringHelper(this).toString();
     }
 
-    public Collection<String> getIds() {
+    public Collection</*~~>*/String> getIds() {
         return Collections.unmodifiableCollection(ids);
     }
 
-    public Filter<Id> addId(String id) {
+    public Filter<Id> addId(/*~~>*/String id) {
         if (!Strings.isNullOrEmpty(id)) {
             this.ids.add(id);
         }

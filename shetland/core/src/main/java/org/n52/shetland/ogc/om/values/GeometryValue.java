@@ -28,7 +28,7 @@ import org.n52.shetland.util.IdGenerator;
  *
  */
 public class GeometryValue extends AbstractGeometry implements Value<Geometry> {
-    private static final String GML_ID_PREFIX = "sp_";
+    private static final /*~~>*/String GML_ID_PREFIX = "sp_";
     /**
      * Unit of measure
      */
@@ -68,7 +68,7 @@ public class GeometryValue extends AbstractGeometry implements Value<Geometry> {
     }
 
     @Override
-    public void setUnit(String unit) {
+    public void setUnit(/*~~>*/String unit) {
         this.unit = new UoM(unit);
     }
 
@@ -79,7 +79,7 @@ public class GeometryValue extends AbstractGeometry implements Value<Geometry> {
     }
 
     @Override
-    public String getUnit() {
+    public /*~~>*/String getUnit() {
         if (isSetUnit()) {
             return unit.getUom();
         }
@@ -92,8 +92,8 @@ public class GeometryValue extends AbstractGeometry implements Value<Geometry> {
     }
 
     @Override
-    public String toString() {
-        return String.format("GeometryValue [value=%s, unit=%s]", getValue(), getUnit());
+    public /*~~>*/String toString() {
+        return /*~~>*/String.format("GeometryValue [value=%s, unit=%s]", getValue(), getUnit());
     }
 
     @Override

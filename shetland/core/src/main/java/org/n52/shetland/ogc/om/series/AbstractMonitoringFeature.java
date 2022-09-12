@@ -42,7 +42,7 @@ public abstract class AbstractMonitoringFeature extends AbstractSamplingFeature 
         this(featureIdentifier, null);
     }
 
-    public AbstractMonitoringFeature(CodeWithAuthority identifier, String gmlId) {
+    public AbstractMonitoringFeature(CodeWithAuthority identifier, /*~~>*/String gmlId) {
         super(identifier, gmlId);
     }
 

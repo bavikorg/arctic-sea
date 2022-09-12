@@ -26,11 +26,11 @@ public class UnsupportedEncoderXmlInputException extends UnsupportedEncoderInput
         super(encoder, o == null ? null : getName(o));
     }
 
-    private static String getName(XmlObject o) {
+    private static /*~~>*/String getName(XmlObject o) {
         return getName(o.getDomNode());
     }
 
-    private static String getName(Node n) {
+    private static /*~~>*/String getName(Node n) {
         if (n.getPrefix() == null || n.getPrefix().isEmpty()) {
             return n.getLocalName();
         } else {

@@ -22,40 +22,40 @@ import com.google.common.collect.ImmutableMap;
 import edu.umd.cs.findbugs.annotations.SuppressFBWarnings;
 
 public class ElasticsearchTypeRegistry {
-    private static final String TYPE = "type";
-    private static final String INDEX = "index";
-    private static final String STRING_TYPE = "string";
+    private static final /*~~>*/String TYPE = "type";
+    private static final /*~~>*/String INDEX = "index";
+    private static final /*~~>*/String STRING_TYPE = "string";
     public static final ElasticsearchType STRING_FIELD = new ElasticsearchType(ImmutableMap
-            .<String, Object>of(TYPE, STRING_TYPE, INDEX, "not_analyzed"));
+            .</*~~>*/String, Object>of(TYPE, STRING_TYPE, INDEX, "not_analyzed"));
     public static final ElasticsearchType STRING_ANALYZED_FIELD = new ElasticsearchType(ImmutableMap
-            .<String, Object>of(TYPE, STRING_TYPE, INDEX, "analyzed"));
+            .</*~~>*/String, Object>of(TYPE, STRING_TYPE, INDEX, "analyzed"));
     public static final ElasticsearchType DATE_FIELD = new ElasticsearchType(ImmutableMap
-            .<String, Object>of(TYPE, "date"));
+            .</*~~>*/String, Object>of(TYPE, "date"));
     public static final ElasticsearchType INTEGER_FIELD = new ElasticsearchType(ImmutableMap
-            .<String, Object>of(TYPE, "integer"));
+            .</*~~>*/String, Object>of(TYPE, "integer"));
     public static final ElasticsearchType LONG_FIELD = new ElasticsearchType(ImmutableMap
-            .<String, Object>of(TYPE, "long"));
+            .</*~~>*/String, Object>of(TYPE, "long"));
     public static final ElasticsearchType DOUBLE_FIELD = new ElasticsearchType(ImmutableMap
-            .<String, Object>of(TYPE, "double"));
+            .</*~~>*/String, Object>of(TYPE, "double"));
     public static final ElasticsearchType BOOLEAN_FIELD = new ElasticsearchType(ImmutableMap
-            .<String, Object>of(TYPE, "boolean"));
+            .</*~~>*/String, Object>of(TYPE, "boolean"));
     public static final ElasticsearchType IPV4_FIELD = new ElasticsearchType(ImmutableMap
-            .<String, Object>of(TYPE, "ip"));
+            .</*~~>*/String, Object>of(TYPE, "ip"));
     public static final ElasticsearchType GEO_POINT_FIELD = new ElasticsearchType(ImmutableMap
-            .<String, Object>of(TYPE, "geo_point"));
+            .</*~~>*/String, Object>of(TYPE, "geo_point"));
     public static final ElasticsearchType GEO_SHAPE_FIELD = new ElasticsearchType(ImmutableMap
-            .<String, Object>of(TYPE, "geo_shape", "precision", "1km"));
+            .</*~~>*/String, Object>of(TYPE, "geo_shape", "precision", "1km"));
 
     public static class ElasticsearchType {
-        private final Map<String, Object> type;
+        private final Map</*~~>*/String, Object> type;
 
         @SuppressFBWarnings({ "EI_EXPOSE_REP2" })
-        public ElasticsearchType(Map<String, Object> type) {
+        public ElasticsearchType(Map</*~~>*/String, Object> type) {
             this.type = type;
         }
 
         @SuppressFBWarnings({ "EI_EXPOSE_REP" })
-        public Map<String, Object> getType() {
+        public Map</*~~>*/String, Object> getType() {
             return type;
         }
 
@@ -89,7 +89,7 @@ public class ElasticsearchTypeRegistry {
             return true;
         }
 
-        public String humanReadableType() {
+        public /*~~>*/String humanReadableType() {
             return type.get(TYPE).toString();
         }
     }

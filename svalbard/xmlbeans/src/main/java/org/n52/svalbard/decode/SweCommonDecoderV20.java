@@ -124,7 +124,7 @@ public class SweCommonDecoderV20
 
     private static final Logger LOGGER = LoggerFactory.getLogger(SweCommonDecoderV20.class);
 
-    private static final Set<DecoderKey> DECODER_KEYS = CodingHelper.decoderKeysForElements(SweConstants.NS_SWE_20,
+    private static final Set<DecoderKey> DECODER_KEYS = CodingHelper.decoderKeysForElements(/*~~>*/SweConstants.NS_SWE_20,
             AbstractDataComponentDocument.class, AbstractDataComponentType.class, AnyScalarPropertyType[].class,
             BooleanPropertyType.class, BooleanType.class, Coordinate[].class, CategoryPropertyType.class,
             CategoryType.class, CountPropertyType.class, CountType.class, DataArrayDocument.class,
@@ -321,12 +321,12 @@ public class SweCommonDecoderV20
         return sweDataStream;
     }
 
-    private List<List<String>> parseValues(final SweCount elementCount, final SweAbstractDataComponent elementType,
+    private List<List</*~~>*/String>> parseValues(final SweCount elementCount, final SweAbstractDataComponent elementType,
             final SweAbstractEncoding encoding, final EncodedValuesPropertyType encodedValuesPropertyType)
             throws DecodingException {
         if (checkParameterTypes(elementType, encoding)) {
             // Get swe values String via cursor as String
-            String values;
+            /*~~>*/String values;
             // TODO replace XmlCursor
             /*
              * if (encodedValuesPropertyType.schemaType() == XmlString.type) {
@@ -341,11 +341,11 @@ public class SweCommonDecoderV20
                 if (values != null && !values.isEmpty()) {
                     SweTextEncoding textEncoding = (SweTextEncoding) encoding;
 
-                    String[] blocks = values.split(textEncoding.getBlockSeparator());
-                    List<List<String>> resultValues = new ArrayList<>(blocks.length);
-                    for (String block : blocks) {
-                        String[] tokens = block.split(textEncoding.getTokenSeparator());
-                        List<String> tokenList = Arrays.asList(tokens);
+                    /*~~>*/String[] blocks = values.split(textEncoding.getBlockSeparator());
+                    List<List</*~~>*/String>> resultValues = new ArrayList<>(blocks.length);
+                    for (/*~~>*/String block : blocks) {
+                        /*~~>*/String[] tokens = block.split(textEncoding.getTokenSeparator());
+                        List</*~~>*/String> tokenList = Arrays.asList(tokens);
                         resultValues.add(tokenList);
                     }
                     return resultValues;
@@ -358,10 +358,10 @@ public class SweCommonDecoderV20
     private boolean checkParameterTypes(SweAbstractDataComponent elementType, SweAbstractEncoding encoding)
             throws DecodingException {
         if (!(encoding instanceof SweTextEncoding)) {
-            throw new NotYetSupportedDecodingException(SweConstants.EN_ENCODING_TYPE, encoding);
+            throw new NotYetSupportedDecodingException(/*~~>*/SweConstants.EN_ENCODING_TYPE, encoding);
         }
         if (!(elementType instanceof SweDataRecord)) {
-            throw new NotYetSupportedDecodingException(SweConstants.EN_ENCODING_TYPE, elementType);
+            throw new NotYetSupportedDecodingException(/*~~>*/SweConstants.EN_ENCODING_TYPE, elementType);
         }
         return true;
     }
@@ -370,7 +370,7 @@ public class SweCommonDecoderV20
         if (abstractEncodingType instanceof TextEncodingType) {
             return parseTextEncoding((TextEncodingType) abstractEncodingType);
         }
-        throw new NotYetSupportedDecodingException(SweConstants.EN_ENCODING_TYPE, abstractEncodingType,
+        throw new NotYetSupportedDecodingException(/*~~>*/SweConstants.EN_ENCODING_TYPE, abstractEncodingType,
                 TextEncodingType.type.getName());
     }
 
@@ -481,7 +481,7 @@ public class SweCommonDecoderV20
         } else if (ur.isSetHref()) {
             uom = new UoM(ur.getHref());
         } else {
-            uom = new UoM(OGCConstants.UNKNOWN);
+            uom = new UoM(/*~~>*/OGCConstants.UNKNOWN);
         }
         if (ur.isSetHref()) {
             uom.setLink(ur.getHref());
@@ -763,7 +763,7 @@ public class SweCommonDecoderV20
                 sosCoordinates.add(new SweCoordinate(xbCoordinate.getName(),
                         (SweAbstractSimpleType) parseAbstractDataComponent(xbCoordinate.getQuantity())));
             } else {
-                throw new DecodingException(SweConstants.EN_POSITION,
+                throw new DecodingException(/*~~>*/SweConstants.EN_POSITION,
                         "Error when parsing the Coordinates of Position: It must be of type Quantity!");
             }
         }

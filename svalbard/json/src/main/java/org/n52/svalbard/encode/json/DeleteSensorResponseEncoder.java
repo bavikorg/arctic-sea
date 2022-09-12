@@ -36,7 +36,7 @@ public class DeleteSensorResponseEncoder extends AbstractSosResponseEncoder<Dele
 
     @Override
     protected void encodeResponse(ObjectNode json, DeleteSensorResponse t) {
-        json.put(JSONConstants.DELETED_PROCEDURE, t.getDeletedProcedure());
+        json.put(/*~~>*/JSONConstants.DELETED_PROCEDURE, t.getDeletedProcedure());
     }
 
 }

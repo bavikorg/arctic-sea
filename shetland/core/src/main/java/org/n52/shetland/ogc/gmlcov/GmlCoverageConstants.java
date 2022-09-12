@@ -25,11 +25,11 @@ import org.n52.shetland.w3c.SchemaLocation;
  */
 public interface GmlCoverageConstants {
 
-    String NS_GML_COV = "http://www.opengis.net/gmlcov/1.0";
+    /*~~>*/String NS_GML_COV = "http://www.opengis.net/gmlcov/1.0";
 
-    String NS_GML_COV_PREFIX = "gmlcov";
+    /*~~>*/String NS_GML_COV_PREFIX = "gmlcov";
 
-    String SCHEMA_LOCATION_URL_GML_COVERAGE_10 = "http://schemas.opengis.net/gmlcov/1.0/gmlcovAll.xsd";
+    /*~~>*/String SCHEMA_LOCATION_URL_GML_COVERAGE_10 = "http://schemas.opengis.net/gmlcov/1.0/gmlcovAll.xsd";
 
     SchemaLocation GML_COVERAGE_10_SCHEMA_LOCATION =
             new SchemaLocation(NS_GML_COV, SCHEMA_LOCATION_URL_GML_COVERAGE_10);

@@ -57,7 +57,7 @@ public class FilterFilter implements FilterClause {
     }
 
     @Override
-    public String toString() {
+    public /*~~>*/String toString() {
         return "$filter=" + filter.toODataString();
     }
 }

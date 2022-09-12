@@ -54,17 +54,17 @@ public class SosV1DescribeSensorResponseEncoder extends AbstractSosV1ResponseEnc
         return null;
     }
 
-    private boolean checkFormat(String outputFormat) {
-        return checkForUrlVsMimeType(outputFormat).contains(SensorMLConstants.SENSORML_OUTPUT_FORMAT_MIME_TYPE);
+    private boolean checkFormat(/*~~>*/String outputFormat) {
+        return checkForUrlVsMimeType(outputFormat).contains(/*~~>*/SensorMLConstants.SENSORML_OUTPUT_FORMAT_MIME_TYPE);
     }
 
-    private Set<String> checkForUrlVsMimeType(String procedureDescriptionFormat) {
-        Set<String> possibleFormats = Sets.newHashSet();
+    private Set</*~~>*/String> checkForUrlVsMimeType(/*~~>*/String procedureDescriptionFormat) {
+        Set</*~~>*/String> possibleFormats = Sets.newHashSet();
         possibleFormats.add(procedureDescriptionFormat);
-        if (SensorMLConstants.SENSORML_OUTPUT_FORMAT_MIME_TYPE.equalsIgnoreCase(procedureDescriptionFormat)) {
-            possibleFormats.add(SensorMLConstants.SENSORML_OUTPUT_FORMAT_URL);
-        } else if (SensorMLConstants.SENSORML_OUTPUT_FORMAT_URL.equalsIgnoreCase(procedureDescriptionFormat)) {
-            possibleFormats.add(SensorMLConstants.SENSORML_OUTPUT_FORMAT_MIME_TYPE);
+        if (/*~~>*/SensorMLConstants.SENSORML_OUTPUT_FORMAT_MIME_TYPE.equalsIgnoreCase(procedureDescriptionFormat)) {
+            possibleFormats.add(/*~~>*/SensorMLConstants.SENSORML_OUTPUT_FORMAT_URL);
+        } else if (/*~~>*/SensorMLConstants.SENSORML_OUTPUT_FORMAT_URL.equalsIgnoreCase(procedureDescriptionFormat)) {
+            possibleFormats.add(/*~~>*/SensorMLConstants.SENSORML_OUTPUT_FORMAT_MIME_TYPE);
         }
         return possibleFormats;
     }

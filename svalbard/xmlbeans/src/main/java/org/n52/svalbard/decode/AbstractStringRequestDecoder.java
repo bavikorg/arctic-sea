@@ -25,7 +25,7 @@ import org.n52.svalbard.util.CodingHelper;
 
 import edu.umd.cs.findbugs.annotations.SuppressFBWarnings;
 
-public abstract class AbstractStringRequestDecoder implements Decoder<OwsServiceCommunicationObject, String> {
+public abstract class AbstractStringRequestDecoder implements Decoder<OwsServiceCommunicationObject, /*~~>*/String> {
 
     private DecoderRepository decoderRepository;
 
@@ -36,7 +36,7 @@ public abstract class AbstractStringRequestDecoder implements Decoder<OwsService
     }
 
     @Override
-    public OwsServiceCommunicationObject decode(String string) throws DecodingException {
+    public OwsServiceCommunicationObject decode(/*~~>*/String string) throws DecodingException {
         XmlObject xml = CodingHelper.readXML(string);
         DecoderKey key = CodingHelper.getDecoderKey(xml);
         Decoder<OwsServiceCommunicationObject, XmlObject> decoder = decoderRepository.getDecoder(key);

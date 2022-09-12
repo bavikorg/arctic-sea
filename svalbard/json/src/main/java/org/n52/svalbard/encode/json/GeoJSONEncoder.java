@@ -44,7 +44,7 @@ import org.locationtech.jts.geom.impl.CoordinateArraySequence;
 public class GeoJSONEncoder extends JSONEncoder<Geometry> {
     public static final int DEFAULT_SRID = 4326;
 
-    public static final String SRID_LINK_PREFIX = "http://www.opengis.net/def/crs/EPSG/0/";
+    public static final /*~~>*/String SRID_LINK_PREFIX = "http://www.opengis.net/def/crs/EPSG/0/";
 
     private final JsonNodeFactory jsonFactory = JsonNodeFactory.withExactBigDecimals(false);
 
@@ -87,8 +87,8 @@ public class GeoJSONEncoder extends JSONEncoder<Geometry> {
     protected ObjectNode encode(Point geometry, int parentSrid) {
         Preconditions.checkNotNull(geometry);
         ObjectNode json = jsonFactory.objectNode();
-        json.put(JSONConstants.TYPE, JSONConstants.POINT);
-        json.set(JSONConstants.COORDINATES, encodeCoordinates(geometry));
+        json.put(/*~~>*/JSONConstants.TYPE, /*~~>*/JSONConstants.POINT);
+        json.set(/*~~>*/JSONConstants.COORDINATES, encodeCoordinates(geometry));
         encodeCRS(json, geometry, parentSrid);
         return json;
     }
@@ -96,7 +96,7 @@ public class GeoJSONEncoder extends JSONEncoder<Geometry> {
     protected ObjectNode encode(LineString geometry, int parentSrid) {
         Preconditions.checkNotNull(geometry);
         ObjectNode json = jsonFactory.objectNode();
-        json.put(JSONConstants.TYPE, JSONConstants.LINE_STRING).set(JSONConstants.COORDINATES,
+        json.put(/*~~>*/JSONConstants.TYPE, /*~~>*/JSONConstants.LINE_STRING).set(/*~~>*/JSONConstants.COORDINATES,
                 encodeCoordinates(geometry));
         encodeCRS(json, geometry, parentSrid);
         return json;
@@ -105,7 +105,7 @@ public class GeoJSONEncoder extends JSONEncoder<Geometry> {
     protected ObjectNode encode(Polygon geometry, int parentSrid) {
         Preconditions.checkNotNull(geometry);
         ObjectNode json = jsonFactory.objectNode();
-        json.put(JSONConstants.TYPE, JSONConstants.POLYGON).set(JSONConstants.COORDINATES,
+        json.put(/*~~>*/JSONConstants.TYPE, /*~~>*/JSONConstants.POLYGON).set(/*~~>*/JSONConstants.COORDINATES,
                 encodeCoordinates(geometry));
         encodeCRS(json, geometry, parentSrid);
         return json;
@@ -114,7 +114,7 @@ public class GeoJSONEncoder extends JSONEncoder<Geometry> {
     protected ObjectNode encode(MultiPoint geometry, int parentSrid) {
         Preconditions.checkNotNull(geometry);
         ObjectNode json = jsonFactory.objectNode();
-        ArrayNode list = json.put(JSONConstants.TYPE, JSONConstants.MULTI_POINT).putArray(JSONConstants.COORDINATES);
+        ArrayNode list = json.put(/*~~>*/JSONConstants.TYPE, /*~~>*/JSONConstants.MULTI_POINT).putArray(/*~~>*/JSONConstants.COORDINATES);
         for (int i = 0; i < geometry.getNumGeometries(); ++i) {
             list.add(encodeCoordinates((Point) geometry.getGeometryN(i)));
         }
@@ -126,7 +126,7 @@ public class GeoJSONEncoder extends JSONEncoder<Geometry> {
         Preconditions.checkNotNull(geometry);
         ObjectNode json = jsonFactory.objectNode();
         ArrayNode list =
-                json.put(JSONConstants.TYPE, JSONConstants.MULTI_LINE_STRING).putArray(JSONConstants.COORDINATES);
+                json.put(/*~~>*/JSONConstants.TYPE, /*~~>*/JSONConstants.MULTI_LINE_STRING).putArray(/*~~>*/JSONConstants.COORDINATES);
         for (int i = 0; i < geometry.getNumGeometries(); ++i) {
             list.add(encodeCoordinates((LineString) geometry.getGeometryN(i)));
         }
@@ -137,7 +137,7 @@ public class GeoJSONEncoder extends JSONEncoder<Geometry> {
     protected ObjectNode encode(MultiPolygon geometry, int parentSrid) {
         Preconditions.checkNotNull(geometry);
         ObjectNode json = jsonFactory.objectNode();
-        ArrayNode list = json.put(JSONConstants.TYPE, JSONConstants.MULTI_POLYGON).putArray(JSONConstants.COORDINATES);
+        ArrayNode list = json.put(/*~~>*/JSONConstants.TYPE, /*~~>*/JSONConstants.MULTI_POLYGON).putArray(/*~~>*/JSONConstants.COORDINATES);
         for (int i = 0; i < geometry.getNumGeometries(); ++i) {
             list.add(encodeCoordinates((Polygon) geometry.getGeometryN(i)));
         }
@@ -149,7 +149,7 @@ public class GeoJSONEncoder extends JSONEncoder<Geometry> {
         Preconditions.checkNotNull(geometry);
         ObjectNode json = jsonFactory.objectNode();
         ArrayNode geometries =
-                json.put(JSONConstants.TYPE, JSONConstants.GEOMETRY_COLLECTION).putArray(JSONConstants.GEOMETRIES);
+                json.put(/*~~>*/JSONConstants.TYPE, /*~~>*/JSONConstants.GEOMETRY_COLLECTION).putArray(/*~~>*/JSONConstants.GEOMETRIES);
         int srid = encodeCRS(json, geometry, parentSrid);
         for (int i = 0; i < geometry.getNumGeometries(); ++i) {
             geometries.add(encodeGeometry(geometry.getGeometryN(i), srid));
@@ -203,8 +203,8 @@ public class GeoJSONEncoder extends JSONEncoder<Geometry> {
         if (srid == parentSrid || srid == 0 || parentSrid == DEFAULT_SRID && srid == DEFAULT_SRID) {
             return parentSrid;
         } else {
-            json.putObject(JSONConstants.CRS).put(JSONConstants.TYPE, JSONConstants.LINK)
-                    .putObject(JSONConstants.PROPERTIES).put(JSONConstants.HREF, SRID_LINK_PREFIX + srid);
+            json.putObject(/*~~>*/JSONConstants.CRS).put(/*~~>*/JSONConstants.TYPE, /*~~>*/JSONConstants.LINK)
+                    .putObject(/*~~>*/JSONConstants.PROPERTIES).put(/*~~>*/JSONConstants.HREF, SRID_LINK_PREFIX + srid);
             return srid;
         }
     }

@@ -39,7 +39,7 @@ public class PointPropertyTypeEncoder extends AbstractXmlEncoder<PointPropertyTy
 
     private static final Set<EncoderKey> ENCODER_KEYS =
             Sets.newHashSet(new ClassToClassEncoderKey(PointPropertyType.class, Point.class),
-                    new XmlPropertyTypeEncoderKey(GmlConstants.NS_GML_32, Point.class));
+                    new XmlPropertyTypeEncoderKey(/*~~>*/GmlConstants.NS_GML_32, Point.class));
 
     @Override
     public Set<EncoderKey> getKeys() {
@@ -66,7 +66,7 @@ public class PointPropertyTypeEncoder extends AbstractXmlEncoder<PointPropertyTy
 
     protected XmlObject encodeGML(Object o, EncodingContext ec)
             throws EncodingException {
-        return encodeObjectToXml(GmlConstants.NS_GML_32, o, ec);
+        return encodeObjectToXml(/*~~>*/GmlConstants.NS_GML_32, o, ec);
     }
 
 }

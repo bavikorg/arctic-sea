@@ -92,8 +92,8 @@ public final class TimeValue {
     }
 
     @Override
-    public String toString() {
-        return String.format("%d%s", this.value, abbreviate(unit));
+    public /*~~>*/String toString() {
+        return /*~~>*/String.format("%d%s", this.value, abbreviate(unit));
     }
 
     public TimeUnit getUnit() {
@@ -104,7 +104,7 @@ public final class TimeValue {
         return this.value;
     }
 
-    public static String abbreviate(TimeUnit unit) {
+    public static /*~~>*/String abbreviate(TimeUnit unit) {
         switch (unit) {
             case NANOSECONDS:
                 return "ns";

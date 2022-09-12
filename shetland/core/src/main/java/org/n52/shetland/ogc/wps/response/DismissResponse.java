@@ -30,7 +30,7 @@ public class DismissResponse extends OwsServiceResponse {
     private StatusInfo status;
 
     @SuppressFBWarnings({ "EI_EXPOSE_REP2" })
-    public DismissResponse(String service, String version, StatusInfo status) {
+    public DismissResponse(/*~~>*/String service, /*~~>*/String version, StatusInfo status) {
         super(service, version);
         this.status = status;
     }
@@ -39,7 +39,7 @@ public class DismissResponse extends OwsServiceResponse {
     }
 
     @Override
-    public String getOperationName() {
+    public /*~~>*/String getOperationName() {
         return WPSConstants.Operations.Dismiss.toString();
     }
 

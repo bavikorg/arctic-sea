@@ -53,7 +53,7 @@ public class TimeRangeValue extends SweTimeRange implements Value<RangeValue<Dat
      * @param unit
      *            Unit of measure
      */
-    public TimeRangeValue(RangeValue<DateTime> value, String unit) {
+    public TimeRangeValue(RangeValue<DateTime> value, /*~~>*/String unit) {
         super(value, unit);
     }
 
@@ -76,7 +76,7 @@ public class TimeRangeValue extends SweTimeRange implements Value<RangeValue<Dat
     }
 
     @Override
-    public void setUnit(String unit) {
+    public void setUnit(/*~~>*/String unit) {
         super.setUom(unit);
     }
 
@@ -87,7 +87,7 @@ public class TimeRangeValue extends SweTimeRange implements Value<RangeValue<Dat
     }
 
     @Override
-    public String getUnit() {
+    public /*~~>*/String getUnit() {
         return super.getUom();
     }
 
@@ -102,8 +102,8 @@ public class TimeRangeValue extends SweTimeRange implements Value<RangeValue<Dat
     }
 
     @Override
-    public String toString() {
-        return String.format("TimeValue [value=%s, unit=%s]", getValue(), getUnit());
+    public /*~~>*/String toString() {
+        return /*~~>*/String.format("TimeValue [value=%s, unit=%s]", getValue(), getUnit());
     }
 
     @Override

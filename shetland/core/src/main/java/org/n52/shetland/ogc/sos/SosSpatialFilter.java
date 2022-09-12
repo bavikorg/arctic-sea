@@ -35,12 +35,12 @@ public class SosSpatialFilter implements Extension<SpatialFilter> {
     }
 
     @Override
-    public String getNamespace() {
-        return SosSpatialFilterConstants.NS_SF;
+    public /*~~>*/String getNamespace() {
+        return /*~~>*/SosSpatialFilterConstants.NS_SF;
     }
 
     @Override
-    public SosSpatialFilter setNamespace(String namespace) {
+    public SosSpatialFilter setNamespace(/*~~>*/String namespace) {
         return this;
     }
 
@@ -50,12 +50,12 @@ public class SosSpatialFilter implements Extension<SpatialFilter> {
     }
 
     @Override
-    public String getIdentifier() {
-        return SosSpatialFilterConstants.SPATIAL_FILTER;
+    public /*~~>*/String getIdentifier() {
+        return /*~~>*/SosSpatialFilterConstants.SPATIAL_FILTER;
     }
 
     @Override
-    public SosSpatialFilter setIdentifier(String identifier) {
+    public SosSpatialFilter setIdentifier(/*~~>*/String identifier) {
         return null;
     }
 
@@ -65,12 +65,12 @@ public class SosSpatialFilter implements Extension<SpatialFilter> {
     }
 
     @Override
-    public String getDefinition() {
-        return SosSpatialFilterConstants.SPATIAL_FILTER;
+    public /*~~>*/String getDefinition() {
+        return /*~~>*/SosSpatialFilterConstants.SPATIAL_FILTER;
     }
 
     @Override
-    public SosSpatialFilter setDefinition(String definition) {
+    public SosSpatialFilter setDefinition(/*~~>*/String definition) {
         return this;
     }
 

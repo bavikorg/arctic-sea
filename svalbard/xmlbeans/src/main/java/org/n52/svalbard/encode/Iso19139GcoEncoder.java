@@ -47,7 +47,7 @@ public class Iso19139GcoEncoder extends AbstractIso19139GcoEncoder {
 
     private static final Logger LOGGER = LoggerFactory.getLogger(Iso19139GcoEncoder.class);
 
-    private static final Set<EncoderKey> ENCODER_KEYS = CodingHelper.encoderKeysForElements(GcoConstants.NS_GCO,
+    private static final Set<EncoderKey> ENCODER_KEYS = CodingHelper.encoderKeysForElements(/*~~>*/GcoConstants.NS_GCO,
             Role.class, org.n52.shetland.iso.gco.Role.class, AbstractRole.class);
 
     public Iso19139GcoEncoder() {
@@ -61,8 +61,8 @@ public class Iso19139GcoEncoder extends AbstractIso19139GcoEncoder {
     }
 
     @Override
-    public void addNamespacePrefixToMap(final Map<String, String> nameSpacePrefixMap) {
-        nameSpacePrefixMap.put(GcoConstants.NS_GCO, GcoConstants.NS_GCO_PREFIX);
+    public void addNamespacePrefixToMap(final Map</*~~>*/String, /*~~>*/String> nameSpacePrefixMap) {
+        nameSpacePrefixMap.put(/*~~>*/GcoConstants.NS_GCO, /*~~>*/GcoConstants.NS_GCO_PREFIX);
     }
 
     @Override

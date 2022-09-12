@@ -32,11 +32,11 @@ import com.google.common.base.Strings;
  */
 public abstract class AbstractFeature extends AbstractGML implements HasDefaultEncoding<AbstractFeature> {
 
-    private String defaultEncoding;
-    private String xml;
+    private /*~~>*/String defaultEncoding;
+    private /*~~>*/String xml;
     private boolean wasEncoded;
 
-    public AbstractFeature(String identifier) {
+    public AbstractFeature(/*~~>*/String identifier) {
         super(identifier);
     }
 
@@ -58,7 +58,7 @@ public abstract class AbstractFeature extends AbstractGML implements HasDefaultE
      * @param gmlId
      *            GML id
      */
-    public AbstractFeature(CodeWithAuthority featureIdentifier, String gmlId) {
+    public AbstractFeature(CodeWithAuthority featureIdentifier, /*~~>*/String gmlId) {
         super(featureIdentifier, gmlId);
     }
 
@@ -66,23 +66,23 @@ public abstract class AbstractFeature extends AbstractGML implements HasDefaultE
         super.copyTo(copyOf);
     }
 
-    public AbstractFeature setDefaultElementEncoding(String defaultEncoding) {
-        this.defaultEncoding = defaultEncoding;
+    public AbstractFeature setDefaultElementEncoding(/*~~>*/String defaultEncoding) {
+        /*~~>*/this.defaultEncoding = defaultEncoding;
         return this;
     }
 
-    public String getDefaultElementEncoding() {
+    public /*~~>*/String getDefaultElementEncoding() {
         return defaultEncoding;
     }
 
     public boolean isSetDefaultElementEncoding() {
-        return this.defaultEncoding != null && !this.defaultEncoding.isEmpty();
+        return /*~~>*/this.defaultEncoding != null && !/*~~>*/this.defaultEncoding.isEmpty();
     }
 
     /**
      * @return the xml
      */
-    public String getXml() {
+    public /*~~>*/String getXml() {
         return xml;
     }
 
@@ -90,8 +90,8 @@ public abstract class AbstractFeature extends AbstractGML implements HasDefaultE
      * @param xml
      *            the xml to set
      */
-    public AbstractFeature setXml(String xml) {
-        this.xml = xml;
+    public AbstractFeature setXml(/*~~>*/String xml) {
+        /*~~>*/this.xml = xml;
         return this;
     }
 

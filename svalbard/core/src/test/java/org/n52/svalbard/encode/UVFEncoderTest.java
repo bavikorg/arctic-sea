@@ -76,10 +76,10 @@ public class UVFEncoderTest {
     private static final long UTC_TIMESTAMP_0 = -UTC_TIMESTAMP_1;
     private UVFEncoder encoder;
     private GetObservationResponse responseToEncode;
-    private String obsPropIdentifier = "test-obs-prop-identifier";
-    private String foiIdentifier = "test-foi-identifier";
-    final String foiName = "test-foi-name";
-    private String unit = "test-unit";
+    private /*~~>*/String obsPropIdentifier = "test-obs-prop-identifier";
+    private /*~~>*/String foiIdentifier = "test-foi-identifier";
+    final /*~~>*/String foiName = "test-foi-name";
+    private /*~~>*/String unit = "test-unit";
 
     @BeforeEach
     public void initObjects() throws OwsExceptionReport, ParseException {
@@ -90,8 +90,8 @@ public class UVFEncoderTest {
         omObservation.setObservationID("1");
 
         // Observed Property
-        String valueType = "test-obs-prop-value-type";
-        String description = "test-obs-prop-description";
+        /*~~>*/String valueType = "test-obs-prop-value-type";
+        /*~~>*/String description = "test-obs-prop-description";
         AbstractPhenomenon observableProperty = new OmObservableProperty(
                 obsPropIdentifier,
                 description,
@@ -104,13 +104,13 @@ public class UVFEncoderTest {
         AbstractFeature featureOfInterest = new SamplingFeature(featureIdentifier);
         featureOfInterest.addName(new CodeType(foiName));
         int srid = 4326;
-        String geomWKT = "POINT(51.9350382 7.6521225)";
+        /*~~>*/String geomWKT = "POINT(51.9350382 7.6521225)";
         final Geometry point = JTSHelper.createGeometryFromWKT(geomWKT, srid);
         ((SamplingFeature) featureOfInterest).setGeometry(point);
         observationConstellation.setFeatureOfInterest(featureOfInterest);
 
         // value
-        final String uomId = "test-uom";
+        final /*~~>*/String uomId = "test-uom";
         final double testValue = 52.0;
         Value<?> measuredValue = new QuantityValue(testValue, uomId);
 
@@ -124,7 +124,7 @@ public class UVFEncoderTest {
         omObservation.setValue(value);
 
         // observation type
-        observationConstellation.setObservationType(OmConstants.OBS_TYPE_MEASUREMENT);
+        observationConstellation.setObservationType(/*~~>*/OmConstants.OBS_TYPE_MEASUREMENT);
 
         // Final package
         omObservation.setObservationConstellation(observationConstellation);
@@ -148,7 +148,7 @@ public class UVFEncoderTest {
         BinaryAttachmentResponse encodedResponse = encoder.encode(responseToEncode);
 
         assertThat(encodedResponse, IsNot.not(CoreMatchers.nullValue()));
-        final String[] split = new String(encodedResponse.getBytes()).split("\n");
+        final /*~~>*/String[] split = new /*~~>*/String(encodedResponse.getBytes()).split("\n");
         assertTrue(split.length >= 10, "Expected >= 10 elements in array, got " + split.length);
     }
 
@@ -166,8 +166,8 @@ public class UVFEncoderTest {
 
     @Test
     public void shouldEncodeMeasurementIdentifier() throws EncodingException {
-        final String actual = getResponseString()[2];
-        final String expected = "$sb Mess-Groesse: " + obsPropIdentifier
+        final /*~~>*/String actual = getResponseString()[2];
+        final /*~~>*/String expected = "$sb Mess-Groesse: " + obsPropIdentifier
                 .substring(obsPropIdentifier.length() - UVFConstants.MAX_IDENTIFIER_LENGTH, obsPropIdentifier.length());
 
         assertThat(actual, Is.is(expected));
@@ -176,8 +176,8 @@ public class UVFEncoderTest {
 
     @Test
     public void shouldEncodeUnitOfMeasurement() throws EncodingException {
-        final String actual = getResponseString()[3];
-        final String expected = "$sb Mess-Einheit: " + unit;
+        final /*~~>*/String actual = getResponseString()[3];
+        final /*~~>*/String expected = "$sb Mess-Einheit: " + unit;
 
         assertThat(actual, Is.is(expected));
     }
@@ -185,8 +185,8 @@ public class UVFEncoderTest {
     @Test
     public void shouldEncodeMeasurementLocationIdentifier()
             throws EncodingException {
-        final String actual = getResponseString()[4];
-        final String expected = "$sb Mess-Stellennummer: " + foiIdentifier
+        final /*~~>*/String actual = getResponseString()[4];
+        final /*~~>*/String expected = "$sb Mess-Stellennummer: " + foiIdentifier
                 .substring(foiIdentifier.length() - UVFConstants.MAX_IDENTIFIER_LENGTH, foiIdentifier.length());
 
         assertThat(actual, Is.is(expected));
@@ -202,8 +202,8 @@ public class UVFEncoderTest {
     @Test
     public void shouldEncodeTimeseriesIdentifierAndCenturies() throws EncodingException,
             OwsExceptionReport {
-        final String actual = getResponseString()[7];
-        final String expected = obsPropIdentifier.substring(
+        final /*~~>*/String actual = getResponseString()[7];
+        final /*~~>*/String expected = obsPropIdentifier.substring(
             obsPropIdentifier.length() - UVFConstants.MAX_IDENTIFIER_LENGTH,
             obsPropIdentifier.length()) +
             " " + unit + "     " +
@@ -221,8 +221,8 @@ public class UVFEncoderTest {
         Time phenomenonTime = new TimePeriod(start, end);
         globalValues.addPhenomenonTime(phenomenonTime);
         responseToEncode.setGlobalObservationValues(globalValues);
-        final String actual = getResponseString()[7];
-        final String expected = obsPropIdentifier.substring(
+        final /*~~>*/String actual = getResponseString()[7];
+        final /*~~>*/String expected = obsPropIdentifier.substring(
             obsPropIdentifier.length() - UVFConstants.MAX_IDENTIFIER_LENGTH,
             obsPropIdentifier.length()) +
             " " + unit + "     " +
@@ -233,8 +233,8 @@ public class UVFEncoderTest {
 
     @Test
     public void shouldEncodeMeasurementLocationName() throws EncodingException {
-        final String actual = getResponseString()[5];
-        final String expected = "$sb Mess-Stellenname: " + foiName;
+        final /*~~>*/String actual = getResponseString()[5];
+        final /*~~>*/String expected = "$sb Mess-Stellenname: " + foiName;
 
         assertThat(actual, Is.is(expected));
     }
@@ -242,16 +242,16 @@ public class UVFEncoderTest {
     @Test
     public void shouldEncodeMeasurementLocationIdAndCoordinates() throws EncodingException,
             OwsExceptionReport {
-        final String actual = getResponseString()[8];
-        final String expected = "1              7.6521225 51.9350382          ";
+        final /*~~>*/String actual = getResponseString()[8];
+        final /*~~>*/String expected = "1              7.6521225 51.9350382          ";
 
         assertThat(actual, Is.is(expected));
     }
 
     @Test
     public void shouldEncodeTemporalBoundingBox() throws EncodingException {
-        final String actual = getResponseString()[9];
-        final String expected = "70010112007001011200Zeit    ";
+        final /*~~>*/String actual = getResponseString()[9];
+        final /*~~>*/String expected = "70010112007001011200Zeit    ";
 
         assertThat(actual, Is.is(expected));
     }
@@ -259,8 +259,8 @@ public class UVFEncoderTest {
     @Test
     public void shouldEncodeSingleObservationValueAndTimestamp() throws EncodingException,
             OwsExceptionReport {
-        final String actual = getResponseString()[10];
-        final String expected = "700101120052.0      ";
+        final /*~~>*/String actual = getResponseString()[10];
+        final /*~~>*/String expected = "700101120052.0      ";
 
         assertThat(actual, Is.is(expected));
     }
@@ -272,8 +272,8 @@ public class UVFEncoderTest {
         ((QuantityValue)omObservation.getValue().getValue()).
         setValue(52.1234567890);
         responseToEncode.setObservationCollection(ObservationStream.of(omObservation));
-        final String actual = getResponseString()[10];
-        final String expected = "700101120052.1234567";
+        final /*~~>*/String actual = getResponseString()[10];
+        final /*~~>*/String expected = "700101120052.1234567";
 
         assertThat(actual, Is.is(expected));
     }
@@ -285,8 +285,8 @@ public class UVFEncoderTest {
         OmObservation omObservation = responseToEncode.getObservationCollection().next();
         omObservation.getValue().setPhenomenonTime(phenomenonTime);
         responseToEncode.setObservationCollection(ObservationStream.of(omObservation));
-        final String actual = getResponseString()[10];
-        final String expected = "700101120052.0      ";
+        final /*~~>*/String actual = getResponseString()[10];
+        final /*~~>*/String expected = "700101120052.0      ";
 
         assertThat(actual, Is.is(expected));
     }
@@ -308,7 +308,7 @@ public class UVFEncoderTest {
         omObservation.setValue(mv);
         responseToEncode.setObservationCollection(ObservationStream.of(omObservation));
 
-        final String[] encodedLines = getResponseString();
+        final /*~~>*/String[] encodedLines = getResponseString();
 
         assertThat(encodedLines[8], Is.is("69123112007001011200Zeit    "));
         assertThat(encodedLines[9], Is.is("691231120052.1234567"));
@@ -321,8 +321,8 @@ public class UVFEncoderTest {
         OmObservation omObservation = responseToEncode.getObservationCollection().next();
         omObservation.getValue().getValue().setValue(null);
         responseToEncode.setObservationCollection(ObservationStream.of(omObservation));
-        final String actual = getResponseString()[9];
-        final String expected = "7001011200-777      ";
+        final /*~~>*/String actual = getResponseString()[9];
+        final /*~~>*/String expected = "7001011200-777      ";
 
         assertThat(actual, Is.is(expected));
     }
@@ -331,7 +331,7 @@ public class UVFEncoderTest {
     public void shouldNotEncodeUnitOfMeasurementForCountObservations() throws EncodingException, NoSuchElementException, OwsExceptionReport {
         OmObservation omObservation = responseToEncode.getObservationCollection().next();
         omObservation.getObservationConstellation().
-                setObservationType(OmConstants.OBS_TYPE_COUNT_OBSERVATION);
+                setObservationType(/*~~>*/OmConstants.OBS_TYPE_COUNT_OBSERVATION);
         Time phenTime = new TimeInstant(new Date(UTC_TIMESTAMP_1));
         omObservation.setValue(new SingleObservationValue<>(phenTime,
                 new CountValue(52)));
@@ -339,8 +339,8 @@ public class UVFEncoderTest {
                 .getObservableProperty()).setUnit(null);
         responseToEncode.setObservationCollection(ObservationStream.of(omObservation));
 
-        final String[] actual = getResponseString();
-        final String expected = "$sb Mess-Einheit: " + unit;
+        final /*~~>*/String[] actual = getResponseString();
+        final /*~~>*/String expected = "$sb Mess-Einheit: " + unit;
 
         assertThat(Arrays.asList(actual), IsNot.not(CoreMatchers.hasItems(expected)));
     }
@@ -350,7 +350,7 @@ public class UVFEncoderTest {
     EncodingException, NoSuchElementException, OwsExceptionReport {
         OmObservation omObservation = responseToEncode.getObservationCollection().next();
         omObservation.getObservationConstellation().
-            setObservationType(OmConstants.OBS_TYPE_COUNT_OBSERVATION);
+            setObservationType(/*~~>*/OmConstants.OBS_TYPE_COUNT_OBSERVATION);
         Time phenTime = new TimeInstant(new Date(UTC_TIMESTAMP_1));
         omObservation.setValue(new SingleObservationValue<>(phenTime,
                 new CountValue(52)));
@@ -358,8 +358,8 @@ public class UVFEncoderTest {
                 .getObservableProperty()).setUnit(null);
 
         responseToEncode.setObservationCollection(ObservationStream.of(omObservation));
-        final String[] actual = getResponseString();
-        final String expected = obsPropIdentifier.substring(
+        final /*~~>*/String[] actual = getResponseString();
+        final /*~~>*/String expected = obsPropIdentifier.substring(
             obsPropIdentifier.length() - UVFConstants.MAX_IDENTIFIER_LENGTH,
             obsPropIdentifier.length()) +
             " " + unit + "     " +
@@ -376,7 +376,7 @@ public class UVFEncoderTest {
         assertThat(encodedResponse.getSize(), Is.is(-1));
     }
 
-    private String[] getResponseString() throws EncodingException {
-        return new String(encoder.encode(responseToEncode).getBytes()).split("\n");
+    private /*~~>*//*~~>*/String[] getResponseString() throws EncodingException {
+        return new /*~~>*/String(encoder.encode(responseToEncode).getBytes()).split("\n");
     }
 }

@@ -34,12 +34,12 @@ public class InvalidAcceptVersionsParameterException extends VersionNegotiationF
     private static final long serialVersionUID = -4208117985311582007L;
 
     @SuppressWarnings("ThrowableResultIgnored")
-    public InvalidAcceptVersionsParameterException(String... acceptVersions) {
+    public InvalidAcceptVersionsParameterException(/*~~>*/String... acceptVersions) {
         this(Arrays.asList(acceptVersions));
     }
 
     @SuppressWarnings("ThrowableResultIgnored")
-    public InvalidAcceptVersionsParameterException(List<String> acceptVersions) {
+    public InvalidAcceptVersionsParameterException(List</*~~>*/String> acceptVersions) {
         withMessage("The requested %s values (%s) are not supported by this service!",
                 OWSConstants.GetCapabilitiesParams.AcceptVersions, Joiner.on(", ").join(acceptVersions));
     }

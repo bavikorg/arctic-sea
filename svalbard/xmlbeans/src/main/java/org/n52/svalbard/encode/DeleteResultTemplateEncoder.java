@@ -36,12 +36,12 @@ import net.opengis.drt.x10.DeleteResultTemplateResponseType;
  * @since 1.0.0
  */
 public class DeleteResultTemplateEncoder extends AbstractResponseEncoder<DeleteResultTemplateResponse> {
-    public static final SchemaLocation SCHEMA_LOCATION = new SchemaLocation(DeleteResultTemplateConstants.NS,
-            DeleteResultTemplateConstants.SCHEMA_LOCATION_URL);
+    public static final SchemaLocation SCHEMA_LOCATION = new SchemaLocation(/*~~>*/DeleteResultTemplateConstants.NS,
+            /*~~>*/DeleteResultTemplateConstants.SCHEMA_LOCATION_URL);
 
     public DeleteResultTemplateEncoder() {
-        super(SosConstants.SOS, Sos2Constants.SERVICEVERSION, DeleteResultTemplateConstants.OPERATION_NAME,
-                DeleteResultTemplateConstants.NS, DeleteResultTemplateConstants.NS_PREFIX,
+        super(/*~~>*/SosConstants.SOS, /*~~>*/Sos2Constants.SERVICEVERSION, /*~~>*/DeleteResultTemplateConstants.OPERATION_NAME,
+                /*~~>*/DeleteResultTemplateConstants.NS, /*~~>*/DeleteResultTemplateConstants.NS_PREFIX,
                 DeleteResultTemplateResponse.class);
     }
 
@@ -54,7 +54,7 @@ public class DeleteResultTemplateEncoder extends AbstractResponseEncoder<DeleteR
                 DeleteResultTemplateResponseDocument.Factory.newInstance(getXmlOptions());
         DeleteResultTemplateResponseType drtrt = drtrd.addNewDeleteResultTemplateResponse();
         if (drtr.isSetResultTemplates()) {
-            for (String resultTemplate : drtr.getResultTemplates()) {
+            for (/*~~>*/String resultTemplate : drtr.getResultTemplates()) {
                 drtrt.addDeletedTemplate(resultTemplate);
             }
         }

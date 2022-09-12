@@ -37,25 +37,25 @@ import edu.umd.cs.findbugs.annotations.SuppressFBWarnings;
  */
 public class GeographicalName {
 
-    private Nillable<String> language = Nillable.missing();
+    private Nillable</*~~>*/String> language = Nillable.missing();
     private Nillable<CodeType> nativeness = Nillable.missing();
     private Nillable<CodeType> nameStatus = Nillable.missing();
-    private Nillable<String> sourceOfName = Nillable.missing();
+    private Nillable</*~~>*/String> sourceOfName = Nillable.missing();
     private Nillable<Pronunciation> pronunciation = Nillable.missing();
     private List<Spelling> spelling = new LinkedList<>();
     private Nillable<CodeType> grammaticalGender = Nillable.missing();
     private Nillable<CodeType> grammaticalNumber = Nillable.missing();
 
-    public Nillable<String> getLanguage() {
+    public Nillable</*~~>*/String> getLanguage() {
         return language;
     }
 
-    public GeographicalName setLanguage(Nillable<String> language) {
+    public GeographicalName setLanguage(Nillable</*~~>*/String> language) {
         this.language = Preconditions.checkNotNull(language);
         return this;
     }
 
-    public GeographicalName setLanguage(String language) {
+    public GeographicalName setLanguage(/*~~>*/String language) {
         return setLanguage(Nillable.of(language));
     }
 
@@ -85,16 +85,16 @@ public class GeographicalName {
         return setNameStatus(Nillable.of(nameStatus));
     }
 
-    public Nillable<String> getSourceOfName() {
+    public Nillable</*~~>*/String> getSourceOfName() {
         return sourceOfName;
     }
 
-    public GeographicalName setSourceOfName(Nillable<String> sourceOfName) {
+    public GeographicalName setSourceOfName(Nillable</*~~>*/String> sourceOfName) {
         this.sourceOfName = Preconditions.checkNotNull(sourceOfName);
         return this;
     }
 
-    public GeographicalName setSourceOfName(String sourceOfName) {
+    public GeographicalName setSourceOfName(/*~~>*/String sourceOfName) {
         return setSourceOfName(Nillable.of(sourceOfName));
     }
 
@@ -157,7 +157,7 @@ public class GeographicalName {
     }
 
     @Override
-    public String toString() {
+    public /*~~>*/String toString() {
         return MoreObjects.toStringHelper(this).add("language", getLanguage()).add("nativeness", getNativeness())
                 .add("nameStatus", getNameStatus()).add("grammaticalGender", getGrammaticalGender())
                 .add("grammaticalNumber", getGrammaticalNumber()).add("pronunciation", getPronunciation())

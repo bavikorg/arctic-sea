@@ -41,6 +41,6 @@ public class PointTimeSeriesObservationXmlStreamWriter extends WmlTVPEncoderv20X
 
     protected void writeAddtitionalNamespaces() throws XMLStreamException {
         super.writeAddtitionalNamespaces();
-        namespace(InspireOMSOConstants.NS_OMSO_PREFIX, InspireOMSOConstants.NS_OMSO_30);
+        namespace(/*~~>*/InspireOMSOConstants.NS_OMSO_PREFIX, /*~~>*/InspireOMSOConstants.NS_OMSO_30);
     }
 }

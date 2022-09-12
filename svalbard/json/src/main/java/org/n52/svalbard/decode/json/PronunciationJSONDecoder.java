@@ -26,10 +26,10 @@ import com.google.common.base.Function;
 
 public class PronunciationJSONDecoder extends AbstractJSONDecoder<Pronunciation> {
 
-    private static final Function<String, URI> STRING_TO_URI = new Function<String, URI>() {
+    private static final Function</*~~>*/String, URI> STRING_TO_URI = new Function</*~~>*/String, URI>() {
 
         @Override
-        public URI apply(String input) {
+        public URI apply(/*~~>*/String input) {
             return URI.create(input);
         }
     };
@@ -43,13 +43,13 @@ public class PronunciationJSONDecoder extends AbstractJSONDecoder<Pronunciation>
             throws DecodingException {
         Pronunciation pronunciation = new Pronunciation();
         pronunciation
-                .setIPA(parseNillableString(node.path(AQDJSONConstants.IPA)));
+                .setIPA(parseNillableString(node.path(/*~~>*/AQDJSONConstants.IPA)));
         pronunciation.setSoundLink(parseNillableString(node
-                .path(AQDJSONConstants.SOUND_LINK)).map(stringToURI()));
+                .path(/*~~>*/AQDJSONConstants.SOUND_LINK)).map(stringToURI()));
         return pronunciation;
     }
 
-    public static Function<String, URI> stringToURI() {
+    public static Function</*~~>*/String, URI> stringToURI() {
         return STRING_TO_URI;
     }
 

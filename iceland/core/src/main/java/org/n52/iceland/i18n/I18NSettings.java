@@ -24,9 +24,9 @@ package org.n52.iceland.i18n;
  */
 public interface I18NSettings {
 
-    String I18N_DEFAULT_LANGUAGE = "i18n.defaultLanguage";
+    /*~~>*/String I18N_DEFAULT_LANGUAGE = "i18n.defaultLanguage";
 
-    String I18N_SHOW_ALL_LANGUAGE_VALUES
+    /*~~>*/String I18N_SHOW_ALL_LANGUAGE_VALUES
             = "i18n.showAllLanguageValues";
 
 }

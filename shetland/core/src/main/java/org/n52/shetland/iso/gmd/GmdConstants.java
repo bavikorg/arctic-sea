@@ -22,19 +22,19 @@ import org.n52.shetland.w3c.SchemaLocation;
 
 public interface GmdConstants {
 
-    String NS_GMD = "http://www.isotc211.org/2005/gmd";
+    /*~~>*/String NS_GMD = "http://www.isotc211.org/2005/gmd";
 
-    String NS_GMD_PREFIX = "gmd";
+    /*~~>*/String NS_GMD_PREFIX = "gmd";
 
-    String SCHEMA_LOCATION_URL_GMD = "http://schemas.opengis.net/iso/19139/20070417/gmd/gmd.xsd";
+    /*~~>*/String SCHEMA_LOCATION_URL_GMD = "http://schemas.opengis.net/iso/19139/20070417/gmd/gmd.xsd";
 
     SchemaLocation GMD_SCHEMA_LOCATION = new SchemaLocation(NS_GMD, SCHEMA_LOCATION_URL_GMD);
 
     QName QN_GMD_CONFORMANCE_RESULT =
-            new QName(GmdConstants.NS_GMD, "DQ_ConformanceResult", GmdConstants.NS_GMD_PREFIX);
+            new QName(/*~~>*/GmdConstants.NS_GMD, "DQ_ConformanceResult", /*~~>*/GmdConstants.NS_GMD_PREFIX);
 
     QName QN_GMD_QUANTITATIVE_RESULT =
-            new QName(GmdConstants.NS_GMD, "DQ_QuantitativeResult", GmdConstants.NS_GMD_PREFIX);
+            new QName(/*~~>*/GmdConstants.NS_GMD, "DQ_QuantitativeResult", /*~~>*/GmdConstants.NS_GMD_PREFIX);
 
-    QName QN_GML_BASE_UNIT = new QName(GmlConstants.NS_GML_32, "BaseUnit", GmlConstants.NS_GML_PREFIX);
+    QName QN_GML_BASE_UNIT = new QName(/*~~>*/GmlConstants.NS_GML_32, "BaseUnit", /*~~>*/GmlConstants.NS_GML_PREFIX);
 }

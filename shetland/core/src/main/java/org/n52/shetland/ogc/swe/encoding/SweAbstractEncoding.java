@@ -23,14 +23,14 @@ import org.n52.janmayen.Copyable;
  */
 public abstract class SweAbstractEncoding implements Copyable<SweAbstractEncoding> {
 
-    private String xml;
+    private /*~~>*/String xml;
 
-    public String getXml() {
+    public /*~~>*/String getXml() {
         return xml;
     }
 
-    public void setXml(String xml) {
-        this.xml = xml;
+    public void setXml(/*~~>*/String xml) {
+        /*~~>*/this.xml = xml;
     }
 
     @Override

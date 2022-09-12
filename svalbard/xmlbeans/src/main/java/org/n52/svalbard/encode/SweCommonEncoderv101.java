@@ -133,11 +133,11 @@ public class SweCommonEncoderv101
 
     private static final Logger LOGGER = LoggerFactory.getLogger(SweCommonEncoderv101.class);
 
-    private static final String URN = "urn:";
+    private static final /*~~>*/String URN = "urn:";
 
-    private static final String HTTP = "http://";
+    private static final /*~~>*/String HTTP = "http://";
 
-    private static final Set<EncoderKey> ENCODER_KEYS = CodingHelper.encoderKeysForElements(SweConstants.NS_SWE_101,
+    private static final Set<EncoderKey> ENCODER_KEYS = CodingHelper.encoderKeysForElements(/*~~>*/SweConstants.NS_SWE_101,
             SweBoolean.class, SweCategory.class, SweCount.class, SweObservableProperty.class, SweQuantity.class,
             SweQuantityRange.class, SweText.class, SweTime.class, SweTimeRange.class, SweEnvelope.class,
             SweCoordinate.class, SweDataArray.class, SweDataRecord.class, SweSimpleDataRecord.class, TimePeriod.class);
@@ -153,8 +153,8 @@ public class SweCommonEncoderv101
     }
 
     @Override
-    public void addNamespacePrefixToMap(Map<String, String> nameSpacePrefixMap) {
-        nameSpacePrefixMap.put(SweConstants.NS_SWE_101, SweConstants.NS_SWE_PREFIX);
+    public void addNamespacePrefixToMap(Map</*~~>*/String, /*~~>*/String> nameSpacePrefixMap) {
+        nameSpacePrefixMap.put(/*~~>*/SweConstants.NS_SWE_101, /*~~>*/SweConstants.NS_SWE_PREFIX);
     }
 
     @Override
@@ -583,7 +583,7 @@ public class SweCommonEncoderv101
                 att.setId(instance.get().getGmlId());
             }
             if (instance.get().isSetValue()) {
-                for (String value : instance.get().getValue()) {
+                for (/*~~>*/String value : instance.get().getValue()) {
                     att.addValueList(Lists.newArrayList(value));
                 }
             }
@@ -604,7 +604,7 @@ public class SweCommonEncoderv101
             }
             if (instance.get().isSetInterval()) {
                 for (RangeValue<DateTime> interval : instance.get().getInterval()) {
-                    List<String> list = Lists.newArrayListWithCapacity(2);
+                    List</*~~>*/String> list = Lists.newArrayListWithCapacity(2);
                     list.add(DateTimeHelper.formatDateTime2IsoString(interval.getRangeStart()));
                     if (interval.isSetEndValue()) {
                         list.add(DateTimeHelper.formatDateTime2IsoString(interval.getRangeEnd()));
@@ -681,7 +681,7 @@ public class SweCommonEncoderv101
             xbComponent.addNewDescription().setStringValue(component.getDescription());
         }
         if (component.isSetName()) {
-            xbComponent.addNewName().set(encodeObjectToXml(GmlConstants.NS_GML, component.getName()));
+            xbComponent.addNewName().set(encodeObjectToXml(/*~~>*/GmlConstants.NS_GML, component.getName()));
         }
     }
 
@@ -834,19 +834,19 @@ public class SweCommonEncoderv101
         return null;
     }
 
-    private XmlString createValues(List<List<String>> values, SweAbstractEncoding encoding) {
+    private XmlString createValues(List<List</*~~>*/String>> values, SweAbstractEncoding encoding) {
         return createValues((SweTextEncoding) encoding, values);
     }
 
-    private XmlString createValues(SweTextEncoding textEncoding, List<List<String>> values) {
+    private XmlString createValues(SweTextEncoding textEncoding, List<List</*~~>*/String>> values) {
         // TODO How to deal with the decimal separator - is it an issue here?
         // textEncoding.getDecimalSeparator();
 
-        String tokenSeparator = textEncoding.getTokenSeparator();
-        String blockSeparator = textEncoding.getBlockSeparator();
+        /*~~>*/String tokenSeparator = textEncoding.getTokenSeparator();
+        /*~~>*/String blockSeparator = textEncoding.getBlockSeparator();
 
-        String valueString =
-                values.stream().map(block -> String.join(tokenSeparator, block)).collect(joining(blockSeparator));
+        /*~~>*/String valueString =
+                values.stream().map(block -> /*~~>*/String.join(tokenSeparator, block)).collect(joining(blockSeparator));
 
         // create XB result object
         XmlString xbValueString = XmlString.Factory.newInstance();
@@ -902,15 +902,15 @@ public class SweCommonEncoderv101
                 TimeGeometricPrimitivePropertyType.Factory.newInstance(getXmlOptions());
         if (timePeriod.isSetStart() && timePeriod.isSetEnd()) {
             xbTimeGeometricPrimitiveProperty.addNewTimeGeometricPrimitive()
-                    .set(encodeObjectToXml(GmlConstants.NS_GML, timePeriod));
+                    .set(encodeObjectToXml(/*~~>*/GmlConstants.NS_GML, timePeriod));
         }
         // TODO check GML 311 rename nodename of geometric primitive to
         // gml:timePeriod
         XmlCursor timeCursor = xbTimeGeometricPrimitiveProperty.newCursor();
         boolean hasTimePrimitive =
-                timeCursor.toChild(new QName(GmlConstants.NS_GML, GmlConstants.EN_ABSTRACT_TIME_GEOM_PRIM));
+                timeCursor.toChild(new QName(/*~~>*/GmlConstants.NS_GML, /*~~>*/GmlConstants.EN_ABSTRACT_TIME_GEOM_PRIM));
         if (hasTimePrimitive) {
-            timeCursor.setName(new QName(GmlConstants.NS_GML, GmlConstants.EN_TIME_PERIOD));
+            timeCursor.setName(new QName(/*~~>*/GmlConstants.NS_GML, /*~~>*/GmlConstants.EN_TIME_PERIOD));
         }
         timeCursor.dispose();
         return xbTimeGeometricPrimitiveProperty;

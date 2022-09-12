@@ -57,7 +57,7 @@ public interface SpatialFilteringProfileRequest {
      */
     default boolean hasSpatialFilteringProfileSpatialFilter() {
         return isSetSpatialFilter() && getSpatialFilter().getValueReference()
-                .equals(Sos2Constants.VALUE_REFERENCE_SPATIAL_FILTERING_PROFILE);
+                .equals(/*~~>*/Sos2Constants.VALUE_REFERENCE_SPATIAL_FILTERING_PROFILE);
     }
 
 }

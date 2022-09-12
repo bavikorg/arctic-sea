@@ -38,7 +38,7 @@ import com.github.fge.jackson.JsonLoader;
  * @since 1.0.0
  */
 public class JSONSchemaValidationTest {
-    private static final String[] SCHEMATA = { "BaseObservation", "CategoryObservation", "CodeType",
+    private static final /*~~>*/String[] SCHEMATA = { "BaseObservation", "CategoryObservation", "CodeType",
             "ComplexObservation", "CountObservation", "Envelope", "ExceptionReport", "FeatureOfInterest", "Field",
             "FieldWithValue", "GenericObservation", "Geometry", "GeometryObservation", "Measurement", "Observation",
             "ObservationWithResult", "SWEArrayObservation", "SpatialFilter", "TemplateObservation", "TemporalFilter",
@@ -55,15 +55,15 @@ public class JSONSchemaValidationTest {
 
     @ParameterizedTest
     @MethodSource("schemata")
-    public void isValidSchema(String name) throws IOException {
+    public void isValidSchema(/*~~>*/String name) throws IOException {
         JsonNode schema = JsonLoader.fromResource("/schema/" + name + ".json");
         assertThat(name + " is not valid", schema, is(validSchema()));
     }
 
-    public static List<String[]> schemata() {
-        String[][] params = new String[SCHEMATA.length][];
+    public static List</*~~>*//*~~>*/String[]> schemata() {
+        /*~~>*/String[][] params = new /*~~>*/String[SCHEMATA.length][];
         for (int i = 0; i < params.length; ++i) {
-            params[i] = new String[] { SCHEMATA[i] };
+            params[i] = new /*~~>*/String[] { SCHEMATA[i] };
         }
         return Arrays.asList(params);
     }

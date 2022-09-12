@@ -39,13 +39,13 @@ public class WmlTDREncoderv20XmlStreamWriter extends AbstractOmV20XmlStreamWrite
     }
 
     @Override
-    protected Optional<String> getDefaultFeatureEncodingNamespace() {
-        return Optional.of(WaterMLConstants.NS_WML_20);
+    protected Optional</*~~>*/String> getDefaultFeatureEncodingNamespace() {
+        return Optional.of(/*~~>*/WaterMLConstants.NS_WML_20);
     }
 
     @Override
     protected void writeAddtitionalNamespaces() throws XMLStreamException {
-        namespace(WaterMLConstants.NS_WML_20_PREFIX, WaterMLConstants.NS_WML_20);
+        namespace(/*~~>*/WaterMLConstants.NS_WML_20_PREFIX, /*~~>*/WaterMLConstants.NS_WML_20);
     }
 
 }

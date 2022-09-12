@@ -511,7 +511,7 @@ public enum InspireLanguageISO6392B {
     ZXX("zxx"),
     ZZA("zza");
 
-    private final String value;
+    private final /*~~>*/String value;
 
     /**
      * constructor
@@ -519,7 +519,7 @@ public enum InspireLanguageISO6392B {
      * @param v
      *            the three character language string
      */
-    InspireLanguageISO6392B(String v) {
+    InspireLanguageISO6392B(/*~~>*/String v) {
         value = v;
     }
 
@@ -528,7 +528,7 @@ public enum InspireLanguageISO6392B {
      *
      * @return the value
      */
-    public String value() {
+    public /*~~>*/String value() {
         return value;
     }
 
@@ -541,9 +541,9 @@ public enum InspireLanguageISO6392B {
      * @throws IllegalArgumentException
      *             if the string value is invalid
      */
-    public static InspireLanguageISO6392B fromValue(String v) {
+    public static InspireLanguageISO6392B fromValue(/*~~>*/String v) {
         for (InspireLanguageISO6392B c : InspireLanguageISO6392B.values()) {
-            if (c.value.equalsIgnoreCase(v)) {
+            if (/*~~>*/c.value.equalsIgnoreCase(v)) {
                 return c;
             }
         }
@@ -561,7 +561,7 @@ public enum InspireLanguageISO6392B {
      */
     public static InspireLanguageISO6392B fromValue(InspireEuLanguageISO6392B v) {
         for (InspireLanguageISO6392B c : InspireLanguageISO6392B.values()) {
-            if (c.value.equalsIgnoreCase(v.value())) {
+            if (/*~~>*/c.value.equalsIgnoreCase(v.value())) {
                 return c;
             }
         }
@@ -579,7 +579,7 @@ public enum InspireLanguageISO6392B {
      */
     public static InspireLanguageISO6392B fromValue(Locale v) {
         for (InspireLanguageISO6392B c : InspireLanguageISO6392B.values()) {
-            if (c.value.equalsIgnoreCase(v.getISO3Country()) || c.value.equalsIgnoreCase(v.getISO3Language())) {
+            if (/*~~>*/c.value.equalsIgnoreCase(v.getISO3Country()) || /*~~>*/c.value.equalsIgnoreCase(v.getISO3Language())) {
                 return c;
             }
         }

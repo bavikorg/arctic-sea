@@ -21,16 +21,16 @@ import com.google.common.base.Strings;
 
 public abstract class AbtractGmd implements HasDefaultEncoding<AbtractGmd> {
 
-    private String defaultEncoding = GmdConstants.NS_GMD;
+    private /*~~>*/String defaultEncoding = /*~~>*/GmdConstants.NS_GMD;
 
     @Override
-    public String getDefaultElementEncoding() {
+    public /*~~>*/String getDefaultElementEncoding() {
         return defaultEncoding;
     }
 
     @Override
-    public AbtractGmd setDefaultElementEncoding(String defaultEncoding) {
-        this.defaultEncoding = defaultEncoding;
+    public AbtractGmd setDefaultElementEncoding(/*~~>*/String defaultEncoding) {
+        /*~~>*/this.defaultEncoding = defaultEncoding;
         return this;
     }
 

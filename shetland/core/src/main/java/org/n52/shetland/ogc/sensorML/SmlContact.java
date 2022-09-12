@@ -27,7 +27,7 @@ public abstract class SmlContact extends AbstractReferenceType {
     private Role role;
 
     @Override
-    public String getRole() {
+    public /*~~>*/String getRole() {
         if (role != null) {
             return role.getValue();
         }
@@ -42,7 +42,7 @@ public abstract class SmlContact extends AbstractReferenceType {
     }
 
     @Override
-    public AbstractReferenceType setRole(String role) {
+    public AbstractReferenceType setRole(/*~~>*/String role) {
         this.role = new Role(role);
         return this;
     }

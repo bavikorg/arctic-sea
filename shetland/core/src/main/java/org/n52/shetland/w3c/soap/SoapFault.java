@@ -31,26 +31,26 @@ public class SoapFault {
 
     private QName faultSubcode;
 
-    private String faultReason;
+    private /*~~>*/String faultReason;
 
     private Locale locale;
 
-    private String detailText;
+    private /*~~>*/String detailText;
 
     public void setFaultCode(QName faultCode) {
         this.faultCode = faultCode;
     }
 
-    public void setFaultReason(String faultReason) {
-        this.faultReason = faultReason;
+    public void setFaultReason(/*~~>*/String faultReason) {
+        /*~~>*/this.faultReason = faultReason;
     }
 
     public void setLocale(Locale locale) {
         this.locale = locale;
     }
 
-    public void setDetailText(String detailText) {
-        this.detailText = detailText;
+    public void setDetailText(/*~~>*/String detailText) {
+        /*~~>*/this.detailText = detailText;
     }
 
     public QName getFaultCode() {
@@ -61,11 +61,11 @@ public class SoapFault {
         return locale;
     }
 
-    public String getFaultReason() {
+    public /*~~>*/String getFaultReason() {
         return faultReason;
     }
 
-    public String getDetailText() {
+    public /*~~>*/String getDetailText() {
         return detailText;
     }
 

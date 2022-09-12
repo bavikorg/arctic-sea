@@ -46,7 +46,7 @@ public abstract class AbstractMonitoringObject extends AbstractFeature {
     /**
      * 0..1
      */
-    private String additionalDescription;
+    private /*~~>*/String additionalDescription;
 
     /**
      * 1..*
@@ -71,7 +71,7 @@ public abstract class AbstractMonitoringObject extends AbstractFeature {
     /**
      * 0..*
      */
-    private Set<String> onlineResource = Sets.newHashSet();
+    private Set</*~~>*/String> onlineResource = Sets.newHashSet();
 
     /**
      * 0..*
@@ -121,7 +121,7 @@ public abstract class AbstractMonitoringObject extends AbstractFeature {
     /**
      * @return the additionalDescription
      */
-    public String getAdditionalDescription() {
+    public /*~~>*/String getAdditionalDescription() {
         return additionalDescription;
     }
 
@@ -129,8 +129,8 @@ public abstract class AbstractMonitoringObject extends AbstractFeature {
      * @param additionalDescription
      *            the additionalDescription to set
      */
-    public void setAdditionalDescription(String additionalDescription) {
-        this.additionalDescription = additionalDescription;
+    public void setAdditionalDescription(/*~~>*/String additionalDescription) {
+        /*~~>*/this.additionalDescription = additionalDescription;
     }
 
     public boolean isSetAdditionalDescription() {
@@ -247,7 +247,7 @@ public abstract class AbstractMonitoringObject extends AbstractFeature {
     /**
      * @return the onlineResource
      */
-    public Set<String> getOnlineResource() {
+    public Set</*~~>*/String> getOnlineResource() {
         return Collections.unmodifiableSet(onlineResource);
     }
 
@@ -256,7 +256,7 @@ public abstract class AbstractMonitoringObject extends AbstractFeature {
      *            the onlineResource to set
      * @return this
      */
-    public AbstractMonitoringObject setOnlineResource(Collection<String> onlineResource) {
+    public AbstractMonitoringObject setOnlineResource(Collection</*~~>*/String> onlineResource) {
         this.onlineResource.clear();
         if (onlineResource != null) {
             this.onlineResource.addAll(onlineResource);

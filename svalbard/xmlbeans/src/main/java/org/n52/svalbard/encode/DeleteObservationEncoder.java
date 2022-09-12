@@ -38,21 +38,21 @@ import net.opengis.sosdo.x10.DeleteObservationResponseType;
  */
 public class DeleteObservationEncoder extends AbstractResponseEncoder<DeleteObservationResponse> {
     public static final SchemaLocation SCHEMA_LOCATION
-            = new SchemaLocation(DeleteObservationConstants.NS_SOSDO_1_0,
-                                 DeleteObservationConstants.NS_SOSDO_1_0_SCHEMA_LOCATION);
+            = new SchemaLocation(/*~~>*/DeleteObservationConstants.NS_SOSDO_1_0,
+                                 /*~~>*/DeleteObservationConstants.NS_SOSDO_1_0_SCHEMA_LOCATION);
 
     public DeleteObservationEncoder() {
-        super(SosConstants.SOS,
-              Sos2Constants.SERVICEVERSION,
+        super(/*~~>*/SosConstants.SOS,
+              /*~~>*/Sos2Constants.SERVICEVERSION,
               DeleteObservationConstants.Operations.DeleteObservation.name(),
-              DeleteObservationConstants.NS_SOSDO_1_0,
-              DeleteObservationConstants.NS_SOSDO_PREFIX,
+              /*~~>*/DeleteObservationConstants.NS_SOSDO_1_0,
+              /*~~>*/DeleteObservationConstants.NS_SOSDO_PREFIX,
               DeleteObservationResponse.class);
     }
 
     @Override
-    public Set<String> getConformanceClasses(String service, String version) {
-        if (SosConstants.SOS.equals(service) && Sos2Constants.SERVICEVERSION.equals(version)) {
+    public Set</*~~>*/String> getConformanceClasses(/*~~>*/String service, /*~~>*/String version) {
+        if (/*~~>*/SosConstants.SOS.equals(service) && /*~~>*/Sos2Constants.SERVICEVERSION.equals(version)) {
             return Collections.unmodifiableSet(DeleteObservationConstants.CONFORMANCE_CLASSES);
         }
         return Collections.emptySet();
@@ -64,7 +64,7 @@ public class DeleteObservationEncoder extends AbstractResponseEncoder<DeleteObse
             throw new UnsupportedEncoderInputException(this, DeleteObservationResponse.class);
         }
 
-        String observationId = dor.getObservationId();
+        /*~~>*/String observationId = dor.getObservationId();
         DeleteObservationResponseDocument xbDeleteObsDoc = DeleteObservationResponseDocument.Factory
                 .newInstance(getXmlOptions());
         DeleteObservationResponseType xbDeleteObservationResponse = xbDeleteObsDoc.addNewDeleteObservationResponse();

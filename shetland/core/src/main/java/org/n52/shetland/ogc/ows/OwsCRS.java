@@ -62,7 +62,7 @@ public class OwsCRS {
     }
 
     @Override
-    public String toString() {
+    public /*~~>*/String toString() {
         return "OwsCRS{" + "value=" + value + '}';
     }
 

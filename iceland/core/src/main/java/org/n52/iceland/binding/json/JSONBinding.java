@@ -53,9 +53,9 @@ import com.fasterxml.jackson.databind.JsonNode;
  */
 public class JSONBinding extends SimpleBinding {
     private static final Logger LOG = LoggerFactory.getLogger(JSONBinding.class);
-    private static final String SERVICE = "service";
-    private static final String VERSION = "version";
-    private static final String REQUEST = "request";
+    private static final /*~~>*/String SERVICE = "service";
+    private static final /*~~>*/String VERSION = "version";
+    private static final /*~~>*/String REQUEST = "request";
     private static final Set<BindingKey> KEYS =
             Collections.singleton(new MediaTypeBindingKey(MediaTypes.APPLICATION_JSON));
 

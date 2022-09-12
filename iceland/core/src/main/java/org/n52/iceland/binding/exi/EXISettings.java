@@ -24,21 +24,21 @@ package org.n52.iceland.binding.exi;
  *
  */
 public interface EXISettings {
-    String EXI_ALIGNMENT = "exi.alignment";
-    String EXI_FIDELITY = "exi.fidelity";
-    String EXI_FIDELITY_STRICT = "exi.fidelity.strict";
-    String EXI_FIDELITY_DEFAULT = "exi.fidelity.default";
-    String EXI_FIDELITY_SPECIFIC = "exi.fidelity.specific";
-    String EXI_FIDELITY_COMMENTS = "exi.fidelity.comments";
-    String EXI_FIDELITY_PROCESSING_INSTRUCTIONS = "exi.fidelity.processing.instructions";
-    String EXI_FIDELITY_DTD = "exi.fidelity.dtd";
-    String EXI_FIDELITY_PREFIXES = "exi.fidelity.prefixes";
-    String EXI_FIDELITY_LEXICAL_VALUE = "exi.fidelity.lexical.value";
-    String EXI_GRAMMAR = "exi.grammar";
-    String EXI_GRAMMAR_SCHEMALESS = "exi.grammar.schemaless";
-    String EXI_GRAMMAR_BASETYPES = "exi.grammar.basetypes";
-    String EXI_GRAMMAR_SCHEMABASED = "exi.grammar.schemabased";
-    String EXI_GRAMMAR_SCHEMA = "exi.grammar.schema";
-    String EXI_GRAMMAR_SCHEMA_SOS_10 = "exi.grammar.schema.sos.10";
-    String EXI_GRAMMAR_SCHEMA_SOS_20 = "exi.grammar.schema.sos.20";
+    /*~~>*/String EXI_ALIGNMENT = "exi.alignment";
+    /*~~>*/String EXI_FIDELITY = "exi.fidelity";
+    /*~~>*/String EXI_FIDELITY_STRICT = "exi.fidelity.strict";
+    /*~~>*/String EXI_FIDELITY_DEFAULT = "exi.fidelity.default";
+    /*~~>*/String EXI_FIDELITY_SPECIFIC = "exi.fidelity.specific";
+    /*~~>*/String EXI_FIDELITY_COMMENTS = "exi.fidelity.comments";
+    /*~~>*/String EXI_FIDELITY_PROCESSING_INSTRUCTIONS = "exi.fidelity.processing.instructions";
+    /*~~>*/String EXI_FIDELITY_DTD = "exi.fidelity.dtd";
+    /*~~>*/String EXI_FIDELITY_PREFIXES = "exi.fidelity.prefixes";
+    /*~~>*/String EXI_FIDELITY_LEXICAL_VALUE = "exi.fidelity.lexical.value";
+    /*~~>*/String EXI_GRAMMAR = "exi.grammar";
+    /*~~>*/String EXI_GRAMMAR_SCHEMALESS = "exi.grammar.schemaless";
+    /*~~>*/String EXI_GRAMMAR_BASETYPES = "exi.grammar.basetypes";
+    /*~~>*/String EXI_GRAMMAR_SCHEMABASED = "exi.grammar.schemabased";
+    /*~~>*/String EXI_GRAMMAR_SCHEMA = "exi.grammar.schema";
+    /*~~>*/String EXI_GRAMMAR_SCHEMA_SOS_10 = "exi.grammar.schema.sos.10";
+    /*~~>*/String EXI_GRAMMAR_SCHEMA_SOS_20 = "exi.grammar.schema.sos.20";
 }

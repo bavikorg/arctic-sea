@@ -42,7 +42,7 @@ public final class Filters {
      *
      * @return the filter
      */
-    public static ComparisonFilter ge(String property, String value) {
+    public static ComparisonFilter ge(/*~~>*/String property, /*~~>*/String value) {
         return new ComparisonFilter(ComparisonOperator.PropertyIsGreaterThanOrEqualTo, property, value);
     }
 
@@ -56,7 +56,7 @@ public final class Filters {
      *
      * @return the filter
      */
-    public static ComparisonFilter le(String property, String value) {
+    public static ComparisonFilter le(/*~~>*/String property, /*~~>*/String value) {
         return new ComparisonFilter(ComparisonOperator.PropertyIsLessThanOrEqualTo, property, value);
     }
 
@@ -70,7 +70,7 @@ public final class Filters {
      *
      * @return the filter
      */
-    public static ComparisonFilter eq(String property, String value) {
+    public static ComparisonFilter eq(/*~~>*/String property, /*~~>*/String value) {
         return new ComparisonFilter(ComparisonOperator.PropertyIsEqualTo, property, value);
     }
 
@@ -84,7 +84,7 @@ public final class Filters {
      *
      * @return the filter
      */
-    public static ComparisonFilter gt(String property, String value) {
+    public static ComparisonFilter gt(/*~~>*/String property, /*~~>*/String value) {
         return new ComparisonFilter(ComparisonOperator.PropertyIsGreaterThan, property, value);
     }
 
@@ -98,7 +98,7 @@ public final class Filters {
      *
      * @return the filter
      */
-    public static ComparisonFilter lt(String property, String value) {
+    public static ComparisonFilter lt(/*~~>*/String property, /*~~>*/String value) {
         return new ComparisonFilter(ComparisonOperator.PropertyIsLessThan, property, value);
     }
 
@@ -112,7 +112,7 @@ public final class Filters {
      *
      * @return the filter
      */
-    public static ComparisonFilter like(String property, String value) {
+    public static ComparisonFilter like(/*~~>*/String property, /*~~>*/String value) {
         return new ComparisonFilter(ComparisonOperator.PropertyIsLike, property, value);
     }
 
@@ -124,7 +124,7 @@ public final class Filters {
      *
      * @return the filter
      */
-    public static ComparisonFilter isNil(String property) {
+    public static ComparisonFilter isNil(/*~~>*/String property) {
         return new ComparisonFilter(ComparisonOperator.PropertyIsNil, property, null);
     }
 
@@ -136,7 +136,7 @@ public final class Filters {
      *
      * @return the filter
      */
-    public static ComparisonFilter isNull(String property) {
+    public static ComparisonFilter isNull(/*~~>*/String property) {
         return new ComparisonFilter(ComparisonOperator.PropertyIsNull, property, null);
     }
 
@@ -150,7 +150,7 @@ public final class Filters {
      *
      * @return the filter
      */
-    public static ComparisonFilter ne(String property, String value) {
+    public static ComparisonFilter ne(/*~~>*/String property, /*~~>*/String value) {
         return new ComparisonFilter(ComparisonOperator.PropertyIsNotEqualTo, property, value);
     }
 
@@ -166,7 +166,7 @@ public final class Filters {
      *
      * @return the filter
      */
-    public static ComparisonFilter between(String property, String lower, String upper) {
+    public static ComparisonFilter between(/*~~>*/String property, /*~~>*/String lower, /*~~>*/String upper) {
         try {
             return new ComparisonFilter(ComparisonOperator.PropertyIsBetween, property, lower, upper);
         } catch (OwsExceptionReport ex) {

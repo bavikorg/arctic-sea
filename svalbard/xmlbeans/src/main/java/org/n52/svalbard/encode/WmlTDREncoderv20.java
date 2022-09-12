@@ -85,22 +85,22 @@ public class WmlTDREncoderv20 extends AbstractWmlEncoderv20 {
     private static final Logger LOGGER = LoggerFactory.getLogger(WmlTDREncoderv20.class);
 
     // TODO: change to correct conformance class
-    private static final Set<String> CONFORMANCE_CLASSES = ImmutableSet.of();
+    private static final Set</*~~>*/String> CONFORMANCE_CLASSES = ImmutableSet.of();
 
     private static final Set<EncoderKey> ENCODER_KEYS = createEncoderKeys();
 
     private static final ImmutableSet<SupportedType> SUPPORTED_TYPES = ImmutableSet.<SupportedType> builder()
-            .add(new ObservationType(WaterMLConstants.OBSERVATION_TYPE_MEASURMENT_TDR)).build();
+            .add(new ObservationType(/*~~>*/WaterMLConstants.OBSERVATION_TYPE_MEASURMENT_TDR)).build();
 
-    private static final Map<String, Map<String, Set<String>>> SUPPORTED_RESPONSE_FORMATS =
-            Collections.singletonMap(SosConstants.SOS, Collections.singletonMap(Sos2Constants.SERVICEVERSION,
-                    Collections.singleton(WaterMLConstants.NS_WML_20_DR)));
+    private static final Map</*~~>*/String, Map</*~~>*/String, Set</*~~>*/String>>> SUPPORTED_RESPONSE_FORMATS =
+            Collections.singletonMap(/*~~>*/SosConstants.SOS, Collections.singletonMap(/*~~>*/Sos2Constants.SERVICEVERSION,
+                    Collections.singleton(/*~~>*/WaterMLConstants.NS_WML_20_DR)));
 
-    private static final String TIMESERIES_ID_PREFIX = "timeseries_";
+    private static final /*~~>*/String TIMESERIES_ID_PREFIX = "timeseries_";
 
-    private static final String DATA_RECORD_ID_PREFIX = "datarecord_";
+    private static final /*~~>*/String DATA_RECORD_ID_PREFIX = "datarecord_";
 
-    private static final String TIME_POSITION_LIST_ID_PREFIX = "timepositionList_";
+    private static final /*~~>*/String TIME_POSITION_LIST_ID_PREFIX = "timepositionList_";
 
     public WmlTDREncoderv20() {
         LOGGER.debug("Encoder for the following keys initialized successfully: {}!",
@@ -118,27 +118,27 @@ public class WmlTDREncoderv20 extends AbstractWmlEncoderv20 {
     }
 
     @Override
-    public Map<String, Set<SupportedType>> getSupportedResponseFormatObservationTypes() {
-        return Collections.singletonMap(WaterMLConstants.NS_WML_20_DR, getSupportedTypes());
+    public Map</*~~>*/String, Set<SupportedType>> getSupportedResponseFormatObservationTypes() {
+        return Collections.singletonMap(/*~~>*/WaterMLConstants.NS_WML_20_DR, getSupportedTypes());
     }
 
     @Override
-    public Set<String> getConformanceClasses(String service, String version) {
-        if (SosConstants.SOS.equals(service) && Sos2Constants.SERVICEVERSION.equals(version)) {
+    public Set</*~~>*/String> getConformanceClasses(/*~~>*/String service, /*~~>*/String version) {
+        if (/*~~>*/SosConstants.SOS.equals(service) && /*~~>*/Sos2Constants.SERVICEVERSION.equals(version)) {
             return Collections.unmodifiableSet(CONFORMANCE_CLASSES);
         }
         return Collections.emptySet();
     }
 
     @Override
-    public void addNamespacePrefixToMap(Map<String, String> nameSpacePrefixMap) {
+    public void addNamespacePrefixToMap(Map</*~~>*/String, /*~~>*/String> nameSpacePrefixMap) {
         super.addNamespacePrefixToMap(nameSpacePrefixMap);
-        nameSpacePrefixMap.put(WaterMLConstants.NS_WML_20_DR, WaterMLConstants.NS_WML_20_DR_PREFIX);
-        nameSpacePrefixMap.put(GmlCoverageConstants.NS_GML_COV, GmlCoverageConstants.NS_GML_COV_PREFIX);
+        nameSpacePrefixMap.put(/*~~>*/WaterMLConstants.NS_WML_20_DR, /*~~>*/WaterMLConstants.NS_WML_20_DR_PREFIX);
+        nameSpacePrefixMap.put(/*~~>*/GmlCoverageConstants.NS_GML_COV, /*~~>*/GmlCoverageConstants.NS_GML_COV_PREFIX);
     }
 
     @Override
-    public Set<String> getSupportedResponseFormats(String service, String version) {
+    public Set</*~~>*/String> getSupportedResponseFormats(/*~~>*/String service, /*~~>*/String version) {
         if (SUPPORTED_RESPONSE_FORMATS.get(service) != null
                 && SUPPORTED_RESPONSE_FORMATS.get(service).get(version) != null) {
             return SUPPORTED_RESPONSE_FORMATS.get(service).get(version);
@@ -192,14 +192,14 @@ public class WmlTDREncoderv20 extends AbstractWmlEncoderv20 {
     }
 
     @Override
-    protected void addObservationType(OMObservationType xbObservation, String observationType) {
+    protected void addObservationType(OMObservationType xbObservation, /*~~>*/String observationType) {
         if (observationType != null && !observationType.isEmpty()) {
-            if (observationType.equals(OmConstants.OBS_TYPE_MEASUREMENT)
-                    || observationType.equals(WaterMLConstants.OBSERVATION_TYPE_MEASURMENT_TDR)) {
-                xbObservation.addNewType().setHref(WaterMLConstants.OBSERVATION_TYPE_MEASURMENT_TDR);
-            } else if (observationType.equals(OmConstants.OBS_TYPE_CATEGORY_OBSERVATION)
-                    || observationType.equals(WaterMLConstants.OBSERVATION_TYPE_CATEGORICAL_TDR)) {
-                xbObservation.addNewType().setHref(WaterMLConstants.OBSERVATION_TYPE_CATEGORICAL_TDR);
+            if (observationType.equals(/*~~>*/OmConstants.OBS_TYPE_MEASUREMENT)
+                    || observationType.equals(/*~~>*/WaterMLConstants.OBSERVATION_TYPE_MEASURMENT_TDR)) {
+                xbObservation.addNewType().setHref(/*~~>*/WaterMLConstants.OBSERVATION_TYPE_MEASURMENT_TDR);
+            } else if (observationType.equals(/*~~>*/OmConstants.OBS_TYPE_CATEGORY_OBSERVATION)
+                    || observationType.equals(/*~~>*/WaterMLConstants.OBSERVATION_TYPE_CATEGORICAL_TDR)) {
+                xbObservation.addNewType().setHref(/*~~>*/WaterMLConstants.OBSERVATION_TYPE_CATEGORICAL_TDR);
             }
         }
     }
@@ -236,7 +236,7 @@ public class WmlTDREncoderv20 extends AbstractWmlEncoderv20 {
         xbMeasurementTimeseriesDomainRange.addNewDomainSet().set(getTimePositionList(sosObservation));
         // initialize unit
         AbstractPhenomenon observableProperty = sosObservation.getObservationConstellation().getObservableProperty();
-        String unit = null;
+        /*~~>*/String unit = null;
         // create quantity list from values
         QuantityListDocument quantityListDoc = QuantityListDocument.Factory.newInstance();
         MeasureOrNilReasonListType quantityList = quantityListDoc.addNewQuantityList();
@@ -251,7 +251,7 @@ public class WmlTDREncoderv20 extends AbstractWmlEncoderv20 {
         }
 
         if (unit == null || unit.isEmpty()) {
-            unit = OGCConstants.UNKNOWN;
+            unit = /*~~>*/OGCConstants.UNKNOWN;
         }
         quantityList.setUom(unit);
         // set unit to SosObservableProperty if not set.
@@ -286,7 +286,7 @@ public class WmlTDREncoderv20 extends AbstractWmlEncoderv20 {
         // initialize unit
         // AbstractPhenomenon observableProperty =
         // observationValue.getObservableProperty();
-        String unit = null;
+        /*~~>*/String unit = null;
         // create quantity list from values
         QuantityListDocument quantityListDoc = QuantityListDocument.Factory.newInstance();
         MeasureOrNilReasonListType quantityList = quantityListDoc.addNewQuantityList();
@@ -300,7 +300,7 @@ public class WmlTDREncoderv20 extends AbstractWmlEncoderv20 {
         }
 
         if (unit == null || unit.isEmpty()) {
-            unit = OGCConstants.UNKNOWN;
+            unit = /*~~>*/OGCConstants.UNKNOWN;
         }
         quantityList.setUom(unit);
         // set unit to SosObservableProperty if not set.
@@ -340,7 +340,7 @@ public class WmlTDREncoderv20 extends AbstractWmlEncoderv20 {
         return createDataRecord(quantity, sosObservation.getObservationID());
     }
 
-    private XmlObject createDataRecord(AbstractObservationValue<?> observationValue, String unit)
+    private XmlObject createDataRecord(AbstractObservationValue<?> observationValue, /*~~>*/String unit)
             throws EncodingException {
         // AbstractPhenomenon observableProperty =
         // sosObservation.getObservationConstellation().getObservableProperty();
@@ -350,12 +350,12 @@ public class WmlTDREncoderv20 extends AbstractWmlEncoderv20 {
         return createDataRecord(quantity, observationValue.getObservationID());
     }
 
-    private XmlObject createDataRecord(SweQuantity quantity, String observationId) throws EncodingException {
+    private XmlObject createDataRecord(SweQuantity quantity, /*~~>*/String observationId) throws EncodingException {
         SweField field = new SweField("observed_value", quantity);
         SweDataRecord dataRecord = new SweDataRecord();
         dataRecord.setIdentifier(DATA_RECORD_ID_PREFIX + observationId);
         dataRecord.addField(field);
-        return encodeObjectToXml(SweConstants.NS_SWE_20, dataRecord,
+        return encodeObjectToXml(/*~~>*/SweConstants.NS_SWE_20, dataRecord,
                 EncodingContext.of(XmlBeansEncodingFlags.FOR_OBSERVATION));
     }
 
@@ -403,7 +403,7 @@ public class WmlTDREncoderv20 extends AbstractWmlEncoderv20 {
      * @throws EncodingException
      *             If an error occurs
      */
-    private List<String> getTimeArray(MultiObservationValues<?> sosObservationValues) throws EncodingException {
+    private List</*~~>*/String> getTimeArray(MultiObservationValues<?> sosObservationValues) throws EncodingException {
         return ((TVPValue) sosObservationValues.getValue()).getValue().stream().map(TimeValuePair::getTime)
                 .map(this::getTimeString).collect(toList());
     }
@@ -429,15 +429,15 @@ public class WmlTDREncoderv20 extends AbstractWmlEncoderv20 {
         }).collect(toList());
     }
 
-    private boolean isInvalidObservationType(String observationType) {
-        return !(OmConstants.OBS_TYPE_COUNT_OBSERVATION.equals(observationType)
-                || OmConstants.OBS_TYPE_MEASUREMENT.equals(observationType)
-                || OmConstants.OBS_TYPE_SWE_ARRAY_OBSERVATION.equals(observationType));
+    private boolean isInvalidObservationType(/*~~>*/String observationType) {
+        return !(/*~~>*/OmConstants.OBS_TYPE_COUNT_OBSERVATION.equals(observationType)
+                || /*~~>*/OmConstants.OBS_TYPE_MEASUREMENT.equals(observationType)
+                || /*~~>*/OmConstants.OBS_TYPE_SWE_ARRAY_OBSERVATION.equals(observationType));
     }
 
     private static Set<EncoderKey> createEncoderKeys() {
         return CollectionHelper.union(getDefaultEncoderKeys(),
-                CodingHelper.encoderKeysForElements(WaterMLConstants.NS_WML_20_DR, GetObservationResponse.class,
+                CodingHelper.encoderKeysForElements(/*~~>*/WaterMLConstants.NS_WML_20_DR, GetObservationResponse.class,
                         OmObservation.class, AbstractFeature.class, SingleObservationValue.class,
                         MultiObservationValues.class));
     }

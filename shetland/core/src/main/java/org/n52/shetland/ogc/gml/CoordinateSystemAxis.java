@@ -35,14 +35,14 @@ public class CoordinateSystemAxis extends IdentifiedObject {
     /* 0..1 */
     private CodeWithAuthority rangeMeaning;
     /* 1..1 */
-    private String uom;
+    private /*~~>*/String uom;
 
     public CoordinateSystemAxis(CodeWithAuthority identifier, CodeType axisAbbrev, CodeWithAuthority axisDirection,
-            String uom) {
+            /*~~>*/String uom) {
         super(identifier);
         this.axisAbbrev = axisAbbrev;
         this.axisDirection = axisDirection;
-        this.uom = uom;
+        /*~~>*/this.uom = uom;
     }
 
     /**
@@ -122,7 +122,7 @@ public class CoordinateSystemAxis extends IdentifiedObject {
     /**
      * @return the uom
      */
-    public String getUom() {
+    public /*~~>*/String getUom() {
         return uom;
     }
 

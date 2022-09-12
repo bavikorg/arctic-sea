@@ -31,18 +31,18 @@ public class Reference {
 
     private Optional<URI> href = Optional.empty();
     private Optional<Type> type = Optional.empty();
-    private Optional<String> role = Optional.empty();
-    private Optional<String> arcrole = Optional.empty();
-    private Optional<String> title = Optional.empty();
+    private Optional</*~~>*/String> role = Optional.empty();
+    private Optional</*~~>*/String> arcrole = Optional.empty();
+    private Optional</*~~>*/String> title = Optional.empty();
     private Optional<Show> show = Optional.empty();
     private Optional<Actuate> actuate = Optional.empty();
-    private Optional<String> remoteSchema = Optional.empty();
+    private Optional</*~~>*/String> remoteSchema = Optional.empty();
 
     public Optional<Type> getType() {
         return type;
     }
 
-    public Reference setType(String type) {
+    public Reference setType(/*~~>*/String type) {
         return setType(Type.fromString(type));
     }
 
@@ -61,29 +61,29 @@ public class Reference {
 
     }
 
-    public Optional<String> getRole() {
+    public Optional</*~~>*/String> getRole() {
         return role;
     }
 
-    public Reference setRole(String role) {
+    public Reference setRole(/*~~>*/String role) {
         this.role = Optional.ofNullable(Strings.emptyToNull(role));
         return this;
     }
 
-    public Optional<String> getArcrole() {
+    public Optional</*~~>*/String> getArcrole() {
         return arcrole;
     }
 
-    public Reference setArcrole(String arcrole) {
+    public Reference setArcrole(/*~~>*/String arcrole) {
         this.arcrole = Optional.ofNullable(Strings.emptyToNull(arcrole));
         return this;
     }
 
-    public Optional<String> getTitle() {
+    public Optional</*~~>*/String> getTitle() {
         return title;
     }
 
-    public Reference setTitle(String title) {
+    public Reference setTitle(/*~~>*/String title) {
         this.title = Optional.ofNullable(Strings.emptyToNull(title));
         return this;
     }
@@ -92,7 +92,7 @@ public class Reference {
         return show;
     }
 
-    public Reference setShow(String show) {
+    public Reference setShow(/*~~>*/String show) {
         return setShow(Show.fromString(show));
     }
 
@@ -105,7 +105,7 @@ public class Reference {
         return actuate;
     }
 
-    public Reference setActuate(String actuate) {
+    public Reference setActuate(/*~~>*/String actuate) {
         return setActuate(Actuate.fromString(actuate));
     }
 
@@ -114,11 +114,11 @@ public class Reference {
         return this;
     }
 
-    public Optional<String> getRemoteSchema() {
+    public Optional</*~~>*/String> getRemoteSchema() {
         return remoteSchema;
     }
 
-    public Reference setRemoteSchema(String remoteSchema) {
+    public Reference setRemoteSchema(/*~~>*/String remoteSchema) {
         this.remoteSchema = Optional.ofNullable(Strings.emptyToNull(remoteSchema));
         return this;
     }
@@ -143,7 +143,7 @@ public class Reference {
     }
 
     @Override
-    public String toString() {
+    public /*~~>*/String toString() {
         return MoreObjects.toStringHelper(this).omitNullValues().add("actuate", getActuate().orElse(null))
                 .add("arcrole", getArcrole().orElse(null)).add("href", getHref().orElse(null))
                 .add("remoteSchema", getRemoteSchema().orElse(null)).add("role", getRole().orElse(null))

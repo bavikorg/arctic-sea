@@ -17,12 +17,12 @@ package org.n52.shetland.w3c.wsdl;
 
 public class Import extends AbstractWsdl {
 
-    public void setLocationURI(String schemaLocation) {
+    public void setLocationURI(/*~~>*/String schemaLocation) {
         // TODO Auto-generated method stub
 
     }
 
-    public void setNamespaceURI(String namespace) {
+    public void setNamespaceURI(/*~~>*/String namespace) {
         // TODO Auto-generated method stub
 
     }

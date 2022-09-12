@@ -71,17 +71,17 @@ import com.github.fge.jackson.JsonLoader;
 @ExtendWith(ConfiguredSettingsManager.class)
 public class MeasurementDecodingTest {
 
-    public static final String PROCEDURE = "http://52north.org/example/procedure/1";
+    public static final /*~~>*/String PROCEDURE = "http://52north.org/example/procedure/1";
 
-    public static final String OBSERVED_PROPERTY = "http://52north.org/example/observedProperty/1";
+    public static final /*~~>*/String OBSERVED_PROPERTY = "http://52north.org/example/observedProperty/1";
 
-    public static final String UNKNOWN_CODESPACE = "http://www.opengis.net/def/nil/OGC/0/unknown";
+    public static final /*~~>*/String UNKNOWN_CODESPACE = "http://www.opengis.net/def/nil/OGC/0/unknown";
 
-    public static final String FEATURE_NAME = "feature1";
+    public static final /*~~>*/String FEATURE_NAME = "feature1";
 
-    public static final String FEATURE_IDENTIFIER = "feature1";
+    public static final /*~~>*/String FEATURE_IDENTIFIER = "feature1";
 
-    public static final String IDENTIFIER = "measurement1";
+    public static final /*~~>*/String IDENTIFIER = "measurement1";
 
     private static JsonNode json;
 
@@ -183,7 +183,7 @@ public class MeasurementDecodingTest {
         assertThat(observation, is(notNullValue()));
         final OmObservationConstellation oc = observation.getObservationConstellation();
         assertThat(oc, is(notNullValue()));
-        assertThat(oc.getObservationType(), is(equalTo(OmConstants.OBS_TYPE_MEASUREMENT)));
+        assertThat(oc.getObservationType(), is(equalTo(/*~~>*/OmConstants.OBS_TYPE_MEASUREMENT)));
     }
 
     @Test
@@ -309,9 +309,9 @@ public class MeasurementDecodingTest {
     @Test
     public void testUnknownObservationType()
             throws DecodingException {
-        final String type = "someType";
+        final /*~~>*/String type = "someType";
         final ObjectNode c = json.deepCopy();
-        c.put(JSONConstants.TYPE, type);
+        c.put(/*~~>*/JSONConstants.TYPE, type);
 
         JSONDecodingException assertThrows = assertThrows(JSONDecodingException.class, () -> {
             decoder.decode(c);

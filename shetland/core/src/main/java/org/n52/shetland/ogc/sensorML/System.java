@@ -62,8 +62,8 @@ public class System extends AbstractComponent implements HasComponents<System>, 
     }
 
     @Override
-    public String getDefaultElementEncoding() {
-        return SensorMLConstants.NS_SML;
+    public /*~~>*/String getDefaultElementEncoding() {
+        return /*~~>*/SensorMLConstants.NS_SML;
     }
 
     @SuppressFBWarnings({ "EI_EXPOSE_REP" })

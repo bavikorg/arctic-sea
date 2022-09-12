@@ -38,7 +38,7 @@ public class SwesStringDecoderv20 extends AbstractStringRequestDecoder {
     private static final Logger LOGGER = LoggerFactory.getLogger(SwesStringDecoderv20.class);
 
     private static final Set<DecoderKey> DECODER_KEYS =
-            CodingHelper.xmlStringDecoderKeysForOperationAndMediaType(SosConstants.SOS, Sos2Constants.SERVICEVERSION,
+            CodingHelper.xmlStringDecoderKeysForOperationAndMediaType(/*~~>*/SosConstants.SOS, /*~~>*/Sos2Constants.SERVICEVERSION,
                     SosConstants.Operations.DescribeSensor, Sos2Constants.Operations.InsertSensor,
                     Sos2Constants.Operations.UpdateSensorDescription, Sos2Constants.Operations.DeleteSensor);
 

@@ -26,21 +26,21 @@ import org.n52.faroe.ConfigurationError;
  * @author Christian Autermann
  */
 public interface PropertyFileHandler {
-    void delete(String m) throws ConfigurationError;
+    void delete(/*~~>*/String m) throws ConfigurationError;
 
     boolean delete();
 
     boolean exists();
 
-    String get(String m) throws ConfigurationError;
+    /*~~>*/String get(/*~~>*/String m) throws ConfigurationError;
 
     Properties getAll() throws ConfigurationError;
 
     File getFile(boolean create) throws IOException;
 
-    String getPath();
+    /*~~>*/String getPath();
 
-    void save(String m, String value) throws ConfigurationError;
+    void save(/*~~>*/String m, /*~~>*/String value) throws ConfigurationError;
 
     void saveAll(Properties properties) throws ConfigurationError;
 

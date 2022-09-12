@@ -104,21 +104,21 @@ public class ObservationEncoder
 
     private void encodeIdentifier(OmObservation o, ObjectNode json) {
         if (o.isSetIdentifier()) {
-            json.set(JSONConstants.IDENTIFIER, encodeCodeWithAuthority(o.getIdentifierCodeWithAuthority()));
+            json.set(/*~~>*/JSONConstants.IDENTIFIER, encodeCodeWithAuthority(o.getIdentifierCodeWithAuthority()));
         }
     }
 
     private void encodeProcedure(OmObservation o, ObjectNode json) {
-        json.put(JSONConstants.PROCEDURE, o.getObservationConstellation().getProcedure().getIdentifier());
+        json.put(/*~~>*/JSONConstants.PROCEDURE, o.getObservationConstellation().getProcedure().getIdentifier());
     }
 
     private void encodeParameter(OmObservation o, ObjectNode json)
             throws EncodingException {
         if (o.isSetParameter()) {
             if (o.getParameter().size() == 1) {
-                json.set(JSONConstants.PARAMETER, encodeNamedValue(o.getParameter().iterator().next()));
+                json.set(/*~~>*/JSONConstants.PARAMETER, encodeNamedValue(o.getParameter().iterator().next()));
             } else {
-                ArrayNode parameters = json.putArray(JSONConstants.PARAMETER);
+                ArrayNode parameters = json.putArray(/*~~>*/JSONConstants.PARAMETER);
                 for (NamedValue<?> namedValue : o.getParameter()) {
                     parameters.add(encodeNamedValue(namedValue));
                 }
@@ -129,51 +129,51 @@ public class ObservationEncoder
     private JsonNode encodeNamedValue(NamedValue<?> namedValue)
             throws EncodingException {
         ObjectNode namedValueObject = nodeFactory().objectNode();
-        namedValueObject.put(JSONConstants.NAME, namedValue.getName().getHref());
-        namedValueObject.set(JSONConstants.VALUE, encodeValue(namedValue.getValue()));
+        namedValueObject.put(/*~~>*/JSONConstants.NAME, namedValue.getName().getHref());
+        namedValueObject.set(/*~~>*/JSONConstants.VALUE, encodeValue(namedValue.getValue()));
         ObjectNode parameterObject = nodeFactory().objectNode();
-        parameterObject.set(JSONConstants.NAMED_VALUE, namedValueObject);
+        parameterObject.set(/*~~>*/JSONConstants.NAMED_VALUE, namedValueObject);
         return parameterObject;
     }
 
     private void encodeObservableProperty(OmObservation o, ObjectNode json) {
-        json.put(JSONConstants.OBSERVABLE_PROPERTY,
+        json.put(/*~~>*/JSONConstants.OBSERVABLE_PROPERTY,
                 o.getObservationConstellation().getObservableProperty().getIdentifier());
     }
 
     private void encodeObservationType(OmObservation o, ObjectNode json)
             throws EncodingException {
-        json.put(JSONConstants.TYPE, getObservationType(o));
+        json.put(/*~~>*/JSONConstants.TYPE, getObservationType(o));
     }
 
     private void encodeFeatureOfInterest(OmObservation o, ObjectNode json)
             throws EncodingException {
         OmObservationConstellation oc = o.getObservationConstellation();
-        json.set(JSONConstants.FEATURE_OF_INTEREST, encodeObjectToJson(oc.getFeatureOfInterest()));
+        json.set(/*~~>*/JSONConstants.FEATURE_OF_INTEREST, encodeObjectToJson(oc.getFeatureOfInterest()));
     }
 
     private void encodeResultTime(OmObservation o, ObjectNode json)
             throws EncodingException {
         if (o.isSetResultTime()) {
-            json.set(JSONConstants.RESULT_TIME, encodeObjectToJson(o.getResultTime()));
+            json.set(/*~~>*/JSONConstants.RESULT_TIME, encodeObjectToJson(o.getResultTime()));
         }
     }
 
     private void encodeValidTime(OmObservation o, ObjectNode json)
             throws EncodingException {
         if (o.isSetValidTime()) {
-            json.set(JSONConstants.VALID_TIME, encodeObjectToJson(o.getValidTime()));
+            json.set(/*~~>*/JSONConstants.VALID_TIME, encodeObjectToJson(o.getValidTime()));
         }
     }
 
     private void encodePhenomenonTime(OmObservation o, ObjectNode json)
             throws EncodingException {
-        json.set(JSONConstants.PHENOMENON_TIME, encodeObjectToJson(o.getPhenomenonTime()));
+        json.set(/*~~>*/JSONConstants.PHENOMENON_TIME, encodeObjectToJson(o.getPhenomenonTime()));
     }
 
     private void encodeResult(OmObservation o, ObjectNode json)
             throws EncodingException {
-        json.set(JSONConstants.RESULT, encodeResult(o));
+        json.set(/*~~>*/JSONConstants.RESULT, encodeResult(o));
     }
 
     private JsonNode encodeResult(OmObservation o)
@@ -333,19 +333,19 @@ public class ObservationEncoder
     private JsonNode encodeReferenceValue(ReferenceValue value) {
         ReferenceType ref = value.getValue();
         ObjectNode node = nodeFactory().objectNode();
-        node.put(JSONConstants.HREF, ref.getHref());
+        node.put(/*~~>*/JSONConstants.HREF, ref.getHref());
         if (ref.isSetRole()) {
-            node.put(JSONConstants.ROLE, ref.getRole());
+            node.put(/*~~>*/JSONConstants.ROLE, ref.getRole());
         }
         if (ref.isSetTitle()) {
-            node.put(JSONConstants.TITLE, ref.getTitle());
+            node.put(/*~~>*/JSONConstants.TITLE, ref.getTitle());
         }
         return node;
     }
 
     private JsonNode encodeHrefAttributeValue(HrefAttributeValue value) {
         ObjectNode node = nodeFactory().objectNode();
-        node.put(JSONConstants.HREF, value.getValue().getHref());
+        node.put(/*~~>*/JSONConstants.HREF, value.getValue().getHref());
         return node;
     }
 
@@ -354,8 +354,8 @@ public class ObservationEncoder
         ArrayNode arrayNode = nodeFactory().arrayNode();
         for (TimeValuePair tvp : value.getValue()) {
             ObjectNode node = nodeFactory().objectNode();
-            node.set(JSONConstants.TIME, encodeObjectToJson(tvp.getTime()));
-            node.set(JSONConstants.VALUE, encodeValue(value));
+            node.set(/*~~>*/JSONConstants.TIME, encodeObjectToJson(tvp.getTime()));
+            node.set(/*~~>*/JSONConstants.VALUE, encodeValue(value));
             arrayNode.add(node);
         }
         return arrayNode;
@@ -367,16 +367,16 @@ public class ObservationEncoder
         ObjectNode result = nodeFactory().objectNode();
         List<TimeValuePair> values = tvpValue.getValue();
         if (values != null && !values.isEmpty()) {
-            String obsProp = o.getObservationConstellation().getObservableProperty().getIdentifier();
+            /*~~>*/String obsProp = o.getObservationConstellation().getObservableProperty().getIdentifier();
             SweTime timeDef = new SweTime();
-            timeDef.setDefinition(OmConstants.PHENOMENON_TIME);
-            timeDef.setUom(OmConstants.PHEN_UOM_ISO8601);
-            SweField timeField = new SweField(OmConstants.PHENOMENON_TIME_NAME, timeDef);
+            timeDef.setDefinition(/*~~>*/OmConstants.PHENOMENON_TIME);
+            timeDef.setUom(/*~~>*/OmConstants.PHEN_UOM_ISO8601);
+            SweField timeField = new SweField(/*~~>*/OmConstants.PHENOMENON_TIME_NAME, timeDef);
             SweField valueField = getFieldForValue(obsProp, values.get(0).getValue());
 
-            result.putArray(JSONConstants.FIELDS).add(encodeObjectToJson(timeField))
+            result.putArray(/*~~>*/JSONConstants.FIELDS).add(encodeObjectToJson(timeField))
                     .add(encodeObjectToJson(valueField));
-            ArrayNode jvalues = result.putArray(JSONConstants.VALUES);
+            ArrayNode jvalues = result.putArray(/*~~>*/JSONConstants.VALUES);
 
             for (TimeValuePair tvp : values) {
                 if (tvp != null && tvp.getValue() != null && tvp.getValue().isSetValue()) {
@@ -390,8 +390,8 @@ public class ObservationEncoder
     private JsonNode encodeQualityValue(Value<?> value) {
         QuantityValue quantityValue = (QuantityValue) value;
         ObjectNode node = nodeFactory().objectNode();
-        node.put(JSONConstants.UOM, quantityValue.getUnit());
-        node.put(JSONConstants.VALUE, quantityValue.getValue());
+        node.put(/*~~>*/JSONConstants.UOM, quantityValue.getUnit());
+        node.put(/*~~>*/JSONConstants.VALUE, quantityValue.getValue());
         return node;
     }
 
@@ -413,8 +413,8 @@ public class ObservationEncoder
     private JsonNode encodeCategoryValue(Value<?> value) {
         CategoryValue categoryValue = (CategoryValue) value;
         ObjectNode node = nodeFactory().objectNode();
-        node.put(JSONConstants.CODESPACE, categoryValue.getUnit());
-        node.put(JSONConstants.VALUE, categoryValue.getValue());
+        node.put(/*~~>*/JSONConstants.CODESPACE, categoryValue.getUnit());
+        node.put(/*~~>*/JSONConstants.VALUE, categoryValue.getValue());
         return node;
     }
 
@@ -439,10 +439,10 @@ public class ObservationEncoder
             throws EncodingException {
         SweDataArrayValue sweDataArrayValue = (SweDataArrayValue) value;
         ObjectNode result = nodeFactory().objectNode();
-        ArrayNode jfields = result.putArray(JSONConstants.FIELDS);
-        ArrayNode jvalues = result.putArray(JSONConstants.VALUES);
+        ArrayNode jfields = result.putArray(/*~~>*/JSONConstants.FIELDS);
+        ArrayNode jvalues = result.putArray(/*~~>*/JSONConstants.VALUES);
         List<SweField> fields = ((SweDataRecord) sweDataArrayValue.getValue().getElementType()).getFields();
-        List<List<String>> values = sweDataArrayValue.getValue().getValues();
+        List<List</*~~>*/String>> values = sweDataArrayValue.getValue().getValues();
         TokenConverter[] conv = new TokenConverter[fields.size()];
         int i = 0;
         for (SweField field : fields) {
@@ -454,10 +454,10 @@ public class ObservationEncoder
             jfields.add(encodeObjectToJson(field));
         }
 
-        for (List<String> block : values) {
+        for (List</*~~>*/String> block : values) {
             ArrayNode jblock = jvalues.addArray();
             i = 0;
-            for (String token : block) {
+            for (/*~~>*/String token : block) {
                 jblock.add(conv[i++].convert(token));
             }
         }
@@ -471,7 +471,7 @@ public class ObservationEncoder
         return null;
     }
 
-    private String getObservationType(OmObservation o)
+    private /*~~>*/String getObservationType(OmObservation o)
             throws EncodingException {
         if (o.getObservationConstellation().isSetObservationType()) {
             return o.getObservationConstellation().getObservationType();
@@ -480,7 +480,7 @@ public class ObservationEncoder
         }
     }
 
-    private SweField getFieldForValue(String phenomenon, Value<?> value)
+    private SweField getFieldForValue(/*~~>*/String phenomenon, Value<?> value)
             throws EncodingException {
         final SweAbstractDataComponent def;
         if (value instanceof BooleanValue) {
@@ -567,7 +567,7 @@ public class ObservationEncoder
             return Json.nodeFactory();
         }
 
-        abstract JsonNode convert(String s);
+        abstract JsonNode convert(/*~~>*/String s);
 
         static TokenConverter forField(SweField field) {
             switch (field.getElement().getDataComponentType()) {
@@ -605,8 +605,8 @@ public class ObservationEncoder
             }
 
             @Override
-            JsonNode convert(String s) {
-                String[] split = s.split("/");
+            JsonNode convert(/*~~>*/String s) {
+                /*~~>*/String[] split = s.split("/");
                 return nodeFactory().arrayNode().add(conv.convert(split[0])).add(conv.convert(split[1]));
             }
         }
@@ -614,7 +614,7 @@ public class ObservationEncoder
         private static class TextConverter
                 extends TokenConverter {
             @Override
-            JsonNode convert(String s) {
+            JsonNode convert(/*~~>*/String s) {
                 return nodeFactory().textNode(s);
             }
         }
@@ -622,7 +622,7 @@ public class ObservationEncoder
         private static class QuantityConverter
                 extends TokenConverter {
             @Override
-            JsonNode convert(String s) {
+            JsonNode convert(/*~~>*/String s) {
                 return nodeFactory().numberNode(new BigDecimal(s));
             }
         }
@@ -630,7 +630,7 @@ public class ObservationEncoder
         private static class BooleanConverter
                 extends TokenConverter {
             @Override
-            JsonNode convert(String s) {
+            JsonNode convert(/*~~>*/String s) {
                 return nodeFactory().booleanNode(Boolean.parseBoolean(s));
             }
         }
@@ -638,7 +638,7 @@ public class ObservationEncoder
         private static class CountConverter
                 extends TokenConverter {
             @Override
-            JsonNode convert(String s) {
+            JsonNode convert(/*~~>*/String s) {
                 return nodeFactory().numberNode(Integer.parseInt(s));
             }
         }

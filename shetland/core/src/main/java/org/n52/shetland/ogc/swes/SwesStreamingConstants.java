@@ -19,7 +19,7 @@ import javax.xml.namespace.QName;
 
 public interface SwesStreamingConstants extends SwesConstants {
 
-    String EN_EXTENSION = "extension";
+    /*~~>*/String EN_EXTENSION = "extension";
 
     QName QN_EXTENSION = new QName(NS_SWES_20, EN_EXTENSION, NS_SWES_PREFIX);
 }

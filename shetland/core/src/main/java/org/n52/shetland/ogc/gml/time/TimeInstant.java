@@ -172,7 +172,7 @@ public class TimeInstant extends Time {
      * @see java.lang.Object#toString()
      */
     @Override
-    public String toString() {
+    public /*~~>*/String toString() {
         StringBuilder result = new StringBuilder("Time instant: ");
         if (isSetValue()) {
             result.append(getValue().toString()).append(", ");

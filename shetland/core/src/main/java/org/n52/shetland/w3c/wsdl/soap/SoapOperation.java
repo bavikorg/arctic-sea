@@ -26,10 +26,10 @@ import com.google.common.collect.ComparisonChain;
 
 public class SoapOperation extends ExtensibilityElement {
 
-    private String style;
+    private /*~~>*/String style;
     private URI action;
 
-    public SoapOperation(String style, URI action) {
+    public SoapOperation(/*~~>*/String style, URI action) {
         super(WSDLConstants.QN_SOAP_OPERATION);
         this.setStyle(style);
         this.setAction(action);
@@ -38,7 +38,7 @@ public class SoapOperation extends ExtensibilityElement {
     /**
      * @return the style
      */
-    public String getStyle() {
+    public /*~~>*/String getStyle() {
         return style;
     }
 
@@ -46,8 +46,8 @@ public class SoapOperation extends ExtensibilityElement {
      * @param style
      *            the style to set
      */
-    public void setStyle(String style) {
-        this.style = style;
+    public void setStyle(/*~~>*/String style) {
+        /*~~>*/this.style = style;
     }
 
     /**

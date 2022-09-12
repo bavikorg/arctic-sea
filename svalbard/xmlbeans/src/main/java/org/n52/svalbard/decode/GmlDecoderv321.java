@@ -102,7 +102,7 @@ public class GmlDecoderv321 extends AbstractGmlDecoderv321<XmlObject, Object> {
     private static final Logger LOGGER = LoggerFactory.getLogger(GmlDecoderv321.class);
 
     private static final Set<DecoderKey> DECODER_KEYS = CollectionHelper.union(CodingHelper
-            .decoderKeysForElements(GmlConstants.NS_GML_32,
+            .decoderKeysForElements(/*~~>*/GmlConstants.NS_GML_32,
                                     EnvelopeDocument.class,
                                     EnvelopeType.class,
                                     TimeInstantType.class,
@@ -129,9 +129,9 @@ public class GmlDecoderv321 extends AbstractGmlDecoderv321<XmlObject, Object> {
                                     FeatureCollectionType.class
             ), CodingHelper.decoderKeysForElements(MeasureType.type.toString(), MeasureType.class));
 
-    private static final String CS = ",";
-    private static final String DECIMAL = ".";
-    private static final String TS = " ";
+    private static final /*~~>*/String CS = ",";
+    private static final /*~~>*/String DECIMAL = ".";
+    private static final /*~~>*/String TS = " ";
     private static final int DEFAULT_SRID = 4326;
 
     public GmlDecoderv321() {
@@ -268,8 +268,8 @@ public class GmlDecoderv321 extends AbstractGmlDecoderv321<XmlObject, Object> {
      */
     private ReferencedEnvelope parseEnvelope(EnvelopeType envelopeType) throws DecodingException {
         int srid = CRSHelper.parseSrsName(envelopeType.getSrsName());
-        String lowerCorner = envelopeType.getLowerCorner().getStringValue();
-        String upperCorner = envelopeType.getUpperCorner().getStringValue();
+        /*~~>*/String lowerCorner = envelopeType.getLowerCorner().getStringValue();
+        /*~~>*/String upperCorner = envelopeType.getUpperCorner().getStringValue();
         return new ReferencedEnvelope(JTSHelper.createEnvelopeFromLowerUpperCorner(lowerCorner, upperCorner), srid);
     }
 
@@ -325,7 +325,7 @@ public class GmlDecoderv321 extends AbstractGmlDecoderv321<XmlObject, Object> {
 
     private TimeInstant parseTimePosition(TimePositionType xbTimePosition) throws DecodingException {
         TimeInstant ti = new TimeInstant();
-        String timeString = xbTimePosition.getStringValue();
+        /*~~>*/String timeString = xbTimePosition.getStringValue();
         if (timeString != null && !timeString.isEmpty()) {
             try {
                 // TODO better differentiate between ISO8601 and indeterminate
@@ -364,7 +364,7 @@ public class GmlDecoderv321 extends AbstractGmlDecoderv321<XmlObject, Object> {
 
     private Geometry parsePointType(PointType xbPointType) throws DecodingException {
 
-        String geomWKT = null;
+        /*~~>*/String geomWKT = null;
         int srid = -1;
         if (xbPointType.getSrsName() != null) {
             srid = CRSHelper.parseSrsName(xbPointType.getSrsName());
@@ -376,11 +376,11 @@ public class GmlDecoderv321 extends AbstractGmlDecoderv321<XmlObject, Object> {
             if (srid == -1 && xbPos.getSrsName() != null) {
                 srid = CRSHelper.parseSrsName(xbPos.getSrsName());
             }
-            String directPosition = getString4Pos(xbPos);
+            /*~~>*/String directPosition = getString4Pos(xbPos);
             geomWKT = "POINT(" + directPosition + ")";
         } else if (xbPointType.getCoordinates() != null) {
             CoordinatesType xbCoords = xbPointType.getCoordinates();
-            String directPosition = getString4Coordinates(xbCoords);
+            /*~~>*/String directPosition = getString4Coordinates(xbCoords);
             geomWKT = "POINT" + directPosition;
         } else {
             throw new DecodingException("For geometry type 'gml:Point' only element " +
@@ -405,7 +405,7 @@ public class GmlDecoderv321 extends AbstractGmlDecoderv321<XmlObject, Object> {
 
         DirectPositionType[] xbPositions = xbLineStringType.getPosArray();
 
-        String geomWKT;
+        /*~~>*/String geomWKT;
         if (xbPositions != null && xbPositions.length > 0) {
             if (srid == -1 && xbPositions[0].getSrsName() != null && !(xbPositions[0].getSrsName().isEmpty())) {
                 srid = CRSHelper.parseSrsName(xbPositions[0].getSrsName());
@@ -463,7 +463,7 @@ public class GmlDecoderv321 extends AbstractGmlDecoderv321<XmlObject, Object> {
         if (xbPolygonType.getSrsName() != null) {
             srid = CRSHelper.parseSrsName(xbPolygonType.getSrsName());
         }
-        String exteriorCoordString = null;
+        /*~~>*/String exteriorCoordString = null;
         StringBuilder geomWKT = new StringBuilder();
         StringBuilder interiorCoordString = new StringBuilder();
 
@@ -518,7 +518,7 @@ public class GmlDecoderv321 extends AbstractGmlDecoderv321<XmlObject, Object> {
     }
 
     private int getSRID(AbstractGeometryType abstractGeometryType) {
-        String srsName = abstractGeometryType.getSrsName();
+        /*~~>*/String srsName = abstractGeometryType.getSrsName();
         int srid = CRSHelper.parseSrsName(srsName);
         return srid <= 0 ? DEFAULT_SRID : srid;
     }
@@ -585,9 +585,9 @@ public class GmlDecoderv321 extends AbstractGmlDecoderv321<XmlObject, Object> {
      *
      * @throws DecodingException * if parsing the linear Ring failed
      */
-    private String getCoordString4LinearRing(LinearRingType xbLinearRing) throws DecodingException {
+    private /*~~>*/String getCoordString4LinearRing(LinearRingType xbLinearRing) throws DecodingException {
 
-        String result = "";
+        /*~~>*/String result = "";
         DirectPositionListType xbPosList = xbLinearRing.getPosList();
         CoordinatesType xbCoordinates = xbLinearRing.getCoordinates();
         DirectPositionType[] xbPosArray = xbLinearRing.getPosArray();
@@ -614,7 +614,7 @@ public class GmlDecoderv321 extends AbstractGmlDecoderv321<XmlObject, Object> {
      *
      * @return Returns String with coordinates for WKT.
      */
-    private String getString4Pos(DirectPositionType xbPos) {
+    private /*~~>*/String getString4Pos(DirectPositionType xbPos) {
         return xbPos.getStringValue();
     }
 
@@ -625,7 +625,7 @@ public class GmlDecoderv321 extends AbstractGmlDecoderv321<XmlObject, Object> {
      *
      * @return Returns String with coordinates for WKT.
      */
-    private String getString4PosArray(DirectPositionType[] xbPosArray, boolean polygon) {
+    private /*~~>*/String getString4PosArray(DirectPositionType[] xbPosArray, boolean polygon) {
         StringBuilder coordinateString = new StringBuilder();
         coordinateString.append("(");
         for (DirectPositionType directPositionType : xbPosArray) {
@@ -653,7 +653,7 @@ public class GmlDecoderv321 extends AbstractGmlDecoderv321<XmlObject, Object> {
      *
      * @throws DecodingException if the pos list contains an odd number of values
      */
-    private String getString4PosList(DirectPositionListType xbPosList) throws DecodingException {
+    private /*~~>*/String getString4PosList(DirectPositionListType xbPosList) throws DecodingException {
         StringBuilder coordinateString = new StringBuilder("(");
         List<?> values = xbPosList.getListValue();
         if ((values.size() % 2) != 0) {
@@ -683,8 +683,8 @@ public class GmlDecoderv321 extends AbstractGmlDecoderv321<XmlObject, Object> {
      *
      * @return Returns String with coordinates for WKT.
      */
-    private String getString4Coordinates(CoordinatesType xbCoordinates) {
-        String coordinateString = "(" + xbCoordinates.getStringValue() + ")";
+    private /*~~>*/String getString4Coordinates(CoordinatesType xbCoordinates) {
+        /*~~>*/String coordinateString = "(" + xbCoordinates.getStringValue() + ")";
 
         // replace cs, decimal and ts if different from default.
         if (!xbCoordinates.getCs().equals(CS)) {

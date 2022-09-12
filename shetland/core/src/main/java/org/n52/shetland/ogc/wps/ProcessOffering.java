@@ -31,11 +31,11 @@ import org.n52.shetland.util.CollectionHelper;
  * @author Christian Autermann
  */
 public class ProcessOffering implements Comparable<ProcessOffering> {
-    private static final String DEFAULT_PROCESS_MODEL = "native";
+    private static final /*~~>*/String DEFAULT_PROCESS_MODEL = "native";
     private final ProcessDescription processDescription;
     private final Set<JobControlOption> jobControlOptions;
     private final Set<DataTransmissionMode> outputTransmissionModes;
-    private final String processModel;
+    private final /*~~>*/String processModel;
 
     public ProcessOffering(ProcessDescription processDescription) {
         this(processDescription, JobControlOption.defaultOptions(), EnumSet.allOf(DataTransmissionMode.class),
@@ -52,18 +52,18 @@ public class ProcessOffering implements Comparable<ProcessOffering> {
     }
 
     public ProcessOffering(ProcessDescription processDescription, Collection<JobControlOption> jobControlOptions,
-            Collection<DataTransmissionMode> outputTransmissionModes, String processModel) {
+            Collection<DataTransmissionMode> outputTransmissionModes, /*~~>*/String processModel) {
         this.processDescription = Objects.requireNonNull(processDescription);
         this.jobControlOptions = CollectionHelper.newSortedSet(jobControlOptions);
         this.outputTransmissionModes = CollectionHelper.newSortedSet(outputTransmissionModes);
-        this.processModel = Optional.ofNullable(processModel).orElse(DEFAULT_PROCESS_MODEL);
+        /*~~>*/this.processModel = Optional.ofNullable(processModel).orElse(DEFAULT_PROCESS_MODEL);
     }
 
-    public Optional<String> getProcessVersion() {
+    public Optional</*~~>*/String> getProcessVersion() {
         return Optional.ofNullable(this.processDescription.getVersion());
     }
 
-    public String getProcessModel() {
+    public /*~~>*/String getProcessModel() {
         return processModel;
     }
 
@@ -90,7 +90,7 @@ public class ProcessOffering implements Comparable<ProcessOffering> {
         hash = 47 * hash + Objects.hashCode(this.processDescription);
         hash = 47 * hash + Objects.hashCode(this.jobControlOptions);
         hash = 47 * hash + Objects.hashCode(this.outputTransmissionModes);
-        hash = 47 * hash + Objects.hashCode(this.processModel);
+        hash = 47 * hash + Objects.hashCode(/*~~>*/this.processModel);
         return hash;
     }
 

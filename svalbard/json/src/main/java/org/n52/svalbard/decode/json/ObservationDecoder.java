@@ -97,7 +97,7 @@ public class ObservationDecoder
             return null;
         }
         if (validate) {
-            JSONValidator.getInstance().validateAndThrow(node, SchemaConstants.Observation.OBSERVATION);
+            JSONValidator.getInstance().validateAndThrow(node, /*~~>*/SchemaConstants.Observation.OBSERVATION);
         }
         return decodeJSON(node);
     }
@@ -130,40 +130,40 @@ public class ObservationDecoder
     }
 
     protected AbstractFeature parseProcedure(JsonNode node) {
-        return new SensorML().setIdentifier(node.path(JSONConstants.PROCEDURE).textValue());
+        return new SensorML().setIdentifier(node.path(/*~~>*/JSONConstants.PROCEDURE).textValue());
     }
 
     private AbstractPhenomenon parseObservableProperty(JsonNode node) {
-        return new OmObservableProperty(node.path(JSONConstants.OBSERVED_PROPERTY).textValue());
+        return new OmObservableProperty(node.path(/*~~>*/JSONConstants.OBSERVED_PROPERTY).textValue());
     }
 
     private CodeWithAuthority parseIdentifier(JsonNode node) {
-        return parseCodeWithAuthority(node.path(JSONConstants.IDENTIFIER));
+        return parseCodeWithAuthority(node.path(/*~~>*/JSONConstants.IDENTIFIER));
     }
 
-    protected String parseObservationType(JsonNode node) {
-        return node.path(JSONConstants.TYPE).textValue();
+    protected /*~~>*/String parseObservationType(JsonNode node) {
+        return node.path(/*~~>*/JSONConstants.TYPE).textValue();
     }
 
     protected TimePeriod parseValidTime(JsonNode node)
             throws DecodingException {
-        return parseTimePeriod(node.path(JSONConstants.VALID_TIME));
+        return parseTimePeriod(node.path(/*~~>*/JSONConstants.VALID_TIME));
     }
 
     protected TimeInstant parseResultTime(JsonNode node)
             throws DecodingException {
-        return parseTimeInstant(node.path(JSONConstants.RESULT_TIME));
+        return parseTimeInstant(node.path(/*~~>*/JSONConstants.RESULT_TIME));
     }
 
     private Time parsePhenomenonTime(JsonNode node)
             throws DecodingException {
-        return parseTime(node.path(JSONConstants.PHENOMENON_TIME));
+        return parseTime(node.path(/*~~>*/JSONConstants.PHENOMENON_TIME));
     }
 
     protected Collection<NamedValue<?>> parseParameter(JsonNode node)
             throws DecodingException {
         Set<NamedValue<?>> parameters = Sets.newTreeSet();
-        JsonNode parameter = node.path(JSONConstants.PARAMETER);
+        JsonNode parameter = node.path(/*~~>*/JSONConstants.PARAMETER);
         if (parameter.isArray()) {
             for (JsonNode jsonNode : parameter) {
                 parameters.add(parseNamedValue(jsonNode));
@@ -176,9 +176,9 @@ public class ObservationDecoder
 
     private NamedValue<?> parseNamedValue(JsonNode parameter)
             throws DecodingException {
-        JsonNode namedValue = parameter.path(JSONConstants.NAMED_VALUE);
-        NamedValue<?> nv = parseNamedValueValue(namedValue.path(JSONConstants.VALUE));
-        ReferenceType referenceType = new ReferenceType(namedValue.path(JSONConstants.NAME).asText());
+        JsonNode namedValue = parameter.path(/*~~>*/JSONConstants.NAMED_VALUE);
+        NamedValue<?> nv = parseNamedValueValue(namedValue.path(/*~~>*/JSONConstants.VALUE));
+        ReferenceType referenceType = new ReferenceType(namedValue.path(/*~~>*/JSONConstants.NAME).asText());
         nv.setName(referenceType);
         return nv;
     }
@@ -198,20 +198,20 @@ public class ObservationDecoder
             nv.setValue(new CountValue(value.asInt()));
             return nv;
         } else if (value.isObject()) {
-            if (value.has(JSONConstants.CODESPACE)) {
-                NamedValue<String> nv = new NamedValue<>();
+            if (value.has(/*~~>*/JSONConstants.CODESPACE)) {
+                NamedValue</*~~>*/String> nv = new NamedValue<>();
                 nv.setValue(parseCategroyValue(value));
                 return nv;
-            } else if (value.has(JSONConstants.UOM)) {
+            } else if (value.has(/*~~>*/JSONConstants.UOM)) {
                 NamedValue<BigDecimal> nv = new NamedValue<>();
                 nv.setValue(parseQuantityValue(value));
                 return nv;
-            } else if (value.has(JSONConstants.COORDINATES)) {
+            } else if (value.has(/*~~>*/JSONConstants.COORDINATES)) {
                 NamedValue<Geometry> nv = new NamedValue<>();
                 nv.setValue(new GeometryValue(geometryDecoder.decodeJSON(value, false)));
                 return nv;
-            } else if (value.has(JSONConstants.NAME)) {
-                NamedValue<String> nv = new NamedValue<>();
+            } else if (value.has(/*~~>*/JSONConstants.NAME)) {
+                NamedValue</*~~>*/String> nv = new NamedValue<>();
                 nv.setValue(parseTextValue(value));
                 return nv;
             }
@@ -221,28 +221,28 @@ public class ObservationDecoder
 
     protected AbstractFeature parseFeatureOfInterest(JsonNode node)
             throws DecodingException {
-        return featureDecoder.decodeJSON(node.path(JSONConstants.FEATURE_OF_INTEREST), false);
+        return featureDecoder.decodeJSON(node.path(/*~~>*/JSONConstants.FEATURE_OF_INTEREST), false);
     }
 
     private ObservationValue<?> parseValue(JsonNode node)
             throws DecodingException {
-        String type = parseObservationType(node);
+        /*~~>*/String type = parseObservationType(node);
         switch (type) {
-            case OmConstants.OBS_TYPE_MEASUREMENT:
+            case /*~~>*/OmConstants.OBS_TYPE_MEASUREMENT:
                 return parseMeasurementValue(node);
-            case OmConstants.OBS_TYPE_TEXT_OBSERVATION:
+            case /*~~>*/OmConstants.OBS_TYPE_TEXT_OBSERVATION:
                 return parseTextObservationValue(node);
-            case OmConstants.OBS_TYPE_COUNT_OBSERVATION:
+            case /*~~>*/OmConstants.OBS_TYPE_COUNT_OBSERVATION:
                 return parseCountObservationValue(node);
-            case OmConstants.OBS_TYPE_TRUTH_OBSERVATION:
+            case /*~~>*/OmConstants.OBS_TYPE_TRUTH_OBSERVATION:
                 return parseTruthObservationValue(node);
-            case OmConstants.OBS_TYPE_CATEGORY_OBSERVATION:
+            case /*~~>*/OmConstants.OBS_TYPE_CATEGORY_OBSERVATION:
                 return parseCategoryObservationValue(node);
-            case OmConstants.OBS_TYPE_REFERENCE_OBSERVATION:
+            case /*~~>*/OmConstants.OBS_TYPE_REFERENCE_OBSERVATION:
                 return parseReferenceObservationValue(node);
-            case OmConstants.OBS_TYPE_GEOMETRY_OBSERVATION:
+            case /*~~>*/OmConstants.OBS_TYPE_GEOMETRY_OBSERVATION:
                 return parseGeometryObservation(node);
-            case OmConstants.OBS_TYPE_COMPLEX_OBSERVATION:
+            case /*~~>*/OmConstants.OBS_TYPE_COMPLEX_OBSERVATION:
                 return parseComplexObservation(node);
             default:
                 throw new JSONDecodingException("Unsupported observationType: " + type);
@@ -251,82 +251,82 @@ public class ObservationDecoder
 
     protected ObservationValue<?> parseMeasurementValue(JsonNode node)
             throws DecodingException {
-        final QuantityValue qv = parseQuantityValue(node.path(JSONConstants.RESULT));
+        final QuantityValue qv = parseQuantityValue(node.path(/*~~>*/JSONConstants.RESULT));
         return new SingleObservationValue<>(parsePhenomenonTime(node), qv);
     }
 
     private QuantityValue parseQuantityValue(JsonNode node)
             throws DecodingException {
-        return new QuantityValue(node.path(JSONConstants.VALUE).doubleValue(),
-                node.path(JSONConstants.UOM).textValue());
+        return new QuantityValue(node.path(/*~~>*/JSONConstants.VALUE).doubleValue(),
+                node.path(/*~~>*/JSONConstants.UOM).textValue());
     }
 
     private TextValue parseTextValue(JsonNode node) {
-        TextValue textValue = new TextValue(node.path(JSONConstants.VALUE).textValue());
-        textValue.setName(node.path(JSONConstants.NAME).textValue());
-        if (node.has(JSONConstants.DESCRIPTION)) {
-            textValue.setDescription(node.path(JSONConstants.DESCRIPTION).textValue());
+        TextValue textValue = new TextValue(node.path(/*~~>*/JSONConstants.VALUE).textValue());
+        textValue.setName(node.path(/*~~>*/JSONConstants.NAME).textValue());
+        if (node.has(/*~~>*/JSONConstants.DESCRIPTION)) {
+            textValue.setDescription(node.path(/*~~>*/JSONConstants.DESCRIPTION).textValue());
         }
         return textValue;
     }
 
     private ObservationValue<?> parseTextObservationValue(JsonNode node)
             throws DecodingException {
-        final TextValue v = new TextValue(node.path(JSONConstants.RESULT).textValue());
+        final TextValue v = new TextValue(node.path(/*~~>*/JSONConstants.RESULT).textValue());
         return new SingleObservationValue<>(parsePhenomenonTime(node), v);
     }
 
     private ObservationValue<?> parseCountObservationValue(JsonNode node)
             throws DecodingException {
-        final CountValue v = new CountValue(node.path(JSONConstants.RESULT).intValue());
+        final CountValue v = new CountValue(node.path(/*~~>*/JSONConstants.RESULT).intValue());
         return new SingleObservationValue<>(parsePhenomenonTime(node), v);
     }
 
     private ObservationValue<?> parseTruthObservationValue(JsonNode node)
             throws DecodingException {
-        final BooleanValue v = new BooleanValue(node.path(JSONConstants.RESULT).booleanValue());
+        final BooleanValue v = new BooleanValue(node.path(/*~~>*/JSONConstants.RESULT).booleanValue());
         return new SingleObservationValue<>(parsePhenomenonTime(node), v);
     }
 
     private ObservationValue<?> parseCategoryObservationValue(JsonNode node)
             throws DecodingException {
-        final CategoryValue v = parseCategroyValue(node.path(JSONConstants.RESULT));
+        final CategoryValue v = parseCategroyValue(node.path(/*~~>*/JSONConstants.RESULT));
         return new SingleObservationValue<>(parsePhenomenonTime(node), v);
     }
 
     private CategoryValue parseCategroyValue(JsonNode node)
             throws DecodingException {
-        return new CategoryValue(node.path(JSONConstants.VALUE).textValue(),
-                node.path(JSONConstants.CODESPACE).textValue());
+        return new CategoryValue(node.path(/*~~>*/JSONConstants.VALUE).textValue(),
+                node.path(/*~~>*/JSONConstants.CODESPACE).textValue());
     }
 
     private ObservationValue<?> parseGeometryObservation(JsonNode node)
             throws DecodingException {
-        GeometryValue v = new GeometryValue(geometryDecoder.decodeJSON(node.path(JSONConstants.RESULT), false));
+        GeometryValue v = new GeometryValue(geometryDecoder.decodeJSON(node.path(/*~~>*/JSONConstants.RESULT), false));
         return new SingleObservationValue<>(parsePhenomenonTime(node), v);
     }
 
     private ObservationValue<?> parseReferenceObservationValue(JsonNode node) throws DecodingException {
-        ReferenceValue v = new ReferenceValue(parseReferenceValue(node.path(JSONConstants.RESULT)));
+        ReferenceValue v = new ReferenceValue(parseReferenceValue(node.path(/*~~>*/JSONConstants.RESULT)));
         return new SingleObservationValue<>(parsePhenomenonTime(node), v);
     }
 
     private ReferenceType parseReferenceValue(JsonNode node) {
         ReferenceType ref = new ReferenceType();
-        if (!node.path(JSONConstants.HREF).isMissingNode()) {
-            ref.setHref(node.path(JSONConstants.HREF).asText());
+        if (!node.path(/*~~>*/JSONConstants.HREF).isMissingNode()) {
+            ref.setHref(node.path(/*~~>*/JSONConstants.HREF).asText());
         }
-        if (!node.path(JSONConstants.TITLE).isMissingNode()) {
-            ref.setTitle(node.path(JSONConstants.TITLE).asText());
+        if (!node.path(/*~~>*/JSONConstants.TITLE).isMissingNode()) {
+            ref.setTitle(node.path(/*~~>*/JSONConstants.TITLE).asText());
         }
-        if (!node.path(JSONConstants.ROLE).isMissingNode()) {
-            ref.setRole(node.path(JSONConstants.ROLE).asText());
+        if (!node.path(/*~~>*/JSONConstants.ROLE).isMissingNode()) {
+            ref.setRole(node.path(/*~~>*/JSONConstants.ROLE).asText());
         }
         return ref;
     }
 
     private ObservationValue<?> parseComplexObservation(JsonNode node) throws DecodingException {
-        final ComplexValue v = parceComplexValue(node.path(JSONConstants.RESULT));
+        final ComplexValue v = parceComplexValue(node.path(/*~~>*/JSONConstants.RESULT));
         return new SingleObservationValue<>(parsePhenomenonTime(node), v);
     }
 

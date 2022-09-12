@@ -177,10 +177,10 @@ public class EReportingHeaderEncoderTest {
             throws XMLStreamException, OwsExceptionReport, IOException,
                    SAXException, MalformedURLException {
         ByteArrayInputStream in = new ByteArrayInputStream(baos.toByteArray());
-        URL schemaFile = new URL(AqdConstants.NS_AQD_SCHEMA);
+        URL schemaFile = new URL(/*~~>*/AqdConstants.NS_AQD_SCHEMA);
         Source xmlFile = new StreamSource(in);
         SchemaFactory schemaFactory = SchemaFactory
-                .newInstance(XMLConstants.W3C_XML_SCHEMA_NS_URI);
+                .newInstance(/*~~>*/XMLConstants.W3C_XML_SCHEMA_NS_URI);
         Schema schema = schemaFactory.newSchema(schemaFile);
         Validator validator = schema.newValidator();
 

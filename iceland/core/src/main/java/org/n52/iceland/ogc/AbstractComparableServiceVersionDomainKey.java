@@ -32,7 +32,7 @@ public abstract class AbstractComparableServiceVersionDomainKey<T extends Abstra
         implements Comparable<T> {
     private OwsServiceKey serviceKey;
 
-    private String domain;
+    private /*~~>*/String domain;
 
     /**
      * constructor
@@ -40,7 +40,7 @@ public abstract class AbstractComparableServiceVersionDomainKey<T extends Abstra
      * @param sok    the {@link OwsServiceKey} to set
      * @param domain the domain to set
      */
-    public AbstractComparableServiceVersionDomainKey(OwsServiceKey sok, String domain) {
+    public AbstractComparableServiceVersionDomainKey(OwsServiceKey sok, /*~~>*/String domain) {
         setServiceOperatorKey(sok);
         setDomain(domain);
     }
@@ -52,7 +52,7 @@ public abstract class AbstractComparableServiceVersionDomainKey<T extends Abstra
      * @param version the version to set
      * @param domain  the domain to set
      */
-    public AbstractComparableServiceVersionDomainKey(String service, String version, String domain) {
+    public AbstractComparableServiceVersionDomainKey(/*~~>*/String service, /*~~>*/String version, /*~~>*/String domain) {
         this(new OwsServiceKey(service, version), domain);
     }
 
@@ -79,7 +79,7 @@ public abstract class AbstractComparableServiceVersionDomainKey<T extends Abstra
      *
      * @return the service
      */
-    public String getService() {
+    public /*~~>*/String getService() {
         return serviceKey == null ? null : serviceKey.getService();
     }
 
@@ -88,7 +88,7 @@ public abstract class AbstractComparableServiceVersionDomainKey<T extends Abstra
      *
      * @return the version
      */
-    public String getVersion() {
+    public /*~~>*/String getVersion() {
         return serviceKey == null ? null : serviceKey.getVersion();
     }
 
@@ -97,7 +97,7 @@ public abstract class AbstractComparableServiceVersionDomainKey<T extends Abstra
      *
      * @return the domain
      */
-    public String getDomain() {
+    public /*~~>*/String getDomain() {
         return domain;
     }
 
@@ -106,8 +106,8 @@ public abstract class AbstractComparableServiceVersionDomainKey<T extends Abstra
      *
      * @param domain the domain to set
      */
-    private void setDomain(String domain) {
-        this.domain = domain;
+    private void setDomain(/*~~>*/String domain) {
+        /*~~>*/this.domain = domain;
     }
 
     @Override
@@ -135,8 +135,8 @@ public abstract class AbstractComparableServiceVersionDomainKey<T extends Abstra
     }
 
     @Override
-    public String toString() {
-        return String.format("%s[serviceOperatorKeyType=%s, domain=%s]", getClass().getSimpleName(),
+    public /*~~>*/String toString() {
+        return /*~~>*/String.format("%s[serviceOperatorKeyType=%s, domain=%s]", getClass().getSimpleName(),
                              getServiceOperatorKey(), getDomain());
     }
 }

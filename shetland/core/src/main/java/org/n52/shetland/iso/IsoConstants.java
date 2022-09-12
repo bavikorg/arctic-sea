@@ -23,27 +23,27 @@ import org.n52.shetland.w3c.SchemaLocation;
  */
 public interface IsoConstants {
 
-    String NS_GMD_2005 = "http://www.isotc211.org/2005/gmd";
+    /*~~>*/String NS_GMD_2005 = "http://www.isotc211.org/2005/gmd";
 
-    String NS_GMD_2005_PREFIX = "gmd";
+    /*~~>*/String NS_GMD_2005_PREFIX = "gmd";
 
-    String SCHEMA_LOCATION_URL_GMD_2005 = "http://www.isotc211.org/2005/gmd/gmd.xsd";
+    /*~~>*/String SCHEMA_LOCATION_URL_GMD_2005 = "http://www.isotc211.org/2005/gmd/gmd.xsd";
 
     SchemaLocation GMD_2005_20_SCHEMA_LOCATION = new SchemaLocation(NS_GMD_2005, SCHEMA_LOCATION_URL_GMD_2005);
 
-    String NS_GCO_2005 = "http://www.isotc211.org/2005/gco";
+    /*~~>*/String NS_GCO_2005 = "http://www.isotc211.org/2005/gco";
 
-    String NS_GCO_2005_PREFIX = "gco";
+    /*~~>*/String NS_GCO_2005_PREFIX = "gco";
 
-    String SCHEMA_LOCATION_URL_GCO_2005 = "http://www.isotc211.org/2005/gco/gco.xsd";
+    /*~~>*/String SCHEMA_LOCATION_URL_GCO_2005 = "http://www.isotc211.org/2005/gco/gco.xsd";
 
     SchemaLocation GCO_2005_20_SCHEMA_LOCATION = new SchemaLocation(NS_GCO_2005, SCHEMA_LOCATION_URL_GCO_2005);
 
-    String NS_GMI_2005 = "http://www.isotc211.org/2005/gmi";
+    /*~~>*/String NS_GMI_2005 = "http://www.isotc211.org/2005/gmi";
 
-    String NS_GMI_2005_PREFIX = "gmi";
+    /*~~>*/String NS_GMI_2005_PREFIX = "gmi";
 
-    String SCHEMA_LOCATION_URL_GMI_2005 = "http://www.isotc211.org/2005/gmi/gmi.xsd";
+    /*~~>*/String SCHEMA_LOCATION_URL_GMI_2005 = "http://www.isotc211.org/2005/gmi/gmi.xsd";
 
     SchemaLocation GMI_2005_20_SCHEMA_LOCATION = new SchemaLocation(NS_GMI_2005, SCHEMA_LOCATION_URL_GMI_2005);
 

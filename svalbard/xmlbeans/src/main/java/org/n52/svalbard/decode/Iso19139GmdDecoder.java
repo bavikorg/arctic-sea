@@ -61,7 +61,7 @@ public class Iso19139GmdDecoder
 
     private static final Logger LOGGER = LoggerFactory.getLogger(Iso19139GmdDecoder.class);
 
-    private static final Set<DecoderKey> DECODER_KEYS = CodingHelper.decoderKeysForElements(GmdConstants.NS_GMD,
+    private static final Set<DecoderKey> DECODER_KEYS = CodingHelper.decoderKeysForElements(/*~~>*/GmdConstants.NS_GMD,
             CIResponsiblePartyDocument.class, CIResponsiblePartyPropertyType.class, CIResponsiblePartyType.class);
 
     public Iso19139GmdDecoder() {
@@ -196,8 +196,8 @@ public class Iso19139GmdDecoder
 
     }
 
-    private List<String> characterStringPropertyTypeArrayToList(CharacterStringPropertyType[] array) {
-        List<String> values = Lists.newArrayList();
+    private List</*~~>*/String> characterStringPropertyTypeArrayToList(CharacterStringPropertyType[] array) {
+        List</*~~>*/String> values = Lists.newArrayList();
         for (CharacterStringPropertyType cspt : array) {
             values.add(cspt.getCharacterString());
         }

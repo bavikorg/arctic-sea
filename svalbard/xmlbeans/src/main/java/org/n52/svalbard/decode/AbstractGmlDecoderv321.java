@@ -235,11 +235,11 @@ public abstract class AbstractGmlDecoderv321<T, S>
             namedValue.setValue(new BooleanValue((Boolean) value));
             return namedValue;
         } else if (value instanceof CategoryValue) {
-            NamedValue<String> namedValue = new NamedValue<>();
+            NamedValue</*~~>*/String> namedValue = new NamedValue<>();
             namedValue.setValue((CategoryValue) value);
             return namedValue;
         } else if (value instanceof SweCategory) {
-            NamedValue<String> namedValue = new NamedValue<>();
+            NamedValue</*~~>*/String> namedValue = new NamedValue<>();
             namedValue.setValue(
                     new CategoryValue(((SweCategory) value).getValue(), ((SweCategory) value).getCodeSpace()));
             return namedValue;
@@ -277,16 +277,16 @@ public abstract class AbstractGmlDecoderv321<T, S>
             namedValue.setValue(new QuantityValue((Double) value));
             return namedValue;
         } else if (value instanceof TextValue) {
-            NamedValue<String> namedValue = new NamedValue<>();
+            NamedValue</*~~>*/String> namedValue = new NamedValue<>();
             namedValue.setValue((TextValue) value);
             return namedValue;
         } else if (value instanceof SweText) {
-            NamedValue<String> namedValue = new NamedValue<>();
+            NamedValue</*~~>*/String> namedValue = new NamedValue<>();
             namedValue.setValue(new TextValue((SweText) value));
             return namedValue;
-        } else if (value instanceof String) {
-            NamedValue<String> namedValue = new NamedValue<>();
-            namedValue.setValue(new TextValue((String) value));
+        } else if (value instanceof /*~~>*/String) {
+            NamedValue</*~~>*/String> namedValue = new NamedValue<>();
+            namedValue.setValue(new TextValue((/*~~>*/String) value));
             return namedValue;
         } else if (value instanceof AbstractGeometry) {
             NamedValue<Geometry> namedValue = new NamedValue<>();

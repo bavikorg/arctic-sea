@@ -27,15 +27,15 @@ import com.google.common.base.Joiner;
 public class NotYetSupportedDecodingException extends DecodingException {
     private static final long serialVersionUID = 8895277164684335981L;
 
-    public NotYetSupportedDecodingException(String feature) {
+    public NotYetSupportedDecodingException(/*~~>*/String feature) {
         super("%s is not yet supported", feature);
     }
 
-    public NotYetSupportedDecodingException(String type, Object feature) {
+    public NotYetSupportedDecodingException(/*~~>*/String type, Object feature) {
         super("The %s %s is not yet supported", type, feature);
     }
 
-    public NotYetSupportedDecodingException(String type, Object feature, Object... supportedFeatures) {
+    public NotYetSupportedDecodingException(/*~~>*/String type, Object feature, Object... supportedFeatures) {
         super("The %s %s is not yet supported. Currently supported: %s", type, feature,
                 Joiner.on(", ").join(supportedFeatures));
     }

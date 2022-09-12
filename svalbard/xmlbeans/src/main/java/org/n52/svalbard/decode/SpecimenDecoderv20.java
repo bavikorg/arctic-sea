@@ -57,11 +57,11 @@ public class SpecimenDecoderv20
 
     private static final Logger LOGGER = LoggerFactory.getLogger(SpecimenDecoderv20.class);
 
-    private static final Set<SupportedType> SUPPORTED_TYPES = Sets.newHashSet(new FeatureType(OGCConstants.UNKNOWN),
-            new FeatureType(SfConstants.SAMPLING_FEAT_TYPE_SF_SPECIMEN));
+    private static final Set<SupportedType> SUPPORTED_TYPES = Sets.newHashSet(new FeatureType(/*~~>*/OGCConstants.UNKNOWN),
+            new FeatureType(/*~~>*/SfConstants.SAMPLING_FEAT_TYPE_SF_SPECIMEN));
 
     private static final Set<DecoderKey> DECODER_KEYS =
-            CodingHelper.decoderKeysForElements(SfConstants.NS_SPEC, SFSpecimenDocument.class, SFSpecimenType.class);
+            CodingHelper.decoderKeysForElements(/*~~>*/SfConstants.NS_SPEC, SFSpecimenDocument.class, SFSpecimenType.class);
 
     public SpecimenDecoderv20() {
         LOGGER.debug("Decoder for the following keys initialized successfully: {}!",
@@ -140,7 +140,7 @@ public class SpecimenDecoderv20
         return quantityValue;
     }
 
-    private String getXmlDescription(final SFSpecimenType sfst) {
+    private /*~~>*/String getXmlDescription(final SFSpecimenType sfst) {
         final SFSpecimenDocument sfsd = SFSpecimenDocument.Factory.newInstance(getXmlOptions());
         sfsd.setSFSpecimen(sfst);
         return sfsd.xmlText(getXmlOptions());

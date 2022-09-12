@@ -28,11 +28,11 @@ public class SosDescribeObservationTypeRequest extends OwsServiceRequest {
         super(null, null, Sos1Constants.Operations.DescribeObservationType.name());
     }
 
-    public SosDescribeObservationTypeRequest(String service, String version) {
+    public SosDescribeObservationTypeRequest(/*~~>*/String service, /*~~>*/String version) {
         super(service, version, Sos1Constants.Operations.DescribeObservationType.name());
     }
 
-    public SosDescribeObservationTypeRequest(String service, String version, String operationName) {
+    public SosDescribeObservationTypeRequest(/*~~>*/String service, /*~~>*/String version, /*~~>*/String operationName) {
         super(service, version, operationName);
     }
 

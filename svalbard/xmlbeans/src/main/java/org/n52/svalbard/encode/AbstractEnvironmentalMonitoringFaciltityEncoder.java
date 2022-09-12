@@ -49,7 +49,7 @@ public abstract class AbstractEnvironmentalMonitoringFaciltityEncoder extends Ab
     // }
 
     @Override
-    protected String generateGmlId() {
+    protected /*~~>*/String generateGmlId() {
         return "emf_" + IdGenerator.generate(Double.toString(System.currentTimeMillis() * Math.random()));
     }
 

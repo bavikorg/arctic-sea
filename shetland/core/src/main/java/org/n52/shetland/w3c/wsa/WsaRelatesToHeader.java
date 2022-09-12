@@ -30,7 +30,7 @@ public class WsaRelatesToHeader extends WsaHeader {
      * @param value
      *            Value to set
      */
-    public WsaRelatesToHeader(String value) {
+    public WsaRelatesToHeader(/*~~>*/String value) {
         super(value);
     }
 

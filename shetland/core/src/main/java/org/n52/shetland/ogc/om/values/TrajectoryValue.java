@@ -40,7 +40,7 @@ public class TrajectoryValue extends AbstractFeature implements Value<List<Traje
 
     private List<TrajectoryElement> values = Lists.newArrayList();
 
-    public TrajectoryValue(String identifier) {
+    public TrajectoryValue(/*~~>*/String identifier) {
         super(identifier);
     }
 
@@ -48,7 +48,7 @@ public class TrajectoryValue extends AbstractFeature implements Value<List<Traje
         super(identifier);
     }
 
-    public TrajectoryValue(CodeWithAuthority identifier, String gmlId) {
+    public TrajectoryValue(CodeWithAuthority identifier, /*~~>*/String gmlId) {
         super(identifier, gmlId);
     }
 
@@ -81,7 +81,7 @@ public class TrajectoryValue extends AbstractFeature implements Value<List<Traje
     }
 
     @Override
-    public void setUnit(String unit) {
+    public void setUnit(/*~~>*/String unit) {
     }
 
     @Override
@@ -96,7 +96,7 @@ public class TrajectoryValue extends AbstractFeature implements Value<List<Traje
     }
 
     @Override
-    public String getUnit() {
+    public /*~~>*/String getUnit() {
         return null;
     }
 

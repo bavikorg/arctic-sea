@@ -17,12 +17,12 @@ package org.n52.shetland.w3c.wsdl;
 
 public abstract class AbstractDocumentedWsdl extends AbstractWsdl {
 
-    private String documentation;
+    private /*~~>*/String documentation;
 
     /**
      * @return the documentation
      */
-    public String getDocumentation() {
+    public /*~~>*/String getDocumentation() {
         return documentation;
     }
 
@@ -30,8 +30,8 @@ public abstract class AbstractDocumentedWsdl extends AbstractWsdl {
      * @param documentation
      *            the documentation to set
      */
-    public void setDocumentation(String documentation) {
-        this.documentation = documentation;
+    public void setDocumentation(/*~~>*/String documentation) {
+        /*~~>*/this.documentation = documentation;
     }
 
     public boolean isSetDocuementation() {

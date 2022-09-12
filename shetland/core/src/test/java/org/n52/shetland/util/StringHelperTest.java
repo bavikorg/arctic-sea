@@ -22,7 +22,7 @@ import org.junit.jupiter.api.Test;
 
 public class StringHelperTest {
 
-    private final String string = "this is a test string";
+    private final /*~~>*/String string = "this is a test string";
 
     @Test
     public void testcheckIfCharscterOccursXTimes() {

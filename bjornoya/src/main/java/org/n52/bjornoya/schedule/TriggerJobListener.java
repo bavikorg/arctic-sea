@@ -30,10 +30,10 @@ import org.slf4j.LoggerFactory;
 public class TriggerJobListener implements JobListener, TriggerListener {
     private static final Logger LOGGER = LoggerFactory.getLogger(TriggerJobListener.class);
 
-    private Set<String> fullHarvestingJobs = new LinkedHashSet<>();
+    private Set</*~~>*/String> fullHarvestingJobs = new LinkedHashSet<>();
 
     @Override
-    public String getName() {
+    public /*~~>*/String getName() {
         return this.getClass().getSimpleName();
     }
 
@@ -77,13 +77,13 @@ public class TriggerJobListener implements JobListener, TriggerListener {
         // TODO Auto-generated method stub
     }
 
-    private String getGroup(JobExecutionContext context) {
+    private /*~~>*/String getGroup(JobExecutionContext context) {
         return context.getJobDetail()
                 .getKey()
                 .getGroup();
     }
 
-    private String getJobName(JobExecutionContext context) {
+    private /*~~>*/String getJobName(JobExecutionContext context) {
         return context.getJobDetail()
                 .getKey()
                 .getName();

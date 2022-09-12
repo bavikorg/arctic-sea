@@ -118,17 +118,17 @@ public class OmEncoderv100Test {
 
     private GetObservationResponse createResponse() {
         GetObservationResponse response = new GetObservationResponse();
-        response.setService(SosConstants.SOS);
-        response.setVersion(Sos1Constants.SERVICEVERSION);
+        response.setService(/*~~>*/SosConstants.SOS);
+        response.setVersion(/*~~>*/Sos1Constants.SERVICEVERSION);
         OmObservation obs = new OmObservation();
 
         OmObservationConstellation obsConst = new OmObservationConstellation();
-        obsConst.setProcedure(new SosProcedureDescriptionUnknownType("procedure", SensorMLConstants.NS_SML, null));
+        obsConst.setProcedure(new SosProcedureDescriptionUnknownType("procedure", /*~~>*/SensorMLConstants.NS_SML, null));
         OmObservableProperty omObservableProperty = new OmObservableProperty("observable_property");
         omObservableProperty.setUnit("°C");
         obsConst.setObservableProperty(omObservableProperty);
         obsConst.setFeatureOfInterest(new SamplingFeature(new CodeWithAuthority("feature")));
-        obsConst.setObservationType( OmConstants.OBS_TYPE_MEASUREMENT);
+        obsConst.setObservationType( /*~~>*/OmConstants.OBS_TYPE_MEASUREMENT);
         obsConst.addOffering("offering");
         obs.setObservationConstellation(obsConst);
 
@@ -157,13 +157,13 @@ public class OmEncoderv100Test {
         dataRecord.addField(new SweField("test_desc"));
         sweDataArray.setElementType(dataRecord);
 
-        LinkedList<List<String>> values = new LinkedList<List<String>>();
-        List<String> blockOfTokens_1 = new LinkedList<>();
+        LinkedList<List</*~~>*/String>> values = new LinkedList<List</*~~>*/String>>();
+        List</*~~>*/String> blockOfTokens_1 = new LinkedList<>();
         blockOfTokens_1.add("1");
         blockOfTokens_1.add("code_1");
         blockOfTokens_1.add("desc_1");
         values.add(blockOfTokens_1);
-        List<String> blockOfTokens_2 = new LinkedList<>();
+        List</*~~>*/String> blockOfTokens_2 = new LinkedList<>();
         blockOfTokens_2.add("2");
         blockOfTokens_2.add("code_2");
         blockOfTokens_2.add("desc_2");

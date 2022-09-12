@@ -32,7 +32,7 @@ public class XmlNamespaceDecoderKey extends NamespaceDecoderKey<Class<?>> {
 
     private Class<?> type;
 
-    public XmlNamespaceDecoderKey(String namespace, Class<?> type) {
+    public XmlNamespaceDecoderKey(/*~~>*/String namespace, Class<?> type) {
         super(namespace, type);
     }
 
@@ -47,7 +47,7 @@ public class XmlNamespaceDecoderKey extends NamespaceDecoderKey<Class<?>> {
     }
 
     @Override
-    protected String getTypeName() {
+    protected /*~~>*/String getTypeName() {
         return getType().getSimpleName();
     }
 

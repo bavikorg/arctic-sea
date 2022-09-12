@@ -28,15 +28,15 @@ public abstract class AbstractCodeType {
     /**
      * Value/identifier
      */
-    private String value;
+    private /*~~>*/String value;
 
     private URI codeSpace;
 
-    public AbstractCodeType(final String value) {
-        this.value = value;
+    public AbstractCodeType(final /*~~>*/String value) {
+        /*~~>*/this.value = value;
     }
 
-    public AbstractCodeType(final String value, final URI codespace) {
+    public AbstractCodeType(final /*~~>*/String value, final URI codespace) {
         setValue(value);
         setCodeSpace(codespace);
     }
@@ -46,7 +46,7 @@ public abstract class AbstractCodeType {
      *
      * @return Value to set
      */
-    public String getValue() {
+    public /*~~>*/String getValue() {
         return value;
     }
 
@@ -66,8 +66,8 @@ public abstract class AbstractCodeType {
      *            Value to set
      * @return This CodeType object
      */
-    public AbstractCodeType setValue(String value) {
-        this.value = trim(value);
+    public AbstractCodeType setValue(/*~~>*/String value) {
+        /*~~>*/this.value = trim(value);
         return this;
     }
 
@@ -89,7 +89,7 @@ public abstract class AbstractCodeType {
      * @return <code>true</code>, if value is set
      */
     public boolean isSetValue() {
-        return this.value != null && !this.value.isEmpty();
+        return /*~~>*/this.value != null && !/*~~>*/this.value.isEmpty();
     }
 
     /**
@@ -116,7 +116,7 @@ public abstract class AbstractCodeType {
         return Objects.hashCode(getValue(), getCodeSpace());
     }
 
-    private String trim(String value) {
+    private /*~~>*/String trim(/*~~>*/String value) {
         return value != null ? value.trim() : value;
     }
 

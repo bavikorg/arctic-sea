@@ -79,7 +79,7 @@ public class RequestOperatorRepository
         }
     }
 
-    public RequestOperator getRequestOperator(OwsServiceKey sok, String operationName) {
+    public RequestOperator getRequestOperator(OwsServiceKey sok, /*~~>*/String operationName) {
         return getRequestOperator(new RequestOperatorKey(sok, operationName));
     }
 

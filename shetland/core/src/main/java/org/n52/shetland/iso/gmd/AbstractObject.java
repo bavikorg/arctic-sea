@@ -17,23 +17,23 @@ package org.n52.shetland.iso.gmd;
 
 public abstract class AbstractObject extends AbtractGmd {
 
-    private String id;
+    private /*~~>*/String id;
 
-    private String uuid;
+    private /*~~>*/String uuid;
 
     protected AbstractObject() {
 
     }
 
-    public AbstractObject(String id, String uuid) {
-        this.id = id;
-        this.uuid = uuid;
+    public AbstractObject(/*~~>*/String id, /*~~>*/String uuid) {
+        /*~~>*/this.id = id;
+        /*~~>*/this.uuid = uuid;
     }
 
     /**
      * @return the id
      */
-    public String getId() {
+    public /*~~>*/String getId() {
         return id;
     }
 
@@ -41,8 +41,8 @@ public abstract class AbstractObject extends AbtractGmd {
      * @param id
      *            the id to set
      */
-    public void setId(String id) {
-        this.id = id;
+    public void setId(/*~~>*/String id) {
+        /*~~>*/this.id = id;
     }
 
     /**
@@ -50,7 +50,7 @@ public abstract class AbstractObject extends AbtractGmd {
      *            the id to set
      */
     public void setId(Long id) {
-        this.id = id.toString();
+        /*~~>*/this.id = id.toString();
     }
 
     public boolean isSetId() {
@@ -60,7 +60,7 @@ public abstract class AbstractObject extends AbtractGmd {
     /**
      * @return the uuid
      */
-    public String getUuid() {
+    public /*~~>*/String getUuid() {
         return uuid;
     }
 
@@ -68,8 +68,8 @@ public abstract class AbstractObject extends AbtractGmd {
      * @param uuid
      *            the uuid to set
      */
-    public void setUuid(String uuid) {
-        this.uuid = uuid;
+    public void setUuid(/*~~>*/String uuid) {
+        /*~~>*/this.uuid = uuid;
     }
 
     public boolean isSetUuid() {

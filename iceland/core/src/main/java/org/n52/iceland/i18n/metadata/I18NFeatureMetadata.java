@@ -19,12 +19,12 @@ import org.n52.janmayen.i18n.MultilingualString;
 
 public class I18NFeatureMetadata extends AbstractI18NMetadata {
 
-    public I18NFeatureMetadata(String id, MultilingualString name,
+    public I18NFeatureMetadata(/*~~>*/String id, MultilingualString name,
                              MultilingualString description) {
         super(id, name, description);
     }
 
-    public I18NFeatureMetadata(String id) {
+    public I18NFeatureMetadata(/*~~>*/String id) {
         super(id);
     }
 

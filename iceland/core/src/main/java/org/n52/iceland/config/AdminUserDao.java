@@ -23,11 +23,11 @@ import java.util.Set;
  */
 public interface AdminUserDao {
 
-    AdministratorUser createAdminUser(String username, String password);
+    AdministratorUser createAdminUser(/*~~>*/String username, /*~~>*/String password);
 
-    void deleteAdminUser(String username);
+    void deleteAdminUser(/*~~>*/String username);
 
-    AdministratorUser getAdminUser(String username);
+    AdministratorUser getAdminUser(/*~~>*/String username);
 
     Set<AdministratorUser> getAdminUsers();
 

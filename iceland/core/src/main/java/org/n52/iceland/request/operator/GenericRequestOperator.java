@@ -58,7 +58,7 @@ public class GenericRequestOperator<Q extends OwsServiceRequest, A extends OwsSe
     private ServiceOperatorRepository serviceOperatorRepository;
     private EventBus eventBus;
 
-    public GenericRequestOperator(String service, String version, String operation, Class<Q> requestType,
+    public GenericRequestOperator(/*~~>*/String service, /*~~>*/String version, /*~~>*/String operation, Class<Q> requestType,
                                   ParameterValidator<Q> validator) {
         this(new OwsOperationKey(service, version, operation), true, requestType, validator);
     }
@@ -202,28 +202,28 @@ public class GenericRequestOperator<Q extends OwsServiceRequest, A extends OwsSe
 
     protected GenericOperationHandler<Q, A> getOperationHandler() {
         return getOptionalOperationHandler().orElseThrow(() -> {
-            String message = String.format("OperationHandler for Operation %s has no implementation!",
+            /*~~>*/String message = /*~~>*/String.format("OperationHandler for Operation %s has no implementation!",
                                            requestOperatorKey.getOperationName());
             return new NullPointerException(message);
         });
     }
 
     protected Optional<GenericOperationHandler<Q, A>> getOptionalOperationHandler() {
-        String service = this.requestOperatorKey.getService();
-        String operationName = this.requestOperatorKey.getOperationName();
+        /*~~>*/String service = this.requestOperatorKey.getService();
+        /*~~>*/String operationName = this.requestOperatorKey.getOperationName();
         return getOptionalOperationHandler(service, operationName);
     }
 
     @SuppressWarnings("unchecked")
     protected Optional<GenericOperationHandler<Q, A>> getOptionalOperationHandler(
-            String service, String operationName) {
+            /*~~>*/String service, /*~~>*/String operationName) {
         return Optional.ofNullable(this.operationHandlerRepository
                 .getOperationHandler(service, operationName))
                 .map(x -> (GenericOperationHandler<Q, A>) x);
     }
 
     @Override
-    public OwsOperation getOperationMetadata(String service, String version)
+    public OwsOperation getOperationMetadata(/*~~>*/String service, /*~~>*/String version)
             throws OwsExceptionReport {
         Optional<GenericOperationHandler<Q, A>> optionalOperationHandler
                 = getOptionalOperationHandler();
@@ -235,7 +235,7 @@ public class GenericRequestOperator<Q extends OwsServiceRequest, A extends OwsSe
         }
     }
 
-    protected String getOperationName() {
+    protected /*~~>*/String getOperationName() {
         return this.requestOperatorKey.getOperationName();
     }
 
@@ -249,7 +249,7 @@ public class GenericRequestOperator<Q extends OwsServiceRequest, A extends OwsSe
     }
 
     @Override
-    public String toString() {
+    public /*~~>*/String toString() {
         return MoreObjects.toStringHelper(this)
                 .add("key", this.requestOperatorKey)
                 .toString();

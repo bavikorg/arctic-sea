@@ -23,11 +23,11 @@ import java.net.URI;
  * @author Christian Autermann
  */
 public class OwsUOM extends OwsValuesUnit {
-    public OwsUOM(URI reference, String value) {
+    public OwsUOM(URI reference, /*~~>*/String value) {
         super(reference, value);
     }
 
-    public OwsUOM(String value) {
+    public OwsUOM(/*~~>*/String value) {
         super(value);
     }
 

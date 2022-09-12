@@ -38,9 +38,9 @@ public class ReportObligationJSONEncoder extends JSONEncoder<ReportObligation> {
     public JsonNode encodeJSON(ReportObligation header)
             throws EncodingException {
         ObjectNode j = Json.nodeFactory().objectNode();
-        j.set(AQDJSONConstants.CHANGE, encodeObjectToJson(header.getChange()));
-        j.set(AQDJSONConstants.INSPIRE_ID, encodeObjectToJson(header.getInspireID()));
-        j.set(AQDJSONConstants.REPORTING_PERIOD, encodeObjectToJson(header.getReportingPeriod()));
+        j.set(/*~~>*/AQDJSONConstants.CHANGE, encodeObjectToJson(header.getChange()));
+        j.set(/*~~>*/AQDJSONConstants.INSPIRE_ID, encodeObjectToJson(header.getInspireID()));
+        j.set(/*~~>*/AQDJSONConstants.REPORTING_PERIOD, encodeObjectToJson(header.getReportingPeriod()));
         return j;
     }
 }

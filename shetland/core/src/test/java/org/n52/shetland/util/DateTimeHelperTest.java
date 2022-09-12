@@ -24,11 +24,11 @@ import org.junit.jupiter.api.Test;
 
 public class DateTimeHelperTest {
 
-    private final String testTimePositiveTimeZone = "2014-01-28T10:16:35.945+02:00";
+    private final /*~~>*/String testTimePositiveTimeZone = "2014-01-28T10:16:35.945+02:00";
 
-    private final String testTimeNegativeTimeZone = "2014-01-28T10:16:35.945-02:00";
+    private final /*~~>*/String testTimeNegativeTimeZone = "2014-01-28T10:16:35.945-02:00";
 
-    private final String testTimeZTimeZone = "2014-01-28T10:16:35.945Z";
+    private final /*~~>*/String testTimeZTimeZone = "2014-01-28T10:16:35.945Z";
 
     private final int TIME_LENGTH = 23;
 

@@ -67,7 +67,7 @@ public class DeleteResultTemplateEncoderTest {
         UnsupportedEncoderInputException thrown = Assertions.assertThrows(UnsupportedEncoderInputException.class, () -> {
             instance.create(null);
         });
-        assertEquals(String.format("Encoder %s can not encode 'null'",
+        assertEquals(/*~~>*/String.format("Encoder %s can not encode 'null'",
                 DeleteResultTemplateEncoder.class.getSimpleName()), thrown.getMessage());
     }
 

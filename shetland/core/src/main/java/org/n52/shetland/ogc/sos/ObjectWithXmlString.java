@@ -35,18 +35,18 @@ public class ObjectWithXmlString<
         T> {
 
     private Optional<T> object;
-    private Optional<String> xml;
+    private Optional</*~~>*/String> xml;
 
     public ObjectWithXmlString(@Nullable T object) {
         this(object, null);
     }
 
-    public ObjectWithXmlString(@Nullable String xml) {
+    public ObjectWithXmlString(@Nullable /*~~>*/String xml) {
         this(null, xml);
     }
 
     @SuppressFBWarnings(value = "NP_PARAMETER_MUST_BE_NONNULL_BUT_MARKED_AS_NULLABLE")
-    public ObjectWithXmlString(@Nullable T object, @Nullable String xml) {
+    public ObjectWithXmlString(@Nullable T object, @Nullable /*~~>*/String xml) {
         this.object = Optional.ofNullable(object);
         this.xml = Optional.ofNullable(Strings.emptyToNull(xml));
         checkNullable();
@@ -61,11 +61,11 @@ public class ObjectWithXmlString<
         return this;
     }
 
-    public Optional<String> getXml() {
+    public Optional</*~~>*/String> getXml() {
         return xml;
     }
 
-    public ObjectWithXmlString<T> setXml(String xml) {
+    public ObjectWithXmlString<T> setXml(/*~~>*/String xml) {
         this.xml = Optional.of(Strings.emptyToNull(xml));
         return this;
     }

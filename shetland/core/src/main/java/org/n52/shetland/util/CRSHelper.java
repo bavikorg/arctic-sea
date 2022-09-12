@@ -27,11 +27,11 @@ public final class CRSHelper {
     private CRSHelper() {
     }
 
-    public static String asHttpPrefix(String prefix) {
+    public static /*~~>*/String asHttpPrefix(/*~~>*/String prefix) {
         return (!prefix.endsWith("/") && !prefix.isEmpty() && prefix.startsWith("http")) ? prefix + "/" : prefix;
     }
 
-    public static String asUrnPrefix(String prefix) {
+    public static /*~~>*/String asUrnPrefix(/*~~>*/String prefix) {
         return (!prefix.endsWith(":") && !prefix.isEmpty() && prefix.startsWith("urn")) ? prefix + ":" : prefix;
     }
 
@@ -45,7 +45,7 @@ public final class CRSHelper {
      * @return srsName integer value
      *
      */
-    public static int parseSrsName(String srsName) {
+    public static int parseSrsName(/*~~>*/String srsName) {
         if (!Strings.isNullOrEmpty(srsName) && !"NOT_SET".equalsIgnoreCase(srsName)) {
             int idx = Math.max(srsName.lastIndexOf(':'), srsName.lastIndexOf('/'));
             if (idx >= 0 && idx < srsName.length() - 1) {

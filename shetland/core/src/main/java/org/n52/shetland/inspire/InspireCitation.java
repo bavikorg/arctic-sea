@@ -37,13 +37,13 @@ import com.google.common.collect.Sets;
 public class InspireCitation implements InspireExtendedCapabilitiesResourceLocator {
 
     /* Title 1..1 */
-    private String title;
+    private /*~~>*/String title;
 
     /* Choice: DateOfPublication, DateOfCreation, DateOfLastRevision 1..1 */
     private InspireDateOf dateOf;
 
     /* Url 0..* */
-    private Set<String> urls = Sets.newHashSet();
+    private Set</*~~>*/String> urls = Sets.newHashSet();
 
     /* ResourceLocator 0..* */
     private List<InspireResourceLocator> resourceLocator = Lists.newArrayList();
@@ -56,7 +56,7 @@ public class InspireCitation implements InspireExtendedCapabilitiesResourceLocat
      * @param dateOf
      *            the {@link InspireDateOf}
      */
-    public InspireCitation(String title, InspireDateOf dateOf) {
+    public InspireCitation(/*~~>*/String title, InspireDateOf dateOf) {
         super();
         setTitle(title);
         setDateOf(dateOf);
@@ -67,7 +67,7 @@ public class InspireCitation implements InspireExtendedCapabilitiesResourceLocat
      *
      * @return the title
      */
-    public String getTitle() {
+    public /*~~>*/String getTitle() {
         return title;
     }
 
@@ -77,8 +77,8 @@ public class InspireCitation implements InspireExtendedCapabilitiesResourceLocat
      * @param title
      *            the title to set
      */
-    private void setTitle(String title) {
-        this.title = title;
+    private void setTitle(/*~~>*/String title) {
+        /*~~>*/this.title = title;
     }
 
     /**
@@ -123,7 +123,7 @@ public class InspireCitation implements InspireExtendedCapabilitiesResourceLocat
      *
      * @return the URLs
      */
-    public Set<String> getUrls() {
+    public Set</*~~>*/String> getUrls() {
         return Collections.unmodifiableSet(urls);
     }
 
@@ -134,7 +134,7 @@ public class InspireCitation implements InspireExtendedCapabilitiesResourceLocat
      *            the URLs to set
      * @return this
      */
-    public InspireCitation setUrls(Collection<String> urls) {
+    public InspireCitation setUrls(Collection</*~~>*/String> urls) {
         this.urls.clear();
         if (CollectionHelper.isNotEmpty(urls)) {
             this.urls.addAll(urls);
@@ -149,7 +149,7 @@ public class InspireCitation implements InspireExtendedCapabilitiesResourceLocat
      *            the URL to add
      * @return this
      */
-    public InspireCitation addUrl(String url) {
+    public InspireCitation addUrl(/*~~>*/String url) {
         if (!Strings.isNullOrEmpty(url)) {
             this.urls.add(url);
         }
@@ -194,8 +194,8 @@ public class InspireCitation implements InspireExtendedCapabilitiesResourceLocat
     }
 
     @Override
-    public String toString() {
-        return String.format("%s %n[%n title=%s,%n dateOf=%s,%n urls=%s,%n resourceLocator=%s%n]",
+    public /*~~>*/String toString() {
+        return /*~~>*/String.format("%s %n[%n title=%s,%n dateOf=%s,%n urls=%s,%n resourceLocator=%s%n]",
                 this.getClass().getSimpleName(), getTitle(), getDateOf(),
                 CollectionHelper.collectionToString(getUrls()),
                 CollectionHelper.collectionToString(getResourceLocator()));

@@ -28,7 +28,7 @@ public class OwsExceptionEventHandler extends AbstractElasticSearchDataHolder
         implements StatisticsServiceEventHandler<Exception> {
 
     @Override
-    public Map<String, Object> resolveAsMap(Exception rawException) {
+    public Map</*~~>*/String, Object> resolveAsMap(Exception rawException) {
         if (rawException instanceof OwsExceptionReport) {
             OwsExceptionReport exception = (OwsExceptionReport) rawException;
             put(ServiceEventDataMapping.EX_CLASSTYPE, exception.getClass().getSimpleName());

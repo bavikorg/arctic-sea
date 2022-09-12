@@ -37,7 +37,7 @@ import com.google.common.base.Strings;
  * @since 1.0.0
  */
 public class SosOffering extends AbstractFeature implements Comparable<SosOffering> {
-    private static final String OFFERING_NAME_PREFIX = "Offering for sensor ";
+    private static final /*~~>*/String OFFERING_NAME_PREFIX = "Offering for sensor ";
     /**
      * flag to identify offering as offering from a parent procedure, default = false.
      */
@@ -51,7 +51,7 @@ public class SosOffering extends AbstractFeature implements Comparable<SosOfferi
      * @param name
      *            offering name
      */
-    public SosOffering(final String identifier, final String name) {
+    public SosOffering(final /*~~>*/String identifier, final /*~~>*/String name) {
         super(identifier);
         if (Strings.isNullOrEmpty(name)) {
             setName(new CodeType(OFFERING_NAME_PREFIX + identifier));
@@ -68,7 +68,7 @@ public class SosOffering extends AbstractFeature implements Comparable<SosOfferi
      * @param generateName
      *            Indicator whether the name should be generated.
      */
-    public SosOffering(final String identifier, boolean generateName) {
+    public SosOffering(final /*~~>*/String identifier, boolean generateName) {
         super(identifier);
         if (generateName) {
             setName(new CodeType(OFFERING_NAME_PREFIX + identifier));
@@ -83,7 +83,7 @@ public class SosOffering extends AbstractFeature implements Comparable<SosOfferi
      * @param name
      *            offering name
      */
-    public SosOffering(final String identifier, final CodeType name) {
+    public SosOffering(final /*~~>*/String identifier, final CodeType name) {
         super(identifier);
         if (name != null && !name.isSetValue()) {
             name.setValue(OFFERING_NAME_PREFIX + identifier);
@@ -97,7 +97,7 @@ public class SosOffering extends AbstractFeature implements Comparable<SosOfferi
      * @param procedureIdentifier
      *            Procedure identifier
      */
-    public SosOffering(String procedureIdentifier) {
+    public SosOffering(/*~~>*/String procedureIdentifier) {
         super(procedureIdentifier + "/observations");
         setName(new CodeType(OFFERING_NAME_PREFIX + procedureIdentifier));
     }
@@ -107,7 +107,7 @@ public class SosOffering extends AbstractFeature implements Comparable<SosOfferi
      *
      * @return Returns the name.
      */
-    public String getOfferingName() {
+    public /*~~>*/String getOfferingName() {
         return getFirstName().getValue();
     }
 
@@ -136,7 +136,7 @@ public class SosOffering extends AbstractFeature implements Comparable<SosOfferi
     }
 
     @Override
-    public String toString() {
+    public /*~~>*/String toString() {
         return MoreObjects.toStringHelper(this).add("identifier", getIdentifier()).add("name", getName())
                 .add("description", getDescription()).add("parentOfferingFlag", isParentOffering()).toString();
     }
@@ -164,7 +164,7 @@ public class SosOffering extends AbstractFeature implements Comparable<SosOfferi
      *
      * @return the set (never {@literal null})
      */
-    public static Set<SosOffering> fromMap(Map<String, String> map) {
+    public static Set<SosOffering> fromMap(Map</*~~>*/String, /*~~>*/String> map) {
         return Optional.ofNullable(map).map(Map::entrySet).map(Set::stream).orElseGet(Stream::empty)
                 .map(e -> new SosOffering(e.getKey(), e.getValue())).collect(toSet());
     }
@@ -194,7 +194,7 @@ public class SosOffering extends AbstractFeature implements Comparable<SosOfferi
         if (type == null) {
             return null;
         }
-        String identifer = type.getValue().toString();
+        /*~~>*/String identifer = type.getValue().toString();
         CodeType name = type.getName();
         SosOffering offering = new SosOffering(identifer, name);
         if (type.isSetDescription()) {

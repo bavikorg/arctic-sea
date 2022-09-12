@@ -96,7 +96,7 @@ public class ReportObligation {
     }
 
     @Override
-    public String toString() {
+    public /*~~>*/String toString() {
         return MoreObjects.toStringHelper(this).add("inspireID", getInspireID()).add("change", getChange())
                 .add("reportingPeriod", getReportingPeriod()).toString();
     }

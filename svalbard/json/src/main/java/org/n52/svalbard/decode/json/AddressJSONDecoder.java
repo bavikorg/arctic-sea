@@ -33,25 +33,25 @@ public class AddressJSONDecoder extends AbstractJSONDecoder<AddressRepresentatio
             throws DecodingException {
         AddressRepresentation address = new AddressRepresentation();
         address.setAddressFeature(parseNillableReference(node
-                .path(AQDJSONConstants.ADDRESS_FEATURE)));
+                .path(/*~~>*/AQDJSONConstants.ADDRESS_FEATURE)));
         address.setPostCode(parseNillableString(node
-                .path(AQDJSONConstants.POST_CODE)));
-        for (JsonNode n : node.path(AQDJSONConstants.ADDRESS_AREAS)) {
+                .path(/*~~>*/AQDJSONConstants.POST_CODE)));
+        for (JsonNode n : node.path(/*~~>*/AQDJSONConstants.ADDRESS_AREAS)) {
             address.addAddressArea(decodeJsonToNillable(n, GeographicalName.class));
         }
-        for (JsonNode n : node.path(AQDJSONConstants.ADMIN_UNITS)) {
+        for (JsonNode n : node.path(/*~~>*/AQDJSONConstants.ADMIN_UNITS)) {
             address.addAdminUnit(decodeJsonToObject(n, GeographicalName.class));
         }
-        for (JsonNode n : node.path(AQDJSONConstants.LOCATOR_DESIGNATORS)) {
+        for (JsonNode n : node.path(/*~~>*/AQDJSONConstants.LOCATOR_DESIGNATORS)) {
             address.addLocatorDesignator(n.textValue());
         }
-        for (JsonNode n : node.path(AQDJSONConstants.LOCATOR_NAMES)) {
+        for (JsonNode n : node.path(/*~~>*/AQDJSONConstants.LOCATOR_NAMES)) {
             address.addLocatorName(decodeJsonToObject(n, GeographicalName.class));
         }
-        for (JsonNode n : node.path(AQDJSONConstants.POST_NAMES)) {
+        for (JsonNode n : node.path(/*~~>*/AQDJSONConstants.POST_NAMES)) {
             address.addPostName(decodeJsonToNillable(n, GeographicalName.class));
         }
-        for (JsonNode n : node.path(AQDJSONConstants.THOROUGHFARES)) {
+        for (JsonNode n : node.path(/*~~>*/AQDJSONConstants.THOROUGHFARES)) {
             address.addThoroughfare(decodeJsonToNillable(n, GeographicalName.class));
         }
         return address;

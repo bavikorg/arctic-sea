@@ -56,7 +56,7 @@ public class TimePeriod extends Time {
     private Period duration;
 
     /** interval value ISO8601 format */
-    private String interval;
+    private /*~~>*/String interval;
 
     /**
      * default constructor
@@ -101,7 +101,7 @@ public class TimePeriod extends Time {
      *            GML id
      */
     @SuppressFBWarnings({ "EI_EXPOSE_REP2" })
-    public TimePeriod(DateTime start, DateTime end, String id) {
+    public TimePeriod(DateTime start, DateTime end, /*~~>*/String id) {
         super(id);
         this.start = start;
         this.end = end;
@@ -147,7 +147,7 @@ public class TimePeriod extends Time {
      */
     @SuppressFBWarnings({ "EI_EXPOSE_REP2" })
     public TimePeriod(DateTime start, IndeterminateValue startIndet, DateTime end, IndeterminateValue endIndet,
-            String duration, String id) throws ParseException {
+            /*~~>*/String duration, /*~~>*/String id) throws ParseException {
         super(id);
         this.start = start;
         this.startIndet = startIndet;
@@ -344,8 +344,8 @@ public class TimePeriod extends Time {
      *
      * @return Interval string
      */
-    public String getInterval() {
-        return this.interval;
+    public /*~~>*/String getInterval() {
+        return /*~~>*/this.interval;
     }
 
     /**
@@ -354,8 +354,8 @@ public class TimePeriod extends Time {
      * @param interval
      *            the interval
      */
-    public void setInterval(String interval) {
-        this.interval = interval;
+    public void setInterval(/*~~>*/String interval) {
+        /*~~>*/this.interval = interval;
     }
 
     /**
@@ -408,7 +408,7 @@ public class TimePeriod extends Time {
         } else if (time instanceof TimePeriod) {
             extendToContain((TimePeriod) time);
         } else {
-            String errorMsg = String.format("Received Time type \"%s\" unknown.",
+            /*~~>*/String errorMsg = /*~~>*/String.format("Received Time type \"%s\" unknown.",
                     Optional.ofNullable(time).map(Object::getClass).map(Class::getName).orElse("null"));
             throw new IllegalArgumentException(errorMsg);
         }
@@ -502,7 +502,7 @@ public class TimePeriod extends Time {
     }
 
     @Override
-    public String toString() {
+    public /*~~>*/String toString() {
         StringBuilder result = new StringBuilder("Time period: ");
         if (isSetStart()) {
             result.append(getStart().toString()).append(", ");

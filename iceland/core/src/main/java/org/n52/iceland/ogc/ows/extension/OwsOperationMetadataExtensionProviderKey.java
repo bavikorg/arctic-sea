@@ -34,7 +34,7 @@ public class OwsOperationMetadataExtensionProviderKey
      * @param sok the {@link OwsServiceKey} to set
      * @param domain the domain to set
      */
-    public OwsOperationMetadataExtensionProviderKey(OwsServiceKey sok, String domain) {
+    public OwsOperationMetadataExtensionProviderKey(OwsServiceKey sok, /*~~>*/String domain) {
         super(sok, domain);
     }
 
@@ -45,7 +45,7 @@ public class OwsOperationMetadataExtensionProviderKey
      * @param version the version to set
      * @param domain the domain to set
      */
-    public OwsOperationMetadataExtensionProviderKey(String service, String version, String domain) {
+    public OwsOperationMetadataExtensionProviderKey(/*~~>*/String service, /*~~>*/String version, /*~~>*/String domain) {
         super(service, version, domain);
     }
 }

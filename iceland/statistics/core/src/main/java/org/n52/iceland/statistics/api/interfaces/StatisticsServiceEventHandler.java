@@ -18,5 +18,5 @@ package org.n52.iceland.statistics.api.interfaces;
 import java.util.Map;
 
 public interface StatisticsServiceEventHandler<T> {
-    Map<String, Object> resolveAsMap(T event);
+    Map</*~~>*/String, Object> resolveAsMap(T event);
 }

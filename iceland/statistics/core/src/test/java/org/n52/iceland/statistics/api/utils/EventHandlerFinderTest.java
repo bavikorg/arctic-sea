@@ -34,7 +34,7 @@ public class EventHandlerFinderTest {
 
     @Test
     public void findDirectDefaultServiceEvent() {
-        Map<String, StatisticsServiceEventHandler<?>> handlers = new HashMap<>();
+        Map</*~~>*/String, StatisticsServiceEventHandler<?>> handlers = new HashMap<>();
         CountingOutputStreamEventHandler handler = new CountingOutputStreamEventHandler();
 
         CountingOutputStreamEvent request = new CountingOutputStreamEvent();
@@ -46,7 +46,7 @@ public class EventHandlerFinderTest {
     @Test
     public void findNoHandlers() {
         assertThrows(NullPointerException.class, () -> {
-            Map<String, StatisticsServiceEventHandler<?>> handlers = new HashMap<>();
+            Map</*~~>*/String, StatisticsServiceEventHandler<?>> handlers = new HashMap<>();
             DefaultServiceEventHandler handler = new DefaultServiceEventHandler();
 
             handlers.put("morpheus", handler);
@@ -58,7 +58,7 @@ public class EventHandlerFinderTest {
 
     @Test
     public void findSubclassAsHandler() {
-        Map<String, StatisticsServiceEventHandler<?>> handlers = new HashMap<>();
+        Map</*~~>*/String, StatisticsServiceEventHandler<?>> handlers = new HashMap<>();
         CodedExceptionEventHandler handler = new CodedExceptionEventHandler();
 
         OperationNotSupportedException exception = new OperationNotSupportedException("GetCapabilities");

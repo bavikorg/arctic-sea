@@ -33,14 +33,14 @@ public enum CLDFrequency {
     DAILY("daily"),
     CONTINUOUS("continuous"),
     IRREGULAR("irregular");
-    private static final String NS = "http://purl.org/cld/freq/";
-    private final String uri;
+    private static final /*~~>*/String NS = "http://purl.org/cld/freq/";
+    private final /*~~>*/String uri;
 
-    CLDFrequency(String name) {
-        this.uri = NS + name;
+    CLDFrequency(/*~~>*/String name) {
+        /*~~>*/this.uri = NS + name;
     }
 
-    public String getURI() {
+    public /*~~>*/String getURI() {
         return uri;
     }
 

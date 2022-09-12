@@ -19,11 +19,11 @@ import org.n52.shetland.w3c.SchemaLocation;
 
 public interface InspireBase2Constants {
 
-    String NS_BASE2 = "http://inspire.ec.europa.eu/schemas/base2/2.0";
+    /*~~>*/String NS_BASE2 = "http://inspire.ec.europa.eu/schemas/base2/2.0";
 
-    String NS_BASE2_PREFIX = "base2";
+    /*~~>*/String NS_BASE2_PREFIX = "base2";
 
-    String SCHEMA_LOCATION_URL_BASE2 = "http://inspire.ec.europa.eu/schemas/base2/2.0/BaseTypes2.xsd";
+    /*~~>*/String SCHEMA_LOCATION_URL_BASE2 = "http://inspire.ec.europa.eu/schemas/base2/2.0/BaseTypes2.xsd";
 
     SchemaLocation BASE2_20_SCHEMA_LOCATION = new SchemaLocation(NS_BASE2, SCHEMA_LOCATION_URL_BASE2);
 }

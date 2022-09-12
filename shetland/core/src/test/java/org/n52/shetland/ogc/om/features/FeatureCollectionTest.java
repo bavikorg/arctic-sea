@@ -36,10 +36,10 @@ public class FeatureCollectionTest {
     @Test
     public final void should_remove_member_from_feature_collection() {
         final FeatureCollection features = new FeatureCollection();
-        final String feature1Id = "feature-1";
+        final /*~~>*/String feature1Id = "feature-1";
         final SamplingFeature feature1 = new SamplingFeature(new CodeWithAuthority(feature1Id));
         features.addMember(feature1);
-        final String feature2Id = "feature-2";
+        final /*~~>*/String feature2Id = "feature-2";
         final SamplingFeature feature2 = new SamplingFeature(new CodeWithAuthority(feature2Id));
         features.addMember(feature2);
 

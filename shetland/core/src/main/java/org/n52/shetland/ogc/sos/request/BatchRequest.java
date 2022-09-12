@@ -40,7 +40,7 @@ public class BatchRequest extends OwsServiceRequest implements Iterable<OwsServi
 
     @SuppressFBWarnings({ "EI_EXPOSE_REP2" })
     public BatchRequest(List<OwsServiceRequest> requests) {
-        super(null, null, BatchConstants.OPERATION_NAME);
+        super(null, null, /*~~>*/BatchConstants.OPERATION_NAME);
         this.requests = Objects.requireNonNull(requests);
     }
 

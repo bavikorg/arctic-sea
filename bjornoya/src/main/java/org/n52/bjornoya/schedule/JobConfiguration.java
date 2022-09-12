@@ -17,20 +17,20 @@ package org.n52.bjornoya.schedule;
 
 public class JobConfiguration {
 
-    private String cronExpression;
+    private /*~~>*/String cronExpression;
     private boolean enabled;
     private boolean triggerAtStartup;
     private JobType jobType = JobType.full;
     private boolean modified;
-    private String name = "default - " + jobType.name();
-    private String group = "group";
+    private /*~~>*/String name = "default - " + jobType.name();
+    private /*~~>*/String group = "group";
 
-    public String getCronExpression() {
+    public /*~~>*/String getCronExpression() {
         return cronExpression;
     }
 
-    public JobConfiguration setCronExpression(String cronExpression) {
-        this.cronExpression = cronExpression;
+    public JobConfiguration setCronExpression(/*~~>*/String cronExpression) {
+        /*~~>*/this.cronExpression = cronExpression;
         return this;
     }
 
@@ -61,29 +61,29 @@ public class JobConfiguration {
         return this;
     }
 
-    public JobConfiguration setName(String name) {
-        this.name = name;
+    public JobConfiguration setName(/*~~>*/String name) {
+        /*~~>*/this.name = name;
         return this;
     }
 
-    public String getName() {
+    public /*~~>*/String getName() {
         return name;
     }
 
-    public String getGroup() {
+    public /*~~>*/String getGroup() {
         return group;
     }
 
-    public JobConfiguration setGroup(String group) {
-        this.group = group;
+    public JobConfiguration setGroup(/*~~>*/String group) {
+        /*~~>*/this.group = group;
         return this;
     }
 
-    public String getJobType() {
+    public /*~~>*/String getJobType() {
         return jobType.name();
     }
 
-    public JobConfiguration setJobType(String jobType) {
+    public JobConfiguration setJobType(/*~~>*/String jobType) {
         if (jobType != null && !jobType.isEmpty()) {
             this.jobType = JobType.valueOf(jobType);
         }

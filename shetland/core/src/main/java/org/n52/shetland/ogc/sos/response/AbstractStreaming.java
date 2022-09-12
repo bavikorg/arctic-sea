@@ -35,7 +35,7 @@ public abstract class AbstractStreaming extends AbstractObservationValue<Value<O
         implements ObservationStream {
     private final Map<AdditionalRequestParams, Object> additionalRequestParams = Maps.newHashMap();
 
-    private String responseFormat;
+    private /*~~>*/String responseFormat;
     private int maxNumberOfValues = Integer.MIN_VALUE;
     private int currentNumberOfValues;
 
@@ -79,11 +79,11 @@ public abstract class AbstractStreaming extends AbstractObservationValue<Value<O
         return true;
     }
 
-    public void setResponseFormat(String responseFormat) {
-        this.responseFormat = responseFormat;
+    public void setResponseFormat(/*~~>*/String responseFormat) {
+        /*~~>*/this.responseFormat = responseFormat;
     }
 
-    public String getResponseFormat() {
+    public /*~~>*/String getResponseFormat() {
         return responseFormat;
     }
 

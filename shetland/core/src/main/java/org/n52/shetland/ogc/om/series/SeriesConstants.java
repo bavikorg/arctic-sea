@@ -17,48 +17,48 @@ package org.n52.shetland.ogc.om.series;
 
 public interface SeriesConstants {
 
-    String TEXT = "text";
+    /*~~>*/String TEXT = "text";
 
-    String XML = "xml";
+    /*~~>*/String XML = "xml";
 
-    String SUBTYPE = "subtype";
+    /*~~>*/String SUBTYPE = "subtype";
 
-    String EN_POINT = "point";
+    /*~~>*/String EN_POINT = "point";
 
-    String EN_MEASUREMENT_TVP = "MeasurementTVP";
+    /*~~>*/String EN_MEASUREMENT_TVP = "MeasurementTVP";
 
-    String EN_TIME = "time";
+    /*~~>*/String EN_TIME = "time";
 
-    String EN_VALUE = "value";
+    /*~~>*/String EN_VALUE = "value";
 
-    String EN_METADATA = "metadata";
+    /*~~>*/String EN_METADATA = "metadata";
 
-    String EN_TVP_MEASUREMENT_METADATA = "TVPMeasurementMetadata";
+    /*~~>*/String EN_TVP_MEASUREMENT_METADATA = "TVPMeasurementMetadata";
 
-    String EN_NIL_REASON = "nilReason";
+    /*~~>*/String EN_NIL_REASON = "nilReason";
 
-    String EN_MEASUREMENT_TIMESERIES = "MeasurementTimeseries";
+    /*~~>*/String EN_MEASUREMENT_TIMESERIES = "MeasurementTimeseries";
 
-    String EN_TIMESERIES_METADATA = "TimeseriesMetadata";
+    /*~~>*/String EN_TIMESERIES_METADATA = "TimeseriesMetadata";
 
-    String EN_MEASUREMENT_TIMESERIES_METADATA = "MeasurementTimeseriesMetadata";
+    /*~~>*/String EN_MEASUREMENT_TIMESERIES_METADATA = "MeasurementTimeseriesMetadata";
 
-    String EN_TEMPORAL_EXTENT = "temporalExtent";
+    /*~~>*/String EN_TEMPORAL_EXTENT = "temporalExtent";
 
-    String EN_DEFAULT_POINT_METADATA = "defaultPointMetadata";
+    /*~~>*/String EN_DEFAULT_POINT_METADATA = "defaultPointMetadata";
 
-    String EN_DEFAULT_TVP_MEASUREMENT_METADATA = "DefaultTVPMeasurementMetadata";
+    /*~~>*/String EN_DEFAULT_TVP_MEASUREMENT_METADATA = "DefaultTVPMeasurementMetadata";
 
-    String EN_INTERPOLATION_TYPE = "interpolationType";
+    /*~~>*/String EN_INTERPOLATION_TYPE = "interpolationType";
 
-    String EN_CUMULATIVE = "cumulative";
+    /*~~>*/String EN_CUMULATIVE = "cumulative";
 
-    String EN_UOM = "uom";
+    /*~~>*/String EN_UOM = "uom";
 
-    String EN_CENSORED_REASON = "censoredReason";
+    /*~~>*/String EN_CENSORED_REASON = "censoredReason";
 
-    String EN_QUALIFIER = "qualifier";
+    /*~~>*/String EN_QUALIFIER = "qualifier";
 
-    String EN_AGGREGATION_DURATION = "aggregationDuration";
+    /*~~>*/String EN_AGGREGATION_DURATION = "aggregationDuration";
 
 }

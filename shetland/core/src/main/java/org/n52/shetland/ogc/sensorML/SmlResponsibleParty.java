@@ -33,68 +33,68 @@ import edu.umd.cs.findbugs.annotations.SuppressFBWarnings;
  */
 public class SmlResponsibleParty extends SmlContact {
 
-    private String individualName;
+    private /*~~>*/String individualName;
 
-    private String organizationName;
+    private /*~~>*/String organizationName;
 
-    private String positionName;
+    private /*~~>*/String positionName;
 
-    private List<String> phoneVoice = new LinkedList<>();
+    private List</*~~>*/String> phoneVoice = new LinkedList<>();
 
-    private List<String> phoneFax = new LinkedList<>();
+    private List</*~~>*/String> phoneFax = new LinkedList<>();
 
-    private List<String> deliveryPoints = new LinkedList<>();
+    private List</*~~>*/String> deliveryPoints = new LinkedList<>();
 
-    private String city;
+    private /*~~>*/String city;
 
-    private String administrativeArea;
+    private /*~~>*/String administrativeArea;
 
-    private String postalCode;
+    private /*~~>*/String postalCode;
 
-    private String country;
+    private /*~~>*/String country;
 
-    private String email;
+    private /*~~>*/String email;
 
-    private List<String> onlineResources = new LinkedList<>();
+    private List</*~~>*/String> onlineResources = new LinkedList<>();
 
-    private String hoursOfService;
+    private /*~~>*/String hoursOfService;
 
-    private String contactInstructions;
+    private /*~~>*/String contactInstructions;
 
     public SmlResponsibleParty() {
     }
 
     @SuppressFBWarnings({ "EI_EXPOSE_REP2" })
-    public SmlResponsibleParty(final String individualName, final String organizationName, final String positionName,
-            final Collection<String> phoneVoice, final Collection<String> phoneFax,
-            final Collection<String> deliveryPoint, final String city, final String administrativeArea,
-            final String postalCode, final String country, final String email, final Collection<String> onlineResource,
-            final String hoursOfService, final String contactInstructions) {
-        this.individualName = individualName;
-        this.organizationName = organizationName;
-        this.positionName = positionName;
+    public SmlResponsibleParty(final /*~~>*/String individualName, final /*~~>*/String organizationName, final /*~~>*/String positionName,
+            final Collection</*~~>*/String> phoneVoice, final Collection</*~~>*/String> phoneFax,
+            final Collection</*~~>*/String> deliveryPoint, final /*~~>*/String city, final /*~~>*/String administrativeArea,
+            final /*~~>*/String postalCode, final /*~~>*/String country, final /*~~>*/String email, final Collection</*~~>*/String> onlineResource,
+            final /*~~>*/String hoursOfService, final /*~~>*/String contactInstructions) {
+        /*~~>*/this.individualName = individualName;
+        /*~~>*/this.organizationName = organizationName;
+        /*~~>*/this.positionName = positionName;
         setPhoneVoice(phoneVoice);
         setPhoneFax(phoneFax);
         setDeliveryPoint(deliveryPoint);
-        this.city = city;
-        this.administrativeArea = administrativeArea;
-        this.postalCode = postalCode;
-        this.country = country;
-        this.email = email;
+        /*~~>*/this.city = city;
+        /*~~>*/this.administrativeArea = administrativeArea;
+        /*~~>*/this.postalCode = postalCode;
+        /*~~>*/this.country = country;
+        /*~~>*/this.email = email;
         setOnlineResource(onlineResource);
-        this.hoursOfService = hoursOfService;
-        this.contactInstructions = contactInstructions;
+        /*~~>*/this.hoursOfService = hoursOfService;
+        /*~~>*/this.contactInstructions = contactInstructions;
     }
 
     public boolean isSetIndividualName() {
         return individualName != null && !individualName.isEmpty();
     }
 
-    public String getIndividualName() {
+    public /*~~>*/String getIndividualName() {
         return individualName;
     }
 
-    public SmlResponsibleParty setIndividualName(final String invidualName) {
+    public SmlResponsibleParty setIndividualName(final /*~~>*/String invidualName) {
         individualName = invidualName;
         return this;
     }
@@ -103,12 +103,12 @@ public class SmlResponsibleParty extends SmlContact {
         return organizationName != null && !organizationName.isEmpty();
     }
 
-    public String getOrganizationName() {
+    public /*~~>*/String getOrganizationName() {
         return organizationName;
     }
 
-    public SmlResponsibleParty setOrganizationName(final String organizationName) {
-        this.organizationName = organizationName;
+    public SmlResponsibleParty setOrganizationName(final /*~~>*/String organizationName) {
+        /*~~>*/this.organizationName = organizationName;
         return this;
     }
 
@@ -116,12 +116,12 @@ public class SmlResponsibleParty extends SmlContact {
         return positionName != null && !positionName.isEmpty();
     }
 
-    public String getPositionName() {
+    public /*~~>*/String getPositionName() {
         return positionName;
     }
 
-    public SmlResponsibleParty setPositionName(final String positionName) {
-        this.positionName = positionName;
+    public SmlResponsibleParty setPositionName(final /*~~>*/String positionName) {
+        /*~~>*/this.positionName = positionName;
         return this;
     }
 
@@ -129,12 +129,12 @@ public class SmlResponsibleParty extends SmlContact {
         return !CollectionHelper.nullEmptyOrContainsOnlyNulls(phoneVoice);
     }
 
-    public List<String> getPhoneVoice() {
+    public List</*~~>*/String> getPhoneVoice() {
         return Collections.unmodifiableList(phoneVoice);
     }
 
     @SuppressFBWarnings({ "EI_EXPOSE_REP2" })
-    public SmlResponsibleParty setPhoneVoice(final Collection<String> phoneVoice) {
+    public SmlResponsibleParty setPhoneVoice(final Collection</*~~>*/String> phoneVoice) {
         this.phoneVoice.clear();
         if (CollectionHelper.isNotEmpty(phoneVoice)) {
             this.phoneVoice.addAll(phoneVoice);
@@ -142,7 +142,7 @@ public class SmlResponsibleParty extends SmlContact {
         return this;
     }
 
-    public SmlResponsibleParty addPhoneVoice(final String phoneVoice) {
+    public SmlResponsibleParty addPhoneVoice(final /*~~>*/String phoneVoice) {
         if (phoneVoice != null) {
             this.phoneVoice.add(phoneVoice);
         }
@@ -153,11 +153,11 @@ public class SmlResponsibleParty extends SmlContact {
         return !CollectionHelper.nullEmptyOrContainsOnlyNulls(phoneFax);
     }
 
-    public List<String> getPhoneFax() {
+    public List</*~~>*/String> getPhoneFax() {
         return Collections.unmodifiableList(phoneFax);
     }
 
-    public SmlResponsibleParty addPhoneFax(final String phoneFax) {
+    public SmlResponsibleParty addPhoneFax(final /*~~>*/String phoneFax) {
         if (phoneFax != null) {
             this.phoneFax.add(phoneFax);
         }
@@ -165,7 +165,7 @@ public class SmlResponsibleParty extends SmlContact {
     }
 
     @SuppressFBWarnings({ "EI_EXPOSE_REP2" })
-    public SmlResponsibleParty setPhoneFax(final Collection<String> phoneFax) {
+    public SmlResponsibleParty setPhoneFax(final Collection</*~~>*/String> phoneFax) {
         this.phoneFax.clear();
         if (CollectionHelper.isNotEmpty(phoneFax)) {
             this.phoneFax.addAll(phoneFax);
@@ -177,12 +177,12 @@ public class SmlResponsibleParty extends SmlContact {
         return !CollectionHelper.nullEmptyOrContainsOnlyNulls(deliveryPoints);
     }
 
-    public List<String> getDeliveryPoint() {
+    public List</*~~>*/String> getDeliveryPoint() {
         return Collections.unmodifiableList(deliveryPoints);
     }
 
     @SuppressFBWarnings({ "EI_EXPOSE_REP2" })
-    public SmlResponsibleParty setDeliveryPoint(final Collection<String> deliveryPoints) {
+    public SmlResponsibleParty setDeliveryPoint(final Collection</*~~>*/String> deliveryPoints) {
         this.deliveryPoints.clear();
         if (CollectionHelper.isNotEmpty(deliveryPoints)) {
             this.deliveryPoints.addAll(deliveryPoints);
@@ -190,7 +190,7 @@ public class SmlResponsibleParty extends SmlContact {
         return this;
     }
 
-    public SmlResponsibleParty addDeliveryPoint(final String deliveryPoint) {
+    public SmlResponsibleParty addDeliveryPoint(final /*~~>*/String deliveryPoint) {
         if (deliveryPoint != null) {
             deliveryPoints.add(deliveryPoint);
         }
@@ -201,12 +201,12 @@ public class SmlResponsibleParty extends SmlContact {
         return city != null && !city.isEmpty();
     }
 
-    public String getCity() {
+    public /*~~>*/String getCity() {
         return city;
     }
 
-    public SmlResponsibleParty setCity(final String city) {
-        this.city = city;
+    public SmlResponsibleParty setCity(final /*~~>*/String city) {
+        /*~~>*/this.city = city;
         return this;
     }
 
@@ -214,12 +214,12 @@ public class SmlResponsibleParty extends SmlContact {
         return administrativeArea != null && !administrativeArea.isEmpty();
     }
 
-    public String getAdministrativeArea() {
+    public /*~~>*/String getAdministrativeArea() {
         return administrativeArea;
     }
 
-    public SmlResponsibleParty setAdministrativeArea(final String administrativeArea) {
-        this.administrativeArea = administrativeArea;
+    public SmlResponsibleParty setAdministrativeArea(final /*~~>*/String administrativeArea) {
+        /*~~>*/this.administrativeArea = administrativeArea;
         return this;
     }
 
@@ -227,12 +227,12 @@ public class SmlResponsibleParty extends SmlContact {
         return postalCode != null && !postalCode.isEmpty();
     }
 
-    public String getPostalCode() {
+    public /*~~>*/String getPostalCode() {
         return postalCode;
     }
 
-    public SmlResponsibleParty setPostalCode(final String postalCode) {
-        this.postalCode = postalCode;
+    public SmlResponsibleParty setPostalCode(final /*~~>*/String postalCode) {
+        /*~~>*/this.postalCode = postalCode;
         return this;
     }
 
@@ -240,12 +240,12 @@ public class SmlResponsibleParty extends SmlContact {
         return country != null && !country.isEmpty();
     }
 
-    public String getCountry() {
+    public /*~~>*/String getCountry() {
         return country;
     }
 
-    public SmlResponsibleParty setCountry(final String country) {
-        this.country = country;
+    public SmlResponsibleParty setCountry(final /*~~>*/String country) {
+        /*~~>*/this.country = country;
         return this;
     }
 
@@ -253,12 +253,12 @@ public class SmlResponsibleParty extends SmlContact {
         return email != null && !email.isEmpty();
     }
 
-    public String getEmail() {
+    public /*~~>*/String getEmail() {
         return email;
     }
 
-    public SmlResponsibleParty setEmail(final String email) {
-        this.email = email;
+    public SmlResponsibleParty setEmail(final /*~~>*/String email) {
+        /*~~>*/this.email = email;
         return this;
     }
 
@@ -266,12 +266,12 @@ public class SmlResponsibleParty extends SmlContact {
         return !CollectionHelper.nullEmptyOrContainsOnlyNulls(onlineResources);
     }
 
-    public List<String> getOnlineResources() {
+    public List</*~~>*/String> getOnlineResources() {
         return Collections.unmodifiableList(onlineResources);
     }
 
     @SuppressFBWarnings({ "EI_EXPOSE_REP2" })
-    public SmlResponsibleParty setOnlineResource(final Collection<String> onlineResources) {
+    public SmlResponsibleParty setOnlineResource(final Collection</*~~>*/String> onlineResources) {
         this.onlineResources.clear();
         if (CollectionHelper.isNotEmpty(onlineResources)) {
             this.onlineResources.addAll(onlineResources);
@@ -279,7 +279,7 @@ public class SmlResponsibleParty extends SmlContact {
         return this;
     }
 
-    public SmlResponsibleParty addOnlineResource(final String onlineResource) {
+    public SmlResponsibleParty addOnlineResource(final /*~~>*/String onlineResource) {
         if (onlineResource != null) {
             onlineResources.add(onlineResource);
         }
@@ -290,12 +290,12 @@ public class SmlResponsibleParty extends SmlContact {
         return hoursOfService != null && !hoursOfService.isEmpty();
     }
 
-    public String getHoursOfService() {
+    public /*~~>*/String getHoursOfService() {
         return hoursOfService;
     }
 
-    public SmlResponsibleParty setHoursOfService(final String hoursOfService) {
-        this.hoursOfService = hoursOfService;
+    public SmlResponsibleParty setHoursOfService(final /*~~>*/String hoursOfService) {
+        /*~~>*/this.hoursOfService = hoursOfService;
         return this;
     }
 
@@ -303,12 +303,12 @@ public class SmlResponsibleParty extends SmlContact {
         return contactInstructions != null && !contactInstructions.isEmpty();
     }
 
-    public String getContactInstructions() {
+    public /*~~>*/String getContactInstructions() {
         return contactInstructions;
     }
 
-    public SmlResponsibleParty setContactInstructions(final String contactInstructions) {
-        this.contactInstructions = contactInstructions;
+    public SmlResponsibleParty setContactInstructions(final /*~~>*/String contactInstructions) {
+        /*~~>*/this.contactInstructions = contactInstructions;
         return this;
     }
 

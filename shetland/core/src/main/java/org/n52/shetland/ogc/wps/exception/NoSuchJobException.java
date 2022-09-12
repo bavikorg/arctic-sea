@@ -37,13 +37,13 @@ public class NoSuchJobException extends CodedWpsException {
         setStatus(HTTPStatus.BAD_REQUEST);
     }
 
-    public NoSuchJobException(final String parameterName, final String value) {
+    public NoSuchJobException(final /*~~>*/String parameterName, final /*~~>*/String value) {
         super(WpsExceptionCode.NoSuchJob);
         withMessage("The value '%s' of the parameter '%s' is invalid", value, parameterName).at(parameterName);
         setStatus(HTTPStatus.BAD_REQUEST);
     }
 
-    public NoSuchJobException(final Enum<?> parameterName, final String value) {
+    public NoSuchJobException(final Enum<?> parameterName, final /*~~>*/String value) {
         this(parameterName.name(), value);
     }
 }

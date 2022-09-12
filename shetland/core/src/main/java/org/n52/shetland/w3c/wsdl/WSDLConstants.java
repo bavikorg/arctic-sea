@@ -32,108 +32,108 @@ import org.n52.shetland.ogc.sos.SosSoapConstants;
  */
 public interface WSDLConstants {
 
-    String NS_HTTP = "http://schemas.xmlsoap.org/wsdl/http/";
+    /*~~>*/String NS_HTTP = "http://schemas.xmlsoap.org/wsdl/http/";
 
-    String NS_HTTP_PREFIX = "http";
+    /*~~>*/String NS_HTTP_PREFIX = "http";
 
-    String NS_MIME = "http://schemas.xmlsoap.org/wsdl/mime/";
+    /*~~>*/String NS_MIME = "http://schemas.xmlsoap.org/wsdl/mime/";
 
-    String NS_MIME_PREFIX = "mime";
+    /*~~>*/String NS_MIME_PREFIX = "mime";
 
-    String NS_SOAP = "http://schemas.xmlsoap.org/wsdl/soap/";
+    /*~~>*/String NS_SOAP = "http://schemas.xmlsoap.org/wsdl/soap/";
 
-    String NS_SOAP_PREFIX = "soap";
+    /*~~>*/String NS_SOAP_PREFIX = "soap";
 
-    String NS_SOAP_12 = "http://schemas.xmlsoap.org/wsdl/soap12/";
+    /*~~>*/String NS_SOAP_12 = "http://schemas.xmlsoap.org/wsdl/soap12/";
 
-    String NS_SOAP_12_PREFIX = "soap12";
+    /*~~>*/String NS_SOAP_12_PREFIX = "soap12";
 
-    String NS_SOSW = "http://www.opengis.net/sos/2.0/wsdl";
+    /*~~>*/String NS_SOSW = "http://www.opengis.net/sos/2.0/wsdl";
 
-    String NS_SOSW_PREFIX = "sosw";
+    /*~~>*/String NS_SOSW_PREFIX = "sosw";
 
-    String NS_WSAM = "http://www.w3.org/2007/05/addressing/metadata";
+    /*~~>*/String NS_WSAM = "http://www.w3.org/2007/05/addressing/metadata";
 
-    String NS_WSAM_PREFIX = "wsam";
+    /*~~>*/String NS_WSAM_PREFIX = "wsam";
 
-    String NS_WSDL = "http://schemas.xmlsoap.org/wsdl/";
+    /*~~>*/String NS_WSDL = "http://schemas.xmlsoap.org/wsdl/";
 
-    String NS_WSDL_PREFIX = "wsdl";
+    /*~~>*/String NS_WSDL_PREFIX = "wsdl";
 
-    String NS_XSD = "http://www.w3.org/2001/XMLSchema";
+    /*~~>*/String NS_XSD = "http://www.w3.org/2001/XMLSchema";
 
-    String NS_XSD_PREFIX = "xsd";
+    /*~~>*/String NS_XSD_PREFIX = "xsd";
 
-    String AN_WSAM_ACTION = "Action";
+    /*~~>*/String AN_WSAM_ACTION = "Action";
 
-    String AN_XSD_ELEMENT_FORM_DEFAULT = "elementFormDefault";
+    /*~~>*/String AN_XSD_ELEMENT_FORM_DEFAULT = "elementFormDefault";
 
-    String AN_XSD_NAMESPACE = "namespace";
+    /*~~>*/String AN_XSD_NAMESPACE = "namespace";
 
-    String AN_XSD_SCHEMA_LOCATION = "schemaLocation";
+    /*~~>*/String AN_XSD_SCHEMA_LOCATION = "schemaLocation";
 
-    String AN_XSD_TARGET_NAMESPACE = "targetNamespace";
+    /*~~>*/String AN_XSD_TARGET_NAMESPACE = "targetNamespace";
 
-    String EN_OPERATION = "operation";
+    /*~~>*/String EN_OPERATION = "operation";
 
-    String EN_BINDING = "binding";
+    /*~~>*/String EN_BINDING = "binding";
 
-    String EN_HTTP_ADDRESS = "address";
+    /*~~>*/String EN_HTTP_ADDRESS = "address";
 
-    String EN_HTTP_BINDING = EN_BINDING;
+    /*~~>*/String EN_HTTP_BINDING = EN_BINDING;
 
-    String EN_HTTP_OPERATION = EN_OPERATION;
+    /*~~>*/String EN_HTTP_OPERATION = EN_OPERATION;
 
-    String EN_HTTP_URL_ENCODED = "urlEncoded";
+    /*~~>*/String EN_HTTP_URL_ENCODED = "urlEncoded";
 
-    String EN_MIME_CONTENT = "content";
+    /*~~>*/String EN_MIME_CONTENT = "content";
 
-    String EN_MIME_MIME_XML = "mimeXml";
+    /*~~>*/String EN_MIME_MIME_XML = "mimeXml";
 
-    String EN_SOAP_ADDRESS = EN_HTTP_ADDRESS;
+    /*~~>*/String EN_SOAP_ADDRESS = EN_HTTP_ADDRESS;
 
-    String EN_SOAP_BINDING = EN_BINDING;
+    /*~~>*/String EN_SOAP_BINDING = EN_BINDING;
 
-    String EN_SOAP_BODY = "body";
+    /*~~>*/String EN_SOAP_BODY = "body";
 
-    String EN_SOAP_FAULT = "fault";
+    /*~~>*/String EN_SOAP_FAULT = "fault";
 
-    String EN_SOAP_OPERATION = EN_OPERATION;
+    /*~~>*/String EN_SOAP_OPERATION = EN_OPERATION;
 
-    String EN_SOSW_SOS_KVP_BINDING = "SosKvpBinding";
+    /*~~>*/String EN_SOSW_SOS_KVP_BINDING = "SosKvpBinding";
 
-    String EN_SOSW_SOS_GET_PORT_TYPE = "SosGetPortType";
+    /*~~>*/String EN_SOSW_SOS_GET_PORT_TYPE = "SosGetPortType";
 
-    String EN_SOSW_SOS_POST_PORT_TYPE = "SosPostPortType";
+    /*~~>*/String EN_SOSW_SOS_POST_PORT_TYPE = "SosPostPortType";
 
-    String EN_SOSW_SOS_POX_BINDING = "SosPoxBinding";
+    /*~~>*/String EN_SOSW_SOS_POX_BINDING = "SosPoxBinding";
 
-    String EN_SOSW_SOS_SOAP_BINDING = "SosSoapBinding";
+    /*~~>*/String EN_SOSW_SOS_SOAP_BINDING = "SosSoapBinding";
 
-    String EN_XSD_INCLUDE = "include";
+    /*~~>*/String EN_XSD_INCLUDE = "include";
 
-    String EN_XSD_SCHEMA = "schema";
+    /*~~>*/String EN_XSD_SCHEMA = "schema";
 
-    String MESSAGE_PART = EN_SOAP_BODY;
+    /*~~>*/String MESSAGE_PART = EN_SOAP_BODY;
 
-    String POX_CONTENT_TYPE = MediaTypes.TEXT_XML.toString();
+    /*~~>*/String POX_CONTENT_TYPE = MediaTypes.TEXT_XML.toString();
 
-    String KVP_HTTP_VERB = HTTPMethods.GET;
+    /*~~>*/String KVP_HTTP_VERB = /*~~>*/HTTPMethods.GET;
 
-    String POX_HTTP_VERB = HTTPMethods.POST;
+    /*~~>*/String POX_HTTP_VERB = /*~~>*/HTTPMethods.POST;
 
-    String QUALIFIED_ELEMENT_FORM_DEFAULT = "qualified";
+    /*~~>*/String QUALIFIED_ELEMENT_FORM_DEFAULT = "qualified";
 
-    String SOAP_BINDING_HTTP_TRANSPORT = "http://schemas.xmlsoap.org/soap/http";
+    /*~~>*/String SOAP_BINDING_HTTP_TRANSPORT = "http://schemas.xmlsoap.org/soap/http";
 
     // String SOAP_12_BINDING_HTTP_TRANSPORT = "http://www.w3.org/2003/05/soap/bindings/HTTP";
-    String SOAP_12_BINDING_HTTP_TRANSPORT = SOAP_BINDING_HTTP_TRANSPORT;
+    /*~~>*/String SOAP_12_BINDING_HTTP_TRANSPORT = SOAP_BINDING_HTTP_TRANSPORT;
 
-    String SOAP_DOCUMENT_STYLE = "document";
+    /*~~>*/String SOAP_DOCUMENT_STYLE = "document";
 
-    URI OWS_EXCEPTION_ACTION = URI.create(SosSoapConstants.RESP_ACTION_OWS);
+    URI OWS_EXCEPTION_ACTION = URI.create(/*~~>*/SosSoapConstants.RESP_ACTION_OWS);
 
-    URI SWES_EXCEPTION_ACTION = URI.create(SosSoapConstants.RESP_ACTION_SWES);
+    URI SWES_EXCEPTION_ACTION = URI.create(/*~~>*/SosSoapConstants.RESP_ACTION_SWES);
 
     QName QN_HTTP_ADDRESS = new QName(NS_HTTP, EN_HTTP_ADDRESS, NS_HTTP_PREFIX);
 
@@ -173,7 +173,7 @@ public interface WSDLConstants {
 
     QName QN_SOSW_POX_BINDING = new QName(NS_SOSW, EN_SOSW_SOS_POX_BINDING, NS_SOSW_PREFIX);
 
-    QName QN_SOSW_SERVICE = new QName(NS_SOSW, SosConstants.SOS);
+    QName QN_SOSW_SERVICE = new QName(NS_SOSW, /*~~>*/SosConstants.SOS);
 
     QName QN_SOSW_SOAP_BINDING = new QName(NS_SOSW, EN_SOSW_SOS_SOAP_BINDING, NS_SOSW_PREFIX);
 
@@ -185,29 +185,29 @@ public interface WSDLConstants {
 
     interface WSDLElements {
 
-        String EN_WSDL_DEFINITIONS = "definitions";
+        /*~~>*/String EN_WSDL_DEFINITIONS = "definitions";
 
-        String EN_WSDL_TYPES = "types";
+        /*~~>*/String EN_WSDL_TYPES = "types";
 
-        String EN_WSDL_MESSAGE = "message";
+        /*~~>*/String EN_WSDL_MESSAGE = "message";
 
-        String EN_WSDL_PART = "part";
+        /*~~>*/String EN_WSDL_PART = "part";
 
-        String EN_WSDL_PORT = "port";
+        /*~~>*/String EN_WSDL_PORT = "port";
 
-        String EN_WSDL_PORT_TYPE = "portType";
+        /*~~>*/String EN_WSDL_PORT_TYPE = "portType";
 
-        String EN_WSDL_BINDING = EN_BINDING;
+        /*~~>*/String EN_WSDL_BINDING = EN_BINDING;
 
-        String EN_WSDL_OPERATION = EN_OPERATION;
+        /*~~>*/String EN_WSDL_OPERATION = EN_OPERATION;
 
-        String EN_WSDL_INPUT = "input";
+        /*~~>*/String EN_WSDL_INPUT = "input";
 
-        String EN_WSDL_OUTPUT = "output";
+        /*~~>*/String EN_WSDL_OUTPUT = "output";
 
-        String EN_WSDL_FAULT = EN_SOAP_FAULT;
+        /*~~>*/String EN_WSDL_FAULT = EN_SOAP_FAULT;
 
-        String EN_WSDL_SERVICE = "service";
+        /*~~>*/String EN_WSDL_SERVICE = "service";
     }
 
     interface WSDLQNames extends WSDLElements {
@@ -239,59 +239,59 @@ public interface WSDLConstants {
     }
 
     interface SoapResponseActionUris {
-        URI DELETE_SENSOR = URI.create(SosSoapConstants.RESP_ACTION_DELETE_SENSOR);
+        URI DELETE_SENSOR = URI.create(/*~~>*/SosSoapConstants.RESP_ACTION_DELETE_SENSOR);
 
-        URI DESCRIBE_SENSOR = URI.create(SosSoapConstants.RESP_ACTION_DESCRIBE_SENSOR);
+        URI DESCRIBE_SENSOR = URI.create(/*~~>*/SosSoapConstants.RESP_ACTION_DESCRIBE_SENSOR);
 
-        URI GET_CAPABILITIES = URI.create(SosSoapConstants.RESP_ACTION_GET_CAPABILITIES);
+        URI GET_CAPABILITIES = URI.create(/*~~>*/SosSoapConstants.RESP_ACTION_GET_CAPABILITIES);
 
-        URI GET_FEATURE_OF_INTEREST = URI.create(SosSoapConstants.RESP_ACTION_GET_FEATURE_OF_INTEREST);
+        URI GET_FEATURE_OF_INTEREST = URI.create(/*~~>*/SosSoapConstants.RESP_ACTION_GET_FEATURE_OF_INTEREST);
 
-        URI GET_OBSERVATION = URI.create(SosSoapConstants.RESP_ACTION_GET_OBSERVATION);
+        URI GET_OBSERVATION = URI.create(/*~~>*/SosSoapConstants.RESP_ACTION_GET_OBSERVATION);
 
-        URI GET_OBSERVATION_BY_ID = URI.create(SosSoapConstants.RESP_ACTION_GET_OBSERVATION_BY_ID);
+        URI GET_OBSERVATION_BY_ID = URI.create(/*~~>*/SosSoapConstants.RESP_ACTION_GET_OBSERVATION_BY_ID);
 
-        URI GET_RESULT = URI.create(SosSoapConstants.RESP_ACTION_GET_RESULT);
+        URI GET_RESULT = URI.create(/*~~>*/SosSoapConstants.RESP_ACTION_GET_RESULT);
 
-        URI GET_RESULT_TEMPLATE = URI.create(SosSoapConstants.RESP_ACTION_GET_RESULT_TEMPLATE);
+        URI GET_RESULT_TEMPLATE = URI.create(/*~~>*/SosSoapConstants.RESP_ACTION_GET_RESULT_TEMPLATE);
 
-        URI INSERT_OBSERVATION = URI.create(SosSoapConstants.REQ_ACTION_INSERT_OBSERVATION);
+        URI INSERT_OBSERVATION = URI.create(/*~~>*/SosSoapConstants.REQ_ACTION_INSERT_OBSERVATION);
 
-        URI INSERT_RESULT = URI.create(SosSoapConstants.RESP_ACTION_INSERT_RESULT);
+        URI INSERT_RESULT = URI.create(/*~~>*/SosSoapConstants.RESP_ACTION_INSERT_RESULT);
 
-        URI INSERT_RESULT_TEMPLATE = URI.create(SosSoapConstants.RESP_ACTION_INSERT_RESULT_TEMPLATE);
+        URI INSERT_RESULT_TEMPLATE = URI.create(/*~~>*/SosSoapConstants.RESP_ACTION_INSERT_RESULT_TEMPLATE);
 
-        URI INSERT_SENSOR = URI.create(SosSoapConstants.RESP_ACTION_INSERT_SENSOR);
+        URI INSERT_SENSOR = URI.create(/*~~>*/SosSoapConstants.RESP_ACTION_INSERT_SENSOR);
 
-        URI UPDATE_SENSOR_DESCRIPTION = URI.create(SosSoapConstants.RESP_ACTION_UPDATE_SENSOR_DESCRIPTION);
+        URI UPDATE_SENSOR_DESCRIPTION = URI.create(/*~~>*/SosSoapConstants.RESP_ACTION_UPDATE_SENSOR_DESCRIPTION);
     }
 
     interface SoapRequestActionUris {
-        URI DELETE_SENSOR = URI.create(SosSoapConstants.REQ_ACTION_DELETE_SENSOR);
+        URI DELETE_SENSOR = URI.create(/*~~>*/SosSoapConstants.REQ_ACTION_DELETE_SENSOR);
 
-        URI DESCRIBE_SENSOR = URI.create(SosSoapConstants.REQ_ACTION_DESCRIBE_SENSOR);
+        URI DESCRIBE_SENSOR = URI.create(/*~~>*/SosSoapConstants.REQ_ACTION_DESCRIBE_SENSOR);
 
-        URI GET_CAPABILITIES = URI.create(SosSoapConstants.REQ_ACTION_GET_CAPABILITIES);
+        URI GET_CAPABILITIES = URI.create(/*~~>*/SosSoapConstants.REQ_ACTION_GET_CAPABILITIES);
 
-        URI GET_FEATURE_OF_INTEREST = URI.create(SosSoapConstants.REQ_ACTION_GET_FEATURE_OF_INTEREST);
+        URI GET_FEATURE_OF_INTEREST = URI.create(/*~~>*/SosSoapConstants.REQ_ACTION_GET_FEATURE_OF_INTEREST);
 
-        URI GET_OBSERVATION = URI.create(SosSoapConstants.REQ_ACTION_GET_OBSERVATION);
+        URI GET_OBSERVATION = URI.create(/*~~>*/SosSoapConstants.REQ_ACTION_GET_OBSERVATION);
 
-        URI GET_OBSERVATION_BY_ID = URI.create(SosSoapConstants.REQ_ACTION_GET_OBSERVATION_BY_ID);
+        URI GET_OBSERVATION_BY_ID = URI.create(/*~~>*/SosSoapConstants.REQ_ACTION_GET_OBSERVATION_BY_ID);
 
-        URI GET_RESULT = URI.create(SosSoapConstants.REQ_ACTION_GET_RESULT);
+        URI GET_RESULT = URI.create(/*~~>*/SosSoapConstants.REQ_ACTION_GET_RESULT);
 
-        URI GET_RESULT_TEMPLATE = URI.create(SosSoapConstants.REQ_ACTION_GET_RESULT_TEMPLATE);
+        URI GET_RESULT_TEMPLATE = URI.create(/*~~>*/SosSoapConstants.REQ_ACTION_GET_RESULT_TEMPLATE);
 
-        URI INSERT_OBSERVATION = URI.create(SosSoapConstants.REQ_ACTION_INSERT_OBSERVATION);
+        URI INSERT_OBSERVATION = URI.create(/*~~>*/SosSoapConstants.REQ_ACTION_INSERT_OBSERVATION);
 
-        URI INSERT_RESULT = URI.create(SosSoapConstants.REQ_ACTION_INSERT_RESULT);
+        URI INSERT_RESULT = URI.create(/*~~>*/SosSoapConstants.REQ_ACTION_INSERT_RESULT);
 
-        URI INSERT_RESULT_TEMPLATE = URI.create(SosSoapConstants.REQ_ACTION_INSERT_RESULT_TEMPLATE);
+        URI INSERT_RESULT_TEMPLATE = URI.create(/*~~>*/SosSoapConstants.REQ_ACTION_INSERT_RESULT_TEMPLATE);
 
-        URI INSERT_SENSOR = URI.create(SosSoapConstants.REQ_ACTION_INSERT_SENSOR);
+        URI INSERT_SENSOR = URI.create(/*~~>*/SosSoapConstants.REQ_ACTION_INSERT_SENSOR);
 
-        URI UPDATE_SENSOR_DESCRIPTION = URI.create(SosSoapConstants.REQ_ACTION_UPDATE_SENSOR_DESCRIPTION);
+        URI UPDATE_SENSOR_DESCRIPTION = URI.create(/*~~>*/SosSoapConstants.REQ_ACTION_UPDATE_SENSOR_DESCRIPTION);
     }
 
 }

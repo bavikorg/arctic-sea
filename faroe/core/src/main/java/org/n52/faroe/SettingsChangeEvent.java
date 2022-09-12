@@ -64,8 +64,8 @@ public class SettingsChangeEvent<T> implements Event {
     }
 
     @Override
-    public String toString() {
-        return String.format("SettingsChangeEvent[setting=%s, oldValue=%s, newValue=%s",
+    public /*~~>*/String toString() {
+        return /*~~>*/String.format("SettingsChangeEvent[setting=%s, oldValue=%s, newValue=%s",
                              getSetting(), getOldValue(), getNewValue());
     }
 }

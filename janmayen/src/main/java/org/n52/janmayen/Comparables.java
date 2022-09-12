@@ -30,8 +30,8 @@ public final class Comparables {
 
     private static final Comparator<QName> QNAME_COMPARATOR
             = Comparator.nullsLast(Comparator
-                    .comparing(QName::getPrefix, Comparator.nullsLast(String::compareTo))
-                    .thenComparing(QName::getLocalPart, Comparator.nullsLast(String::compareTo)));
+                    .comparing(QName::getPrefix, Comparator.nullsLast(/*~~>*/String::compareTo))
+                    .thenComparing(QName::getLocalPart, Comparator.nullsLast(/*~~>*/String::compareTo)));
 
     /**
      * Private utility class constructor.
@@ -198,7 +198,7 @@ public final class Comparables {
         return InheritanceComparator.instance();
     }
 
-    public static Ordering<String> version() {
+    public static Ordering</*~~>*/String> version() {
         return VersionComparator.instance();
     }
 
@@ -206,7 +206,7 @@ public final class Comparables {
         return QNAME_COMPARATOR;
     }
 
-    private static final class VersionComparator extends Ordering<String> {
+    private static final class VersionComparator extends Ordering</*~~>*/String> {
         private static final VersionComparator INSTANCE = new VersionComparator();
         private static final Pattern DELIMITER = Pattern.compile("[._-]");
         private static final Pattern EOF = Pattern.compile("\\z");
@@ -215,7 +215,7 @@ public final class Comparables {
         }
 
         @Override
-        public int compare(String a, String b) {
+        public int compare(/*~~>*/String a, /*~~>*/String b) {
             if (a == null) {
                 return b == null ? EQUAL : LESS;
             } else if (b == null) {

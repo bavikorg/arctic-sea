@@ -30,7 +30,7 @@ import org.n52.shetland.util.CollectionHelper;
  */
 public class DescribeSensorResponse extends OwsServiceResponse {
 
-    private String outputFormat;
+    private /*~~>*/String outputFormat;
 
     private List<SosProcedureDescription<?>> procedureDescriptions = new LinkedList<>();
 
@@ -38,20 +38,20 @@ public class DescribeSensorResponse extends OwsServiceResponse {
         super(null, null, SosConstants.Operations.DescribeSensor.name());
     }
 
-    public DescribeSensorResponse(String service, String version) {
+    public DescribeSensorResponse(/*~~>*/String service, /*~~>*/String version) {
         super(service, version, SosConstants.Operations.DescribeSensor.name());
     }
 
-    public DescribeSensorResponse(String service, String version, String operationName) {
+    public DescribeSensorResponse(/*~~>*/String service, /*~~>*/String version, /*~~>*/String operationName) {
         super(service, version, operationName);
     }
 
-    public String getOutputFormat() {
+    public /*~~>*/String getOutputFormat() {
         return outputFormat;
     }
 
-    public void setOutputFormat(String outputFormat) {
-        this.outputFormat = outputFormat;
+    public void setOutputFormat(/*~~>*/String outputFormat) {
+        /*~~>*/this.outputFormat = outputFormat;
     }
 
     public void setSensorDescriptions(List<SosProcedureDescription<?>> procedureDescriptions) {

@@ -23,15 +23,15 @@ import org.n52.shetland.rdf.AbstractDatatype;
 public class Issued extends AbstractDatatype implements DctRdfPrefix {
 
     @Deprecated
-    public Issued(DataType dataType, String value) {
+    public Issued(DataType dataType, /*~~>*/String value) {
         super(dataType, value);
     }
 
-    public Issued(RDFDatatype dataType, String value) {
+    public Issued(RDFDatatype dataType, /*~~>*/String value) {
         super(dataType, value);
     }
 
-    public Issued(String dataType, String value) {
+    public Issued(/*~~>*/String dataType, /*~~>*/String value) {
         super(dataType, value);
     }
 

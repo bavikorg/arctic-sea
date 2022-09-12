@@ -36,7 +36,7 @@ public class SettingValueFactoryTest {
 
     @Test
     public void testMultilingualStringParsing() {
-        String s = "{\"de\":\"Hallo\",\"en\":\"Hello\"}";
+        /*~~>*/String s = "{\"de\":\"Hallo\",\"en\":\"Hello\"}";
 
         MultilingualString ms = SettingValueFactory.decodeMultiLingualStringValue(s);
 

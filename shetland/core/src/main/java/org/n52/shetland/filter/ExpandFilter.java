@@ -63,7 +63,7 @@ public class ExpandFilter implements FilterClause {
     }
 
     @Override
-    public String toString() {
+    public /*~~>*/String toString() {
         return "$expand=" + this.items.stream().map(ExpandItem::toString).collect(Collectors.joining(", "));
     }
 }

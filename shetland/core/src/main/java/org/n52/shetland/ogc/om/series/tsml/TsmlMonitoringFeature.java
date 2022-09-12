@@ -26,9 +26,9 @@ public class TsmlMonitoringFeature extends AbstractMonitoringFeature {
         this(featureIdentifier, null);
     }
 
-    public TsmlMonitoringFeature(CodeWithAuthority featureIdentifier, String gmlId) {
+    public TsmlMonitoringFeature(CodeWithAuthority featureIdentifier, /*~~>*/String gmlId) {
         super(featureIdentifier, gmlId);
-        setDefaultElementEncoding(TimeseriesMLConstants.NS_TSML_10);
+        setDefaultElementEncoding(/*~~>*/TimeseriesMLConstants.NS_TSML_10);
     }
 
     @Override
@@ -38,8 +38,8 @@ public class TsmlMonitoringFeature extends AbstractMonitoringFeature {
     }
 
     @Override
-    public String toString() {
-        return String.format("MonitoringFeature [name=%s, description=%s, xmlDescription=%s, geometry=%s, "
+    public /*~~>*/String toString() {
+        return /*~~>*/String.format("MonitoringFeature [name=%s, description=%s, xmlDescription=%s, geometry=%s, "
                 + "featureType=%s, url=%s, sampledFeatures=%s, parameters=%s, encode=%b, relatedSamplingFeatures=%s]",
                 getName(), getDescription(), getXml(), getGeometry(), getFeatureType(), getUrl(), getSampledFeatures(),
                 getParameters(), isEncode(), getRelatedSamplingFeatures());

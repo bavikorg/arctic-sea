@@ -33,28 +33,28 @@ import java.util.stream.Stream;
  */
 public final class Enums {
 
-    private static final Map<Class<? extends Enum<?>>, Map<String, Enum<?>>> NAMES = new HashMap<>();
+    private static final Map<Class<? extends Enum<?>>, Map</*~~>*/String, Enum<?>>> NAMES = new HashMap<>();
 
     private Enums() {
     }
 
-    private static Map<String, Enum<?>> getNamesForEnum(Class<? extends Enum<?>> enumClass) {
-        Function<Enum<?>, String> getName = e -> e.toString().toLowerCase(Locale.ROOT);
+    private static Map</*~~>*/String, Enum<?>> getNamesForEnum(Class<? extends Enum<?>> enumClass) {
+        Function<Enum<?>, /*~~>*/String> getName = e -> e.toString().toLowerCase(Locale.ROOT);
         Function<Enum<?>, Enum<?>> identity = Function.identity();
         Enum<?>[] enums = enumClass.getEnumConstants();
         Stream<Enum<?>> stream = Arrays.stream(enums);
-        Collector<Enum<?>, ?, Map<String, Enum<?>>> collector = toMap(getName, identity);
+        Collector<Enum<?>, ?, Map</*~~>*/String, Enum<?>>> collector = toMap(getName, identity);
         return stream.collect(collector);
     }
 
     static <
-            E extends Enum<E>> boolean contains(Class<? extends E> enumClass, String string) {
+            E extends Enum<E>> boolean contains(Class<? extends E> enumClass, /*~~>*/String string) {
         return fromString(enumClass, string).isPresent();
     }
 
     @SuppressWarnings(value = "unchecked")
     static <
-            E extends Enum<E>> Optional<E> fromString(Class<? extends E> enumClass, String string) {
+            E extends Enum<E>> Optional<E> fromString(Class<? extends E> enumClass, /*~~>*/String string) {
         return Optional.ofNullable(
                 (E) NAMES.computeIfAbsent(enumClass, Enums::getNamesForEnum).get(string.toLowerCase(Locale.ROOT)));
     }

@@ -58,11 +58,11 @@ public class Extensions {
         return containsExtension(identifier.name());
     }
 
-    public boolean containsExtension(String identifier) {
+    public boolean containsExtension(/*~~>*/String identifier) {
         return this.extensions.stream().filter(e -> checkExtensionName(identifier, e)).findAny().isPresent();
     }
 
-    public int countExtensions(String identifier) {
+    public int countExtensions(/*~~>*/String identifier) {
         return this.extensions.stream().filter(e -> checkExtensionName(identifier, e)).collect(Collectors.toSet())
                 .size();
     }
@@ -72,7 +72,7 @@ public class Extensions {
         return getExtension(identifier.name());
     }
 
-    public Optional<Extension<?>> getExtension(String identifier) {
+    public Optional<Extension<?>> getExtension(/*~~>*/String identifier) {
         return this.extensions.stream().filter(e -> checkExtensionName(identifier, e)).findFirst();
     }
 
@@ -81,11 +81,11 @@ public class Extensions {
     }
 
     @Override
-    public String toString() {
-        return String.format("Extensions [extensions=%s]", getExtensions());
+    public /*~~>*/String toString() {
+        return /*~~>*/String.format("Extensions [extensions=%s]", getExtensions());
     }
 
-    public boolean getBooleanExtension(String identifier) {
+    public boolean getBooleanExtension(/*~~>*/String identifier) {
         return getBooleanExtension(identifier, false);
     }
 
@@ -97,7 +97,7 @@ public class Extensions {
         return getBooleanExtension(identifier.name(), defaultValue);
     }
 
-    public boolean getBooleanExtension(String identifier, boolean defaultValue) {
+    public boolean getBooleanExtension(/*~~>*/String identifier, boolean defaultValue) {
         return getExtension(identifier).map(e -> e.getValue()).map(value -> {
             if (value instanceof Boolean) {
                 return (Boolean) value;
@@ -110,7 +110,7 @@ public class Extensions {
         }).orElse(defaultValue);
     }
 
-    private boolean check(String name, Extension<?> extension, Function<Extension<?>, String> extractor) {
+    private boolean check(/*~~>*/String name, Extension<?> extension, Function<Extension<?>, /*~~>*/String> extractor) {
         if (Strings.emptyToNull(name) == null || extension == null) {
             return false;
         }
@@ -118,16 +118,16 @@ public class Extensions {
                 .orElseGet(() -> false);
     }
 
-    private boolean checkExtensionName(String extensionName, Extension<?> extension) {
+    private boolean checkExtensionName(/*~~>*/String extensionName, Extension<?> extension) {
         return checkExtensionIdentifier(extensionName, extension)
                 || checkExtensionDefinition(extensionName, extension);
     }
 
-    private boolean checkExtensionIdentifier(String extensionName, Extension<?> extension) {
+    private boolean checkExtensionIdentifier(/*~~>*/String extensionName, Extension<?> extension) {
         return check(extensionName, extension, Extension::getIdentifier);
     }
 
-    private boolean checkExtensionDefinition(String extensionName, Extension<?> extension) {
+    private boolean checkExtensionDefinition(/*~~>*/String extensionName, Extension<?> extension) {
         return check(extensionName, extension, Extension::getDefinition);
     }
 

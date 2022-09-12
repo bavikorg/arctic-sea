@@ -36,7 +36,7 @@ public class IdentifierTypeEncoder
 
     private static final Set<EncoderKey> ENCODER_KEYS =
             Sets.newHashSet(new ClassToClassEncoderKey(Identifier.class, IdentifierType.class),
-                    new XmlEncoderKey(InspireBaseConstants.NS_BASE, Identifier.class));
+                    new XmlEncoderKey(/*~~>*/InspireBaseConstants.NS_BASE, Identifier.class));
 
     public IdentifierTypeEncoder() {
         LOGGER.debug("Encoder for the following keys initialized successfully: {}!",

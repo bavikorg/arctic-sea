@@ -29,7 +29,7 @@ public class ProcessParameter {
     /*
      * 0..1
      */
-    private String description;
+    private /*~~>*/String description;
 
     /**
      * @return the name
@@ -49,7 +49,7 @@ public class ProcessParameter {
     /**
      * @return the description
      */
-    public String getDescription() {
+    public /*~~>*/String getDescription() {
         return description;
     }
 
@@ -57,8 +57,8 @@ public class ProcessParameter {
      * @param description
      *            the description to set
      */
-    public void setDescription(String description) {
-        this.description = description;
+    public void setDescription(/*~~>*/String description) {
+        /*~~>*/this.description = description;
     }
 
     public boolean isSetDescription() {

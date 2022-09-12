@@ -33,27 +33,27 @@ import org.n52.shetland.w3c.SchemaLocation;
 public interface SensorMLConstants {
 
     // namespaces and schema locations
-    String NS_SML = "http://www.opengis.net/sensorML/1.0.1";
+    /*~~>*/String NS_SML = "http://www.opengis.net/sensorML/1.0.1";
 
-    String NS_SML_PREFIX = "sml";
+    /*~~>*/String NS_SML_PREFIX = "sml";
 
-    String SCHEMA_LOCATION_URL_SML_101 = "http://schemas.opengis.net/sensorML/1.0.1/sensorML.xsd";
+    /*~~>*/String SCHEMA_LOCATION_URL_SML_101 = "http://schemas.opengis.net/sensorML/1.0.1/sensorML.xsd";
 
     SchemaLocation SML_101_SCHEMA_LOCATION = new SchemaLocation(NS_SML, SCHEMA_LOCATION_URL_SML_101);
 
-    String SENSORML_OUTPUT_FORMAT_URL = NS_SML;
+    /*~~>*/String SENSORML_OUTPUT_FORMAT_URL = NS_SML;
 
     MediaType SENSORML_CONTENT_TYPE = new MediaType("text", "xml", "subtype", "sensorML/1.0.1");
 
-    String SENSORML_OUTPUT_FORMAT_MIME_TYPE = SENSORML_CONTENT_TYPE.toString();
+    /*~~>*/String SENSORML_OUTPUT_FORMAT_MIME_TYPE = SENSORML_CONTENT_TYPE.toString();
 
-    String EN_SYSTEM = "System";
+    /*~~>*/String EN_SYSTEM = "System";
 
-    String EN_PROCESS_MODEL = "ProcessModel";
+    /*~~>*/String EN_PROCESS_MODEL = "ProcessModel";
 
-    String EN_COMPONENT = "Component";
+    /*~~>*/String EN_COMPONENT = "Component";
 
-    String EN_ABSTRACT_PROCESS = "AbstractProcess";
+    /*~~>*/String EN_ABSTRACT_PROCESS = "AbstractProcess";
 
     QName SYSTEM_QNAME = new QName(NS_SML, EN_SYSTEM, NS_SML_PREFIX);
 
@@ -63,65 +63,65 @@ public interface SensorMLConstants {
 
     QName ABSTRACT_PROCESS_QNAME = new QName(NS_SML, EN_ABSTRACT_PROCESS, NS_SML_PREFIX);
 
-    String VERSION_V101 = "1.0.1";
+    /*~~>*/String VERSION_V101 = "1.0.1";
 
     /**
      * Name of a SensorML element describing the offerings a procedure/sensor is related to or should be
      * inserted into
      */
-    String ELEMENT_NAME_OFFERINGS = "offerings";
+    /*~~>*/String ELEMENT_NAME_OFFERINGS = "offerings";
 
     // FIXME use a proper URI/URN for this, e.g. from settings
-    String OFFERING_FIELD_DEFINITION = "http://www.opengis.net/def/offering/identifier";
+    /*~~>*/String OFFERING_FIELD_DEFINITION = "http://www.opengis.net/def/offering/identifier";
 
     /**
      * name of System capabilities containing parent procedures
      */
-    String ELEMENT_NAME_PARENT_PROCEDURES = "parentProcedures";
+    /*~~>*/String ELEMENT_NAME_PARENT_PROCEDURES = "parentProcedures";
 
     // FIXME use a proper URI/URN for this, e.g. from settings
-    String PARENT_PROCEDURE_FIELD_DEFINITION = "http://www.opengis.net/def/procedure/identifier";
+    /*~~>*/String PARENT_PROCEDURE_FIELD_DEFINITION = "http://www.opengis.net/def/procedure/identifier";
 
-    String PARENT_PROCEDURE_FIELD_NAME = "parentProcedureID";
+    /*~~>*/String PARENT_PROCEDURE_FIELD_NAME = "parentProcedureID";
 
     /**
      * name of System components containing child procedures
      */
-    String ELEMENT_NAME_CHILD_PROCEDURES = "childProcedure";
+    /*~~>*/String ELEMENT_NAME_CHILD_PROCEDURES = "childProcedure";
 
     /**
      * name of System capabilities containing featureOfInterest
      */
-    String ELEMENT_NAME_FEATURES_OF_INTEREST = "featuresOfInterest";
+    /*~~>*/String ELEMENT_NAME_FEATURES_OF_INTEREST = "featuresOfInterest";
 
     // FIXME use a proper URI/URN for this, e.g. from settings
-    String FEATURE_OF_INTEREST_FIELD_DEFINITION = "http://www.opengis.net/def/featureOfInterest/identifier";
+    /*~~>*/String FEATURE_OF_INTEREST_FIELD_DEFINITION = "http://www.opengis.net/def/featureOfInterest/identifier";
 
-    String FEATURE_OF_INTEREST_FIELD_NAME = "featureOfInterestID";
+    /*~~>*/String FEATURE_OF_INTEREST_FIELD_NAME = "featureOfInterestID";
 
-    String ELEMENT_NAME_SHORT_NAME = "shortName";
+    /*~~>*/String ELEMENT_NAME_SHORT_NAME = "shortName";
 
-    String ELEMENT_NAME_SHORT_DEFINITION = "urn:ogc:def:identifier:OGC:1.0:shortName";
+    /*~~>*/String ELEMENT_NAME_SHORT_DEFINITION = "urn:ogc:def:identifier:OGC:1.0:shortName";
 
-    String ELEMENT_NAME_LONG_NAME = "longName";
+    /*~~>*/String ELEMENT_NAME_LONG_NAME = "longName";
 
-    String ELEMENT_NAME_LONG_DEFINITION = "urn:ogc:def:identifier:OGC:1.0:longName";
+    /*~~>*/String ELEMENT_NAME_LONG_DEFINITION = "urn:ogc:def:identifier:OGC:1.0:longName";
 
-    String ELEMENT_NAME_OBSERVED_BBOX = "observedBBOX";
+    /*~~>*/String ELEMENT_NAME_OBSERVED_BBOX = "observedBBOX";
 
-    String OBSERVED_BBOX_DEFINITION_URN = "urn:ogc:def:property:OGC:1.0:observedBBOX";
+    /*~~>*/String OBSERVED_BBOX_DEFINITION_URN = "urn:ogc:def:property:OGC:1.0:observedBBOX";
 
-    String DEFAULT_FIELD_NAME = "field_";
+    /*~~>*/String DEFAULT_FIELD_NAME = "field_";
 
-    String STATIONARY = "stationary";
+    /*~~>*/String STATIONARY = "stationary";
 
-    String MOBILE = "mobile";
+    /*~~>*/String MOBILE = "mobile";
 
-    String INSITU = "insitu";
+    /*~~>*/String INSITU = "insitu";
 
-    String REMOTE = "remote";
+    /*~~>*/String REMOTE = "remote";
 
-    String FIXED = "fixed";
+    /*~~>*/String FIXED = "fixed";
 
-    String ELEMENT_NAME_REFERENCE_VALUES = "referenceValues";
+    /*~~>*/String ELEMENT_NAME_REFERENCE_VALUES = "referenceValues";
 }

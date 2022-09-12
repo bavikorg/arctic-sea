@@ -31,21 +31,21 @@ public class OrderByQueryOptionTest extends QueryOptionTests {
     @Test
     public void testInvalidOrderByFilter() {
         // May no be empty
-        init(ODataConstants.QueryOptions.ORDERBY + EQ + "");
+        init(/*~~>*/ODataConstants.QueryOptions.ORDERBY + EQ + "");
         Assertions.assertThrows(
                 Exception.class,
                 () -> parser.queryOptions().accept(new STAQueryOptionVisitor())
         );
 
         // May not be malformed
-        init(ODataConstants.QueryOptions.ORDERBY + EQ + "test/test//");
+        init(/*~~>*/ODataConstants.QueryOptions.ORDERBY + EQ + "test/test//");
         Assertions.assertThrows(
                 NullPointerException.class,
                 () -> parser.queryOptions().accept(new STAQueryOptionVisitor())
         );
 
         // May not have invalid sortOrder
-        init(ODataConstants.QueryOptions.ORDERBY + EQ + "test nosc");
+        init(/*~~>*/ODataConstants.QueryOptions.ORDERBY + EQ + "test nosc");
         Assertions.assertThrows(
                 IllegalStateException.class,
                 () -> parser.queryOptions().accept(new STAQueryOptionVisitor())
@@ -55,11 +55,11 @@ public class OrderByQueryOptionTest extends QueryOptionTests {
     @Test
     public void testValidOrderByFilter() {
         OrderByFilter filter;
-        String val, sortOrder;
+        /*~~>*/String val, sortOrder;
 
         // Check simple property
         val = "test";
-        init(ODataConstants.QueryOptions.ORDERBY + EQ + val);
+        init(/*~~>*/ODataConstants.QueryOptions.ORDERBY + EQ + val);
         filter = ((QueryOptions) parser.queryOptions()
                                        .accept(new STAQueryOptionVisitor())).getOrderByFilter();
         Assertions.assertEquals(val, filter.getSortProperties().get(0).getValueReference());
@@ -68,7 +68,7 @@ public class OrderByQueryOptionTest extends QueryOptionTests {
         // Check simple property asc
         val = "test";
         sortOrder = "asc";
-        init(ODataConstants.QueryOptions.ORDERBY + EQ + val + " " + sortOrder);
+        init(/*~~>*/ODataConstants.QueryOptions.ORDERBY + EQ + val + " " + sortOrder);
         filter = ((QueryOptions) parser.queryOptions()
                                        .accept(new STAQueryOptionVisitor())).getOrderByFilter();
         Assertions.assertEquals(val, filter.getSortProperties().get(0).getValueReference());
@@ -77,18 +77,18 @@ public class OrderByQueryOptionTest extends QueryOptionTests {
         // Check simple property desc
         val = "test";
         sortOrder = "desc";
-        init(ODataConstants.QueryOptions.ORDERBY + EQ + val + " " + sortOrder);
+        init(/*~~>*/ODataConstants.QueryOptions.ORDERBY + EQ + val + " " + sortOrder);
         filter = ((QueryOptions) parser.queryOptions()
                                        .accept(new STAQueryOptionVisitor())).getOrderByFilter();
         Assertions.assertEquals(val, filter.getSortProperties().get(0).getValueReference());
         Assertions.assertEquals(FilterConstants.SortOrder.DESC, filter.getSortProperties().get(0).getSortOrder());
 
         // Check multiple property asc and desc
-        String firstProp = "test";
-        String secondProp = "testTwo";
+        /*~~>*/String firstProp = "test";
+        /*~~>*/String secondProp = "testTwo";
         val = firstProp + ", " + secondProp;
         sortOrder = "asc";
-        init(ODataConstants.QueryOptions.ORDERBY + EQ + val + " " + sortOrder);
+        init(/*~~>*/ODataConstants.QueryOptions.ORDERBY + EQ + val + " " + sortOrder);
         filter = ((QueryOptions) parser.queryOptions()
                                        .accept(new STAQueryOptionVisitor())).getOrderByFilter();
         Assertions.assertEquals(firstProp, filter.getSortProperties().get(0).getValueReference());

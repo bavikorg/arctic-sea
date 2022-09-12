@@ -35,9 +35,9 @@ import edu.umd.cs.findbugs.annotations.SuppressFBWarnings;
 public class SweVector extends SweAbstractDataComponent {
     private List<? extends SweCoordinate<? extends Number>> coordinates = new LinkedList<>();
 
-    private String referenceFrame;
+    private /*~~>*/String referenceFrame;
 
-    private String localFrame;
+    private /*~~>*/String localFrame;
 
     @SuppressFBWarnings({ "EI_EXPOSE_REP2" })
     public SweVector(List<? extends SweCoordinate<? extends Number>> coordinates) {
@@ -68,8 +68,8 @@ public class SweVector extends SweAbstractDataComponent {
     }
 
     @Override
-    public String toString() {
-        return String.format("%s[coordinates=%s]", getClass().getSimpleName(), getCoordinates());
+    public /*~~>*/String toString() {
+        return /*~~>*/String.format("%s[coordinates=%s]", getClass().getSimpleName(), getCoordinates());
     }
 
     @Override
@@ -97,30 +97,30 @@ public class SweVector extends SweAbstractDataComponent {
         return SweDataComponentType.Vector;
     }
 
-    public void setReferenceFrame(String referenceFrame) {
-        this.referenceFrame = referenceFrame;
+    public void setReferenceFrame(/*~~>*/String referenceFrame) {
+        /*~~>*/this.referenceFrame = referenceFrame;
 
     }
 
-    public String getReferenceFrame() {
+    public /*~~>*/String getReferenceFrame() {
         return referenceFrame;
     }
 
     public boolean isSetReferenceFrame() {
-        return this.referenceFrame != null && !this.referenceFrame.isEmpty();
+        return /*~~>*/this.referenceFrame != null && !/*~~>*/this.referenceFrame.isEmpty();
     }
 
-    public void setLocalFrame(String localFrame) {
-        this.localFrame = localFrame;
+    public void setLocalFrame(/*~~>*/String localFrame) {
+        /*~~>*/this.localFrame = localFrame;
 
     }
 
-    public String getLocalFrame() {
+    public /*~~>*/String getLocalFrame() {
         return localFrame;
     }
 
     public boolean isSetLocalFrame() {
-        return this.localFrame != null && !this.localFrame.isEmpty();
+        return /*~~>*/this.localFrame != null && !/*~~>*/this.localFrame.isEmpty();
     }
 
     @Override

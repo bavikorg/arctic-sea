@@ -34,17 +34,17 @@ public class GetObservationByIdRequest extends AbstractObservationRequest {
     /**
      * Observation identifier
      */
-    private List<String> observationIdentifier = new LinkedList<>();
+    private List</*~~>*/String> observationIdentifier = new LinkedList<>();
 
     public GetObservationByIdRequest() {
         super(null, null, SosConstants.Operations.GetObservationById.name());
     }
 
-    public GetObservationByIdRequest(String service, String version) {
+    public GetObservationByIdRequest(/*~~>*/String service, /*~~>*/String version) {
         super(service, version, SosConstants.Operations.GetObservationById.name());
     }
 
-    public GetObservationByIdRequest(String service, String version, String operationName) {
+    public GetObservationByIdRequest(/*~~>*/String service, /*~~>*/String version, /*~~>*/String operationName) {
         super(service, version, operationName);
     }
 
@@ -53,7 +53,7 @@ public class GetObservationByIdRequest extends AbstractObservationRequest {
      *
      * @return observation identifier
      */
-    public List<String> getObservationIdentifier() {
+    public List</*~~>*/String> getObservationIdentifier() {
         return Collections.unmodifiableList(observationIdentifier);
     }
 
@@ -69,7 +69,7 @@ public class GetObservationByIdRequest extends AbstractObservationRequest {
      * @return this
      */
     @SuppressFBWarnings({ "EI_EXPOSE_REP2" })
-    public GetObservationByIdRequest setObservationIdentifier(Collection<String> observationIdentifier) {
+    public GetObservationByIdRequest setObservationIdentifier(Collection</*~~>*/String> observationIdentifier) {
         this.observationIdentifier.clear();
         if (observationIdentifier != null) {
             this.observationIdentifier.addAll(observationIdentifier);

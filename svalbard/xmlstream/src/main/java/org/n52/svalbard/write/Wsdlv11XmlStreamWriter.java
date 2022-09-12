@@ -65,11 +65,11 @@ public class Wsdlv11XmlStreamWriter extends XmlStreamWriter<Definitions> {
     public void write() throws XMLStreamException, EncodingException {
         Definitions definitions = getElement();
         start(definitions.getQName());
-        for (Entry<String, String> entry : definitions.getNamespaces().entrySet()) {
+        for (Entry</*~~>*/String, /*~~>*/String> entry : definitions.getNamespaces().entrySet()) {
             namespace(entry.getKey(), entry.getValue());
         }
         if (definitions.isSetTargetNamespace()) {
-            attr(WSDLConstants.AN_XSD_TARGET_NAMESPACE, definitions.getTargetNamespace());
+            attr(/*~~>*/WSDLConstants.AN_XSD_TARGET_NAMESPACE, definitions.getTargetNamespace());
         }
         encodeTypes(definitions.getTypes());
         encodeMessages(definitions.getMessages());
@@ -327,7 +327,7 @@ public class Wsdlv11XmlStreamWriter extends XmlStreamWriter<Definitions> {
 
     private void encodeInclude(Include include) throws XMLStreamException {
         empty(include.getQName());
-        attr(WSDLConstants.AN_XSD_SCHEMA_LOCATION, include.getSchemaLocation());
+        attr(/*~~>*/WSDLConstants.AN_XSD_SCHEMA_LOCATION, include.getSchemaLocation());
     }
 
     private void encodeHttpBinding(HttpBinding httpBinding) throws XMLStreamException {
@@ -378,7 +378,7 @@ public class Wsdlv11XmlStreamWriter extends XmlStreamWriter<Definitions> {
     }
 
 
-    private void attrName(String value) throws XMLStreamException {
+    private void attrName(/*~~>*/String value) throws XMLStreamException {
         attr("name", value);
     }
 
@@ -398,19 +398,19 @@ public class Wsdlv11XmlStreamWriter extends XmlStreamWriter<Definitions> {
         attr("type", toPrefixLocal(value));
     }
 
-    private void attrVerb(String value) throws XMLStreamException {
+    private void attrVerb(/*~~>*/String value) throws XMLStreamException {
         attr("verb", value);
     }
 
-    private void attrStyle(String value) throws XMLStreamException {
+    private void attrStyle(/*~~>*/String value) throws XMLStreamException {
         attr("style", value);
     }
 
-    private void attrTransport(String value) throws XMLStreamException {
+    private void attrTransport(/*~~>*/String value) throws XMLStreamException {
         attr("transport", value);
     }
 
-    private void attrUse(String value) throws XMLStreamException {
+    private void attrUse(/*~~>*/String value) throws XMLStreamException {
         attr("use", value);
     }
 
@@ -422,12 +422,12 @@ public class Wsdlv11XmlStreamWriter extends XmlStreamWriter<Definitions> {
         attr("soapAction", value.toString());
     }
 
-    private String toPrefixLocal(QName qName) {
+    private /*~~>*/String toPrefixLocal(QName qName) {
         return qName.getPrefix() != null && !qName.getPrefix()
                 .isEmpty() ? qName.getPrefix() + ":" + qName.getLocalPart() : qName.getLocalPart();
     }
 
-    private void attrLocation(String value) throws XMLStreamException {
+    private void attrLocation(/*~~>*/String value) throws XMLStreamException {
         attr("location", value);
     }
 

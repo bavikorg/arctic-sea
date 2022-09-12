@@ -31,7 +31,7 @@ public class GeoLiteFileDownloaderIT {
 
     @Test
     public void downloadFiletoCDriveTemp() throws URISyntaxException, IOException {
-        String basePath = folder.toAbsolutePath().toString();
+        /*~~>*/String basePath = folder.toAbsolutePath().toString();
         GeoLiteFileDownloader.downloadDefaultDatabases(basePath);
 
         File city = new File(basePath + "/city.mmdb");

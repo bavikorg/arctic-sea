@@ -30,178 +30,178 @@ import com.google.common.collect.Sets;
 
 public interface AqdConstants {
 
-    String TEXT = "text";
+    /*~~>*/String TEXT = "text";
 
-    String AQD = "AQD";
+    /*~~>*/String AQD = "AQD";
 
-    String VERSION = "1.0.0";
+    /*~~>*/String VERSION = "1.0.0";
 
-    String DEFINITION_VERIFICATION = "http://dd.eionet.europa.eu/vocabularies/aq/observationverification";
+    /*~~>*/String DEFINITION_VERIFICATION = "http://dd.eionet.europa.eu/vocabularies/aq/observationverification";
 
-    String DEFINITION_VALIDITY = "http://dd.eionet.europa.eu/vocabularies/aq/observationvalidity";
+    /*~~>*/String DEFINITION_VALIDITY = "http://dd.eionet.europa.eu/vocabularies/aq/observationvalidity";
 
-    String DEFINITION_DATA_CAPTURE = "http://dd.eionet.europa.eu/vocabulary/aq/primaryObservation/dc";
+    /*~~>*/String DEFINITION_DATA_CAPTURE = "http://dd.eionet.europa.eu/vocabulary/aq/primaryObservation/dc";
 
-    String DEFINITION_UOM_STATISTICS_PERCENTAGE =
+    /*~~>*/String DEFINITION_UOM_STATISTICS_PERCENTAGE =
             "http://dd.eionet.europa.eu/vocabularyconcept/uom/statistics/percentage";
 
-    String NAME_FIXED_OBSERVATIONS = "FixedObservations";
+    /*~~>*/String NAME_FIXED_OBSERVATIONS = "FixedObservations";
 
-    String NS_AQD = "http://dd.eionet.europa.eu/schemaset/id2011850eu-1.0";
+    /*~~>*/String NS_AQD = "http://dd.eionet.europa.eu/schemaset/id2011850eu-1.0";
 
-    String NS_AQD_PREFIX = "aqd";
+    /*~~>*/String NS_AQD_PREFIX = "aqd";
 
-    String NS_AQD_SCHEMA = "http://dd.eionet.europa.eu/schemas/id2011850eu-1.0/AirQualityReporting.xsd";
+    /*~~>*/String NS_AQD_SCHEMA = "http://dd.eionet.europa.eu/schemas/id2011850eu-1.0/AirQualityReporting.xsd";
 
     SchemaLocation NS_AQD_SCHEMA_LOCATION = new SchemaLocation(NS_AQD, NS_AQD_SCHEMA);
 
     MediaType AQD_CONTENT_TYPE = new MediaType(TEXT, "xml", "subtype", "id2011850eu/1.0");
 
-    String NS_AD = "urn:x-inspire:specification:gmlas:Addresses:3.0";
+    /*~~>*/String NS_AD = "urn:x-inspire:specification:gmlas:Addresses:3.0";
 
-    String NS_AD_PREFIX = "ad";
+    /*~~>*/String NS_AD_PREFIX = "ad";
 
-    String NS_AM = "http://inspire.ec.europa.eu/schemas/am/3.0";
+    /*~~>*/String NS_AM = "http://inspire.ec.europa.eu/schemas/am/3.0";
 
-    String NS_AM_PREFIX = "am";
+    /*~~>*/String NS_AM_PREFIX = "am";
 
-    String NS_AU = "urn:x-inspire:specification:gmlas:AdministrativeUnits:3.0";
+    /*~~>*/String NS_AU = "urn:x-inspire:specification:gmlas:AdministrativeUnits:3.0";
 
-    String NS_AU_PREFIX = "au";
+    /*~~>*/String NS_AU_PREFIX = "au";
 
-    String NS_BASE = "http://inspire.ec.europa.eu/schemas/base/3.3";
+    /*~~>*/String NS_BASE = "http://inspire.ec.europa.eu/schemas/base/3.3";
 
-    String NS_BASE_PREFIX = "base";
+    /*~~>*/String NS_BASE_PREFIX = "base";
 
-    String NS_BASE2 = "http://inspire.ec.europa.eu/schemas/base2/1.0";
+    /*~~>*/String NS_BASE2 = "http://inspire.ec.europa.eu/schemas/base2/1.0";
 
-    String NS_BASE2_PREFIX = "base2";
+    /*~~>*/String NS_BASE2_PREFIX = "base2";
 
-    String NS_EF = "http://inspire.ec.europa.eu/schemas/ef/3.0";
+    /*~~>*/String NS_EF = "http://inspire.ec.europa.eu/schemas/ef/3.0";
 
-    String NS_EF_PREFIX = "ef";
+    /*~~>*/String NS_EF_PREFIX = "ef";
 
-    String NS_GN = "urn:x-inspire:specification:gmlas:GeographicalNames:3.0";
+    /*~~>*/String NS_GN = "urn:x-inspire:specification:gmlas:GeographicalNames:3.0";
 
-    String NS_GN_PREFIX = "gn";
+    /*~~>*/String NS_GN_PREFIX = "gn";
 
-    String NS_OMPR = "http://inspire.ec.europa.eu/schemas/ompr/2.0";
+    /*~~>*/String NS_OMPR = "http://inspire.ec.europa.eu/schemas/ompr/2.0";
 
-    String NS_OMPR_PREFIX = "ompr";
+    /*~~>*/String NS_OMPR_PREFIX = "ompr";
 
-    Map<String, String> NAMESPACE_PREFIX_MAP = ImmutableMap.<
-            String,
-            String> builder().put(NS_AQD, NS_AQD_PREFIX).put(NS_AD, NS_AD_PREFIX).put(NS_AM, NS_AM_PREFIX)
+    Map</*~~>*/String, /*~~>*/String> NAMESPACE_PREFIX_MAP = ImmutableMap.<
+            /*~~>*/String,
+            /*~~>*/String> builder().put(NS_AQD, NS_AQD_PREFIX).put(NS_AD, NS_AD_PREFIX).put(NS_AM, NS_AM_PREFIX)
             .put(NS_AU, NS_AU_PREFIX).put(NS_BASE, NS_BASE_PREFIX).put(NS_BASE2, NS_BASE2_PREFIX)
             .put(NS_EF, NS_EF_PREFIX).put(NS_GN, NS_GN_PREFIX).put(NS_OMPR, NS_OMPR_PREFIX)
-            .put(GcoConstants.NS_GCO, GcoConstants.NS_GCO_PREFIX).put(GmdConstants.NS_GMD, GmdConstants.NS_GMD_PREFIX)
+            .put(/*~~>*/GcoConstants.NS_GCO, /*~~>*/GcoConstants.NS_GCO_PREFIX).put(/*~~>*/GmdConstants.NS_GMD, /*~~>*/GmdConstants.NS_GMD_PREFIX)
             .build();
 
-    String AN_CODE_SPACE = "codeSpace";
+    /*~~>*/String AN_CODE_SPACE = "codeSpace";
 
-    String AN_NIL_REASON = "nilReason";
+    /*~~>*/String AN_NIL_REASON = "nilReason";
 
-    String EN_ADDRESS = "address";
+    /*~~>*/String EN_ADDRESS = "address";
 
-    String EN_ADDRESS_AREA = "addressArea";
+    /*~~>*/String EN_ADDRESS_AREA = "addressArea";
 
-    String EN_ADDRESS_FEATURE = "addressFeature";
+    /*~~>*/String EN_ADDRESS_FEATURE = "addressFeature";
 
-    String EN_ADDRESS_REPRESENTATION = "AddressRepresentation";
+    /*~~>*/String EN_ADDRESS_REPRESENTATION = "AddressRepresentation";
 
-    String EN_ADMIN_UNIT = "adminUnit";
+    /*~~>*/String EN_ADMIN_UNIT = "adminUnit";
 
-    String EN_CHANGE = "change";
+    /*~~>*/String EN_CHANGE = "change";
 
-    String EN_CHANGE_DESCRIPTION = "changeDescription";
+    /*~~>*/String EN_CHANGE_DESCRIPTION = "changeDescription";
 
-    String EN_CONTACT = "contact";
+    /*~~>*/String EN_CONTACT = "contact";
 
-    String EN_C_ONTACT = "Contact";
+    /*~~>*/String EN_C_ONTACT = "Contact";
 
-    String EN_CONTACT_INSTRUCTIONS = "contactInstructions";
+    /*~~>*/String EN_CONTACT_INSTRUCTIONS = "contactInstructions";
 
-    String EN_CONTENT = "content";
+    /*~~>*/String EN_CONTENT = "content";
 
-    String EN_DELETE = "delete";
+    /*~~>*/String EN_DELETE = "delete";
 
-    String EN_ELECTRONIC_MAIL_ADDRESS = "electronicMailAddress";
+    /*~~>*/String EN_ELECTRONIC_MAIL_ADDRESS = "electronicMailAddress";
 
-    String EN_GEOGRAPHICAL_NAME = "GeographicalName";
+    /*~~>*/String EN_GEOGRAPHICAL_NAME = "GeographicalName";
 
-    String EN_GRAMMATICAL_GENDER = "grammaticalGender";
+    /*~~>*/String EN_GRAMMATICAL_GENDER = "grammaticalGender";
 
-    String EN_GRAMMATICAL_NUMBER = "grammaticalNumber";
+    /*~~>*/String EN_GRAMMATICAL_NUMBER = "grammaticalNumber";
 
-    String EN_HOURS_OF_SERVICE = "hoursOfService";
+    /*~~>*/String EN_HOURS_OF_SERVICE = "hoursOfService";
 
-    String EN_IDENTIFIER = "Identifier";
+    /*~~>*/String EN_IDENTIFIER = "Identifier";
 
-    String EN_INDIVIDUAL_NAME = "individualName";
+    /*~~>*/String EN_INDIVIDUAL_NAME = "individualName";
 
-    String EN_INSPIRE_ID = "inspireId";
+    /*~~>*/String EN_INSPIRE_ID = "inspireId";
 
-    String EN_LANGUAGE = "language";
+    /*~~>*/String EN_LANGUAGE = "language";
 
-    String EN_LOCAL_ID = "localId";
+    /*~~>*/String EN_LOCAL_ID = "localId";
 
-    String EN_LOCATOR_DESIGNATOR = "locatorDesignator";
+    /*~~>*/String EN_LOCATOR_DESIGNATOR = "locatorDesignator";
 
-    String EN_LOCATOR_NAME = "locatorName";
+    /*~~>*/String EN_LOCATOR_NAME = "locatorName";
 
-    String EN_NAME_STATUS = "nameStatus";
+    /*~~>*/String EN_NAME_STATUS = "nameStatus";
 
-    String EN_NAMESPACE = "namespace";
+    /*~~>*/String EN_NAMESPACE = "namespace";
 
-    String EN_NATIVENESS = "nativeness";
+    /*~~>*/String EN_NATIVENESS = "nativeness";
 
-    String EN_ORGANISATION_NAME = "organisationName";
+    /*~~>*/String EN_ORGANISATION_NAME = "organisationName";
 
-    String EN_POSITION_NAME = "positionName";
+    /*~~>*/String EN_POSITION_NAME = "positionName";
 
-    String EN_POST_CODE = "postCode";
+    /*~~>*/String EN_POST_CODE = "postCode";
 
-    String EN_POST_NAME = "postName";
+    /*~~>*/String EN_POST_NAME = "postName";
 
-    String EN_PRONUNCIATION = "pronunciation";
+    /*~~>*/String EN_PRONUNCIATION = "pronunciation";
 
-    String EN_PRONUNCIATION_IPA = "pronunciationIPA";
+    /*~~>*/String EN_PRONUNCIATION_IPA = "pronunciationIPA";
 
-    String EN_PRONUNCIATION_OF_NAME = "PronunciationOfName";
+    /*~~>*/String EN_PRONUNCIATION_OF_NAME = "PronunciationOfName";
 
-    String EN_PRONUNCIATION_SOUND_LINK = "pronunciationSoundLink";
+    /*~~>*/String EN_PRONUNCIATION_SOUND_LINK = "pronunciationSoundLink";
 
-    String EN_RELATED_PARTY = "RelatedParty";
+    /*~~>*/String EN_RELATED_PARTY = "RelatedParty";
 
-    String EN_REPORTING_AUTHORITY = "reportingAuthority";
+    /*~~>*/String EN_REPORTING_AUTHORITY = "reportingAuthority";
 
-    String EN_REPORTING_HEADER = "AQD_ReportingHeader";
+    /*~~>*/String EN_REPORTING_HEADER = "AQD_ReportingHeader";
 
-    String EN_REPORTING_PERIOD = "reportingPeriod";
+    /*~~>*/String EN_REPORTING_PERIOD = "reportingPeriod";
 
-    String EN_ROLE = "role";
+    /*~~>*/String EN_ROLE = "role";
 
-    String EN_SCRIPT = "script";
+    /*~~>*/String EN_SCRIPT = "script";
 
-    String EN_SOURCE_OF_NAME = "sourceOfName";
+    /*~~>*/String EN_SOURCE_OF_NAME = "sourceOfName";
 
-    String EN_SPELLING = "spelling";
+    /*~~>*/String EN_SPELLING = "spelling";
 
-    String EN_SPELLING_OF_NAME = "SpellingOfName";
+    /*~~>*/String EN_SPELLING_OF_NAME = "SpellingOfName";
 
-    String EN_TELEPHONE_FACSIMILE = "telephoneFacsimile";
+    /*~~>*/String EN_TELEPHONE_FACSIMILE = "telephoneFacsimile";
 
-    String EN_TELEPHONE_VOICE = "telephoneVoice";
+    /*~~>*/String EN_TELEPHONE_VOICE = "telephoneVoice";
 
-    String EN_TEXT = TEXT;
+    /*~~>*/String EN_TEXT = TEXT;
 
-    String EN_THOROUGHFARE = "thoroughfare";
+    /*~~>*/String EN_THOROUGHFARE = "thoroughfare";
 
-    String EN_TRANSLITERATION_SCHEME = "transliterationScheme";
+    /*~~>*/String EN_TRANSLITERATION_SCHEME = "transliterationScheme";
 
-    String EN_VERSION_ID = "versionId";
+    /*~~>*/String EN_VERSION_ID = "versionId";
 
-    String EN_WEBSITE = "website";
+    /*~~>*/String EN_WEBSITE = "website";
 
     QName QN_NIL_REASON = new QName(AN_NIL_REASON);
 
@@ -307,23 +307,23 @@ public interface AqdConstants {
 
     QName QN_GN_TRANSLITERATION_SCHEME = new QName(NS_GN, EN_TRANSLITERATION_SCHEME, NS_GN_PREFIX);
 
-    String HOUR = "hour";
+    /*~~>*/String HOUR = "hour";
 
-    String DAY = "day";
+    /*~~>*/String DAY = "day";
 
-    String WEEK = "week";
+    /*~~>*/String WEEK = "week";
 
-    String FORTNIGHT = "fortnight";
+    /*~~>*/String FORTNIGHT = "fortnight";
 
-    String MONTH = "month";
+    /*~~>*/String MONTH = "month";
 
-    String QUARTER = "quarter";
+    /*~~>*/String QUARTER = "quarter";
 
-    String VAR = "var";
+    /*~~>*/String VAR = "var";
 
-    String EXTENSION_FLOW = "flow";
+    /*~~>*/String EXTENSION_FLOW = "flow";
 
-    String MODEL = "model";
+    /*~~>*/String MODEL = "model";
 
     /**
      * the names of the operations supported by all versions of the SOS specification
@@ -343,28 +343,28 @@ public interface AqdConstants {
         Quarterly(QUARTER),
         Variable(VAR);
 
-        private static final String BASE_URI = "http://dd.eionet.europa.eu/vocabulary/aq/primaryObservation/";
+        private static final /*~~>*/String BASE_URI = "http://dd.eionet.europa.eu/vocabulary/aq/primaryObservation/";
 
-        private static final Set<String> MULTI_DAYS = Sets.newHashSet(WEEK, FORTNIGHT, MONTH, QUARTER);
+        private static final Set</*~~>*/String> MULTI_DAYS = Sets.newHashSet(WEEK, FORTNIGHT, MONTH, QUARTER);
 
-        private final String id;
+        private final /*~~>*/String id;
 
-        private final String conceptURI;
+        private final /*~~>*/String conceptURI;
 
-        PrimaryObservation(String id) {
-            this.id = id;
-            this.conceptURI = BASE_URI + id;
+        PrimaryObservation(/*~~>*/String id) {
+            /*~~>*/this.id = id;
+            /*~~>*/this.conceptURI = BASE_URI + id;
         }
 
-        public String getId() {
+        public /*~~>*/String getId() {
             return id;
         }
 
-        public String getConceptURI() {
+        public /*~~>*/String getConceptURI() {
             return conceptURI;
         }
 
-        public static PrimaryObservation from(String v) {
+        public static PrimaryObservation from(/*~~>*/String v) {
             for (PrimaryObservation c : PrimaryObservation.values()) {
                 if (c.getConceptURI().equals(v) || c.getId().equals(v)) {
                     return c;
@@ -373,7 +373,7 @@ public interface AqdConstants {
             throw new IllegalArgumentException(v);
         }
 
-        public static PrimaryObservation fromConceptURI(String v) {
+        public static PrimaryObservation fromConceptURI(/*~~>*/String v) {
             for (PrimaryObservation c : PrimaryObservation.values()) {
                 if (c.getConceptURI().equals(v)) {
                     return c;
@@ -382,7 +382,7 @@ public interface AqdConstants {
             throw new IllegalArgumentException(v);
         }
 
-        public static PrimaryObservation fromId(String v) {
+        public static PrimaryObservation fromId(/*~~>*/String v) {
             for (PrimaryObservation c : PrimaryObservation.values()) {
                 if (c.getId().equals(v)) {
                     return c;
@@ -392,7 +392,7 @@ public interface AqdConstants {
         }
 
         public boolean isMultyDayPrimaryObservation() {
-            return MULTI_DAYS.contains(this.id);
+            return MULTI_DAYS.contains(/*~~>*/this.id);
         }
     }
 
@@ -411,26 +411,26 @@ public interface AqdConstants {
         VerificationSamplingPointsOther("VER-SPother"),
         Unknown("Unknown");
 
-        private static final String BASE_URI = "http://dd.eionet.europa.eu/vocabulary/aq/processparameter/";
+        private static final /*~~>*/String BASE_URI = "http://dd.eionet.europa.eu/vocabulary/aq/processparameter/";
 
-        private final String id;
+        private final /*~~>*/String id;
 
-        private final String conceptURI;
+        private final /*~~>*/String conceptURI;
 
-        ProcessParameter(String id) {
-            this.id = id;
-            this.conceptURI = BASE_URI + id;
+        ProcessParameter(/*~~>*/String id) {
+            /*~~>*/this.id = id;
+            /*~~>*/this.conceptURI = BASE_URI + id;
         }
 
-        public String getId() {
+        public /*~~>*/String getId() {
             return id;
         }
 
-        public String getConceptURI() {
+        public /*~~>*/String getConceptURI() {
             return conceptURI;
         }
 
-        public static ProcessParameter from(String v) {
+        public static ProcessParameter from(/*~~>*/String v) {
             for (ProcessParameter p : ProcessParameter.values()) {
                 if (p.getConceptURI().equals(v) || p.getId().equals(v)) {
                     return p;
@@ -439,7 +439,7 @@ public interface AqdConstants {
             throw new IllegalArgumentException(v);
         }
 
-        public static ProcessParameter fromOrUnknown(String v) {
+        public static ProcessParameter fromOrUnknown(/*~~>*/String v) {
             for (ProcessParameter p : ProcessParameter.values()) {
                 if (p.getConceptURI().equals(v) || p.getId().equals(v)) {
                     return p;
@@ -456,26 +456,26 @@ public interface AqdConstants {
         Model(MODEL),
         Objective("objective");
 
-        private static final String BASE_URI = "http://dd.eionet.europa.eu/vocabulary/aq/assessmenttype/";
+        private static final /*~~>*/String BASE_URI = "http://dd.eionet.europa.eu/vocabulary/aq/assessmenttype/";
 
-        private final String id;
+        private final /*~~>*/String id;
 
-        private final String conceptURI;
+        private final /*~~>*/String conceptURI;
 
-        AssessmentType(String id) {
-            this.id = id;
-            this.conceptURI = BASE_URI + id;
+        AssessmentType(/*~~>*/String id) {
+            /*~~>*/this.id = id;
+            /*~~>*/this.conceptURI = BASE_URI + id;
         }
 
-        public String getId() {
+        public /*~~>*/String getId() {
             return id;
         }
 
-        public String getConceptURI() {
+        public /*~~>*/String getConceptURI() {
             return conceptURI;
         }
 
-        public static AssessmentType from(String v) {
+        public static AssessmentType from(/*~~>*/String v) {
             for (AssessmentType c : AssessmentType.values()) {
                 if (c.getConceptURI().equals(v) || c.getId().equals(v)) {
                     return c;
@@ -484,7 +484,7 @@ public interface AqdConstants {
             throw new IllegalArgumentException(v);
         }
 
-        public static AssessmentType fromConceptURI(String v) {
+        public static AssessmentType fromConceptURI(/*~~>*/String v) {
             for (AssessmentType c : AssessmentType.values()) {
                 if (c.getConceptURI().equals(v)) {
                     return c;
@@ -493,7 +493,7 @@ public interface AqdConstants {
             throw new IllegalArgumentException(v);
         }
 
-        public static AssessmentType fromId(String v) {
+        public static AssessmentType fromId(/*~~>*/String v) {
             for (AssessmentType c : AssessmentType.values()) {
                 if (c.getId().equals(v)) {
                     return c;

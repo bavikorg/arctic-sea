@@ -30,7 +30,7 @@ public class PositiveBigInteger extends BigInteger {
         validate();
     }
 
-    public PositiveBigInteger(String val) {
+    public PositiveBigInteger(/*~~>*/String val) {
         super(val);
         validate();
     }

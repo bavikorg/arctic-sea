@@ -38,7 +38,7 @@ public class TimeJSONEncoder
         super(Time.class);
     }
 
-    private String encodeTimePosition(TimePosition timePosition) {
+    private /*~~>*/String encodeTimePosition(TimePosition timePosition) {
         if (timePosition.isSetIndeterminateValue()) {
             return timePosition.getIndeterminateValue().getValue();
         } else if (timePosition.isSetTimeFormat()) {

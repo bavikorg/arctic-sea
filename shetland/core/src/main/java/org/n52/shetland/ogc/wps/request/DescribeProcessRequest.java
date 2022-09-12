@@ -25,7 +25,7 @@ import org.n52.shetland.ogc.ows.service.OwsServiceRequest;
 import org.n52.shetland.ogc.wps.WPSConstants;
 
 public class DescribeProcessRequest extends OwsServiceRequest {
-    public static final String ALL_KEYWORD = "ALL";
+    public static final /*~~>*/String ALL_KEYWORD = "ALL";
 
     private List<OwsCode> identifiers;
 
@@ -33,11 +33,11 @@ public class DescribeProcessRequest extends OwsServiceRequest {
         super(null, null, WPSConstants.Operations.DescribeProcess.name());
     }
 
-    public DescribeProcessRequest(String service, String version) {
+    public DescribeProcessRequest(/*~~>*/String service, /*~~>*/String version) {
         super(service, version, WPSConstants.Operations.DescribeProcess.name());
     }
 
-    public DescribeProcessRequest(String service, String version, String operationName) {
+    public DescribeProcessRequest(/*~~>*/String service, /*~~>*/String version, /*~~>*/String operationName) {
         super(service, version, operationName);
     }
 
@@ -45,7 +45,7 @@ public class DescribeProcessRequest extends OwsServiceRequest {
         return identifiers == null ? null : Collections.unmodifiableList(identifiers);
     }
 
-    public void addProcessIdentifier(String identifier) {
+    public void addProcessIdentifier(/*~~>*/String identifier) {
         addProcessIdentifier(new OwsCode(identifier));
     }
 
@@ -56,7 +56,7 @@ public class DescribeProcessRequest extends OwsServiceRequest {
         this.identifiers.add(Objects.requireNonNull(identifier));
     }
 
-    public void addProcessIdentifiers(List<String> identifiers) {
+    public void addProcessIdentifiers(List</*~~>*/String> identifiers) {
         if (identifiers.isEmpty()) {
             this.identifiers = new LinkedList<>();
         } else {

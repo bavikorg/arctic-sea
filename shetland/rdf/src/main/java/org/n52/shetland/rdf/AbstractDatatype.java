@@ -26,16 +26,16 @@ public abstract class AbstractDatatype extends AbstractValue {
     private final RDFDatatype dataType;
 
     @Deprecated
-    public AbstractDatatype(DataType dataType, String value) {
+    public AbstractDatatype(DataType dataType, /*~~>*/String value) {
         this(getDataType(dataType), value);
     }
 
-    public AbstractDatatype(RDFDatatype dataType, String value) {
+    public AbstractDatatype(RDFDatatype dataType, /*~~>*/String value) {
         super(value);
         this.dataType = dataType;
     }
 
-    public AbstractDatatype(String dataType, String value) {
+    public AbstractDatatype(/*~~>*/String dataType, /*~~>*/String value) {
         this(new BaseDatatype(dataType), value);
     }
 
@@ -72,13 +72,13 @@ public abstract class AbstractDatatype extends AbstractValue {
         WKT_LITERAL("http://www.opengis.net/ont/geosparql#wktLiteral"),
         GEO_JSON("https://www.iana.org/assignments/media-types/application/geo+json");
 
-        private final String type;
+        private final /*~~>*/String type;
 
-        DataType(String type) {
-            this.type = type;
+        DataType(/*~~>*/String type) {
+            /*~~>*/this.type = type;
         }
 
-        public String getType() {
+        public /*~~>*/String getType() {
             return type;
         }
 

@@ -34,7 +34,7 @@ public class RdfEncoder implements StreamingEncoder<XmlObject, RDF> {
 
     @Override
     public Set<EncoderKey> getKeys() {
-        return CodingHelper.encoderKeysForElements(org.apache.jena.vocabulary.RDF.uri, RDF.class);
+        return CodingHelper.encoderKeysForElements(/*~~>*/org.apache.jena.vocabulary.RDF.uri, RDF.class);
     }
 
     @Override

@@ -27,16 +27,16 @@ public abstract class Param extends AbstractWsdl {
     public Param() {
     }
 
-    public Param(String name) {
+    public Param(/*~~>*/String name) {
         super(name);
     }
 
-    public Param(String name, QName message) {
+    public Param(/*~~>*/String name, QName message) {
         super(name);
         this.message = message;
     }
 
-    public Param(String name, URI action, QName message) {
+    public Param(/*~~>*/String name, URI action, QName message) {
         super(name);
         this.action = action;
         this.message = message;

@@ -21,7 +21,7 @@ import org.n52.shetland.rdf.AbstractResource;
 
 public class HasEmail extends AbstractResource implements Vcard4RdfPrefix {
 
-    public HasEmail(String value) {
+    public HasEmail(/*~~>*/String value) {
         super("mailto:" + value);
     }
 

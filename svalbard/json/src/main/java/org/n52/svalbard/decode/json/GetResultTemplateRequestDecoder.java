@@ -32,20 +32,20 @@ import com.fasterxml.jackson.databind.JsonNode;
  */
 public class GetResultTemplateRequestDecoder extends AbstractSosRequestDecoder<GetResultTemplateRequest> {
     public GetResultTemplateRequestDecoder() {
-        super(GetResultTemplateRequest.class, SosConstants.SOS, Sos2Constants.SERVICEVERSION,
+        super(GetResultTemplateRequest.class, /*~~>*/SosConstants.SOS, /*~~>*/Sos2Constants.SERVICEVERSION,
                 Sos2Constants.Operations.GetResultTemplate);
     }
 
     @Override
-    protected String getSchemaURI() {
-        return SchemaConstants.Request.GET_RESULT_TEMPLATE;
+    protected /*~~>*/String getSchemaURI() {
+        return /*~~>*/SchemaConstants.Request.GET_RESULT_TEMPLATE;
     }
 
     @Override
     protected GetResultTemplateRequest decodeRequest(JsonNode node) {
         GetResultTemplateRequest req = new GetResultTemplateRequest();
-        req.setObservedProperty(node.path(JSONConstants.OBSERVED_PROPERTY).textValue());
-        req.setOffering(node.path(JSONConstants.OFFERING).textValue());
+        req.setObservedProperty(node.path(/*~~>*/JSONConstants.OBSERVED_PROPERTY).textValue());
+        req.setOffering(node.path(/*~~>*/JSONConstants.OFFERING).textValue());
         return req;
     }
 }

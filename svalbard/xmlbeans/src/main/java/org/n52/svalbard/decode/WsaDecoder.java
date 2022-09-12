@@ -50,7 +50,7 @@ public class WsaDecoder extends AbstractXmlDecoder<XmlObject, WsaHeader> {
     private static final Logger LOGGER = LoggerFactory.getLogger(WsaDecoder.class);
 
     private static final Set<DecoderKey> DECODER_KEYS =
-            CollectionHelper.union(CodingHelper.decoderKeysForElements(WsaConstants.NS_WSA, ToDocument.class,
+            CollectionHelper.union(CodingHelper.decoderKeysForElements(/*~~>*/WsaConstants.NS_WSA, ToDocument.class,
                     ActionDocument.class, MessageIDDocument.class, RelatesToDocument.class, ReplyToDocument.class));
 
     public WsaDecoder() {

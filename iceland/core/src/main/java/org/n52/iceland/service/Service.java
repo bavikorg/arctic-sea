@@ -65,11 +65,11 @@ import com.google.common.util.concurrent.UncheckedTimeoutException;
 @Controller
 @RequestMapping(value = "/service", consumes = "*/*", produces = "*/*")
 public class Service {
-    public static final String REQUEST_TIMEOUT = "service.request.timeout";
-    private static final String BINDING_DELETE_METHOD = "doDeleteOperation";
-    private static final String BINDING_PUT_METHOD = "doPutOperation";
-    private static final String BINDING_POST_METHOD = "doPostOperation";
-    private static final String BINDING_GET_METHOD = "doGetOperation";
+    public static final /*~~>*/String REQUEST_TIMEOUT = "service.request.timeout";
+    private static final /*~~>*/String BINDING_DELETE_METHOD = "doDeleteOperation";
+    private static final /*~~>*/String BINDING_PUT_METHOD = "doPutOperation";
+    private static final /*~~>*/String BINDING_POST_METHOD = "doPostOperation";
+    private static final /*~~>*/String BINDING_GET_METHOD = "doGetOperation";
     private static final AtomicLong COUNTER = new AtomicLong(0);
     private static final TimeLimiter TIME_LIMITER = SimpleTimeLimiter.create(Executors.newCachedThreadPool());
     private static final Logger LOGGER = LoggerFactory.getLogger(Service.class);
@@ -92,7 +92,7 @@ public class Service {
             Enumeration<?> headerNames = request.getHeaderNames();
             StringBuilder headers = new StringBuilder();
             while (headerNames.hasMoreElements()) {
-                String name = (String) headerNames.nextElement();
+                /*~~>*/String name = (/*~~>*/String) headerNames.nextElement();
                 headers.append("> ").append(name).append(": ").append(request.getHeader(name)).append("\n");
             }
             LOGGER.debug("Incoming request No. {}:\n> [{} {} {}] from {} {}\n{}",
@@ -202,7 +202,7 @@ public class Service {
      * @throws HTTPException If the URL pattern or ContentType is not supported by this service.
      */
     private Binding getBinding(HttpServletRequest request) throws HTTPException {
-        final String requestURI = request.getPathInfo();
+        final /*~~>*/String requestURI = request.getPathInfo();
         if (requestURI == null || requestURI.isEmpty() || requestURI.equals("/")) {
             MediaType contentType = getContentType(request);
             // strip of the parameters to get rid of things like encoding
@@ -233,7 +233,7 @@ public class Service {
             throws HTTPException {
         if (request.getContentType() == null) {
             // default to KVP for GET requests
-            if (request.getMethod().equals(HTTPMethods.GET)) {
+            if (request.getMethod().equals(/*~~>*/HTTPMethods.GET)) {
                 return MediaTypes.APPLICATION_KVP;
             } else {
                 throw new HTTPException(HTTPStatus.BAD_REQUEST);
@@ -256,46 +256,46 @@ public class Service {
 
     protected void doDefaultOptions(Binding binding, HttpServletRequest request, HttpServletResponse response)
             throws IOException, ServletException {
-        Set<String> methods = getDeclaredBindingMethods(binding.getClass());
+        Set</*~~>*/String> methods = getDeclaredBindingMethods(binding.getClass());
         StringBuilder allow = new StringBuilder();
         if (methods.contains(BINDING_GET_METHOD)) {
-            allow.append(HTTPMethods.GET);
+            allow.append(/*~~>*/HTTPMethods.GET);
             allow.append(", ");
-            allow.append(HTTPMethods.HEAD);
+            allow.append(/*~~>*/HTTPMethods.HEAD);
         }
         if (methods.contains(BINDING_POST_METHOD)) {
             if (allow.length() != 0) {
                 allow.append(", ");
             }
-            allow.append(HTTPMethods.POST);
+            allow.append(/*~~>*/HTTPMethods.POST);
         }
         if (methods.contains(BINDING_PUT_METHOD)) {
             if (allow.length() != 0) {
                 allow.append(", ");
             }
-            allow.append(HTTPMethods.PUT);
+            allow.append(/*~~>*/HTTPMethods.PUT);
         }
         if (methods.contains(BINDING_DELETE_METHOD)) {
             if (allow.length() != 0) {
                 allow.append(", ");
             }
-            allow.append(HTTPMethods.DELETE);
+            allow.append(/*~~>*/HTTPMethods.DELETE);
         }
 
         if (allow.length() != 0) {
             allow.append(", ");
         }
-        allow.append(HTTPMethods.TRACE);
+        allow.append(/*~~>*/HTTPMethods.TRACE);
         allow.append(", ");
-        allow.append(HTTPMethods.OPTIONS);
-        response.setHeader(HTTPHeaders.ALLOW, allow.toString());
+        allow.append(/*~~>*/HTTPMethods.OPTIONS);
+        response.setHeader(/*~~>*/HTTPHeaders.ALLOW, allow.toString());
     }
 
-    private Set<String> getDeclaredBindingMethods(Class<?> c) {
+    private Set</*~~>*/String> getDeclaredBindingMethods(Class<?> c) {
         if (c.equals(Binding.class)) {
             return Collections.emptySet();
         } else {
-            Set<String> parent = getDeclaredBindingMethods(c.getSuperclass());
+            Set</*~~>*/String> parent = getDeclaredBindingMethods(c.getSuperclass());
             for (Method m : c.getDeclaredMethods()) {
                 parent.add(m.getName());
             }

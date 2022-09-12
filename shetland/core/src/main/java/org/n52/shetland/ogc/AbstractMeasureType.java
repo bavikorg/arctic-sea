@@ -30,7 +30,7 @@ public abstract class AbstractMeasureType {
     /**
      * Unit of measure
      */
-    private String unit;
+    private /*~~>*/String unit;
 
     /**
      * constructor
@@ -50,9 +50,9 @@ public abstract class AbstractMeasureType {
      * @param unit
      *            Unit of measure
      */
-    public AbstractMeasureType(Double value, String unit) {
+    public AbstractMeasureType(Double value, /*~~>*/String unit) {
         this.value = value;
-        this.unit = unit;
+        /*~~>*/this.unit = unit;
     }
 
     /**
@@ -76,8 +76,8 @@ public abstract class AbstractMeasureType {
      * @param unit
      *            Unit of measure to set
      */
-    public void setUnit(String unit) {
-        this.unit = unit;
+    public void setUnit(/*~~>*/String unit) {
+        /*~~>*/this.unit = unit;
     }
 
     /**
@@ -85,13 +85,13 @@ public abstract class AbstractMeasureType {
      *
      * @return Unit of measure
      */
-    public String getUnit() {
+    public /*~~>*/String getUnit() {
         return unit;
     }
 
     @Override
-    public String toString() {
-        return String.format("GmlMeasureType [value=%s, unit=%s]", getValue(), getUnit());
+    public /*~~>*/String toString() {
+        return /*~~>*/String.format("GmlMeasureType [value=%s, unit=%s]", getValue(), getUnit());
     }
 
     /**
@@ -109,7 +109,7 @@ public abstract class AbstractMeasureType {
      * @return <code>true</code>, if unit of measure is set
      */
     public boolean isSetUnit() {
-        return this.unit != null && !this.unit.isEmpty();
+        return /*~~>*/this.unit != null && !/*~~>*/this.unit.isEmpty();
     }
 
 }

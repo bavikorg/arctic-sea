@@ -68,7 +68,7 @@ import net.opengis.swes.x20.FeatureRelationshipType;
 public class GetCapabilitiesResponseEncoder extends AbstractSosResponseEncoder<GetCapabilitiesResponse> {
 
     private static final Logger LOGGER = LoggerFactory.getLogger(GetCapabilitiesResponseEncoder.class);
-    private static final String ID_FORMAT_STRING = "%s_%d";
+    private static final /*~~>*/String ID_FORMAT_STRING = "%s_%d";
 
     public GetCapabilitiesResponseEncoder() {
         super(SosConstants.Operations.GetCapabilities.name(), GetCapabilitiesResponse.class);
@@ -82,7 +82,7 @@ public class GetCapabilitiesResponseEncoder extends AbstractSosResponseEncoder<G
             createExtension(xbCaps, response.getExtensions());
         }
         if (response.isStatic()) {
-            String xml = response.getStaticString();
+            /*~~>*/String xml = response.getStaticString();
             LOGGER.trace("Response is static. XML-String:\n{}\n", xml);
             try {
                 doc.set(XmlObject.Factory.parse(xml));
@@ -139,13 +139,13 @@ public class GetCapabilitiesResponseEncoder extends AbstractSosResponseEncoder<G
     private XmlObject createInsertionCapabilities(SosInsertionCapabilities caps) {
         InsertionCapabilitiesDocument doc = InsertionCapabilitiesDocument.Factory.newInstance(getXmlOptions());
         InsertionCapabilitiesType xbCaps = doc.addNewInsertionCapabilities();
-        caps.getFeatureOfInterestTypes().stream().filter(foiType -> !foiType.equals(SosConstants.NOT_DEFINED))
+        caps.getFeatureOfInterestTypes().stream().filter(foiType -> !foiType.equals(/*~~>*/SosConstants.NOT_DEFINED))
                 .forEachOrdered(foiType -> xbCaps.addFeatureOfInterestType(foiType));
-        caps.getObservationTypes().stream().filter(oType -> !oType.equals(SosConstants.NOT_DEFINED))
+        caps.getObservationTypes().stream().filter(oType -> !oType.equals(/*~~>*/SosConstants.NOT_DEFINED))
                 .forEachOrdered(oType -> xbCaps.addObservationType(oType));
-        caps.getProcedureDescriptionFormats().stream().filter(pdf -> !pdf.equals(SosConstants.NOT_DEFINED))
+        caps.getProcedureDescriptionFormats().stream().filter(pdf -> !pdf.equals(/*~~>*/SosConstants.NOT_DEFINED))
                 .forEachOrdered(pdf -> xbCaps.addProcedureDescriptionFormat(pdf));
-        caps.getSupportedEncodings().stream().filter(se -> !se.equals(SosConstants.NOT_DEFINED))
+        caps.getSupportedEncodings().stream().filter(se -> !se.equals(/*~~>*/SosConstants.NOT_DEFINED))
                 .forEachOrdered(se -> xbCaps.addSupportedEncoding(se));
         return doc;
     }
@@ -164,7 +164,7 @@ public class GetCapabilitiesResponseEncoder extends AbstractSosResponseEncoder<G
      * @throws EncodingException
      *             * if an error occurs.
      */
-    protected void setContents(Contents xbContents, Collection<SosObservationOffering> offerings, String version)
+    protected void setContents(Contents xbContents, Collection<SosObservationOffering> offerings, /*~~>*/String version)
             throws EncodingException {
         final ContentsType xbContType = xbContents.addNewContents();
 
@@ -195,7 +195,7 @@ public class GetCapabilitiesResponseEncoder extends AbstractSosResponseEncoder<G
      *            Features role
      */
     private void createRelatedFeature(final FeatureRelationshipType featureRelationship,
-            final String relatedFeatureTarget, final Collection<String> roles) {
+            final /*~~>*/String relatedFeatureTarget, final Collection</*~~>*/String> roles) {
         featureRelationship.addNewTarget().setHref(relatedFeatureTarget);
         if (roles != null) {
             roles.forEach(featureRelationship::setRole);
@@ -274,7 +274,7 @@ public class GetCapabilitiesResponseEncoder extends AbstractSosResponseEncoder<G
         }
     }
 
-    private void encodeContents(SosCapabilities caps, CapabilitiesType xbCaps, String version)
+    private void encodeContents(SosCapabilities caps, CapabilitiesType xbCaps, /*~~>*/String version)
             throws EncodingException {
         if (caps.getContents().isPresent()) {
             setContents(xbCaps.addNewContents(), caps.getContents().get(), version);
@@ -295,7 +295,7 @@ public class GetCapabilitiesResponseEncoder extends AbstractSosResponseEncoder<G
         xbObsOff.setIdentifier(sosOffering.getIdentifier());
         if (sosOffering.isSetName()) {
             for (CodeType name : sosOffering.getName()) {
-                xbObsOff.addNewName().set(encodeObjectToXml(GmlConstants.NS_GML_32, name));
+                xbObsOff.addNewName().set(encodeObjectToXml(/*~~>*/GmlConstants.NS_GML_32, name));
             }
         }
         if (sosOffering.isSetDescription()) {
@@ -369,7 +369,7 @@ public class GetCapabilitiesResponseEncoder extends AbstractSosResponseEncoder<G
         if (offering.getPhenomenonTime() instanceof TimePeriod) {
             TimePeriod tp = (TimePeriod) offering.getPhenomenonTime();
             if (!tp.isEmpty()) {
-                tp.setGmlId(String.format(ID_FORMAT_STRING, Sos2Constants.EN_PHENOMENON_TIME, offeringCounter));
+                tp.setGmlId(/*~~>*/String.format(ID_FORMAT_STRING, /*~~>*/Sos2Constants.EN_PHENOMENON_TIME, offeringCounter));
                 XmlObject xmlObject = encodeGml(tp);
                 xbObsOff.addNewPhenomenonTime().addNewTimePeriod().set(xmlObject);
                 xbObsOff.getPhenomenonTime().substitute(Sos2Constants.QN_SOS_PHENOMENON_TIME,
@@ -383,7 +383,7 @@ public class GetCapabilitiesResponseEncoder extends AbstractSosResponseEncoder<G
         // set resultTime [0..1]
         if (offering.getResultTime() instanceof TimePeriod) {
             TimePeriod tp = (TimePeriod) offering.getResultTime();
-            tp.setGmlId(String.format(ID_FORMAT_STRING, Sos2Constants.EN_RESULT_TIME, offeringCounter));
+            tp.setGmlId(/*~~>*/String.format(ID_FORMAT_STRING, /*~~>*/Sos2Constants.EN_RESULT_TIME, offeringCounter));
             if (!tp.isEmpty()) {
                 XmlObject xmlObject = encodeGml(tp);
                 xbObsOff.addNewResultTime().addNewTimePeriod().set(xmlObject);
@@ -425,6 +425,6 @@ public class GetCapabilitiesResponseEncoder extends AbstractSosResponseEncoder<G
     }
 
     protected XmlObject encodeGML32(Object o) throws EncodingException {
-        return encodeObjectToXml(GmlConstants.NS_GML_32, o);
+        return encodeObjectToXml(/*~~>*/GmlConstants.NS_GML_32, o);
     }
 }

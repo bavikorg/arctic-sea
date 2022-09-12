@@ -30,7 +30,7 @@ public interface ProcessOutputDescriptionContainer extends Description {
 
     ProcessOutputDescription getOutput(OwsCode id);
 
-    default ProcessOutputDescription getOutput(String id) {
+    default ProcessOutputDescription getOutput(/*~~>*/String id) {
         return getOutput(new OwsCode(id));
     }
 

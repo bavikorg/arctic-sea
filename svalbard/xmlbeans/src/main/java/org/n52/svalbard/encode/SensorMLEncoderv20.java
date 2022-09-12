@@ -158,20 +158,20 @@ public class SensorMLEncoderv20
     private static final Logger LOGGER = LoggerFactory.getLogger(SensorMLEncoderv20.class);
 
     private static final ImmutableSet<SupportedType> SUPPORTED_TYPES = ImmutableSet.<SupportedType> builder()
-            .add(new ProcedureDescriptionFormat(SensorML20Constants.SENSORML_20_OUTPUT_FORMAT_URL))
+            .add(new ProcedureDescriptionFormat(/*~~>*/SensorML20Constants.SENSORML_20_OUTPUT_FORMAT_URL))
             .add(new ProcedureDescriptionFormat(SensorML20Constants.SENSORML_20_CONTENT_TYPE.toString())).build();
 
-    private static final Map<String, Map<String, Set<String>>> SUPPORTED_PROCEDURE_DESCRIPTION_FORMATS =
-            ImmutableMap.of(SosConstants.SOS,
-                    ImmutableMap.<String, Set<String>> builder()
-                            .put(Sos2Constants.SERVICEVERSION,
-                                    ImmutableSet.of(SensorML20Constants.SENSORML_20_OUTPUT_FORMAT_URL))
-                            .put(Sos1Constants.SERVICEVERSION,
-                                    ImmutableSet.of(SensorML20Constants.SENSORML_20_OUTPUT_FORMAT_MIME_TYPE))
+    private static final Map</*~~>*/String, Map</*~~>*/String, Set</*~~>*/String>>> SUPPORTED_PROCEDURE_DESCRIPTION_FORMATS =
+            ImmutableMap.of(/*~~>*/SosConstants.SOS,
+                    ImmutableMap.</*~~>*/String, Set</*~~>*/String>> builder()
+                            .put(/*~~>*/Sos2Constants.SERVICEVERSION,
+                                    ImmutableSet.of(/*~~>*/SensorML20Constants.SENSORML_20_OUTPUT_FORMAT_URL))
+                            .put(/*~~>*/Sos1Constants.SERVICEVERSION,
+                                    ImmutableSet.of(/*~~>*/SensorML20Constants.SENSORML_20_OUTPUT_FORMAT_MIME_TYPE))
                             .build());
 
     private static final Set<EncoderKey> ENCODER_KEYS = CollectionHelper.union(
-            CodingHelper.encoderKeysForElements(SensorML20Constants.NS_SML_20, AbstractSensorML.class,
+            CodingHelper.encoderKeysForElements(/*~~>*/SensorML20Constants.NS_SML_20, AbstractSensorML.class,
                     DescribedObject.class),
             CodingHelper.encoderKeysForElements(SensorML20Constants.SENSORML_20_CONTENT_TYPE.toString(),
                     AbstractSensorML.class, DescribedObject.class));
@@ -192,8 +192,8 @@ public class SensorMLEncoderv20
     }
 
     @Override
-    public void addNamespacePrefixToMap(final Map<String, String> nameSpacePrefixMap) {
-        nameSpacePrefixMap.put(SensorML20Constants.NS_SML_20, SensorML20Constants.NS_SML_PREFIX);
+    public void addNamespacePrefixToMap(final Map</*~~>*/String, /*~~>*/String> nameSpacePrefixMap) {
+        nameSpacePrefixMap.put(/*~~>*/SensorML20Constants.NS_SML_20, /*~~>*/SensorML20Constants.NS_SML_PREFIX);
     }
 
     @Override
@@ -207,7 +207,7 @@ public class SensorMLEncoderv20
     }
 
     @Override
-    public Set<String> getSupportedProcedureDescriptionFormats(final String service, final String version) {
+    public Set</*~~>*/String> getSupportedProcedureDescriptionFormats(final /*~~>*/String service, final /*~~>*/String version) {
         return SUPPORTED_PROCEDURE_DESCRIPTION_FORMATS.getOrDefault(service, Collections.emptyMap())
                 .getOrDefault(version, Collections.emptySet());
     }
@@ -534,7 +534,7 @@ public class SensorMLEncoderv20
 
         // update/set gml:identifier
         if (describedObject.isSetIdentifier()) {
-            describedObject.getIdentifierCodeWithAuthority().setCodeSpace(OGCConstants.UNIQUE_ID);
+            describedObject.getIdentifierCodeWithAuthority().setCodeSpace(/*~~>*/OGCConstants.UNIQUE_ID);
             XmlObject encodeObjectToXml = encodeObjectToXmlGml32(describedObject.getIdentifierCodeWithAuthority());
             if (encodeObjectToXml != null) {
                 if (dot.isSetIdentifier()) {
@@ -548,7 +548,7 @@ public class SensorMLEncoderv20
         // set capabilities
         if (describedObject.isSetCapabilities()) {
             final Capabilities[] existing = dot.getCapabilitiesArray();
-            final Set<String> names = Sets.newHashSetWithExpectedSize(existing.length);
+            final Set</*~~>*/String> names = Sets.newHashSetWithExpectedSize(existing.length);
             for (final Capabilities element : existing) {
                 if (element.getName() != null) {
                     names.add(element.getName());
@@ -558,7 +558,7 @@ public class SensorMLEncoderv20
                 // check for observedBBOX, currently not supported, how to model
                 // in SML 2.0?
                 // Update Discovery Profile
-                if (!SensorMLConstants.ELEMENT_NAME_OBSERVED_BBOX.equals(sosCapability.getName())) {
+                if (!/*~~>*/SensorMLConstants.ELEMENT_NAME_OBSERVED_BBOX.equals(sosCapability.getName())) {
                     final Capabilities c = createCapability(sosCapability);
                     // replace existing capability with the same name
                     if (c != null) {
@@ -584,13 +584,13 @@ public class SensorMLEncoderv20
         // set keywords
         if (describedObject.isSetKeywords()) {
             if (CollectionHelper.isNullOrEmpty(dot.getKeywordsArray())) {
-                final List<String> keywords = describedObject.getKeywords();
+                final List</*~~>*/String> keywords = describedObject.getKeywords();
                 // final int length = dot.getKeywordsArray().length;
                 // for (int i = 0; i < length; ++i) {
                 // dot.removeKeywords(i);
                 // }
                 dot.addNewKeywords().addNewKeywordList()
-                        .setKeywordArray(keywords.toArray(new String[keywords.size()]));
+                        .setKeywordArray(keywords.toArray(new /*~~>*/String[keywords.size()]));
                 // TODO else
             }
         }
@@ -639,11 +639,11 @@ public class SensorMLEncoderv20
                 for (SmlContact contact : describedObject.getContact()) {
                     if (contact instanceof SmlResponsibleParty) {
                         if (contact.isSetHref()) {
-                            XmlObject xml = encodeObjectToXml(GmdConstants.NS_GMD, (SmlResponsibleParty) contact,
+                            XmlObject xml = encodeObjectToXml(/*~~>*/GmdConstants.NS_GMD, (SmlResponsibleParty) contact,
                                     EncodingContext.of(XmlBeansEncodingFlags.PROPERTY_TYPE));
                             cl.addNewContact().set(xml);
                         } else {
-                            XmlObject encodeObjectToXml = encodeObjectToXml(GmdConstants.NS_GMD, contact);
+                            XmlObject encodeObjectToXml = encodeObjectToXml(/*~~>*/GmdConstants.NS_GMD, contact);
                             if (encodeObjectToXml != null) {
                                 cl.addNewContact().addNewCIResponsibleParty().set(encodeObjectToXml);
                             }
@@ -1058,7 +1058,7 @@ public class SensorMLEncoderv20
                     c.setName(NcName.makeValid(characteristic.getName()));
                     if (characteristic.isSetAbstractDataComponent()) {
                         XmlObject encodeObjectToXml =
-                                encodeObjectToXml(SweConstants.NS_SWE_20, characteristic.getAbstractDataComponent());
+                                encodeObjectToXml(/*~~>*/SweConstants.NS_SWE_20, characteristic.getAbstractDataComponent());
                         XmlObject substituteElement =
                                 XmlHelper.substituteElement(c.addNewAbstractDataComponent(), encodeObjectToXml);
                         substituteElement.set(encodeObjectToXml);
@@ -1073,7 +1073,7 @@ public class SensorMLEncoderv20
             if (sosSMLCharacteristics.isSetAbstractDataComponents()) {
                 if (sosSMLCharacteristics.isSetAbstractDataComponents()) {
                     for (SweAbstractDataComponent component : sosSMLCharacteristics.getAbstractDataComponents()) {
-                        XmlObject encodeObjectToXml = encodeObjectToXml(SweConstants.NS_SWE_20, component);
+                        XmlObject encodeObjectToXml = encodeObjectToXml(/*~~>*/SweConstants.NS_SWE_20, component);
                         Characteristic c = characteristicList.addNewCharacteristic();
                         c.setName(NcName.makeValid(component.getName().getValue()));
                         XmlObject substituteElement =
@@ -1168,7 +1168,7 @@ public class SensorMLEncoderv20
         } else if (position.isSetPosition()) {
             SweVector vector = new SweVector(position.getPosition());
             vector.setReferenceFrame(position.isSetReferenceFrame() ? position.getReferenceFrame()
-                    : OGCConstants.URL_DEF_CRS_EPSG + 4326);
+                    : /*~~>*/OGCConstants.URL_DEF_CRS_EPSG + 4326);
             pupt.addNewVector().set(encodeObjectToXmlSwe20(vector));
         }
     }
@@ -1231,9 +1231,9 @@ public class SensorMLEncoderv20
             throws EncodingException {
         final Outputs outputs = Outputs.Factory.newInstance(getXmlOptions());
         final OutputListType outputList = outputs.addNewOutputList();
-        final Set<String> definitions = Sets.newHashSet();
+        final Set</*~~>*/String> definitions = Sets.newHashSet();
         int counter = 1;
-        final Set<String> outputNames = Sets.newHashSet();
+        final Set</*~~>*/String> outputNames = Sets.newHashSet();
         for (final SmlIo sosSMLIo : sosOutputs) {
             if (sosSMLIo.isSetValue() && !definitions.contains(sosSMLIo.getIoValue().getDefinition())) {
                 if (!sosSMLIo.isSetName() || outputNames.contains(sosSMLIo.getIoName())) {
@@ -1500,11 +1500,11 @@ public class SensorMLEncoderv20
 
     private XmlObject encodeObjectToXmlGml32(Object o)
             throws EncodingException {
-        return encodeObjectToXml(GmlConstants.NS_GML_32, o);
+        return encodeObjectToXml(/*~~>*/GmlConstants.NS_GML_32, o);
     }
 
     private XmlObject encodeObjectToXmlSwe20(Object o)
             throws EncodingException {
-        return encodeObjectToXml(SweConstants.NS_SWE_20, o);
+        return encodeObjectToXml(/*~~>*/SweConstants.NS_SWE_20, o);
     }
 }

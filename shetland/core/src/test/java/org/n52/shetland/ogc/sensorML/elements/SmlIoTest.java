@@ -56,7 +56,7 @@ public class SmlIoTest {
     @Test
     public void should_return_true_if_ioName_is_set() {
         final SmlIo smlIo = new SmlIo();
-        final String inputName = "inputName";
+        final /*~~>*/String inputName = "inputName";
         smlIo.setIoName(inputName);
         assertThat(smlIo.isSetName(), is(TRUE));
     }

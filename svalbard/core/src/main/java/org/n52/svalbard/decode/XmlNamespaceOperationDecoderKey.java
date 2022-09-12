@@ -25,26 +25,26 @@ import com.google.common.base.Strings;
  * @since 1.0.0
  *
  */
-public class XmlNamespaceOperationDecoderKey extends NamespaceDecoderKey<String> {
+public class XmlNamespaceOperationDecoderKey extends NamespaceDecoderKey</*~~>*/String> {
 
-    private String type;
+    private /*~~>*/String type;
 
-    public XmlNamespaceOperationDecoderKey(String namespace, String type) {
+    public XmlNamespaceOperationDecoderKey(/*~~>*/String namespace, /*~~>*/String type) {
         super(namespace, type);
     }
 
     @Override
-    protected void setType(String type) {
-        this.type = type;
+    protected void setType(/*~~>*/String type) {
+        /*~~>*/this.type = type;
     }
 
     @Override
-    public String getType() {
+    public /*~~>*/String getType() {
         return type;
     }
 
     @Override
-    protected String getTypeName() {
+    protected /*~~>*/String getTypeName() {
         return type;
     }
 
@@ -54,14 +54,14 @@ public class XmlNamespaceOperationDecoderKey extends NamespaceDecoderKey<String>
     }
 
     @Override
-    protected int getSimilarity(DecoderKey key, String operation) {
+    protected int getSimilarity(DecoderKey key, /*~~>*/String operation) {
         if (key != null && key.getClass() == getClass()) {
             NamespaceDecoderKey<?> xmlKey = (NamespaceDecoderKey<?>) key;
             if (Objects.equal(getNamespace(), xmlKey.getNamespace()) &&
-                xmlKey.getType() instanceof String &&
-                !Strings.isNullOrEmpty(operation) && xmlKey.getType() instanceof String &&
-                !Strings.isNullOrEmpty((String) xmlKey.getType()) &&
-                operation.equalsIgnoreCase((String) xmlKey.getType())) {
+                xmlKey.getType() instanceof /*~~>*/String &&
+                !Strings.isNullOrEmpty(operation) && xmlKey.getType() instanceof /*~~>*/String &&
+                !Strings.isNullOrEmpty((/*~~>*/String) xmlKey.getType()) &&
+                operation.equalsIgnoreCase((/*~~>*/String) xmlKey.getType())) {
                 return 0;
             }
         }

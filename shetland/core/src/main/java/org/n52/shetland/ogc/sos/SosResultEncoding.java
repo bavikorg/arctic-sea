@@ -26,11 +26,11 @@ public class SosResultEncoding extends ObjectWithXmlString<SweAbstractEncoding> 
         super(object);
     }
 
-    public SosResultEncoding(String xml) {
+    public SosResultEncoding(/*~~>*/String xml) {
         super(xml);
     }
 
-    public SosResultEncoding(SweAbstractEncoding object, String xml) {
+    public SosResultEncoding(SweAbstractEncoding object, /*~~>*/String xml) {
         super(object, xml);
     }
 

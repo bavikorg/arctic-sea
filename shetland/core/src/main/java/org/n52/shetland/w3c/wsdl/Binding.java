@@ -26,7 +26,7 @@ public class Binding extends AbstractWsdl {
     private QName type;
     private Collection<BindingOperation> bindingOperations = new TreeSet<>();
 
-    public Binding(String name) {
+    public Binding(/*~~>*/String name) {
         super(name);
     }
 
@@ -34,7 +34,7 @@ public class Binding extends AbstractWsdl {
         this.type = type;
     }
 
-    public Binding(String name, QName type) {
+    public Binding(/*~~>*/String name, QName type) {
         super(name);
         this.type = type;
     }

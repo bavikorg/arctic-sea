@@ -21,7 +21,7 @@ import org.n52.janmayen.net.IPAddress;
 import org.n52.shetland.ogc.ows.service.OwsServiceRequestContext;
 
 public interface IStatisticsLocationUtil {
-    Map<String, Object> ip2SpatialData(IPAddress ip);
+    Map</*~~>*/String, Object> ip2SpatialData(IPAddress ip);
 
     /**
      *
@@ -29,7 +29,7 @@ public interface IStatisticsLocationUtil {
      *
      * @return geo loation data in Elasticsearch's accept format
      */
-    Map<String, Object> ip2SpatialData(String host);
+    Map</*~~>*/String, Object> ip2SpatialData(/*~~>*/String host);
 
     IPAddress resolveOriginalIpAddress(OwsServiceRequestContext ctx);
 }

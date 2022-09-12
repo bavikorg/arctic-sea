@@ -18,25 +18,25 @@ package org.n52.shetland.ogc.ows.extension;
 public interface Extension<
         T> {
 
-    String getNamespace();
+    /*~~>*/String getNamespace();
 
-    Extension<T> setNamespace(String namespace);
+    Extension<T> setNamespace(/*~~>*/String namespace);
 
     default boolean isSetNamespace() {
         return getNamespace() != null && !getNamespace().isEmpty();
     }
 
-    String getIdentifier();
+    /*~~>*/String getIdentifier();
 
-    Extension<T> setIdentifier(String identifier);
+    Extension<T> setIdentifier(/*~~>*/String identifier);
 
     default boolean isSetIdentifier() {
         return getIdentifier() != null && !getIdentifier().isEmpty();
     }
 
-    String getDefinition();
+    /*~~>*/String getDefinition();
 
-    Extension<T> setDefinition(String definition);
+    Extension<T> setDefinition(/*~~>*/String definition);
 
     default boolean isSetDefinition() {
         return getDefinition() != null && !getDefinition().isEmpty();

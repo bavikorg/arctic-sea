@@ -27,11 +27,11 @@ import org.n52.janmayen.i18n.MultilingualString;
 
 
 public class I18NSerializer {
-    private static final String TUPLE_SEPERATOR = "&";
-    private static final String TOKEN_SEPERATOR = "=";
-    private static final String UTF8 = "UTF-8";
+    private static final /*~~>*/String TUPLE_SEPERATOR = "&";
+    private static final /*~~>*/String TOKEN_SEPERATOR = "=";
+    private static final /*~~>*/String UTF8 = "UTF-8";
 
-    public String encode(MultilingualString string) {
+    public /*~~>*/String encode(MultilingualString string) {
         Iterator<LocalizedString> it = string.iterator();
         StringBuilder builder = new StringBuilder();
         if (it.hasNext()) {
@@ -50,16 +50,16 @@ public class I18NSerializer {
                 .append(encodeText(loc.getText()));
     }
 
-    public MultilingualString decode(String string) {
+    public MultilingualString decode(/*~~>*/String string) {
         MultilingualString mls = new MultilingualString();
-        for (String s : string.split(TUPLE_SEPERATOR)) {
-            String[] kvp = s.split(TOKEN_SEPERATOR);
+        for (/*~~>*/String s : string.split(TUPLE_SEPERATOR)) {
+            /*~~>*/String[] kvp = s.split(TOKEN_SEPERATOR);
             mls.addLocalization(LocaleHelper.decode(kvp[0]), decodeText(kvp[1]));
         }
         return mls;
     }
 
-    private static String decodeText(String text) {
+    private static /*~~>*/String decodeText(/*~~>*/String text) {
         try {
             return URLDecoder.decode(text, UTF8);
         } catch (UnsupportedEncodingException ex) {
@@ -67,7 +67,7 @@ public class I18NSerializer {
         }
     }
 
-    private static String encodeText(String text) {
+    private static /*~~>*/String encodeText(/*~~>*/String text) {
         try {
             return URLEncoder.encode(text, UTF8);
         } catch (UnsupportedEncodingException ex) {

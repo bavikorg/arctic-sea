@@ -25,9 +25,9 @@ import edu.umd.cs.findbugs.annotations.SuppressFBWarnings;
 
 public abstract class AbstractSoap<
         T extends OwsServiceCommunicationObject> {
-    private String soapNamespace;
-    private String soapVersion;
-    private String soapAction;
+    private /*~~>*/String soapNamespace;
+    private /*~~>*/String soapVersion;
+    private /*~~>*/String soapAction;
     private List<SoapHeader> soapHeader = new LinkedList<>();
     private T bodyContent;
     private SoapFault soapFault;
@@ -35,15 +35,15 @@ public abstract class AbstractSoap<
     public AbstractSoap() {
     }
 
-    public AbstractSoap(String soapNamespace, String soapVersion) {
-        this.soapNamespace = soapNamespace;
-        this.soapVersion = soapVersion;
+    public AbstractSoap(/*~~>*/String soapNamespace, /*~~>*/String soapVersion) {
+        /*~~>*/this.soapNamespace = soapNamespace;
+        /*~~>*/this.soapVersion = soapVersion;
     }
 
     /**
      * @return the soapNamespace
      */
-    public String getSoapNamespace() {
+    public /*~~>*/String getSoapNamespace() {
         return soapNamespace;
     }
 
@@ -51,8 +51,8 @@ public abstract class AbstractSoap<
      * @param soapNamespace
      *            the soapNamespace to set
      */
-    public AbstractSoap<T> setSoapNamespace(String soapNamespace) {
-        this.soapNamespace = soapNamespace;
+    public AbstractSoap<T> setSoapNamespace(/*~~>*/String soapNamespace) {
+        /*~~>*/this.soapNamespace = soapNamespace;
         return this;
     }
 
@@ -63,7 +63,7 @@ public abstract class AbstractSoap<
     /**
      * @return the soapVersion
      */
-    public String getSoapVersion() {
+    public /*~~>*/String getSoapVersion() {
         return soapVersion;
     }
 
@@ -71,8 +71,8 @@ public abstract class AbstractSoap<
      * @param soapVersion
      *            the soapVersion to set
      */
-    public AbstractSoap<T> setSoapVersion(String soapVersion) {
-        this.soapVersion = soapVersion;
+    public AbstractSoap<T> setSoapVersion(/*~~>*/String soapVersion) {
+        /*~~>*/this.soapVersion = soapVersion;
         return this;
     }
 
@@ -80,8 +80,8 @@ public abstract class AbstractSoap<
         return getSoapVersion() != null && !getSoapVersion().isEmpty();
     }
 
-    public AbstractSoap<T> setAction(String soapAction) {
-        this.soapAction = soapAction;
+    public AbstractSoap<T> setAction(/*~~>*/String soapAction) {
+        /*~~>*/this.soapAction = soapAction;
         return this;
     }
 
@@ -112,7 +112,7 @@ public abstract class AbstractSoap<
     /**
      * @return the soapAction
      */
-    public String getSoapAction() {
+    public /*~~>*/String getSoapAction() {
         return soapAction;
     }
 

@@ -33,7 +33,7 @@ import org.n52.svalbard.encode.exception.EncodingException;
 public abstract class AbstractObservationResponseEncoder<T extends AbstractObservationResponse>
         extends AbstractSosResponseEncoder<T> {
 
-    public AbstractObservationResponseEncoder(String operation, Class<T> responseType) {
+    public AbstractObservationResponseEncoder(/*~~>*/String operation, Class<T> responseType) {
         super(operation, responseType);
     }
 
@@ -46,7 +46,7 @@ public abstract class AbstractObservationResponseEncoder<T extends AbstractObser
      *
      * @throws EncodingException if the found encoder is not a {@linkplain ObservationEncoder}
      */
-    private ObservationEncoder<XmlObject, OmObservation> findObservationEncoder(String responseFormat)
+    private ObservationEncoder<XmlObject, OmObservation> findObservationEncoder(/*~~>*/String responseFormat)
             throws EncodingException {
         Encoder<XmlObject, OmObservation> encoder = getEncoder(new XmlEncoderKey(responseFormat, OmObservation.class));
         if (encoder == null) {
@@ -68,13 +68,13 @@ public abstract class AbstractObservationResponseEncoder<T extends AbstractObser
      *
      * @throws org.n52.svalbard.encode.exception.EncodingException if no encoder is found
      */
-    private Encoder<XmlObject, T> findResponseEncoder(String responseFormat) throws EncodingException {
+    private Encoder<XmlObject, T> findResponseEncoder(/*~~>*/String responseFormat) throws EncodingException {
         return getEncoder(responseFormat, getResponseType());
     }
 
     @Override
     protected XmlObject create(T response) throws EncodingException {
-        final String responseFormat = response.getResponseFormat();
+        final /*~~>*/String responseFormat = response.getResponseFormat();
         // search for an O&M2 encoder for this response format
         ObservationEncoder<XmlObject, OmObservation> encoder = findObservationEncoder(responseFormat);
         if (encoder != null) {
@@ -89,7 +89,7 @@ public abstract class AbstractObservationResponseEncoder<T extends AbstractObser
     @Override
     protected void create(T response, OutputStream outputStream, EncodingContext encodingValues)
             throws EncodingException {
-        final String responseFormat = response.getResponseFormat();
+        final /*~~>*/String responseFormat = response.getResponseFormat();
         // search for an O&M2 encoder for this response format
         ObservationEncoder<XmlObject, OmObservation> encoder = findObservationEncoder(responseFormat);
         if (encoder != null) {

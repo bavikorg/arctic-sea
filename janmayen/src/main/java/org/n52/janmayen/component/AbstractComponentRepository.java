@@ -182,7 +182,7 @@ public abstract class AbstractComponentRepository<K, C extends Component<K>, F e
         }
 
         @Override
-        public String toString() {
+        public /*~~>*/String toString() {
             return toStringBuilder().toString();
         }
 
@@ -251,7 +251,7 @@ public abstract class AbstractComponentRepository<K, C extends Component<K>, F e
         }
 
         @Override
-        public String toString() {
+        public /*~~>*/String toString() {
             return toStringBuilder().toString();
         }
 
@@ -319,7 +319,7 @@ public abstract class AbstractComponentRepository<K, C extends Component<K>, F e
         }
 
         @Override
-        public String toString() {
+        public /*~~>*/String toString() {
             return toStringBuilder()
                     .toString();
         }

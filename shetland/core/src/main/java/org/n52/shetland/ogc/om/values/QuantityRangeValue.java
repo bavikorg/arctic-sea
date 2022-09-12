@@ -56,7 +56,7 @@ public class QuantityRangeValue extends SweQuantityRange
      * @param unit
      *            Unit of measure
      */
-    public QuantityRangeValue(BigDecimal rangeStart, BigDecimal rangeEnd, String unit) {
+    public QuantityRangeValue(BigDecimal rangeStart, BigDecimal rangeEnd, /*~~>*/String unit) {
         this(rangeStart, rangeEnd);
         this.setUnit(unit);
     }
@@ -68,7 +68,7 @@ public class QuantityRangeValue extends SweQuantityRange
     }
 
     @Override
-    public String getUnit() {
+    public /*~~>*/String getUnit() {
         return super.getUom();
     }
 
@@ -78,7 +78,7 @@ public class QuantityRangeValue extends SweQuantityRange
     }
 
     @Override
-    public void setUnit(String unit) {
+    public void setUnit(/*~~>*/String unit) {
         super.setUom(unit);
     }
 
@@ -94,8 +94,8 @@ public class QuantityRangeValue extends SweQuantityRange
     }
 
     @Override
-    public String toString() {
-        return String.format("QuantityValue [value=%s, unit=%s]", getValue(), getUnit());
+    public /*~~>*/String toString() {
+        return /*~~>*/String.format("QuantityValue [value=%s, unit=%s]", getValue(), getUnit());
     }
 
     @Override

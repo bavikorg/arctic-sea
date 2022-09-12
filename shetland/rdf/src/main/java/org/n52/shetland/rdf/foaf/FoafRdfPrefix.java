@@ -20,15 +20,15 @@ import org.n52.shetland.rdf.RdfPrefix;
 
 public interface FoafRdfPrefix extends RdfPrefix {
 
-    String NS_PREFIX = "foaf";
+    /*~~>*/String NS_PREFIX = "foaf";
 
     @Override
-    default String getPrefix() {
+    default /*~~>*/String getPrefix() {
         return NS_PREFIX;
     }
 
     @Override
-    default String getNamespace() {
-        return FOAF.NS;
+    default /*~~>*/String getNamespace() {
+        return /*~~>*/FOAF.NS;
     }
 }

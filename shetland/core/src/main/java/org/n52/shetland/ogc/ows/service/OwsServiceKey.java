@@ -27,8 +27,8 @@ import java.util.Objects;
 public class OwsServiceKey implements Comparable<OwsServiceKey> {
     private static final Comparator<OwsServiceKey> COMPARATOR =
             Comparator.comparing(OwsServiceKey::getService).thenComparing(OwsServiceKey::getVersion);
-    private final String service;
-    private final String version;
+    private final /*~~>*/String service;
+    private final /*~~>*/String version;
 
     /**
      * Constructor
@@ -38,9 +38,9 @@ public class OwsServiceKey implements Comparable<OwsServiceKey> {
      * @param version
      *            Service version
      */
-    public OwsServiceKey(String service, String version) {
-        this.service = service;
-        this.version = version;
+    public OwsServiceKey(/*~~>*/String service, /*~~>*/String version) {
+        /*~~>*/this.service = service;
+        /*~~>*/this.version = version;
     }
 
     /**
@@ -48,7 +48,7 @@ public class OwsServiceKey implements Comparable<OwsServiceKey> {
      *
      * @return The service name
      */
-    public String getService() {
+    public /*~~>*/String getService() {
         return service;
     }
 
@@ -66,7 +66,7 @@ public class OwsServiceKey implements Comparable<OwsServiceKey> {
      *
      * @return The service version
      */
-    public String getVersion() {
+    public /*~~>*/String getVersion() {
         return version;
     }
 
@@ -100,7 +100,7 @@ public class OwsServiceKey implements Comparable<OwsServiceKey> {
     }
 
     @Override
-    public String toString() {
-        return String.format("ServiceOperatorKey[service=%s, version=%s]", getService(), getVersion());
+    public /*~~>*/String toString() {
+        return /*~~>*/String.format("ServiceOperatorKey[service=%s, version=%s]", getService(), getVersion());
     }
 }

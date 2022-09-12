@@ -132,8 +132,8 @@ public abstract class JSONDecoder<T>
             throws DateTimeParseException {
         if (node.isTextual()) {
             return new TimeInstant(parseDateTime(node.textValue()));
-        } else if (node.path(JSONConstants.INDETERMINATE_VALUE).isTextual()) {
-            return new TimeInstant(new IndeterminateValue(node.path(JSONConstants.INDETERMINATE_VALUE).textValue()));
+        } else if (node.path(/*~~>*/JSONConstants.INDETERMINATE_VALUE).isTextual()) {
+            return new TimeInstant(new IndeterminateValue(node.path(/*~~>*/JSONConstants.INDETERMINATE_VALUE).textValue()));
         }
         return null;
     }
@@ -142,8 +142,8 @@ public abstract class JSONDecoder<T>
             throws DateTimeParseException {
         if (node.isArray()) {
             ArrayNode array = (ArrayNode) node;
-            String startTime = array.get(0).textValue();
-            String endTime = array.get(1).textValue();
+            /*~~>*/String startTime = array.get(0).textValue();
+            /*~~>*/String endTime = array.get(1).textValue();
             DateTime start = parseDateTime(startTime);
             DateTime end = parseDateTime(endTime);
             return new TimePeriod(start, end);
@@ -152,7 +152,7 @@ public abstract class JSONDecoder<T>
         }
     }
 
-    protected DateTime parseDateTime(String time)
+    protected DateTime parseDateTime(/*~~>*/String time)
             throws DateTimeParseException {
         return DateTimeHelper.parseIsoString2DateTime(time);
     }
@@ -170,14 +170,14 @@ public abstract class JSONDecoder<T>
 
     protected CodeWithAuthority parseCodeWithAuthority(JsonNode node) {
         if (node.isObject()) {
-            String value = node.path(JSONConstants.VALUE).textValue();
-            String codespace = node.path(JSONConstants.CODESPACE).textValue();
+            /*~~>*/String value = node.path(/*~~>*/JSONConstants.VALUE).textValue();
+            /*~~>*/String codespace = node.path(/*~~>*/JSONConstants.CODESPACE).textValue();
             if (codespace == null || codespace.isEmpty()) {
-                codespace = OGCConstants.UNKNOWN;
+                codespace = /*~~>*/OGCConstants.UNKNOWN;
             }
             return new CodeWithAuthority(value, codespace);
         } else if (node.isTextual()) {
-            return new CodeWithAuthority(node.textValue(), OGCConstants.UNKNOWN);
+            return new CodeWithAuthority(node.textValue(), /*~~>*/OGCConstants.UNKNOWN);
         } else {
             return null;
         }
@@ -186,9 +186,9 @@ public abstract class JSONDecoder<T>
     protected CodeType parseCodeType(JsonNode node) {
         try {
             if (node.isObject()) {
-                CodeType ct = new CodeType(node.path(JSONConstants.VALUE).textValue());
-                if (node.has(JSONConstants.CODESPACE)) {
-                    ct.setCodeSpace(new URI(node.path(JSONConstants.CODESPACE).textValue()));
+                CodeType ct = new CodeType(node.path(/*~~>*/JSONConstants.VALUE).textValue());
+                if (node.has(/*~~>*/JSONConstants.CODESPACE)) {
+                    ct.setCodeSpace(new URI(node.path(/*~~>*/JSONConstants.CODESPACE).textValue()));
                 }
                 return ct;
             } else if (node.isTextual()) {

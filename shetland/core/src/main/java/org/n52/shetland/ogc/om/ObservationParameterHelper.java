@@ -30,7 +30,7 @@ public interface ObservationParameterHelper<
      * @return <code>true</code>, if category parameter is set
      */
     default boolean isSetCategoryParameter() {
-        return getParameterHolder().hasParameter(OmConstants.PARAMETER_NAME_CATEGORY);
+        return getParameterHolder().hasParameter(/*~~>*/OmConstants.PARAMETER_NAME_CATEGORY);
     }
 
     /**
@@ -49,16 +49,16 @@ public interface ObservationParameterHelper<
      *            The category to set
      * @return this
      */
-    default T addCategoryParameter(String category) {
+    default T addCategoryParameter(/*~~>*/String category) {
         return addCategoryParameter(new TextValue(category));
     }
 
     default T addCategoryParameter(TextValue category) {
         return addCategoryParameter(
-                new NamedValue<String>(new ReferenceType(OmConstants.PARAMETER_NAME_CATEGORY), category));
+                new NamedValue</*~~>*/String>(new ReferenceType(/*~~>*/OmConstants.PARAMETER_NAME_CATEGORY), category));
     }
 
-    default T addCategoryParameter(NamedValue<String> categoryParameter) {
+    default T addCategoryParameter(NamedValue</*~~>*/String> categoryParameter) {
         getParameterHolder().addParameter(categoryParameter);
         return (T) this;
     }
@@ -68,11 +68,11 @@ public interface ObservationParameterHelper<
      *
      * @return category parameter
      */
-    default NamedValue<String> getCategoryParameter() {
+    default NamedValue</*~~>*/String> getCategoryParameter() {
         if (getParameterHolder().isSetParameter()) {
             for (NamedValue<?> namedValue : getParameterHolder().getParameter()) {
-                if (namedValue.getName().getHref().equalsIgnoreCase(OmConstants.PARAMETER_NAME_CATEGORY)) {
-                    return (NamedValue<String>) namedValue;
+                if (namedValue.getName().getHref().equalsIgnoreCase(/*~~>*/OmConstants.PARAMETER_NAME_CATEGORY)) {
+                    return (NamedValue</*~~>*/String>) namedValue;
                 }
             }
         }
@@ -85,7 +85,7 @@ public interface ObservationParameterHelper<
      * @return <code>true</code>, if platform parameter is set
      */
     default boolean isSetPlatformParameter() {
-        return getParameterHolder().hasParameter(OmConstants.PARAMETER_NAME_PLATFORM);
+        return getParameterHolder().hasParameter(/*~~>*/OmConstants.PARAMETER_NAME_PLATFORM);
     }
 
     /**
@@ -104,16 +104,16 @@ public interface ObservationParameterHelper<
      *            The platform to set
      * @return this
      */
-    default T addPlatformParameter(String platform) {
+    default T addPlatformParameter(/*~~>*/String platform) {
         return addPlatformParameter(new TextValue(platform));
     }
 
     default T addPlatformParameter(TextValue platform) {
         return addPlatformParameter(
-                new NamedValue<String>(new ReferenceType(OmConstants.PARAMETER_NAME_PLATFORM), platform));
+                new NamedValue</*~~>*/String>(new ReferenceType(/*~~>*/OmConstants.PARAMETER_NAME_PLATFORM), platform));
     }
 
-    default T addPlatformParameter(NamedValue<String> platformParameter) {
+    default T addPlatformParameter(NamedValue</*~~>*/String> platformParameter) {
         getParameterHolder().addParameter(platformParameter);
         return (T) this;
     }
@@ -123,11 +123,11 @@ public interface ObservationParameterHelper<
      *
      * @return platform parameter
      */
-    default NamedValue<String> getPlatformParameter() {
+    default NamedValue</*~~>*/String> getPlatformParameter() {
         if (getParameterHolder().isSetParameter()) {
             for (NamedValue<?> namedValue : getParameterHolder().getParameter()) {
-                if (namedValue.getName().getHref().equalsIgnoreCase(OmConstants.PARAMETER_NAME_PLATFORM)) {
-                    return (NamedValue<String>) namedValue;
+                if (namedValue.getName().getHref().equalsIgnoreCase(/*~~>*/OmConstants.PARAMETER_NAME_PLATFORM)) {
+                    return (NamedValue</*~~>*/String>) namedValue;
                 }
             }
         }

@@ -43,8 +43,8 @@ public class ClassToClassEncoderKey implements EncoderKey {
     }
 
     @Override
-    public String toString() {
-        return String.format("ClassToClassEncoderKey[internalClass=%s, encodedClass=%s]",
+    public /*~~>*/String toString() {
+        return /*~~>*/String.format("ClassToClassEncoderKey[internalClass=%s, encodedClass=%s]",
                 getInternalClass().getSimpleName(), getEncodedClass().getSimpleName());
     }
 

@@ -53,11 +53,11 @@ public class InspireOmObservationEncoder
         implements ObservationEncoder<XmlObject, Object>, StreamingEncoder<XmlObject, Object> {
 
     private static final Set<EncoderKey> ENCODER_KEYS =
-            CodingHelper.encoderKeysForElements(InspireOMSOConstants.NS_OMSO_30, OmObservation.class);
+            CodingHelper.encoderKeysForElements(/*~~>*/InspireOMSOConstants.NS_OMSO_30, OmObservation.class);
 
-    private static final Map<String, Map<String, Set<String>>> SUPPORTED_RESPONSE_FORMATS =
-            Collections.singletonMap(SosConstants.SOS, Collections.singletonMap(Sos2Constants.SERVICEVERSION,
-                    Collections.singleton(InspireOMSOConstants.NS_OMSO_30)));
+    private static final Map</*~~>*/String, Map</*~~>*/String, Set</*~~>*/String>>> SUPPORTED_RESPONSE_FORMATS =
+            Collections.singletonMap(/*~~>*/SosConstants.SOS, Collections.singletonMap(/*~~>*/Sos2Constants.SERVICEVERSION,
+                    Collections.singleton(/*~~>*/InspireOMSOConstants.NS_OMSO_30)));
 
     @Override
     public Set<EncoderKey> getKeys() {
@@ -80,7 +80,7 @@ public class InspireOmObservationEncoder
     @Override
     public void encode(Object element, OutputStream outputStream, EncodingContext ctx) throws EncodingException {
         try {
-            if (element instanceof OmObservation && InspireOMSOConstants.OBS_TYPE_POINT_TIME_SERIES_OBSERVATION
+            if (element instanceof OmObservation && /*~~>*/InspireOMSOConstants.OBS_TYPE_POINT_TIME_SERIES_OBSERVATION
                     .equals(((OmObservation) element).getObservationConstellation().getObservationType())) {
                 new PointTimeSeriesObservationXmlStreamWriter(
                         ctx.with(EncoderFlags.ENCODER_REPOSITORY, getEncoderRepository())
@@ -96,7 +96,7 @@ public class InspireOmObservationEncoder
     }
 
     protected XmlObject encodeInspireOmsoType(OmObservation o, EncodingContext ctx) throws EncodingException {
-        return encodeObjectToXml(InspireOMSOConstants.NS_OMSO_30, o, ctx);
+        return encodeObjectToXml(/*~~>*/InspireOMSOConstants.NS_OMSO_30, o, ctx);
     }
 
     @Override
@@ -115,7 +115,7 @@ public class InspireOmObservationEncoder
     }
 
     @Override
-    public Set<String> getSupportedResponseFormats(String service, String version) {
+    public Set</*~~>*/String> getSupportedResponseFormats(/*~~>*/String service, /*~~>*/String version) {
         if (SUPPORTED_RESPONSE_FORMATS.get(service) != null
                 && SUPPORTED_RESPONSE_FORMATS.get(service).get(version) != null) {
             return SUPPORTED_RESPONSE_FORMATS.get(service).get(version);
@@ -124,13 +124,13 @@ public class InspireOmObservationEncoder
     }
 
     @Override
-    public Map<String, Set<SupportedType>> getSupportedResponseFormatObservationTypes() {
+    public Map</*~~>*/String, Set<SupportedType>> getSupportedResponseFormatObservationTypes() {
         return Maps.newHashMap();
     }
 
     @Override
-    public void addNamespacePrefixToMap(Map<String, String> nameSpacePrefixMap) {
-        nameSpacePrefixMap.put(InspireOMSOConstants.NS_OMSO_30, InspireOMSOConstants.NS_OMSO_PREFIX);
+    public void addNamespacePrefixToMap(Map</*~~>*/String, /*~~>*/String> nameSpacePrefixMap) {
+        nameSpacePrefixMap.put(/*~~>*/InspireOMSOConstants.NS_OMSO_30, /*~~>*/InspireOMSOConstants.NS_OMSO_PREFIX);
     }
 
     @Override

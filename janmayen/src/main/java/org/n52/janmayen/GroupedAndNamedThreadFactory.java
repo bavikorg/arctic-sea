@@ -29,13 +29,13 @@ public class GroupedAndNamedThreadFactory implements ThreadFactory {
 
     private final ThreadGroup tg;
 
-    public GroupedAndNamedThreadFactory(String name) {
+    public GroupedAndNamedThreadFactory(/*~~>*/String name) {
         tg = new ThreadGroup(name);
     }
 
     @Override
     public Thread newThread(Runnable r) {
-        return new Thread(tg, r, String.format("%s-%d", tg.getName(), i.getAndIncrement()));
+        return new Thread(tg, r, /*~~>*/String.format("%s-%d", tg.getName(), i.getAndIncrement()));
     }
 
 }

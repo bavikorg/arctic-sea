@@ -22,9 +22,9 @@ import javax.xml.stream.XMLStreamException;
  *
  * @author Christian Autermann
  */
-public class StringReader extends XmlReader<String> {
+public class StringReader extends XmlReader</*~~>*/String> {
 
-    private String string;
+    private /*~~>*/String string;
 
     @Override
     protected void begin()
@@ -33,7 +33,7 @@ public class StringReader extends XmlReader<String> {
     }
 
     @Override
-    protected String finish() {
+    protected /*~~>*/String finish() {
         return string;
     }
 

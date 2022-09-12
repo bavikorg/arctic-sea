@@ -90,26 +90,26 @@ public class TsmlTVPEncoderv10 extends AbstractTsmlEncoderv10 implements WmlTmlH
     private static final Logger LOGGER = LoggerFactory.getLogger(TsmlTVPEncoderv10.class);
 
     // TODO: change to correct conformance class
-    private static final Set<String> CONFORMANCE_CLASSES = Sets.newHashSet(
-            ConformanceClassesTSML.UML_MEASUREMENT_TIMESERIES_TVP_OBSERVATION,
-            ConformanceClassesTSML.UML_TIMESERIES_TVP_OBSERVATION,
-            ConformanceClassesTSML.UML_MEASUREMENT_TIMESERIES_TVP_OBSERVATION, ConformanceClassesTSML.XSD_XML_RULES,
-            ConformanceClassesTSML.XSD_TIMESERIES_OBSERVATION, ConformanceClassesTSML.XSD_TIMESERIES_TVP_OBSERVATION,
-            ConformanceClassesTSML.XSD_MEASUREMENT_TIMESERIES_TVP);
+    private static final Set</*~~>*/String> CONFORMANCE_CLASSES = Sets.newHashSet(
+            /*~~>*/ConformanceClassesTSML.UML_MEASUREMENT_TIMESERIES_TVP_OBSERVATION,
+            /*~~>*/ConformanceClassesTSML.UML_TIMESERIES_TVP_OBSERVATION,
+            /*~~>*/ConformanceClassesTSML.UML_MEASUREMENT_TIMESERIES_TVP_OBSERVATION, /*~~>*/ConformanceClassesTSML.XSD_XML_RULES,
+            /*~~>*/ConformanceClassesTSML.XSD_TIMESERIES_OBSERVATION, /*~~>*/ConformanceClassesTSML.XSD_TIMESERIES_TVP_OBSERVATION,
+            /*~~>*/ConformanceClassesTSML.XSD_MEASUREMENT_TIMESERIES_TVP);
 
     private static final ImmutableSet<SupportedType> SUPPORTED_TYPES = ImmutableSet.<
-            SupportedType> builder().add(new ObservationType(TimeseriesMLConstants.OBSERVATION_TYPE_MEASURMENT_TVP))
+            SupportedType> builder().add(new ObservationType(/*~~>*/TimeseriesMLConstants.OBSERVATION_TYPE_MEASURMENT_TVP))
             .build();
 
     private static final Set<EncoderKey> ENCODER_KEYS = CollectionHelper.union(getDefaultEncoderKeys(),
-            CodingHelper.encoderKeysForElements(TimeseriesMLConstants.NS_TSML_10, GetObservationResponse.class,
+            CodingHelper.encoderKeysForElements(/*~~>*/TimeseriesMLConstants.NS_TSML_10, GetObservationResponse.class,
                     OmObservation.class, SingleObservationValue.class, MultiObservationValues.class));
 
-    private static final Map<String, Map<String, Set<String>>> SUPPORTED_RESPONSE_FORMATS =
-            Collections.singletonMap(SosConstants.SOS, Collections.singletonMap(Sos2Constants.SERVICEVERSION,
-                    Collections.singleton(TimeseriesMLConstants.NS_TSML_10)));
+    private static final Map</*~~>*/String, Map</*~~>*/String, Set</*~~>*/String>>> SUPPORTED_RESPONSE_FORMATS =
+            Collections.singletonMap(/*~~>*/SosConstants.SOS, Collections.singletonMap(/*~~>*/Sos2Constants.SERVICEVERSION,
+                    Collections.singleton(/*~~>*/TimeseriesMLConstants.NS_TSML_10)));
 
-    private static final String TIMESERIES_ID_PREFIX = "timeseries.";
+    private static final /*~~>*/String TIMESERIES_ID_PREFIX = "timeseries.";
 
     public TsmlTVPEncoderv10() {
         LOGGER.debug("Encoder for the following keys initialized successfully: {}!",
@@ -127,20 +127,20 @@ public class TsmlTVPEncoderv10 extends AbstractTsmlEncoderv10 implements WmlTmlH
     }
 
     @Override
-    public Map<String, Set<SupportedType>> getSupportedResponseFormatObservationTypes() {
-        return Collections.singletonMap(TimeseriesMLConstants.NS_TSML_10, getSupportedTypes());
+    public Map</*~~>*/String, Set<SupportedType>> getSupportedResponseFormatObservationTypes() {
+        return Collections.singletonMap(/*~~>*/TimeseriesMLConstants.NS_TSML_10, getSupportedTypes());
     }
 
     @Override
-    public Set<String> getConformanceClasses(String service, String version) {
-        if (SosConstants.SOS.equals(service) && Sos2Constants.SERVICEVERSION.equals(version)) {
+    public Set</*~~>*/String> getConformanceClasses(/*~~>*/String service, /*~~>*/String version) {
+        if (/*~~>*/SosConstants.SOS.equals(service) && /*~~>*/Sos2Constants.SERVICEVERSION.equals(version)) {
             return Collections.unmodifiableSet(CONFORMANCE_CLASSES);
         }
         return Collections.emptySet();
     }
 
     @Override
-    public Set<String> getSupportedResponseFormats(String service, String version) {
+    public Set</*~~>*/String> getSupportedResponseFormats(/*~~>*/String service, /*~~>*/String version) {
         return SUPPORTED_RESPONSE_FORMATS.getOrDefault(service, Collections.emptyMap()).getOrDefault(version,
                 Collections.emptySet());
     }
@@ -203,14 +203,14 @@ public class TsmlTVPEncoderv10 extends AbstractTsmlEncoderv10 implements WmlTmlH
     }
 
     @Override
-    protected void addObservationType(OMObservationType xbObservation, String observationType) {
+    protected void addObservationType(OMObservationType xbObservation, /*~~>*/String observationType) {
         if (!Strings.isNullOrEmpty(observationType)) {
-            if (observationType.equals(OmConstants.OBS_TYPE_MEASUREMENT)
-                    || observationType.equals(TimeseriesMLConstants.OBSERVATION_TYPE_MEASURMENT_TVP)) {
-                xbObservation.addNewType().setHref(TimeseriesMLConstants.OBSERVATION_TYPE_MEASURMENT_TVP);
-            } else if (observationType.equals(OmConstants.OBS_TYPE_CATEGORY_OBSERVATION)
-                    || observationType.equals(TimeseriesMLConstants.OBSERVATION_TYPE_CATEGORICAL_TVP)) {
-                xbObservation.addNewType().setHref(TimeseriesMLConstants.OBSERVATION_TYPE_CATEGORICAL_TVP);
+            if (observationType.equals(/*~~>*/OmConstants.OBS_TYPE_MEASUREMENT)
+                    || observationType.equals(/*~~>*/TimeseriesMLConstants.OBSERVATION_TYPE_MEASURMENT_TVP)) {
+                xbObservation.addNewType().setHref(/*~~>*/TimeseriesMLConstants.OBSERVATION_TYPE_MEASURMENT_TVP);
+            } else if (observationType.equals(/*~~>*/OmConstants.OBS_TYPE_CATEGORY_OBSERVATION)
+                    || observationType.equals(/*~~>*/TimeseriesMLConstants.OBSERVATION_TYPE_CATEGORICAL_TVP)) {
+                xbObservation.addNewType().setHref(/*~~>*/TimeseriesMLConstants.OBSERVATION_TYPE_CATEGORICAL_TVP);
             }
         }
     }
@@ -278,7 +278,7 @@ public class TsmlTVPEncoderv10 extends AbstractTsmlEncoderv10 implements WmlTmlH
             xbDefMeasureMetaComponent.getPointMetadata().setAggregationDuration(gDurationBuilder.toGDuration());
 
         }
-        String unit = addValues(measurementTimeseries, sosObservation.getValue());
+        /*~~>*/String unit = addValues(measurementTimeseries, sosObservation.getValue());
         // set uom
         if (unit != null && !unit.isEmpty()) {
             defaultTVPMeasurementMetadata.addNewUom().setCode(unit);
@@ -325,7 +325,7 @@ public class TsmlTVPEncoderv10 extends AbstractTsmlEncoderv10 implements WmlTmlH
         defaultTVPMeasurementMetadata.addNewInterpolationType().setHref(interpolationType.getIdentifier());
         xbDefMeasureMetaComponent.getPointMetadata().getInterpolationType().setTitle(interpolationType.getTitle());
 
-        String unit = addValues(measurementTimeseries, observationValue);
+        /*~~>*/String unit = addValues(measurementTimeseries, observationValue);
         // set uom
         if (unit != null && !unit.isEmpty()) {
             defaultTVPMeasurementMetadata.addNewUom().setCode(unit);
@@ -342,12 +342,12 @@ public class TsmlTVPEncoderv10 extends AbstractTsmlEncoderv10 implements WmlTmlH
         return measurementTimeseriesDoc;
     }
 
-    private String addValues(TimeseriesTVPType measurementTimeseries, ObservationValue<?> observationValue)
+    private /*~~>*/String addValues(TimeseriesTVPType measurementTimeseries, ObservationValue<?> observationValue)
             throws CodedException, EncodingException {
-        String unit = null;
+        /*~~>*/String unit = null;
         if (observationValue instanceof SingleObservationValue) {
             SingleObservationValue<?> singleObservationValue = (SingleObservationValue<?>) observationValue;
-            String time = getTimeString(singleObservationValue.getPhenomenonTime());
+            /*~~>*/String time = getTimeString(singleObservationValue.getPhenomenonTime());
             unit = singleObservationValue.getValue().getUnit();
             if (singleObservationValue.getValue() instanceof QuantityValue) {
                 QuantityValue quantityValue = (QuantityValue) singleObservationValue.getValue();
@@ -366,7 +366,7 @@ public class TsmlTVPEncoderv10 extends AbstractTsmlEncoderv10 implements WmlTmlH
                 }
             } else if (checkSweDataArray(observationValue.getValue())) {
                 SweDataArrayValue sweDataArrayValue = (SweDataArrayValue) observationValue.getValue();
-                for (List<String> list : sweDataArrayValue.getValue().getValues()) {
+                for (List</*~~>*/String> list : sweDataArrayValue.getValue().getValues()) {
                     for (int i = 0; i < list.size(); i = i + 2) {
                         measurementTimeseries.addNewPoint()
                                 .set(addValuesToMeasurementTVP(list.get(i), list.get(i + 1)));
@@ -379,7 +379,7 @@ public class TsmlTVPEncoderv10 extends AbstractTsmlEncoderv10 implements WmlTmlH
             List<TimeValuePair> timeValuePairs = tvpValue.getValue();
             unit = tvpValue.getUnit();
             for (TimeValuePair timeValuePair : timeValuePairs) {
-                String time = getTimeString(timeValuePair.getTime());
+                /*~~>*/String time = getTimeString(timeValuePair.getTime());
                 if (timeValuePair.getValue() instanceof QuantityValue) {
                     QuantityValue quantityValue = (QuantityValue) timeValuePair.getValue();
                     measurementTimeseries.addNewPoint().set(addValuesToMeasurementTVP(time, quantityValue));
@@ -405,7 +405,7 @@ public class TsmlTVPEncoderv10 extends AbstractTsmlEncoderv10 implements WmlTmlH
         return unit;
     }
 
-    private MeasurementTVPPropertyType addValuesToMeasurementTVP(String time, String value) {
+    private MeasurementTVPPropertyType addValuesToMeasurementTVP(/*~~>*/String time, /*~~>*/String value) {
         MeasurementTVPType measurementTVP = MeasurementTVPType.Factory.newInstance();
         addValuesToMeasurementTVP(measurementTVP, time, value);
         MeasurementTVPPropertyType measurementTVPProperty = MeasurementTVPPropertyType.Factory.newInstance();
@@ -413,7 +413,7 @@ public class TsmlTVPEncoderv10 extends AbstractTsmlEncoderv10 implements WmlTmlH
         return measurementTVPProperty;
     }
 
-    private MeasurementTVPPropertyType addValuesToMeasurementTVP(String time, QuantityValue value)
+    private MeasurementTVPPropertyType addValuesToMeasurementTVP(/*~~>*/String time, QuantityValue value)
             throws EncodingException {
         MeasurementTVPType measurementTVP = MeasurementTVPType.Factory.newInstance();
         addValuesToMeasurementTVP(measurementTVP, time, value);
@@ -422,7 +422,7 @@ public class TsmlTVPEncoderv10 extends AbstractTsmlEncoderv10 implements WmlTmlH
         return measurementTVPProperty;
     }
 
-    private MeasurementTVPPropertyType addValuesToMeasurementTVP(String time, CountValue value) {
+    private MeasurementTVPPropertyType addValuesToMeasurementTVP(/*~~>*/String time, CountValue value) {
         MeasurementTVPType measurementTVP = MeasurementTVPType.Factory.newInstance();
         addValuesToMeasurementTVP(measurementTVP, time, value);
         MeasurementTVPPropertyType measurementTVPProperty = MeasurementTVPPropertyType.Factory.newInstance();
@@ -440,7 +440,7 @@ public class TsmlTVPEncoderv10 extends AbstractTsmlEncoderv10 implements WmlTmlH
      * @param value
      *            value as string
      */
-    private void addValuesToMeasurementTVP(MeasurementTVPType measurementTVP, String time, String value) {
+    private void addValuesToMeasurementTVP(MeasurementTVPType measurementTVP, /*~~>*/String time, /*~~>*/String value) {
         measurementTVP.addNewTime().setStringValue(time);
         if (value == null || value.isEmpty()) {
             measurementTVP.addNewValue().setNil();
@@ -450,7 +450,7 @@ public class TsmlTVPEncoderv10 extends AbstractTsmlEncoderv10 implements WmlTmlH
         }
     }
 
-    private void addValuesToMeasurementTVP(MeasurementTVPType measurementTVP, String time, QuantityValue value)
+    private void addValuesToMeasurementTVP(MeasurementTVPType measurementTVP, /*~~>*/String time, QuantityValue value)
             throws EncodingException {
         measurementTVP.addNewTime().setStringValue(time);
         if (value.isSetValue()) {
@@ -469,7 +469,7 @@ public class TsmlTVPEncoderv10 extends AbstractTsmlEncoderv10 implements WmlTmlH
         }
     }
 
-    private void addValuesToMeasurementTVP(MeasurementTVPType measurementTVPType, String time, CountValue value) {
+    private void addValuesToMeasurementTVP(MeasurementTVPType measurementTVPType, /*~~>*/String time, CountValue value) {
         addValuesToMeasurementTVP(measurementTVPType, time,
                 value.isSetValue() ? Integer.toString(value.getValue()) : null);
     }
@@ -487,8 +487,8 @@ public class TsmlTVPEncoderv10 extends AbstractTsmlEncoderv10 implements WmlTmlH
 
     private void addMeasurmentMetadata(PointMetadataType metadata, SweQualityHolder quality) throws EncodingException {
         if (quality.isSetReferences()
-                && quality.getReferences().containsKey(TimeseriesMLConstants.EN_CENSORED_REASON)) {
-            ReferenceType reference = quality.getReferences().get(TimeseriesMLConstants.EN_CENSORED_REASON);
+                && quality.getReferences().containsKey(/*~~>*/TimeseriesMLConstants.EN_CENSORED_REASON)) {
+            ReferenceType reference = quality.getReferences().get(/*~~>*/TimeseriesMLConstants.EN_CENSORED_REASON);
             XmlObject xmlReferenceType = encodeGML(reference);
             metadata.addNewCensoredReason().set(xmlReferenceType);
         }
@@ -504,7 +504,7 @@ public class TsmlTVPEncoderv10 extends AbstractTsmlEncoderv10 implements WmlTmlH
         }
     }
 
-    private void addTimeseriesMetadata(TimeseriesTVPType mtt, String gmlId, TimeseriesMetadata timeseriesMetadata) {
+    private void addTimeseriesMetadata(TimeseriesTVPType mtt, /*~~>*/String gmlId, TimeseriesMetadata timeseriesMetadata) {
         TimeseriesMetadataType mtmt = (TimeseriesMetadataType) mtt.addNewMetadata().addNewTimeseriesMetadata()
                 .substitute(TimeseriesMLConstants.QN_MEASUREMENT_TIMESERIES_METADATA, TimeseriesMetadataType.type);
         createMeasurementTimeseriesMetadataType(mtmt, gmlId);
@@ -514,7 +514,7 @@ public class TsmlTVPEncoderv10 extends AbstractTsmlEncoderv10 implements WmlTmlH
         }
     }
 
-    private TimeseriesMetadataType createMeasurementTimeseriesMetadataType(TimeseriesMetadataType mtmt, String gmlId) {
+    private TimeseriesMetadataType createMeasurementTimeseriesMetadataType(TimeseriesMetadataType mtmt, /*~~>*/String gmlId) {
         mtmt.addNewTemporalExtent().setHref("#" + gmlId);
         return mtmt;
     }

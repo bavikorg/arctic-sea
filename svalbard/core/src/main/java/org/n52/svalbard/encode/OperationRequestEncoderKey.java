@@ -28,11 +28,11 @@ import org.n52.shetland.ogc.ows.service.OwsOperationKey;
  */
 public class OperationRequestEncoderKey extends OperationEncoderKey {
 
-    public OperationRequestEncoderKey(String service, String version, String operation, MediaType contentType) {
+    public OperationRequestEncoderKey(/*~~>*/String service, /*~~>*/String version, /*~~>*/String operation, MediaType contentType) {
         super(service, version, operation, contentType);
     }
 
-    public OperationRequestEncoderKey(String service, String version, Enum<?> operation, MediaType contentType) {
+    public OperationRequestEncoderKey(/*~~>*/String service, /*~~>*/String version, Enum<?> operation, MediaType contentType) {
         super(service, version, operation, contentType);
     }
 

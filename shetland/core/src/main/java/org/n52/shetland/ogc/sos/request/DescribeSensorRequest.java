@@ -33,12 +33,12 @@ public class DescribeSensorRequest extends OwsServiceRequest {
     /**
      * Procedure identifier
      */
-    private String procedure;
+    private /*~~>*/String procedure;
 
     /**
      * Output format
      */
-    private String procedureDescriptionFormat;
+    private /*~~>*/String procedureDescriptionFormat;
 
     /**
      * Temporal filters
@@ -49,11 +49,11 @@ public class DescribeSensorRequest extends OwsServiceRequest {
         super(null, null, SosConstants.Operations.DescribeSensor.name());
     }
 
-    public DescribeSensorRequest(String service, String version) {
+    public DescribeSensorRequest(/*~~>*/String service, /*~~>*/String version) {
         super(service, version, SosConstants.Operations.DescribeSensor.name());
     }
 
-    public DescribeSensorRequest(String service, String version, String operationName) {
+    public DescribeSensorRequest(/*~~>*/String service, /*~~>*/String version, /*~~>*/String operationName) {
         super(service, version, operationName);
     }
 
@@ -62,7 +62,7 @@ public class DescribeSensorRequest extends OwsServiceRequest {
      *
      * @return output format
      */
-    public String getProcedureDescriptionFormat() {
+    public /*~~>*/String getProcedureDescriptionFormat() {
         return procedureDescriptionFormat;
     }
 
@@ -72,8 +72,8 @@ public class DescribeSensorRequest extends OwsServiceRequest {
      * @param procedureDescriptionFormat
      *            output format
      */
-    public void setProcedureDescriptionFormat(String procedureDescriptionFormat) {
-        this.procedureDescriptionFormat = procedureDescriptionFormat;
+    public void setProcedureDescriptionFormat(/*~~>*/String procedureDescriptionFormat) {
+        /*~~>*/this.procedureDescriptionFormat = procedureDescriptionFormat;
     }
 
     public boolean isSetProcedureDescriptionFormat() {
@@ -85,7 +85,7 @@ public class DescribeSensorRequest extends OwsServiceRequest {
      *
      * @return Procedure identifier
      */
-    public String getProcedure() {
+    public /*~~>*/String getProcedure() {
         return procedure;
     }
 
@@ -95,8 +95,8 @@ public class DescribeSensorRequest extends OwsServiceRequest {
      * @param procedure
      *            Procedure identifier
      */
-    public void setProcedure(String procedure) {
-        this.procedure = procedure;
+    public void setProcedure(/*~~>*/String procedure) {
+        /*~~>*/this.procedure = procedure;
     }
 
     public boolean isSetProcedure() {

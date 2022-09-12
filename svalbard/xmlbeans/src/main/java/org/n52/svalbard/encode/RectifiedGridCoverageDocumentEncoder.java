@@ -39,7 +39,7 @@ public class RectifiedGridCoverageDocumentEncoder
 
     private static final Set<EncoderKey> ENCODER_KEYS = Sets.newHashSet(
             new ClassToClassEncoderKey(RectifiedGridCoverageDocument.class, RectifiedGridCoverage.class),
-            new XmlPropertyTypeEncoderKey(GmlConstants.NS_GML_32, RectifiedGridCoverage.class));
+            new XmlPropertyTypeEncoderKey(/*~~>*/GmlConstants.NS_GML_32, RectifiedGridCoverage.class));
 
     @Override
     public Set<EncoderKey> getKeys() {

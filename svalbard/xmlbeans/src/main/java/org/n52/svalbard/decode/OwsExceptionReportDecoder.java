@@ -41,7 +41,7 @@ import net.opengis.ows.x11.ExceptionType;
  */
 public class OwsExceptionReportDecoder extends AbstractXmlDecoder<ExceptionReportDocument, OwsExceptionReport> {
 
-    private static final DecoderKey KEY = new XmlNamespaceDecoderKey(OWSConstants.NS_OWS,
+    private static final DecoderKey KEY = new XmlNamespaceDecoderKey(/*~~>*/OWSConstants.NS_OWS,
                                                                      ExceptionReportDocument.class);
 
     @Override
@@ -55,39 +55,39 @@ public class OwsExceptionReportDecoder extends AbstractXmlDecoder<ExceptionRepor
     }
 
     private OwsExceptionReport decode(ExceptionReport report) {
-        String version = report.getVersion();
+        /*~~>*/String version = report.getVersion();
         ExceptionType[] exceptionTypes = report.getExceptionArray();
         List<CodedException> exceptions = Streams.stream(exceptionTypes).map(this::decode).collect(toList());
         return new CompositeOwsException(exceptions).setVersion(version);
     }
 
     private CodedException decode(ExceptionType e) {
-        String code = e.getExceptionCode();
-        String locator = e.getLocator();
-        String message = String.join("\n", e.getExceptionTextArray());
+        /*~~>*/String code = e.getExceptionCode();
+        /*~~>*/String locator = e.getLocator();
+        /*~~>*/String message = /*~~>*/String.join("\n", e.getExceptionTextArray());
         return new GenericCodedException(code).at(locator).withMessage(message);
     }
 
     private static class GenericExceptionCode implements ExceptionCode {
-        private final String code;
+        private final /*~~>*/String code;
 
-        GenericExceptionCode(String code) {
-            this.code = code;
+        GenericExceptionCode(/*~~>*/String code) {
+            /*~~>*/this.code = code;
         }
 
         @Override
-        public String getSoapFaultReason() {
-            return this.code;
+        public /*~~>*/String getSoapFaultReason() {
+            return /*~~>*/this.code;
         }
 
         @Override
-        public String toString() {
-            return this.code;
+        public /*~~>*/String toString() {
+            return /*~~>*/this.code;
         }
 
         @Override
         public int hashCode() {
-            return Objects.hashCode(this.code);
+            return Objects.hashCode(/*~~>*/this.code);
         }
 
         @Override
@@ -105,7 +105,7 @@ public class OwsExceptionReportDecoder extends AbstractXmlDecoder<ExceptionRepor
             return Objects.equals(getCode(), other.getCode());
         }
 
-        public String getCode() {
+        public /*~~>*/String getCode() {
             return code;
         }
     }
@@ -113,7 +113,7 @@ public class OwsExceptionReportDecoder extends AbstractXmlDecoder<ExceptionRepor
     private static class GenericCodedException extends CodedException {
         private static final long serialVersionUID = 8443662702566120820L;
 
-        GenericCodedException(String code) {
+        GenericCodedException(/*~~>*/String code) {
             super(new GenericExceptionCode(code));
         }
 

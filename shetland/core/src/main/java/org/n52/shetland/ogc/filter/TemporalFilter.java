@@ -47,7 +47,7 @@ public class TemporalFilter extends Filter<TimeOperator> {
      *            value reference
      */
     @SuppressFBWarnings({ "EI_EXPOSE_REP2" })
-    public TemporalFilter(TimeOperator operator, Time time, String valueReference) {
+    public TemporalFilter(TimeOperator operator, Time time, /*~~>*/String valueReference) {
         super(valueReference);
         this.operator = operator;
         this.time = time;
@@ -63,7 +63,7 @@ public class TemporalFilter extends Filter<TimeOperator> {
      * @param valueReference
      *            value reference
      */
-    public TemporalFilter(String operatorName, Time time, String valueReference) {
+    public TemporalFilter(/*~~>*/String operatorName, Time time, /*~~>*/String valueReference) {
         this(TimeOperator.valueOf(operatorName), time, valueReference);
     }
 
@@ -102,7 +102,7 @@ public class TemporalFilter extends Filter<TimeOperator> {
     }
 
     @Override
-    public String toString() {
+    public /*~~>*/String toString() {
         return "Temporal filter: " + operator + time.toString();
     }
 

@@ -31,10 +31,10 @@ public class SpellingJSONDecoder extends AbstractJSONDecoder<Spelling> {
             throws DecodingException {
         Spelling spelling = new Spelling();
         spelling.setScript(parseNillableString(node
-                .path(AQDJSONConstants.SCRIPT)));
-        spelling.setText(node.path(AQDJSONConstants.TEXT).textValue());
+                .path(/*~~>*/AQDJSONConstants.SCRIPT)));
+        spelling.setText(node.path(/*~~>*/AQDJSONConstants.TEXT).textValue());
         spelling.setTransliterationScheme(parseNillableString(node
-                .path(AQDJSONConstants.TRANSLITERATION_SCHEME)));
+                .path(/*~~>*/AQDJSONConstants.TRANSLITERATION_SCHEME)));
         return spelling;
     }
 

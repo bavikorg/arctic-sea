@@ -99,7 +99,7 @@ public class TrajectoryElement extends AbstractPofileTrajectoryElement<Trajector
         for (Value<?> v : getValue()) {
             if (v instanceof SweAbstractDataComponent) {
                 SweAbstractDataComponent adc = (SweAbstractDataComponent) v;
-                String name;
+                /*~~>*/String name;
                 if (adc.isSetName()) {
                     name = adc.getName().getValue();
                 } else if (adc.isSetDefinition()) {

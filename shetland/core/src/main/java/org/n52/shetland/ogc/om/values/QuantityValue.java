@@ -55,7 +55,7 @@ public class QuantityValue extends SweQuantity implements ComparableValue<BigDec
      * @param unit
      *            Unit of measure
      */
-    public QuantityValue(BigDecimal value, String unit) {
+    public QuantityValue(BigDecimal value, /*~~>*/String unit) {
         super(value, unit);
     }
 
@@ -89,7 +89,7 @@ public class QuantityValue extends SweQuantity implements ComparableValue<BigDec
      * @param unit
      *            Unit of measure
      */
-    public QuantityValue(Double value, String unit) {
+    public QuantityValue(Double value, /*~~>*/String unit) {
         super(value, unit);
     }
 
@@ -112,7 +112,7 @@ public class QuantityValue extends SweQuantity implements ComparableValue<BigDec
     }
 
     @Override
-    public void setUnit(String unit) {
+    public void setUnit(/*~~>*/String unit) {
         super.setUom(unit);
     }
 
@@ -123,7 +123,7 @@ public class QuantityValue extends SweQuantity implements ComparableValue<BigDec
     }
 
     @Override
-    public String getUnit() {
+    public /*~~>*/String getUnit() {
         return super.getUom();
     }
 
@@ -138,8 +138,8 @@ public class QuantityValue extends SweQuantity implements ComparableValue<BigDec
     }
 
     @Override
-    public String toString() {
-        return String.format("QuantityValue [value=%s, unit=%s]", getValue(), getUnit());
+    public /*~~>*/String toString() {
+        return /*~~>*/String.format("QuantityValue [value=%s, unit=%s]", getValue(), getUnit());
     }
 
     @Override

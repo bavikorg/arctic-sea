@@ -40,28 +40,28 @@ public class ExiResponseEncoder
 
     private static final Logger LOGGER = LoggerFactory.getLogger(ExiResponseEncoder.class);
     private EncoderKey key;
-    private String version;
-    private String service;
-    private String operation;
+    private /*~~>*/String version;
+    private /*~~>*/String service;
+    private /*~~>*/String operation;
 
     @Inject
-    public void setVersion(String version) {
-        this.version = version;
+    public void setVersion(/*~~>*/String version) {
+        /*~~>*/this.version = version;
     }
 
     @Inject
-    public void setService(String service) {
-        this.service = service;
+    public void setService(/*~~>*/String service) {
+        /*~~>*/this.service = service;
     }
 
     @Inject
-    public void setOperation(String operation) {
-        this.operation = operation;
+    public void setOperation(/*~~>*/String operation) {
+        /*~~>*/this.operation = operation;
     }
 
     @Override
     public void init() {
-        this.key = new OperationResponseEncoderKey(this.service, this.version, this.operation,
+        this.key = new OperationResponseEncoderKey(/*~~>*/this.service, /*~~>*/this.version, /*~~>*/this.operation,
                 MediaTypes.APPLICATION_EXI);
         LOGGER.debug("Encoder for the following keys initialized successfully: {}!", this.key);
     }
@@ -77,8 +77,8 @@ public class ExiResponseEncoder
     }
 
     @Override
-    public String toString() {
-        return String.format("%s{key=%s}", ExiResponseEncoder.class.getName(), key);
+    public /*~~>*/String toString() {
+        return /*~~>*/String.format("%s{key=%s}", ExiResponseEncoder.class.getName(), key);
     }
 
 }

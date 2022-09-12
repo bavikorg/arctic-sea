@@ -105,22 +105,22 @@ public class GmlEncoderv311
 
     private static final Logger LOGGER = LoggerFactory.getLogger(GmlEncoderv311.class);
 
-    private static final Set<EncoderKey> ENCODER_KEYS = CodingHelper.encoderKeysForElements(GmlConstants.NS_GML,
+    private static final Set<EncoderKey> ENCODER_KEYS = CodingHelper.encoderKeysForElements(/*~~>*/GmlConstants.NS_GML,
             org.n52.shetland.ogc.gml.time.Time.class, org.locationtech.jts.geom.Geometry.class,
             org.n52.shetland.ogc.om.values.CategoryValue.class, org.n52.shetland.ogc.gml.ReferenceType.class,
             org.n52.shetland.ogc.om.values.QuantityValue.class, org.n52.shetland.ogc.gml.CodeWithAuthority.class,
             org.n52.shetland.ogc.gml.CodeType.class, AbstractFeature.class, GenericMetaData.class,
             org.n52.shetland.util.ReferencedEnvelope.class, org.n52.shetland.util.EnvelopeOrGeometry.class);
 
-    private String srsNamePrefix = "urn:ogc:def:crs:EPSG::";
+    private /*~~>*/String srsNamePrefix = "urn:ogc:def:crs:EPSG::";
 
     public GmlEncoderv311() {
         LOGGER.debug("Encoder for the following keys initialized successfully: {}!",
                 Joiner.on(", ").join(ENCODER_KEYS));
     }
 
-    @Setting(value = CodingSettings.SRS_NAME_PREFIX_URN, required = false)
-    public void setSrsNamePrefix(String prefix) {
+    @Setting(value = /*~~>*/CodingSettings.SRS_NAME_PREFIX_URN, required = false)
+    public void setSrsNamePrefix(/*~~>*/String prefix) {
         srsNamePrefix = CRSHelper.asUrnPrefix(prefix);
     }
 
@@ -130,8 +130,8 @@ public class GmlEncoderv311
     }
 
     @Override
-    public void addNamespacePrefixToMap(Map<String, String> nameSpacePrefixMap) {
-        nameSpacePrefixMap.put(GmlConstants.NS_GML, GmlConstants.NS_GML_PREFIX);
+    public void addNamespacePrefixToMap(Map</*~~>*/String, /*~~>*/String> nameSpacePrefixMap) {
+        nameSpacePrefixMap.put(/*~~>*/GmlConstants.NS_GML, /*~~>*/GmlConstants.NS_GML_PREFIX);
     }
 
     @Override
@@ -282,7 +282,7 @@ public class GmlEncoderv311
                         TimeIndeterminateValueType.Enum.forString(IndeterminateValue.UNKNOWN.getValue()));
             }
         } else {
-            final String endString =
+            final /*~~>*/String endString =
                     DateTimeHelper.formatDateTime2String(timePosition.getTime(), timePosition.getTimeFormat());
 
             // concat minutes for timeZone offset, because gml requires
@@ -296,8 +296,8 @@ public class GmlEncoderv311
 
     private XmlObject createPosition(Geometry geom, Optional<Object> optional)
             throws UnsupportedEncoderInputException {
-        String gmlId = (optional != null && optional.isPresent() && optional.get() instanceof String)
-                ? (String) optional.get() : null;
+        /*~~>*/String gmlId = (optional != null && optional.isPresent() && optional.get() instanceof /*~~>*/String)
+                ? (/*~~>*/String) optional.get() : null;
         if (geom instanceof Point) {
             PointType xbPoint = PointType.Factory.newInstance(getXmlOptions());
             if (gmlId != null) {
@@ -374,7 +374,7 @@ public class GmlEncoderv311
             // Exterior ring
 //            LineString ring = pol.getExteriorRing();
             Coordinate[] ring = JTSHelper.getExteriorRingCoordinatesFromPolygon(pol);
-            String coords = JTSHelper.getCoordinatesString(ring);
+            /*~~>*/String coords = JTSHelper.getCoordinatesString(ring);
             DirectPositionListType xbPosList = xbLrt.addNewPosList();
             xbPosList.setSrsName(getSrsName(jtsPolygon));
             // switch coordinates
@@ -444,7 +444,7 @@ public class GmlEncoderv311
     private XmlObject createCodeWithAuthorityType(CodeWithAuthority sosCodeWithAuthority) {
         if (sosCodeWithAuthority.isSetValue()) {
             CodeType codeType = CodeType.Factory.newInstance(getXmlOptions());
-            String value = sosCodeWithAuthority.getValue();
+            /*~~>*/String value = sosCodeWithAuthority.getValue();
             codeType.setStringValue(value);
             codeType.setCodeSpace(sosCodeWithAuthority.getCodeSpace());
             return codeType;
@@ -496,7 +496,7 @@ public class GmlEncoderv311
                 builder.append("sf_");
                 builder.append(IdGenerator.generate(sosAbstractFeature.getIdentifierCodeWithAuthority().getValue()));
                 sosAbstractFeature.setGmlId(builder.toString());
-                Encoder<XmlObject, SamplingFeature> encoder = getEncoder(SfConstants.NS_SA, sampFeat);
+                Encoder<XmlObject, SamplingFeature> encoder = getEncoder(/*~~>*/SfConstants.NS_SA, sampFeat);
                 return encoder.encode(sampFeat);
             }
         } else if (sosAbstractFeature instanceof FeatureCollection) {
@@ -507,12 +507,12 @@ public class GmlEncoderv311
 
     @SuppressFBWarnings("NP_NULL_ON_SOME_PATH")
     private XmlObject createFeatureCollection(FeatureCollection sosFeatureCollection) throws EncodingException {
-        Map<String, AbstractFeature> members = sosFeatureCollection.getMembers();
+        Map</*~~>*/String, AbstractFeature> members = sosFeatureCollection.getMembers();
         XmlObject xmlObject = null;
         if (sosFeatureCollection.isSetMembers()) {
             if (members.size() == 1) {
-                for (Entry<String, AbstractFeature> entry : members.entrySet()) {
-                    String member = entry.getKey();
+                for (Entry</*~~>*/String, AbstractFeature> entry : members.entrySet()) {
+                    /*~~>*/String member = entry.getKey();
                     if (members.get(member) instanceof SamplingFeature) {
                         return createFeature((SamplingFeature) members.get(member));
                     } else {
@@ -527,8 +527,8 @@ public class GmlEncoderv311
                 builder.append("sfc_");
                 builder.append(IdGenerator.generate(Long.toString(System.currentTimeMillis())));
                 xbFeatCol.setId(builder.toString());
-                for (Entry<String, AbstractFeature> entry : members.entrySet()) {
-                    String member = entry.getKey();
+                for (Entry</*~~>*/String, AbstractFeature> entry : members.entrySet()) {
+                    /*~~>*/String member = entry.getKey();
                     if (members.get(member) instanceof SamplingFeature) {
                         XmlObject xmlFeature = createFeature((SamplingFeature) members.get(member));
                         xbFeatCol.addNewFeatureMember().set(xmlFeature);
@@ -545,9 +545,9 @@ public class GmlEncoderv311
         }
         if (xmlObject != null) {
             XmlCursor cursor = xmlObject.newCursor();
-            boolean isAFC = cursor.toChild(new QName(GmlConstants.NS_GML, GmlConstants.EN_ABSTRACT_FEATURE_COLLECTION));
+            boolean isAFC = cursor.toChild(new QName(/*~~>*/GmlConstants.NS_GML, /*~~>*/GmlConstants.EN_ABSTRACT_FEATURE_COLLECTION));
             if (isAFC) {
-                cursor.setName(new QName(GmlConstants.NS_GML, GmlConstants.EN_FEATURE_COLLECTION));
+                cursor.setName(new QName(/*~~>*/GmlConstants.NS_GML, /*~~>*/GmlConstants.EN_FEATURE_COLLECTION));
             }
             cursor.dispose();
         }
@@ -556,14 +556,14 @@ public class GmlEncoderv311
 
     private XmlObject createEnvelope(ReferencedEnvelope sosEnvelope) {
         EnvelopeType envelopeType = EnvelopeType.Factory.newInstance(getXmlOptions());
-        MinMax<String> minmax = sosEnvelope.getMinMaxFromEnvelope();
+        MinMax</*~~>*/String> minmax = sosEnvelope.getMinMaxFromEnvelope();
         envelopeType.addNewLowerCorner().setStringValue(minmax.getMinimum());
         envelopeType.addNewUpperCorner().setStringValue(minmax.getMaximum());
         envelopeType.setSrsName(srsNamePrefix + sosEnvelope.getSrid());
         return envelopeType;
     }
 
-    protected String getSrsName(Geometry geom) {
+    protected /*~~>*/String getSrsName(Geometry geom) {
         return srsNamePrefix + geom.getSRID();
     }
 
@@ -572,9 +572,9 @@ public class GmlEncoderv311
         if (element.getContent() instanceof HasDefaultEncoding
                 && ((HasDefaultEncoding<?>) element.getContent()).isSetDefaultElementEncoding()) {
             EncodingContext ec = EncodingContext.of(XmlBeansEncodingFlags.DOCUMENT, true);
-            if (SweConstants.NS_SWE_20
+            if (/*~~>*/SweConstants.NS_SWE_20
                     .equals(((HasDefaultEncoding<?>) element.getContent()).getDefaultElementEncoding())) {
-                return encodeObjectToXml(SweConstants.NS_SWE_101, element.getContent(), ec);
+                return encodeObjectToXml(/*~~>*/SweConstants.NS_SWE_101, element.getContent(), ec);
             } else {
                 return encodeObjectToXml(((HasDefaultEncoding<?>) element.getContent()).getDefaultElementEncoding(),
                         element.getContent(), ec);

@@ -36,9 +36,9 @@ import net.opengis.swes.x20.ExtensibleRequestType;
  */
 public abstract class AbstractSwesRequestEncoder<T extends OwsServiceRequest> extends AbstractRequestEncoder<T> {
 
-    public AbstractSwesRequestEncoder(String operation, Class<T> responseType) {
-        super(SosConstants.SOS, Sos2Constants.SERVICEVERSION, operation, SwesConstants.NS_SWES_20,
-              SwesConstants.NS_SWES_PREFIX, responseType);
+    public AbstractSwesRequestEncoder(/*~~>*/String operation, Class<T> responseType) {
+        super(/*~~>*/SosConstants.SOS, /*~~>*/Sos2Constants.SERVICEVERSION, operation, /*~~>*/SwesConstants.NS_SWES_20,
+              /*~~>*/SwesConstants.NS_SWES_PREFIX, responseType);
     }
 
     protected void addExtension(OwsServiceRequest request, ExtensibleRequestType extensibleRequestType)

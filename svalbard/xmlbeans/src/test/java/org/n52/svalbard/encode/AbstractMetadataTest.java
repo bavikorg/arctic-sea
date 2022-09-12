@@ -64,13 +64,13 @@ public abstract class AbstractMetadataTest {
         dataRecord.addField(new SweField("test_desc"));
         sweDataArray.setElementType(dataRecord);
 
-        LinkedList<List<String>> values = new LinkedList<List<String>>();
-        List<String> blockOfTokens_1 = new LinkedList<>();
+        LinkedList<List</*~~>*/String>> values = new LinkedList<List</*~~>*/String>>();
+        List</*~~>*/String> blockOfTokens_1 = new LinkedList<>();
         blockOfTokens_1.add("1");
         blockOfTokens_1.add("code_1");
         blockOfTokens_1.add("desc_1");
         values.add(blockOfTokens_1);
-        List<String> blockOfTokens_2 = new LinkedList<>();
+        List</*~~>*/String> blockOfTokens_2 = new LinkedList<>();
         blockOfTokens_2.add("2");
         blockOfTokens_2.add("code_2");
         blockOfTokens_2.add("desc_2");

@@ -52,11 +52,11 @@ public class SosRequestEncoderv20 extends AbstractXmlEncoder<XmlObject, OwsServi
     private static final Logger LOGGER = LoggerFactory.getLogger(SosRequestEncoderv20.class);
 
     private static final Set<EncoderKey> ENCODER_KEYS = CollectionHelper.union(
-            CodingHelper.encoderKeysForElements(Sos2Constants.NS_SOS_20,
+            CodingHelper.encoderKeysForElements(/*~~>*/Sos2Constants.NS_SOS_20,
                     OwsServiceRequest.class, GetResultTemplateRequest.class, GetResultRequest.class),
             CodingHelper.xmlEncoderKeysForOperationAndMediaType(
-                    SosConstants.SOS,
-                    Sos2Constants.SERVICEVERSION,
+                    /*~~>*/SosConstants.SOS,
+                    /*~~>*/Sos2Constants.SERVICEVERSION,
                     Sos2Constants.Operations.GetResultTemplate));
 
 
@@ -71,8 +71,8 @@ public class SosRequestEncoderv20 extends AbstractXmlEncoder<XmlObject, OwsServi
     }
 
     @Override
-    public void addNamespacePrefixToMap(final Map<String, String> nameSpacePrefixMap) {
-        nameSpacePrefixMap.put(Sos2Constants.NS_SOS_20, SosConstants.NS_SOS_PREFIX);
+    public void addNamespacePrefixToMap(final Map</*~~>*/String, /*~~>*/String> nameSpacePrefixMap) {
+        nameSpacePrefixMap.put(/*~~>*/Sos2Constants.NS_SOS_20, /*~~>*/SosConstants.NS_SOS_PREFIX);
     }
 
     @Override
@@ -136,7 +136,7 @@ public class SosRequestEncoderv20 extends AbstractXmlEncoder<XmlObject, OwsServi
 
     private void createTemporalFilter(final net.opengis.sos.x20.GetResultType.TemporalFilter temporalFilter,
             final TemporalFilter sosTemporalFilter) throws EncodingException {
-        final Encoder<XmlObject, TemporalFilter> encoder = getEncoder(FilterConstants.NS_FES_2, sosTemporalFilter);
+        final Encoder<XmlObject, TemporalFilter> encoder = getEncoder(/*~~>*/FilterConstants.NS_FES_2, sosTemporalFilter);
         final XmlObject encodedObject = encoder.encode(sosTemporalFilter);
         temporalFilter.set(encodedObject);
     }
@@ -144,7 +144,7 @@ public class SosRequestEncoderv20 extends AbstractXmlEncoder<XmlObject, OwsServi
     private void createSpatialFilter(final SpatialFilter spatialFilter,
             final org.n52.shetland.ogc.filter.SpatialFilter sosSpatialFilter) throws EncodingException {
         final Encoder<XmlObject, org.n52.shetland.ogc.filter.SpatialFilter> encoder =
-                getEncoder(FilterConstants.NS_FES_2, sosSpatialFilter);
+                getEncoder(/*~~>*/FilterConstants.NS_FES_2, sosSpatialFilter);
         final XmlObject encodedObject = encoder.encode(sosSpatialFilter);
         spatialFilter.set(encodedObject);
     }

@@ -52,8 +52,8 @@ public abstract class AbstractVersionedResponseEncoder<T extends OwsServiceRespo
      *            Indicator if the created/encoded object can be validated
      */
     public AbstractVersionedResponseEncoder(
-            String service, String version, String operation, String namespace, String prefix, Class<T> responseType,
-            boolean validationEnabled, String operationVersion) {
+            /*~~>*/String service, /*~~>*/String version, /*~~>*/String operation, /*~~>*/String namespace, /*~~>*/String prefix, Class<T> responseType,
+            boolean validationEnabled, /*~~>*/String operationVersion) {
         super(service, version, operationVersion, namespace, prefix, responseType, validationEnabled);
         OwsOperationKey key = new OwsOperationKey(service, version, operation);
         this.encoderKeys = Sets.newHashSet(new XmlEncoderKey(namespace, responseType),
@@ -80,8 +80,8 @@ public abstract class AbstractVersionedResponseEncoder<T extends OwsServiceRespo
      *            Response type
      */
     public AbstractVersionedResponseEncoder(
-            String service, String version, String operation, String namespace, String prefix, Class<T> responseType,
-            String operationVersion) {
+            /*~~>*/String service, /*~~>*/String version, /*~~>*/String operation, /*~~>*/String namespace, /*~~>*/String prefix, Class<T> responseType,
+            /*~~>*/String operationVersion) {
         this(service, version, operation, namespace, prefix, responseType, true, operationVersion);
     }
 

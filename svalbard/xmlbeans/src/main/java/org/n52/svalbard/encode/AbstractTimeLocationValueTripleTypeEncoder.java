@@ -52,14 +52,14 @@ import net.opengis.waterml.x20.TimeValuePairType;
 public abstract class AbstractTimeLocationValueTripleTypeEncoder<T>
         extends AbstractXmlEncoder<T, TimeLocationValueTriple> {
 
-    private static final String MISSING = "missing";
+    private static final /*~~>*/String MISSING = "missing";
 
     @Override
-    public void addNamespacePrefixToMap(Map<String, String> nameSpacePrefixMap) {
+    public void addNamespacePrefixToMap(Map</*~~>*/String, /*~~>*/String> nameSpacePrefixMap) {
         super.addNamespacePrefixToMap(nameSpacePrefixMap);
-        nameSpacePrefixMap.put(InspireBaseConstants.NS_BASE, InspireBaseConstants.NS_BASE_PREFIX);
-        nameSpacePrefixMap.put(InspireOMORConstants.NS_OMOR_30, InspireOMORConstants.NS_OMOR_PREFIX);
-        nameSpacePrefixMap.put(InspireOMSOConstants.NS_OMSO_30, InspireOMSOConstants.NS_OMSO_PREFIX);
+        nameSpacePrefixMap.put(/*~~>*/InspireBaseConstants.NS_BASE, /*~~>*/InspireBaseConstants.NS_BASE_PREFIX);
+        nameSpacePrefixMap.put(/*~~>*/InspireOMORConstants.NS_OMOR_30, /*~~>*/InspireOMORConstants.NS_OMOR_PREFIX);
+        nameSpacePrefixMap.put(/*~~>*/InspireOMSOConstants.NS_OMSO_30, /*~~>*/InspireOMSOConstants.NS_OMSO_PREFIX);
     }
 
     /**
@@ -98,7 +98,7 @@ public abstract class AbstractTimeLocationValueTripleTypeEncoder<T>
         MeasurementTimeLocationValueTripleType mtlvtt = MeasurementTimeLocationValueTripleType.Factory.newInstance();
         mtlvtt.addNewTime().setStringValue(getTimeString(timeLocationValueTriple.getTime()));
         mtlvtt.addNewLocation().addNewPoint().set(encodeGML(timeLocationValueTriple.getLocation()));
-        String value = null;
+        /*~~>*/String value = null;
         if (timeLocationValueTriple.getValue() instanceof QuantityValue) {
             QuantityValue quantityValue = (QuantityValue) timeLocationValueTriple.getValue();
             if (quantityValue.isSetValue()) {
@@ -170,7 +170,7 @@ public abstract class AbstractTimeLocationValueTripleTypeEncoder<T>
      * @throws DateTimeFormatException
      *             If a formatting error occurs
      */
-    protected String getTimeString(Time time) throws DateTimeFormatException {
+    protected /*~~>*/String getTimeString(Time time) throws DateTimeFormatException {
         DateTime dateTime = getTime(time);
         return DateTimeHelper.formatDateTime2String(dateTime, time.getTimeFormat());
     }
@@ -197,19 +197,19 @@ public abstract class AbstractTimeLocationValueTripleTypeEncoder<T>
     }
 
     protected XmlObject encodeGML(Object o) throws EncodingException {
-        return encodeObjectToXml(GmlConstants.NS_GML_32, o);
+        return encodeObjectToXml(/*~~>*/GmlConstants.NS_GML_32, o);
     }
 
     protected XmlObject encodeGML(Object o, EncodingContext ec) throws EncodingException {
-        return encodeObjectToXml(GmlConstants.NS_GML_32, o, ec);
+        return encodeObjectToXml(/*~~>*/GmlConstants.NS_GML_32, o, ec);
     }
 
     protected XmlObject encodeSweCommon(Object o) throws EncodingException {
-        return encodeObjectToXml(SweConstants.NS_SWE_20, o);
+        return encodeObjectToXml(/*~~>*/SweConstants.NS_SWE_20, o);
     }
 
     protected XmlObject encodeSweCommon(Object o, EncodingContext ec)
             throws EncodingException {
-        return encodeObjectToXml(SweConstants.NS_SWE_20, o, ec);
+        return encodeObjectToXml(/*~~>*/SweConstants.NS_SWE_20, o, ec);
     }
 }

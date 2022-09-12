@@ -72,7 +72,7 @@ public class RelatedParty {
         return setIndividualName(Nillable.of(individualName));
     }
 
-    public RelatedParty setIndividualName(String individualName) {
+    public RelatedParty setIndividualName(/*~~>*/String individualName) {
         return setIndividualName(
                 Nillable.of(new PT_FreeText().addTextGroup(new LocalisedCharacterString(individualName))));
     }
@@ -102,7 +102,7 @@ public class RelatedParty {
         return setOrganisationName(Nillable.of(organisationName));
     }
 
-    public RelatedParty setOrganisationName(String organisationName) {
+    public RelatedParty setOrganisationName(/*~~>*/String organisationName) {
         return setOrganisationName(
                 Nillable.of(new PT_FreeText().addTextGroup(new LocalisedCharacterString(organisationName))));
     }
@@ -132,7 +132,7 @@ public class RelatedParty {
         return setPositionName(Nillable.of(positionName));
     }
 
-    public RelatedParty setPositionName(String positionName) {
+    public RelatedParty setPositionName(/*~~>*/String positionName) {
         return setPositionName(
                 Nillable.of(new PT_FreeText().addTextGroup(new LocalisedCharacterString(positionName))));
     }
@@ -222,7 +222,7 @@ public class RelatedParty {
     }
 
     @Override
-    public String toString() {
+    public /*~~>*/String toString() {
         return MoreObjects.toStringHelper(this).add("individualName", getIndividualName())
                 .add("organisationName", getOrganisationName()).add("positionName", getPositionName())
                 .add("contact", getContact()).add("roles", getRoles()).toString();

@@ -35,8 +35,8 @@ public class UnsupportedEncoderInputException extends EncodingException {
         this(encoder, o == null ? null : o.getClass().getName());
     }
 
-    public UnsupportedEncoderInputException(Encoder<?, ?> encoder, String o) {
-        super(String.format("Encoder %s can not encode '%s'", encoder.getClass().getSimpleName(),
+    public UnsupportedEncoderInputException(Encoder<?, ?> encoder, /*~~>*/String o) {
+        super(/*~~>*/String.format("Encoder %s can not encode '%s'", encoder.getClass().getSimpleName(),
                 (o == null || o.isEmpty()) ? "null" : o));
     }
 

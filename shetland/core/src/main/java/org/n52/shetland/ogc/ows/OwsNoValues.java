@@ -38,7 +38,7 @@ public final class OwsNoValues implements OwsPossibleValues {
     }
 
     @Override
-    public String toString() {
+    public /*~~>*/String toString() {
         return "OwsNoValues{}";
     }
 

@@ -120,7 +120,7 @@ public class TimeLocationValueTripleTypeEncoderTest {
     }
 
     private Geometry getGeometry() throws ParseException {
-        final String wktString = "POINT (52.7 7.52)";
+        final /*~~>*/String wktString = "POINT (52.7 7.52)";
         return JTSHelper.createGeometryFromWKT(wktString, 4326);
     }
 }

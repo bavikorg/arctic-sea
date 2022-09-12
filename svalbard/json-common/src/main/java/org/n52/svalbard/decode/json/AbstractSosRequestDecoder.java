@@ -53,11 +53,11 @@ import com.fasterxml.jackson.databind.JsonNode;
 public abstract class AbstractSosRequestDecoder<T extends OwsServiceRequest>
         extends JSONDecoder<T> {
 
-    public AbstractSosRequestDecoder(Class<T> type, String service, String version, Enum<?> operation) {
+    public AbstractSosRequestDecoder(Class<T> type, /*~~>*/String service, /*~~>*/String version, Enum<?> operation) {
         this(type, service, version, operation.name());
     }
 
-    public AbstractSosRequestDecoder(Class<T> type, String service, String version, String operation) {
+    public AbstractSosRequestDecoder(Class<T> type, /*~~>*/String service, /*~~>*/String version, /*~~>*/String operation) {
         super(new HashSet<>(Arrays.asList(new JsonDecoderKey(type),
                 new OperationDecoderKey(service, version, operation, MediaTypes.APPLICATION_JSON))));
     }
@@ -66,11 +66,11 @@ public abstract class AbstractSosRequestDecoder<T extends OwsServiceRequest>
         super(keys);
     }
 
-    public AbstractSosRequestDecoder(Class<T> type, String service, Enum<?> operation) {
+    public AbstractSosRequestDecoder(Class<T> type, /*~~>*/String service, Enum<?> operation) {
         this(type, service, null, operation.name());
     }
 
-    public AbstractSosRequestDecoder(Class<T> type, String service, String operation) {
+    public AbstractSosRequestDecoder(Class<T> type, /*~~>*/String service, /*~~>*/String operation) {
         this(type, service, null, operation);
     }
 
@@ -84,9 +84,9 @@ public abstract class AbstractSosRequestDecoder<T extends OwsServiceRequest>
             JSONValidator.getInstance().validateAndThrow(node, getSchemaURI());
         }
         T t = decodeRequest(node);
-        t.setService(node.path(JSONConstants.SERVICE).textValue());
-        t.setVersion(node.path(JSONConstants.VERSION).textValue());
-        t.setExtensions(parseExtensions(node.path(JSONConstants.EXTENSIONS)));
+        t.setService(node.path(/*~~>*/JSONConstants.SERVICE).textValue());
+        t.setVersion(node.path(/*~~>*/JSONConstants.VERSION).textValue());
+        t.setExtensions(parseExtensions(node.path(/*~~>*/JSONConstants.EXTENSIONS)));
         return t;
 
     }
@@ -105,21 +105,21 @@ public abstract class AbstractSosRequestDecoder<T extends OwsServiceRequest>
     }
 
     protected Extension<SweAbstractDataComponent> parseExtension(JsonNode node) {
-        if (node.isObject() && node.has(JSONConstants.DEFINITION) && node.has(JSONConstants.VALUE)) {
+        if (node.isObject() && node.has(/*~~>*/JSONConstants.DEFINITION) && node.has(/*~~>*/JSONConstants.VALUE)) {
             if (node.path("value").isBoolean()) {
                 return new SwesExtension<SweAbstractDataComponent>()
-                        .setDefinition(node.path(JSONConstants.DEFINITION).asText())
-                        .setValue(new SweBoolean().setValue(node.path(JSONConstants.VALUE).asBoolean()));
-            } else if (node.path(JSONConstants.VALUE).isTextual()) {
+                        .setDefinition(node.path(/*~~>*/JSONConstants.DEFINITION).asText())
+                        .setValue(new SweBoolean().setValue(node.path(/*~~>*/JSONConstants.VALUE).asBoolean()));
+            } else if (node.path(/*~~>*/JSONConstants.VALUE).isTextual()) {
                 return new SwesExtension<SweAbstractDataComponent>()
-                        .setDefinition(node.path(JSONConstants.DEFINITION).asText())
-                        .setValue(new SweText().setValue(node.path(JSONConstants.VALUE).asText()));
+                        .setDefinition(node.path(/*~~>*/JSONConstants.DEFINITION).asText())
+                        .setValue(new SweText().setValue(node.path(/*~~>*/JSONConstants.VALUE).asText()));
             }
         }
         return null;
     }
 
-    protected List<String> parseStringOrStringList(JsonNode node) {
+    protected List</*~~>*/String> parseStringOrStringList(JsonNode node) {
         if (node.isArray()) {
             return Streams.stream(node).filter(JsonNode::isTextual).map(JsonNode::textValue)
                     .collect(Collectors.toList());
@@ -135,7 +135,7 @@ public abstract class AbstractSosRequestDecoder<T extends OwsServiceRequest>
         return null;
     }
 
-    protected abstract String getSchemaURI();
+    protected abstract /*~~>*/String getSchemaURI();
 
     protected abstract T decodeRequest(JsonNode node)
             throws DecodingException;

@@ -31,7 +31,7 @@ import com.fasterxml.jackson.databind.JsonNode;
 public class JsonAdminUserDao extends AbstractJsonDao implements AdminUserDao {
 
     @Override
-    public AdministratorUser createAdminUser(String username, String password) {
+    public AdministratorUser createAdminUser(/*~~>*/String username, /*~~>*/String password) {
         JsonAdministratorUser user;
         configuration().writeLock().lock();
         try {
@@ -45,10 +45,10 @@ public class JsonAdminUserDao extends AbstractJsonDao implements AdminUserDao {
     }
 
     @Override
-    public void deleteAdminUser(String username) {
+    public void deleteAdminUser(/*~~>*/String username) {
         configuration().writeLock().lock();
         try {
-            getConfiguration().with(JsonConstants.USERS).remove(username);
+            getConfiguration().with(/*~~>*/JsonConstants.USERS).remove(username);
             configuration().scheduleWrite();
         } finally {
             configuration().writeLock().unlock();
@@ -56,10 +56,10 @@ public class JsonAdminUserDao extends AbstractJsonDao implements AdminUserDao {
     }
 
     @Override
-    public AdministratorUser getAdminUser(String username) {
+    public AdministratorUser getAdminUser(/*~~>*/String username) {
         configuration().readLock().lock();
         try {
-            String password = getConfiguration().path(JsonConstants.USERS).path(username).asText(null);
+            /*~~>*/String password = getConfiguration().path(/*~~>*/JsonConstants.USERS).path(username).asText(null);
             return password == null ? null : new JsonAdministratorUser(username, password);
         } finally {
             configuration().readLock().unlock();
@@ -72,7 +72,7 @@ public class JsonAdminUserDao extends AbstractJsonDao implements AdminUserDao {
         Set<AdministratorUser> users;
         configuration().readLock().lock();
         try {
-            JsonNode node = getConfiguration().path(JsonConstants.USERS);
+            JsonNode node = getConfiguration().path(/*~~>*/JsonConstants.USERS);
             users = new HashSet<>(node.size());
             node.fieldNames()
                     .forEachRemaining(name -> users.add(new JsonAdministratorUser(name, node.path(name).asText(null))));
@@ -87,7 +87,7 @@ public class JsonAdminUserDao extends AbstractJsonDao implements AdminUserDao {
     public void saveAdminUser(AdministratorUser user) {
         configuration().writeLock().lock();
         try {
-            getConfiguration().with(JsonConstants.USERS).put(user.getUsername(), user.getPassword());
+            getConfiguration().with(/*~~>*/JsonConstants.USERS).put(user.getUsername(), user.getPassword());
             configuration().writeNow();
         } finally {
             configuration().writeLock().unlock();
@@ -99,7 +99,7 @@ public class JsonAdminUserDao extends AbstractJsonDao implements AdminUserDao {
     public void deleteAll() {
         configuration().writeLock().lock();
         try {
-            getConfiguration().remove(JsonConstants.USERS);
+            getConfiguration().remove(/*~~>*/JsonConstants.USERS);
             configuration().scheduleWrite();
         } finally {
             configuration().writeLock().unlock();

@@ -82,7 +82,7 @@ public class Json {
         return FACTORY;
     }
 
-    public static String print(JsonNode node) {
+    public static /*~~>*/String print(JsonNode node) {
         try (StringWriter writer = new StringWriter()) {
             print(writer, node);
             writer.flush();
@@ -107,7 +107,7 @@ public class Json {
         }
     }
 
-    public static JsonNode loadPath(String path) throws IOException {
+    public static JsonNode loadPath(/*~~>*/String path) throws IOException {
         try (InputStream in = new FileInputStream(path)) {
             return loadStream(in);
         }
@@ -133,7 +133,7 @@ public class Json {
         return reader().readTree(reader);
     }
 
-    public static JsonNode loadString(String json) {
+    public static JsonNode loadString(/*~~>*/String json) {
         try {
             return loadReader(new StringReader(json));
         } catch (IOException ex) {
@@ -142,7 +142,7 @@ public class Json {
         }
     }
 
-    public static ObjectNode toJSON(Map<String, ?> map) {
+    public static ObjectNode toJSON(Map</*~~>*/String, ?> map) {
         ObjectNode node = nodeFactory().objectNode();
         Optional.ofNullable(map).orElseGet(Collections::emptyMap)
                 .forEach((key, value) -> node.set(key, toJSONString(value)));
@@ -162,7 +162,7 @@ public class Json {
         } else if (object instanceof JsonNode) {
             return (JsonNode) object;
         } else {
-            return nodeFactory().textNode(String.valueOf(object));
+            return nodeFactory().textNode(/*~~>*/String.valueOf(object));
         }
     }
 

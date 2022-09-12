@@ -39,11 +39,11 @@ public class InsertResultTemplateRequest extends OwsServiceRequest {
         super(null, null, Sos2Constants.Operations.InsertResultTemplate.name());
     }
 
-    public InsertResultTemplateRequest(String service, String version) {
+    public InsertResultTemplateRequest(/*~~>*/String service, /*~~>*/String version) {
         super(service, version, Sos2Constants.Operations.InsertResultTemplate.name());
     }
 
-    public InsertResultTemplateRequest(String service, String version, String operationName) {
+    public InsertResultTemplateRequest(/*~~>*/String service, /*~~>*/String version, /*~~>*/String operationName) {
         super(service, version, operationName);
     }
 
@@ -61,7 +61,7 @@ public class InsertResultTemplateRequest extends OwsServiceRequest {
         this.resultTemplate.setIdentifier(identifier);
     }
 
-    public void setIdentifier(String identifier) {
+    public void setIdentifier(/*~~>*/String identifier) {
         setIdentifier(new CodeWithAuthority(identifier));
 
     }

@@ -42,14 +42,14 @@ import org.n52.svalbard.encode.json.JSONEncodingException;
 public class JSONEncoderTest {
 
 
-    private final JSONEncoder<String> encoder = new JSONEncoderForTesting(String.class);
-    private final JSONEncoder<String> throwingEncoder = new JSONEncoderForExceptionTesting(String.class);
+    private final JSONEncoder</*~~>*/String> encoder = new JSONEncoderForTesting(/*~~>*/String.class);
+    private final JSONEncoder</*~~>*/String> throwingEncoder = new JSONEncoderForExceptionTesting(/*~~>*/String.class);
 
     @Test
     public void testEncoderKeyTypes() {
         assertThat(encoder.getKeys(), is(notNullValue()));
         assertThat(encoder.getKeys(), hasSize(1));
-        assertThat(encoder.getKeys(), hasItem(new JSONEncoderKey(String.class)));
+        assertThat(encoder.getKeys(), hasItem(new JSONEncoderKey(/*~~>*/String.class)));
     }
 
     @Test

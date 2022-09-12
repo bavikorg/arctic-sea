@@ -36,8 +36,8 @@ import edu.umd.cs.findbugs.annotations.SuppressFBWarnings;
  * @author Christian Autermann
  */
 public class XmlFactories {
-    private static final String XML_VERSION = "1.0";
-    private static final String INDENT_AMOUNT = "{http://xml.apache.org/xslt}indent-amount";
+    private static final /*~~>*/String XML_VERSION = "1.0";
+    private static final /*~~>*/String INDENT_AMOUNT = "{http://xml.apache.org/xslt}indent-amount";
 
     private final TransformerFactory transformerFactory;
     private final XMLEventFactory eventFactory;
@@ -87,7 +87,7 @@ public class XmlFactories {
     /**
      * @return the document version
      */
-    public String documentVersion() {
+    public /*~~>*/String documentVersion() {
         return XML_VERSION;
     }
 
@@ -127,11 +127,11 @@ public class XmlFactories {
     public Transformer createIndentingTransformer()
             throws TransformerException {
         Transformer transformer = transformerFactory().newTransformer();
-        transformer.setOutputProperty(OutputKeys.OMIT_XML_DECLARATION, "no");
-        transformer.setOutputProperty(OutputKeys.METHOD, "xml");
-        transformer.setOutputProperty(OutputKeys.INDENT, "yes");
-        transformer.setOutputProperty(OutputKeys.VERSION, XML_VERSION);
-        transformer.setOutputProperty(OutputKeys.ENCODING, "UTF-8");
+        transformer.setOutputProperty(/*~~>*/OutputKeys.OMIT_XML_DECLARATION, "no");
+        transformer.setOutputProperty(/*~~>*/OutputKeys.METHOD, "xml");
+        transformer.setOutputProperty(/*~~>*/OutputKeys.INDENT, "yes");
+        transformer.setOutputProperty(/*~~>*/OutputKeys.VERSION, XML_VERSION);
+        transformer.setOutputProperty(/*~~>*/OutputKeys.ENCODING, "UTF-8");
 
         try {
             transformer.setOutputProperty(INDENT_AMOUNT, "2");
@@ -143,7 +143,7 @@ public class XmlFactories {
     }
 
     public XMLStreamException unexpectedTag(StartElement element) {
-        String message = String.format("unexpected tag: %s", element.getName());
+        /*~~>*/String message = /*~~>*/String.format("unexpected tag: %s", element.getName());
         return new XMLStreamException(message, element.getLocation());
     }
 

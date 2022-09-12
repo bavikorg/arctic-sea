@@ -25,10 +25,10 @@ import org.springframework.core.convert.converter.Converter;
  *
  * @author Christian Autermann
  */
-public class PathConverter implements Converter<String, Path> {
+public class PathConverter implements Converter</*~~>*/String, Path> {
 
     @Override
-    public Path convert(String source) {
+    public Path convert(/*~~>*/String source) {
         return Paths.get(source);
     }
 

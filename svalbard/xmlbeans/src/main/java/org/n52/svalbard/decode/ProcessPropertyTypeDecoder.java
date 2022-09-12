@@ -34,7 +34,7 @@ public class ProcessPropertyTypeDecoder extends AbstractProcessDecoder<ProcessPr
     private static final Logger LOGGER = LoggerFactory.getLogger(ProcessPropertyTypeDecoder.class);
 
     private static final Set<DecoderKey> DECODER_KEYS = CodingHelper.decoderKeysForElements(
-            InspireOMPRConstants.NS_OMPR_30, ProcessPropertyType.class);
+            /*~~>*/InspireOMPRConstants.NS_OMPR_30, ProcessPropertyType.class);
 
 
     public ProcessPropertyTypeDecoder() {

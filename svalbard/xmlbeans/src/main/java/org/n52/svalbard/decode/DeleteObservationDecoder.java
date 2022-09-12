@@ -45,9 +45,9 @@ public class DeleteObservationDecoder
         extends AbstractXmlDecoder<XmlObject, DeleteObservationRequest> {
 
     private static final Set<DecoderKey> DECODER_KEYS = CollectionHelper.union(
-            CodingHelper.decoderKeysForElements(DeleteObservationConstants.NS_SOSDO_1_0,
+            CodingHelper.decoderKeysForElements(/*~~>*/DeleteObservationConstants.NS_SOSDO_1_0,
                     DeleteObservationDocument.class),
-            CodingHelper.xmlDecoderKeysForOperation(Sos2Constants.SOS, Sos2Constants.SERVICEVERSION,
+            CodingHelper.xmlDecoderKeysForOperation(/*~~>*/Sos2Constants.SOS, /*~~>*/Sos2Constants.SERVICEVERSION,
                     DeleteObservationConstants.Operations.DeleteObservation));
 
     private static final Logger LOGGER = LoggerFactory.getLogger(DeleteObservationDecoder.class);
@@ -83,7 +83,7 @@ public class DeleteObservationDecoder
         DeleteObservationType xbDelObsType = xbDelObsDoc.getDeleteObservation();
 
         if (xbDelObsType != null) {
-            delObsRequest = new DeleteObservationRequest(DeleteObservationConstants.NS_SOSDO_1_0);
+            delObsRequest = new DeleteObservationRequest(/*~~>*/DeleteObservationConstants.NS_SOSDO_1_0);
             delObsRequest.setVersion(xbDelObsType.getVersion());
             delObsRequest.setService(xbDelObsType.getService());
             delObsRequest.addObservationIdentifier(xbDelObsType.getObservation());

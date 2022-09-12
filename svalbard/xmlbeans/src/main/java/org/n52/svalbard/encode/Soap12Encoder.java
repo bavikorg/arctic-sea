@@ -79,10 +79,10 @@ public class Soap12Encoder extends AbstractSoapEncoder<XmlObject, Object>
     private static final Logger LOGGER = LoggerFactory.getLogger(Soap12Encoder.class);
 
     private static final Set<EncoderKey> ENCODER_KEY_TYPES = CodingHelper.encoderKeysForElements(
-            SoapConstants.NS_SOAP_12, SoapResponse.class, SoapRequest.class, SoapFault.class, OwsExceptionReport.class);
+            /*~~>*/SoapConstants.NS_SOAP_12, SoapResponse.class, SoapRequest.class, SoapFault.class, OwsExceptionReport.class);
 
     public Soap12Encoder() {
-        super(SoapConstants.NS_SOAP_12);
+        super(/*~~>*/SoapConstants.NS_SOAP_12);
         LOGGER.debug("Encoder for the following keys initialized successfully: {}!",
                      Joiner.on(", ").join(ENCODER_KEY_TYPES));
     }
@@ -129,7 +129,7 @@ public class Soap12Encoder extends AbstractSoapEncoder<XmlObject, Object>
 
     private XmlObject createEnvelope(AbstractSoap<?> soap, EncodingContext additionalValues)
             throws EncodingException {
-        String action = null;
+        /*~~>*/String action = null;
         final EnvelopeDocument envelopeDoc = EnvelopeDocument.Factory.newInstance();
         final Envelope envelope = envelopeDoc.addNewEnvelope();
         final Body body = envelope.addNewBody();
@@ -151,12 +151,12 @@ public class Soap12Encoder extends AbstractSoapEncoder<XmlObject, Object>
                 action = soap.getSoapAction();
 
                 final XmlObject bodyContent = getBodyContent(soap);
-                String value = null;
+                /*~~>*/String value = null;
                 Node nodeToRemove = null;
                 final NamedNodeMap attributeMap = bodyContent.getDomNode().getFirstChild().getAttributes();
                 for (int i = 0; i < attributeMap.getLength(); i++) {
                     final Node node = attributeMap.item(i);
-                    if (node.getLocalName().equals(W3CConstants.AN_SCHEMA_LOCATION)) {
+                    if (node.getLocalName().equals(/*~~>*/W3CConstants.AN_SCHEMA_LOCATION)) {
                         value = node.getNodeValue();
                         nodeToRemove = node;
                     }
@@ -167,7 +167,7 @@ public class Soap12Encoder extends AbstractSoapEncoder<XmlObject, Object>
                 final Set<SchemaLocation> schemaLocations = Sets.newHashSet();
                 schemaLocations.add(N52XmlHelper.getSchemaLocationForSOAP12());
                 if (value != null && !value.isEmpty()) {
-                    String[] split = value.split(" ");
+                    /*~~>*/String[] split = value.split(" ");
                     for (int i = 0; i <= split.length - 2; i += 2) {
                         schemaLocations.add(new SchemaLocation(split[i], split[i + 1]));
                     }
@@ -188,11 +188,11 @@ public class Soap12Encoder extends AbstractSoapEncoder<XmlObject, Object>
         return envelopeDoc;
     }
 
-    private void createHeader(Envelope envelope, List<SoapHeader> headers, String action)
+    private void createHeader(Envelope envelope, List<SoapHeader> headers, /*~~>*/String action)
             throws EncodingException {
         Node headerDomNode = envelope.addNewHeader().getDomNode();
         for (SoapHeader header : headers) {
-            if (WsaConstants.NS_WSA.equals(header.getNamespace()) && header instanceof WsaActionHeader) {
+            if (/*~~>*/WsaConstants.NS_WSA.equals(header.getNamespace()) && header instanceof WsaActionHeader) {
                 ((WsaHeader) header).setValue(action);
             }
             XmlObject xmObject = encodeObjectToXml(header.getNamespace(), header);
@@ -245,7 +245,7 @@ public class Soap12Encoder extends AbstractSoapEncoder<XmlObject, Object>
             addNewText.setLang(Locale.ENGLISH.getLanguage());
             addNewText.setStringValue(getSoapFaultReasonText(firstException.getCode()));
 
-            fault.addNewDetail().set(encodeObjectToXml(OWSConstants.NS_OWS, firstException,
+            fault.addNewDetail().set(encodeObjectToXml(/*~~>*/OWSConstants.NS_OWS, firstException,
                     EncodingContext.of(XmlBeansEncodingFlags.ENCODE_OWS_EXCEPTION_ONLY)));
         }
         return faultDoc;

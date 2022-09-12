@@ -21,13 +21,13 @@ import org.n52.shetland.ogc.om.values.Value;
 
 public abstract class AbstractObservationValue<
         T extends Value<?>> implements ObservationValue<T> {
-    private String observationID;
-    private String observationType;
-    private String observableProperty;
-    private String tokenSeparator;
-    private String tupleSeparator;
-    private String decimalSeparator;
-    private String unit;
+    private /*~~>*/String observationID;
+    private /*~~>*/String observationType;
+    private /*~~>*/String observableProperty;
+    private /*~~>*/String tokenSeparator;
+    private /*~~>*/String tupleSeparator;
+    private /*~~>*/String decimalSeparator;
+    private /*~~>*/String unit;
     private DefaultPointMetadata defaultPointMetadata;
     private Metadata metadata;
 
@@ -43,7 +43,7 @@ public abstract class AbstractObservationValue<
     /**
      * @return the observationID
      */
-    public String getObservationID() {
+    public /*~~>*/String getObservationID() {
         return observationID;
     }
 
@@ -51,8 +51,8 @@ public abstract class AbstractObservationValue<
      * @param observationID
      *            the observationID to set
      */
-    public void setObservationID(String observationID) {
-        this.observationID = observationID;
+    public void setObservationID(/*~~>*/String observationID) {
+        /*~~>*/this.observationID = observationID;
     }
 
     public boolean isSetObservationID() {
@@ -62,7 +62,7 @@ public abstract class AbstractObservationValue<
     /**
      * @return the observationType
      */
-    public String getObservationType() {
+    public /*~~>*/String getObservationType() {
         return observationType;
     }
 
@@ -70,8 +70,8 @@ public abstract class AbstractObservationValue<
      * @param observationType
      *            the observationType to set
      */
-    private void setObservationType(String observationType) {
-        this.observationType = observationType;
+    private void setObservationType(/*~~>*/String observationType) {
+        /*~~>*/this.observationType = observationType;
     }
 
     public boolean isSetObservationType() {
@@ -81,7 +81,7 @@ public abstract class AbstractObservationValue<
     /**
      * @return the observableProperty
      */
-    public String getObservableProperty() {
+    public /*~~>*/String getObservableProperty() {
         return observableProperty;
     }
 
@@ -89,8 +89,8 @@ public abstract class AbstractObservationValue<
      * @param observableProperty
      *            the observableProperty to set
      */
-    private void setObservableProperty(String observableProperty) {
-        this.observableProperty = observableProperty;
+    private void setObservableProperty(/*~~>*/String observableProperty) {
+        /*~~>*/this.observableProperty = observableProperty;
     }
 
     public boolean isSetObservablePropertyD() {
@@ -100,7 +100,7 @@ public abstract class AbstractObservationValue<
     /**
      * @return the tokenSeparator
      */
-    public String getTokenSeparator() {
+    public /*~~>*/String getTokenSeparator() {
         return tokenSeparator;
     }
 
@@ -108,8 +108,8 @@ public abstract class AbstractObservationValue<
      * @param tokenSeparator
      *            the tokenSeparator to set
      */
-    private void setTokenSeparator(String tokenSeparator) {
-        this.tokenSeparator = tokenSeparator;
+    private void setTokenSeparator(/*~~>*/String tokenSeparator) {
+        /*~~>*/this.tokenSeparator = tokenSeparator;
     }
 
     public boolean isSetTokenSeparator() {
@@ -119,7 +119,7 @@ public abstract class AbstractObservationValue<
     /**
      * @return the tupleSeparator
      */
-    public String getTupleSeparator() {
+    public /*~~>*/String getTupleSeparator() {
         return tupleSeparator;
     }
 
@@ -127,8 +127,8 @@ public abstract class AbstractObservationValue<
      * @param tupleSeparator
      *            the tupleSeparator to set
      */
-    private void setTupleSeparator(String tupleSeparator) {
-        this.tupleSeparator = tupleSeparator;
+    private void setTupleSeparator(/*~~>*/String tupleSeparator) {
+        /*~~>*/this.tupleSeparator = tupleSeparator;
     }
 
     public boolean isSetTupleSeparator() {
@@ -140,7 +140,7 @@ public abstract class AbstractObservationValue<
      *
      * @return the decimalSeparator
      */
-    public String getDecimalSeparator() {
+    public /*~~>*/String getDecimalSeparator() {
         return decimalSeparator;
     }
 
@@ -150,8 +150,8 @@ public abstract class AbstractObservationValue<
      * @param decimalSeparator
      *            the decimalSeparator to set
      */
-    public void setDecimalSeparator(final String decimalSeparator) {
-        this.decimalSeparator = decimalSeparator;
+    public void setDecimalSeparator(final /*~~>*/String decimalSeparator) {
+        /*~~>*/this.decimalSeparator = decimalSeparator;
     }
 
     /**
@@ -167,7 +167,7 @@ public abstract class AbstractObservationValue<
     /**
      * @return the unit
      */
-    public String getUnit() {
+    public /*~~>*/String getUnit() {
         return unit;
     }
 
@@ -175,8 +175,8 @@ public abstract class AbstractObservationValue<
      * @param unit
      *            the unit to set
      */
-    public void setUnit(String unit) {
-        this.unit = unit;
+    public void setUnit(/*~~>*/String unit) {
+        /*~~>*/this.unit = unit;
     }
 
     public boolean isSetUnit() {

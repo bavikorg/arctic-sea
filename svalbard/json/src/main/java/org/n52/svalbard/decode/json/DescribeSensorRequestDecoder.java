@@ -32,22 +32,22 @@ import com.fasterxml.jackson.databind.JsonNode;
  */
 public class DescribeSensorRequestDecoder extends AbstractSosRequestDecoder<DescribeSensorRequest> {
     public DescribeSensorRequestDecoder() {
-        super(DescribeSensorRequest.class, SosConstants.SOS, Sos2Constants.SERVICEVERSION,
+        super(DescribeSensorRequest.class, /*~~>*/SosConstants.SOS, /*~~>*/Sos2Constants.SERVICEVERSION,
                 SosConstants.Operations.DescribeSensor);
     }
 
     @Override
-    protected String getSchemaURI() {
-        return SchemaConstants.Request.DESCRIBE_SENSOR;
+    protected /*~~>*/String getSchemaURI() {
+        return /*~~>*/SchemaConstants.Request.DESCRIBE_SENSOR;
     }
 
     @Override
     protected DescribeSensorRequest decodeRequest(JsonNode node) {
         DescribeSensorRequest req = new DescribeSensorRequest();
-        req.setProcedure(node.path(JSONConstants.PROCEDURE).textValue());
-        req.setProcedureDescriptionFormat(node.path(JSONConstants.PROCEDURE_DESCRIPTION_FORMAT).textValue());
-        if (node.has(JSONConstants.VALID_TIME)) {
-            req.setValidTime(parseTime(node.path(JSONConstants.VALID_TIME)));
+        req.setProcedure(node.path(/*~~>*/JSONConstants.PROCEDURE).textValue());
+        req.setProcedureDescriptionFormat(node.path(/*~~>*/JSONConstants.PROCEDURE_DESCRIPTION_FORMAT).textValue());
+        if (node.has(/*~~>*/JSONConstants.VALID_TIME)) {
+            req.setValidTime(parseTime(node.path(/*~~>*/JSONConstants.VALID_TIME)));
         }
         return req;
     }

@@ -17,69 +17,69 @@ package org.n52.shetland.ogc.sta;
 
 public interface StaConstants {
 
-    String THING = "Thing";
+    /*~~>*/String THING = "Thing";
 
-    String THINGS = "Things";
+    /*~~>*/String THINGS = "Things";
 
-    String LOCATION = "Location";
+    /*~~>*/String LOCATION = "Location";
 
-    String LOCATIONS = "Locations";
+    /*~~>*/String LOCATIONS = "Locations";
 
-    String DATASTREAM = "Datastream";
+    /*~~>*/String DATASTREAM = "Datastream";
 
-    String DATASTREAMS = "Datastreams";
+    /*~~>*/String DATASTREAMS = "Datastreams";
 
-    String HISTORICAL_LOCATION = "HistoricalLocation";
+    /*~~>*/String HISTORICAL_LOCATION = "HistoricalLocation";
 
-    String HISTORICAL_LOCATIONS = "HistoricalLocations";
+    /*~~>*/String HISTORICAL_LOCATIONS = "HistoricalLocations";
 
-    String SENSOR = "Sensor";
+    /*~~>*/String SENSOR = "Sensor";
 
-    String SENSORS = "Sensors";
+    /*~~>*/String SENSORS = "Sensors";
 
-    String OBSERVATION = "Observation";
+    /*~~>*/String OBSERVATION = "Observation";
 
-    String OBSERVATIONS = "Observations";
+    /*~~>*/String OBSERVATIONS = "Observations";
 
-    String OBSERVED_PROPERTY = "ObservedProperty";
+    /*~~>*/String OBSERVED_PROPERTY = "ObservedProperty";
 
-    String OBSERVED_PROPERTIES = "ObservedProperties";
+    /*~~>*/String OBSERVED_PROPERTIES = "ObservedProperties";
 
-    String FEATURE_OF_INTEREST = "FeatureOfInterest";
+    /*~~>*/String FEATURE_OF_INTEREST = "FeatureOfInterest";
 
-    String FEATURES_OF_INTEREST = "FeaturesOfInterest";
+    /*~~>*/String FEATURES_OF_INTEREST = "FeaturesOfInterest";
 
-    String AT = "@";
+    /*~~>*/String AT = "@";
 
-    String IOT_ID = "iot.id";
+    /*~~>*/String IOT_ID = "iot.id";
 
-    String IOT_SELFLINK = "iot.selfLink";
+    /*~~>*/String IOT_SELFLINK = "iot.selfLink";
 
-    String AT_IOT_ID = AT + IOT_ID;
+    /*~~>*/String AT_IOT_ID = AT + IOT_ID;
 
-    String AT_IOT_SELFLINK = AT + IOT_SELFLINK;
+    /*~~>*/String AT_IOT_SELFLINK = AT + IOT_SELFLINK;
 
     // Entity Property Names
-    String PROP_ID = "id";
-    String PROP_SELF_LINK = "selfLink";
-    String PROP_DEFINITION = "definition";
-    String PROP_DESCRIPTION = "description";
-    String PROP_ENCODINGTYPE = "encodingType";
-    String PROP_FEATURE = "feature";
-    String PROP_LOCATION = "location";
-    String PROP_NAME = "name";
-    String PROP_OBSERVATION_TYPE = "observationType";
-    String PROP_OBSERVED_AREA = "observedArea";
-    String PROP_PARAMETERS = "parameters";
-    String PROP_PHENOMENON_TIME = "phenomenonTime";
-    String PROP_PROPERTIES = "properties";
-    String PROP_RESULT = "result";
-    String PROP_RESULT_QUALITY = "resultQuality";
-    String PROP_RESULT_TIME = "resultTime";
-    String PROP_TIME = "time";
-    String PROP_UOM = "unitOfMeasurement";
-    String PROP_VALID_TIME = "validTime";
-    String PROP_METADATA = "metadata";
-    String PROP_SYMBOL = "symbol";
+    /*~~>*/String PROP_ID = "id";
+    /*~~>*/String PROP_SELF_LINK = "selfLink";
+    /*~~>*/String PROP_DEFINITION = "definition";
+    /*~~>*/String PROP_DESCRIPTION = "description";
+    /*~~>*/String PROP_ENCODINGTYPE = "encodingType";
+    /*~~>*/String PROP_FEATURE = "feature";
+    /*~~>*/String PROP_LOCATION = "location";
+    /*~~>*/String PROP_NAME = "name";
+    /*~~>*/String PROP_OBSERVATION_TYPE = "observationType";
+    /*~~>*/String PROP_OBSERVED_AREA = "observedArea";
+    /*~~>*/String PROP_PARAMETERS = "parameters";
+    /*~~>*/String PROP_PHENOMENON_TIME = "phenomenonTime";
+    /*~~>*/String PROP_PROPERTIES = "properties";
+    /*~~>*/String PROP_RESULT = "result";
+    /*~~>*/String PROP_RESULT_QUALITY = "resultQuality";
+    /*~~>*/String PROP_RESULT_TIME = "resultTime";
+    /*~~>*/String PROP_TIME = "time";
+    /*~~>*/String PROP_UOM = "unitOfMeasurement";
+    /*~~>*/String PROP_VALID_TIME = "validTime";
+    /*~~>*/String PROP_METADATA = "metadata";
+    /*~~>*/String PROP_SYMBOL = "symbol";
 
 }

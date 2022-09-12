@@ -57,13 +57,13 @@ public abstract class ElasticsearchAwareTest extends SpringBaseTest {
     public static void init() throws IOException, InterruptedException, NodeValidationException {
 
         logger.debug("Starting embedded node");
-        String resource = "elasticsearch_embedded.yml";
+        /*~~>*/String resource = "elasticsearch_embedded.yml";
         Settings.Builder settings = Settings.builder().loadFromStream(resource,
                 ElasticsearchAwareTest.class.getResourceAsStream(resource), false);
 
         embeddedNode = EmbeddedElastic.builder().withElasticVersion("5.0.0")
-                .withSetting(PopularProperties.TRANSPORT_TCP_PORT, 9300)
-                .withSetting(PopularProperties.CLUSTER_NAME, "elasticsearch").build();
+                .withSetting(/*~~>*/PopularProperties.TRANSPORT_TCP_PORT, 9300)
+                .withSetting(/*~~>*/PopularProperties.CLUSTER_NAME, "elasticsearch").build();
         embeddedNode.start();
 
         logger.debug("Started embedded node");

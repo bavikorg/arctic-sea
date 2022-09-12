@@ -53,8 +53,8 @@ public class SweDataRecord extends SweAbstractDataRecord {
     }
 
     @Override
-    public String toString() {
-        return String.format("SweDataRecord [fields=%s, definition=%s, label=%s, identifier=%s, xml=%s]", getFields(),
+    public /*~~>*/String toString() {
+        return /*~~>*/String.format("SweDataRecord [fields=%s, definition=%s, label=%s, identifier=%s, xml=%s]", getFields(),
                 getDefinition(), getLabel(), getIdentifier(), getXml());
     }
 

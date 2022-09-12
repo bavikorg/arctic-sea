@@ -42,7 +42,7 @@ public interface ProcessDescription
                                             .thenComparing(ProcessDescription::getVersion,
                                                     Comparator.nullsLast(Comparator.naturalOrder())));
 
-    String getVersion();
+    /*~~>*/String getVersion();
 
     boolean isStatusSupported();
 
@@ -64,7 +64,7 @@ public interface ProcessDescription
 
         B storeSupported(boolean storeSupported);
 
-        B withVersion(String version);
+        B withVersion(/*~~>*/String version);
 
     }
 

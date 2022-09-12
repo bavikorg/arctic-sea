@@ -40,37 +40,37 @@ import com.fasterxml.jackson.databind.node.ObjectNode;
  */
 public abstract class AbstractJsonActivationDao extends AbstractJsonDao {
 
-    protected boolean isActive(String path, Predicate<JsonNode> matcher, boolean defaultValue) {
+    protected boolean isActive(/*~~>*/String path, Predicate<JsonNode> matcher, boolean defaultValue) {
         readLock().lock();
         try {
-            JsonNode array = getConfiguration().path(JsonConstants.ACTIVATION).path(path);
+            JsonNode array = getConfiguration().path(/*~~>*/JsonConstants.ACTIVATION).path(path);
             return createStream(array).filter(matcher)
                     .findAny().orElseGet(MissingNode::getInstance)
-                    .path(JsonConstants.ACTIVE).asBoolean(defaultValue);
+                    .path(/*~~>*/JsonConstants.ACTIVE).asBoolean(defaultValue);
         } finally {
             readLock().unlock();
         }
     }
 
-    protected void setStatus(String path, Predicate<JsonNode> matcher,
+    protected void setStatus(/*~~>*/String path, Predicate<JsonNode> matcher,
                              Function<Supplier<ObjectNode>, Supplier<ObjectNode>> encoder,
                              boolean active) {
         writeLock().lock();
         try {
-            ArrayNode array = getConfiguration().with(JsonConstants.ACTIVATION).withArray(path);
+            ArrayNode array = getConfiguration().with(/*~~>*/JsonConstants.ACTIVATION).withArray(path);
             ObjectNode node = (ObjectNode) createStream(array).filter(matcher).findAny()
                     .orElseGet(encoder.apply(array::addObject));
-            node.put(JsonConstants.ACTIVE, active);
+            node.put(/*~~>*/JsonConstants.ACTIVE, active);
         } finally {
             writeLock().unlock();
         }
         configuration().scheduleWrite();
     }
 
-    protected <K> Set<K> getKeys(String path, Function<JsonNode, K> decoder) {
+    protected <K> Set<K> getKeys(/*~~>*/String path, Function<JsonNode, K> decoder) {
         readLock().lock();
         try {
-            JsonNode array = getConfiguration().path(JsonConstants.ACTIVATION).path(path);
+            JsonNode array = getConfiguration().path(/*~~>*/JsonConstants.ACTIVATION).path(path);
             return createStream(array).map(decoder).collect(toSet());
         } finally {
             readLock().unlock();
@@ -79,35 +79,35 @@ public abstract class AbstractJsonActivationDao extends AbstractJsonDao {
 
     protected Predicate<JsonNode> matches(AbstractComparableServiceVersionDomainKey<?> key) {
         OwsServiceKey sok = key == null ? null : key.getServiceOperatorKey();
-        String domain = key == null ? null : key.getDomain();
+        /*~~>*/String domain = key == null ? null : key.getDomain();
         return matches(sok).and(matchesDomain(domain));
     }
 
     protected Predicate<JsonNode> matches(OwsServiceKey key) {
-        String service = key == null ? null : key.getService();
-        String version = key == null ? null : key.getVersion();
+        /*~~>*/String service = key == null ? null : key.getService();
+        /*~~>*/String version = key == null ? null : key.getVersion();
         return matchesService(service).and(matchesVersion(version));
     }
 
-    protected Predicate<JsonNode> matchesDomain(String domain) {
+    protected Predicate<JsonNode> matchesDomain(/*~~>*/String domain) {
         if (domain == null) {
-            return isNullOrMissing(JsonConstants.DOMAIN);
+            return isNullOrMissing(/*~~>*/JsonConstants.DOMAIN);
         }
-        return n -> n.path(JsonConstants.DOMAIN).asText().equals(domain);
+        return n -> n.path(/*~~>*/JsonConstants.DOMAIN).asText().equals(domain);
     }
 
-    protected Predicate<JsonNode> matchesService(String service) {
+    protected Predicate<JsonNode> matchesService(/*~~>*/String service) {
         if (service == null) {
-            return isNullOrMissing(JsonConstants.SERVICE);
+            return isNullOrMissing(/*~~>*/JsonConstants.SERVICE);
         }
-        return n -> n.path(JsonConstants.SERVICE).asText().equals(service);
+        return n -> n.path(/*~~>*/JsonConstants.SERVICE).asText().equals(service);
     }
 
-    protected Predicate<JsonNode> matchesVersion(String version) {
+    protected Predicate<JsonNode> matchesVersion(/*~~>*/String version) {
         if (version == null) {
-            return isNullOrMissing(JsonConstants.VERSION);
+            return isNullOrMissing(/*~~>*/JsonConstants.VERSION);
         }
-        return n -> n.path(JsonConstants.VERSION).asText().equals(version);
+        return n -> n.path(/*~~>*/JsonConstants.VERSION).asText().equals(version);
     }
 
     protected Supplier<ObjectNode> encode(Supplier<ObjectNode> supplier,
@@ -116,8 +116,8 @@ public abstract class AbstractJsonActivationDao extends AbstractJsonDao {
         return () -> {
             OwsServiceKey sok = key == null ? null : key
                     .getServiceOperatorKey();
-            String domain = key == null ? null : key.getDomain();
-            return encode(supplier, sok).get().put(JsonConstants.DOMAIN, domain);
+            /*~~>*/String domain = key == null ? null : key.getDomain();
+            return encode(supplier, sok).get().put(/*~~>*/JsonConstants.DOMAIN, domain);
         };
     }
 
@@ -125,23 +125,23 @@ public abstract class AbstractJsonActivationDao extends AbstractJsonDao {
                                           OwsServiceKey key) {
         Objects.requireNonNull(supplier);
         return () -> {
-            String service = key == null ? null : key.getService();
-            String version = key == null ? null : key.getVersion();
-            return supplier.get().put(JsonConstants.SERVICE, service)
-                    .put(JsonConstants.VERSION, version);
+            /*~~>*/String service = key == null ? null : key.getService();
+            /*~~>*/String version = key == null ? null : key.getVersion();
+            return supplier.get().put(/*~~>*/JsonConstants.SERVICE, service)
+                    .put(/*~~>*/JsonConstants.VERSION, version);
         };
     }
 
     protected <K extends AbstractComparableServiceVersionDomainKey<K>> Function<JsonNode, K> createDomainDecoder(
-            BiFunction<OwsServiceKey, String, K> fun) {
+            BiFunction<OwsServiceKey, /*~~>*/String, K> fun) {
         Objects.requireNonNull(fun);
-        return n -> fun.apply(decodeServiceOperatorKey(n), n.path(JsonConstants.DOMAIN).textValue());
+        return n -> fun.apply(decodeServiceOperatorKey(n), n.path(/*~~>*/JsonConstants.DOMAIN).textValue());
     }
 
     protected OwsServiceKey decodeServiceOperatorKey(JsonNode node) {
         return new OwsServiceKey(
-                node.path(JsonConstants.SERVICE).textValue(),
-                node.path(JsonConstants.VERSION).textValue());
+                node.path(/*~~>*/JsonConstants.SERVICE).textValue(),
+                node.path(/*~~>*/JsonConstants.VERSION).textValue());
     }
 
 }

@@ -25,11 +25,11 @@ public class GetResultRequest extends AbstractJobIdRequest {
         super(null, null, WPSConstants.Operations.GetResult.name());
     }
 
-    public GetResultRequest(String service, String version) {
+    public GetResultRequest(/*~~>*/String service, /*~~>*/String version) {
         super(service, version, WPSConstants.Operations.GetResult.name());
     }
 
-    public GetResultRequest(String service, String version, String operationName) {
+    public GetResultRequest(/*~~>*/String service, /*~~>*/String version, /*~~>*/String operationName) {
         super(service, version, operationName);
     }
 

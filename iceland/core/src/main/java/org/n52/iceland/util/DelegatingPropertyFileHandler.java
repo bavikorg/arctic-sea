@@ -49,7 +49,7 @@ public class DelegatingPropertyFileHandler implements PropertyFileHandler {
     }
 
     @Override
-    public void delete(String m) throws ConfigurationError {
+    public void delete(/*~~>*/String m) throws ConfigurationError {
         this.delegate.delete(m);
     }
 
@@ -64,7 +64,7 @@ public class DelegatingPropertyFileHandler implements PropertyFileHandler {
     }
 
     @Override
-    public String get(String m) throws ConfigurationError {
+    public /*~~>*/String get(/*~~>*/String m) throws ConfigurationError {
         return this.delegate.get(m);
     }
 
@@ -79,12 +79,12 @@ public class DelegatingPropertyFileHandler implements PropertyFileHandler {
     }
 
     @Override
-    public String getPath() {
+    public /*~~>*/String getPath() {
         return this.delegate.getPath();
     }
 
     @Override
-    public void save(String m, String value) throws ConfigurationError {
+    public void save(/*~~>*/String m, /*~~>*/String value) throws ConfigurationError {
         this.delegate.save(m, value);
     }
 

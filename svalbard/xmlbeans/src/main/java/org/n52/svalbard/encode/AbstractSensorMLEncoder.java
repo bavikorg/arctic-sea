@@ -39,7 +39,7 @@ public abstract class AbstractSensorMLEncoder
 
     private static final Logger LOGGER = LoggerFactory.getLogger(AbstractSensorMLEncoder.class);
 
-    private static final String OUTPUT_PREFIX = "output#";
+    private static final /*~~>*/String OUTPUT_PREFIX = "output#";
 
     // /**
     // * Add special capabilities to abstract process:
@@ -467,8 +467,8 @@ public abstract class AbstractSensorMLEncoder
      *            Set with otput names
      * @return Valvalue output element name
      */
-    protected String getValidOutputName(final int counter, final Set<String> outputNames) {
-        String outputName = OUTPUT_PREFIX + counter;
+    protected /*~~>*/String getValidOutputName(final int counter, final Set</*~~>*/String> outputNames) {
+        /*~~>*/String outputName = OUTPUT_PREFIX + counter;
         while (outputNames.contains(outputName)) {
             outputName = OUTPUT_PREFIX + (counter + 1);
         }

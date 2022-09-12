@@ -28,24 +28,24 @@ public enum ReportObligationType {
     E1B("E1b", "Primary validated assessment data - modelled"),
     E2A("E2a", "Primary up-to-date assessment data - measurements");
 
-    private final String title;
+    private final /*~~>*/String title;
 
-    private final String description;
+    private final /*~~>*/String description;
 
-    ReportObligationType(String title, String description) {
-        this.title = title;
-        this.description = description;
+    ReportObligationType(/*~~>*/String title, /*~~>*/String description) {
+        /*~~>*/this.title = title;
+        /*~~>*/this.description = description;
     }
 
-    public String getTitle() {
-        return this.title;
+    public /*~~>*/String getTitle() {
+        return /*~~>*/this.title;
     }
 
-    public String getDescription() {
+    public /*~~>*/String getDescription() {
         return description;
     }
 
-    public static ReportObligationType from(String v) {
+    public static ReportObligationType from(/*~~>*/String v) {
         for (ReportObligationType rot : ReportObligationType.values()) {
             if (rot.getTitle().equalsIgnoreCase(v)) {
                 return rot;

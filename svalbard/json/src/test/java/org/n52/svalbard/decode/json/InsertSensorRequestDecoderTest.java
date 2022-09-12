@@ -146,7 +146,7 @@ public class InsertSensorRequestDecoderTest {
             throws OwsExceptionReport, IOException {
         assertThat(req.getMetadata(), is(notNullValue()));
         assertThat(req.getMetadata().getObservationTypes(),
-                   is((Set<String>) Sets.newHashSet(
+                   is((Set</*~~>*/String>) Sets.newHashSet(
                            "http://www.opengis.net/def/observationType/OGC-OM/2.0/OM_Measurement",
                            "http://www.opengis.net/def/observationType/OGC-OM/2.0/OM_CategoryObservation",
                            "http://www.opengis.net/def/observationType/OGC-OM/2.0/OM_CountObservation",

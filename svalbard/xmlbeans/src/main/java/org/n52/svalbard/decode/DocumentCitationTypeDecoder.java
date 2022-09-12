@@ -34,7 +34,7 @@ public class DocumentCitationTypeDecoder
         extends AbstractXmlDecoder<XmlObject, DocumentCitation> {
 
     private static final Set<DecoderKey> DECODER_KEYS =
-            CodingHelper.decoderKeysForElements(InspireOMPRConstants.NS_OMPR_30, DocumentCitationType.class);
+            CodingHelper.decoderKeysForElements(/*~~>*/InspireOMPRConstants.NS_OMPR_30, DocumentCitationType.class);
 
     @Override
     public Set<DecoderKey> getKeys() {
@@ -57,7 +57,7 @@ public class DocumentCitationTypeDecoder
             if (dct.getLinkArray() != null) {
                 for (Link link : dct.getLinkArray()) {
                     if (link.isNil() && link.isSetNilReason()) {
-                        documentCitation.addLink(Nillable.<String> nil(link.getNilReason().toString()));
+                        documentCitation.addLink(Nillable.</*~~>*/String> nil(link.getNilReason().toString()));
                     } else {
                         documentCitation.addLink(link.getStringValue());
                     }

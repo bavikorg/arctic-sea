@@ -19,17 +19,17 @@ public class Description {
 
     private final InformationOrigin informationOrigin;
     private final Operation operation;
-    private String desc;
+    private /*~~>*/String desc;
 
     public Description(InformationOrigin informationOrigin, Operation operation) {
         this.informationOrigin = informationOrigin;
         this.operation = operation;
     }
 
-    public Description(InformationOrigin informationOrigin, Operation operation, String desc) {
+    public Description(InformationOrigin informationOrigin, Operation operation, /*~~>*/String desc) {
         this.informationOrigin = informationOrigin;
         this.operation = operation;
-        this.desc = desc;
+        /*~~>*/this.desc = desc;
     }
 
     public InformationOrigin getInformationOrigin() {
@@ -40,16 +40,16 @@ public class Description {
         return operation;
     }
 
-    public String getDesc() {
+    public /*~~>*/String getDesc() {
         return desc;
     }
 
-    public void setDesc(String desc) {
-        this.desc = desc;
+    public void setDesc(/*~~>*/String desc) {
+        /*~~>*/this.desc = desc;
     }
 
     @Override
-    public String toString() {
+    public /*~~>*/String toString() {
         return "Description [informationOrigin=" + informationOrigin + ", operation=" + operation + ", desc=" + desc +
                "]";
     }

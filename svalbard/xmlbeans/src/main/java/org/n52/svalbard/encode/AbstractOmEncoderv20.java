@@ -103,7 +103,7 @@ public abstract class AbstractOmEncoderv20
 
     private static final Logger LOG = LoggerFactory.getLogger(AbstractOmEncoderv20.class);
 
-    private static final String OBSERVATION_ID_PREFIX = "o_";
+    private static final /*~~>*/String OBSERVATION_ID_PREFIX = "o_";
 
     /**
      * Method to create the om:result element content
@@ -130,21 +130,21 @@ public abstract class AbstractOmEncoderv20
      * @param observationType
      *            Observation type
      */
-    protected abstract void addObservationType(OMObservationType xbObservation, String observationType);
+    protected abstract void addObservationType(OMObservationType xbObservation, /*~~>*/String observationType);
 
     /**
      * Get the default encoding Namespace for FeatureOfInterest
      *
      * @return Encoding namespace
      */
-    public abstract String getDefaultFeatureEncodingNamespace();
+    public abstract /*~~>*/String getDefaultFeatureEncodingNamespace();
 
     /**
      * Get the default encoding Namespace for Procedures
      *
      * @return Encoding namespace
      */
-    protected abstract String getDefaultProcedureEncodingNamspace();
+    protected abstract /*~~>*/String getDefaultProcedureEncodingNamspace();
 
     /**
      * Indicator whether the procedure is to be encoded
@@ -203,14 +203,14 @@ public abstract class AbstractOmEncoderv20
             throw new EncodingException("Error while writing element to stream!", ioe);
         } finally {
             if (ctx.has(StreamingEncoderFlags.EMBEDDED)) {
-                getXmlOptions().remove(XmlOptions.SAVE_NO_XML_DECL);
+                getXmlOptions().remove(/*~~>*/XmlOptions.SAVE_NO_XML_DECL);
             }
         }
     }
 
     @Override
-    public void addNamespacePrefixToMap(Map<String, String> nameSpacePrefixMap) {
-        nameSpacePrefixMap.put(OmConstants.NS_OM_2, OmConstants.NS_OM_PREFIX);
+    public void addNamespacePrefixToMap(Map</*~~>*/String, /*~~>*/String> nameSpacePrefixMap) {
+        nameSpacePrefixMap.put(/*~~>*/OmConstants.NS_OM_2, /*~~>*/OmConstants.NS_OM_PREFIX);
     }
 
     /**
@@ -232,7 +232,7 @@ public abstract class AbstractOmEncoderv20
             sosObservation.setObservationID(
                     IdGenerator.generate(Double.toString(System.currentTimeMillis() * Math.random())));
         }
-        String observationID = sosObservation.getObservationID();
+        /*~~>*/String observationID = sosObservation.getObservationID();
         if (!sosObservation.isSetGmlID()) {
             sosObservation.setGmlId(OBSERVATION_ID_PREFIX + observationID);
         }
@@ -365,7 +365,7 @@ public abstract class AbstractOmEncoderv20
         // set validTime
         Time phenomenonTime = observation.getPhenomenonTime();
         if (phenomenonTime.getGmlId() == null) {
-            phenomenonTime.setGmlId(OmConstants.PHENOMENON_TIME_NAME + "_" + observation.getObservationID());
+            phenomenonTime.setGmlId(/*~~>*/OmConstants.PHENOMENON_TIME_NAME + "_" + observation.getObservationID());
         }
         addPhenomenonTime(xb.addNewPhenomenonTime(), phenomenonTime);
     }
@@ -526,7 +526,7 @@ public abstract class AbstractOmEncoderv20
             return;
         }
         if (validTime.getGmlId() == null) {
-            validTime.setGmlId(OmConstants.VALID_TIME_NAME + "_" + observation.getObservationID());
+            validTime.setGmlId(/*~~>*/OmConstants.VALID_TIME_NAME + "_" + observation.getObservationID());
         }
         xb.addNewValidTime().addNewTimePeriod().set(encodeGML(validTime));
     }
@@ -549,7 +549,7 @@ public abstract class AbstractOmEncoderv20
      */
     private XmlObject encodeFeatureOfInterest(AbstractFeature feature)
             throws EncodingException {
-        String namespace = null;
+        /*~~>*/String namespace = null;
         if (!Strings.isNullOrEmpty(getDefaultFeatureEncodingNamespace())) {
             namespace = getDefaultFeatureEncodingNamespace();
         } else {
@@ -624,32 +624,32 @@ public abstract class AbstractOmEncoderv20
 
     protected XmlObject encodeXLINK(Object o)
             throws EncodingException {
-        return encodeObjectToXml(W3CConstants.NS_XLINK, o);
+        return encodeObjectToXml(/*~~>*/W3CConstants.NS_XLINK, o);
     }
 
     protected XmlObject encodeXLINK(Object o, EncodingContext context)
             throws EncodingException {
-        return encodeObjectToXml(W3CConstants.NS_XLINK, o, context);
+        return encodeObjectToXml(/*~~>*/W3CConstants.NS_XLINK, o, context);
     }
 
     protected XmlObject encodeGML(Object o)
             throws EncodingException {
-        return encodeObjectToXml(GmlConstants.NS_GML_32, o);
+        return encodeObjectToXml(/*~~>*/GmlConstants.NS_GML_32, o);
     }
 
     protected XmlObject encodeGML(Object o, EncodingContext context)
             throws EncodingException {
-        return encodeObjectToXml(GmlConstants.NS_GML_32, o, context);
+        return encodeObjectToXml(/*~~>*/GmlConstants.NS_GML_32, o, context);
     }
 
     protected XmlObject encodeSweCommon(Object o)
             throws EncodingException {
-        return encodeObjectToXml(SweConstants.NS_SWE_20, o);
+        return encodeObjectToXml(/*~~>*/SweConstants.NS_SWE_20, o);
     }
 
     protected XmlObject encodeSweCommon(Object o, EncodingContext context)
             throws EncodingException {
-        return encodeObjectToXml(SweConstants.NS_SWE_20, o, context);
+        return encodeObjectToXml(/*~~>*/SweConstants.NS_SWE_20, o, context);
     }
 
     protected XmlObject encodeGWML(Object o)
@@ -659,10 +659,10 @@ public abstract class AbstractOmEncoderv20
 
     protected XmlObject encodeGWML(Object o, EncodingContext context)
             throws EncodingException {
-        return encodeObjectToXmlPropertyType(GWMLConstants.NS_GWML_22, o, context);
+        return encodeObjectToXmlPropertyType(/*~~>*/GWMLConstants.NS_GWML_22, o, context);
     }
 
-    private static String generateObservationGMLId() {
+    private static /*~~>*/String generateObservationGMLId() {
         return OBSERVATION_ID_PREFIX
                 + IdGenerator.generate(Double.toString(System.currentTimeMillis() * Math.random()));
     }
@@ -791,14 +791,14 @@ public abstract class AbstractOmEncoderv20
         @Override
         public XmlObject visit(TimeValue value)
                 throws EncodingException {
-            return encodeObjectToXml(SweConstants.NS_SWE_20, value,
+            return encodeObjectToXml(/*~~>*/SweConstants.NS_SWE_20, value,
                     EncodingContext.of(XmlBeansEncodingFlags.PROPERTY_TYPE));
         }
 
         @Override
         public XmlObject visit(TimeRangeValue value)
                 throws EncodingException {
-            return encodeObjectToXml(SweConstants.NS_SWE_20, value,
+            return encodeObjectToXml(/*~~>*/SweConstants.NS_SWE_20, value,
                     EncodingContext.of(XmlBeansEncodingFlags.PROPERTY_TYPE));
         }
 

@@ -66,7 +66,7 @@ public class ConverterRepository
         this.converter.putAll(implementations);
     }
 
-    public <T, F> Converter<T, F> getConverter(final String fromNamespace, final String toNamespace) {
+    public <T, F> Converter<T, F> getConverter(final /*~~>*/String fromNamespace, final /*~~>*/String toNamespace) {
         return getConverter(new ConverterKey(fromNamespace, toNamespace));
     }
 
@@ -86,8 +86,8 @@ public class ConverterRepository
      *
      * @return Swt with all possible formats
      */
-    public Set<String> getFromNamespaceConverterTo(final String toNamespace) {
-        final Set<String> fromNamespaces = Sets.newHashSet();
+    public Set</*~~>*/String> getFromNamespaceConverterTo(final /*~~>*/String toNamespace) {
+        final Set</*~~>*/String> fromNamespaces = Sets.newHashSet();
         for (final ConverterKey converterKey : converter.keySet()) {
             if (toNamespace.equals(converterKey.getToNamespace())) {
                 fromNamespaces.add(converterKey.getFromNamespace());
@@ -104,8 +104,8 @@ public class ConverterRepository
      *            Requested format
      * @return Swt with all possible formats
      */
-    public Set<String> getToNamespaceConverterFrom(final String fromNamespace) {
-        final Set<String> toNamespaces = Sets.newHashSet();
+    public Set</*~~>*/String> getToNamespaceConverterFrom(final /*~~>*/String fromNamespace) {
+        final Set</*~~>*/String> toNamespaces = Sets.newHashSet();
         for (final ConverterKey converterKey : converter.keySet()) {
             if (fromNamespace.equals(converterKey.getFromNamespace())) {
                 toNamespaces.add(converterKey.getToNamespace());
@@ -123,7 +123,7 @@ public class ConverterRepository
      *
      * @return If a converter is available
      */
-    public boolean hasConverter(final String fromNamespace, final String toNamespace) {
+    public boolean hasConverter(final /*~~>*/String fromNamespace, final /*~~>*/String toNamespace) {
         return hasConverter(new ConverterKey(fromNamespace, toNamespace));
     }
 

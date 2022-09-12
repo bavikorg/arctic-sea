@@ -37,35 +37,35 @@ import edu.umd.cs.findbugs.annotations.SuppressFBWarnings;
 public class OwsLanguageString implements Comparable<OwsLanguageString> {
     private static final Comparator<OwsLanguageString> COMPARATOR = Comparator.nullsLast(Comparator
             .comparing(OwsLanguageString::getLang, Optionals.nullsLast()).thenComparing(OwsLanguageString::getValue));
-    private final String lang;
-    private final String value;
+    private final /*~~>*/String lang;
+    private final /*~~>*/String value;
 
     @SuppressFBWarnings({ "NP_PARAMETER_MUST_BE_NONNULL_BUT_MARKED_AS_NULLABLE",
         "NP_NULL_ON_SOME_PATH_FROM_RETURN_VALUE" })
-    public OwsLanguageString(@Nullable String lang, String value) {
-        this.lang = Strings.emptyToNull(lang);
-        this.value = Objects.requireNonNull(Strings.emptyToNull(value));
+    public OwsLanguageString(@Nullable /*~~>*/String lang, /*~~>*/String value) {
+        /*~~>*/this.lang = Strings.emptyToNull(lang);
+        /*~~>*/this.value = Objects.requireNonNull(Strings.emptyToNull(value));
     }
 
     public OwsLanguageString(LocalizedString s) {
         this(s.getLangString(), s.getText());
     }
 
-    public OwsLanguageString(String value) {
+    public OwsLanguageString(/*~~>*/String value) {
         this(null, value);
     }
 
-    public Optional<String> getLang() {
-        return Optional.ofNullable(this.lang);
+    public Optional</*~~>*/String> getLang() {
+        return Optional.ofNullable(/*~~>*/this.lang);
     }
 
-    public String getValue() {
-        return this.value;
+    public /*~~>*/String getValue() {
+        return /*~~>*/this.value;
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(this.lang, this.value);
+        return Objects.hash(/*~~>*/this.lang, /*~~>*/this.value);
     }
 
     @Override
@@ -77,12 +77,12 @@ public class OwsLanguageString implements Comparable<OwsLanguageString> {
             return false;
         }
         final OwsLanguageString that = (OwsLanguageString) obj;
-        return Objects.equals(this.lang, that.lang) && Objects.equals(this.value, that.value);
+        return Objects.equals(/*~~>*/this.lang, /*~~>*/that.lang) && Objects.equals(/*~~>*/this.value, /*~~>*/that.value);
     }
 
     @Override
-    public String toString() {
-        return MoreObjects.toStringHelper(this).omitNullValues().add("lang", this.lang).add("value", this.value)
+    public /*~~>*/String toString() {
+        return MoreObjects.toStringHelper(this).omitNullValues().add("lang", /*~~>*/this.lang).add("value", /*~~>*/this.value)
                 .toString();
     }
 

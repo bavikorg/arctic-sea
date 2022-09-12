@@ -114,8 +114,8 @@ public class InspireSupportedLanguages implements InspireObject {
     }
 
     @Override
-    public String toString() {
-        return String.format("%s %n[%n defaultLanguage=%s,%n supportedLanguages=%s%n]",
+    public /*~~>*/String toString() {
+        return /*~~>*/String.format("%s %n[%n defaultLanguage=%s,%n supportedLanguages=%s%n]",
                 this.getClass().getSimpleName(), getDefaultLanguage(),
                 CollectionHelper.collectionToString(getSupportedLanguages()));
     }

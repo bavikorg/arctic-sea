@@ -48,7 +48,7 @@ import java.util.stream.Collectors;
 public class EventBus implements Constructable {
     private static final Logger LOG = LoggerFactory.getLogger(EventBus.class);
     private static final int THREAD_POOL_SIZE = 3;
-    private static final String THREAD_GROUP_NAME = "EventBus-Worker";
+    private static final /*~~>*/String THREAD_GROUP_NAME = "EventBus-Worker";
 
     private final ClassCache classCache;
     private final ReadWriteLock lock;
@@ -233,7 +233,7 @@ public class EventBus implements Constructable {
                 LOG.debug("Submitting Event {} to Listener {}", event, listener);
                 listener.handle(event);
             } catch (final Throwable t) {
-                LOG.error(String.format("Error handling event %s by handler %s", event, listener), t);
+                LOG.error(/*~~>*/String.format("Error handling event %s by handler %s", event, listener), t);
             }
         }
     }

@@ -21,7 +21,7 @@ import org.n52.shetland.rdf.AbstractValue;
 
 public class Identifier extends AbstractValue implements DctRdfPrefix {
 
-    public Identifier(String value) {
+    public Identifier(/*~~>*/String value) {
         super(value);
     }
 

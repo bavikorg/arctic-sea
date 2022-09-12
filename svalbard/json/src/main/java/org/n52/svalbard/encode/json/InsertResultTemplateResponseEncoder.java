@@ -35,6 +35,6 @@ public class InsertResultTemplateResponseEncoder extends AbstractSosResponseEnco
 
     @Override
     protected void encodeResponse(ObjectNode json, InsertResultTemplateResponse t) {
-        json.put(JSONConstants.ACCEPTED_TEMPLATE, t.getAcceptedTemplate());
+        json.put(/*~~>*/JSONConstants.ACCEPTED_TEMPLATE, t.getAcceptedTemplate());
     }
 }

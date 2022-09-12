@@ -32,8 +32,8 @@ public abstract class AbstractEnvironmentalFaciltityEncoder<T, S>
         extends AbstractGmlEncoderv321<T, S> {
 
     @Override
-    public void addNamespacePrefixToMap(final Map<String, String> nameSpacePrefixMap) {
-        nameSpacePrefixMap.put(InspireEfConstants.NS_EF, InspireEfConstants.NS_EF_PREFIX);
+    public void addNamespacePrefixToMap(final Map</*~~>*/String, /*~~>*/String> nameSpacePrefixMap) {
+        nameSpacePrefixMap.put(/*~~>*/InspireEfConstants.NS_EF, /*~~>*/InspireEfConstants.NS_EF_PREFIX);
     }
 
     @Override
@@ -42,59 +42,59 @@ public abstract class AbstractEnvironmentalFaciltityEncoder<T, S>
     }
 
     protected XmlObject encodeGML32(Object o) throws EncodingException {
-        return encodeObjectToXml(GmlConstants.NS_GML_32, o);
+        return encodeObjectToXml(/*~~>*/GmlConstants.NS_GML_32, o);
     }
 
     protected XmlObject encodeGML32(Object o, EncodingContext context) throws EncodingException {
-        return encodeObjectToXml(GmlConstants.NS_GML_32, o, context);
+        return encodeObjectToXml(/*~~>*/GmlConstants.NS_GML_32, o, context);
     }
 
     protected XmlObject encodeEF(Object o) throws EncodingException {
-        return encodeObjectToXml(InspireEfConstants.NS_EF, o);
+        return encodeObjectToXml(/*~~>*/InspireEfConstants.NS_EF, o);
     }
 
     protected XmlObject encodeEF(Object o, EncodingContext context) throws EncodingException {
-        return encodeObjectToXml(InspireEfConstants.NS_EF, o, context);
+        return encodeObjectToXml(/*~~>*/InspireEfConstants.NS_EF, o, context);
     }
 
     protected XmlObject encodeEFPropertyType(Object o) throws EncodingException {
-        return encodeObjectToXmlPropertyType(InspireEfConstants.NS_EF, o);
+        return encodeObjectToXmlPropertyType(/*~~>*/InspireEfConstants.NS_EF, o);
     }
 
     protected XmlObject encodeEFDocument(Object o) throws EncodingException {
-        return encodeObjectToXmlDocument(InspireEfConstants.NS_EF, o);
+        return encodeObjectToXmlDocument(/*~~>*/InspireEfConstants.NS_EF, o);
     }
 
     protected XmlObject encodeBASE2(Object o) throws EncodingException {
-        return encodeObjectToXml(InspireBase2Constants.NS_BASE2, o);
+        return encodeObjectToXml(/*~~>*/InspireBase2Constants.NS_BASE2, o);
     }
 
     protected XmlObject encodeBASE2(Object o, EncodingContext context) throws EncodingException {
-        return encodeObjectToXml(InspireBase2Constants.NS_BASE2, o, context);
+        return encodeObjectToXml(/*~~>*/InspireBase2Constants.NS_BASE2, o, context);
     }
 
     protected XmlObject encodeBASE2PropertyType(Object o) throws EncodingException {
-        return encodeObjectToXmlPropertyType(InspireBase2Constants.NS_BASE2, o);
+        return encodeObjectToXmlPropertyType(/*~~>*/InspireBase2Constants.NS_BASE2, o);
     }
 
     protected XmlObject encodeBASE2Document(Object o) throws EncodingException {
-        return encodeObjectToXmlDocument(InspireBase2Constants.NS_BASE2, o);
+        return encodeObjectToXmlDocument(/*~~>*/InspireBase2Constants.NS_BASE2, o);
     }
 
     protected XmlObject encodeBASE(Object o) throws EncodingException {
-        return encodeObjectToXml(InspireBaseConstants.NS_BASE, o);
+        return encodeObjectToXml(/*~~>*/InspireBaseConstants.NS_BASE, o);
     }
 
     protected XmlObject encodeBASE(Object o, EncodingContext context) throws EncodingException {
-        return encodeObjectToXml(InspireBaseConstants.NS_BASE, o, context);
+        return encodeObjectToXml(/*~~>*/InspireBaseConstants.NS_BASE, o, context);
     }
 
     protected XmlObject encodeBASEPropertyType(Object o) throws EncodingException {
-        return encodeObjectToXmlPropertyType(InspireBaseConstants.NS_BASE, o);
+        return encodeObjectToXmlPropertyType(/*~~>*/InspireBaseConstants.NS_BASE, o);
     }
 
     protected XmlObject encodeBASEDocument(Object o) throws EncodingException {
-        return encodeObjectToXmlDocument(InspireBaseConstants.NS_BASE, o);
+        return encodeObjectToXmlDocument(/*~~>*/InspireBaseConstants.NS_BASE, o);
     }
 
 }

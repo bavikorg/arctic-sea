@@ -77,9 +77,9 @@ public class GetObservationResponseXmlStreamWriter extends AbstractSwesXmlStream
     private void writeGetObservationResponseDoc()
             throws XMLStreamException, EncodingException {
         start(Sos2StreamingConstants.GET_OBSERVATION_RESPONSE);
-        namespace(W3CConstants.NS_XLINK_PREFIX, W3CConstants.NS_XLINK);
-        namespace(SosConstants.NS_SOS_PREFIX, Sos2Constants.NS_SOS_20);
-        namespace(SwesConstants.NS_SWES_PREFIX, SwesConstants.NS_SWES_20);
+        namespace(/*~~>*/W3CConstants.NS_XLINK_PREFIX, /*~~>*/W3CConstants.NS_XLINK);
+        namespace(/*~~>*/SosConstants.NS_SOS_PREFIX, /*~~>*/Sos2Constants.NS_SOS_20);
+        namespace(/*~~>*/SwesConstants.NS_SWES_PREFIX, /*~~>*/SwesConstants.NS_SWES_20);
         GetObservationResponse response = getElement();
         // get observation encoder
         ObservationEncoder<XmlObject, OmObservation> encoder = findObservationEncoder(response.getResponseFormat());
@@ -157,7 +157,7 @@ public class GetObservationResponseXmlStreamWriter extends AbstractSwesXmlStream
      *
      * @throws EncodingException if the found encoder is not a {@linkplain ObservationEncoder}
      */
-    private ObservationEncoder<XmlObject, OmObservation> findObservationEncoder(String responseFormat)
+    private ObservationEncoder<XmlObject, OmObservation> findObservationEncoder(/*~~>*/String responseFormat)
             throws EncodingException {
         Optional<Encoder<XmlObject, OmObservation>> encoder = this
                 .<XmlObject, OmObservation>tryGetEncoder(new XmlEncoderKey(responseFormat, OmObservation.class));

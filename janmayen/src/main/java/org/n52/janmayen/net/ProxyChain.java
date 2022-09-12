@@ -117,7 +117,7 @@ public class ProxyChain {
     }
 
     @Override
-    public String toString() {
+    public /*~~>*/String toString() {
         return MoreObjects.toStringHelper(this).omitNullValues()
                 .add("origin", getOrigin())
                 .add("proxies", getProxies())
@@ -131,7 +131,7 @@ public class ProxyChain {
      *
      * @return a {@code ProxyChain} if the header is present, non empty and well formed.
      */
-    public static Optional<ProxyChain> fromForwardedForHeader(String header) {
+    public static Optional<ProxyChain> fromForwardedForHeader(/*~~>*/String header) {
         return Optional.ofNullable(header)
                 .map(Strings::emptyToNull)
                 .map(h -> h.split(","))
@@ -143,7 +143,7 @@ public class ProxyChain {
     }
 
     @VisibleForTesting
-    static IPAddress getIPAddress(String address) {
+    static IPAddress getIPAddress(/*~~>*/String address) {
         Matcher matcher = PATTERN.matcher(address);
         if (matcher.find()) {
             for (int i = 1; i <= matcher.groupCount(); ++i) {

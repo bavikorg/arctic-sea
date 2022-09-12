@@ -44,8 +44,8 @@ import com.google.common.base.Strings;
 @JsonInclude(JsonInclude.Include.NON_EMPTY)
 public class Format implements Comparable<Format> {
 
-    public static final String BASE64_ENCODING = "base64";
-    public static final String DEFAULT_ENCODING = "UTF-8";
+    public static final /*~~>*/String BASE64_ENCODING = "base64";
+    public static final /*~~>*/String DEFAULT_ENCODING = "UTF-8";
     public static final Format TEXT_PLAIN = new Format("text/plain");
     public static final Format APPLICATION_XML = new Format("application/xml");
     public static final Format TEXT_XML = new Format("text/xml");
@@ -53,56 +53,56 @@ public class Format implements Comparable<Format> {
             Comparator.nullsLast(Comparator.comparing(Format::getMimeType, Optionals.nullsFirst()))
                     .thenComparing(Format::getSchema, Optionals.nullsFirst())
                     .thenComparing(Format::getEncoding, Optionals.nullsFirst());
-    private static final String STAR_SLASH_STAR = "*/*";
-    private static final Set<String> CHARSETS = new HashSet<>(Charset.availableCharsets().keySet());
-    private static final String SCHEMA = "schema";
-    private static final String ENCODING = "encoding";
-    private static final String MIME_TYPE = "mimeType";
+    private static final /*~~>*/String STAR_SLASH_STAR = "*/*";
+    private static final Set</*~~>*/String> CHARSETS = new HashSet<>(Charset.availableCharsets().keySet());
+    private static final /*~~>*/String SCHEMA = "schema";
+    private static final /*~~>*/String ENCODING = "encoding";
+    private static final /*~~>*/String MIME_TYPE = "mimeType";
 
-    private final String mimeType;
-    private final String encoding;
-    private final String schema;
+    private final /*~~>*/String mimeType;
+    private final /*~~>*/String encoding;
+    private final /*~~>*/String schema;
 
     @JsonCreator
-    public Format(@JsonProperty(MIME_TYPE) String mimeType, @JsonProperty(ENCODING) String encoding,
-            @JsonProperty(SCHEMA) String schema) {
-        this.mimeType = Strings.emptyToNull(mimeType);
-        this.encoding = Strings.emptyToNull(encoding);
-        this.schema = Strings.emptyToNull(schema);
+    public Format(@JsonProperty(MIME_TYPE) /*~~>*/String mimeType, @JsonProperty(ENCODING) /*~~>*/String encoding,
+            @JsonProperty(SCHEMA) /*~~>*/String schema) {
+        /*~~>*/this.mimeType = Strings.emptyToNull(mimeType);
+        /*~~>*/this.encoding = Strings.emptyToNull(encoding);
+        /*~~>*/this.schema = Strings.emptyToNull(schema);
     }
 
-    public Format(String mimeType) {
-        this(mimeType, (String) null, null);
+    public Format(/*~~>*/String mimeType) {
+        this(mimeType, (/*~~>*/String) null, null);
     }
 
-    public Format(String mimeType, String encoding) {
+    public Format(/*~~>*/String mimeType, /*~~>*/String encoding) {
         this(mimeType, encoding, null);
     }
 
-    public Format(String mimeType, Charset encoding) {
+    public Format(/*~~>*/String mimeType, Charset encoding) {
         this(mimeType, encoding == null ? null : encoding.name(), null);
     }
 
-    public Format(String mimeType, Charset encoding, String schema) {
+    public Format(/*~~>*/String mimeType, Charset encoding, /*~~>*/String schema) {
         this(mimeType, encoding == null ? null : encoding.name(), schema);
     }
 
     public Format() {
-        this(null, (String) null, null);
+        this(null, (/*~~>*/String) null, null);
     }
 
     @JsonProperty(MIME_TYPE)
-    public Optional<String> getMimeType() {
+    public Optional</*~~>*/String> getMimeType() {
         return Optional.ofNullable(mimeType);
     }
 
     @JsonProperty(ENCODING)
-    public Optional<String> getEncoding() {
+    public Optional</*~~>*/String> getEncoding() {
         return Optional.ofNullable(encoding);
     }
 
     @JsonProperty(SCHEMA)
-    public Optional<String> getSchema() {
+    public Optional</*~~>*/String> getSchema() {
         return Optional.ofNullable(schema);
     }
 
@@ -112,10 +112,10 @@ public class Format implements Comparable<Format> {
     }
 
     public boolean hasSchema() {
-        return this.schema != null;
+        return /*~~>*/this.schema != null;
     }
 
-    public boolean hasSchema(String schema) {
+    public boolean hasSchema(/*~~>*/String schema) {
         return getSchema().orElse("").equalsIgnoreCase(Strings.nullToEmpty(schema));
     }
 
@@ -124,10 +124,10 @@ public class Format implements Comparable<Format> {
     }
 
     public boolean hasEncoding() {
-        return this.encoding != null;
+        return /*~~>*/this.encoding != null;
     }
 
-    public boolean hasEncoding(String encoding) {
+    public boolean hasEncoding(/*~~>*/String encoding) {
         return getEncoding().orElse("").equalsIgnoreCase(Strings.nullToEmpty(encoding));
     }
 
@@ -136,10 +136,10 @@ public class Format implements Comparable<Format> {
     }
 
     public boolean hasMimeType() {
-        return this.mimeType != null;
+        return /*~~>*/this.mimeType != null;
     }
 
-    public boolean hasMimeType(String mimeType) {
+    public boolean hasMimeType(/*~~>*/String mimeType) {
         return getMimeType().orElse("").equalsIgnoreCase(Strings.nullToEmpty(mimeType));
     }
 
@@ -147,7 +147,7 @@ public class Format implements Comparable<Format> {
         return hasMimeType(other.getMimeType().orElse(null));
     }
 
-    public boolean matchesMimeType(String mimeType) {
+    public boolean matchesMimeType(/*~~>*/String mimeType) {
         return !hasMimeType() || hasMimeType(mimeType);
     }
 
@@ -155,7 +155,7 @@ public class Format implements Comparable<Format> {
         return !hasMimeType() || hasMimeType(other);
     }
 
-    public boolean matchesEncoding(String encoding) {
+    public boolean matchesEncoding(/*~~>*/String encoding) {
         return !hasEncoding() || hasEncoding(encoding);
     }
 
@@ -163,7 +163,7 @@ public class Format implements Comparable<Format> {
         return !hasEncoding() || hasEncoding(other);
     }
 
-    public boolean matchesSchema(String schema) {
+    public boolean matchesSchema(/*~~>*/String schema) {
         return !hasSchema() || hasSchema(schema);
     }
 
@@ -175,8 +175,8 @@ public class Format implements Comparable<Format> {
         return withEncoding(encoding.name());
     }
 
-    public Format withEncoding(String encoding) {
-        return new Format(this.mimeType, encoding, this.schema);
+    public Format withEncoding(/*~~>*/String encoding) {
+        return new Format(/*~~>*/this.mimeType, encoding, /*~~>*/this.schema);
     }
 
     public Format withBase64Encoding() {
@@ -187,42 +187,42 @@ public class Format implements Comparable<Format> {
         return withEncoding(DEFAULT_ENCODING);
     }
 
-    public Format withSchema(String schema) {
-        return new Format(this.mimeType, this.encoding, schema);
+    public Format withSchema(/*~~>*/String schema) {
+        return new Format(/*~~>*/this.mimeType, /*~~>*/this.encoding, schema);
     }
 
-    public Format withMimeType(String mimeType) {
-        return new Format(mimeType, this.encoding, this.schema);
+    public Format withMimeType(/*~~>*/String mimeType) {
+        return new Format(mimeType, /*~~>*/this.encoding, /*~~>*/this.schema);
     }
 
     public Format withoutMimeType() {
-        return new Format(null, this.encoding, this.schema);
+        return new Format(null, /*~~>*/this.encoding, /*~~>*/this.schema);
     }
 
     public Format withoutEncoding() {
-        return new Format(this.mimeType, (String) null, this.schema);
+        return new Format(/*~~>*/this.mimeType, (/*~~>*/String) null, /*~~>*/this.schema);
     }
 
     public Format withoutSchema() {
-        return new Format(this.mimeType, this.encoding, null);
+        return new Format(/*~~>*/this.mimeType, /*~~>*/this.encoding, null);
     }
 
     @Override
-    public String toString() {
-        return String.format("Format{mimeType=%s, encoding=%s, schema=%s}", mimeType, encoding, schema);
+    public /*~~>*/String toString() {
+        return /*~~>*/String.format("Format{mimeType=%s, encoding=%s, schema=%s}", mimeType, encoding, schema);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(this.mimeType, this.encoding, this.schema);
+        return Objects.hash(/*~~>*/this.mimeType, /*~~>*/this.encoding, /*~~>*/this.schema);
     }
 
     @Override
     public boolean equals(Object obj) {
         if (obj instanceof Format) {
             final Format that = (Format) obj;
-            return Objects.equals(this.mimeType, that.mimeType) && Objects.equals(this.encoding, that.encoding)
-                    && Objects.equals(this.schema, that.schema);
+            return Objects.equals(/*~~>*/this.mimeType, /*~~>*/that.mimeType) && Objects.equals(/*~~>*/this.encoding, /*~~>*/that.encoding)
+                    && Objects.equals(/*~~>*/this.schema, /*~~>*/that.schema);
         }
         return false;
     }
@@ -253,7 +253,7 @@ public class Format implements Comparable<Format> {
         return !this.hasSchema() || this.hasSchema(that);
     }
 
-    public void setTo(Consumer<String> encoding, Consumer<String> mimeType, Consumer<String> schema) {
+    public void setTo(Consumer</*~~>*/String> encoding, Consumer</*~~>*/String> mimeType, Consumer</*~~>*/String> schema) {
         getEncoding().ifPresent(encoding);
         getMimeType().ifPresent(mimeType);
         getSchema().ifPresent(schema);
@@ -266,7 +266,7 @@ public class Format implements Comparable<Format> {
 
     @JsonIgnore
     public boolean isXML() {
-        return getMimeType().map(String::toLowerCase).filter(x -> x.endsWith("xml")).isPresent();
+        return getMimeType().map(/*~~>*/String::toLowerCase).filter(x -> x.endsWith("xml")).isPresent();
     }
 
     @JsonIgnore
@@ -293,7 +293,7 @@ public class Format implements Comparable<Format> {
         return new Format();
     }
 
-    public static Set<String> getAvailableCharsets() {
+    public static Set</*~~>*/String> getAvailableCharsets() {
         return Collections.unmodifiableSet(CHARSETS);
     }
 

@@ -34,14 +34,14 @@ import java.util.Set;
 @SuppressWarnings("unchecked")
 public class QueryOptionsFactory {
 
-    public STAQueryOptionsLexer createLexer(String query) {
+    public STAQueryOptionsLexer createLexer(/*~~>*/String query) {
         STAQueryOptionsLexer staQueryOptionsLexer = new STAQueryOptionsLexer(CharStreams.fromString(query.trim()));
         staQueryOptionsLexer.removeErrorListeners();
         staQueryOptionsLexer.addErrorListener(new CustomErrorListener(staQueryOptionsLexer.getVocabulary()));
         return staQueryOptionsLexer;
     }
 
-    public STAQueryOptionsGrammar createGrammar(String query) {
+    public STAQueryOptionsGrammar createGrammar(/*~~>*/String query) {
         return createGrammar(createLexer(query));
     }
 
@@ -52,7 +52,7 @@ public class QueryOptionsFactory {
         return parser;
     }
 
-    public QueryOptions createQueryOptions(String query) {
+    public QueryOptions createQueryOptions(/*~~>*/String query) {
         return createGrammar(query).queryOptions().<QueryOptions>accept(new STAQueryOptionVisitor());
     }
 
@@ -73,13 +73,13 @@ public class QueryOptionsFactory {
 
         @Override
         public void syntaxError(Recognizer<?, ?> recognizer, Object offendingSymbol, int line, int charPositionInLine,
-                                String msg, RecognitionException e) {
-            String message;
+                                /*~~>*/String msg, RecognitionException e) {
+            /*~~>*/String message;
             if (e.getOffendingToken() != null) {
-                message = String.format("Failed to parse QueryOptions due to %s with offending token: %s", msg,
+                message = /*~~>*/String.format("Failed to parse QueryOptions due to %s with offending token: %s", msg,
                                         vocabulary.getDisplayName(e.getOffendingToken().getType()));
             } else {
-                message = String.format("Failed to parse QueryOptions due to error: %s", msg);
+                message = /*~~>*/String.format("Failed to parse QueryOptions due to error: %s", msg);
             }
             throw new IllegalStateException(message, e);
         }

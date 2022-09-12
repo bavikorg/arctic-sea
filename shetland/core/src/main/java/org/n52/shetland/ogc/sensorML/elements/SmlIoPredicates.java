@@ -22,35 +22,35 @@ public final class SmlIoPredicates {
     private SmlIoPredicates() {
     }
 
-    public static Predicate<SmlIo> identifier(String identifier) {
+    public static Predicate<SmlIo> identifier(/*~~>*/String identifier) {
         return new IdentifierPredicate(identifier);
     }
 
-    public static Predicate<SmlIo> name(String name) {
+    public static Predicate<SmlIo> name(/*~~>*/String name) {
         return new NamePredicate(name);
     }
 
-    public static Predicate<SmlIo> definition(String definition) {
+    public static Predicate<SmlIo> definition(/*~~>*/String definition) {
         return new DefinitionPredicate(definition);
     }
 
-    public static Predicate<SmlIo> nameOrDefinition(String name, String definition) {
+    public static Predicate<SmlIo> nameOrDefinition(/*~~>*/String name, /*~~>*/String definition) {
         return name(name).or(definition(definition));
     }
 
-    public static Predicate<SmlIo> identifierOrNameOrDefinition(String identifier, String name, String definition) {
+    public static Predicate<SmlIo> identifierOrNameOrDefinition(/*~~>*/String identifier, /*~~>*/String name, /*~~>*/String definition) {
         return identifier(identifier).or(name(name)).or(definition(definition));
     }
 
-    public static Predicate<SmlIo> nameAndDefinition(String name, String definition) {
+    public static Predicate<SmlIo> nameAndDefinition(/*~~>*/String name, /*~~>*/String definition) {
         return name(name).and(definition(definition));
     }
 
     private static class DefinitionPredicate implements Predicate<SmlIo> {
-        private final String definition;
+        private final /*~~>*/String definition;
 
-        DefinitionPredicate(String definition) {
-            this.definition = definition;
+        DefinitionPredicate(/*~~>*/String definition) {
+            /*~~>*/this.definition = definition;
         }
 
         @Override
@@ -61,10 +61,10 @@ public final class SmlIoPredicates {
     }
 
     private static class NamePredicate implements Predicate<SmlIo> {
-        private final String name;
+        private final /*~~>*/String name;
 
-        NamePredicate(String name) {
-            this.name = name;
+        NamePredicate(/*~~>*/String name) {
+            /*~~>*/this.name = name;
         }
 
         @Override
@@ -75,10 +75,10 @@ public final class SmlIoPredicates {
     }
 
     private static class IdentifierPredicate implements Predicate<SmlIo> {
-        private final String identifier;
+        private final /*~~>*/String identifier;
 
-        IdentifierPredicate(String identifier) {
-            this.identifier = identifier;
+        IdentifierPredicate(/*~~>*/String identifier) {
+            /*~~>*/this.identifier = identifier;
         }
 
         @Override

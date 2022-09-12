@@ -59,7 +59,7 @@ public class InsertObservationRequestEncoder extends AbstractSwesRequestEncoder<
             throws EncodingException {
         Observation ob = insertObservation.addNewObservation();
         for (OmObservation o : observations) {
-            ob.addNewOMObservation().set(encodeObjectToXmlDocument(OmConstants.NS_OM_2, o));
+            ob.addNewOMObservation().set(encodeObjectToXmlDocument(/*~~>*/OmConstants.NS_OM_2, o));
         }
     }
 
@@ -69,18 +69,18 @@ public class InsertObservationRequestEncoder extends AbstractSwesRequestEncoder<
             return;
         }
         for (Extension<?> o : extensions.getExtensions()) {
-            insertObservation.addNewExtension().set(encodeObjectToXml(SwesConstants.NS_SWES_20, o));
+            insertObservation.addNewExtension().set(encodeObjectToXml(/*~~>*/SwesConstants.NS_SWES_20, o));
         }
     }
 
-    private void addOfferings(List<String> offerings, InsertObservationType insertObservation) {
+    private void addOfferings(List</*~~>*/String> offerings, InsertObservationType insertObservation) {
         offerings.stream().forEach(o -> insertObservation.addNewOffering().setStringValue(o));
     }
 
     @Override
     protected void validateInput(InsertObservationRequest request) throws UnsupportedEncoderInputException {
         super.validateInput(request);
-        if (!request.getVersion().equals(Sos2Constants.SERVICEVERSION)) {
+        if (!request.getVersion().equals(/*~~>*/Sos2Constants.SERVICEVERSION)) {
             throw new UnsupportedEncoderInputException(this, "SOS 1.0.0 insert observation request");
         }
         if (!request.isSetOfferings()) {

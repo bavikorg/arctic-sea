@@ -31,12 +31,12 @@ import com.google.common.collect.ImmutableSet;
  */
 public interface Sos1Constants extends SosConstants {
 
-    String NS_SOS = "http://www.opengis.net/sos/1.0";
+    /*~~>*/String NS_SOS = "http://www.opengis.net/sos/1.0";
 
     /** Constant for the schema repository of the SOS */
-    String SCHEMA_LOCATION_SOS = "http://schemas.opengis.net/sos/1.0.0/sosAll.xsd";
+    /*~~>*/String SCHEMA_LOCATION_SOS = "http://schemas.opengis.net/sos/1.0.0/sosAll.xsd";
 
-    String SCHEMA_LOCATION_URL_SOS1_GET_CAPBABILITIES = "http://schemas.opengis.net/sos/1.0.0/sosGetCapabilities.xsd";
+    /*~~>*/String SCHEMA_LOCATION_URL_SOS1_GET_CAPBABILITIES = "http://schemas.opengis.net/sos/1.0.0/sosGetCapabilities.xsd";
 
     SchemaLocation SOS1_SCHEMA_LOCATION = new SchemaLocation(NS_SOS, SCHEMA_LOCATION_SOS);
 
@@ -45,11 +45,11 @@ public interface Sos1Constants extends SosConstants {
 
     /** Constant for the content types of the response formats */
     // TODO use MediaType
-    Set<String> RESPONSE_FORMATS =
+    Set</*~~>*/String> RESPONSE_FORMATS =
             ImmutableSet.of(OmConstants.CONTENT_TYPE_OM.toString(), MediaTypes.APPLICATION_ZIP.toString());
 
     /** Constant for actual implementing version */
-    String SERVICEVERSION = "1.0.0";
+    /*~~>*/String SERVICEVERSION = "1.0.0";
 
     /**
      * the names of the OGC SOS 1.0.0 operations that are not supported by all versions

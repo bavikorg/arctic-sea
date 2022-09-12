@@ -62,8 +62,8 @@ import edu.umd.cs.findbugs.annotations.SuppressFBWarnings;
  */
 public abstract class XmlStreamWriter<S> {
 
-    protected static final String XML_FRAGMENT = "xml-fragment";
-    private static final String OUTPUT_PROPERTY_ESCAPE_CHARACTERS = "escapeCharacters";
+    protected static final /*~~>*/String XML_FRAGMENT = "xml-fragment";
+    private static final /*~~>*/String OUTPUT_PROPERTY_ESCAPE_CHARACTERS = "escapeCharacters";
     private static final int INDENTATION = 2;
     private EncodingContext context;
     private final S element;
@@ -71,8 +71,8 @@ public abstract class XmlStreamWriter<S> {
     private final OutputStream outputStream;
     private final Supplier<XmlOptions> xmlOptions;
     private final ExtendedXMLStreamWriter writer;
-    private final String xmlVersion;
-    private final String xmlEncoding;
+    private final /*~~>*/String xmlVersion;
+    private final /*~~>*/String xmlEncoding;
     private final boolean close;
     private final boolean embedded;
 
@@ -83,8 +83,8 @@ public abstract class XmlStreamWriter<S> {
         this.element = element;
         this.encoderRepository = context.require(EncoderFlags.ENCODER_REPOSITORY);
         this.xmlOptions = context.get(XmlEncoderFlags.XML_OPTIONS, XmlOptions::new);
-        this.xmlVersion = context.get(XmlEncoderFlags.XML_VERSION, "1.0");
-        this.xmlEncoding = context.get(EncoderFlags.ENCODING, StandardCharsets.UTF_8.name());
+        /*~~>*/this.xmlVersion = context.get(XmlEncoderFlags.XML_VERSION, "1.0");
+        /*~~>*/this.xmlEncoding = context.get(EncoderFlags.ENCODING, StandardCharsets.UTF_8.name());
         this.embedded = context.getBoolean(StreamingEncoderFlags.EMBEDDED);
 
         if (context.has(XmlStreamEncoderFlags.XML_WRITER)) {
@@ -96,7 +96,7 @@ public abstract class XmlStreamWriter<S> {
                 outputFactory.setProperty(OUTPUT_PROPERTY_ESCAPE_CHARACTERS, false);
             }
             this.writer = new IndentingXMLStreamWriter(outputFactory
-                    .createXMLStreamWriter(this.outputStream, this.xmlEncoding), INDENTATION);
+                    .createXMLStreamWriter(this.outputStream, /*~~>*/this.xmlEncoding), INDENTATION);
             this.context = this.context.with(XmlStreamEncoderFlags.XML_WRITER, this.writer);
             this.close = true;
         }
@@ -146,7 +146,7 @@ public abstract class XmlStreamWriter<S> {
      *
      * @throws XMLStreamException If an error occurs when writing to {@link OutputStream}
      */
-    protected void attr(QName name, String value) throws XMLStreamException {
+    protected void attr(QName name, /*~~>*/String value) throws XMLStreamException {
         this.writer.writeAttribute(name.getPrefix(), name.getNamespaceURI(), name.getLocalPart(), value);
     }
 
@@ -158,7 +158,7 @@ public abstract class XmlStreamWriter<S> {
      *
      * @throws XMLStreamException If an error occurs when writing to {@link OutputStream}
      */
-    protected void attr(String name, String value) throws XMLStreamException {
+    protected void attr(/*~~>*/String name, /*~~>*/String value) throws XMLStreamException {
         this.writer.writeAttribute(name, value);
     }
 
@@ -171,7 +171,7 @@ public abstract class XmlStreamWriter<S> {
      *
      * @throws XMLStreamException If an error occurs when writing to {@link OutputStream}
      */
-    protected void attr(String namespace, String localName, String value) throws XMLStreamException {
+    protected void attr(/*~~>*/String namespace, /*~~>*/String localName, /*~~>*/String value) throws XMLStreamException {
         this.writer.writeAttribute(namespace, localName, value);
     }
 
@@ -183,8 +183,8 @@ public abstract class XmlStreamWriter<S> {
      *
      * @throws XMLStreamException If an error occurs when writing to {@link OutputStream}
      */
-    protected void namespace(String prefix, String namespace) throws XMLStreamException {
-        String ns = this.writer.getNamespaceContext().getNamespaceURI(prefix);
+    protected void namespace(/*~~>*/String prefix, /*~~>*/String namespace) throws XMLStreamException {
+        /*~~>*/String ns = this.writer.getNamespaceContext().getNamespaceURI(prefix);
         if (ns == null || ns.isEmpty()) {
             this.writer.writeNamespace(prefix, namespace);
         } else if (!ns.equals(namespace)) {
@@ -200,8 +200,8 @@ public abstract class XmlStreamWriter<S> {
      * @throws XMLStreamException If an error occurs when writing to {@link OutputStream}
      */
     protected void start(QName name) throws XMLStreamException {
-        String prefix = name.getPrefix();
-        String ns = this.writer.getNamespaceContext().getNamespaceURI(prefix);
+        /*~~>*/String prefix = name.getPrefix();
+        /*~~>*/String ns = this.writer.getNamespaceContext().getNamespaceURI(prefix);
         boolean alreadySet = ns != null && !ns.isEmpty();
         if (alreadySet && !ns.equals(name.getNamespaceURI())) {
             throw prefixAlreadyBound(prefix, ns);
@@ -219,7 +219,7 @@ public abstract class XmlStreamWriter<S> {
      */
     protected void start() throws XMLStreamException {
         if (!this.embedded) {
-            this.writer.writeStartDocument(this.context.getEncoding(), this.xmlVersion);
+            this.writer.writeStartDocument(this.context.getEncoding(), /*~~>*/this.xmlVersion);
         }
     }
 
@@ -241,7 +241,7 @@ public abstract class XmlStreamWriter<S> {
      *
      * @throws XMLStreamException If an error occurs when writing to {@link OutputStream}
      */
-    protected void chars(String chars) throws XMLStreamException {
+    protected void chars(/*~~>*/String chars) throws XMLStreamException {
         chars(chars, true);
     }
 
@@ -253,7 +253,7 @@ public abstract class XmlStreamWriter<S> {
      *
      * @throws XMLStreamException If an error occurs when writing to {@link OutputStream}
      */
-    protected void chars(String chars, boolean escape) throws XMLStreamException {
+    protected void chars(/*~~>*/String chars, boolean escape) throws XMLStreamException {
         this.writer.writeCharacters(escape ? XmlEscapers.xmlContentEscaper().escape(chars) : chars);
     }
 
@@ -326,7 +326,7 @@ public abstract class XmlStreamWriter<S> {
      *
      * @throws XMLStreamException If an error occurs when writing to {@link OutputStream}
      */
-    protected void rawText(String text) throws XMLStreamException {
+    protected void rawText(/*~~>*/String text) throws XMLStreamException {
         this.writer.writeXML(text);
     }
 
@@ -337,7 +337,7 @@ public abstract class XmlStreamWriter<S> {
      *
      * @return Created replacement
      */
-    protected String getReplacement(QName qname) {
+    protected /*~~>*/String getReplacement(QName qname) {
         StringBuilder builder = new StringBuilder();
         if (!Strings.isNullOrEmpty(qname.getPrefix())) {
             builder.append(qname.getPrefix());
@@ -357,7 +357,7 @@ public abstract class XmlStreamWriter<S> {
      */
     protected void writeXmlObject(XmlObject xmlObject, QName qname) throws XMLStreamException {
         if (xmlObject != null) {
-            String s = xmlObject.xmlText(getXmlOptions());
+            /*~~>*/String s = xmlObject.xmlText(getXmlOptions());
             rawText(s.replaceAll(XML_FRAGMENT, getReplacement(qname)));
         }
     }
@@ -383,9 +383,9 @@ public abstract class XmlStreamWriter<S> {
      * @throws XMLStreamException If an error occurs when writing to {@link OutputStream}
      */
     protected void schemaLocation(Set<SchemaLocation> schemaLocations) throws XMLStreamException {
-        String merged = N52XmlHelper.mergeSchemaLocationsToString(schemaLocations);
+        /*~~>*/String merged = N52XmlHelper.mergeSchemaLocationsToString(schemaLocations);
         if (!Strings.isNullOrEmpty(merged)) {
-            namespace(W3CConstants.NS_XSI_PREFIX, W3CConstants.NS_XSI);
+            namespace(/*~~>*/W3CConstants.NS_XSI_PREFIX, /*~~>*/W3CConstants.NS_XSI);
             attr(W3CConstants.QN_SCHEMA_LOCATION_PREFIXED, merged);
         }
     }
@@ -412,11 +412,11 @@ public abstract class XmlStreamWriter<S> {
         chars(DateTimeHelper.formatDateTime2IsoString(time.getTime()));
     }
 
-    protected void addXlinkHrefAttr(String value) throws XMLStreamException {
+    protected void addXlinkHrefAttr(/*~~>*/String value) throws XMLStreamException {
         attr(W3CConstants.QN_XLINK_HREF, value);
     }
 
-    protected void addXlinkTitleAttr(String value) throws XMLStreamException {
+    protected void addXlinkTitleAttr(/*~~>*/String value) throws XMLStreamException {
         attr(W3CConstants.QN_XLINK_TITLE, value);
     }
 
@@ -451,7 +451,7 @@ public abstract class XmlStreamWriter<S> {
     }
 
     @SuppressWarnings("hiding")
-    protected <T, S> Encoder<T, S> getEncoder(String namespace, Object o) throws NoEncoderForKeyException {
+    protected <T, S> Encoder<T, S> getEncoder(/*~~>*/String namespace, Object o) throws NoEncoderForKeyException {
         return getEncoder(new XmlEncoderKey(namespace, o.getClass()));
     }
 
@@ -464,11 +464,11 @@ public abstract class XmlStreamWriter<S> {
         return getContext().getBoolean(XmlEncoderFlags.ADD_SCHEMA_LOCATION);
     }
 
-    protected Optional<String> getEncodeNamespace() {
+    protected Optional</*~~>*/String> getEncodeNamespace() {
         return getContext().get(XmlEncoderFlags.ENCODE_NAMESPACE);
     }
 
-    private static XMLStreamException prefixAlreadyBound(String prefix, String ns) {
+    private static XMLStreamException prefixAlreadyBound(/*~~>*/String prefix, /*~~>*/String ns) {
         return new XMLStreamException("Prefix <" + prefix + "> is already bound to <" + ns + ">");
     }
 

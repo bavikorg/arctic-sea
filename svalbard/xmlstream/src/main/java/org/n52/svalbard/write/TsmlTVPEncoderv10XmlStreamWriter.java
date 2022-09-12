@@ -75,7 +75,7 @@ public class TsmlTVPEncoderv10XmlStreamWriter extends AbstractOmV20XmlStreamWrit
     @Override
     protected void writeResult() throws XMLStreamException, EncodingException {
         start(OmConstants.QN_OM_20_RESULT);
-        namespace(TimeseriesMLConstants.NS_TSML_10_PREFIX, TimeseriesMLConstants.NS_TSML_10);
+        namespace(/*~~>*/TimeseriesMLConstants.NS_TSML_10_PREFIX, /*~~>*/TimeseriesMLConstants.NS_TSML_10);
         start(TimeseriesMLConstants.QN_MEASUREMENT_TIMESERIES);
         OmObservation observation = getElement();
         attr(GmlConstants.QN_ID_32, "timeseries." + observation.getObservationID());
@@ -85,14 +85,14 @@ public class TsmlTVPEncoderv10XmlStreamWriter extends AbstractOmV20XmlStreamWrit
             writeDefaultPointMetadata(observationValue, observationValue.getValue().getUnit());
             if (checkSweDataArray(observationValue.getValue())) {
                 SweDataArrayValue sweDataArrayValue = (SweDataArrayValue) observationValue.getValue();
-                for (List<String> list : sweDataArrayValue.getValue().getValues()) {
+                for (List</*~~>*/String> list : sweDataArrayValue.getValue().getValues()) {
                     for (int i = 0; i < list.size(); i = i + 2) {
                         writePoint(list.get(i), list.get(i + 1));
                         close();
                     }
                 }
             } else {
-                String time = getTimeString(observationValue.getPhenomenonTime());
+                /*~~>*/String time = getTimeString(observationValue.getPhenomenonTime());
                 writePoint(time, observation.getValue().getValue());
                 close();
             }
@@ -141,7 +141,7 @@ public class TsmlTVPEncoderv10XmlStreamWriter extends AbstractOmV20XmlStreamWrit
 
     @Override
     protected void writeAddtitionalNamespaces() throws XMLStreamException {
-        namespace(TimeseriesMLConstants.NS_TSML_10_PREFIX, TimeseriesMLConstants.NS_TSML_10);
+        namespace(/*~~>*/TimeseriesMLConstants.NS_TSML_10_PREFIX, /*~~>*/TimeseriesMLConstants.NS_TSML_10);
     }
 
     @Override
@@ -220,7 +220,7 @@ public class TsmlTVPEncoderv10XmlStreamWriter extends AbstractOmV20XmlStreamWrit
      * @throws XMLStreamException
      *             If an error occurs when writing to stream
      */
-    private void writeDefaultPointMetadata(@Nullable ObservationValue<?> value, @Nullable String unit)
+    private void writeDefaultPointMetadata(@Nullable ObservationValue<?> value, @Nullable /*~~>*/String unit)
             throws XMLStreamException {
         start(TimeseriesMLConstants.QN_DEFAULT_POINT_METADATA);
         start(TimeseriesMLConstants.QN_DEFAULT_TVP_MEASUREMENT_METADATA);
@@ -240,7 +240,7 @@ public class TsmlTVPEncoderv10XmlStreamWriter extends AbstractOmV20XmlStreamWrit
      * @throws XMLStreamException
      *             If an error occurs when writing to stream
      */
-    private void writeUOM(@Nullable String code) throws XMLStreamException {
+    private void writeUOM(@Nullable /*~~>*/String code) throws XMLStreamException {
         if (code != null && !code.isEmpty()) {
             empty(TimeseriesMLConstants.UOM);
             attr("code", code);
@@ -281,7 +281,7 @@ public class TsmlTVPEncoderv10XmlStreamWriter extends AbstractOmV20XmlStreamWrit
         }
     }
 
-    private void writePoint(String time, Value<?> value) throws XMLStreamException, EncodingException {
+    private void writePoint(/*~~>*/String time, Value<?> value) throws XMLStreamException, EncodingException {
         if (value != null) {
             if (value instanceof QuantityValue) {
                 QuantityValue quantityValue = (QuantityValue) value;
@@ -296,7 +296,7 @@ public class TsmlTVPEncoderv10XmlStreamWriter extends AbstractOmV20XmlStreamWrit
                 writePoint(time, countValue);
             } else if (value instanceof TextValue) {
                 TextValue textValue = (TextValue) value;
-                String nonXmlEscapedText = textValue.getValue();
+                /*~~>*/String nonXmlEscapedText = textValue.getValue();
                 writePoint(time, StringEscapeUtils.escapeXml(nonXmlEscapedText), textValue.getQuality());
             }
         } else {
@@ -304,7 +304,7 @@ public class TsmlTVPEncoderv10XmlStreamWriter extends AbstractOmV20XmlStreamWrit
         }
     }
 
-    private void writePoint(String time, QuantityValue value) throws XMLStreamException, EncodingException {
+    private void writePoint(/*~~>*/String time, QuantityValue value) throws XMLStreamException, EncodingException {
         if (value.isSetValue()) {
             writePoint(time, value.getValue().toPlainString(), value.getQuality());
         } else {
@@ -316,11 +316,11 @@ public class TsmlTVPEncoderv10XmlStreamWriter extends AbstractOmV20XmlStreamWrit
         }
     }
 
-    private void writePoint(String time, CountValue value) throws XMLStreamException, EncodingException {
+    private void writePoint(/*~~>*/String time, CountValue value) throws XMLStreamException, EncodingException {
         writePoint(time, value.isSetValue() ? Integer.toString(value.getValue()) : "", value.getQuality());
     }
 
-    private void writePoint(String time, String string) throws XMLStreamException, EncodingException {
+    private void writePoint(/*~~>*/String time, /*~~>*/String string) throws XMLStreamException, EncodingException {
         writePoint(time, string, null);
     }
 
@@ -338,7 +338,7 @@ public class TsmlTVPEncoderv10XmlStreamWriter extends AbstractOmV20XmlStreamWrit
      * @throws EncodingException
      *             If an error occurs when encoding quality
      */
-    private void writePoint(String time, String value, SweQualityHolder qualityHolder)
+    private void writePoint(/*~~>*/String time, /*~~>*/String value, SweQualityHolder qualityHolder)
             throws XMLStreamException, EncodingException {
         if (!Strings.isNullOrEmpty(time)) {
             start(TimeseriesMLConstants.QN_POINT);
@@ -359,7 +359,7 @@ public class TsmlTVPEncoderv10XmlStreamWriter extends AbstractOmV20XmlStreamWrit
      * @throws XMLStreamException
      *             If an error occurs when writing to stream
      */
-    private void writeMeasurementTVP(String time, String value, SweQualityHolder qualityHolder)
+    private void writeMeasurementTVP(/*~~>*/String time, /*~~>*/String value, SweQualityHolder qualityHolder)
             throws XMLStreamException, EncodingException {
         start(TimeseriesMLConstants.QN_MEASUREMENT_TVP);
         if (qualityHolder != null && qualityHolder.isSetQuality() && checkQuality(qualityHolder)) {
@@ -386,7 +386,7 @@ public class TsmlTVPEncoderv10XmlStreamWriter extends AbstractOmV20XmlStreamWrit
      * @throws XMLStreamException
      *             If an error occurs when writing to stream
      */
-    private void writeTime(String time) throws XMLStreamException {
+    private void writeTime(/*~~>*/String time) throws XMLStreamException {
         start(TimeseriesMLConstants.QN_TIME);
         chars(time);
         endInline(TimeseriesMLConstants.QN_TIME);
@@ -401,7 +401,7 @@ public class TsmlTVPEncoderv10XmlStreamWriter extends AbstractOmV20XmlStreamWrit
      * @throws XMLStreamException
      *             If an error occurs when writing to stream
      */
-    private void writeValue(String value) throws XMLStreamException {
+    private void writeValue(/*~~>*/String value) throws XMLStreamException {
         if (!Strings.isNullOrEmpty(value)) {
             start(TimeseriesMLConstants.QN_VALUE);
             chars(value);
@@ -412,7 +412,7 @@ public class TsmlTVPEncoderv10XmlStreamWriter extends AbstractOmV20XmlStreamWrit
         }
     }
 
-    private void writePointEmptyValueWithQuality(String time, SweQualityHolder qualityHolder)
+    private void writePointEmptyValueWithQuality(/*~~>*/String time, SweQualityHolder qualityHolder)
             throws XMLStreamException, EncodingException {
         start(TimeseriesMLConstants.QN_POINT);
         start(TimeseriesMLConstants.QN_MEASUREMENT_TVP);
@@ -448,7 +448,7 @@ public class TsmlTVPEncoderv10XmlStreamWriter extends AbstractOmV20XmlStreamWrit
         if (qualityHolder.isSetQuality()) {
             for (SweQuality quality : qualityHolder.getQuality()) {
                 if (quality instanceof SweQuantity) {
-                    XmlObject createdQuality = (XmlObject) getEncoder(SweConstants.NS_SWE_20, quality).encode(quality,
+                    XmlObject createdQuality = (XmlObject) getEncoder(/*~~>*/SweConstants.NS_SWE_20, quality).encode(quality,
                             EncodingContext.of(XmlBeansEncodingFlags.DOCUMENT, true));
                     if (createdQuality != null) {
                         start(TimeseriesMLConstants.QN_QUALIFIER);
@@ -462,8 +462,8 @@ public class TsmlTVPEncoderv10XmlStreamWriter extends AbstractOmV20XmlStreamWrit
 
     private void writeCensoredReason(SweQualityHolder qualityHolder) throws XMLStreamException {
         if (qualityHolder.isSetReferences()
-                && qualityHolder.getReferences().containsKey(TimeseriesMLConstants.EN_CENSORED_REASON)) {
-            ReferenceType reference = qualityHolder.getReferences().get(TimeseriesMLConstants.EN_CENSORED_REASON);
+                && qualityHolder.getReferences().containsKey(/*~~>*/TimeseriesMLConstants.EN_CENSORED_REASON)) {
+            ReferenceType reference = qualityHolder.getReferences().get(/*~~>*/TimeseriesMLConstants.EN_CENSORED_REASON);
             empty(TimeseriesMLConstants.QN_CENSORED_REASON);
             if (reference.isSetHref()) {
                 attr(W3CConstants.QN_XLINK_HREF, reference.getHref());
@@ -491,8 +491,8 @@ public class TsmlTVPEncoderv10XmlStreamWriter extends AbstractOmV20XmlStreamWrit
     }
 
     @Override
-    protected Optional<String> getDefaultFeatureEncodingNamespace() {
-        return Optional.of(TimeseriesMLConstants.NS_TSML_10);
+    protected Optional</*~~>*/String> getDefaultFeatureEncodingNamespace() {
+        return Optional.of(/*~~>*/TimeseriesMLConstants.NS_TSML_10);
     }
 
 }

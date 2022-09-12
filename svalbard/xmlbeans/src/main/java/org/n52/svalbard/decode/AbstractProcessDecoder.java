@@ -34,8 +34,8 @@ public abstract class AbstractProcessDecoder<S>
         implements ProcedureDecoder<Process, S> {
 
     private static final Set<SupportedType> SUPPORTED_TYPES =
-            Sets.newHashSet(new ProcedureDescriptionFormat(InspireOMPRConstants.OMPR_30_OUTPUT_FORMAT_URL),
-                    new ProcedureDescriptionFormat(InspireOMPRConstants.OMPR_30_OUTPUT_FORMAT_MIME_TYPE));
+            Sets.newHashSet(new ProcedureDescriptionFormat(/*~~>*/InspireOMPRConstants.OMPR_30_OUTPUT_FORMAT_URL),
+                    new ProcedureDescriptionFormat(/*~~>*/InspireOMPRConstants.OMPR_30_OUTPUT_FORMAT_MIME_TYPE));
 
     @Override
     public Set<SupportedType> getSupportedTypes() {
@@ -43,7 +43,7 @@ public abstract class AbstractProcessDecoder<S>
     }
 
     @Override
-    public Set<String> getSupportedProcedureDescriptionFormats(final String service, final String version) {
+    public Set</*~~>*/String> getSupportedProcedureDescriptionFormats(final /*~~>*/String service, final /*~~>*/String version) {
         return Collections.emptySet();
     }
 
@@ -55,8 +55,8 @@ public abstract class AbstractProcessDecoder<S>
 
     private void parseInspireId(ProcessType pt, Process process) {
         IdentifierType identifier = pt.getInspireId().getIdentifier();
-        String localId = identifier.getLocalId();
-        String namespace = identifier.getNamespace();
+        /*~~>*/String localId = identifier.getLocalId();
+        /*~~>*/String namespace = identifier.getNamespace();
         CodeWithAuthority codeWithAuthority;
         if (localId.contains(namespace)) {
             codeWithAuthority = new CodeWithAuthority(localId, namespace);
@@ -66,7 +66,7 @@ public abstract class AbstractProcessDecoder<S>
         process.setIdentifier(codeWithAuthority);
     }
 
-    private String getIdentifier(String localId, String namespace) {
+    private /*~~>*/String getIdentifier(/*~~>*/String localId, /*~~>*/String namespace) {
         if (namespace.endsWith("=")) {
             return namespace + localId;
         }

@@ -79,8 +79,8 @@ public class TextObservationDecodingTest {
     @Test
     public void testObservation() {
         assertThat(observation, is(notNullValue()));
-        final String type = observation.getObservationConstellation().getObservationType();
-        assertThat(type, is(equalTo(OmConstants.OBS_TYPE_TEXT_OBSERVATION)));
+        final /*~~>*/String type = observation.getObservationConstellation().getObservationType();
+        assertThat(type, is(equalTo(/*~~>*/OmConstants.OBS_TYPE_TEXT_OBSERVATION)));
         final ObservationValue<?> value = observation.getValue();
         assertThat(value, is(instanceOf(SingleObservationValue.class)));
         assertThat(value.getPhenomenonTime(), is(instanceOf(TimeInstant.class)));

@@ -28,15 +28,15 @@ import org.n52.faroe.ConfigurationError;
 public abstract class AbstractEnumPropertiesFileHandler<E extends Enum<E>> extends
         ServletContextPropertyFileHandler {
 
-    protected AbstractEnumPropertiesFileHandler(ServletContext ctx, String name) {
+    protected AbstractEnumPropertiesFileHandler(ServletContext ctx, /*~~>*/String name) {
         super(ctx, name);
     }
 
-    public String get(E e) throws ConfigurationError {
+    public /*~~>*/String get(E e) throws ConfigurationError {
         return get(e.name());
     }
 
-    public void save(E e, String value) throws ConfigurationError {
+    public void save(E e, /*~~>*/String value) throws ConfigurationError {
         save(e.name(), value);
     }
 }

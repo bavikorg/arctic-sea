@@ -47,12 +47,12 @@ import org.n52.svalbard.encode.exception.EncodingException;
 public abstract class AbstractGetDataAvailabilityStreamWriter
         extends XmlStreamWriter<List<DataAvailability>> {
 
-    protected static final String TIME_PERIOD_PREFIX = "tp_";
-    protected static final String DATA_AVAILABILITY_PREFIX = "dam_";
-    protected static final String RESULT_TIME = "resultTime";
-    protected static final String AN_NAME = "name";
-    protected static final String AN_DEFINITION = "definition";
-    protected final Map<TimePeriod, String> times = new HashMap<>();
+    protected static final /*~~>*/String TIME_PERIOD_PREFIX = "tp_";
+    protected static final /*~~>*/String DATA_AVAILABILITY_PREFIX = "dam_";
+    protected static final /*~~>*/String RESULT_TIME = "resultTime";
+    protected static final /*~~>*/String AN_NAME = "name";
+    protected static final /*~~>*/String AN_DEFINITION = "definition";
+    protected final Map<TimePeriod, /*~~>*/String> times = new HashMap<>();
     protected int dataAvailabilityCount = 1;
     protected int timePeriodCount = 1;
     protected int resultTimeCount = 1;
@@ -132,7 +132,7 @@ public abstract class AbstractGetDataAvailabilityStreamWriter
     protected void writeTimePosition(QName name, TimePosition position) throws XMLStreamException {
         if (position.isSetIndeterminateValue()) {
             empty(name);
-            attr(GmlConstants.AN_INDETERMINATE_POSITION, position.getIndeterminateValue().getValue());
+            attr(/*~~>*/GmlConstants.AN_INDETERMINATE_POSITION, position.getIndeterminateValue().getValue());
         }
         if (position.isSetTime()) {
             start(name);
@@ -168,12 +168,12 @@ public abstract class AbstractGetDataAvailabilityStreamWriter
 
     protected void writeTime(TimeInstant ti) throws XMLStreamException, DateTimeFormatException {
         start(SweConstants.QN_TIME_SWE_200);
-        writeSweUOM(OmConstants.PHEN_UOM_ISO8601);
+        writeSweUOM(/*~~>*/OmConstants.PHEN_UOM_ISO8601);
         writeSweValue(ti);
         end(SweConstants.QN_TIME_SWE_200);
     }
 
-    private void writeSweUOM(String uom) throws XMLStreamException {
+    private void writeSweUOM(/*~~>*/String uom) throws XMLStreamException {
         start(SweConstants.QN_UOM_SWE_200);
         attr(W3CConstants.QN_XLINK_HREF, uom);
         end(SweConstants.QN_UOM_SWE_200);
@@ -186,16 +186,16 @@ public abstract class AbstractGetDataAvailabilityStreamWriter
         end(SweConstants.QN_VALUE_SWE_200);
     }
 
-    protected void writeSweValue(String value) throws XMLStreamException {
+    protected void writeSweValue(/*~~>*/String value) throws XMLStreamException {
         start(SweConstants.QN_VALUE_SWE_200);
         chars(value);
         end(SweConstants.QN_VALUE_SWE_200);
     }
 
-    protected void writeMetadata(Map<String, NamedValue<?>> map, QName element)
+    protected void writeMetadata(Map</*~~>*/String, NamedValue<?>> map, QName element)
             throws XMLStreamException, EncodingException {
-        for (Entry<String, NamedValue<?>> entry : map.entrySet()) {
-            Object o = getEncoder(OmConstants.NS_OM_2, entry.getValue())
+        for (Entry</*~~>*/String, NamedValue<?>> entry : map.entrySet()) {
+            Object o = getEncoder(/*~~>*/OmConstants.NS_OM_2, entry.getValue())
                     .encode(entry.getValue(), EncodingContext.of(XmlBeansEncodingFlags.DOCUMENT));
             if (o != null && o instanceof XmlObject) {
                 start(GetDataAvailabilityConstants.GDA_EXTENSION);

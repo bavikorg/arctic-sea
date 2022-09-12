@@ -22,11 +22,11 @@ import org.quartz.CronExpression;
 
 public interface CronExpressionValidator {
 
-    default void validate(String cronExpression) {
+    default void validate(/*~~>*/String cronExpression) {
         try {
             CronExpression.validateExpression(cronExpression);
         } catch (ParseException e) {
-            throw new ConfigurationError(String.format(
+            throw new ConfigurationError(/*~~>*/String.format(
                     "%s is invalid! Please check http://www.quartz-scheduler.org/documentation/quartz-2.3.0/tutorials"
                             + "/tutorial-lesson-06.html",
                     cronExpression));

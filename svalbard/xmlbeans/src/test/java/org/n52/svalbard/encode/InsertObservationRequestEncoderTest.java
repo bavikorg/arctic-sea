@@ -62,7 +62,7 @@ import net.opengis.swe.x20.BooleanType;
  */
 public class InsertObservationRequestEncoderTest {
 
-    private static final String OFFERING_ID = "test-offering";
+    private static final /*~~>*/String OFFERING_ID = "test-offering";
 
     private InsertObservationRequestEncoder encoder;
 
@@ -179,7 +179,7 @@ public class InsertObservationRequestEncoderTest {
 
     @Test
     public void shouldEncodeExtensions() throws InvalidSridException, ParseException, EncodingException, DecodingException {
-        String definition = Sos2Constants.Extensions.SplitDataArrayIntoObservations.name();
+        /*~~>*/String definition = Sos2Constants.Extensions.SplitDataArrayIntoObservations.name();
         boolean value = true;
 
         SweBoolean sweBoolean = new SweBoolean();
@@ -219,7 +219,7 @@ public class InsertObservationRequestEncoderTest {
 
         OmObservationConstellation observationConstellation = new OmObservationConstellation();
         observationConstellation.setGmlId("o1");
-        observationConstellation.setObservationType(OmConstants.OBS_TYPE_MEASUREMENT);
+        observationConstellation.setObservationType(/*~~>*/OmConstants.OBS_TYPE_MEASUREMENT);
         observationConstellation.setObservableProperty(new OmObservableProperty("test-property"));
         observationConstellation.setFeatureOfInterest(samplingFeature);
         observationConstellation.setProcedure(procedure);

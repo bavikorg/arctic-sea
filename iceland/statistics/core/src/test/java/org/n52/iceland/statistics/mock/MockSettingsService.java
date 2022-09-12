@@ -44,12 +44,12 @@ public class MockSettingsService implements SettingsService {
     }
 
     @Override
-    public SettingDefinition<?> getDefinitionByKey(String key) {
+    public SettingDefinition<?> getDefinitionByKey(/*~~>*/String key) {
         throw new UnsupportedOperationException();
     }
 
     @Override
-    public Set<String> getKeys() {
+    public Set</*~~>*/String> getKeys() {
         throw new UnsupportedOperationException();
     }
 
@@ -59,7 +59,7 @@ public class MockSettingsService implements SettingsService {
     }
 
     @Override
-    public <T> SettingValue<T> getSetting(String key) {
+    public <T> SettingValue<T> getSetting(/*~~>*/String key) {
         throw new UnsupportedOperationException();
     }
 

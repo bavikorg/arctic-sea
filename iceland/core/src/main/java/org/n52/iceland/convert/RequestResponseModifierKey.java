@@ -34,8 +34,8 @@ import com.google.common.base.Strings;
  */
 @SuppressWarnings("rawtypes")
 public class RequestResponseModifierKey implements Comparable<RequestResponseModifierKey> {
-    private final String service;
-    private final String version;
+    private final /*~~>*/String service;
+    private final /*~~>*/String version;
     private Optional<Class<? extends OwsServiceRequest>> request;
     private Optional<Class<? extends OwsServiceResponse>> response;
 
@@ -46,7 +46,7 @@ public class RequestResponseModifierKey implements Comparable<RequestResponseMod
      * @param version The service version
      * @param request The {@link OwsServiceRequest}
      */
-    public RequestResponseModifierKey(String service, String version,
+    public RequestResponseModifierKey(/*~~>*/String service, /*~~>*/String version,
                                       OwsServiceRequest request) {
         this(service, version, request, null);
     }
@@ -59,7 +59,7 @@ public class RequestResponseModifierKey implements Comparable<RequestResponseMod
      * @param request  The {@link OwsServiceRequest}
      * @param response The {@link OwsServiceResponse}
      */
-    public RequestResponseModifierKey(String service, String version,
+    public RequestResponseModifierKey(/*~~>*/String service, /*~~>*/String version,
                                       OwsServiceRequest request,
                                       OwsServiceResponse response) {
         this(service, version, getClass(request), getClass(response));
@@ -72,7 +72,7 @@ public class RequestResponseModifierKey implements Comparable<RequestResponseMod
      * @param version The service version
      * @param request The {@link OwsServiceRequest}
      */
-    public RequestResponseModifierKey(String service, String version,
+    public RequestResponseModifierKey(/*~~>*/String service, /*~~>*/String version,
                                       Class<? extends OwsServiceRequest> request) {
         this(service, version, request, null);
     }
@@ -85,7 +85,7 @@ public class RequestResponseModifierKey implements Comparable<RequestResponseMod
      * @param request  The {@link OwsServiceRequest}
      * @param response The {@link OwsServiceResponse}
      */
-    public RequestResponseModifierKey(String service, String version,
+    public RequestResponseModifierKey(/*~~>*/String service, /*~~>*/String version,
                                       Class<? extends OwsServiceRequest> request,
                                       Class<? extends OwsServiceResponse> response) {
         this(service, version, Optional.ofNullable(request), Optional
@@ -100,11 +100,11 @@ public class RequestResponseModifierKey implements Comparable<RequestResponseMod
      * @param request  The {@link OwsServiceRequest}
      * @param response The {@link OwsServiceResponse}
      */
-    public RequestResponseModifierKey(String service, String version,
+    public RequestResponseModifierKey(/*~~>*/String service, /*~~>*/String version,
                                       Optional<Class<? extends OwsServiceRequest>> request,
                                       Optional<Class<? extends OwsServiceResponse>> response) {
-        this.service = Optional.ofNullable(service).orElse("");
-        this.version = Optional.ofNullable(version).orElse("");
+        /*~~>*/this.service = Optional.ofNullable(service).orElse("");
+        /*~~>*/this.version = Optional.ofNullable(version).orElse("");
         this.request = Objects.requireNonNull(request);
         this.response = Objects.requireNonNull(response);
     }
@@ -112,15 +112,15 @@ public class RequestResponseModifierKey implements Comparable<RequestResponseMod
     /**
      * @return the service
      */
-    public String getService() {
-        return this.service;
+    public /*~~>*/String getService() {
+        return /*~~>*/this.service;
     }
 
     /**
      * @return the version
      */
-    public String getVersion() {
-        return this.version;
+    public /*~~>*/String getVersion() {
+        return /*~~>*/this.version;
     }
 
     public boolean isSetService() {
@@ -154,8 +154,8 @@ public class RequestResponseModifierKey implements Comparable<RequestResponseMod
     }
 
     @Override
-    public String toString() {
-        return String.format("%s[service=%s, service=%s, request=%s, response=%s]",
+    public /*~~>*/String toString() {
+        return /*~~>*/String.format("%s[service=%s, service=%s, request=%s, response=%s]",
                              getClass().getSimpleName(), getService(), getVersion(),
                              isSetRequest() ? getRequest().getClass().getSimpleName() : "",
                              isSetResponse() ? getResponse().getClass().getSimpleName() : "");
@@ -163,7 +163,7 @@ public class RequestResponseModifierKey implements Comparable<RequestResponseMod
 
     @Override
     public int compareTo(RequestResponseModifierKey o) {
-        Comparator<String> stringComparator = Comparables.allowNull(String::compareTo);
+        Comparator</*~~>*/String> stringComparator = Comparables.allowNull(/*~~>*/String::compareTo);
         Comparator<Class<?>> classComparator = Comparables.allowNull((a, b) -> {
             return a == b ? 0 : a.getName().compareTo(b.getName());
         });

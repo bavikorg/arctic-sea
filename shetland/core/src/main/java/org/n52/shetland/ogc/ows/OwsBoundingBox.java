@@ -40,11 +40,11 @@ public class OwsBoundingBox {
         }
         if (lowerCorner.length != dimension) {
             throw new IllegalArgumentException(
-                    String.format("lowerCorner has wrong dimension (%s vs %s)", lowerCorner.length, dimension));
+                    /*~~>*/String.format("lowerCorner has wrong dimension (%s vs %s)", lowerCorner.length, dimension));
         }
         if (upperCorner.length != dimension) {
             throw new IllegalArgumentException(
-                    String.format("upperCorner has wrong dimension (%s vs %s)", upperCorner.length, dimension));
+                    /*~~>*/String.format("upperCorner has wrong dimension (%s vs %s)", upperCorner.length, dimension));
         }
         this.lowerCorner = Arrays.copyOf(lowerCorner, lowerCorner.length);
         this.upperCorner = Arrays.copyOf(upperCorner, upperCorner.length);

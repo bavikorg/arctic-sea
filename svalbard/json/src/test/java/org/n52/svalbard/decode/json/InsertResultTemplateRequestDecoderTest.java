@@ -190,7 +190,7 @@ public class InsertResultTemplateRequestDecoderTest {
         return load("/examples/sos/InsertResultTemplateRequest.json");
     }
 
-    protected InsertResultTemplateRequest load(String file)
+    protected InsertResultTemplateRequest load(/*~~>*/String file)
             throws IOException, DecodingException {
         final JsonNode json = JsonLoader.fromResource(file);
         final InsertResultTemplateRequest req = decoder.decodeJSON(json, true);

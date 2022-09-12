@@ -35,9 +35,9 @@ import org.n52.shetland.ogc.swe.simpleType.SweText;
  */
 public class ExtensionsTest {
 
-    private static final String DEFINITION_1 = TestDefinitions.definition1.name();
-    private static final String DEFINITION_2 = TestDefinitions.definition2.name();
-    private static final String DEFINITION_3= TestDefinitions.definition3.name();
+    private static final /*~~>*/String DEFINITION_1 = TestDefinitions.definition1.name();
+    private static final /*~~>*/String DEFINITION_2 = TestDefinitions.definition2.name();
+    private static final /*~~>*/String DEFINITION_3= TestDefinitions.definition3.name();
     private static final SweText VALUE_1 = new SweText().setValue("");
     private static final SweCount VALUE_2 = new SweCount().setValue(1);
     private static final SweBoolean VALUE_3 = new SweBoolean().setValue(false);

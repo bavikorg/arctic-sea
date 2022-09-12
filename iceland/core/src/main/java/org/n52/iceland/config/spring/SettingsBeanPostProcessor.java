@@ -62,7 +62,7 @@ public class SettingsBeanPostProcessor implements BeanPostProcessor {
      * @throws BeanInitializationException if the configuration fails
      */
     @Override
-    public Object postProcessBeforeInitialization(Object bean, String beanName) {
+    public Object postProcessBeforeInitialization(Object bean, /*~~>*/String beanName) {
         if (bean instanceof SettingDefinition<?>) {
             this.settingsService.addSetting((SettingDefinition<?>) bean);
         }
@@ -78,7 +78,7 @@ public class SettingsBeanPostProcessor implements BeanPostProcessor {
      * @return {@code bean}
      */
     @Override
-    public Object postProcessAfterInitialization(Object bean, String beanName) {
+    public Object postProcessAfterInitialization(Object bean, /*~~>*/String beanName) {
         return bean;
     }
 }

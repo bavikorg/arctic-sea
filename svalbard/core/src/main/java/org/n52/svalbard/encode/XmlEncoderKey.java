@@ -25,20 +25,20 @@ import com.google.common.base.Objects;
  * @since 1.0.0
  */
 public class XmlEncoderKey implements EncoderKey {
-    private final String namespace;
+    private final /*~~>*/String namespace;
 
     private final Class<?> type;
 
-    public XmlEncoderKey(String namespace, Object type) {
+    public XmlEncoderKey(/*~~>*/String namespace, Object type) {
         this(namespace, type.getClass());
     }
 
-    public XmlEncoderKey(String namespace, Class<?> type) {
-        this.namespace = namespace;
+    public XmlEncoderKey(/*~~>*/String namespace, Class<?> type) {
+        /*~~>*/this.namespace = namespace;
         this.type = type;
     }
 
-    public String getNamespace() {
+    public /*~~>*/String getNamespace() {
         return namespace;
     }
 
@@ -47,8 +47,8 @@ public class XmlEncoderKey implements EncoderKey {
     }
 
     @Override
-    public String toString() {
-        return String.format("XmlEncoderKey[namespace=%s, type=%s]", getNamespace(), getType().getSimpleName());
+    public /*~~>*/String toString() {
+        return /*~~>*/String.format("XmlEncoderKey[namespace=%s, type=%s]", getNamespace(), getType().getSimpleName());
     }
 
     @Override

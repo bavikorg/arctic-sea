@@ -316,7 +316,7 @@ public final class Streams {
      *         java.util.function.BinaryOperator, java.util.function.Supplier)
      */
     public static <T> BinaryOperator<T> throwingMerger() {
-        return throwingMerger((a, b) -> new IllegalStateException(String.format("Duplicate key %s", a)));
+        return throwingMerger((a, b) -> new IllegalStateException(/*~~>*/String.format("Duplicate key %s", a)));
     }
 
     /**

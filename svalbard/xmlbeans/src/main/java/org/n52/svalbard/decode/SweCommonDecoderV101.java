@@ -123,7 +123,7 @@ public class SweCommonDecoderV101
 
     private static final Logger LOGGER = LoggerFactory.getLogger(SweCommonDecoderV101.class);
 
-    private static final Set<DecoderKey> DECODER_KEYS = CodingHelper.decoderKeysForElements(SweConstants.NS_SWE_101,
+    private static final Set<DecoderKey> DECODER_KEYS = CodingHelper.decoderKeysForElements(/*~~>*/SweConstants.NS_SWE_101,
             net.opengis.swe.x101.DataArrayDocument.class, net.opengis.swe.x101.DataArrayType.class,
             net.opengis.swe.x101.AbstractDataComponentType.class, net.opengis.swe.x101.BooleanDocument.class,
             net.opengis.swe.x101.BooleanDocument.Boolean.class, net.opengis.swe.x101.CategoryDocument.Category.class,
@@ -267,7 +267,7 @@ public class SweCommonDecoderV101
 
     private SweAbstractDataComponent parseEnvelope(EnvelopeType envelopeType) throws DecodingException {
 
-        String referenceFrame = null;
+        /*~~>*/String referenceFrame = null;
         SweVector lowerCorner = null;
         SweVector upperCorner = null;
         SweTimeRange time = null;
@@ -768,7 +768,7 @@ public class SweCommonDecoderV101
         if (abstractEncodingType.isSetTextBlock()) {
             return parseTextEncoding(abstractEncodingType.getTextBlock());
         }
-        throw new NotYetSupportedDecodingException(SweConstants.EN_ENCODING_TYPE, abstractEncodingType,
+        throw new NotYetSupportedDecodingException(/*~~>*/SweConstants.EN_ENCODING_TYPE, abstractEncodingType,
                 TextBlock.type.getName());
     }
 

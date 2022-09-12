@@ -25,27 +25,27 @@ import edu.umd.cs.findbugs.annotations.SuppressFBWarnings;
 
 public class Schema extends ExtensibilityElement {
 
-    private String elementFormDefault;
-    private String targetNamespace;
+    private /*~~>*/String elementFormDefault;
+    private /*~~>*/String targetNamespace;
     private Include include;
 
-    public Schema(String targetNamespace, Include include) {
+    public Schema(/*~~>*/String targetNamespace, Include include) {
         this("qualified", targetNamespace, include);
     }
 
     @SuppressFBWarnings({ "EI_EXPOSE_REP2" })
-    public Schema(String elementFormDefault, String targetNamespace, Include include) {
+    public Schema(/*~~>*/String elementFormDefault, /*~~>*/String targetNamespace, Include include) {
         super(WSDLConstants.QN_XSD_SCHEMA);
-        this.elementFormDefault = elementFormDefault;
-        this.targetNamespace = targetNamespace;
+        /*~~>*/this.elementFormDefault = elementFormDefault;
+        /*~~>*/this.targetNamespace = targetNamespace;
         this.include = include;
     }
 
-    public String getElementFormDefault() {
+    public /*~~>*/String getElementFormDefault() {
         return elementFormDefault;
     }
 
-    public String getTargetNamespace() {
+    public /*~~>*/String getTargetNamespace() {
         return targetNamespace;
     }
 

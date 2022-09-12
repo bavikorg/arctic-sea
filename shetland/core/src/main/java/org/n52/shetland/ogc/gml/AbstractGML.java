@@ -60,20 +60,20 @@ public abstract class AbstractGML {
     /**
      * Feature description
      */
-    private String description;
+    private /*~~>*/String description;
 
     private List<AbstractMetaData> metaDataProperty = new LinkedList<>();
 
     /**
      * GML id
      */
-    private String gmlId;
+    private /*~~>*/String gmlId;
 
     public AbstractGML() {
         this(null, null);
     }
 
-    public AbstractGML(String identifier) {
+    public AbstractGML(/*~~>*/String identifier) {
         this(new CodeWithAuthority(identifier), null);
     }
 
@@ -89,9 +89,9 @@ public abstract class AbstractGML {
      * @param gmlId
      *            GML id
      */
-    public AbstractGML(CodeWithAuthority identifier, String gmlId) {
+    public AbstractGML(CodeWithAuthority identifier, /*~~>*/String gmlId) {
         this.identifier = identifier;
-        this.gmlId = gmlId;
+        /*~~>*/this.gmlId = gmlId;
     }
 
     @Override
@@ -118,7 +118,7 @@ public abstract class AbstractGML {
      *
      * @return Identifier of this abstract feature
      */
-    public String getIdentifier() {
+    public /*~~>*/String getIdentifier() {
         if (isSetIdentifier()) {
             return getIdentifierCodeWithAuthority().getValue();
         }
@@ -155,7 +155,7 @@ public abstract class AbstractGML {
      *
      * @return this
      */
-    public AbstractGML setIdentifier(String identifier) {
+    public AbstractGML setIdentifier(/*~~>*/String identifier) {
         setIdentifier(new CodeWithAuthority(identifier));
         return this;
     }
@@ -172,7 +172,7 @@ public abstract class AbstractGML {
      *
      * @return Human readable identifier of this abstract feature
      */
-    public String getHumanReadableIdentifier() {
+    public /*~~>*/String getHumanReadableIdentifier() {
         return getHumanReadableIdentifierCodeWithAuthority().getValue();
     }
 
@@ -206,7 +206,7 @@ public abstract class AbstractGML {
      *
      * @return this
      */
-    public AbstractGML setHumanReadableIdentifier(String humanReadableIdentifier) {
+    public AbstractGML setHumanReadableIdentifier(/*~~>*/String humanReadableIdentifier) {
         setHumanReadableIdentifier(new CodeWithAuthority(humanReadableIdentifier));
         return this;
     }
@@ -246,7 +246,7 @@ public abstract class AbstractGML {
      *
      * @return Original identifier of this abstract feature
      */
-    public String getOriginalIdentifier() {
+    public /*~~>*/String getOriginalIdentifier() {
         if (isSetIdentifier()) {
             return getOriginalIdentifierCodeWithAuthority().getValue();
         }
@@ -326,7 +326,7 @@ public abstract class AbstractGML {
      *
      * @return {@code this}
      */
-    public AbstractGML addName(final String name) {
+    public AbstractGML addName(final /*~~>*/String name) {
         if (!Strings.isNullOrEmpty(name)) {
             addName(new CodeType(name));
         }
@@ -346,7 +346,7 @@ public abstract class AbstractGML {
      * @throws java.net.URISyntaxException
      *             if the code space is not a valid URI
      */
-    public AbstractGML addName(final String name, final URI codespace) throws URISyntaxException {
+    public AbstractGML addName(final /*~~>*/String name, final URI codespace) throws URISyntaxException {
         if (!Strings.isNullOrEmpty(name)) {
             addName(new CodeType(name, codespace));
         }
@@ -379,7 +379,7 @@ public abstract class AbstractGML {
      *
      * @return Feature description
      */
-    public String getDescription() {
+    public /*~~>*/String getDescription() {
         return description;
     }
 
@@ -391,8 +391,8 @@ public abstract class AbstractGML {
      *
      * @return this
      */
-    public AbstractGML setDescription(final String description) {
-        this.description = description;
+    public AbstractGML setDescription(final /*~~>*/String description) {
+        /*~~>*/this.description = description;
         return this;
     }
 
@@ -410,7 +410,7 @@ public abstract class AbstractGML {
      *
      * @return GML id
      */
-    public String getGmlId() {
+    public /*~~>*/String getGmlId() {
         return gmlId == null ? null : gmlId.replaceFirst("#", "");
     }
 
@@ -420,8 +420,8 @@ public abstract class AbstractGML {
      * @param gmlId
      *            GML id to set
      */
-    public void setGmlId(String gmlId) {
-        this.gmlId = gmlId;
+    public void setGmlId(/*~~>*/String gmlId) {
+        /*~~>*/this.gmlId = gmlId;
     }
 
     /**

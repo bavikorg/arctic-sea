@@ -26,12 +26,12 @@ import org.n52.janmayen.i18n.MultilingualString;
  */
 public class I18NOfferingMetadata extends AbstractI18NMetadata {
 
-    public I18NOfferingMetadata(String id, MultilingualString name,
+    public I18NOfferingMetadata(/*~~>*/String id, MultilingualString name,
                               MultilingualString description) {
         super(id, name, description);
     }
 
-    public I18NOfferingMetadata(String id) {
+    public I18NOfferingMetadata(/*~~>*/String id) {
         super(id);
     }
 

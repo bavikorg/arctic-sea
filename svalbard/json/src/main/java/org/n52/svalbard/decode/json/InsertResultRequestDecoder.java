@@ -32,20 +32,20 @@ import com.fasterxml.jackson.databind.JsonNode;
  */
 public class InsertResultRequestDecoder extends AbstractSosRequestDecoder<InsertResultRequest> {
     public InsertResultRequestDecoder() {
-        super(InsertResultRequest.class, SosConstants.SOS, Sos2Constants.SERVICEVERSION,
+        super(InsertResultRequest.class, /*~~>*/SosConstants.SOS, /*~~>*/Sos2Constants.SERVICEVERSION,
                 Sos2Constants.Operations.InsertResult);
     }
 
     @Override
-    protected String getSchemaURI() {
-        return SchemaConstants.Request.INSERT_RESULT;
+    protected /*~~>*/String getSchemaURI() {
+        return /*~~>*/SchemaConstants.Request.INSERT_RESULT;
     }
 
     @Override
     protected InsertResultRequest decodeRequest(JsonNode node) {
         InsertResultRequest irr = new InsertResultRequest();
-        irr.setTemplateIdentifier(node.path(JSONConstants.TEMPLATE_IDENTIFIER).textValue());
-        irr.setResultValues(node.path(JSONConstants.RESULT_VALUES).textValue());
+        irr.setTemplateIdentifier(node.path(/*~~>*/JSONConstants.TEMPLATE_IDENTIFIER).textValue());
+        irr.setResultValues(node.path(/*~~>*/JSONConstants.RESULT_VALUES).textValue());
         return irr;
     }
 }

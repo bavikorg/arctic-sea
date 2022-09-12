@@ -82,7 +82,7 @@ public class Activatable<T> {
     }
 
     @Override
-    public String toString() {
+    public /*~~>*/String toString() {
         return MoreObjects.toStringHelper(getClass()).add("object", getInternal()).add("active", isActive()).toString();
     }
 

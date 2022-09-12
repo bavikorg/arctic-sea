@@ -34,7 +34,7 @@ public class ProcessDocumentDecoder extends AbstractProcessDecoder<ProcessDocume
     private static final Logger LOGGER = LoggerFactory.getLogger(ProcessDocumentDecoder.class);
 
     private static final Set<DecoderKey> DECODER_KEYS = CodingHelper.decoderKeysForElements(
-            InspireOMPRConstants.NS_OMPR_30, ProcessDocument.class);
+            /*~~>*/InspireOMPRConstants.NS_OMPR_30, ProcessDocument.class);
 
 
 

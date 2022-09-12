@@ -40,7 +40,7 @@ public class ResponseProxy {
         this.response = response;
     }
 
-    public void addHeader(String headerIdentifier, String headerValue) {
+    public void addHeader(/*~~>*/String headerIdentifier, /*~~>*/String headerValue) {
         response.addHeader(headerIdentifier, headerValue);
     }
 

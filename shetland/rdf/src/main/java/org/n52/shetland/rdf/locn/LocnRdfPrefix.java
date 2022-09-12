@@ -20,15 +20,15 @@ import org.n52.shetland.rdf.vocabulary.LOCN;
 
 public interface LocnRdfPrefix extends RdfPrefix {
 
-    String NS_PREFIX = "locn";
+    /*~~>*/String NS_PREFIX = "locn";
 
     @Override
-    default String getPrefix() {
+    default /*~~>*/String getPrefix() {
         return NS_PREFIX;
     }
 
     @Override
-    default String getNamespace() {
-        return LOCN.NS;
+    default /*~~>*/String getNamespace() {
+        return /*~~>*/LOCN.NS;
     }
 }

@@ -40,7 +40,7 @@ public class CapabilitiesV1DocumentDecoder extends AbstractXmlDecoder<Capabiliti
     private static final Logger LOGGER = LoggerFactory.getLogger(CapabilitiesV1DocumentDecoder.class);
 
     private static final Set<DecoderKey> DECODER_KEYS
-            = CodingHelper.decoderKeysForElements(Sos1Constants.NS_SOS, CapabilitiesDocument.class);
+            = CodingHelper.decoderKeysForElements(/*~~>*/Sos1Constants.NS_SOS, CapabilitiesDocument.class);
 
     public CapabilitiesV1DocumentDecoder() {
         LOGGER.debug("Decoder for the following keys initialized successfully: {}!",

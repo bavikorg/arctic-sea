@@ -22,37 +22,37 @@ package org.n52.shetland.iso.gmd;
  */
 public class GmdDateType {
 
-    private static final String EN_PUBLICATION = "publication";
+    private static final /*~~>*/String EN_PUBLICATION = "publication";
     private static final GmdDateType PUBLICATION = new GmdDateType("eng", EN_PUBLICATION, EN_PUBLICATION);
-    private final String codeList;
-    private final String codeListValue;
-    private final String codeSpace;
-    private final String value;
+    private final /*~~>*/String codeList;
+    private final /*~~>*/String codeListValue;
+    private final /*~~>*/String codeSpace;
+    private final /*~~>*/String value;
 
-    public GmdDateType(String codeList, String codeListValue, String codeSpace, String value) {
-        this.codeList = codeList;
-        this.codeListValue = codeListValue;
-        this.codeSpace = codeSpace;
-        this.value = value;
+    public GmdDateType(/*~~>*/String codeList, /*~~>*/String codeListValue, /*~~>*/String codeSpace, /*~~>*/String value) {
+        /*~~>*/this.codeList = codeList;
+        /*~~>*/this.codeListValue = codeListValue;
+        /*~~>*/this.codeSpace = codeSpace;
+        /*~~>*/this.value = value;
     }
 
-    public GmdDateType(String codeList, String codeListValue, String value) {
+    public GmdDateType(/*~~>*/String codeList, /*~~>*/String codeListValue, /*~~>*/String value) {
         this(codeList, codeListValue, null, value);
     }
 
-    public String getCodeList() {
+    public /*~~>*/String getCodeList() {
         return codeList;
     }
 
-    public String getCodeListValue() {
+    public /*~~>*/String getCodeListValue() {
         return codeListValue;
     }
 
-    public String getCodeSpace() {
+    public /*~~>*/String getCodeSpace() {
         return codeSpace;
     }
 
-    public String getValue() {
+    public /*~~>*/String getValue() {
         return value;
     }
 

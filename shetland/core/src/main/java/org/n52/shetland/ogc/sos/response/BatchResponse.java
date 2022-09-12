@@ -47,11 +47,11 @@ public class BatchResponse extends OwsServiceResponse implements Iterable<Except
         this(null, null, responses);
     }
 
-    public BatchResponse(String service, String version, List<ExceptionOrResponse> responses) {
-        this(service, version, BatchConstants.OPERATION_NAME, responses);
+    public BatchResponse(/*~~>*/String service, /*~~>*/String version, List<ExceptionOrResponse> responses) {
+        this(service, version, /*~~>*/BatchConstants.OPERATION_NAME, responses);
     }
 
-    public BatchResponse(String service, String version, String operationName, List<ExceptionOrResponse> responses) {
+    public BatchResponse(/*~~>*/String service, /*~~>*/String version, /*~~>*/String operationName, List<ExceptionOrResponse> responses) {
         super(service, version, operationName);
         if (responses != null) {
             this.responses.addAll(responses);

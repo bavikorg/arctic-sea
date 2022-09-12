@@ -24,17 +24,17 @@ import org.n52.shetland.ogc.swes.SwesConstants;
  * @since 1.0.0
  */
 public enum SwesExceptionCode implements ExceptionCode {
-    InvalidRequest(SwesConstants.SOAP_REASON_INVALID_REQUEST),
-    RequestExtensionNotSupported(SwesConstants.SOAP_REASON_REQUEST_EXTENSION_NOT_SUPPORTED);
+    InvalidRequest(/*~~>*/SwesConstants.SOAP_REASON_INVALID_REQUEST),
+    RequestExtensionNotSupported(/*~~>*/SwesConstants.SOAP_REASON_REQUEST_EXTENSION_NOT_SUPPORTED);
 
-    private final String soapFaultReason;
+    private final /*~~>*/String soapFaultReason;
 
-    SwesExceptionCode(String soapFaultReason) {
-        this.soapFaultReason = soapFaultReason;
+    SwesExceptionCode(/*~~>*/String soapFaultReason) {
+        /*~~>*/this.soapFaultReason = soapFaultReason;
     }
 
     @Override
-    public String getSoapFaultReason() {
-        return this.soapFaultReason;
+    public /*~~>*/String getSoapFaultReason() {
+        return /*~~>*/this.soapFaultReason;
     }
 }

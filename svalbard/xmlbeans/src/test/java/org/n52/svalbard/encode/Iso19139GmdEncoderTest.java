@@ -62,10 +62,10 @@ public class Iso19139GmdEncoderTest {
     private static final EncodingContext PROPERTY_TYPE = EncodingContext.of(XmlBeansEncodingFlags.PROPERTY_TYPE);
     private static final EncodingContext DOCUMENT_TYPE = EncodingContext.of(XmlBeansEncodingFlags.DOCUMENT);
     private static final NamespaceContext NS_CTX = new NamespaceContextBuilder()
-            .add(GmlConstants.NS_GML_32, GmlConstants.NS_GML_PREFIX)
-            .add(GcoConstants.NS_GCO, GcoConstants.NS_GCO_PREFIX)
-            .add(GmdConstants.NS_GMD, GmdConstants.NS_GMD_PREFIX)
-            .add(W3CConstants.NS_XLINK, W3CConstants.NS_XLINK_PREFIX)
+            .add(/*~~>*/GmlConstants.NS_GML_32, /*~~>*/GmlConstants.NS_GML_PREFIX)
+            .add(/*~~>*/GcoConstants.NS_GCO, /*~~>*/GcoConstants.NS_GCO_PREFIX)
+            .add(/*~~>*/GmdConstants.NS_GMD, /*~~>*/GmdConstants.NS_GMD_PREFIX)
+            .add(/*~~>*/W3CConstants.NS_XLINK, /*~~>*/W3CConstants.NS_XLINK_PREFIX)
             .build();
 
 

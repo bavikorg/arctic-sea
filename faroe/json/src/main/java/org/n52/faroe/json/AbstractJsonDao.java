@@ -72,11 +72,11 @@ public abstract class AbstractJsonDao {
         return StreamSupport.stream(node.spliterator(), false);
     }
 
-    protected Stream<Entry<String, JsonNode>> createEntryStream(JsonNode node) {
+    protected Stream<Entry</*~~>*/String, JsonNode>> createEntryStream(JsonNode node) {
         return StreamSupport.stream(Spliterators.spliteratorUnknownSize(node.fields(), 0), true);
     }
 
-    protected Predicate<JsonNode> isNullOrMissing(String key) {
+    protected Predicate<JsonNode> isNullOrMissing(/*~~>*/String key) {
         return n -> n.path(key).isNull() || n.path(key).isMissingNode();
     }
 

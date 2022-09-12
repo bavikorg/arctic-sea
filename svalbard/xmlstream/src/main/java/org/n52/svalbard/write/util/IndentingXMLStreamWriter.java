@@ -25,15 +25,15 @@ import javax.xml.stream.XMLStreamWriter;
 
 public class IndentingXMLStreamWriter extends DelegatingXMLStreamWriter implements ExtendedXMLStreamWriter {
     private static final Pattern NEW_LINE_PATTERN = Pattern.compile("\\r?\\n");
-    private static final String NEW_LINE = "\n";
+    private static final /*~~>*/String NEW_LINE = "\n";
     private final Stack<State> stateStack = new Stack<>();
-    private final String indent;
+    private final /*~~>*/String indent;
     private State state = State.SEEN_NOTHING;
     private int depth ;
 
-    public IndentingXMLStreamWriter(XMLStreamWriter writer, String indent) {
+    public IndentingXMLStreamWriter(XMLStreamWriter writer, /*~~>*/String indent) {
         super(writer);
-        this.indent = indent;
+        /*~~>*/this.indent = indent;
     }
 
     public IndentingXMLStreamWriter(XMLStreamWriter writer, int indent) {
@@ -88,49 +88,49 @@ public class IndentingXMLStreamWriter extends DelegatingXMLStreamWriter implemen
     }
 
     @Override
-    public void writeStartDocument(String version) throws XMLStreamException {
+    public void writeStartDocument(/*~~>*/String version) throws XMLStreamException {
         super.writeStartDocument(version);
         writeNewLine();
     }
 
     @Override
-    public void writeStartDocument(String encoding, String version) throws XMLStreamException {
+    public void writeStartDocument(/*~~>*/String encoding, /*~~>*/String version) throws XMLStreamException {
         super.writeStartDocument(encoding, version);
         writeNewLine();
     }
 
     @Override
-    public void writeStartElement(String localName) throws XMLStreamException {
+    public void writeStartElement(/*~~>*/String localName) throws XMLStreamException {
         onStartElement();
         super.writeStartElement(localName);
     }
 
     @Override
-    public void writeStartElement(String namespaceURI, String localName) throws XMLStreamException {
+    public void writeStartElement(/*~~>*/String namespaceURI, /*~~>*/String localName) throws XMLStreamException {
         onStartElement();
         super.writeStartElement(namespaceURI, localName);
     }
 
     @Override
-    public void writeStartElement(String prefix, String localName, String namespaceURI) throws XMLStreamException {
+    public void writeStartElement(/*~~>*/String prefix, /*~~>*/String localName, /*~~>*/String namespaceURI) throws XMLStreamException {
         onStartElement();
         super.writeStartElement(prefix, localName, namespaceURI);
     }
 
     @Override
-    public void writeEmptyElement(String namespaceURI, String localName) throws XMLStreamException {
+    public void writeEmptyElement(/*~~>*/String namespaceURI, /*~~>*/String localName) throws XMLStreamException {
         onEmptyElement();
         super.writeEmptyElement(namespaceURI, localName);
     }
 
     @Override
-    public void writeEmptyElement(String prefix, String localName, String namespaceURI) throws XMLStreamException {
+    public void writeEmptyElement(/*~~>*/String prefix, /*~~>*/String localName, /*~~>*/String namespaceURI) throws XMLStreamException {
         onEmptyElement();
         super.writeEmptyElement(prefix, localName, namespaceURI);
     }
 
     @Override
-    public void writeEmptyElement(String localName) throws XMLStreamException {
+    public void writeEmptyElement(/*~~>*/String localName) throws XMLStreamException {
         onEmptyElement();
         super.writeEmptyElement(localName);
     }
@@ -142,9 +142,9 @@ public class IndentingXMLStreamWriter extends DelegatingXMLStreamWriter implemen
     }
 
     @Override
-    public void writeXML(String text) throws XMLStreamException {
-        String[] lines = NEW_LINE_PATTERN.split(text.trim());
-        Iterator<String> iter = Arrays.asList(lines).iterator();
+    public void writeXML(/*~~>*/String text) throws XMLStreamException {
+        /*~~>*/String[] lines = NEW_LINE_PATTERN.split(text.trim());
+        Iterator</*~~>*/String> iter = Arrays.asList(lines).iterator();
         while (iter.hasNext()) {
             writeNewLine();
             writeIndent();
@@ -154,13 +154,13 @@ public class IndentingXMLStreamWriter extends DelegatingXMLStreamWriter implemen
     }
 
     @Override
-    public void writeCharacters(String text) throws XMLStreamException {
+    public void writeCharacters(/*~~>*/String text) throws XMLStreamException {
         onData();
-        String[] lines = NEW_LINE_PATTERN.split(text.trim());
+        /*~~>*/String[] lines = NEW_LINE_PATTERN.split(text.trim());
         if (lines.length <= 1) {
             super.writeCharacters(text.trim());
         } else {
-            Iterator<String> iter = Arrays.asList(lines).iterator();
+            Iterator</*~~>*/String> iter = Arrays.asList(lines).iterator();
             while (iter.hasNext()) {
                 writeNewLine();
                 writeIndent();
@@ -172,16 +172,16 @@ public class IndentingXMLStreamWriter extends DelegatingXMLStreamWriter implemen
 
     @Override
     public void writeCharacters(char[] text, int start, int len) throws XMLStreamException {
-        writeCharacters(new String(text, start, len));
+        writeCharacters(new /*~~>*/String(text, start, len));
     }
 
     @Override
-    public void writeCData(String data) throws XMLStreamException {
+    public void writeCData(/*~~>*/String data) throws XMLStreamException {
         onData();
         super.writeCData(data);
     }
 
-    private static String repeat(String s, int times) {
+    private static /*~~>*/String repeat(/*~~>*/String s, int times) {
         StringBuilder builder = new StringBuilder(s.length() * times);
         for (int i = 0; i < times; ++i) {
             builder.append(s);

@@ -52,7 +52,7 @@ public class InsertSensorRequestEncoderTest {
     @BeforeEach
     public void prepare() {
         request = new InsertSensorRequest("service", "version");
-        request.setProcedureDescriptionFormat(SensorML20Constants.SENSORML_20_OUTPUT_FORMAT_URL);
+        request.setProcedureDescriptionFormat(/*~~>*/SensorML20Constants.SENSORML_20_OUTPUT_FORMAT_URL);
         request.setProcedureDescription(createProcedureDescription());
         SosInsertionMetadata metadata = new SosInsertionMetadata();
         metadata.setFeatureOfInterestTypes(CollectionHelper.list("test-foi-type-1", "test-foi-type-2"));
@@ -173,14 +173,14 @@ public class InsertSensorRequestEncoderTest {
         XmlObject xmlObject = encoder.create(request);
         assertThat(xmlObject, CoreMatchers.instanceOf(InsertSensorDocument.class));
         assertThat(((InsertSensorDocument)xmlObject).getInsertSensor().getProcedureDescriptionFormat(),
-                Is.is(SensorML20Constants.SENSORML_20_OUTPUT_FORMAT_URL));
+                Is.is(/*~~>*/SensorML20Constants.SENSORML_20_OUTPUT_FORMAT_URL));
     }
 
     @Test
     public void shouldEncodeObservableProperty() throws EncodingException {
         XmlObject xmlObject = encoder.create(request);
         assertThat(xmlObject, CoreMatchers.instanceOf(InsertSensorDocument.class));
-        List<String> observableProperties =
+        List</*~~>*/String> observableProperties =
                 Arrays.asList(((InsertSensorDocument)xmlObject).getInsertSensor().getObservablePropertyArray());
         assertThat(observableProperties, Matchers.hasSize(2));
         assertThat(observableProperties, Matchers.containsInAnyOrder("test-property-1", "test-property-2"));
@@ -196,11 +196,11 @@ public class InsertSensorRequestEncoderTest {
         SosInsertionMetadataType insertionMetadata =
                 (SosInsertionMetadataType) isd.getInsertSensor().getMetadataArray(0).getInsertionMetadata();
         assertThat(insertionMetadata.getFeatureOfInterestTypeArray(), CoreMatchers.notNullValue());
-        List<String> foiTypes = Arrays.asList(insertionMetadata.getFeatureOfInterestTypeArray());
+        List</*~~>*/String> foiTypes = Arrays.asList(insertionMetadata.getFeatureOfInterestTypeArray());
         assertThat(foiTypes, Matchers.hasSize(2));
         assertThat(foiTypes, Matchers.containsInAnyOrder("test-foi-type-1", "test-foi-type-2"));
         assertThat(insertionMetadata.getObservationTypeArray(), CoreMatchers.notNullValue());
-        List<String> oTypes = Arrays.asList(insertionMetadata.getObservationTypeArray());
+        List</*~~>*/String> oTypes = Arrays.asList(insertionMetadata.getObservationTypeArray());
         assertThat(oTypes, Matchers.hasSize(2));
         assertThat(oTypes, Matchers.containsInAnyOrder("test-observation-type-1", "test-observation-type-2"));
     }

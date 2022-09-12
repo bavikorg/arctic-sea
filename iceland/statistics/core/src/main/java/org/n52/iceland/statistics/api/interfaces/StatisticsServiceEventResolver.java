@@ -25,14 +25,14 @@ public interface StatisticsServiceEventResolver<T extends Event> {
      *
      * @return Elasticsearch format
      */
-    Map<String, Object> resolve();
+    Map</*~~>*/String, Object> resolve();
 
     /**
      * before the processing the Handlers can be added to the resolver via spring xml
      *
      * @param handlers the handlers
      */
-    void setHandlers(Map<String, StatisticsServiceEventHandler<?>> handlers);
+    void setHandlers(Map</*~~>*/String, StatisticsServiceEventHandler<?>> handlers);
 
     /**
      * Sets the payload to the Resolver class. Before the {@link #resolve()} method is called.

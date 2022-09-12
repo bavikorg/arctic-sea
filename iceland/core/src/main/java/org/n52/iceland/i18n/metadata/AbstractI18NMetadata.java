@@ -27,7 +27,7 @@ import com.google.common.collect.Sets;
 
 public abstract class AbstractI18NMetadata {
 
-    private final String identifier;
+    private final /*~~>*/String identifier;
     private final MultilingualString name;
     private final MultilingualString description;
 
@@ -38,10 +38,10 @@ public abstract class AbstractI18NMetadata {
      * @param name        The multilingual name of this object
      * @param description the multilingual description of this object
      */
-    public AbstractI18NMetadata(String id,
+    public AbstractI18NMetadata(/*~~>*/String id,
                         MultilingualString name,
                         MultilingualString description) {
-        this.identifier = id;
+        /*~~>*/this.identifier = id;
         this.name = newIfNull(name);
         this.description = newIfNull(description);
     }
@@ -51,7 +51,7 @@ public abstract class AbstractI18NMetadata {
      *
      * @param id The identifier of this object
      */
-    public AbstractI18NMetadata(String id) {
+    public AbstractI18NMetadata(/*~~>*/String id) {
         this(id, null, null);
     }
 
@@ -60,7 +60,7 @@ public abstract class AbstractI18NMetadata {
      *
      * @return The object identifier
      */
-    public String getIdentifier() {
+    public /*~~>*/String getIdentifier() {
         return identifier;
     }
 
@@ -89,7 +89,7 @@ public abstract class AbstractI18NMetadata {
     }
 
     @Override
-    public String toString() {
+    public /*~~>*/String toString() {
         return toStringHelper().toString();
     }
 

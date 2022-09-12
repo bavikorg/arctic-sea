@@ -107,7 +107,7 @@ public abstract class Referenceable<
         }
 
         @Override
-        public String toString() {
+        public /*~~>*/String toString() {
             return getInstance().toString();
         }
 
@@ -161,7 +161,7 @@ public abstract class Referenceable<
         }
 
         @Override
-        public String toString() {
+        public /*~~>*/String toString() {
             return getReference().toString();
         }
 

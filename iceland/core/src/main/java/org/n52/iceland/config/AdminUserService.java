@@ -32,14 +32,14 @@ public interface AdminUserService {
      *
      * @return the user
      */
-    AdministratorUser createAdminUser(String username, String password);
+    AdministratorUser createAdminUser(/*~~>*/String username, /*~~>*/String password);
 
     /**
      * Deletes the user with the specified username.
      *
      * @param username the username
      */
-    void deleteAdminUser(String username);
+    void deleteAdminUser(/*~~>*/String username);
 
     /**
      * Deletes the user previously returned by {@link #getAdminUser(java.lang.String)} or {@link #getAdminUsers()}.
@@ -55,7 +55,7 @@ public interface AdminUserService {
      *
      * @return the administrator user or {@code null} if no user with the specified name exists
      */
-    AdministratorUser getAdminUser(String username);
+    AdministratorUser getAdminUser(/*~~>*/String username);
 
     /**
      * Gets all registered administrator users.

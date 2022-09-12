@@ -40,23 +40,23 @@ import com.github.fge.jsonschema.main.JsonSchema;
  * @since 1.0.0
  */
 public class ValidationMatchers {
-    public static Matcher<JsonNode> instanceOf(String schemaURI) {
+    public static Matcher<JsonNode> instanceOf(/*~~>*/String schemaURI) {
         return new IsValidInstance(schemaURI);
     }
 
     public static Matcher<JsonNode> validObservation() {
-        return new IsValidInstance(SchemaConstants.Observation.OBSERVATION);
+        return new IsValidInstance(/*~~>*/SchemaConstants.Observation.OBSERVATION);
     }
 
     public static Matcher<JsonNode> validSchema() {
-        return new IsValidInstance(SchemaConstants.SCHEMA_URI);
+        return new IsValidInstance(/*~~>*/SchemaConstants.SCHEMA_URI);
     }
 
     public static class IsValidInstance extends TypeSafeDiagnosingMatcher<JsonNode> {
-        private final String schemaURI;
+        private final /*~~>*/String schemaURI;
 
-        public IsValidInstance(String schemaURI) {
-            this.schemaURI = schemaURI;
+        public IsValidInstance(/*~~>*/String schemaURI) {
+            /*~~>*/this.schemaURI = schemaURI;
         }
 
         @Override
@@ -77,8 +77,8 @@ public class ValidationMatchers {
                 Description mismatchDescription) throws JsonProcessingException {
             if (!report.isSuccess()) {
                 ObjectNode objectNode = JacksonUtils.nodeFactory().objectNode();
-                objectNode.set(JSONConstants.INSTANCE, item);
-                ArrayNode errors = objectNode.putArray(JSONConstants.ERRORS);
+                objectNode.set(/*~~>*/JSONConstants.INSTANCE, item);
+                ArrayNode errors = objectNode.putArray(/*~~>*/JSONConstants.ERRORS);
                 for (ProcessingMessage m : report) {
                     errors.add(m.asJson());
                 }

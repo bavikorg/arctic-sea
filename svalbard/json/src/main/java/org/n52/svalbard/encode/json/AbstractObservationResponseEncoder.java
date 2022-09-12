@@ -46,7 +46,7 @@ import com.google.common.collect.Sets;
 public abstract class AbstractObservationResponseEncoder<T extends AbstractObservationResponse>
         extends AbstractSosResponseEncoder<T>
         implements org.n52.svalbard.encode.ObservationEncoder<JsonNode, T> {
-    public AbstractObservationResponseEncoder(Class<T> type, String operation) {
+    public AbstractObservationResponseEncoder(Class<T> type, /*~~>*/String operation) {
         super(type, operation);
     }
 
@@ -56,7 +56,7 @@ public abstract class AbstractObservationResponseEncoder<T extends AbstractObser
 
     @Override
     protected void encodeResponse(ObjectNode json, T t) throws EncodingException {
-        ArrayNode obs = json.putArray(JSONConstants.OBSERVATIONS);
+        ArrayNode obs = json.putArray(/*~~>*/JSONConstants.OBSERVATIONS);
         try {
             ObservationStream observationCollection = t.getObservationCollection();
             encodeObservationStream(observationCollection, obs);
@@ -93,21 +93,21 @@ public abstract class AbstractObservationResponseEncoder<T extends AbstractObser
     }
 
     @Override
-    public Set<String> getSupportedResponseFormats(String service, String version) {
+    public Set</*~~>*/String> getSupportedResponseFormats(/*~~>*/String service, /*~~>*/String version) {
         return Collections.singleton(MediaTypes.APPLICATION_JSON.toString());
     }
 
     @Override
-    public Map<String, Set<SupportedType>> getSupportedResponseFormatObservationTypes() {
+    public Map</*~~>*/String, Set<SupportedType>> getSupportedResponseFormatObservationTypes() {
         return Collections.singletonMap(
                 MediaTypes.APPLICATION_JSON.toString(),
-                Sets.newHashSet(new ObservationType(OmConstants.OBS_TYPE_CATEGORY_OBSERVATION),
-                                new ObservationType(OmConstants.OBS_TYPE_COUNT_OBSERVATION),
-                                new ObservationType(OmConstants.OBS_TYPE_GEOMETRY_OBSERVATION),
-                                new ObservationType(OmConstants.OBS_TYPE_MEASUREMENT),
-                                new ObservationType(OmConstants.OBS_TYPE_TEXT_OBSERVATION),
-                                new ObservationType(OmConstants.OBS_TYPE_TRUTH_OBSERVATION),
-                                new ObservationType(OmConstants.OBS_TYPE_SWE_ARRAY_OBSERVATION),
-                                new ObservationType(OmConstants.OBS_TYPE_REFERENCE_OBSERVATION)));
+                Sets.newHashSet(new ObservationType(/*~~>*/OmConstants.OBS_TYPE_CATEGORY_OBSERVATION),
+                                new ObservationType(/*~~>*/OmConstants.OBS_TYPE_COUNT_OBSERVATION),
+                                new ObservationType(/*~~>*/OmConstants.OBS_TYPE_GEOMETRY_OBSERVATION),
+                                new ObservationType(/*~~>*/OmConstants.OBS_TYPE_MEASUREMENT),
+                                new ObservationType(/*~~>*/OmConstants.OBS_TYPE_TEXT_OBSERVATION),
+                                new ObservationType(/*~~>*/OmConstants.OBS_TYPE_TRUTH_OBSERVATION),
+                                new ObservationType(/*~~>*/OmConstants.OBS_TYPE_SWE_ARRAY_OBSERVATION),
+                                new ObservationType(/*~~>*/OmConstants.OBS_TYPE_REFERENCE_OBSERVATION)));
     }
 }

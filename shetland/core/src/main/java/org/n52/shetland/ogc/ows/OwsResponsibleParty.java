@@ -27,13 +27,13 @@ import com.google.common.base.Strings;
  */
 public class OwsResponsibleParty {
 
-    private final Optional<String> individualName;
-    private final Optional<String> organisationName;
-    private final Optional<String> positionName;
+    private final Optional</*~~>*/String> individualName;
+    private final Optional</*~~>*/String> organisationName;
+    private final Optional</*~~>*/String> positionName;
     private final Optional<OwsContact> contactInfo;
     private final Optional<OwsCode> role;
 
-    public OwsResponsibleParty(String individualName, String organisationName, String positionName,
+    public OwsResponsibleParty(/*~~>*/String individualName, /*~~>*/String organisationName, /*~~>*/String positionName,
             OwsContact contactInfo, OwsCode role) {
         this.individualName = Optional.ofNullable(Strings.emptyToNull(individualName));
         this.organisationName = Optional.ofNullable(Strings.emptyToNull(organisationName));
@@ -42,15 +42,15 @@ public class OwsResponsibleParty {
         this.role = Optional.ofNullable(role);
     }
 
-    public Optional<String> getIndividualName() {
+    public Optional</*~~>*/String> getIndividualName() {
         return individualName;
     }
 
-    public Optional<String> getOrganisationName() {
+    public Optional</*~~>*/String> getOrganisationName() {
         return organisationName;
     }
 
-    public Optional<String> getPositionName() {
+    public Optional</*~~>*/String> getPositionName() {
         return positionName;
     }
 
@@ -104,7 +104,7 @@ public class OwsResponsibleParty {
     }
 
     @Override
-    public String toString() {
+    public /*~~>*/String toString() {
         return "OwsResponsibleParty{" + "individualName=" + individualName + ", organisationName=" + organisationName
                 + ", positionName=" + positionName + ", contactInfo=" + contactInfo + ", role=" + role + '}';
     }

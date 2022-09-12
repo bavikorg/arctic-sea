@@ -61,9 +61,9 @@ public class StatisticsLocationUtil implements IStatisticsLocationUtil, IAdminSt
 
     private boolean enabled;
     private boolean isAutoDownload;
-    private String downloadFolderPath;
-    private String cityDbLoc;
-    private String countryDbLoc;
+    private /*~~>*/String downloadFolderPath;
+    private /*~~>*/String cityDbLoc;
+    private /*~~>*/String countryDbLoc;
     private LocationDatabaseType dbType;
     private DatabaseReader reader;
 
@@ -71,7 +71,7 @@ public class StatisticsLocationUtil implements IStatisticsLocationUtil, IAdminSt
     }
 
     @Override
-    public Map<String, Object> ip2SpatialData(IPAddress ip) {
+    public Map</*~~>*/String, Object> ip2SpatialData(IPAddress ip) {
         if (ip == null) {
             return null;
         }
@@ -80,7 +80,7 @@ public class StatisticsLocationUtil implements IStatisticsLocationUtil, IAdminSt
     }
 
     @Override
-    public Map<String, Object> ip2SpatialData(String host) {
+    public Map</*~~>*/String, Object> ip2SpatialData(/*~~>*/String host) {
         try {
             return ip2SpatialData(InetAddress.getByName(host));
         } catch (UnknownHostException e) {
@@ -89,7 +89,7 @@ public class StatisticsLocationUtil implements IStatisticsLocationUtil, IAdminSt
         return null;
     }
 
-    private Map<String, Object> ip2SpatialData(InetAddress ip) {
+    private Map</*~~>*/String, Object> ip2SpatialData(InetAddress ip) {
         if (!enabled) {
             return null;
         }
@@ -98,7 +98,7 @@ public class StatisticsLocationUtil implements IStatisticsLocationUtil, IAdminSt
             return null;
         }
         try {
-            Map<String, Object> holder = new HashMap<>(3);
+            Map</*~~>*/String, Object> holder = new HashMap<>(3);
             if (dbType == LocationDatabaseType.COUNTRY) {
                 Country country = reader.country(ip).getCountry();
                 holder.put(ObjectEsParameterFactory.GEOLOC_COUNTRY_CODE.getName(), country.getIsoCode());
@@ -137,7 +137,7 @@ public class StatisticsLocationUtil implements IStatisticsLocationUtil, IAdminSt
     }
 
     @Override
-    public void initDatabase(LocationDatabaseType type, String pathToDatabase) {
+    public void initDatabase(LocationDatabaseType type, /*~~>*/String pathToDatabase) {
         Objects.requireNonNull(type);
         Objects.requireNonNull(pathToDatabase);
         LOG.info("Init {} as type {} with file {}", getClass().toString(), type.toString(), pathToDatabase);
@@ -175,7 +175,7 @@ public class StatisticsLocationUtil implements IStatisticsLocationUtil, IAdminSt
         return enabled;
     }
 
-    @Setting(StatisticsLocationUtilSettingsKeys.ENABLED)
+    @Setting(/*~~>*/StatisticsLocationUtilSettingsKeys.ENABLED)
     public void setEnabled(boolean enabled) {
         this.enabled = enabled;
     }
@@ -184,51 +184,51 @@ public class StatisticsLocationUtil implements IStatisticsLocationUtil, IAdminSt
         return isAutoDownload;
     }
 
-    @Setting(StatisticsLocationUtilSettingsKeys.DATABASE_DOWNLOADER)
-    public void setAutoDownload(String choice) {
-        this.isAutoDownload = choice.equalsIgnoreCase(StatisticsLocationUtilSettingsKeys.DATABASE_DOWNLOADER_AUTO);
+    @Setting(/*~~>*/StatisticsLocationUtilSettingsKeys.DATABASE_DOWNLOADER)
+    public void setAutoDownload(/*~~>*/String choice) {
+        this.isAutoDownload = choice.equalsIgnoreCase(/*~~>*/StatisticsLocationUtilSettingsKeys.DATABASE_DOWNLOADER_AUTO);
     }
 
-    public String getDownloadFolderPath() {
+    public /*~~>*/String getDownloadFolderPath() {
         return downloadFolderPath;
     }
 
-    @Setting(StatisticsLocationUtilSettingsKeys.DOWNLOAD_FOLDERPATH)
-    public void setDownloadFolderPath(String downloadFolderPath) {
+    @Setting(/*~~>*/StatisticsLocationUtilSettingsKeys.DOWNLOAD_FOLDERPATH)
+    public void setDownloadFolderPath(/*~~>*/String downloadFolderPath) {
         // strip end slash
-        this.downloadFolderPath = downloadFolderPath;
-        if (this.downloadFolderPath != null) {
-            while (this.downloadFolderPath.endsWith("/") || this.downloadFolderPath.endsWith("\\")) {
-                this.downloadFolderPath = this.downloadFolderPath.substring(0, this.downloadFolderPath.length() + 1);
+        /*~~>*/this.downloadFolderPath = downloadFolderPath;
+        if (/*~~>*/this.downloadFolderPath != null) {
+            while (/*~~>*/this.downloadFolderPath.endsWith("/") || /*~~>*/this.downloadFolderPath.endsWith("\\")) {
+                /*~~>*/this.downloadFolderPath = /*~~>*/this.downloadFolderPath.substring(0, /*~~>*/this.downloadFolderPath.length() + 1);
             }
         }
     }
 
-    public String getCityDbLoc() {
+    public /*~~>*/String getCityDbLoc() {
         return cityDbLoc;
     }
 
-    @Setting(StatisticsLocationUtilSettingsKeys.MANUAL_CITY_LOC)
-    public void setCityDbLoc(String cityDbLoc) {
-        this.cityDbLoc = cityDbLoc;
+    @Setting(/*~~>*/StatisticsLocationUtilSettingsKeys.MANUAL_CITY_LOC)
+    public void setCityDbLoc(/*~~>*/String cityDbLoc) {
+        /*~~>*/this.cityDbLoc = cityDbLoc;
     }
 
-    public String getCountryDbLoc() {
+    public /*~~>*/String getCountryDbLoc() {
         return countryDbLoc;
     }
 
-    @Setting(StatisticsLocationUtilSettingsKeys.MANUAL_COUNTRY_LOC)
-    public void setCountryDbLoc(String countryDbLoc) {
-        this.countryDbLoc = countryDbLoc;
+    @Setting(/*~~>*/StatisticsLocationUtilSettingsKeys.MANUAL_COUNTRY_LOC)
+    public void setCountryDbLoc(/*~~>*/String countryDbLoc) {
+        /*~~>*/this.countryDbLoc = countryDbLoc;
     }
 
     public LocationDatabaseType getDbType() {
         return dbType;
     }
 
-    @Setting(StatisticsLocationUtilSettingsKeys.DATABASE_TYPE)
-    public void setDbType(String dbType) {
-        if (dbType.equalsIgnoreCase(StatisticsLocationUtilSettingsKeys.DATABASE_TYPE_CITY)) {
+    @Setting(/*~~>*/StatisticsLocationUtilSettingsKeys.DATABASE_TYPE)
+    public void setDbType(/*~~>*/String dbType) {
+        if (dbType.equalsIgnoreCase(/*~~>*/StatisticsLocationUtilSettingsKeys.DATABASE_TYPE_CITY)) {
             this.dbType = LocationDatabaseType.CITY;
         } else {
             this.dbType = LocationDatabaseType.COUNTRY;
@@ -241,8 +241,8 @@ public class StatisticsLocationUtil implements IStatisticsLocationUtil, IAdminSt
         if (enabled) {
             // downloader auto - manual
             if (isAutoDownload) {
-                String countryPath = downloadFolderPath + "/" + GeoLiteFileDownloader.COUNTRY_FILE_NAME;
-                String cityPath = downloadFolderPath + "/" + GeoLiteFileDownloader.CITY_FILE_NAME;
+                /*~~>*/String countryPath = downloadFolderPath + "/" + /*~~>*/GeoLiteFileDownloader.COUNTRY_FILE_NAME;
+                /*~~>*/String cityPath = downloadFolderPath + "/" + /*~~>*/GeoLiteFileDownloader.CITY_FILE_NAME;
                 if (!FileDownloader.isPathExists(countryPath) || !FileDownloader.isPathExists(cityPath)) {
                     GeoLiteFileDownloader.downloadDefaultDatabases(downloadFolderPath);
                 } else {
@@ -250,15 +250,15 @@ public class StatisticsLocationUtil implements IStatisticsLocationUtil, IAdminSt
                 }
             }
             // db type
-            String pathToDatabase;
+            /*~~>*/String pathToDatabase;
             if (dbType == LocationDatabaseType.CITY) {
                 if (isAutoDownload) {
-                    pathToDatabase = downloadFolderPath + "/" + GeoLiteFileDownloader.CITY_FILE_NAME;
+                    pathToDatabase = downloadFolderPath + "/" + /*~~>*/GeoLiteFileDownloader.CITY_FILE_NAME;
                 } else {
                     pathToDatabase = cityDbLoc;
                 }
             } else if (isAutoDownload) {
-                pathToDatabase = downloadFolderPath + "/" + GeoLiteFileDownloader.COUNTRY_FILE_NAME;
+                pathToDatabase = downloadFolderPath + "/" + /*~~>*/GeoLiteFileDownloader.COUNTRY_FILE_NAME;
             } else {
                 pathToDatabase = countryDbLoc;
             }

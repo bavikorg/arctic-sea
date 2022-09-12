@@ -30,22 +30,22 @@ import com.google.common.base.Objects;
 public class OwsOperationKey implements Comparable<OwsOperationKey> {
     private static final Comparator<OwsOperationKey> COMPARATOR = Comparator.comparing(OwsOperationKey::getService)
             .thenComparing(OwsOperationKey::getVersion).thenComparing(OwsOperationKey::getOperation);
-    private final String service;
+    private final /*~~>*/String service;
     // TODO should be optional because GetCapabilities does not need to have it
-    private final String version;
-    private final String operation;
+    private final /*~~>*/String version;
+    private final /*~~>*/String operation;
 
     public OwsOperationKey(OwsServiceCommunicationObject asco) {
         this(asco.getService(), asco.getVersion(), asco.getOperationName());
     }
 
-    public OwsOperationKey(String service, String version, String operation) {
-        this.service = service;
-        this.version = version;
-        this.operation = operation;
+    public OwsOperationKey(/*~~>*/String service, /*~~>*/String version, /*~~>*/String operation) {
+        /*~~>*/this.service = service;
+        /*~~>*/this.version = version;
+        /*~~>*/this.operation = operation;
     }
 
-    public OwsOperationKey(String service, String version, Enum<?> operation) {
+    public OwsOperationKey(/*~~>*/String service, /*~~>*/String version, Enum<?> operation) {
         this(service, version, operation.name());
     }
 
@@ -53,15 +53,15 @@ public class OwsOperationKey implements Comparable<OwsOperationKey> {
         this(key.getService(), key.getVersion(), key.getOperation());
     }
 
-    public String getService() {
+    public /*~~>*/String getService() {
         return service;
     }
 
-    public String getVersion() {
+    public /*~~>*/String getVersion() {
         return version;
     }
 
-    public String getOperation() {
+    public /*~~>*/String getOperation() {
         return operation;
     }
 
@@ -76,7 +76,7 @@ public class OwsOperationKey implements Comparable<OwsOperationKey> {
     }
 
     @Override
-    public String toString() {
+    public /*~~>*/String toString() {
         return MoreObjects.toStringHelper(getClass()).add("service", getService()).add("version", getVersion())
                 .add("operation", getOperation()).toString();
     }

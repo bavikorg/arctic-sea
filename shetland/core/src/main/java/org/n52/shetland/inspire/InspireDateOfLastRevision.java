@@ -47,7 +47,7 @@ public class InspireDateOfLastRevision extends TimeInstant implements InspireDat
     }
 
     @Override
-    public String toString() {
-        return String.format("%s %n[%n value=%s%n]", this.getClass().getSimpleName(), super.toString());
+    public /*~~>*/String toString() {
+        return /*~~>*/String.format("%s %n[%n value=%s%n]", this.getClass().getSimpleName(), super.toString());
     }
 }

@@ -24,13 +24,13 @@ import edu.umd.cs.findbugs.annotations.SuppressFBWarnings;
  *
  */
 public class SwesFeatureRelationship {
-    private String role;
+    private /*~~>*/String role;
 
     private AbstractFeature feature;
 
     @SuppressFBWarnings({ "EI_EXPOSE_REP2" })
-    public SwesFeatureRelationship(String role, AbstractFeature feature) {
-        this.role = role;
+    public SwesFeatureRelationship(/*~~>*/String role, AbstractFeature feature) {
+        /*~~>*/this.role = role;
         this.feature = feature;
     }
 
@@ -38,12 +38,12 @@ public class SwesFeatureRelationship {
         this(null, null);
     }
 
-    public String getRole() {
+    public /*~~>*/String getRole() {
         return role;
     }
 
-    public void setRole(String role) {
-        this.role = role;
+    public void setRole(/*~~>*/String role) {
+        /*~~>*/this.role = role;
     }
 
     @SuppressFBWarnings({ "EI_EXPOSE_REP" })
@@ -57,7 +57,7 @@ public class SwesFeatureRelationship {
     }
 
     @Override
-    public String toString() {
-        return String.format("SosFeatureRelationship [role=%s, feature=%s]", role, feature);
+    public /*~~>*/String toString() {
+        return /*~~>*/String.format("SosFeatureRelationship [role=%s, feature=%s]", role, feature);
     }
 }

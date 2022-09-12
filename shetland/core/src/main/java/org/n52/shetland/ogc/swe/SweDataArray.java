@@ -37,7 +37,7 @@ public class SweDataArray extends SweAbstractDataComponent {
      * Each list entry represents one block, a list of tokens.<br />
      * Atm, this implementation using java.lang.String to represent each token.
      */
-    private List<List<String>> values = new LinkedList<>();
+    private List<List</*~~>*/String>> values = new LinkedList<>();
 
     /**
      * swe:elementType
@@ -54,7 +54,7 @@ public class SweDataArray extends SweAbstractDataComponent {
     /**
      * @return the values
      */
-    public List<List<String>> getValues() {
+    public List<List</*~~>*/String>> getValues() {
         return Collections.unmodifiableList(values);
     }
 
@@ -64,7 +64,7 @@ public class SweDataArray extends SweAbstractDataComponent {
      *            the values to set
      * @return This SweDataArray
      */
-    public SweDataArray setValues(final List<List<String>> values) {
+    public SweDataArray setValues(final List<List</*~~>*/String>> values) {
         this.values.clear();
         if (values != null) {
             this.values.addAll(values);
@@ -72,15 +72,15 @@ public class SweDataArray extends SweAbstractDataComponent {
         return this;
     }
 
-    public String getValueAsString() {
-        String blockSeparator = "@";
-        String tokenSeparator = "#";
+    public /*~~>*/String getValueAsString() {
+        /*~~>*/String blockSeparator = "@";
+        /*~~>*/String tokenSeparator = "#";
         if (isSetEncoding() && getEncoding() instanceof SweTextEncoding) {
             blockSeparator = ((SweTextEncoding) getEncoding()).getBlockSeparator();
             tokenSeparator = ((SweTextEncoding) getEncoding()).getTokenSeparator();
         }
         StringBuilder data = new StringBuilder();
-        for (List<String> list : getValues()) {
+        for (List</*~~>*/String> list : getValues()) {
             data.append(list.stream().collect(Collectors.joining(tokenSeparator))).append(blockSeparator);
         }
         return data.toString().substring(0, data.toString().length() - 1);
@@ -132,7 +132,7 @@ public class SweDataArray extends SweAbstractDataComponent {
     public boolean isSetValues() {
         if (values != null && !values.isEmpty()) {
             if (values.size() == 1) {
-                final List<String> list = values.get(0);
+                final List</*~~>*/String> list = values.get(0);
                 return list != null && !list.isEmpty();
             }
             return true;
@@ -148,12 +148,12 @@ public class SweDataArray extends SweAbstractDataComponent {
      * @return <tt>true</tt> (as specified by {@link Collection#add}) <br />
      *         <tt>false</tt> if block could not be added
      */
-    public boolean add(final List<String> blockOfTokensToAddAtTheEnd) {
+    public boolean add(final List</*~~>*/String> blockOfTokensToAddAtTheEnd) {
         return values.add(blockOfTokensToAddAtTheEnd);
     }
 
     @SuppressFBWarnings({ "EI_EXPOSE_REP2" })
-    public boolean addAll(List<List<String>> newValues) {
+    public boolean addAll(List<List</*~~>*/String>> newValues) {
         return newValues != null ? values.addAll(newValues) : true;
     }
 

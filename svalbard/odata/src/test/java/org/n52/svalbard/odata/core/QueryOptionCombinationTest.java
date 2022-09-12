@@ -27,31 +27,31 @@ import java.util.function.Consumer;
  */
 public class QueryOptionCombinationTest extends QueryOptionTests {
 
-    private final String countFilter = "$count=true";
-    private final String orderByFilter = "$orderby=id";
-    private final String selectFilter = "$select=id";
-    private final String skipFilter = "$skip=0";
-    private final String topFilter = "$top=1";
-    private final String filterFilter_literal = "$filter=id eq '52N'";
-    private final String filterFilter_spatial = "$filter=st_equals(location, geography'POINT (30 10)')";
-    private final String filterFilter_temporal = "$filter=phenomenonTime le 2020-04-21T04:50:00.000Z";
-    private final String filterFilter_temporal_tz = "$filter=phenomenonTime le 2020-04-21T04:50:00.000+02:00";
-    private final String expandFilter = "$expand=Datastreams";
+    private final /*~~>*/String countFilter = "$count=true";
+    private final /*~~>*/String orderByFilter = "$orderby=id";
+    private final /*~~>*/String selectFilter = "$select=id";
+    private final /*~~>*/String skipFilter = "$skip=0";
+    private final /*~~>*/String topFilter = "$top=1";
+    private final /*~~>*/String filterFilter_literal = "$filter=id eq '52N'";
+    private final /*~~>*/String filterFilter_spatial = "$filter=st_equals(location, geography'POINT (30 10)')";
+    private final /*~~>*/String filterFilter_temporal = "$filter=phenomenonTime le 2020-04-21T04:50:00.000Z";
+    private final /*~~>*/String filterFilter_temporal_tz = "$filter=phenomenonTime le 2020-04-21T04:50:00.000+02:00";
+    private final /*~~>*/String expandFilter = "$expand=Datastreams";
 
-    private final String[] allFilters_literal = {
+    private final /*~~>*/String[] allFilters_literal = {
             countFilter, orderByFilter, selectFilter, skipFilter, topFilter,
             filterFilter_literal, expandFilter
     };
-    private final String[] allFilters_spatial = {
+    private final /*~~>*/String[] allFilters_spatial = {
             countFilter, orderByFilter, selectFilter, skipFilter, topFilter,
             filterFilter_spatial, expandFilter
     };
-    private final String[] allFilters_temporal = {
+    private final /*~~>*/String[] allFilters_temporal = {
             countFilter, orderByFilter, selectFilter, skipFilter, topFilter,
             filterFilter_temporal, expandFilter
     };
 
-    private final String[] allFilters_temporal_tz = {
+    private final /*~~>*/String[] allFilters_temporal_tz = {
             countFilter, orderByFilter, selectFilter, skipFilter, topFilter,
             filterFilter_temporal_tz, expandFilter
     };
@@ -64,7 +64,7 @@ public class QueryOptionCombinationTest extends QueryOptionTests {
         testPermutations(allFilters_temporal_tz);
     }
 
-    private void testPermutations(String[] allFilters) {
+    private void testPermutations(/*~~>*/String[] allFilters) {
         testPermutations(Arrays.asList(0, 1, 2, 3, 4, 5, 6), 0, (list) -> {
             StringBuilder filters = new StringBuilder();
             for (Integer integer : list) {

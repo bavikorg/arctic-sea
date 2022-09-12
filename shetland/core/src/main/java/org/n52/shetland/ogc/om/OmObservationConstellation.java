@@ -51,7 +51,7 @@ public class OmObservationConstellation extends AbstractFeature
     /**
      * Identifiers of the offerings to which this observation belongs
      */
-    private Set<String> offerings = new LinkedHashSet<>();
+    private Set</*~~>*/String> offerings = new LinkedHashSet<>();
 
     /**
      * Identifier of the featureOfInterest to which this observation belongs
@@ -62,7 +62,7 @@ public class OmObservationConstellation extends AbstractFeature
     /**
      * type of the observation
      */
-    private String observationType;
+    private /*~~>*/String observationType;
 
     private DefaultPointMetadata defaultPointMetadata;
 
@@ -110,7 +110,7 @@ public class OmObservationConstellation extends AbstractFeature
      */
     @SuppressFBWarnings({ "EI_EXPOSE_REP2" })
     public OmObservationConstellation(AbstractFeature procedure, AbstractPhenomenon observableProperty,
-            AbstractFeature featureOfInterest, String observationType) {
+            AbstractFeature featureOfInterest, /*~~>*/String observationType) {
         this(procedure, observableProperty, null, featureOfInterest, observationType);
     }
 
@@ -130,7 +130,7 @@ public class OmObservationConstellation extends AbstractFeature
      */
     @SuppressFBWarnings({ "EI_EXPOSE_REP2" })
     public OmObservationConstellation(AbstractFeature procedure, AbstractPhenomenon observableProperty,
-            Set<String> offerings, AbstractFeature featureOfInterest, String observationType) {
+            Set</*~~>*/String> offerings, AbstractFeature featureOfInterest, /*~~>*/String observationType) {
         super("");
         this.procedure = Nillable.of(procedure);
         this.observableProperty = observableProperty;
@@ -138,7 +138,7 @@ public class OmObservationConstellation extends AbstractFeature
             this.offerings.addAll(offerings);
         }
         this.featureOfInterest = Nillable.of(featureOfInterest);
-        this.observationType = observationType;
+        /*~~>*/this.observationType = observationType;
     }
 
     /**
@@ -155,7 +155,7 @@ public class OmObservationConstellation extends AbstractFeature
      */
     @SuppressFBWarnings({ "EI_EXPOSE_REP2" })
     public OmObservationConstellation(AbstractFeature procedure, AbstractPhenomenon observableProperty,
-            AbstractFeature featureOfInterest, Collection<String> offerings) {
+            AbstractFeature featureOfInterest, Collection</*~~>*/String> offerings) {
         this(procedure, observableProperty, featureOfInterest);
         setOfferings(offerings);
     }
@@ -178,7 +178,7 @@ public class OmObservationConstellation extends AbstractFeature
         return procedure;
     }
 
-    public String getProcedureIdentifier() {
+    public /*~~>*/String getProcedureIdentifier() {
         return procedure.isPresent() ? procedure.get().getIdentifier() : null;
     }
 
@@ -234,7 +234,7 @@ public class OmObservationConstellation extends AbstractFeature
         return this;
     }
 
-    public String getObservablePropertyIdentifier() {
+    public /*~~>*/String getObservablePropertyIdentifier() {
         return getObservableProperty().getIdentifier();
     }
 
@@ -243,7 +243,7 @@ public class OmObservationConstellation extends AbstractFeature
      *
      * @return the offering
      */
-    public Set<String> getOfferings() {
+    public Set</*~~>*/String> getOfferings() {
         return Collections.unmodifiableSet(offerings);
     }
 
@@ -255,7 +255,7 @@ public class OmObservationConstellation extends AbstractFeature
      *
      * @return this
      */
-    public OmObservationConstellation setOfferings(Collection<String> offerings) {
+    public OmObservationConstellation setOfferings(Collection</*~~>*/String> offerings) {
         this.offerings.clear();
         if (offerings != null) {
             this.offerings.addAll(offerings);
@@ -263,7 +263,7 @@ public class OmObservationConstellation extends AbstractFeature
         return this;
     }
 
-    public OmObservationConstellation addOffering(String offering) {
+    public OmObservationConstellation addOffering(/*~~>*/String offering) {
         if (offering != null) {
             this.offerings.add(offering);
         }
@@ -315,7 +315,7 @@ public class OmObservationConstellation extends AbstractFeature
         return this;
     }
 
-    public String getFeatureOfInterestIdentifier() {
+    public /*~~>*/String getFeatureOfInterestIdentifier() {
         return featureOfInterest.isPresent() ? featureOfInterest.get().getIdentifier() : null;
     }
 
@@ -324,7 +324,7 @@ public class OmObservationConstellation extends AbstractFeature
      *
      * @return the observationType
      */
-    public String getObservationType() {
+    public /*~~>*/String getObservationType() {
         return observationType;
     }
 
@@ -336,8 +336,8 @@ public class OmObservationConstellation extends AbstractFeature
      *
      * @return this
      */
-    public OmObservationConstellation setObservationType(String observationType) {
-        this.observationType = observationType;
+    public OmObservationConstellation setObservationType(/*~~>*/String observationType) {
+        /*~~>*/this.observationType = observationType;
         return this;
     }
 
@@ -367,10 +367,10 @@ public class OmObservationConstellation extends AbstractFeature
      * @return <code>true</code>, if the observation can be merged
      */
     public boolean checkObservationTypeForMerging() {
-        return isSetObservationType() && !OmConstants.OBS_TYPE_SWE_ARRAY_OBSERVATION.equals(observationType)
-                && !OmConstants.OBS_TYPE_COMPLEX_OBSERVATION.equals(observationType)
-                && !OmConstants.OBS_TYPE_OBSERVATION.equals(observationType)
-                && !OmConstants.OBS_TYPE_UNKNOWN.equals(observationType);
+        return isSetObservationType() && !/*~~>*/OmConstants.OBS_TYPE_SWE_ARRAY_OBSERVATION.equals(observationType)
+                && !/*~~>*/OmConstants.OBS_TYPE_COMPLEX_OBSERVATION.equals(observationType)
+                && !/*~~>*/OmConstants.OBS_TYPE_OBSERVATION.equals(observationType)
+                && !/*~~>*/OmConstants.OBS_TYPE_UNKNOWN.equals(observationType);
     }
 
     public boolean isSetObservationType() {
@@ -452,7 +452,7 @@ public class OmObservationConstellation extends AbstractFeature
     }
 
     @Override
-    public String toString() {
+    public /*~~>*/String toString() {
         StringBuilder builder = new StringBuilder("OmObservationConstellation [");
         builder.append("procedure=").append(getProcedure().getIdentifierCodeWithAuthority());
         builder.append(", observableProperty=").append(getObservableProperty().getIdentifierCodeWithAuthority());
@@ -460,7 +460,7 @@ public class OmObservationConstellation extends AbstractFeature
         if (isSetOfferings()) {
             builder.append(", offerings=[");
             boolean first = true;
-            for (String offering : getOfferings()) {
+            for (/*~~>*/String offering : getOfferings()) {
                 if (!first) {
                     builder.append(", ");
                 }

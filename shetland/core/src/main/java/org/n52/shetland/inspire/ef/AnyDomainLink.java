@@ -24,7 +24,7 @@ public class AnyDomainLink extends AbstractGML {
     /**
      * 1..1
      */
-    private String comment;
+    private /*~~>*/String comment;
 
     /**
      * 1..1
@@ -32,15 +32,15 @@ public class AnyDomainLink extends AbstractGML {
     private EnvironmentalMonitoringFacility relatedTo;
 
     @SuppressFBWarnings({ "EI_EXPOSE_REP" })
-    public AnyDomainLink(String comment, EnvironmentalMonitoringFacility relatedTo) {
-        this.comment = comment;
+    public AnyDomainLink(/*~~>*/String comment, EnvironmentalMonitoringFacility relatedTo) {
+        /*~~>*/this.comment = comment;
         this.relatedTo = relatedTo;
     }
 
     /**
      * @return the comment
      */
-    public String getComment() {
+    public /*~~>*/String getComment() {
         return comment;
     }
 

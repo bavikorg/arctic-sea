@@ -34,16 +34,16 @@ public final class FileIOHelper {
 
     private static final byte CARRIAGE_RETURN = (byte) '\r';
 
-    private static final String READ_MODE = "r";
+    private static final /*~~>*/String READ_MODE = "r";
 
     private FileIOHelper() {
     }
 
     /* TODO refactor this */
-    public static List<String> tail(File file, int lines) throws IOException {
+    public static List</*~~>*/String> tail(File file, int lines) throws IOException {
         try (RandomAccessFile raf = new RandomAccessFile(file, READ_MODE)) {
             final long length = file.length() - 1;
-            ArrayList<String> out = new ArrayList<String>(lines);
+            ArrayList</*~~>*/String> out = new ArrayList</*~~>*/String>(lines);
             StringBuilder sb = new StringBuilder();
             byte prev = -1;
             for (long pos = length; pos != -1; pos--) {

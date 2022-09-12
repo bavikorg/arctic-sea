@@ -31,13 +31,13 @@ public class ProcessOfferingEncoder extends JSONEncoder<ProcessOffering> {
     @Override
     public JsonNode encodeJSON(ProcessOffering processOffering) throws EncodingException {
         ObjectNode root = nodeFactory().objectNode();
-        root.set(JSONConstants.PROCESS, encodeObjectToJson(processOffering.getProcessDescription()));
-        processOffering.getProcessVersion().ifPresent(v -> root.put(JSONConstants.PROCESS_VERSION, v));
-        root.put(JSONConstants.PROCESS_MODEL, processOffering.getProcessModel());
-        root.set(JSONConstants.JOB_CONTROL_OPTIONS, processOffering.getJobControlOptions().stream()
+        root.set(/*~~>*/JSONConstants.PROCESS, encodeObjectToJson(processOffering.getProcessDescription()));
+        processOffering.getProcessVersion().ifPresent(v -> root.put(/*~~>*/JSONConstants.PROCESS_VERSION, v));
+        root.put(/*~~>*/JSONConstants.PROCESS_MODEL, processOffering.getProcessModel());
+        root.set(/*~~>*/JSONConstants.JOB_CONTROL_OPTIONS, processOffering.getJobControlOptions().stream()
                                                                    .map(this::encodeAsString)
                                                                    .collect(toJsonArray()));
-        root.set(JSONConstants.OUTPUT_TRANSMISSION, processOffering.getOutputTransmissionModes().stream()
+        root.set(/*~~>*/JSONConstants.OUTPUT_TRANSMISSION, processOffering.getOutputTransmissionModes().stream()
                                                                    .map(this::encodeAsString)
                                                                    .collect(toJsonArray()));
         return root;

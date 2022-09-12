@@ -39,8 +39,8 @@ public class AqdHelper {
      * @param validityFlags
      *            the validityFlags to set
      */
-    @Setting(value = EReportingSetting.EREPORTING_VALIDITY_FLAGS, required = false)
-    public void setValidityFlags(String validityFlags) {
+    @Setting(value = /*~~>*/EReportingSetting.EREPORTING_VALIDITY_FLAGS, required = false)
+    public void setValidityFlags(/*~~>*/String validityFlags) {
         this.validityFlags.clear();
         if (validityFlags != null && !validityFlags.isEmpty()) {
             this.validityFlags.addAll(JavaHelper.getIntegerSetFromString(validityFlags));
@@ -62,8 +62,8 @@ public class AqdHelper {
      * @param verificationFlags
      *            the verificationFlags to set
      */
-    @Setting(value = EReportingSetting.EREPORTING_VERIFICATION_FLAGS, required = false)
-    public void setVerificationFlags(String verificationFlags) {
+    @Setting(value = /*~~>*/EReportingSetting.EREPORTING_VERIFICATION_FLAGS, required = false)
+    public void setVerificationFlags(/*~~>*/String verificationFlags) {
         this.verificationFlags.clear();
         if (verificationFlags != null && !verificationFlags.isEmpty()) {
             this.verificationFlags = JavaHelper.getIntegerSetFromString(verificationFlags);

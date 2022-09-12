@@ -205,7 +205,7 @@ public abstract class AbstractStatisticsServiceEventListener implements EventLis
 
         @Override
         public void run() {
-            Map<String, Object> data = new HashMap<>();
+            Map</*~~>*/String, Object> data = new HashMap<>();
             try {
                 eventsResolvers.stream().forEach(l -> data.putAll(l.resolve()));
                 dataHandler.persist(data);

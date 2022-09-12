@@ -52,7 +52,7 @@ public class ReportToLegalAct {
     /**
      * 0..1
      */
-    private String description;
+    private /*~~>*/String description;
 
     /**
      * @return the legalAct
@@ -136,7 +136,7 @@ public class ReportToLegalAct {
     /**
      * @return the description
      */
-    public String getDescription() {
+    public /*~~>*/String getDescription() {
         return description;
     }
 
@@ -144,7 +144,7 @@ public class ReportToLegalAct {
      * @param description
      *            the description to set
      */
-    public void setDescription(String description) {
-        this.description = description;
+    public void setDescription(/*~~>*/String description) {
+        /*~~>*/this.description = description;
     }
 }

@@ -22,11 +22,11 @@ package org.n52.shetland.util;
 public abstract class DateTimeException extends IllegalArgumentException {
     private static final long serialVersionUID = 8540884805202157733L;
 
-    public DateTimeException(String s) {
+    public DateTimeException(/*~~>*/String s) {
         super(s);
     }
 
-    public DateTimeException(String message, Throwable cause) {
+    public DateTimeException(/*~~>*/String message, Throwable cause) {
         super(message, cause);
     }
 

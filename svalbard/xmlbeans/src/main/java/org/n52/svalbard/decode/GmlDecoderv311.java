@@ -59,15 +59,15 @@ import net.opengis.gml.TimePositionType;
 public class GmlDecoderv311 implements Decoder<Object, XmlObject> {
     private static final Logger LOGGER = LoggerFactory.getLogger(GmlDecoderv311.class);
 
-    private static final Set<DecoderKey> DECODER_KEYS = CodingHelper.decoderKeysForElements(GmlConstants.NS_GML,
+    private static final Set<DecoderKey> DECODER_KEYS = CodingHelper.decoderKeysForElements(/*~~>*/GmlConstants.NS_GML,
             EnvelopeDocument.class, TimeInstantType.class, TimePeriodType.class, TimeInstantDocument.class,
             TimePeriodDocument.class, CodeType.class, PointType.class);
 
-    private static final String CS = ",";
+    private static final /*~~>*/String CS = ",";
 
-    private static final String DECIMAL = ".";
+    private static final /*~~>*/String DECIMAL = ".";
 
-    private static final String TS = " ";
+    private static final /*~~>*/String TS = " ";
 
     public GmlDecoderv311() {
         LOGGER.debug("Decoder for the following keys initialized successfully: {}!",
@@ -104,9 +104,9 @@ public class GmlDecoderv311 implements Decoder<Object, XmlObject> {
         EnvelopeType xbEnvelope = xbBbox.getEnvelope();
         // parse srid; if not set, throw exception!
         int srid = CRSHelper.parseSrsName(xbEnvelope.getSrsName());
-        String lower = xbEnvelope.getLowerCorner().getStringValue();
-        String upper = xbEnvelope.getUpperCorner().getStringValue();
-        String geomWKT = String.format("MULTIPOINT(%s, %s)", lower, upper);
+        /*~~>*/String lower = xbEnvelope.getLowerCorner().getStringValue();
+        /*~~>*/String upper = xbEnvelope.getUpperCorner().getStringValue();
+        /*~~>*/String geomWKT = /*~~>*/String.format("MULTIPOINT(%s, %s)", lower, upper);
         try {
             return JTSHelper.createGeometryFromWKT(geomWKT, srid).getEnvelope();
         } catch (ParseException ex) {
@@ -147,7 +147,7 @@ public class GmlDecoderv311 implements Decoder<Object, XmlObject> {
 
     private TimeInstant parseTimePosition(TimePositionType xbTimePosition) throws DecodingException {
         TimeInstant ti = new TimeInstant();
-        String timeString = xbTimePosition.getStringValue();
+        /*~~>*/String timeString = xbTimePosition.getStringValue();
         if (timeString != null && !timeString.isEmpty()) {
             try {
                 // TODO better differnetiate between ISO8601 and an
@@ -179,7 +179,7 @@ public class GmlDecoderv311 implements Decoder<Object, XmlObject> {
     }
 
     private Object parsePointType(PointType xbPointType) throws DecodingException {
-        String geomWKT = null;
+        /*~~>*/String geomWKT = null;
         int srid = -1;
         if (xbPointType.getSrsName() != null) {
             srid = CRSHelper.parseSrsName(xbPointType.getSrsName());
@@ -190,11 +190,11 @@ public class GmlDecoderv311 implements Decoder<Object, XmlObject> {
             if (srid == -1 && xbPos.getSrsName() != null) {
                 srid = CRSHelper.parseSrsName(xbPos.getSrsName());
             }
-            String directPosition = getString4Pos(xbPos);
+            /*~~>*/String directPosition = getString4Pos(xbPos);
             geomWKT = JTSHelper.createWKTPointFromCoordinateString(directPosition);
         } else if (xbPointType.getCoordinates() != null) {
             CoordinatesType xbCoords = xbPointType.getCoordinates();
-            String directPosition = getString4Coordinates(xbCoords);
+            /*~~>*/String directPosition = getString4Coordinates(xbCoords);
             geomWKT = JTSHelper.createWKTPointFromCoordinateString(directPosition);
         } else {
             throw new DecodingException(
@@ -220,7 +220,7 @@ public class GmlDecoderv311 implements Decoder<Object, XmlObject> {
      *            XmlBeans generated DirectPosition.
      * @return Returns String with coordinates for WKT.
      */
-    private String getString4Pos(DirectPositionType xbPos) {
+    private /*~~>*/String getString4Pos(DirectPositionType xbPos) {
         return xbPos.getStringValue();
     }
 
@@ -232,8 +232,8 @@ public class GmlDecoderv311 implements Decoder<Object, XmlObject> {
      *            XmlBeans generated Coordinates.
      * @return Returns String with coordinates for WKT.
      */
-    private String getString4Coordinates(CoordinatesType xbCoordinates) {
-        String coordinateString = xbCoordinates.getStringValue();
+    private /*~~>*/String getString4Coordinates(CoordinatesType xbCoordinates) {
+        /*~~>*/String coordinateString = xbCoordinates.getStringValue();
 
         // replace cs, decimal and ts if different from default.
         if (!xbCoordinates.getCs().equals(CS)) {

@@ -24,18 +24,18 @@ import org.n52.shetland.ogc.ows.service.OwsServiceRequest;
 
 public class InsertFeatureOfInterestRequest extends OwsServiceRequest {
 
-    private static String OPERATION_NAME = "InsertFeatureOfInterest";
+    private static /*~~>*/String OPERATION_NAME = "InsertFeatureOfInterest";
     private List<AbstractFeature> abstractFeatures = new ArrayList<>();
 
     public InsertFeatureOfInterestRequest() {
         super(null, null, OPERATION_NAME);
     }
 
-    public InsertFeatureOfInterestRequest(String service, String version) {
+    public InsertFeatureOfInterestRequest(/*~~>*/String service, /*~~>*/String version) {
         super(service, version, OPERATION_NAME);
     }
 
-    public InsertFeatureOfInterestRequest(String service, String version, String operationName) {
+    public InsertFeatureOfInterestRequest(/*~~>*/String service, /*~~>*/String version, /*~~>*/String operationName) {
         super(service, version, operationName);
     }
 
@@ -63,7 +63,7 @@ public class InsertFeatureOfInterestRequest extends OwsServiceRequest {
     }
 
     @Override
-    public String getOperationName() {
+    public /*~~>*/String getOperationName() {
         return OPERATION_NAME;
     }
 

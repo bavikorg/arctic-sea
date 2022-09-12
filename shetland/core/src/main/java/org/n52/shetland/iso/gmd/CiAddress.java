@@ -31,17 +31,17 @@ import com.google.common.base.Strings;
  */
 public class CiAddress extends AbstractObject {
 
-    private List<String> deliveryPoints = new ArrayList<>();
-    private String city;
-    private String administrativeArea;
-    private String postalCode;
-    private String country;
-    private List<String> electronicMailAddresses = new ArrayList<>();
+    private List</*~~>*/String> deliveryPoints = new ArrayList<>();
+    private /*~~>*/String city;
+    private /*~~>*/String administrativeArea;
+    private /*~~>*/String postalCode;
+    private /*~~>*/String country;
+    private List</*~~>*/String> electronicMailAddresses = new ArrayList<>();
 
     /**
      * @return the deliveryPoints
      */
-    public List<String> getDeliveryPoints() {
+    public List</*~~>*/String> getDeliveryPoints() {
         return Collections.unmodifiableList(deliveryPoints);
     }
 
@@ -49,7 +49,7 @@ public class CiAddress extends AbstractObject {
      * @param deliveryPoints
      *            the deliveryPoints to set
      */
-    public CiAddress setDeliveryPoints(Collection<String> deliveryPoints) {
+    public CiAddress setDeliveryPoints(Collection</*~~>*/String> deliveryPoints) {
         this.deliveryPoints.clear();
         if (deliveryPoints != null) {
             this.deliveryPoints.addAll(deliveryPoints);
@@ -61,7 +61,7 @@ public class CiAddress extends AbstractObject {
      * @param deliveryPoints
      *            the deliveryPoints to add
      */
-    public CiAddress addDeliveryPoints(String deliveryPoints) {
+    public CiAddress addDeliveryPoints(/*~~>*/String deliveryPoints) {
         if (deliveryPoints != null) {
             this.deliveryPoints.add(deliveryPoints);
         }
@@ -75,7 +75,7 @@ public class CiAddress extends AbstractObject {
     /**
      * @return the city
      */
-    public String getCity() {
+    public /*~~>*/String getCity() {
         return city;
     }
 
@@ -83,8 +83,8 @@ public class CiAddress extends AbstractObject {
      * @param city
      *            the city to set
      */
-    public CiAddress setCity(String city) {
-        this.city = city;
+    public CiAddress setCity(/*~~>*/String city) {
+        /*~~>*/this.city = city;
         return this;
     }
 
@@ -95,7 +95,7 @@ public class CiAddress extends AbstractObject {
     /**
      * @return the administrativeArea
      */
-    public String getAdministrativeArea() {
+    public /*~~>*/String getAdministrativeArea() {
         return administrativeArea;
     }
 
@@ -103,8 +103,8 @@ public class CiAddress extends AbstractObject {
      * @param administrativeArea
      *            the administrativeArea to set
      */
-    public CiAddress setAdministrativeArea(String administrativeArea) {
-        this.administrativeArea = administrativeArea;
+    public CiAddress setAdministrativeArea(/*~~>*/String administrativeArea) {
+        /*~~>*/this.administrativeArea = administrativeArea;
         return this;
     }
 
@@ -115,7 +115,7 @@ public class CiAddress extends AbstractObject {
     /**
      * @return the postalCode
      */
-    public String getPostalCode() {
+    public /*~~>*/String getPostalCode() {
         return postalCode;
     }
 
@@ -123,8 +123,8 @@ public class CiAddress extends AbstractObject {
      * @param postalCode
      *            the postalCode to set
      */
-    public CiAddress setPostalCode(String postalCode) {
-        this.postalCode = postalCode;
+    public CiAddress setPostalCode(/*~~>*/String postalCode) {
+        /*~~>*/this.postalCode = postalCode;
         return this;
     }
 
@@ -135,7 +135,7 @@ public class CiAddress extends AbstractObject {
     /**
      * @return the country
      */
-    public String getCountry() {
+    public /*~~>*/String getCountry() {
         return country;
     }
 
@@ -143,8 +143,8 @@ public class CiAddress extends AbstractObject {
      * @param country
      *            the country to set
      */
-    public CiAddress setCountry(String country) {
-        this.country = country;
+    public CiAddress setCountry(/*~~>*/String country) {
+        /*~~>*/this.country = country;
         return this;
     }
 
@@ -155,7 +155,7 @@ public class CiAddress extends AbstractObject {
     /**
      * @return the electronicMailAddresses
      */
-    public List<String> getElectronicMailAddresses() {
+    public List</*~~>*/String> getElectronicMailAddresses() {
         return Collections.unmodifiableList(electronicMailAddresses);
     }
 
@@ -163,7 +163,7 @@ public class CiAddress extends AbstractObject {
      * @param electronicMailAddresses
      *            the electronicMailAddresses to set
      */
-    public CiAddress setElectronicMailAddresses(Collection<String> electronicMailAddresses) {
+    public CiAddress setElectronicMailAddresses(Collection</*~~>*/String> electronicMailAddresses) {
         this.electronicMailAddresses.clear();
         if (electronicMailAddresses != null) {
             this.electronicMailAddresses.addAll(electronicMailAddresses);
@@ -175,7 +175,7 @@ public class CiAddress extends AbstractObject {
      * @param electronicMailAddresses
      *            the electronicMailAddresses to add
      */
-    public CiAddress addElectronicMailAddresses(String electronicMailAddresses) {
+    public CiAddress addElectronicMailAddresses(/*~~>*/String electronicMailAddresses) {
         if (electronicMailAddresses != null) {
             this.electronicMailAddresses.add(electronicMailAddresses);
         }

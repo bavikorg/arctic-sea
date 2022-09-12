@@ -30,19 +30,19 @@ import com.google.common.base.Preconditions;
  */
 public class Pronunciation {
 
-    private Nillable<String> ipa = Nillable.missing();
+    private Nillable</*~~>*/String> ipa = Nillable.missing();
     private Nillable<URI> soundLink = Nillable.missing();
 
-    public Nillable<String> getIPA() {
+    public Nillable</*~~>*/String> getIPA() {
         return ipa;
     }
 
-    public Pronunciation setIPA(Nillable<String> ipa) {
+    public Pronunciation setIPA(Nillable</*~~>*/String> ipa) {
         this.ipa = Preconditions.checkNotNull(ipa);
         return this;
     }
 
-    public Pronunciation setIPA(String ipa) {
+    public Pronunciation setIPA(/*~~>*/String ipa) {
         return setIPA(Nillable.of(ipa));
     }
 
@@ -65,7 +65,7 @@ public class Pronunciation {
     }
 
     @Override
-    public String toString() {
+    public /*~~>*/String toString() {
         return MoreObjects.toStringHelper(this).add("ipa", getIPA()).add("soundLink", getSoundLink()).toString();
     }
 

@@ -70,7 +70,7 @@ public abstract class AbstractSwesDecoderv20<S>
      *             If the {@code procedureDescriptionFormat} and
      *             {@code namespace} are not equal
      */
-    protected void checkFormatWithNamespace(String procedureDescriptionFormat, String namespace)
+    protected void checkFormatWithNamespace(/*~~>*/String procedureDescriptionFormat, /*~~>*/String namespace)
             throws DecodingException {
         if (!procedureDescriptionFormat.equals(namespace) && !procedureDescriptionFormat.contains(namespace)) {
             throw new DecodingException(

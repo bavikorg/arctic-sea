@@ -59,10 +59,10 @@ public class TrajectoryObservation extends AbstractInspireObservation {
      */
     public TrajectoryObservation(OmObservation observation) {
         super(observation);
-        getObservationConstellation().setObservationType(InspireOMSOConstants.OBS_TYPE_TRAJECTORY_OBSERVATION);
+        getObservationConstellation().setObservationType(/*~~>*/InspireOMSOConstants.OBS_TYPE_TRAJECTORY_OBSERVATION);
         SamplingFeature sf = new SamplingFeature(
                 getObservationConstellation().getFeatureOfInterest().getIdentifierCodeWithAuthority());
-        sf.setFeatureType(SfConstants.SAMPLING_FEAT_TYPE_SF_SAMPLING_CURVE);
+        sf.setFeatureType(/*~~>*/SfConstants.SAMPLING_FEAT_TYPE_SF_SAMPLING_CURVE);
         getObservationConstellation().setFeatureOfInterest(sf);
         if (isSetSpatialFilteringProfileParameter()) {
             removeSpatialFilteringProfileParameter();
@@ -75,7 +75,7 @@ public class TrajectoryObservation extends AbstractInspireObservation {
     @Override
     public OmObservation cloneTemplate() {
         SamplingFeature sf = new SamplingFeature(new CodeWithAuthority(""));
-        sf.setFeatureType(SfConstants.SAMPLING_FEAT_TYPE_SF_SAMPLING_CURVE);
+        sf.setFeatureType(/*~~>*/SfConstants.SAMPLING_FEAT_TYPE_SF_SAMPLING_CURVE);
         getObservationConstellation().setFeatureOfInterest(sf);
         if (isSetSpatialFilteringProfileParameter()) {
             removeSpatialFilteringProfileParameter();

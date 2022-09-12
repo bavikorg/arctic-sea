@@ -54,7 +54,7 @@ public abstract class AbstractXmlDecoder<T, S> extends AbstractDelegatingDecoder
     public DecoderKey getDecoderKey(XmlObject doc) {
 
         Node domNode = doc.getDomNode();
-        String namespaceURI = domNode.getNamespaceURI();
+        /*~~>*/String namespaceURI = domNode.getNamespaceURI();
         if (namespaceURI == null && domNode.getFirstChild() != null) {
             namespaceURI = domNode.getFirstChild().getNamespaceURI();
         }
@@ -88,7 +88,7 @@ public abstract class AbstractXmlDecoder<T, S> extends AbstractDelegatingDecoder
         return decoder.decode(xbObject);
     }
 
-    public Object decodeXmlObject(String xmlString) throws DecodingException {
+    public Object decodeXmlObject(/*~~>*/String xmlString) throws DecodingException {
         try {
             return decodeXmlObject(XmlObject.Factory.parse(xmlString));
         } catch (final XmlException e) {

@@ -28,7 +28,7 @@ public class I18NProcedureMetadata extends AbstractI18NMetadata {
     private final MultilingualString shortName;
     private final MultilingualString longName;
 
-    public I18NProcedureMetadata(String id,
+    public I18NProcedureMetadata(/*~~>*/String id,
                                MultilingualString name,
                                MultilingualString description,
                                MultilingualString shortName,
@@ -38,7 +38,7 @@ public class I18NProcedureMetadata extends AbstractI18NMetadata {
         this.longName = newIfNull(longName);
     }
 
-    public I18NProcedureMetadata(String id) {
+    public I18NProcedureMetadata(/*~~>*/String id) {
         this(id, null, null, null, null);
     }
 
@@ -58,7 +58,7 @@ public class I18NProcedureMetadata extends AbstractI18NMetadata {
     }
 
     @Override
-    public String toString() {
+    public /*~~>*/String toString() {
         return toStringHelper().toString();
     }
 

@@ -20,5 +20,5 @@ package org.n52.janmayen;
  *
  * @author Christian Autermann
  */
-public interface ConfigLocationProvider extends Producer<String> {
+public interface ConfigLocationProvider extends Producer</*~~>*/String> {
 }

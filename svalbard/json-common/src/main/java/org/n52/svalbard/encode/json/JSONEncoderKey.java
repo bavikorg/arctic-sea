@@ -62,7 +62,7 @@ public class JSONEncoderKey implements EncoderKey {
     }
 
     @Override
-    public String toString() {
+    public /*~~>*/String toString() {
         return MoreObjects.toStringHelper(getClass()).add("type", getType()).toString();
     }
 

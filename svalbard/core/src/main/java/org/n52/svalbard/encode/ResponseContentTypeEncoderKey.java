@@ -64,8 +64,8 @@ public class ResponseContentTypeEncoderKey implements EncoderKey {
     }
 
     @Override
-    public String toString() {
-        return String.format("%s[object=%s, contentType=%s]", getClass().getSimpleName(),
+    public /*~~>*/String toString() {
+        return /*~~>*/String.format("%s[object=%s, contentType=%s]", getClass().getSimpleName(),
                 getObjectClass().getSimpleName(), getContentType());
     }
 

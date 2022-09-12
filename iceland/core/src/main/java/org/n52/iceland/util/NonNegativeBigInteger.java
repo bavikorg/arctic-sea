@@ -30,7 +30,7 @@ public class NonNegativeBigInteger extends BigInteger {
         validate();
     }
 
-    public NonNegativeBigInteger(String val) {
+    public NonNegativeBigInteger(/*~~>*/String val) {
         super(val);
         validate();
     }

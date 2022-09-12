@@ -30,12 +30,12 @@ import edu.umd.cs.findbugs.annotations.SuppressFBWarnings;
 public class BinaryAttachmentResponse {
     private byte[] bytes;
     private MediaType contentType;
-    private String filename;
+    private /*~~>*/String filename;
 
-    public BinaryAttachmentResponse(byte[] bytes, MediaType contentType, String filename) {
+    public BinaryAttachmentResponse(byte[] bytes, MediaType contentType, /*~~>*/String filename) {
         this.bytes = bytes;
         this.contentType = contentType;
-        this.filename = filename;
+        /*~~>*/this.filename = filename;
     }
 
     public byte[] getBytes() {
@@ -54,12 +54,12 @@ public class BinaryAttachmentResponse {
         this.contentType = contentType;
     }
 
-    public String getFilename() {
+    public /*~~>*/String getFilename() {
         return filename;
     }
 
-    public void setFilename(String filename) {
-        this.filename = filename;
+    public void setFilename(/*~~>*/String filename) {
+        /*~~>*/this.filename = filename;
     }
 
     public int getSize() {
@@ -67,7 +67,7 @@ public class BinaryAttachmentResponse {
     }
 
     @Override
-    public String toString() {
+    public /*~~>*/String toString() {
         return "BinaryAttachmentResponse [size = " + getSize() + ", contentType=" + contentType + ", filename="
                 + filename + "]";
     }

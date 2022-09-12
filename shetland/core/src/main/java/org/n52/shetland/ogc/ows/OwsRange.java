@@ -37,19 +37,19 @@ public class OwsRange implements OwsValueRestriction {
             Comparator.comparing(OwsRange::getLowerBound, Optionals.nullsFirst())
                     .thenComparing(Comparator.comparing(OwsRange::getUpperBound, Optionals.nullsLast()));
 
-    public static final String CLOSED = "closed";
-    public static final String CLOSED_OPEN = "closed-open";
-    public static final String OPEN_CLOSED = "open-closed";
-    public static final String OPEN = "open";
+    public static final /*~~>*/String CLOSED = "closed";
+    public static final /*~~>*/String CLOSED_OPEN = "closed-open";
+    public static final /*~~>*/String OPEN_CLOSED = "open-closed";
+    public static final /*~~>*/String OPEN = "open";
     private final Bound lowerBound;
     private final Bound upperBound;
     private final Optional<OwsValue> spacing;
 
-    public OwsRange(OwsValue lowerBound, OwsValue upperBound, String type) {
+    public OwsRange(OwsValue lowerBound, OwsValue upperBound, /*~~>*/String type) {
         this(lowerBound, upperBound, type, null);
     }
 
-    public OwsRange(OwsValue lowerBound, OwsValue upperBound, String type, OwsValue spacing) {
+    public OwsRange(OwsValue lowerBound, OwsValue upperBound, /*~~>*/String type, OwsValue spacing) {
         this(lowerBound, getLowerType(type), upperBound, getUpperType(type), spacing);
     }
 
@@ -92,7 +92,7 @@ public class OwsRange implements OwsValueRestriction {
         return spacing;
     }
 
-    public String getType() {
+    public /*~~>*/String getType() {
         if (getLowerBoundType() == BoundType.OPEN) {
             if (getUpperBoundType() == BoundType.OPEN) {
                 return OPEN;
@@ -135,12 +135,12 @@ public class OwsRange implements OwsValueRestriction {
     }
 
     @Override
-    public String toString() {
+    public /*~~>*/String toString() {
         return MoreObjects.toStringHelper(this).addValue(this.lowerBound.asLower() + ", " + this.upperBound.asUpper())
                 .toString();
     }
 
-    private static BoundType getLowerType(String type) {
+    private static BoundType getLowerType(/*~~>*/String type) {
         switch (Strings.nullToEmpty(type)) {
             case CLOSED:
             case CLOSED_OPEN:
@@ -153,7 +153,7 @@ public class OwsRange implements OwsValueRestriction {
         }
     }
 
-    private static BoundType getUpperType(String type) {
+    private static BoundType getUpperType(/*~~>*/String type) {
         switch (Strings.nullToEmpty(type)) {
             case CLOSED:
             case OPEN_CLOSED:
@@ -167,7 +167,7 @@ public class OwsRange implements OwsValueRestriction {
     }
 
     private static class Bound {
-        private static final String INFINITY = "\u221e";
+        private static final /*~~>*/String INFINITY = "\u221e";
         private final BoundType type;
         private final Optional<OwsValue> value;
 
@@ -184,11 +184,11 @@ public class OwsRange implements OwsValueRestriction {
             return value;
         }
 
-        String asUpper() {
+        /*~~>*/String asUpper() {
             return this.getType().asUpper() + getValue().map(OwsValue::getValue).orElse(INFINITY);
         }
 
-        String asLower() {
+        /*~~>*/String asLower() {
             return this.getType().asLower() + getValue().map(OwsValue::getValue).orElse("-" + INFINITY);
         }
 

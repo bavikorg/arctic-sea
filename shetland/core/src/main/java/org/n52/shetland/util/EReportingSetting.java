@@ -24,26 +24,26 @@ package org.n52.shetland.util;
  */
 public interface EReportingSetting {
 
-    String EREPORTING_GROUP_TITLE = "eReporting";
+    /*~~>*/String EREPORTING_GROUP_TITLE = "eReporting";
 
-    String EREPORTING_NAMESPACE = "eReporting.namespace";
+    /*~~>*/String EREPORTING_NAMESPACE = "eReporting.namespace";
 
-    String EREPORTING_OBSERVATION_PREFIX = "eReporting.observation.prefix";
+    /*~~>*/String EREPORTING_OBSERVATION_PREFIX = "eReporting.observation.prefix";
 
-    String EREPORTING_OFFERING_PREFIX_KEY = "eReporting.offering.prefix";
+    /*~~>*/String EREPORTING_OFFERING_PREFIX_KEY = "eReporting.offering.prefix";
 
-    String EREPORTING_PROCEDURE_PREFIX_KEY = "eReporting.procedure.prefix";
+    /*~~>*/String EREPORTING_PROCEDURE_PREFIX_KEY = "eReporting.procedure.prefix";
 
-    String EREPORTING_FEATURE_OF_INTEREST_PREFIX_KEY = "eReporting.featureOfInterest.prefix";
+    /*~~>*/String EREPORTING_FEATURE_OF_INTEREST_PREFIX_KEY = "eReporting.featureOfInterest.prefix";
 
-    String EREPORTING_SAMPLING_POINT_PREFIX_KEY = "eReporting.samplingPoint.prefix";
+    /*~~>*/String EREPORTING_SAMPLING_POINT_PREFIX_KEY = "eReporting.samplingPoint.prefix";
 
-    String EREPORTING_STATION_PREFIX_KEY = "eReporting.station.prefix";
+    /*~~>*/String EREPORTING_STATION_PREFIX_KEY = "eReporting.station.prefix";
 
-    String EREPORTING_NETWORK_PREFIX_KEY = "eReporting.network.prefix";
+    /*~~>*/String EREPORTING_NETWORK_PREFIX_KEY = "eReporting.network.prefix";
 
-    String EREPORTING_VALIDITY_FLAGS = "eReporting.flags.validity";
+    /*~~>*/String EREPORTING_VALIDITY_FLAGS = "eReporting.flags.validity";
 
-    String EREPORTING_VERIFICATION_FLAGS = "eReporting.flags.verification";
+    /*~~>*/String EREPORTING_VERIFICATION_FLAGS = "eReporting.flags.verification";
 
 }

@@ -42,13 +42,13 @@ public final class GmlHelper {
 
     public static QName getGml321QnameForGeometry(Geometry geom) {
         if (geom instanceof Point) {
-            return new QName(GmlConstants.NS_GML_32, GmlConstants.EN_POINT, GmlConstants.NS_GML);
+            return new QName(/*~~>*/GmlConstants.NS_GML_32, /*~~>*/GmlConstants.EN_POINT, /*~~>*/GmlConstants.NS_GML);
         } else if (geom instanceof LineString) {
-            return new QName(GmlConstants.NS_GML_32, GmlConstants.EN_LINE_STRING, GmlConstants.NS_GML);
+            return new QName(/*~~>*/GmlConstants.NS_GML_32, /*~~>*/GmlConstants.EN_LINE_STRING, /*~~>*/GmlConstants.NS_GML);
         } else if (geom instanceof Polygon) {
-            return new QName(GmlConstants.NS_GML_32, GmlConstants.EN_POLYGON, GmlConstants.NS_GML);
+            return new QName(/*~~>*/GmlConstants.NS_GML_32, /*~~>*/GmlConstants.EN_POLYGON, /*~~>*/GmlConstants.NS_GML);
         }
-        return new QName(GmlConstants.NS_GML_32, GmlConstants.EN_ABSTRACT_GEOMETRY, GmlConstants.NS_GML);
+        return new QName(/*~~>*/GmlConstants.NS_GML_32, /*~~>*/GmlConstants.EN_ABSTRACT_GEOMETRY, /*~~>*/GmlConstants.NS_GML);
     }
 
     public static QName getGml321QnameForITime(Time iTime) {

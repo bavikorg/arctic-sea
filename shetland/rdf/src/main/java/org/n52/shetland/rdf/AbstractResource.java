@@ -20,7 +20,7 @@ import org.apache.jena.rdf.model.Resource;
 
 public abstract class AbstractResource extends AbstractValue {
 
-    public AbstractResource(String value) {
+    public AbstractResource(/*~~>*/String value) {
         super(value);
     }
 

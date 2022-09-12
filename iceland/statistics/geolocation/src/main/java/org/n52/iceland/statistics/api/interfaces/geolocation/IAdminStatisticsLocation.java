@@ -25,7 +25,7 @@ public interface IAdminStatisticsLocation {
      *                       appropriate file.
      */
     void initDatabase(LocationDatabaseType type,
-                      String pathToDatabase);
+                      /*~~>*/String pathToDatabase);
 
     /**
      * The country or the city database indicator.
@@ -36,13 +36,13 @@ public interface IAdminStatisticsLocation {
         CITY("GeoLite2-City"),
         COUNTRY("GeoLite2-Country");
 
-        private final String geoLite2Name;
+        private final /*~~>*/String geoLite2Name;
 
-        LocationDatabaseType(String geoLite2Name) {
-            this.geoLite2Name = geoLite2Name;
+        LocationDatabaseType(/*~~>*/String geoLite2Name) {
+            /*~~>*/this.geoLite2Name = geoLite2Name;
         }
 
-        public String getGeoLite2Name() {
+        public /*~~>*/String getGeoLite2Name() {
             return geoLite2Name;
         }
 

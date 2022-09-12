@@ -99,9 +99,9 @@ public class SweCommonEncoderv101Test {
 
     @Test
     public void should_encode_simpleDataRecordWithFields() throws EncodingException {
-        final String field0Value = "field-0-value";
-        final String field0Name = "field-0";
-        final String field1Name = "field-1";
+        final /*~~>*/String field0Value = "field-0-value";
+        final /*~~>*/String field0Name = "field-0";
+        final /*~~>*/String field1Name = "field-1";
         final Boolean field1Value = Boolean.TRUE;
 
         final XmlObject encode = sweCommonEncoderv101.encode(
@@ -127,7 +127,7 @@ public class SweCommonEncoderv101Test {
 
     @Test
     public void should_encode_simpleDatarecord_with_fieldBoolean() throws EncodingException {
-        final String field1Name = "field-1";
+        final /*~~>*/String field1Name = "field-1";
         final Boolean field1Value = Boolean.TRUE;
 
         final XmlObject encode = sweCommonEncoderv101.encode(
@@ -148,8 +148,8 @@ public class SweCommonEncoderv101Test {
     @Test
     public void should_encode_Datarecord_with_fieldText() throws EncodingException {
 
-        final String field1Name = "test-name";
-        final String field1Value = "test-value";
+        final /*~~>*/String field1Name = "test-name";
+        final /*~~>*/String field1Value = "test-value";
         final XmlObject encode = sweCommonEncoderv101
                 .encode(new SweDataRecord().addField(new SweField(field1Name, new SweText().setValue(field1Value))));
         assertThat(encode, is(instanceOf(DataRecordType.class)));
@@ -167,7 +167,7 @@ public class SweCommonEncoderv101Test {
     @Test
     public void should_encode_Datarecord_with_fieldBoolean() throws EncodingException {
 
-        final String field1Name = "test-name";
+        final /*~~>*/String field1Name = "test-name";
         final boolean field1Value = true;
         final XmlObject encode = sweCommonEncoderv101.encode(
                 new SweDataRecord().addField(new SweField(field1Name, new SweBoolean().setValue(field1Value))));
@@ -186,9 +186,9 @@ public class SweCommonEncoderv101Test {
     @Test
     public void should_encode_Datarecord_with_fieldCategory() throws EncodingException {
 
-        final String field1Name = "test-name";
-        final String field1Value = "test-value";
-        final String codeSpace = "test-codespace";
+        final /*~~>*/String field1Name = "test-name";
+        final /*~~>*/String field1Value = "test-value";
+        final /*~~>*/String codeSpace = "test-codespace";
         final XmlObject encode = sweCommonEncoderv101
                 .encode(new SweDataRecord().addField(new SweField(field1Name, new SweCategory().setCodeSpace(codeSpace)
                         .setValue(field1Value))));
@@ -210,7 +210,7 @@ public class SweCommonEncoderv101Test {
     @Test
     public void should_encode_Datarecord_with_fieldCount() throws EncodingException {
 
-        final String field1Name = "test-name";
+        final /*~~>*/String field1Name = "test-name";
         final int field1Value = 52;
         final XmlObject encode = sweCommonEncoderv101
                 .encode(new SweDataRecord().addField(new SweField(field1Name, new SweCount().setValue(field1Value))));
@@ -229,7 +229,7 @@ public class SweCommonEncoderv101Test {
     @Test
     public void should_encode_Datarecord_with_fieldQuantity() throws EncodingException {
 
-        final String field1Name = "test-name";
+        final /*~~>*/String field1Name = "test-name";
         final double field1Value = 52.0;
         final XmlObject encode = sweCommonEncoderv101.encode(
                 new SweDataRecord().addField(new SweField(field1Name, new SweQuantity().setValue(field1Value))));
@@ -248,7 +248,7 @@ public class SweCommonEncoderv101Test {
     @Test
     public void should_encode_Datarecord_with_fieldTimeRange() throws EncodingException {
 
-        final String field1Name = "test-name";
+        final /*~~>*/String field1Name = "test-name";
         final RangeValue<DateTime> field1Value = new RangeValue<DateTime>();
         final long now = System.currentTimeMillis();
         final DateTime rangeStart = new DateTime(now - 1000);
@@ -282,7 +282,7 @@ public class SweCommonEncoderv101Test {
     @Test
     public void should_encode_Datarecord_with_fieldTime() throws EncodingException {
 
-        final String field1Name = "test-name";
+        final /*~~>*/String field1Name = "test-name";
         final DateTime field1Value = new DateTime(System.currentTimeMillis());
         final XmlObject encode = sweCommonEncoderv101
                 .encode(new SweDataRecord().addField(new SweField(field1Name, new SweTime().setValue(field1Value))));
@@ -335,8 +335,8 @@ public class SweCommonEncoderv101Test {
 
     @Test
     public void should_encode_simpleDatarecord_with_fieldText() throws EncodingException {
-        final String field1Name = "field-1";
-        final String field1Value = "field-1-value";
+        final /*~~>*/String field1Name = "field-1";
+        final /*~~>*/String field1Value = "field-1-value";
 
         final XmlObject encode = sweCommonEncoderv101.encode(
                 new SweSimpleDataRecord().addField(new SweField(field1Name, new SweText().setValue(field1Value))));
@@ -355,10 +355,10 @@ public class SweCommonEncoderv101Test {
 
     @Test
     public void should_encode_simpleDatarecord_with_fieldCategory() throws EncodingException {
-        final String name = "field-1";
-        final String value = "field-1-value";
+        final /*~~>*/String name = "field-1";
+        final /*~~>*/String value = "field-1-value";
 
-        final String codeSpace = "field-1-codespace";
+        final /*~~>*/String codeSpace = "field-1-codespace";
         final XmlObject encode = sweCommonEncoderv101
                 .encode(new SweSimpleDataRecord().addField(new SweField(name, new SweCategory().setValue(value)
                         .setCodeSpace(codeSpace))));
@@ -382,7 +382,7 @@ public class SweCommonEncoderv101Test {
 
     @Test
     public void should_encode_simpleDatarecord_with_fieldCount() throws EncodingException {
-        final String name = "field-1";
+        final /*~~>*/String name = "field-1";
         final int value = 42;
 
         final XmlObject encode = sweCommonEncoderv101
@@ -403,7 +403,7 @@ public class SweCommonEncoderv101Test {
 
     @Test
     public void should_encode_simpleDatarecord_with_fieldQuantity() throws EncodingException {
-        final String name = "field-1";
+        final /*~~>*/String name = "field-1";
         final double value = 42.5;
 
         final XmlObject encode = sweCommonEncoderv101
@@ -423,7 +423,7 @@ public class SweCommonEncoderv101Test {
 
     @Test
     public void should_encode_simpleDatarecord_with_fieldTime() throws EncodingException {
-        final String name = "field-1";
+        final /*~~>*/String name = "field-1";
         final DateTime value = new DateTime(DateTimeZone.UTC);
 
         final XmlObject encode = sweCommonEncoderv101
@@ -445,11 +445,11 @@ public class SweCommonEncoderv101Test {
 
     @Test
     public void should_encode_simpleDatarecord_with_quantities() throws EncodingException {
-        final String name = "field-1";
-        final String unit = "m";
+        final /*~~>*/String name = "field-1";
+        final /*~~>*/String unit = "m";
         final Double value = 1.1;
-        final String name2 = "field-2";
-        final String unit2 = "urn:ogc:def:uom:UCUM::m";
+        final /*~~>*/String name2 = "field-2";
+        final /*~~>*/String unit2 = "urn:ogc:def:uom:UCUM::m";
         final Double value2 = 1.2;
 
         final XmlObject encode = sweCommonEncoderv101.encode(new SweSimpleDataRecord()
@@ -498,7 +498,7 @@ public class SweCommonEncoderv101Test {
 
     @Test
     public void should_encode_count_with_quality_text() throws EncodingException {
-        final String qualityTextValue = "quality-text-value";
+        final /*~~>*/String qualityTextValue = "quality-text-value";
         final SweCount sosCount = (SweCount) new SweCount()
                 .setQuality(new SweQualityHolder().addQuality((SweQuality) new SweText().setValue(qualityTextValue)));
 
@@ -518,7 +518,7 @@ public class SweCommonEncoderv101Test {
 
     @Test
     public void should_encode_count_with_quality_Category() throws EncodingException {
-        final String qualityCategoryValue = "quality-category-value";
+        final /*~~>*/String qualityCategoryValue = "quality-category-value";
         final SweCount sosCount = (SweCount) new SweCount().setQuality(
                 new SweQualityHolder().addQuality((SweQuality) new SweCategory().setValue(qualityCategoryValue)));
 
@@ -589,14 +589,14 @@ public class SweCommonEncoderv101Test {
         final double x1 = 51.0;
         final double y2 = 8.0;
         final double x2 = 52.0;
-        final String uom = "test-uom";
-        final String definition = "test-definition";
+        final /*~~>*/String uom = "test-uom";
+        final /*~~>*/String definition = "test-definition";
         final SweEnvelope sweEnvelope =
                 new SweEnvelope(new ReferencedEnvelope(new Envelope(x1, x2, y1, y2), srid), uom, true);
-        final String xAxisId = "x";
-        final String yAxisId = "y";
-        final String northing = "northing";
-        final String easting = "easting";
+        final /*~~>*/String xAxisId = "x";
+        final /*~~>*/String yAxisId = "y";
+        final /*~~>*/String northing = "northing";
+        final /*~~>*/String easting = "easting";
         sweEnvelope.setDefinition(definition);
 
         final XmlObject encode = sweCommonEncoderv101.encode(sweEnvelope);

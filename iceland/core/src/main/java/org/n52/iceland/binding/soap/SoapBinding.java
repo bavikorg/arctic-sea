@@ -123,7 +123,7 @@ public class SoapBinding extends AbstractXmlBinding<SoapRequest> {
     }
 
     private void parseSoapRequest(SoapChain soapChain) throws OwsExceptionReport {
-        String soapAction = checkSoapHeader(soapChain.getHttpRequest());
+        /*~~>*/String soapAction = checkSoapHeader(soapChain.getHttpRequest());
         SoapRequest soapRequest = decode(soapChain.getHttpRequest());
         if (soapRequest.getSoapAction() == null && soapAction != null) {
             soapRequest.setAction(soapAction);
@@ -166,7 +166,7 @@ public class SoapBinding extends AbstractXmlBinding<SoapRequest> {
     }
 
     private void writeOwsExceptionReport(SoapChain chain, OwsExceptionReport owse) throws HTTPException, IOException {
-        String version = chain.hasBodyRequest() ? chain.getBodyRequest().getVersion() : null;
+        /*~~>*/String version = chain.hasBodyRequest() ? chain.getBodyRequest().getVersion() : null;
         getEventBus().submit(new ExceptionEvent(owse));
         chain.getSoapResponse().setException(owse.setVersion(version));
         writeFault(chain);
@@ -174,10 +174,10 @@ public class SoapBinding extends AbstractXmlBinding<SoapRequest> {
 
     private void writeFault(SoapChain chain) throws HTTPException, IOException {
         if (!chain.getSoapResponse().hasSoapVersion()) {
-            chain.getSoapResponse().setSoapVersion(SoapConstants.SOAP_1_2_VERSION);
+            chain.getSoapResponse().setSoapVersion(/*~~>*/SoapConstants.SOAP_1_2_VERSION);
         }
         if (!chain.getSoapResponse().hasSoapNamespace()) {
-            chain.getSoapResponse().setSoapNamespace(SoapConstants.NS_SOAP_12);
+            chain.getSoapResponse().setSoapNamespace(/*~~>*/SoapConstants.NS_SOAP_12);
         }
         if (chain.getSoapResponse().hasException() && chain.getSoapResponse().getException().hasStatus()) {
             chain.getHttpResponse().setStatus(chain.getSoapResponse().getException().getStatus().getCode());
@@ -260,16 +260,16 @@ public class SoapBinding extends AbstractXmlBinding<SoapRequest> {
         return null;
     }
 
-    protected String checkSoapHeader(HttpServletRequest request) {
+    protected /*~~>*/String checkSoapHeader(HttpServletRequest request) {
         Enumeration<?> headerNames = request.getHeaderNames();
         while (headerNames.hasMoreElements()) {
-            String headerNameKey = (String) headerNames.nextElement();
+            /*~~>*/String headerNameKey = (/*~~>*/String) headerNames.nextElement();
             if (headerNameKey.equalsIgnoreCase("type")) {
-                String type = request.getHeader(headerNameKey);
-                String[] typeArray = type.split(";");
-                for (String string : typeArray) {
+                /*~~>*/String type = request.getHeader(headerNameKey);
+                /*~~>*/String[] typeArray = type.split(";");
+                for (/*~~>*/String string : typeArray) {
                     if (string.startsWith("action")) {
-                        String soapAction = string.replace("action=", "");
+                        /*~~>*/String soapAction = string.replace("action=", "");
                         soapAction = soapAction.replace("\"", "");
                         soapAction = soapAction.trim();
                         return soapAction;

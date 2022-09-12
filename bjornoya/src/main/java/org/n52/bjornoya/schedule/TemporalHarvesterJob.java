@@ -26,7 +26,7 @@ import org.quartz.PersistJobDataAfterExecution;
 @DisallowConcurrentExecution
 public interface TemporalHarvesterJob extends Job {
 
-    String LAST_UPDATE_TIME = "LAST_UPDATE_TIME";
+    /*~~>*/String LAST_UPDATE_TIME = "LAST_UPDATE_TIME";
 
     default DateTime getLastUpdateTime(JobExecutionContext context) {
         if (context.getPreviousFireTime() != null) {
@@ -37,7 +37,7 @@ public interface TemporalHarvesterJob extends Job {
                         new DateTime(context.getNextFireTime())));
     }
 
-    default DateTime getNextTime(String nextToken, DateTime now) {
+    default DateTime getNextTime(/*~~>*/String nextToken, DateTime now) {
         if (nextToken != null && !nextToken.isEmpty()) {
             return new DateTime(nextToken);
         }

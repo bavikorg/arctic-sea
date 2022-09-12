@@ -34,7 +34,7 @@ public interface SchemaAwareEncoder<T, S> extends Encoder<T, S> {
      * @param nameSpacePrefixMap
      *            the map
      */
-    default void addNamespacePrefixToMap(Map<String, String> nameSpacePrefixMap) {
+    default void addNamespacePrefixToMap(Map</*~~>*/String, /*~~>*/String> nameSpacePrefixMap) {
         // do nothing
     }
 

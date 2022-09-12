@@ -46,132 +46,132 @@ import com.google.common.base.Splitter;
 @Configurable
 public class OwsServiceProviderFactory extends LocalizedLazyThreadSafeProducer<OwsServiceProvider> {
 
-    private String name;
+    private /*~~>*/String name;
     private URI site;
-    private String individualName;
-    private String positionName;
-    private String phone;
-    private String deliveryPoint;
-    private String city;
-    private String postalCode;
-    private String country;
-    private String electronicMailAddress;
-    private String administrativeArea;
-    private String facsimile;
-    private String hoursOfService;
-    private String contactInstructions;
-    private String onlineResoureTitle;
+    private /*~~>*/String individualName;
+    private /*~~>*/String positionName;
+    private /*~~>*/String phone;
+    private /*~~>*/String deliveryPoint;
+    private /*~~>*/String city;
+    private /*~~>*/String postalCode;
+    private /*~~>*/String country;
+    private /*~~>*/String electronicMailAddress;
+    private /*~~>*/String administrativeArea;
+    private /*~~>*/String facsimile;
+    private /*~~>*/String hoursOfService;
+    private /*~~>*/String contactInstructions;
+    private /*~~>*/String onlineResoureTitle;
     private URI onlineResoureHref;
-    private String role;
+    private /*~~>*/String role;
     private URI roleCodespace;
 
-    @Setting(OwsServiceProviderFactorySettings.NAME)
-    public void setName(String name) throws ConfigurationError {
-        this.name = name;
+    @Setting(/*~~>*/OwsServiceProviderFactorySettings.NAME)
+    public void setName(/*~~>*/String name) throws ConfigurationError {
+        /*~~>*/this.name = name;
         setRecreate();
     }
 
-    @Setting(OwsServiceProviderFactorySettings.SITE)
+    @Setting(/*~~>*/OwsServiceProviderFactorySettings.SITE)
     public void setSite(URI site) {
         this.site = site;
         setRecreate();
     }
 
-    @Setting(OwsServiceProviderFactorySettings.INDIVIDUAL_NAME)
-    public void setIndividualName(String individualName) {
-        this.individualName = individualName;
+    @Setting(/*~~>*/OwsServiceProviderFactorySettings.INDIVIDUAL_NAME)
+    public void setIndividualName(/*~~>*/String individualName) {
+        /*~~>*/this.individualName = individualName;
         setRecreate();
     }
 
-    @Setting(OwsServiceProviderFactorySettings.POSITION_NAME)
-    public void setPositionName(String positionName) {
-        this.positionName = positionName;
+    @Setting(/*~~>*/OwsServiceProviderFactorySettings.POSITION_NAME)
+    public void setPositionName(/*~~>*/String positionName) {
+        /*~~>*/this.positionName = positionName;
         setRecreate();
     }
 
-    @Setting(OwsServiceProviderFactorySettings.PHONE)
-    public void setPhone(String phone) {
-        this.phone = phone;
+    @Setting(/*~~>*/OwsServiceProviderFactorySettings.PHONE)
+    public void setPhone(/*~~>*/String phone) {
+        /*~~>*/this.phone = phone;
         setRecreate();
     }
 
-    @Setting(OwsServiceProviderFactorySettings.FACSIMILE)
-    public void setFacsimile(String facsimile) {
-        this.facsimile = facsimile;
+    @Setting(/*~~>*/OwsServiceProviderFactorySettings.FACSIMILE)
+    public void setFacsimile(/*~~>*/String facsimile) {
+        /*~~>*/this.facsimile = facsimile;
         setRecreate();
     }
 
-    @Setting(OwsServiceProviderFactorySettings.ADDRESS)
-    public void setDeliveryPoint(String deliveryPoint) {
-        this.deliveryPoint = deliveryPoint;
+    @Setting(/*~~>*/OwsServiceProviderFactorySettings.ADDRESS)
+    public void setDeliveryPoint(/*~~>*/String deliveryPoint) {
+        /*~~>*/this.deliveryPoint = deliveryPoint;
         setRecreate();
     }
 
-    @Setting(OwsServiceProviderFactorySettings.CITY)
-    public void setCity(String city) {
-        this.city = city;
+    @Setting(/*~~>*/OwsServiceProviderFactorySettings.CITY)
+    public void setCity(/*~~>*/String city) {
+        /*~~>*/this.city = city;
         setRecreate();
     }
 
-    @Setting(OwsServiceProviderFactorySettings.POSTAL_CODE)
-    public void setPostalCode(String postalCode) {
-        this.postalCode = postalCode;
+    @Setting(/*~~>*/OwsServiceProviderFactorySettings.POSTAL_CODE)
+    public void setPostalCode(/*~~>*/String postalCode) {
+        /*~~>*/this.postalCode = postalCode;
         setRecreate();
     }
 
-    @Setting(OwsServiceProviderFactorySettings.COUNTRY)
-    public void setCountry(String country) {
-        this.country = country;
+    @Setting(/*~~>*/OwsServiceProviderFactorySettings.COUNTRY)
+    public void setCountry(/*~~>*/String country) {
+        /*~~>*/this.country = country;
         setRecreate();
     }
 
-    @Setting(OwsServiceProviderFactorySettings.EMAIL)
-    public void setMailAddress(String mailAddress) {
-        this.electronicMailAddress = mailAddress;
+    @Setting(/*~~>*/OwsServiceProviderFactorySettings.EMAIL)
+    public void setMailAddress(/*~~>*/String mailAddress) {
+        /*~~>*/this.electronicMailAddress = mailAddress;
         setRecreate();
     }
 
-    @Setting(OwsServiceProviderFactorySettings.STATE)
-    public void setAdministrativeArea(String administrativeArea) {
-        this.administrativeArea = administrativeArea;
+    @Setting(/*~~>*/OwsServiceProviderFactorySettings.STATE)
+    public void setAdministrativeArea(/*~~>*/String administrativeArea) {
+        /*~~>*/this.administrativeArea = administrativeArea;
         setRecreate();
     }
 
-    @Setting(OwsServiceProviderFactorySettings.HOURS_OF_SERVICE)
-    public void setHours(String hours) {
-        this.hoursOfService = hours;
+    @Setting(/*~~>*/OwsServiceProviderFactorySettings.HOURS_OF_SERVICE)
+    public void setHours(/*~~>*/String hours) {
+        /*~~>*/this.hoursOfService = hours;
         setRecreate();
     }
 
-    @Setting(OwsServiceProviderFactorySettings.CONTACT_INSTRUCTIONS)
-    public void setContactInstructions(String contactInstructions) {
-        this.contactInstructions = contactInstructions;
+    @Setting(/*~~>*/OwsServiceProviderFactorySettings.CONTACT_INSTRUCTIONS)
+    public void setContactInstructions(/*~~>*/String contactInstructions) {
+        /*~~>*/this.contactInstructions = contactInstructions;
         setRecreate();
     }
 
-    @Setting(OwsServiceProviderFactorySettings.ONLINE_RESOURCE)
-    public void setOnlineResource(String onlineResource) {
+    @Setting(/*~~>*/OwsServiceProviderFactorySettings.ONLINE_RESOURCE)
+    public void setOnlineResource(/*~~>*/String onlineResource) {
         if (Optional.ofNullable(onlineResource).isPresent()) {
             if (onlineResource.contains("|")) {
-                Iterable<String> split = Splitter.on("|").trimResults().split(onlineResource);
-                Iterator<String> iterator = split.iterator();
-                this.onlineResoureTitle = iterator.next();
+                Iterable</*~~>*/String> split = Splitter.on("|").trimResults().split(onlineResource);
+                Iterator</*~~>*/String> iterator = split.iterator();
+                /*~~>*/this.onlineResoureTitle = iterator.next();
                 this.onlineResoureHref = URI.create(iterator.next());
             } else {
-                this.onlineResoureTitle = onlineResource;
+                /*~~>*/this.onlineResoureTitle = onlineResource;
                 this.onlineResoureHref = URI.create(onlineResource);
             }
             setRecreate();
         }
     }
 
-    @Setting(OwsServiceProviderFactorySettings.ROLE_VALUE)
-    public void setRole(String role) {
-        this.role = role;
+    @Setting(/*~~>*/OwsServiceProviderFactorySettings.ROLE_VALUE)
+    public void setRole(/*~~>*/String role) {
+        /*~~>*/this.role = role;
         setRecreate();
     }
 
-    @Setting(OwsServiceProviderFactorySettings.ROLE_CODESPACE)
+    @Setting(/*~~>*/OwsServiceProviderFactorySettings.ROLE_CODESPACE)
     public void setRoleCodespace(URI roleCodespace) {
         this.roleCodespace = roleCodespace;
         setRecreate();
@@ -180,7 +180,7 @@ public class OwsServiceProviderFactory extends LocalizedLazyThreadSafeProducer<O
     @Override
     protected OwsServiceProvider create(Locale language) throws ConfigurationError {
         // TODO organisation name is missing
-        String organisationName = null;
+        /*~~>*/String organisationName = null;
         OwsOnlineResource onlineResource = null;
         if (site != null) {
             onlineResource = new OwsOnlineResource(site);

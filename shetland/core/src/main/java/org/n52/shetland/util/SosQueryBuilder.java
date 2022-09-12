@@ -34,37 +34,37 @@ public class SosQueryBuilder extends OwsQueryBuilder {
         super(url, charset);
     }
 
-    public SosQueryBuilder(String url) throws MalformedURLException {
+    public SosQueryBuilder(/*~~>*/String url) throws MalformedURLException {
         super(url);
     }
 
-    public SosQueryBuilder addProcedure(String procedure) {
+    public SosQueryBuilder addProcedure(/*~~>*/String procedure) {
         add(SosConstants.DescribeSensorParams.procedure, procedure);
         return this;
     }
 
-    public SosQueryBuilder addOutputFormat(String outputFormat) {
+    public SosQueryBuilder addOutputFormat(/*~~>*/String outputFormat) {
         add(Sos1Constants.DescribeSensorParams.outputFormat, outputFormat);
         return this;
     }
 
-    public SosQueryBuilder addProcedureDescriptionFormat(String procedureDescriptionFormat) {
+    public SosQueryBuilder addProcedureDescriptionFormat(/*~~>*/String procedureDescriptionFormat) {
         add(Sos2Constants.DescribeSensorParams.procedureDescriptionFormat, procedureDescriptionFormat);
         return this;
     }
 
-    public SosQueryBuilder addFeatureOfInterestId(String foi) {
+    public SosQueryBuilder addFeatureOfInterestId(/*~~>*/String foi) {
         add(Sos1Constants.GetFeatureOfInterestParams.featureOfInterestID, foi);
         return this;
     }
 
-    public SosQueryBuilder addFeatureOfInterest(String foi) {
+    public SosQueryBuilder addFeatureOfInterest(/*~~>*/String foi) {
         add(Sos2Constants.GetFeatureOfInterestParams.featureOfInterest, foi);
         return this;
     }
 
     public SosQueryBuilder addService() {
-        addService(SosConstants.SOS);
+        addService(/*~~>*/SosConstants.SOS);
         return this;
     }
 
@@ -123,17 +123,17 @@ public class SosQueryBuilder extends OwsQueryBuilder {
         return this;
     }
 
-    public SosQueryBuilder addLanguage(String language) {
+    public SosQueryBuilder addLanguage(/*~~>*/String language) {
         add(OWSConstants.AdditionalRequestParams.language, language);
         return this;
     }
 
-    public SosQueryBuilder addCRS(String crs) {
+    public SosQueryBuilder addCRS(/*~~>*/String crs) {
         add(OWSConstants.AdditionalRequestParams.crs, crs);
         return this;
     }
 
-    public SosQueryBuilder addOffering(String offering) {
+    public SosQueryBuilder addOffering(/*~~>*/String offering) {
         add(SosConstants.GetObservationParams.offering, offering);
         return this;
     }

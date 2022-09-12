@@ -39,7 +39,7 @@ public class MultiPointCoverageDocumentEncoder
 
     private static final Set<EncoderKey> ENCODER_KEYS =
             Sets.newHashSet(new ClassToClassEncoderKey(MultiPointCoverageDocument.class, MultiPointCoverage.class),
-                    new XmlPropertyTypeEncoderKey(GmlConstants.NS_GML_32, MultiPointCoverage.class));
+                    new XmlPropertyTypeEncoderKey(/*~~>*/GmlConstants.NS_GML_32, MultiPointCoverage.class));
 
     @Override
     public Set<EncoderKey> getKeys() {

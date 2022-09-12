@@ -45,7 +45,7 @@ public class ElasticsearchDataHandler implements IStatisticsDataHandler {
     private IAdminDataHandler adminHandler;
 
     @Override
-    public IndexResponse persist(Map<String, Object> dataMap) throws ElasticsearchGenerationException, IOException {
+    public IndexResponse persist(Map</*~~>*/String, Object> dataMap) throws ElasticsearchGenerationException, IOException {
         if (!settings.isLoggingEnabled()) {
             return null;
         }

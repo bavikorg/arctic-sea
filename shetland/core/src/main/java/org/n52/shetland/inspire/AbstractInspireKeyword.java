@@ -91,8 +91,8 @@ public abstract class AbstractInspireKeyword<
     protected abstract void setKeywordValue(T keywordValue);
 
     @Override
-    public String toString() {
-        return String.format("%s %n[%n originatingControlledVocabulary=%s,%n keywordValue=%s%n]",
+    public /*~~>*/String toString() {
+        return /*~~>*/String.format("%s %n[%n originatingControlledVocabulary=%s,%n keywordValue=%s%n]",
                 this.getClass().getSimpleName(), getOriginatingControlledVocabulary(), getKeywordValue());
     }
 

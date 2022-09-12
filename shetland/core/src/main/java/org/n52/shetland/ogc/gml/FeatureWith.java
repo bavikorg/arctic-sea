@@ -53,7 +53,7 @@ public interface FeatureWith {
          *
          * @return Type of this feature
          */
-        String getFeatureType();
+        /*~~>*/String getFeatureType();
 
         /**
          * Set feature type
@@ -61,7 +61,7 @@ public interface FeatureWith {
          * @param featureType
          *            Type of this feature
          */
-        void setFeatureType(String featureType);
+        void setFeatureType(/*~~>*/String featureType);
 
         /**
          * Check whether feature type is set
@@ -79,7 +79,7 @@ public interface FeatureWith {
          *
          * @return URL
          */
-        String getUrl();
+        /*~~>*/String getUrl();
 
         /**
          * Set URL
@@ -87,7 +87,7 @@ public interface FeatureWith {
          * @param url
          *            URL to set
          */
-        void setUrl(String url);
+        void setUrl(/*~~>*/String url);
 
         /**
          * Check whether URL is set

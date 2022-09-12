@@ -75,7 +75,7 @@ public class SamplingFeatureComplexTest {
 
     @Test
     public void should_set_role_correct() {
-        final String role = "test-role";
+        final /*~~>*/String role = "test-role";
         final SamplingFeatureComplex sfc =
                 new SamplingFeatureComplex(role, new SamplingFeature(new CodeWithAuthority("test-feature")));
 

@@ -24,7 +24,7 @@ import org.n52.shetland.ogc.om.values.visitor.ValueVisitor;
  * @since 1.0.0
  *
  */
-public class NilTemplateValue implements Value<String> {
+public class NilTemplateValue implements Value</*~~>*/String> {
 
     /**
      * Unit of measure
@@ -32,17 +32,17 @@ public class NilTemplateValue implements Value<String> {
     private UoM unit;
 
     @Override
-    public NilTemplateValue setValue(String value) {
+    public NilTemplateValue setValue(/*~~>*/String value) {
         return this;
     }
 
     @Override
-    public String getValue() {
+    public /*~~>*/String getValue() {
         return "template";
     }
 
     @Override
-    public void setUnit(String unit) {
+    public void setUnit(/*~~>*/String unit) {
         this.unit = new UoM(unit);
     }
 
@@ -53,7 +53,7 @@ public class NilTemplateValue implements Value<String> {
     }
 
     @Override
-    public String getUnit() {
+    public /*~~>*/String getUnit() {
         if (isSetUnit()) {
             return unit.getUom();
         }
@@ -66,8 +66,8 @@ public class NilTemplateValue implements Value<String> {
     }
 
     @Override
-    public String toString() {
-        return String.format("NilTemplateValue [value=%s, unit=%s]", getValue(), getUnit());
+    public /*~~>*/String toString() {
+        return /*~~>*/String.format("NilTemplateValue [value=%s, unit=%s]", getValue(), getUnit());
     }
 
     @Override

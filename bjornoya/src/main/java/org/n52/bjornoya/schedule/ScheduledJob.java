@@ -40,16 +40,16 @@ import org.springframework.scheduling.quartz.QuartzJobBean;
 import edu.umd.cs.findbugs.annotations.SuppressFBWarnings;
 
 public abstract class ScheduledJob extends QuartzJobBean implements CronExpressionValidator, Comparable<ScheduledJob> {
-    protected static final String JOB_CONFIG = "config";
+    protected static final /*~~>*/String JOB_CONFIG = "config";
     private static final Logger LOGGER = LoggerFactory.getLogger(ScheduledJob.class);
     private boolean enabled = true;
 
-    private String jobName;
+    private /*~~>*/String jobName;
 
-    private String jobGroup;
-    private String triggerName;
+    private /*~~>*/String jobGroup;
+    private /*~~>*/String triggerName;
 
-    private String jobDescription;
+    private /*~~>*/String jobDescription;
 
     private JobConfiguration jobConfiguration;
 
@@ -97,7 +97,7 @@ public abstract class ScheduledJob extends QuartzJobBean implements CronExpressi
         return dataMap;
     }
 
-    public String getJobConfigurationName() {
+    public /*~~>*/String getJobConfigurationName() {
         return isSetJobConfiguration() ? getJobConfiguration().getName() : null;
     }
 
@@ -117,47 +117,47 @@ public abstract class ScheduledJob extends QuartzJobBean implements CronExpressi
         return jobConfiguration;
     }
 
-    public String getJobName() {
+    public /*~~>*/String getJobName() {
         return jobName == null || jobName.isEmpty() ? getClass().getSimpleName() : jobName;
     }
 
-    public ScheduledJob setJobName(String jobName) {
-        this.jobName = jobName;
+    public ScheduledJob setJobName(/*~~>*/String jobName) {
+        /*~~>*/this.jobName = jobName;
         return this;
     }
 
-    public String getJobGroup() {
+    public /*~~>*/String getJobGroup() {
         return jobGroup;
     }
 
-    public ScheduledJob setJobGroup(String jobGroup) {
-        this.jobGroup = jobGroup;
+    public ScheduledJob setJobGroup(/*~~>*/String jobGroup) {
+        /*~~>*/this.jobGroup = jobGroup;
         return this;
     }
 
-    public String getTriggerName() {
+    public /*~~>*/String getTriggerName() {
         return triggerName == null || triggerName.isEmpty() ? "trigger_" + getJobName() : triggerName;
     }
 
-    public ScheduledJob setTriggerName(String triggerName) {
-        this.triggerName = triggerName;
+    public ScheduledJob setTriggerName(/*~~>*/String triggerName) {
+        /*~~>*/this.triggerName = triggerName;
         return this;
     }
 
-    public String getJobDescription() {
+    public /*~~>*/String getJobDescription() {
         return jobDescription;
     }
 
-    public ScheduledJob setJobDescription(String jobDescription) {
-        this.jobDescription = jobDescription;
+    public ScheduledJob setJobDescription(/*~~>*/String jobDescription) {
+        /*~~>*/this.jobDescription = jobDescription;
         return this;
     }
 
-    public String getCronExpression() {
+    public /*~~>*/String getCronExpression() {
         return isSetJobConfiguration() ? getJobConfiguration().getCronExpression() : null;
     }
 
-    public ScheduledJob setCronExpression(String cronExpresssion) {
+    public ScheduledJob setCronExpression(/*~~>*/String cronExpresssion) {
         validate(cronExpresssion);
         if (checkCronExpression(cronExpresssion)) {
             if (!isSetJobConfiguration()) {
@@ -222,7 +222,7 @@ public abstract class ScheduledJob extends QuartzJobBean implements CronExpressi
         return getJobConfiguration() != null;
     }
 
-    private boolean checkCronExpression(String cronExpression) {
+    private boolean checkCronExpression(/*~~>*/String cronExpression) {
         return getCronExpression() == null || getCronExpression() != null && !getCronExpression().isEmpty()
                 && !getCronExpression().equals(cronExpression);
     }

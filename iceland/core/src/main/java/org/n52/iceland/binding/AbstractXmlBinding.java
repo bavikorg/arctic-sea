@@ -68,7 +68,7 @@ public abstract class AbstractXmlBinding<T> extends SimpleBinding {
 
     private DocumentBuilderProvider documentFactory;
 
-    private final String MISSING_PARAMETER = "The parameter '%s' is missing.";
+    private final /*~~>*/String MISSING_PARAMETER = "The parameter '%s' is missing.";
 
     @Inject
     public void setDocumentFactory(DocumentBuilderProvider documentFactory) {
@@ -76,23 +76,23 @@ public abstract class AbstractXmlBinding<T> extends SimpleBinding {
     }
 
     protected T decode(HttpServletRequest request) throws OwsExceptionReport {
-        String characterEncoding = getCharacterEncoding(request);
-        String xmlString = xmlToString(request, characterEncoding);
+        /*~~>*/String characterEncoding = getCharacterEncoding(request);
+        /*~~>*/String xmlString = xmlToString(request, characterEncoding);
         LOGGER.debug("XML-REQUEST: {}", xmlString);
         DecoderKey key = getDecoderKey(xmlString, characterEncoding);
         LOGGER.trace("Found decoder key: {}", key);
-        Decoder<T, String> decoder = getDecoder(key);
+        Decoder<T, /*~~>*/String> decoder = getDecoder(key);
         if (decoder == null) {
             // the service or version parameter is not set or not supported
-            Optional<String> service = Optional.empty();
-            Optional<String> version = Optional.empty();
+            Optional</*~~>*/String> service = Optional.empty();
+            Optional</*~~>*/String> version = Optional.empty();
             if (key instanceof XmlStringOperationDecoderKey) {
                 XmlStringOperationDecoderKey xmlStringKey = (XmlStringOperationDecoderKey) key;
                 service = Optional.ofNullable(xmlStringKey.getService());
                 version = Optional.ofNullable(xmlStringKey.getVersion());
             }
             if (service.isPresent()) {
-                String serviceString = service.get();
+                /*~~>*/String serviceString = service.get();
                 if (!isServiceSupported(serviceString)) {
                     throw new InvalidParameterValueException(OWSConstants.RequestParams.service, serviceString)
                             .withMessage("The service '%s' is not supported.", serviceString);
@@ -103,7 +103,7 @@ public abstract class AbstractXmlBinding<T> extends SimpleBinding {
             }
 
             if (version.isPresent()) {
-                String versionString = version.get();
+                /*~~>*/String versionString = version.get();
                 throw new InvalidParameterValueException(OWSConstants.RequestParams.version, versionString)
                         .withMessage("The version '%s' is not supported.", versionString);
             } else {
@@ -124,7 +124,7 @@ public abstract class AbstractXmlBinding<T> extends SimpleBinding {
     }
 
     @VisibleForTesting
-    protected DecoderKey getDecoderKey(String xmlContent, String characterEncoding) throws CodedException {
+    protected DecoderKey getDecoderKey(/*~~>*/String xmlContent, /*~~>*/String characterEncoding) throws CodedException {
         try (ByteArrayInputStream stream = new ByteArrayInputStream(xmlContent.getBytes(characterEncoding))) {
             // FIXME do not parse the complete request, if we only need the first element
             Document document = documentFactory.newDocumentBuilder().parse(stream);
@@ -147,13 +147,13 @@ public abstract class AbstractXmlBinding<T> extends SimpleBinding {
     }
 
     private XmlNamespaceOperationDecoderKey getNamespaceOperationDecoderKey(Element element) {
-        String nodeName = element.getNodeName();
+        /*~~>*/String nodeName = element.getNodeName();
         if (Strings.isNullOrEmpty(element.getNamespaceURI())) {
-            String[] splittedNodeName = nodeName.split(":");
-            String elementName;
-            String namespace;
-            String name;
-            String prefix = null;
+            /*~~>*/String[] splittedNodeName = nodeName.split(":");
+            /*~~>*/String elementName;
+            /*~~>*/String namespace;
+            /*~~>*/String name;
+            /*~~>*/String prefix = null;
             if (splittedNodeName.length == 2) {
                 prefix = splittedNodeName[0];
                 elementName = splittedNodeName[1];
@@ -162,9 +162,9 @@ public abstract class AbstractXmlBinding<T> extends SimpleBinding {
             }
             // TODO get namespace for prefix
             if (prefix == null || prefix.isEmpty()) {
-                name = W3CConstants.AN_XMLNS;
+                name = /*~~>*/W3CConstants.AN_XMLNS;
             } else {
-                name = W3CConstants.PREFIX_XMLNS + prefix;
+                name = /*~~>*/W3CConstants.PREFIX_XMLNS + prefix;
             }
             namespace = element.getAttribute(name);
             return new XmlNamespaceOperationDecoderKey(namespace, elementName);
@@ -175,21 +175,21 @@ public abstract class AbstractXmlBinding<T> extends SimpleBinding {
     }
 
     protected OwsOperationKey getOperationKey(Element element) {
-        String service = null;
-        String version = null;
-        String operation = null;
+        /*~~>*/String service = null;
+        /*~~>*/String version = null;
+        /*~~>*/String operation = null;
         if (element.hasAttributes()) {
             service = Strings.emptyToNull(element.getAttribute(OWSConstants.RequestParams.service.name()));
             version = Strings.emptyToNull(element.getAttribute(OWSConstants.RequestParams.version.name()));
             if (!Strings.isNullOrEmpty(service)) {
-                String nodeName = element.getNodeName();
+                /*~~>*/String nodeName = element.getNodeName();
                 operation = nodeName.substring(nodeName.indexOf(':') + 1);
             }
         }
         return new OwsOperationKey(service, version, operation);
     }
 
-    protected String xmlToString(HttpServletRequest request, String characterEncoding) throws OwsExceptionReport {
+    protected /*~~>*/String xmlToString(HttpServletRequest request, /*~~>*/String characterEncoding) throws OwsExceptionReport {
         try {
             if (request.getParameterMap().isEmpty()) {
                 return StringHelper.convertStreamToString(HttpUtils.getInputStream(request), characterEncoding);
@@ -202,7 +202,7 @@ public abstract class AbstractXmlBinding<T> extends SimpleBinding {
         }
     }
 
-    private String getCharacterEncoding(HttpServletRequest request) {
+    private /*~~>*/String getCharacterEncoding(HttpServletRequest request) {
         return !Strings.isNullOrEmpty(request.getCharacterEncoding()) ? request.getCharacterEncoding() : "UTF-8";
     }
 
@@ -216,16 +216,16 @@ public abstract class AbstractXmlBinding<T> extends SimpleBinding {
      *
      * @throws OwsExceptionReport * If the parameter is not supported by this service.
      */
-    private String parseHttpPostBodyWithParameter(final Enumeration<?> paramNames, final Map<?, ?> parameterMap)
+    private /*~~>*/String parseHttpPostBodyWithParameter(final Enumeration<?> paramNames, final Map<?, ?> parameterMap)
             throws OwsExceptionReport {
         while (paramNames.hasMoreElements()) {
-            final String paramName = (String) paramNames.nextElement();
+            final /*~~>*/String paramName = (/*~~>*/String) paramNames.nextElement();
             if (RequestParams.request.name().equalsIgnoreCase(paramName)) {
-                final String[] paramValues = (String[]) parameterMap.get(paramName);
+                final /*~~>*/String[] paramValues = (/*~~>*//*~~>*/String[]) parameterMap.get(paramName);
                 if (paramValues.length == 1) {
                     return paramValues[0];
                 } else {
-                    String message = "The parameter '%s' has more than one value or " +
+                    /*~~>*/String message = "The parameter '%s' has more than one value or " +
                                      "is empty for HTTP-Post requests to this service!";
                     throw new NoApplicableCodeException().withMessage(message, paramName);
                 }

@@ -23,10 +23,10 @@ import org.n52.svalbard.odata.grammar.STAQueryOptionsGrammar;
  * @author <a href="mailto:j.speckamp@52north.org">Jan Speckamp</a>
  */
 public abstract class QueryOptionTests {
-    protected final String EQ = "=";
+    protected final /*~~>*/String EQ = "=";
     protected STAQueryOptionsGrammar parser;
 
-    protected void init(String query) {
+    protected void init(/*~~>*/String query) {
         parser = new QueryOptionsFactory().createGrammar(query);
     }
 }

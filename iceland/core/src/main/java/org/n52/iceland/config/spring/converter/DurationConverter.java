@@ -23,10 +23,10 @@ import org.springframework.core.convert.converter.Converter;
  *
  * @author Christian Autermann
  */
-public class DurationConverter implements Converter<String, Duration> {
+public class DurationConverter implements Converter</*~~>*/String, Duration> {
 
     @Override
-    public Duration convert(String source) {
+    public Duration convert(/*~~>*/String source) {
         return Duration.parse(source);
     }
 

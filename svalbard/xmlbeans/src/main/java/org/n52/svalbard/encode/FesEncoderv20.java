@@ -73,7 +73,7 @@ public class FesEncoderv20 extends AbstractXmlEncoder<XmlObject, Object> impleme
     private static final Logger LOGGER = LoggerFactory.getLogger(FesEncoderv20.class);
 
     private static final Set<EncoderKey> ENCODER_KEYS = CodingHelper.encoderKeysForElements(
-            FilterConstants.NS_FES_2,
+            /*~~>*/FilterConstants.NS_FES_2,
             TemporalFilter.class,
             org.n52.shetland.ogc.filter.FilterCapabilities.class,
             SpatialFilter.class);
@@ -89,9 +89,9 @@ public class FesEncoderv20 extends AbstractXmlEncoder<XmlObject, Object> impleme
     }
 
     @Override
-    public void addNamespacePrefixToMap(Map<String, String> nameSpacePrefixMap) {
+    public void addNamespacePrefixToMap(Map</*~~>*/String, /*~~>*/String> nameSpacePrefixMap) {
         if (nameSpacePrefixMap != null) {
-            nameSpacePrefixMap.put(FilterConstants.NS_FES_2, FilterConstants.NS_FES_2_PREFIX);
+            nameSpacePrefixMap.put(/*~~>*/FilterConstants.NS_FES_2, /*~~>*/FilterConstants.NS_FES_2_PREFIX);
         }
     }
 
@@ -134,7 +134,7 @@ public class FesEncoderv20 extends AbstractXmlEncoder<XmlObject, Object> impleme
         final DuringDocument duringDoc = DuringDocument.Factory.newInstance(getXmlOptions());
         final BinaryTemporalOpType during = duringDoc.addNewDuring();
         if (temporalFilter.getTime() instanceof TimePeriod) {
-            during.set(encodeObjectToXml(GmlConstants.NS_GML_32, temporalFilter.getTime(),
+            during.set(encodeObjectToXml(/*~~>*/GmlConstants.NS_GML_32, temporalFilter.getTime(),
                                          EncodingContext.of(XmlBeansEncodingFlags.DOCUMENT)));
         } else {
             throw new EncodingException("The temporal filter value is not a TimePeriod!");
@@ -147,7 +147,7 @@ public class FesEncoderv20 extends AbstractXmlEncoder<XmlObject, Object> impleme
         final TEqualsDocument equalsDoc = TEqualsDocument.Factory.newInstance(getXmlOptions());
         final BinaryTemporalOpType equals = equalsDoc.addNewTEquals();
         if (temporalFilter.getTime() instanceof TimeInstant) {
-            equals.set(encodeObjectToXml(GmlConstants.NS_GML_32, temporalFilter.getTime(),
+            equals.set(encodeObjectToXml(/*~~>*/GmlConstants.NS_GML_32, temporalFilter.getTime(),
                                          EncodingContext.of(XmlBeansEncodingFlags.DOCUMENT)));
         } else {
             throw new EncodingException("The temporal filter value is not a TimeInstant!");
@@ -157,7 +157,7 @@ public class FesEncoderv20 extends AbstractXmlEncoder<XmlObject, Object> impleme
     }
 
     private XmlObject encodeExpression(Object object) throws EncodingException {
-        return encodeObjectToXml(GmlConstants.NS_GML_32, object);
+        return encodeObjectToXml(/*~~>*/GmlConstants.NS_GML_32, object);
     }
 
     private void checkAndAddValueReference(BinaryTemporalOpType binaryTemporalOp,
@@ -178,7 +178,7 @@ public class FesEncoderv20 extends AbstractXmlEncoder<XmlObject, Object> impleme
         return bbox;
     }
 
-    private XmlObject encodeReferenceValue(String sosValueReference) {
+    private XmlObject encodeReferenceValue(/*~~>*/String sosValueReference) {
         final ValueReferenceDocument valueReferenceDoc = ValueReferenceDocument.Factory.newInstance(getXmlOptions());
         valueReferenceDoc.setValueReference(sosValueReference);
         return valueReferenceDoc;
@@ -218,7 +218,7 @@ public class FesEncoderv20 extends AbstractXmlEncoder<XmlObject, Object> impleme
             throws EncodingException {
 
         for (OwsDomain owsDomainType : sosConformance) {
-            XmlObject encodeObjectToXml = encodeObjectToXml(OWSConstants.NS_OWS, owsDomainType);
+            XmlObject encodeObjectToXml = encodeObjectToXml(/*~~>*/OWSConstants.NS_OWS, owsDomainType);
             conformance.addNewConstraint().set(encodeObjectToXml);
         }
     }
@@ -309,7 +309,7 @@ public class FesEncoderv20 extends AbstractXmlEncoder<XmlObject, Object> impleme
         }
     }
 
-    private String getEnum4SpatialOperator(final SpatialOperator spatialOperator) throws EncodingException {
+    private /*~~>*/String getEnum4SpatialOperator(final SpatialOperator spatialOperator) throws EncodingException {
         switch (spatialOperator) {
             case BBOX:
                 return SpatialOperatorNameTypeImpl.BBOX.toString();
@@ -338,7 +338,7 @@ public class FesEncoderv20 extends AbstractXmlEncoder<XmlObject, Object> impleme
         }
     }
 
-    private String getEnum4TemporalOperator(final TimeOperator temporalOperator) throws EncodingException {
+    private /*~~>*/String getEnum4TemporalOperator(final TimeOperator temporalOperator) throws EncodingException {
         switch (temporalOperator) {
             case TM_After:
                 return TemporalOperatorNameTypeImpl.AFTER.toString();
@@ -371,7 +371,7 @@ public class FesEncoderv20 extends AbstractXmlEncoder<XmlObject, Object> impleme
         }
     }
 
-    private String getEnum4ComparisonOperator(final ComparisonOperator comparisonOperator) throws EncodingException {
+    private /*~~>*/String getEnum4ComparisonOperator(final ComparisonOperator comparisonOperator) throws EncodingException {
         switch (comparisonOperator) {
             case PropertyIsBetween:
                 return ComparisonOperatorNameTypeImpl.PROPERTY_IS_BETWEEN.toString();

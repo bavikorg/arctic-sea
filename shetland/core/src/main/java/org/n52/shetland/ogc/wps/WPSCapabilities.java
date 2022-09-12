@@ -28,16 +28,16 @@ public class WPSCapabilities extends OwsCapabilities {
 
     private final Optional<ProcessOfferings> processOfferings;
 
-    public WPSCapabilities(String version, String updateSequence, OwsServiceIdentification serviceIdentification,
-            OwsServiceProvider serviceProvider, OwsOperationsMetadata operationsMetadata, Collection<String> languages,
+    public WPSCapabilities(/*~~>*/String version, /*~~>*/String updateSequence, OwsServiceIdentification serviceIdentification,
+            OwsServiceProvider serviceProvider, OwsOperationsMetadata operationsMetadata, Collection</*~~>*/String> languages,
             Collection<OwsCapabilitiesExtension> extension, ProcessOfferings processOfferings) {
-        this(WPSConstants.SERVICE, version, updateSequence, serviceIdentification, serviceProvider, operationsMetadata,
+        this(/*~~>*/WPSConstants.SERVICE, version, updateSequence, serviceIdentification, serviceProvider, operationsMetadata,
                 languages, extension, processOfferings);
     }
 
-    public WPSCapabilities(String service, String version, String updateSequence,
+    public WPSCapabilities(/*~~>*/String service, /*~~>*/String version, /*~~>*/String updateSequence,
             OwsServiceIdentification serviceIdentification, OwsServiceProvider serviceProvider,
-            OwsOperationsMetadata operationsMetadata, Collection<String> languages,
+            OwsOperationsMetadata operationsMetadata, Collection</*~~>*/String> languages,
             Collection<OwsCapabilitiesExtension> extension, ProcessOfferings processOfferings) {
         super(service, version, updateSequence, serviceIdentification, serviceProvider, operationsMetadata, languages,
                 extension);

@@ -38,7 +38,7 @@ public class SosStringDecoderv100 extends AbstractStringRequestDecoder {
     private static final Logger LOGGER = LoggerFactory.getLogger(SosStringDecoderv100.class);
 
     private static final Set<DecoderKey> DECODER_KEYS = CodingHelper.xmlStringDecoderKeysForOperationAndMediaType(
-            SosConstants.SOS, Sos1Constants.SERVICEVERSION, SosConstants.Operations.GetCapabilities,
+            /*~~>*/SosConstants.SOS, /*~~>*/Sos1Constants.SERVICEVERSION, SosConstants.Operations.GetCapabilities,
             SosConstants.Operations.GetObservation, SosConstants.Operations.GetFeatureOfInterest,
             SosConstants.Operations.GetObservationById, SosConstants.Operations.DescribeSensor);
 

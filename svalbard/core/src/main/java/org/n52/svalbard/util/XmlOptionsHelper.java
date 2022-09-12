@@ -54,7 +54,7 @@ public final class XmlOptionsHelper implements Destroyable, Producer<XmlOptions>
 
     private XmlOptions xmlOptions;
 
-    private String characterEncoding = "UTF-8";
+    private /*~~>*/String characterEncoding = "UTF-8";
 
     private boolean prettyPrint = true;
 
@@ -65,15 +65,15 @@ public final class XmlOptionsHelper implements Destroyable, Producer<XmlOptions>
     }
 
     // TODO: To be used by other encoders to have common prefixes
-    private Map<String, String> getPrefixMap() {
-        Map<String, String> prefixMap = new HashMap<>();
-        prefixMap.put(OGCConstants.NS_OGC, OGCConstants.NS_OGC_PREFIX);
+    private Map</*~~>*/String, /*~~>*/String> getPrefixMap() {
+        Map</*~~>*/String, /*~~>*/String> prefixMap = new HashMap<>();
+        prefixMap.put(/*~~>*/OGCConstants.NS_OGC, /*~~>*/OGCConstants.NS_OGC_PREFIX);
         // prefixMap.put(OmConstants.NS_OM, OmConstants.NS_OM_PREFIX);
         // prefixMap.put(SfConstants.NS_SA, SfConstants.NS_SA_PREFIX);
         // prefixMap.put(Sos1Constants.NS_SOS, SosConstants.NS_SOS_PREFIX);
-        prefixMap.put(W3CConstants.NS_XLINK, W3CConstants.NS_XLINK_PREFIX);
-        prefixMap.put(W3CConstants.NS_XSI, W3CConstants.NS_XSI_PREFIX);
-        prefixMap.put(W3CConstants.NS_XS, W3CConstants.NS_XS_PREFIX);
+        prefixMap.put(/*~~>*/W3CConstants.NS_XLINK, /*~~>*/W3CConstants.NS_XLINK_PREFIX);
+        prefixMap.put(/*~~>*/W3CConstants.NS_XSI, /*~~>*/W3CConstants.NS_XSI_PREFIX);
+        prefixMap.put(/*~~>*/W3CConstants.NS_XS, /*~~>*/W3CConstants.NS_XS_PREFIX);
         encoderRepository.getEncoders().stream()
                 .filter(Predicates.instanceOf(SchemaAwareEncoder.class))
                 .map(Functions.cast(SchemaAwareEncoder.class))
@@ -93,7 +93,7 @@ public final class XmlOptionsHelper implements Destroyable, Producer<XmlOptions>
             try {
                 if (xmlOptions == null) {
                     xmlOptions = new XmlOptions();
-                    Map<String, String> prefixes = getPrefixMap();
+                    Map</*~~>*/String, /*~~>*/String> prefixes = getPrefixMap();
                     xmlOptions.setSaveSuggestedPrefixes(prefixes);
                     xmlOptions.setSaveImplicitNamespaces(prefixes);
                     xmlOptions.setSaveAggressiveNamespaces();
@@ -130,15 +130,15 @@ public final class XmlOptionsHelper implements Destroyable, Producer<XmlOptions>
         }
     }
 
-    @Setting(value = CodingSettings.CHARACTER_ENCODING, required = false)
-    public void setCharacterEncoding(String characterEncoding) {
+    @Setting(value = /*~~>*/CodingSettings.CHARACTER_ENCODING, required = false)
+    public void setCharacterEncoding(/*~~>*/String characterEncoding) {
         lock.lock();
         try {
             Validation.notNullOrEmpty("Character Encoding", characterEncoding);
-            if (!this.characterEncoding.equals(characterEncoding)) {
+            if (!/*~~>*/this.characterEncoding.equals(characterEncoding)) {
                 setReload();
             }
-            this.characterEncoding = characterEncoding;
+            /*~~>*/this.characterEncoding = characterEncoding;
         } finally {
             lock.unlock();
         }

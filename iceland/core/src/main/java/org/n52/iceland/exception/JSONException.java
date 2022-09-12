@@ -22,19 +22,19 @@ import com.fasterxml.jackson.core.JsonProcessingException;
 public class JSONException extends JsonProcessingException {
     private static final long serialVersionUID = -62239056976814895L;
 
-    public JSONException(String msg, JsonLocation loc, Throwable rootCause) {
+    public JSONException(/*~~>*/String msg, JsonLocation loc, Throwable rootCause) {
         super(msg, loc, rootCause);
     }
 
-    public JSONException(String msg) {
+    public JSONException(/*~~>*/String msg) {
         super(msg);
     }
 
-    public JSONException(String msg, JsonLocation loc) {
+    public JSONException(/*~~>*/String msg, JsonLocation loc) {
         super(msg, loc);
     }
 
-    public JSONException(String msg, Throwable rootCause) {
+    public JSONException(/*~~>*/String msg, Throwable rootCause) {
         super(msg, rootCause);
     }
 

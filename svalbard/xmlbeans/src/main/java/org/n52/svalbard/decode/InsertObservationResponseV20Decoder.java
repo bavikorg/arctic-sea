@@ -42,9 +42,9 @@ public class InsertObservationResponseV20Decoder extends AbstractXmlDecoder<XmlO
     private static final Logger LOGGER = LoggerFactory.getLogger(InsertObservationResponseV20Decoder.class);
 
     private static final Set<DecoderKey> DECODER_KEYS = CollectionHelper.union(
-            CodingHelper.decoderKeysForElements(Sos2Constants.NS_SOS_20,
+            CodingHelper.decoderKeysForElements(/*~~>*/Sos2Constants.NS_SOS_20,
                     InsertObservationResponseDocument.class),
-            CodingHelper.xmlDecoderKeysForOperation(Sos2Constants.SOS, Sos2Constants.SERVICEVERSION,
+            CodingHelper.xmlDecoderKeysForOperation(/*~~>*/Sos2Constants.SOS, /*~~>*/Sos2Constants.SERVICEVERSION,
                     SosConstants.Operations.InsertObservation));
 
     public InsertObservationResponseV20Decoder() {

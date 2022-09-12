@@ -36,11 +36,11 @@ public class MultilingualString implements Serializable, StreamingIterable<Local
     private static final long serialVersionUID = -1120455418520277338L;
     private final Map<Locale, LocalizedString> localizations = new HashMap<>();
 
-    public MultilingualString addLocalization(String lang, String value) {
+    public MultilingualString addLocalization(/*~~>*/String lang, /*~~>*/String value) {
         return addLocalization(new LocalizedString(LocaleHelper.decode(lang), value));
     }
 
-    public MultilingualString addLocalization(Locale lang, String value) {
+    public MultilingualString addLocalization(Locale lang, /*~~>*/String value) {
         return addLocalization(new LocalizedString(lang, value));
     }
 
@@ -87,7 +87,7 @@ public class MultilingualString implements Serializable, StreamingIterable<Local
     }
 
     @Override
-    public String toString() {
+    public /*~~>*/String toString() {
         ToStringHelper h = MoreObjects.toStringHelper(this).omitNullValues();
         getLocalizations().forEach((key, value) -> h.add(key.toString(), value.getText()));
         return h.toString();
@@ -112,7 +112,7 @@ public class MultilingualString implements Serializable, StreamingIterable<Local
         return Collections.unmodifiableMap(this.localizations);
     }
 
-    public MultilingualString setLocalizations(Map<String, String> localizations) {
+    public MultilingualString setLocalizations(Map</*~~>*/String, /*~~>*/String> localizations) {
         this.localizations.clear();
         localizations.forEach(this::addLocalization);
         return this;

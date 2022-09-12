@@ -33,12 +33,12 @@ import com.google.common.collect.Maps;
  */
 public class FeatureCollection extends AbstractFeature implements Iterable<AbstractFeature> {
 
-    private static String GML_FEATURE_COLLECTION = "gml:FeatureCollection";
+    private static /*~~>*/String GML_FEATURE_COLLECTION = "gml:FeatureCollection";
     /**
      * members of this feature collection
      */
-    private SortedMap<String, AbstractFeature> members = Maps.<
-            String,
+    private SortedMap</*~~>*/String, AbstractFeature> members = Maps.<
+            /*~~>*/String,
             AbstractFeature> newTreeMap();
 
     /**
@@ -54,7 +54,7 @@ public class FeatureCollection extends AbstractFeature implements Iterable<Abstr
      * @param members
      *            collection with feature members of this collection
      */
-    public FeatureCollection(final Map<String, AbstractFeature> members) {
+    public FeatureCollection(final Map</*~~>*/String, AbstractFeature> members) {
         super(new CodeWithAuthority(GML_FEATURE_COLLECTION));
         this.members.clear();
         this.members.putAll(members);
@@ -65,7 +65,7 @@ public class FeatureCollection extends AbstractFeature implements Iterable<Abstr
      *
      * @return the members
      */
-    public Map<String, AbstractFeature> getMembers() {
+    public Map</*~~>*/String, AbstractFeature> getMembers() {
         return members;
     }
 
@@ -75,7 +75,7 @@ public class FeatureCollection extends AbstractFeature implements Iterable<Abstr
      * @param members
      *            the members to set
      */
-    public void setMembers(Map<String, AbstractFeature> members) {
+    public void setMembers(Map</*~~>*/String, AbstractFeature> members) {
         this.members.putAll(members);
     }
 
@@ -99,7 +99,7 @@ public class FeatureCollection extends AbstractFeature implements Iterable<Abstr
      *
      * @see Map#remove(Object)
      */
-    public AbstractFeature removeMember(String featureIdentifier) {
+    public AbstractFeature removeMember(/*~~>*/String featureIdentifier) {
         return members.remove(featureIdentifier);
     }
 

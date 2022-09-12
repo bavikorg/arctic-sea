@@ -21,7 +21,7 @@ import org.n52.shetland.rdf.AbstractResource;
 
 public class License extends AbstractResource implements DctRdfPrefix {
 
-    public License(String value) {
+    public License(/*~~>*/String value) {
         super(value);
     }
 

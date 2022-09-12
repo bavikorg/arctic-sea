@@ -48,13 +48,13 @@ public final class DateTimeHelper {
     /**
      * Response format for time.
      */
-    private static String responseFormat;
+    private static /*~~>*/String responseFormat;
 
-    private static final String YMD_RESPONSE_FORMAT = "yyyy-MM-dd";
+    private static final /*~~>*/String YMD_RESPONSE_FORMAT = "yyyy-MM-dd";
 
-    private static final String YM_RESPONSE_FORMAT = "yyyy-MM";
+    private static final /*~~>*/String YM_RESPONSE_FORMAT = "yyyy-MM";
 
-    private static final String Y_RESPONSE_FORMAT = "yyyy";
+    private static final /*~~>*/String Y_RESPONSE_FORMAT = "yyyy";
 
     private static final int YEAR = 4;
 
@@ -68,7 +68,7 @@ public final class DateTimeHelper {
 
     private static final int YEAR_MONTH_DAY_HOUR_MINUTE_SECOND = 19;
 
-    private static final String Z = "Z";
+    private static final /*~~>*/String Z = "Z";
 
     private static final double SECONDS_OF_DAY = 86400;
 
@@ -93,11 +93,11 @@ public final class DateTimeHelper {
      * @throws DateTimeParseException
      *             If an error occurs.
      */
-    public static DateTime parseIsoString2DateTime(final String timeString) throws DateTimeParseException {
+    public static DateTime parseIsoString2DateTime(final /*~~>*/String timeString) throws DateTimeParseException {
         return parseString2DateTime(timeString, null);
     }
 
-    public static DateTime parseString2DateTime(final String timeString, final String dateFormat)
+    public static DateTime parseString2DateTime(final /*~~>*/String timeString, final /*~~>*/String dateFormat)
             throws DateTimeParseException {
         checkForValidity(timeString);
         if (Strings.isNullOrEmpty(timeString)) {
@@ -130,23 +130,23 @@ public final class DateTimeHelper {
      * @throws DateTimeParseException
      *             If an error occurs.
      */
-    public static Time parseIsoString2DateTime2Time(String timeString) throws DateTimeParseException {
+    public static Time parseIsoString2DateTime2Time(/*~~>*/String timeString) throws DateTimeParseException {
         if (timeString.contains("/")) {
-            String[] subTokens = timeString.split("/");
+            /*~~>*/String[] subTokens = timeString.split("/");
             return new TimePeriod(parseIsoString2DateTime(subTokens[0]), parseIsoString2DateTime(subTokens[1]));
         } else {
             return new TimeInstant(parseIsoString2DateTime(timeString));
         }
     }
 
-    private static void checkForValidity(final String timeString) throws DateTimeParseException {
+    private static void checkForValidity(final /*~~>*/String timeString) throws DateTimeParseException {
         if (!(timeString.length() == YEAR || timeString.length() == YEAR_MONTH
                 || timeString.length() >= YEAR_MONTH_DAY)) {
             throw new DateTimeParseException(timeString);
         }
     }
 
-    private static boolean checkOffset(String timeString) {
+    private static boolean checkOffset(/*~~>*/String timeString) {
         return timeString.contains("+") || Pattern.matches("-\\d", timeString) || timeString.contains(Z)
                 || timeString.contains("z");
     }
@@ -161,7 +161,7 @@ public final class DateTimeHelper {
      *             in the case of receiving <tt>null</tt> or not supported types.
      * @see #formatDateTime2IsoString(DateTime)
      */
-    public static String format(Time time) {
+    public static /*~~>*/String format(Time time) {
         if (time instanceof TimeInstant) {
             try {
                 return formatDateTime2String(((TimeInstant) time).getTimePosition());
@@ -170,10 +170,10 @@ public final class DateTimeHelper {
             }
         } else if (time instanceof TimePeriod) {
             TimePeriod period = (TimePeriod) time;
-            return String.format("%s/%s", formatDateTime2IsoString(period.getStart()),
+            return /*~~>*/String.format("%s/%s", formatDateTime2IsoString(period.getStart()),
                     formatDateTime2IsoString(period.getEnd()));
         }
-        throw new IllegalArgumentException(String.format("Given Time object is not valid: %s", time));
+        throw new IllegalArgumentException(/*~~>*/String.format("Given Time object is not valid: %s", time));
     }
 
     /**
@@ -183,7 +183,7 @@ public final class DateTimeHelper {
      *            Time object
      * @return ISO-8601 formatted time String
      */
-    public static String formatDateTime2IsoString(DateTime dateTime) {
+    public static /*~~>*/String formatDateTime2IsoString(DateTime dateTime) {
         return Times.encodeDateTime(dateTime);
     }
 
@@ -197,7 +197,7 @@ public final class DateTimeHelper {
      * @throws DateTimeFormatException
      *             If an error occurs.
      */
-    public static String formatDateTime2ResponseString(DateTime dateTime) throws DateTimeFormatException {
+    public static /*~~>*/String formatDateTime2ResponseString(DateTime dateTime) throws DateTimeFormatException {
         return formatDateTime2FormattedString(dateTime, responseFormat);
     }
 
@@ -212,7 +212,7 @@ public final class DateTimeHelper {
      * @throws DateTimeFormatException
      *             If an error occurs when formatting the {@link DateTime}
      */
-    public static String formatDateTime2String(DateTime dateTime, TimeFormat timeFormat)
+    public static /*~~>*/String formatDateTime2String(DateTime dateTime, TimeFormat timeFormat)
             throws DateTimeFormatException {
         switch (timeFormat) {
             case Y:
@@ -235,7 +235,7 @@ public final class DateTimeHelper {
      * @throws DateTimeFormatException
      *             If an error occurs when formatting the {@link TimePosition}
      */
-    public static String formatDateTime2String(TimePosition timePosition) throws DateTimeFormatException {
+    public static /*~~>*/String formatDateTime2String(TimePosition timePosition) throws DateTimeFormatException {
         switch (timePosition.getTimeFormat()) {
             case Y:
                 return formatDateTime2YearDateString(timePosition.getTime());
@@ -261,7 +261,7 @@ public final class DateTimeHelper {
      * @throws DateTimeFormatException
      *             If an error occurs.
      */
-    public static String formatDateTime2FormattedString(DateTime dateTime, String dateFormat)
+    public static /*~~>*/String formatDateTime2FormattedString(DateTime dateTime, /*~~>*/String dateFormat)
             throws DateTimeFormatException {
         try {
             return Times.encodeDateTime(dateTime, dateFormat);
@@ -283,7 +283,7 @@ public final class DateTimeHelper {
      * @throws DateTimeFormatException
      *             If an error occurs.
      */
-    public static String formatDateTime2FormattedString(DateTime dateTime, DateTimeFormatter formatter)
+    public static /*~~>*/String formatDateTime2FormattedString(DateTime dateTime, DateTimeFormatter formatter)
             throws DateTimeFormatException {
         try {
             return Times.encodeDateTime(dateTime, formatter);
@@ -302,7 +302,7 @@ public final class DateTimeHelper {
      * @throws DateTimeFormatException
      *             If an error occurs.
      */
-    public static String formatDateTime2YearMonthDayDateStringYMD(DateTime dateTime) {
+    public static /*~~>*/String formatDateTime2YearMonthDayDateStringYMD(DateTime dateTime) {
         try {
             DateTime result = checkAndGetDateTimeWithZoneUtc(dateTime);
             return result.toString(DateTimeFormat.forPattern(YMD_RESPONSE_FORMAT));
@@ -321,7 +321,7 @@ public final class DateTimeHelper {
      * @throws DateTimeFormatException
      *             If an error occurs.
      */
-    public static String formatDateTime2YearMonthDateString(DateTime dateTime) throws DateTimeFormatException {
+    public static /*~~>*/String formatDateTime2YearMonthDateString(DateTime dateTime) throws DateTimeFormatException {
         try {
             DateTime result = checkAndGetDateTimeWithZoneUtc(dateTime);
             return result.toString(DateTimeFormat.forPattern(YM_RESPONSE_FORMAT));
@@ -340,7 +340,7 @@ public final class DateTimeHelper {
      * @throws DateTimeFormatException
      *             If an error occurs.
      */
-    public static String formatDateTime2YearDateString(DateTime dateTime) throws DateTimeFormatException {
+    public static /*~~>*/String formatDateTime2YearDateString(DateTime dateTime) throws DateTimeFormatException {
         try {
             DateTime result = checkAndGetDateTimeWithZoneUtc(dateTime);
             return result.toString(DateTimeFormat.forPattern(Y_RESPONSE_FORMAT));
@@ -353,8 +353,8 @@ public final class DateTimeHelper {
         return Optional.ofNullable(dateTime).map(dt -> dt.withZone(DateTimeZone.UTC)).orElse(ZERO);
     }
 
-    public static int getTimeLengthBeforeTimeZone(String time) {
-        String valueSplit = null;
+    public static int getTimeLengthBeforeTimeZone(/*~~>*/String time) {
+        /*~~>*/String valueSplit = null;
         if (time.contains("Z")) {
             valueSplit = time.substring(0, time.indexOf('Z'));
         } else if (time.contains("+")) {
@@ -395,7 +395,7 @@ public final class DateTimeHelper {
         }
     }
 
-    public static DateTime setDateTime2EndOfMostPreciseUnit4RequestedEndPosition(String time)
+    public static DateTime setDateTime2EndOfMostPreciseUnit4RequestedEndPosition(/*~~>*/String time)
             throws DateTimeParseException {
         return setDateTime2EndOfMostPreciseUnit4RequestedEndPosition(parseIsoString2DateTime(time),
                 getTimeLengthBeforeTimeZone(time));
@@ -408,7 +408,7 @@ public final class DateTimeHelper {
      *            Duration as String
      * @return Period object of duration
      */
-    public static Period parseDuration(String duration) {
+    public static Period parseDuration(/*~~>*/String duration) {
         return Times.decodePeriod(duration);
     }
 
@@ -429,8 +429,8 @@ public final class DateTimeHelper {
      * @param responseFormat
      *            Defined response format
      */
-    public static void setResponseFormat(String responseFormat) {
-        DateTimeHelper.responseFormat = responseFormat;
+    public static void setResponseFormat(/*~~>*/String responseFormat) {
+        /*~~>*/DateTimeHelper.responseFormat = responseFormat;
     }
 
     /**

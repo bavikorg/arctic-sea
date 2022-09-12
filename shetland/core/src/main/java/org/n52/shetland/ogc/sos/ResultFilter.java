@@ -27,25 +27,25 @@ import org.n52.shetland.ogc.ows.extension.Extension;
 public class ResultFilter implements Extension<Filter<?>> {
 
     private Filter<?> filter;
-    private String namespace = ResultFilterConstants.NS_RF;
+    private /*~~>*/String namespace = /*~~>*/ResultFilterConstants.NS_RF;
 
     public ResultFilter(Filter<?> filter) {
         setValue(filter);
     }
 
-    public ResultFilter(Filter<?> filter, String namespace) {
+    public ResultFilter(Filter<?> filter, /*~~>*/String namespace) {
         this(filter);
         setNamespace(namespace);
     }
 
     @Override
-    public String getNamespace() {
+    public /*~~>*/String getNamespace() {
         return namespace;
     }
 
     @Override
-    public ResultFilter setNamespace(String namespace) {
-        this.namespace = namespace;
+    public ResultFilter setNamespace(/*~~>*/String namespace) {
+        /*~~>*/this.namespace = namespace;
         return this;
     }
 
@@ -55,12 +55,12 @@ public class ResultFilter implements Extension<Filter<?>> {
     }
 
     @Override
-    public String getIdentifier() {
-        return ResultFilterConstants.RESULT_FILTER;
+    public /*~~>*/String getIdentifier() {
+        return /*~~>*/ResultFilterConstants.RESULT_FILTER;
     }
 
     @Override
-    public ResultFilter setIdentifier(String identifier) {
+    public ResultFilter setIdentifier(/*~~>*/String identifier) {
         return null;
     }
 
@@ -70,12 +70,12 @@ public class ResultFilter implements Extension<Filter<?>> {
     }
 
     @Override
-    public String getDefinition() {
-        return ResultFilterConstants.RESULT_FILTER;
+    public /*~~>*/String getDefinition() {
+        return /*~~>*/ResultFilterConstants.RESULT_FILTER;
     }
 
     @Override
-    public ResultFilter setDefinition(String definition) {
+    public ResultFilter setDefinition(/*~~>*/String definition) {
         return this;
     }
 

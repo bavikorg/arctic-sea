@@ -40,7 +40,7 @@ public class EnvironmentalMonitoringFaciltityForGmlFeaturePropertyTypeEncoder
 
     private static final Set<EncoderKey> ENCODER_KEYS = Sets.newHashSet(
             new ClassToClassEncoderKey(EnvironmentalMonitoringFacility.class, FeaturePropertyType.class),
-            new XmlEncoderKey(GmlConstants.NS_GML_32, EnvironmentalMonitoringFacility.class));
+            new XmlEncoderKey(/*~~>*/GmlConstants.NS_GML_32, EnvironmentalMonitoringFacility.class));
 
     public EnvironmentalMonitoringFaciltityForGmlFeaturePropertyTypeEncoder() {
         LOGGER.debug("Encoder for the following keys initialized successfully: {}!",

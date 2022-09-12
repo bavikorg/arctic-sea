@@ -44,7 +44,7 @@ public class RequestEvent extends AbstractFlowEvent {
     }
 
     @Override
-    public String toString() {
-        return String.format("RequestEvent[request=%s]", getRequest());
+    public /*~~>*/String toString() {
+        return /*~~>*/String.format("RequestEvent[request=%s]", getRequest());
     }
 }

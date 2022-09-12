@@ -58,9 +58,9 @@ import net.opengis.fes.x20.PropertyIsEqualToDocument;
  */
 public class FesDecoderV20Test {
 
-    private static final String TEST_VALUE_REFERENCE = "testValueReference";
+    private static final /*~~>*/String TEST_VALUE_REFERENCE = "testValueReference";
 
-    private static final String TEST_LITERAL = "testLiteral";
+    private static final /*~~>*/String TEST_LITERAL = "testLiteral";
 
     private DecoderRepository decoderRepository;
 
@@ -151,7 +151,7 @@ public class FesDecoderV20Test {
         assertEquals(FilterConstants.SpatialOperator.Overlaps, spatialFilter.getOperator());
     }
 
-    private SpatialFilter decodeSpatialFilter(String fileName) throws DecodingException, XmlException, IOException {
+    private SpatialFilter decodeSpatialFilter(/*~~>*/String fileName) throws DecodingException, XmlException, IOException {
         XmlObject xml = XmlObject.Factory.parse(getClass().getResourceAsStream(fileName));
         DecoderKey decoderKey = CodingHelper.getDecoderKey(xml);
         Decoder<SpatialFilter, XmlObject> decoder = decoderRepository.getDecoder(decoderKey);

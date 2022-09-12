@@ -26,17 +26,17 @@ public class GmlMetaDataProperty {
     /**
      * Title
      */
-    private String title;
+    private /*~~>*/String title;
 
     /**
      * Role
      */
-    private String role;
+    private /*~~>*/String role;
 
     /**
      * Href
      */
-    private String href;
+    private /*~~>*/String href;
 
     /**
      * Set title
@@ -44,8 +44,8 @@ public class GmlMetaDataProperty {
      * @param title
      *            Title to set
      */
-    public void setTitle(String title) {
-        this.title = title;
+    public void setTitle(/*~~>*/String title) {
+        /*~~>*/this.title = title;
     }
 
     /**
@@ -54,8 +54,8 @@ public class GmlMetaDataProperty {
      * @param role
      *            Role to set
      */
-    public void setRole(String role) {
-        this.role = role;
+    public void setRole(/*~~>*/String role) {
+        /*~~>*/this.role = role;
     }
 
     /**
@@ -64,8 +64,8 @@ public class GmlMetaDataProperty {
      * @param href
      *            Href to set
      */
-    public void setHref(String href) {
-        this.href = href;
+    public void setHref(/*~~>*/String href) {
+        /*~~>*/this.href = href;
     }
 
     /**
@@ -73,7 +73,7 @@ public class GmlMetaDataProperty {
      *
      * @return Title
      */
-    public String getTitle() {
+    public /*~~>*/String getTitle() {
         return title;
     }
 
@@ -82,7 +82,7 @@ public class GmlMetaDataProperty {
      *
      * @return Role
      */
-    public String getRole() {
+    public /*~~>*/String getRole() {
         return role;
     }
 
@@ -91,12 +91,12 @@ public class GmlMetaDataProperty {
      *
      * @return Href
      */
-    public String getHref() {
+    public /*~~>*/String getHref() {
         return href;
     }
 
     @Override
-    public String toString() {
-        return String.format("GmlMetaDataProperty [title=%s, role=%s, href=%s]", getTitle(), getRole(), getHref());
+    public /*~~>*/String toString() {
+        return /*~~>*/String.format("GmlMetaDataProperty [title=%s, role=%s, href=%s]", getTitle(), getRole(), getHref());
     }
 }

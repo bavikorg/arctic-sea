@@ -27,20 +27,20 @@ import org.n52.shetland.util.IdGenerator;
  */
 public class GmlBaseUnit extends AbtractGmd {
 
-    private static final String UCUM_URL = "http://www.opengis.net/def/uom/UCUM/";
-    private String id;
-    private final String identifier;
+    private static final /*~~>*/String UCUM_URL = "http://www.opengis.net/def/uom/UCUM/";
+    private /*~~>*/String id;
+    private final /*~~>*/String identifier;
     private final CodeType catalogSymbol;
-    private final String unitSystem;
+    private final /*~~>*/String unitSystem;
 
-    public GmlBaseUnit(String id, String identifier, CodeType catalogSymbol, String unitSystem) {
-        this.id = id;
-        this.identifier = identifier;
+    public GmlBaseUnit(/*~~>*/String id, /*~~>*/String identifier, CodeType catalogSymbol, /*~~>*/String unitSystem) {
+        /*~~>*/this.id = id;
+        /*~~>*/this.identifier = identifier;
         this.catalogSymbol = catalogSymbol;
-        this.unitSystem = unitSystem;
+        /*~~>*/this.unitSystem = unitSystem;
     }
 
-    public String getId() {
+    public /*~~>*/String getId() {
         return id;
     }
 
@@ -49,7 +49,7 @@ public class GmlBaseUnit extends AbtractGmd {
         return this;
     }
 
-    public String getIdentifier() {
+    public /*~~>*/String getIdentifier() {
         return identifier;
     }
 
@@ -57,7 +57,7 @@ public class GmlBaseUnit extends AbtractGmd {
         return catalogSymbol;
     }
 
-    public String getUnitSystem() {
+    public /*~~>*/String getUnitSystem() {
         return unitSystem;
     }
 

@@ -31,7 +31,7 @@ public class TIME {
     /**
      * The namespace of the vocabulary as a string.
      */
-    public static final String NS = "http://www.w3.org/2006/time#";
+    public static final /*~~>*/String NS = "http://www.w3.org/2006/time#";
 
     /**
      * The namespace of the vocabulary as a resource.
@@ -125,7 +125,7 @@ public class TIME {
      *
      * @return URI
      */
-    public static String getURI() {
+    public static /*~~>*/String getURI() {
         return NS;
     }
 }

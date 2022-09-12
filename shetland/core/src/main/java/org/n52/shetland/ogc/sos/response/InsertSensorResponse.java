@@ -24,34 +24,34 @@ import org.n52.shetland.ogc.sos.Sos2Constants;
  */
 public class InsertSensorResponse extends OwsServiceResponse {
 
-    private String assignedProcedure;
-    private String assignedOffering;
+    private /*~~>*/String assignedProcedure;
+    private /*~~>*/String assignedOffering;
 
     public InsertSensorResponse() {
         super(null, null, Sos2Constants.Operations.InsertSensor.name());
     }
 
-    public InsertSensorResponse(String service, String version) {
+    public InsertSensorResponse(/*~~>*/String service, /*~~>*/String version) {
         super(service, version, Sos2Constants.Operations.InsertSensor.name());
     }
 
-    public InsertSensorResponse(String service, String version, String operationName) {
+    public InsertSensorResponse(/*~~>*/String service, /*~~>*/String version, /*~~>*/String operationName) {
         super(service, version, operationName);
     }
 
-    public void setAssignedProcedure(String assignedProcedure) {
-        this.assignedProcedure = assignedProcedure;
+    public void setAssignedProcedure(/*~~>*/String assignedProcedure) {
+        /*~~>*/this.assignedProcedure = assignedProcedure;
     }
 
-    public String getAssignedProcedure() {
+    public /*~~>*/String getAssignedProcedure() {
         return assignedProcedure;
     }
 
-    public void setAssignedOffering(String assignedOffering) {
-        this.assignedOffering = assignedOffering;
+    public void setAssignedOffering(/*~~>*/String assignedOffering) {
+        /*~~>*/this.assignedOffering = assignedOffering;
     }
 
-    public String getAssignedOffering() {
+    public /*~~>*/String getAssignedOffering() {
         return assignedOffering;
     }
 

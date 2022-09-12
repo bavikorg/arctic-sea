@@ -51,11 +51,11 @@ public final class W3cHelper {
      * @throws IOException
      *             if an error occurs.
      */
-    public static String nodeToXmlString(Node node) throws IOException {
+    public static /*~~>*/String nodeToXmlString(Node node) throws IOException {
         try (StringWriter sw = new StringWriter()) {
             Transformer t = TransformerFactory.newInstance().newTransformer();
-            t.setOutputProperty(OutputKeys.OMIT_XML_DECLARATION, "yes");
-            t.setOutputProperty(OutputKeys.ENCODING, "UTF-8");
+            t.setOutputProperty(/*~~>*/OutputKeys.OMIT_XML_DECLARATION, "yes");
+            t.setOutputProperty(/*~~>*/OutputKeys.ENCODING, "UTF-8");
             t.transform(new DOMSource(node), new StreamResult(sw));
             return sw.toString();
         } catch (TransformerException te) {
@@ -76,8 +76,8 @@ public final class W3cHelper {
      *
      * @return Text content.
      */
-    public static String getContentFromElement(Element element, String namespaceURI, String localName) {
-        String elementContent = null;
+    public static /*~~>*/String getContentFromElement(Element element, /*~~>*/String namespaceURI, /*~~>*/String localName) {
+        /*~~>*/String elementContent = null;
         NodeList nodes = element.getElementsByTagNameNS(namespaceURI, localName);
         for (int i = 0; i < nodes.getLength(); i++) {
             elementContent = nodes.item(i).getTextContent();

@@ -34,7 +34,7 @@ public abstract class AbstractPhenomenon extends AbstractFeature implements Comp
      * @param identifier
      *            Phenomenon identifier
      */
-    public AbstractPhenomenon(final String identifier) {
+    public AbstractPhenomenon(final /*~~>*/String identifier) {
         super(new CodeWithAuthority(identifier));
     }
 
@@ -46,7 +46,7 @@ public abstract class AbstractPhenomenon extends AbstractFeature implements Comp
      * @param description
      *            Phenomenon description
      */
-    public AbstractPhenomenon(final String identifier, final String description) {
+    public AbstractPhenomenon(final /*~~>*/String identifier, final /*~~>*/String description) {
         super(new CodeWithAuthority(identifier));
         setDescription(description);
     }
@@ -83,7 +83,7 @@ public abstract class AbstractPhenomenon extends AbstractFeature implements Comp
     }
 
     @Override
-    public String toString() {
+    public /*~~>*/String toString() {
         return MoreObjects.toStringHelper(this).omitNullValues().add("identifier", getIdentifier())
                 .add("description", getDescription()).toString();
     }

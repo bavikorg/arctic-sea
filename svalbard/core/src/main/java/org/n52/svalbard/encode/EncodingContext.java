@@ -41,13 +41,13 @@ public class EncodingContext {
     private static final int DEFAULT_INTEGER_VALUE = 0;
     private static final boolean DEFAULT_BOOLEAN_VALUE = false;
 
-    private final Map<String, Object> properties;
+    private final Map</*~~>*/String, Object> properties;
 
     protected EncodingContext() {
         this.properties = Collections.emptyMap();
     }
 
-    protected EncodingContext(@Nonnull Map<String, Object> properties) {
+    protected EncodingContext(@Nonnull Map</*~~>*/String, Object> properties) {
         this.properties = Collections.unmodifiableMap(properties);
     }
 
@@ -55,7 +55,7 @@ public class EncodingContext {
         return has(key.name());
     }
 
-    public boolean has(@Nonnull String key) {
+    public boolean has(@Nonnull /*~~>*/String key) {
         return this.properties.containsKey(key);
     }
 
@@ -67,16 +67,16 @@ public class EncodingContext {
         return require(key.name());
     }
 
-    public <T> T require(@Nonnull String key) {
+    public <T> T require(@Nonnull /*~~>*/String key) {
         return this.<T>get(key).get();
     }
 
     @SuppressWarnings("unchecked")
-    public <T> Optional<T> get(@Nonnull String key) {
+    public <T> Optional<T> get(@Nonnull /*~~>*/String key) {
         return Optional.ofNullable(this.properties.get(key)).filter(v -> v != NONE).map(v -> (T) v);
     }
 
-    public <T> T get(@Nonnull String key, T defaultValue) {
+    public <T> T get(@Nonnull /*~~>*/String key, T defaultValue) {
         return this.<T>get(key).orElse(defaultValue);
     }
 
@@ -88,11 +88,11 @@ public class EncodingContext {
         return get(key.name());
     }
 
-    public Optional<String> getString(@Nonnull Enum<?> key) {
+    public Optional</*~~>*/String> getString(@Nonnull Enum<?> key) {
         return get(key.name());
     }
 
-    public Optional<String> getString(@Nonnull String key) {
+    public Optional</*~~>*/String> getString(@Nonnull /*~~>*/String key) {
         return get(key);
     }
 
@@ -100,7 +100,7 @@ public class EncodingContext {
         return getBoolean(key.name());
     }
 
-    public boolean getBoolean(@Nonnull String key) {
+    public boolean getBoolean(@Nonnull /*~~>*/String key) {
         return getBoolean(key, DEFAULT_BOOLEAN_VALUE);
     }
 
@@ -108,7 +108,7 @@ public class EncodingContext {
         return getBoolean(key.name(), defaultValue);
     }
 
-    public boolean getBoolean(@Nonnull String key, boolean defaultValue) {
+    public boolean getBoolean(@Nonnull /*~~>*/String key, boolean defaultValue) {
         Object value = this.properties.get(key);
         if (value == null) {
             return defaultValue;
@@ -123,12 +123,12 @@ public class EncodingContext {
         return getInteger(key.name());
     }
 
-    public int getInteger(@Nonnull String key) {
+    public int getInteger(@Nonnull /*~~>*/String key) {
         return get(key, DEFAULT_INTEGER_VALUE);
     }
 
     @CheckReturnValue
-    public EncodingContext with(@Nonnull String key) {
+    public EncodingContext with(@Nonnull /*~~>*/String key) {
         return with(key, null);
     }
 
@@ -143,24 +143,24 @@ public class EncodingContext {
     }
 
     @CheckReturnValue
-    public EncodingContext with(@Nonnull String key, @Nullable Object value) {
+    public EncodingContext with(@Nonnull /*~~>*/String key, @Nullable Object value) {
         Object nonNullValue = Optional.ofNullable(value).orElse(NONE);
 
         if (this.properties.containsKey(key) && this.properties.get(key).equals(value)) {
             return this;
         }
 
-        Map<String, Object> map = new HashMap<>(this.properties);
+        Map</*~~>*/String, Object> map = new HashMap<>(this.properties);
         map.put(key, nonNullValue);
         return new EncodingContext(map);
     }
 
     @CheckReturnValue
-    public EncodingContext without(@Nonnull String key) {
+    public EncodingContext without(@Nonnull /*~~>*/String key) {
         if (!this.properties.containsKey(key)) {
             return this;
         }
-        HashMap<String, Object> map = new HashMap<>(this.properties);
+        HashMap</*~~>*/String, Object> map = new HashMap<>(this.properties);
         map.remove(key);
         return map.isEmpty() ? EMTPY : new EncodingContext(map);
     }
@@ -170,7 +170,7 @@ public class EncodingContext {
         return without(key.name());
     }
 
-    public String getEncoding() {
+    public /*~~>*/String getEncoding() {
         return get(EncoderFlags.ENCODING, StandardCharsets.UTF_8.name());
     }
 
@@ -194,7 +194,7 @@ public class EncodingContext {
         return Objects.equals(this.properties, other.properties);
     }
 
-    public static EncodingContext of(@Nonnull String key) {
+    public static EncodingContext of(@Nonnull /*~~>*/String key) {
         return EncodingContext.empty().with(key);
     }
 
@@ -206,7 +206,7 @@ public class EncodingContext {
         return EncodingContext.empty().with(key, value);
     }
 
-    public static <T> EncodingContext of(@Nonnull String key, @Nullable T value) {
+    public static <T> EncodingContext of(@Nonnull /*~~>*/String key, @Nullable T value) {
         return EncodingContext.empty().with(key, value);
     }
 

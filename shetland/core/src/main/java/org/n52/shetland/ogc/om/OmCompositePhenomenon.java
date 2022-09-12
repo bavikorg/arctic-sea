@@ -41,17 +41,17 @@ public class OmCompositePhenomenon extends AbstractPhenomenon implements Iterabl
      *            components of the composite phenomenon
      */
     @SuppressFBWarnings({ "EI_EXPOSE_REP2" })
-    public OmCompositePhenomenon(String compPhenId, String compPhenDesc,
+    public OmCompositePhenomenon(/*~~>*/String compPhenId, /*~~>*/String compPhenDesc,
             Collection<OmObservableProperty> phenomenonComponents) {
         super(compPhenId, compPhenDesc);
         setPhenomenonComponents(phenomenonComponents);
     }
 
-    public OmCompositePhenomenon(String identifier) {
+    public OmCompositePhenomenon(/*~~>*/String identifier) {
         super(identifier);
     }
 
-    public OmCompositePhenomenon(String identifier, String description) {
+    public OmCompositePhenomenon(/*~~>*/String identifier, /*~~>*/String description) {
         super(identifier, description);
     }
 

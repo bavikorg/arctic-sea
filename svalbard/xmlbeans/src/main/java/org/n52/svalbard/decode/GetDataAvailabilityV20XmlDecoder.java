@@ -48,7 +48,7 @@ public class GetDataAvailabilityV20XmlDecoder
     private static final Logger LOG = LoggerFactory.getLogger(GetDataAvailabilityV20XmlDecoder.class);
 
     private static final Set<DecoderKey> DECODER_KEYS = CodingHelper
-            .decoderKeysForElements(GetDataAvailabilityConstants.NS_GDA_20, GetDataAvailabilityDocument.class);
+            .decoderKeysForElements(/*~~>*/GetDataAvailabilityConstants.NS_GDA_20, GetDataAvailabilityDocument.class);
 
     /**
      * Constructs a new {@code GetDataAvailabilityDecoder}.
@@ -78,7 +78,7 @@ public class GetDataAvailabilityV20XmlDecoder
         if (xml instanceof GetDataAvailabilityDocument) {
             return parseGetDataAvailability((GetDataAvailabilityDocument) xml);
         }
-        return new GetDataAvailabilityRequest().setNamespace(GetDataAvailabilityConstants.NS_GDA_20);
+        return new GetDataAvailabilityRequest().setNamespace(/*~~>*/GetDataAvailabilityConstants.NS_GDA_20);
     }
 
     /**
@@ -100,27 +100,27 @@ public class GetDataAvailabilityV20XmlDecoder
         request.setVersion(gdat.getVersion());
 
         if (CollectionHelper.isNotNullOrEmpty(gdat.getObservedPropertyArray())) {
-            for (String s : gdat.getObservedPropertyArray()) {
+            for (/*~~>*/String s : gdat.getObservedPropertyArray()) {
                 request.addObservedProperty(s);
             }
         }
         if (CollectionHelper.isNotNullOrEmpty(gdat.getProcedureArray())) {
-            for (String s : gdat.getProcedureArray()) {
+            for (/*~~>*/String s : gdat.getProcedureArray()) {
                 request.addProcedure(s);
             }
         }
         if (CollectionHelper.isNotNullOrEmpty(gdat.getFeatureOfInterestArray())) {
-            for (String s : gdat.getFeatureOfInterestArray()) {
+            for (/*~~>*/String s : gdat.getFeatureOfInterestArray()) {
                 request.addFeatureOfInterest(s);
             }
         }
         if (CollectionHelper.isNotNullOrEmpty(gdat.getOfferingArray())) {
-            for (String s : gdat.getOfferingArray()) {
+            for (/*~~>*/String s : gdat.getOfferingArray()) {
                 request.addOffering(s);
             }
         }
         if (CollectionHelper.isNotNullOrEmpty(gdat.getResponseFormatArray())) {
-            for (String s : gdat.getResponseFormatArray()) {
+            for (/*~~>*/String s : gdat.getResponseFormatArray()) {
                 request.setResponseFormat(s);
             }
         }

@@ -32,12 +32,12 @@ import org.n52.svalbard.encode.exception.EncodingException;
  */
 public abstract class AbstractSosV1RequestEncoder<T extends OwsServiceRequest> extends AbstractRequestEncoder<T> {
 
-    public AbstractSosV1RequestEncoder(String operation, Class<T> responseType) {
-        super(SosConstants.SOS,
-              Sos1Constants.SERVICEVERSION,
+    public AbstractSosV1RequestEncoder(/*~~>*/String operation, Class<T> responseType) {
+        super(/*~~>*/SosConstants.SOS,
+              /*~~>*/Sos1Constants.SERVICEVERSION,
               operation,
-              Sos1Constants.NS_SOS,
-              SosConstants.NS_SOS_PREFIX,
+              /*~~>*/Sos1Constants.NS_SOS,
+              /*~~>*/SosConstants.NS_SOS_PREFIX,
               responseType);
     }
 
@@ -47,7 +47,7 @@ public abstract class AbstractSosV1RequestEncoder<T extends OwsServiceRequest> e
     }
 
     protected XmlObject encodeOws(Object o) throws EncodingException {
-        return encodeObjectToXml(OWSConstants.NS_OWS, o);
+        return encodeObjectToXml(/*~~>*/OWSConstants.NS_OWS, o);
     }
 
 }

@@ -24,15 +24,15 @@ import java.util.Objects;
  */
 public class StringValueExpr implements DirectTextExpr {
 
-    private final String value;
+    private final /*~~>*/String value;
 
     /**
      * Creates a new {@code ValueExpr}.
      *
      * @param value the value
      */
-    public StringValueExpr(String value) {
-        this.value = Objects.requireNonNull(value);
+    public StringValueExpr(/*~~>*/String value) {
+        /*~~>*/this.value = Objects.requireNonNull(value);
     }
 
     /**
@@ -40,13 +40,13 @@ public class StringValueExpr implements DirectTextExpr {
      *
      * @return the value
      */
-    public String getValue() {
-        return this.value;
+    public /*~~>*/String getValue() {
+        return /*~~>*/this.value;
     }
 
     @Override
-    public String toString() {
-        return String.format("'%s'", this.value);
+    public /*~~>*/String toString() {
+        return /*~~>*/String.format("'%s'", /*~~>*/this.value);
     }
 
     @Override
@@ -55,7 +55,7 @@ public class StringValueExpr implements DirectTextExpr {
     }
 
     @Override public int hashCode() {
-        return Objects.hash(this.value);
+        return Objects.hash(/*~~>*/this.value);
     }
 
     @Override public boolean equals(Object o) {
@@ -65,6 +65,6 @@ public class StringValueExpr implements DirectTextExpr {
         if (!(o instanceof StringValueExpr)) {
             return false;
         }
-        return Objects.equals(this.value, ((StringValueExpr) o).getValue());
+        return Objects.equals(/*~~>*/this.value, ((StringValueExpr) o).getValue());
     }
 }

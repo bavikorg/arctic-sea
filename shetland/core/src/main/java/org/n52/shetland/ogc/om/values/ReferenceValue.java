@@ -47,7 +47,7 @@ public class ReferenceValue implements Value<ReferenceType> {
     }
 
     @Override
-    public void setUnit(String unit) {
+    public void setUnit(/*~~>*/String unit) {
         this.unit = new UoM(unit);
     }
 
@@ -58,7 +58,7 @@ public class ReferenceValue implements Value<ReferenceType> {
     }
 
     @Override
-    public String getUnit() {
+    public /*~~>*/String getUnit() {
         if (isSetUnit()) {
             return unit.getUom();
         }
@@ -76,8 +76,8 @@ public class ReferenceValue implements Value<ReferenceType> {
     }
 
     @Override
-    public String toString() {
-        return String.format("ReferenceValue [value=%s, unit=%s]", getValue(), getUnit());
+    public /*~~>*/String toString() {
+        return /*~~>*/String.format("ReferenceValue [value=%s, unit=%s]", getValue(), getUnit());
     }
 
     @Override

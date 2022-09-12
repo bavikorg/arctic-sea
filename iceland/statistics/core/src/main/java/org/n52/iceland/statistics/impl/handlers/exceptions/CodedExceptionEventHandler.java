@@ -28,7 +28,7 @@ public class CodedExceptionEventHandler extends AbstractElasticSearchDataHolder
         implements StatisticsServiceEventHandler<Exception> {
 
     @Override
-    public Map<String, Object> resolveAsMap(Exception rawException) {
+    public Map</*~~>*/String, Object> resolveAsMap(Exception rawException) {
         if (rawException instanceof CodedException) {
             CodedException exception = (CodedException) rawException;
             put(ServiceEventDataMapping.EX_CLASSTYPE, exception.getClass().getSimpleName());

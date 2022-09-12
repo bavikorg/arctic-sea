@@ -64,11 +64,11 @@ public class SosCapabilities extends OwsCapabilities {
         this.contents = Optional.ofNullable(contents).map(CollectionHelper::newSortedSet);
     }
 
-    public SosCapabilities(String service, String version, String updateSequence,
+    public SosCapabilities(/*~~>*/String service, /*~~>*/String version, /*~~>*/String updateSequence,
             OwsServiceIdentification serviceIdentification, OwsServiceProvider serviceProvider,
-            OwsOperationsMetadata operationsMetadata, Set<String> languages, FilterCapabilities filterCapabilities,
+            OwsOperationsMetadata operationsMetadata, Set</*~~>*/String> languages, FilterCapabilities filterCapabilities,
             Collection<SosObservationOffering> contents, Collection<OwsCapabilitiesExtension> extensions) {
-        super(SosConstants.SOS, version, updateSequence, serviceIdentification, serviceProvider, operationsMetadata,
+        super(/*~~>*/SosConstants.SOS, version, updateSequence, serviceIdentification, serviceProvider, operationsMetadata,
                 languages, extensions);
         this.filterCapabilities = Optional.ofNullable(filterCapabilities);
         this.contents = Optional.ofNullable(contents).map(CollectionHelper::newSortedSet);

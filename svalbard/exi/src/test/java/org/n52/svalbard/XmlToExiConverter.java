@@ -36,13 +36,13 @@ import com.siemens.ct.exi.main.api.sax.EXISource;
 
 public class XmlToExiConverter {
 
-    private static final String EXI_EXTENSION = ".exi";
+    private static final /*~~>*/String EXI_EXTENSION = ".exi";
 
-    private static final String XML_EXTENSION = ".xml";
+    private static final /*~~>*/String XML_EXTENSION = ".xml";
 
-    private static final String XML_EXTENSION_2 = ".xml_";
+    private static final /*~~>*/String XML_EXTENSION_2 = ".xml_";
 
-    protected void encode(String fileName) {
+    protected void encode(/*~~>*/String fileName) {
         try (InputStream exiIS = FileUtils.openInputStream(getFile(fileName, XML_EXTENSION));
                 OutputStream exiOS = FileUtils.openOutputStream(getFile(fileName, EXI_EXTENSION))) {
             EXIResult exiResult = new EXIResult();
@@ -55,7 +55,7 @@ public class XmlToExiConverter {
         }
     }
 
-    protected void decode(String fileName) {
+    protected void decode(/*~~>*/String fileName) {
         try (InputStream exiIS = FileUtils.openInputStream(getFile(fileName, EXI_EXTENSION));
                 OutputStream os = FileUtils.openOutputStream(getFile(fileName, XML_EXTENSION_2))) {
 
@@ -77,15 +77,15 @@ public class XmlToExiConverter {
         }
     }
 
-    protected File getFile(String fileName, String extension) {
-        String folder = "xml";
+    protected File getFile(/*~~>*/String fileName, /*~~>*/String extension) {
+        /*~~>*/String folder = "xml";
         if (EXI_EXTENSION.equals(extension)) {
             folder = "exi";
         }
         return FileUtils.getFile("src", "test", "resources", folder, fileName + extension);
     }
 
-    public static void main(String[] args) {
+    public static void main(/*~~>*/String[] args) {
         XmlToExiConverter c = new XmlToExiConverter();
         System.out.println("Encode");
         c.encode("notebook");

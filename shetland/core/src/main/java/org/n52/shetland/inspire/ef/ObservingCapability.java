@@ -66,7 +66,7 @@ public class ObservingCapability extends Reference {
         setHref(href);
     }
 
-    public ObservingCapability(String href) {
+    public ObservingCapability(/*~~>*/String href) {
         this(URI.create(href));
     }
 

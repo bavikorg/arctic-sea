@@ -54,7 +54,7 @@ public @interface Setting {
      *
      * @return the key
      */
-    String value();
+    /*~~>*/String value();
 
     /**
      * If this setting is required.

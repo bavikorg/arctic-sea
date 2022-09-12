@@ -67,7 +67,7 @@ public abstract class SweAbstractDataRecord extends SweAbstractDataComponent imp
     }
 
     @Override
-    public int getFieldIndexByIdentifier(final String fieldNameOrElementDefinition) {
+    public int getFieldIndexByIdentifier(final /*~~>*/String fieldNameOrElementDefinition) {
         int index = 0;
         if (isSetFields()) {
             for (final SweField sweField : fields) {
@@ -82,7 +82,7 @@ public abstract class SweAbstractDataRecord extends SweAbstractDataComponent imp
     }
 
     @Override
-    public SweField getFieldByIdentifier(final String fieldNameOrElementDefinition) {
+    public SweField getFieldByIdentifier(final /*~~>*/String fieldNameOrElementDefinition) {
         if (existsFieldForIdentifier(fieldNameOrElementDefinition)) {
             return getFields().get(getFieldIndexByIdentifier(fieldNameOrElementDefinition));
         }
@@ -90,15 +90,15 @@ public abstract class SweAbstractDataRecord extends SweAbstractDataComponent imp
     }
 
     @Override
-    public boolean existsFieldForIdentifier(final String fieldNameOrElementDefinition) {
+    public boolean existsFieldForIdentifier(final /*~~>*/String fieldNameOrElementDefinition) {
         return getFieldIndexByIdentifier(fieldNameOrElementDefinition) >= 0;
     }
 
-    boolean isFieldName(final String fieldNameOrElementDefinition, final SweField sweField) {
+    boolean isFieldName(final /*~~>*/String fieldNameOrElementDefinition, final SweField sweField) {
         return sweField.isSetName() && sweField.getName().getValue().equalsIgnoreCase(fieldNameOrElementDefinition);
     }
 
-    boolean isElementDefinition(final String fieldNameOrElementDefinition, final SweField sweField) {
+    boolean isElementDefinition(final /*~~>*/String fieldNameOrElementDefinition, final SweField sweField) {
         return sweField.getElement() != null && sweField.getElement().isSetDefinition()
                 && sweField.getElement().getDefinition().equalsIgnoreCase(fieldNameOrElementDefinition);
     }

@@ -64,28 +64,28 @@ public abstract class AbstractXmlEncoder<T, S> extends AbstractDelegatingEncoder
         return substituteElement;
     }
 
-    public <T> Encoder<XmlObject, T> getEncoder(String namespace, T o) throws EncodingException {
+    public <T> Encoder<XmlObject, T> getEncoder(/*~~>*/String namespace, T o) throws EncodingException {
         return getAndCheck(getEncoderKey(namespace, o));
     }
 
-    public <T> Encoder<XmlObject, T> getEncoder(String namespace, Class<? super T> o) throws EncodingException {
+    public <T> Encoder<XmlObject, T> getEncoder(/*~~>*/String namespace, Class<? super T> o) throws EncodingException {
         return getAndCheck(getEncoderKey(namespace, o));
     }
 
-    public <T> Encoder<XmlObject, T> getDocumentEncoder(String namespace, T o) throws EncodingException {
+    public <T> Encoder<XmlObject, T> getDocumentEncoder(/*~~>*/String namespace, T o) throws EncodingException {
         return getAndCheck(getDocumentEncoderKey(namespace, o));
     }
 
-    public <T> Encoder<XmlObject, T> getDocumentEncoder(String namespace, Class<? super T> o)
+    public <T> Encoder<XmlObject, T> getDocumentEncoder(/*~~>*/String namespace, Class<? super T> o)
             throws EncodingException {
         return getAndCheck(getDocumentEncoderKey(namespace, o));
     }
 
-    public <T> Encoder<XmlObject, T> getPropertyTypeEncoder(String namespace, T o) throws EncodingException {
+    public <T> Encoder<XmlObject, T> getPropertyTypeEncoder(/*~~>*/String namespace, T o) throws EncodingException {
         return getAndCheck(getPropertyTypeEncoderKey(namespace, o));
     }
 
-    public <T> Encoder<XmlObject, T> getPropertyTypeEncoder(String namespace, Class<? super T> o)
+    public <T> Encoder<XmlObject, T> getPropertyTypeEncoder(/*~~>*/String namespace, Class<? super T> o)
             throws EncodingException {
         return getAndCheck(getPropertyTypeEncoderKey(namespace, o));
     }
@@ -98,66 +98,66 @@ public abstract class AbstractXmlEncoder<T, S> extends AbstractDelegatingEncoder
         return encoder;
     }
 
-    public <T> XmlObject encodeObjectToXml(String namespace, T object, EncodingContext helperValues)
+    public <T> XmlObject encodeObjectToXml(/*~~>*/String namespace, T object, EncodingContext helperValues)
             throws EncodingException {
         return getEncoder(namespace, object).encode(object,
                 helperValues == null ? EncodingContext.empty() : helperValues);
     }
 
-    public XmlObject encodeObjectToXml(String namespace, Object object) throws EncodingException {
+    public XmlObject encodeObjectToXml(/*~~>*/String namespace, Object object) throws EncodingException {
         return encodeObjectToXml(namespace, object, null);
     }
 
-    public String encodeObjectToXmlText(String namespace, Object object, EncodingContext helperValues)
+    public /*~~>*/String encodeObjectToXmlText(/*~~>*/String namespace, Object object, EncodingContext helperValues)
             throws EncodingException {
         return encodeObjectToXml(namespace, object, helperValues).xmlText(getXmlOptions());
     }
 
-    public String encodeObjectToXmlText(String namespace, Object object) throws EncodingException {
+    public /*~~>*/String encodeObjectToXmlText(/*~~>*/String namespace, Object object) throws EncodingException {
         return encodeObjectToXmlText(namespace, object, null);
     }
 
-    public <T> XmlObject encodeObjectToXmlDocument(String namespace, T object, EncodingContext helperValues)
+    public <T> XmlObject encodeObjectToXmlDocument(/*~~>*/String namespace, T object, EncodingContext helperValues)
             throws EncodingException {
         return getDocumentEncoder(namespace, object).encode(object,
                 helperValues == null ? EncodingContext.empty() : helperValues);
     }
 
-    public XmlObject encodeObjectToXmlDocument(String namespace, Object object) throws EncodingException {
+    public XmlObject encodeObjectToXmlDocument(/*~~>*/String namespace, Object object) throws EncodingException {
         return encodeObjectToXmlDocument(namespace, object, null);
     }
 
-    public <T> XmlObject encodeObjectToXmlPropertyType(String namespace, T object, EncodingContext helperValues)
+    public <T> XmlObject encodeObjectToXmlPropertyType(/*~~>*/String namespace, T object, EncodingContext helperValues)
             throws EncodingException {
         return getPropertyTypeEncoder(namespace, object).encode(object,
                 helperValues == null ? EncodingContext.empty() : helperValues);
     }
 
-    public XmlObject encodeObjectToXmlPropertyType(String namespace, Object object) throws EncodingException {
+    public XmlObject encodeObjectToXmlPropertyType(/*~~>*/String namespace, Object object) throws EncodingException {
         return encodeObjectToXmlPropertyType(namespace, object, null);
     }
 
-    public EncoderKey getEncoderKey(String namespace, Object o) {
+    public EncoderKey getEncoderKey(/*~~>*/String namespace, Object o) {
         return new XmlEncoderKey(namespace, o.getClass());
     }
 
-    public EncoderKey getEncoderKey(String namespace, Class<?> o) {
+    public EncoderKey getEncoderKey(/*~~>*/String namespace, Class<?> o) {
         return new XmlEncoderKey(namespace, o);
     }
 
-    public EncoderKey getDocumentEncoderKey(String namespace, Object o) {
+    public EncoderKey getDocumentEncoderKey(/*~~>*/String namespace, Object o) {
         return new XmlDocumentEncoderKey(namespace, o.getClass());
     }
 
-    public EncoderKey getDocumentEncoderKey(String namespace, Class<?> o) {
+    public EncoderKey getDocumentEncoderKey(/*~~>*/String namespace, Class<?> o) {
         return new XmlDocumentEncoderKey(namespace, o);
     }
 
-    public EncoderKey getPropertyTypeEncoderKey(String namespace, Object o) {
+    public EncoderKey getPropertyTypeEncoderKey(/*~~>*/String namespace, Object o) {
         return new XmlPropertyTypeEncoderKey(namespace, o.getClass());
     }
 
-    public EncoderKey getPropertyTypeEncoderKey(String namespace, Class<?> o) {
+    public EncoderKey getPropertyTypeEncoderKey(/*~~>*/String namespace, Class<?> o) {
         return new XmlPropertyTypeEncoderKey(namespace, o);
     }
 

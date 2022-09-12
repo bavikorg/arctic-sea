@@ -50,7 +50,7 @@ public class SmlCapabilities extends AbstractSmlDataComponentContainer<SmlCapabi
      * @param name
      *            Type
      */
-    public SmlCapabilities(String name) {
+    public SmlCapabilities(/*~~>*/String name) {
         setName(name);
     }
 
@@ -62,7 +62,7 @@ public class SmlCapabilities extends AbstractSmlDataComponentContainer<SmlCapabi
      * @param dataRecord
      *            DataRecord
      */
-    public SmlCapabilities(String name, DataRecord dataRecord) {
+    public SmlCapabilities(/*~~>*/String name, DataRecord dataRecord) {
         super(dataRecord);
         setName(name);
     }

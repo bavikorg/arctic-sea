@@ -31,7 +31,7 @@ public class BindingOperation extends AbstractWsdl {
     private BindingOutput output;
     private final Collection<BindingFault> faults = new TreeSet<>();
 
-    public BindingOperation(String name) {
+    public BindingOperation(/*~~>*/String name) {
         super(name);
     }
 

@@ -62,8 +62,8 @@ public class SweCommonEncoderv20Test {
 
     @Test
     public void shouldEncodeTextEncoding() throws EncodingException {
-        String tokenSeparator = "@";
-        String blockSeparator = ";";
+        /*~~>*/String tokenSeparator = "@";
+        /*~~>*/String blockSeparator = ";";
         SweTextEncoding textEncoding = new SweTextEncoding();
         textEncoding.setBlockSeparator(blockSeparator);
         textEncoding.setTokenSeparator(tokenSeparator);

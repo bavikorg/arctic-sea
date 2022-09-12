@@ -27,45 +27,45 @@ import org.n52.shetland.w3c.SchemaLocation;
  * @see <a href="http://www.opengeospatial.org/standards/tsml">OGC TSML</a>
  */
 public interface TimeseriesMLConstants extends SeriesConstants {
-    String NS_TSML_10 = "http://www.opengis.net/tsml/1.0";
+    /*~~>*/String NS_TSML_10 = "http://www.opengis.net/tsml/1.0";
 
-    String NS_TSML_DR_10 = "http://www.opengis.net/tsml-dr/1.0";
+    /*~~>*/String NS_TSML_DR_10 = "http://www.opengis.net/tsml-dr/1.0";
 
-    String NS_TSML_10_PREFIX = "tsml";
+    /*~~>*/String NS_TSML_10_PREFIX = "tsml";
 
-    String NS_TSML_10_PROCEDURE_ENCODING = "http://www.opengis.net/def/timeseries/observationProcess";
+    /*~~>*/String NS_TSML_10_PROCEDURE_ENCODING = "http://www.opengis.net/def/timeseries/observationProcess";
 
-    String PROCESS_TYPE_SIMULATION = "http://www.opengis.net/def/timeseries/ProcessTypeCode/Simulation";
+    /*~~>*/String PROCESS_TYPE_SIMULATION = "http://www.opengis.net/def/timeseries/ProcessTypeCode/Simulation";
 
-    String PROCESS_TYPE_MANUAL_METHOD = "http://www.opengis.net/def/timeseries/ProcessTypeCode/ManualMethod";
+    /*~~>*/String PROCESS_TYPE_MANUAL_METHOD = "http://www.opengis.net/def/timeseries/ProcessTypeCode/ManualMethod";
 
-    String PROCESS_TYPE_SENSOR = "http://www.opengis.net/def/timeseries/ProcessTypeCode/Sensor";
+    /*~~>*/String PROCESS_TYPE_SENSOR = "http://www.opengis.net/def/timeseries/ProcessTypeCode/Sensor";
 
-    String PROCESS_TYPE_ALGORITHM = "http://www.opengis.net/def/timeseries/ProcessTypeCode/Algorithm ";
+    /*~~>*/String PROCESS_TYPE_ALGORITHM = "http://www.opengis.net/def/timeseries/ProcessTypeCode/Algorithm ";
 
-    String PROCESS_TYPE_UNKNOWN = "http://www.opengis.net/def/timeseries/ProcessTypeCode/Unknown ";
+    /*~~>*/String PROCESS_TYPE_UNKNOWN = "http://www.opengis.net/def/timeseries/ProcessTypeCode/Unknown ";
 
-    String OBSERVATION_TYPE_MEASURMENT_TVP =
+    /*~~>*/String OBSERVATION_TYPE_MEASURMENT_TVP =
             "http://www.opengis.net/def/observationType/timeseriesML/1.0/MeasurementTimeseriesTVPObservation";
 
-    String OBSERVATION_TYPE_CATEGORICAL_TVP =
+    /*~~>*/String OBSERVATION_TYPE_CATEGORICAL_TVP =
             "http://www.opengis.net/def/observationType/timeseriesML/1.0/CategoricalTimeseriesTVPObservation";
 
-    String OBSERVATION_TYPE_MEASURMENT_TDR =
+    /*~~>*/String OBSERVATION_TYPE_MEASURMENT_TDR =
             "http://www.opengis.net/def/observationType/timeseriesML/1.0/MeasurementTimeseriesDomainRangeObservation";
 
-    String OBSERVATION_TYPE_CATEGORICAL_TDR =
+    /*~~>*/String OBSERVATION_TYPE_CATEGORICAL_TDR =
             "http://www.opengis.net/def/observationType/timeseriesML/1.0/CategoricalTimeseriesDomainRangeObservation";
 
     MediaType TSML_CONTENT_TYPE = new MediaType(TEXT, XML, SUBTYPE, "timeseriesml/1.0");
 
-    String SCHEMA_LOCATION_URL_TSML_10 = "http://schemas.opengis.net/tsml/1.0/timeseriesML.xsd";
+    /*~~>*/String SCHEMA_LOCATION_URL_TSML_10 = "http://schemas.opengis.net/tsml/1.0/timeseriesML.xsd";
 
-    String SCHEMA_LOCATION_URL_TSML_10_DR = "http://schemas.opengis.net/tsml/1.0/timeseriesDR.xsd";
+    /*~~>*/String SCHEMA_LOCATION_URL_TSML_10_DR = "http://schemas.opengis.net/tsml/1.0/timeseriesDR.xsd";
 
-    String SCHEMA_LOCATION_URL_TSML_10_TS = "http://schemas.opengis.net/tsml/1.0/timeseriesTVP.xsd";
+    /*~~>*/String SCHEMA_LOCATION_URL_TSML_10_TS = "http://schemas.opengis.net/tsml/1.0/timeseriesTVP.xsd";
 
-    String SCHEMA_LOCATION_URL_TSML_10_MF = "http://schemas.opengis.net/tsml/1.0/monitoringFeature.xsd";
+    /*~~>*/String SCHEMA_LOCATION_URL_TSML_10_MF = "http://schemas.opengis.net/tsml/1.0/monitoringFeature.xsd";
 
     SchemaLocation TSML_10_SCHEMA_LOCATION = new SchemaLocation(NS_TSML_10, SCHEMA_LOCATION_URL_TSML_10);
 
@@ -118,9 +118,9 @@ public interface TimeseriesMLConstants extends SeriesConstants {
     /**
      * @see MeasurementTimeseriesMetadata#isCumulative()
      */
-    String SERIES_METADATA_CUMULATIVE = NS_TSML_10 + "/cumulative";
+    /*~~>*/String SERIES_METADATA_CUMULATIVE = NS_TSML_10 + "/cumulative";
 
-    String INTERPOLATION_TYPE = "http://www.opengis.net/def/timeseries/InterpolationCode";
+    /*~~>*/String INTERPOLATION_TYPE = "http://www.opengis.net/def/timeseries/InterpolationCode";
 
     /**
      * Hold allowed values for element <code>interpolationType</code>.
@@ -180,21 +180,21 @@ public interface TimeseriesMLConstants extends SeriesConstants {
          */
         ConstSucc("Constant Succeeding");
 
-        private String title;
+        private /*~~>*/String title;
 
-        InterpolationType(String title) {
-            this.title = title;
+        InterpolationType(/*~~>*/String title) {
+            /*~~>*/this.title = title;
         }
 
-        public String getIdentifier() {
+        public /*~~>*/String getIdentifier() {
             return INTERPOLATION_TYPE + "/" + this.toString();
         }
 
-        public String getTitle() {
+        public /*~~>*/String getTitle() {
             return title;
         }
 
-        public static InterpolationType from(String v) {
+        public static InterpolationType from(/*~~>*/String v) {
             return valueOf(v.replace(INTERPOLATION_TYPE + "/", ""));
         }
     }

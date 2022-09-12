@@ -88,7 +88,7 @@ public class TLVTValue implements MultiValue<List<TimeLocationValueTriple>> {
     }
 
     @Override
-    public void setUnit(String unit) {
+    public void setUnit(/*~~>*/String unit) {
         this.unit = new UoM(unit);
     }
 
@@ -99,7 +99,7 @@ public class TLVTValue implements MultiValue<List<TimeLocationValueTriple>> {
     }
 
     @Override
-    public String getUnit() {
+    public /*~~>*/String getUnit() {
         if (isSetUnit()) {
             return unit.getUom();
         }

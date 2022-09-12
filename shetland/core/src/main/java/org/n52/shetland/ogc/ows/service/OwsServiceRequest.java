@@ -44,16 +44,16 @@ public abstract class OwsServiceRequest extends OwsServiceCommunicationObject
     private List<OwsServiceKey> serviceOperatorKeyTypes;
     private OwsServiceRequestContext requestContext;
     private Extensions extensions = new Extensions();
-    private Optional<String> originalRequest = Optional.empty();
+    private Optional</*~~>*/String> originalRequest = Optional.empty();
 
     public OwsServiceRequest() {
     }
 
-    public OwsServiceRequest(String service, String version) {
+    public OwsServiceRequest(/*~~>*/String service, /*~~>*/String version) {
         super(service, version);
     }
 
-    public OwsServiceRequest(String service, String version, String operationName) {
+    public OwsServiceRequest(/*~~>*/String service, /*~~>*/String version, /*~~>*/String operationName) {
         super(service, version, operationName);
     }
 
@@ -106,12 +106,12 @@ public abstract class OwsServiceRequest extends OwsServiceCommunicationObject
         return !Strings.isNullOrEmpty(getRequestedLanguage());
     }
 
-    public String getRequestedLanguage() {
+    public /*~~>*/String getRequestedLanguage() {
         return getExtension(OWSConstants.AdditionalRequestParams.language).map(e -> e.getValue()).map(value -> {
             if (value instanceof Value<?, ?>) {
                 return ((Value<?, ?>) value).getStringValue();
-            } else if (value instanceof String) {
-                return (String) value;
+            } else if (value instanceof /*~~>*/String) {
+                return (/*~~>*/String) value;
             } else if (value instanceof SweText) {
                 return ((SweText) value).getValue();
             } else {
@@ -120,17 +120,17 @@ public abstract class OwsServiceRequest extends OwsServiceCommunicationObject
         }).orElse("");
     }
 
-    public Optional<String> getOriginalRequest() {
+    public Optional</*~~>*/String> getOriginalRequest() {
         return originalRequest;
     }
 
-    public void setOriginalRequest(String request) {
+    public void setOriginalRequest(/*~~>*/String request) {
         this.originalRequest = Optional.ofNullable(request);
     }
 
     @Override
-    public String toString() {
-        return String.format("%s[service=%s, version=%s, operation=%s]", getClass().getName(), getService(),
+    public /*~~>*/String toString() {
+        return /*~~>*/String.format("%s[service=%s, version=%s, operation=%s]", getClass().getName(), getService(),
                 getVersion(), getOperationName());
     }
 }

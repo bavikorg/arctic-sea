@@ -70,7 +70,7 @@ public class ElasticsearchAdminHandler implements IAdminDataHandler {
 
     private static final Logger logger = LoggerFactory.getLogger(ElasticsearchAdminHandler.class);
 
-    private static final String HTTP = "http";
+    private static final /*~~>*/String HTTP = "http";
 
     private RestHighLevelClient client;
 
@@ -88,7 +88,7 @@ public class ElasticsearchAdminHandler implements IAdminDataHandler {
     private DefaultElasticsearchSchemas schemas;
 
     @Override
-    public synchronized void deleteIndex(String index) throws IOException {
+    public synchronized void deleteIndex(/*~~>*/String index) throws IOException {
         getClient().delete(new DeleteRequest(index), RequestOptions.DEFAULT);
     }
 
@@ -104,7 +104,7 @@ public class ElasticsearchAdminHandler implements IAdminDataHandler {
             logger.info("Elasticsearch schema version is {}", version);
             if (version == null) {
                 throw new ConfigurationError("Database inconsistency. Metadata version not found in type %s",
-                        MetadataDataMapping.METADATA_TYPE_NAME);
+                        /*~~>*/MetadataDataMapping.METADATA_TYPE_NAME);
             }
             if (version != schemas.getSchemaVersion()) {
                 throw new ConfigurationError(
@@ -116,8 +116,8 @@ public class ElasticsearchAdminHandler implements IAdminDataHandler {
         } else {
             logger.info("Index {} not exists creating a new one now.", settings.getIndexId());
             // create metadata table and index table table
-            Map<String, Object> mapping = new HashMap<>();
-            mapping.put(MetadataDataMapping.METADATA_TYPE_NAME, schemas.getMetadataSchema());
+            Map</*~~>*/String, Object> mapping = new HashMap<>();
+            mapping.put(/*~~>*/MetadataDataMapping.METADATA_TYPE_NAME, schemas.getMetadataSchema());
             mapping.put(settings.getTypeId(), schemas.getSchema());
             CreateIndexResponse response = indices
                     .create(new CreateIndexRequest(settings.getIndexId()).mapping(mapping), RequestOptions.DEFAULT);
@@ -128,7 +128,7 @@ public class ElasticsearchAdminHandler implements IAdminDataHandler {
     }
 
     public void importPreconfiguredKibana() throws JsonParseException, JsonMappingException, IOException {
-        String json;
+        /*~~>*/String json;
         if (settings.getKibanaConfPath() == null || settings.getKibanaConfPath().trim().isEmpty()) {
             logger.info("No path is defined. Use default settings values");
             json = IOUtils.toString(this.getClass().getResourceAsStream("/kibana/kibana_config.json"),
@@ -141,7 +141,7 @@ public class ElasticsearchAdminHandler implements IAdminDataHandler {
         }
         new KibanaImporter(getClient(), ".kibana", settings.getIndexId()).importJson(json);
         // set to false after successful import
-        settings.saveBooleanValueToConfigFile(ElasticsearchSettingsKeys.KIBANA_CONFIG_ENABLE, false);
+        settings.saveBooleanValueToConfigFile(/*~~>*/ElasticsearchSettingsKeys.KIBANA_CONFIG_ENABLE, false);
         settings.setKibanaConfigEnable(false);
 
     }
@@ -149,7 +149,7 @@ public class ElasticsearchAdminHandler implements IAdminDataHandler {
     private Integer getCurrentVersion() throws IOException {
 
         IndexResponse resp =
-                getClient().index(new IndexRequest(settings.getIndexId()).id(MetadataDataMapping.METADATA_ROW_ID),
+                getClient().index(new IndexRequest(settings.getIndexId()).id(/*~~>*/MetadataDataMapping.METADATA_ROW_ID),
                         RequestOptions.DEFAULT);
 
         if (getClient().exists(new GetRequest(settings.getIndexId()), RequestOptions.DEFAULT)) {
@@ -167,21 +167,21 @@ public class ElasticsearchAdminHandler implements IAdminDataHandler {
         }
     }
 
-    private void addUuidToMetadataIfNeeded(String uuid) throws ElasticsearchException, IOException {
+    private void addUuidToMetadataIfNeeded(/*~~>*/String uuid) throws ElasticsearchException, IOException {
         GetResponse resp = getClient().get(
-                new GetRequest(settings.getIndexId()).id(MetadataDataMapping.METADATA_ROW_ID), RequestOptions.DEFAULT);
+                new GetRequest(settings.getIndexId()).id(/*~~>*/MetadataDataMapping.METADATA_ROW_ID), RequestOptions.DEFAULT);
         // GetResponse resp = getClient().prepareGet(settings.getIndexId(),
         // MetadataDataMapping.METADATA_TYPE_NAME,
         // MetadataDataMapping.METADATA_ROW_ID).get();
 
         Object retValues = resp.getSourceAsMap().get(MetadataDataMapping.METADATA_UUIDS_FIELD.getName());
-        List<String> values;
+        List</*~~>*/String> values;
 
-        if (retValues instanceof String) {
+        if (retValues instanceof /*~~>*/String) {
             values = new LinkedList<>();
-            values.add((String) retValues);
+            values.add((/*~~>*/String) retValues);
         } else if (retValues instanceof List<?>) {
-            values = (List<String>) retValues;
+            values = (List</*~~>*/String>) retValues;
         } else {
             throw new ConfigurationError("Invalid %s field type %s should have String or java.util.Collection<String>",
                     MetadataDataMapping.METADATA_UUIDS_FIELD, retValues.getClass());
@@ -189,7 +189,7 @@ public class ElasticsearchAdminHandler implements IAdminDataHandler {
 
         // add new uuid if needed
         if (!values.stream().anyMatch(m -> m.equals(uuid))) {
-            Map<String, Object> uuids = new HashMap<>();
+            Map</*~~>*/String, Object> uuids = new HashMap<>();
             values.add(uuid);
             uuids.put(MetadataDataMapping.METADATA_UUIDS_FIELD.getName(), values);
             uuids.put(MetadataDataMapping.METADATA_UPDATE_TIME_FIELD.getName(),
@@ -199,12 +199,12 @@ public class ElasticsearchAdminHandler implements IAdminDataHandler {
             // getClient().prepareUpdate(settings.getIndexId(),
             // MetadataDataMapping.METADATA_TYPE_NAME, "1").setDoc(uuids)
             // .get();
-            logger.info("UUID {} is added to the {} type", uuid, MetadataDataMapping.METADATA_TYPE_NAME);
+            logger.info("UUID {} is added to the {} type", uuid, /*~~>*/MetadataDataMapping.METADATA_TYPE_NAME);
         }
     }
 
     private void createMetadataType(int version) throws IOException {
-        Map<String, Object> data = new HashMap<>();
+        Map</*~~>*/String, Object> data = new HashMap<>();
         Calendar time = Calendar.getInstance(DateTimeZone.UTC.toTimeZone());
         data.put(MetadataDataMapping.METADATA_CREATION_TIME_FIELD.getName(), time);
         data.put(MetadataDataMapping.METADATA_UPDATE_TIME_FIELD.getName(), time);
@@ -216,7 +216,7 @@ public class ElasticsearchAdminHandler implements IAdminDataHandler {
         // MetadataDataMapping.METADATA_TYPE_NAME,
         // MetadataDataMapping.METADATA_ROW_ID).setSource(data).get();
         logger.info("Initial metadata is created ceated in {}/{}", settings.getIndexId(),
-                MetadataDataMapping.METADATA_TYPE_NAME);
+                /*~~>*/MetadataDataMapping.METADATA_TYPE_NAME);
     }
 
     /**
@@ -261,7 +261,7 @@ public class ElasticsearchAdminHandler implements IAdminDataHandler {
             HttpHost address = null;
             if (i.contains(":")) {
                 try {
-                    String[] split = i.split(":");
+                    /*~~>*/String[] split = i.split(":");
                     address = new HttpHost(InetAddress.getByName(split[0]), Integer.parseInt(split[1]), HTTP);
                 } catch (UnknownHostException e) {
                     logConnectionError(i, e);
@@ -306,7 +306,7 @@ public class ElasticsearchAdminHandler implements IAdminDataHandler {
         if (settings.isLoggingEnabled()) {
             // init client and local node or embedded mode
             if (settings.getNodeConnectionMode()
-                    .equalsIgnoreCase(ElasticsearchSettingsKeys.CONNECTION_MODE_TRANSPORT_CLIENT)) {
+                    .equalsIgnoreCase(/*~~>*/ElasticsearchSettingsKeys.CONNECTION_MODE_TRANSPORT_CLIENT)) {
                 initTransportMode();
                 logger.info("Transport client mode is currently not supported! Embedded mode would be used!");
             } else {
@@ -379,7 +379,7 @@ public class ElasticsearchAdminHandler implements IAdminDataHandler {
         this.client = client;
     }
 
-    private void logConnectionError(String i, UnknownHostException e) {
+    private void logConnectionError(/*~~>*/String i, UnknownHostException e) {
         logger.error("Could not create address for given host and port: {}", i, e);
     }
 

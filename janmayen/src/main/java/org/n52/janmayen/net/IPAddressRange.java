@@ -28,8 +28,8 @@ import com.google.common.primitives.Ints;
  * @author <a href="mailto:c.autermann@52north.org">Christian Autermann</a>
  */
 public class IPAddressRange implements Predicate<IPAddress>, com.google.common.base.Predicate<IPAddress> {
-    private static final String NOT_VALID_ERR_MSG = "Not a valid range address!";
-    private static final String RANGE_SEPARATOR = "/";
+    private static final /*~~>*/String NOT_VALID_ERR_MSG = "Not a valid range address!";
+    private static final /*~~>*/String RANGE_SEPARATOR = "/";
     private static final long MAX_UNSIGNED_LONG = 0xffffffffffffffffL;
     private static final int MAX_UNSIGNED_INT = 0xffffffff;
     private final IPAddress address;
@@ -50,8 +50,8 @@ public class IPAddressRange implements Predicate<IPAddress>, com.google.common.b
      *
      * @param string the string representation
      */
-    public IPAddressRange(String string) {
-        String[] split = Objects.requireNonNull(string).split(RANGE_SEPARATOR, 2);
+    public IPAddressRange(/*~~>*/String string) {
+        /*~~>*/String[] split = Objects.requireNonNull(string).split(RANGE_SEPARATOR, 2);
 
         this.address = new IPAddress(split[0]);
 
@@ -211,7 +211,7 @@ public class IPAddressRange implements Predicate<IPAddress>, com.google.common.b
     }
 
     @Override
-    public String toString() {
+    public /*~~>*/String toString() {
         return getAddress() + RANGE_SEPARATOR + getPrefix();
     }
 

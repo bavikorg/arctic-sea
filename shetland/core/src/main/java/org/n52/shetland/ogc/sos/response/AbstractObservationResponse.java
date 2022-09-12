@@ -31,8 +31,8 @@ import com.google.common.base.Strings;
  */
 public abstract class AbstractObservationResponse extends OwsServiceResponse implements ResponseFormat {
     private ObservationStream observationCollection = ObservationStream.empty();
-    private String responseFormat;
-    private String resultModel;
+    private /*~~>*/String responseFormat;
+    private /*~~>*/String resultModel;
     private boolean mergeObservation;
     private ObservationMergeIndicator observationMergeIndicator;
     private GlobalObservationResponseValues globalValues;
@@ -40,11 +40,11 @@ public abstract class AbstractObservationResponse extends OwsServiceResponse imp
     public AbstractObservationResponse() {
     }
 
-    public AbstractObservationResponse(String service, String version) {
+    public AbstractObservationResponse(/*~~>*/String service, /*~~>*/String version) {
         super(service, version);
     }
 
-    public AbstractObservationResponse(String service, String version, String operationName) {
+    public AbstractObservationResponse(/*~~>*/String service, /*~~>*/String version, /*~~>*/String operationName) {
         super(service, version, operationName);
     }
 
@@ -58,13 +58,13 @@ public abstract class AbstractObservationResponse extends OwsServiceResponse imp
     }
 
     @Override
-    public String getResponseFormat() {
+    public /*~~>*/String getResponseFormat() {
         return responseFormat;
     }
 
     @Override
-    public void setResponseFormat(final String responseFormat) {
-        this.responseFormat = responseFormat;
+    public void setResponseFormat(final /*~~>*/String responseFormat) {
+        /*~~>*/this.responseFormat = responseFormat;
     }
 
     @Override
@@ -72,11 +72,11 @@ public abstract class AbstractObservationResponse extends OwsServiceResponse imp
         return !Strings.isNullOrEmpty(getResponseFormat());
     }
 
-    public void setResultModel(final String resultModel) {
-        this.resultModel = resultModel;
+    public void setResultModel(final /*~~>*/String resultModel) {
+        /*~~>*/this.resultModel = resultModel;
     }
 
-    public String getResultModel() {
+    public /*~~>*/String getResultModel() {
         return resultModel;
     }
 

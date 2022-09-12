@@ -45,9 +45,9 @@ public class InspireXmlDecoder extends AbstractXmlDecoder<XmlObject, Object> {
     private static final Logger LOGGER = LoggerFactory.getLogger(InspireXmlDecoder.class);
 
     private static final Set<DecoderKey> DECODER_KEYS = Sets.union(
-            CodingHelper.decoderKeysForElements(InspireConstants.NS_INSPIRE_DLS, XmlAnyTypeImpl.class,
+            CodingHelper.decoderKeysForElements(/*~~>*/InspireConstants.NS_INSPIRE_DLS, XmlAnyTypeImpl.class,
                     InspireExtendedCapabilities.class),
-            CodingHelper.decoderKeysForElements(InspireConstants.NS_INSPIRE_COMMON, XmlAnyTypeImpl.class,
+            CodingHelper.decoderKeysForElements(/*~~>*/InspireConstants.NS_INSPIRE_COMMON, XmlAnyTypeImpl.class,
                     InspireSupportedLanguages.class, InspireSupportedCRS.class));
 
     public InspireXmlDecoder() {

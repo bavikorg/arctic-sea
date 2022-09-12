@@ -36,32 +36,32 @@ public abstract class DelegatingXMLStreamWriter implements XMLStreamWriter {
     }
 
     @Override
-    public void writeStartElement(String localName) throws XMLStreamException {
+    public void writeStartElement(/*~~>*/String localName) throws XMLStreamException {
         this.delegate.writeStartElement(localName);
     }
 
     @Override
-    public void writeStartElement(String namespaceURI, String localName) throws XMLStreamException {
+    public void writeStartElement(/*~~>*/String namespaceURI, /*~~>*/String localName) throws XMLStreamException {
         this.delegate.writeStartElement(namespaceURI, localName);
     }
 
     @Override
-    public void writeStartElement(String prefix, String localName, String namespaceURI) throws XMLStreamException {
+    public void writeStartElement(/*~~>*/String prefix, /*~~>*/String localName, /*~~>*/String namespaceURI) throws XMLStreamException {
         this.delegate.writeStartElement(prefix, localName, namespaceURI);
     }
 
     @Override
-    public void writeEmptyElement(String namespaceURI, String localName) throws XMLStreamException {
+    public void writeEmptyElement(/*~~>*/String namespaceURI, /*~~>*/String localName) throws XMLStreamException {
         this.delegate.writeEmptyElement(namespaceURI, localName);
     }
 
     @Override
-    public void writeEmptyElement(String prefix, String localName, String namespaceURI) throws XMLStreamException {
+    public void writeEmptyElement(/*~~>*/String prefix, /*~~>*/String localName, /*~~>*/String namespaceURI) throws XMLStreamException {
         this.delegate.writeEmptyElement(prefix, localName, namespaceURI);
     }
 
     @Override
-    public void writeEmptyElement(String localName) throws XMLStreamException {
+    public void writeEmptyElement(/*~~>*/String localName) throws XMLStreamException {
         this.delegate.writeEmptyElement(localName);
     }
 
@@ -86,58 +86,58 @@ public abstract class DelegatingXMLStreamWriter implements XMLStreamWriter {
     }
 
     @Override
-    public void writeAttribute(String localName, String value) throws XMLStreamException {
+    public void writeAttribute(/*~~>*/String localName, /*~~>*/String value) throws XMLStreamException {
         this.delegate.writeAttribute(localName, value);
     }
 
     @Override
-    public void writeAttribute(String prefix, String namespaceURI, String localName, String value)
+    public void writeAttribute(/*~~>*/String prefix, /*~~>*/String namespaceURI, /*~~>*/String localName, /*~~>*/String value)
             throws XMLStreamException {
         this.delegate.writeAttribute(prefix, namespaceURI, localName, value);
     }
 
     @Override
-    public void writeAttribute(String namespaceURI, String localName, String value) throws XMLStreamException {
+    public void writeAttribute(/*~~>*/String namespaceURI, /*~~>*/String localName, /*~~>*/String value) throws XMLStreamException {
         this.delegate.writeAttribute(namespaceURI, localName, value);
     }
 
     @Override
-    public void writeNamespace(String prefix, String namespaceURI) throws XMLStreamException {
+    public void writeNamespace(/*~~>*/String prefix, /*~~>*/String namespaceURI) throws XMLStreamException {
         this.delegate.writeNamespace(prefix, namespaceURI);
     }
 
     @Override
-    public void writeDefaultNamespace(String namespaceURI) throws XMLStreamException {
+    public void writeDefaultNamespace(/*~~>*/String namespaceURI) throws XMLStreamException {
         this.delegate.writeDefaultNamespace(namespaceURI);
     }
 
     @Override
-    public void writeComment(String data) throws XMLStreamException {
+    public void writeComment(/*~~>*/String data) throws XMLStreamException {
         this.delegate.writeComment(data);
     }
 
     @Override
-    public void writeProcessingInstruction(String target) throws XMLStreamException {
+    public void writeProcessingInstruction(/*~~>*/String target) throws XMLStreamException {
         this.delegate.writeProcessingInstruction(target);
     }
 
     @Override
-    public void writeProcessingInstruction(String target, String data) throws XMLStreamException {
+    public void writeProcessingInstruction(/*~~>*/String target, /*~~>*/String data) throws XMLStreamException {
         this.delegate.writeProcessingInstruction(target, data);
     }
 
     @Override
-    public void writeCData(String data) throws XMLStreamException {
+    public void writeCData(/*~~>*/String data) throws XMLStreamException {
         this.delegate.writeCData(data);
     }
 
     @Override
-    public void writeDTD(String dtd) throws XMLStreamException {
+    public void writeDTD(/*~~>*/String dtd) throws XMLStreamException {
         this.delegate.writeDTD(dtd);
     }
 
     @Override
-    public void writeEntityRef(String name) throws XMLStreamException {
+    public void writeEntityRef(/*~~>*/String name) throws XMLStreamException {
         this.delegate.writeEntityRef(name);
     }
 
@@ -147,17 +147,17 @@ public abstract class DelegatingXMLStreamWriter implements XMLStreamWriter {
     }
 
     @Override
-    public void writeStartDocument(String version) throws XMLStreamException {
+    public void writeStartDocument(/*~~>*/String version) throws XMLStreamException {
         this.delegate.writeStartDocument(version);
     }
 
     @Override
-    public void writeStartDocument(String encoding, String version) throws XMLStreamException {
+    public void writeStartDocument(/*~~>*/String encoding, /*~~>*/String version) throws XMLStreamException {
         this.delegate.writeStartDocument(encoding, version);
     }
 
     @Override
-    public void writeCharacters(String text) throws XMLStreamException {
+    public void writeCharacters(/*~~>*/String text) throws XMLStreamException {
         this.delegate.writeCharacters(text);
     }
 
@@ -167,17 +167,17 @@ public abstract class DelegatingXMLStreamWriter implements XMLStreamWriter {
     }
 
     @Override
-    public String getPrefix(String uri) throws XMLStreamException {
+    public /*~~>*/String getPrefix(/*~~>*/String uri) throws XMLStreamException {
         return this.delegate.getPrefix(uri);
     }
 
     @Override
-    public void setPrefix(String prefix, String uri) throws XMLStreamException {
+    public void setPrefix(/*~~>*/String prefix, /*~~>*/String uri) throws XMLStreamException {
         this.delegate.setPrefix(prefix, uri);
     }
 
     @Override
-    public void setDefaultNamespace(String uri) throws XMLStreamException {
+    public void setDefaultNamespace(/*~~>*/String uri) throws XMLStreamException {
         this.delegate.setDefaultNamespace(uri);
     }
 
@@ -192,7 +192,7 @@ public abstract class DelegatingXMLStreamWriter implements XMLStreamWriter {
     }
 
     @Override
-    public Object getProperty(String name) throws IllegalArgumentException {
+    public Object getProperty(/*~~>*/String name) throws IllegalArgumentException {
         return this.delegate.getProperty(name);
     }
 }

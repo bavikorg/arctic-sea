@@ -34,12 +34,12 @@ import net.opengis.ifoi.x10.InsertFeatureOfInterestResponseDocument;
  * @since 1.0.0
  */
 public class InsertFeatureOfInterestEncoder extends AbstractResponseEncoder<InsertFeatureOfInterestResponse> {
-    public static final SchemaLocation SCHEMA_LOCATION = new SchemaLocation(InsertFeatureOfInterestConstants.NS_IFOI,
-            InsertFeatureOfInterestConstants.SCHEMA_LOCATION_URL_INSERT_FEATURE_OF_INTEREST);
+    public static final SchemaLocation SCHEMA_LOCATION = new SchemaLocation(/*~~>*/InsertFeatureOfInterestConstants.NS_IFOI,
+            /*~~>*/InsertFeatureOfInterestConstants.SCHEMA_LOCATION_URL_INSERT_FEATURE_OF_INTEREST);
 
     public InsertFeatureOfInterestEncoder() {
-        super(SosConstants.SOS, Sos2Constants.SERVICEVERSION, InsertFeatureOfInterestConstants.OPERATION_NAME,
-                InsertFeatureOfInterestConstants.NS_IFOI, InsertFeatureOfInterestConstants.NS_IFOI_PREFIX,
+        super(/*~~>*/SosConstants.SOS, /*~~>*/Sos2Constants.SERVICEVERSION, /*~~>*/InsertFeatureOfInterestConstants.OPERATION_NAME,
+                /*~~>*/InsertFeatureOfInterestConstants.NS_IFOI, /*~~>*/InsertFeatureOfInterestConstants.NS_IFOI_PREFIX,
                 InsertFeatureOfInterestResponse.class);
     }
 

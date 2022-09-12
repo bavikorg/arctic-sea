@@ -38,25 +38,25 @@ import com.fasterxml.jackson.databind.node.ObjectNode;
 public class GetDataAvailabilityJsonEncoder
         extends AbstractSosResponseEncoder<GetDataAvailabilityResponse> {
     public GetDataAvailabilityJsonEncoder() {
-        super(GetDataAvailabilityResponse.class, GetDataAvailabilityConstants.OPERATION_NAME);
+        super(GetDataAvailabilityResponse.class, /*~~>*/GetDataAvailabilityConstants.OPERATION_NAME);
     }
 
     @Override
     protected void encodeResponse(ObjectNode json, GetDataAvailabilityResponse t)
             throws EncodingException {
-        ArrayNode a = json.putArray(GetDataAvailabilityConstants.DATA_AVAILABILITY);
+        ArrayNode a = json.putArray(/*~~>*/GetDataAvailabilityConstants.DATA_AVAILABILITY);
         for (DataAvailability da : t.getDataAvailabilities()) {
             ObjectNode objectNode = a.addObject();
-            objectNode.put(JSONConstants.FEATURE_OF_INTEREST, da.getFeatureOfInterest().getHref())
-                    .put(JSONConstants.PROCEDURE, da.getProcedure().getHref())
-                    .put(JSONConstants.OBSERVED_PROPERTY, da.getObservedProperty().getHref())
-                    .set(JSONConstants.PHENOMENON_TIME, encodeObjectToJson(da.getPhenomenonTime()));
-            if (t.isSetResponseFormat() && GetDataAvailabilityConstants.NS_GDA_20.equals(t.getResponseFormat())) {
+            objectNode.put(/*~~>*/JSONConstants.FEATURE_OF_INTEREST, da.getFeatureOfInterest().getHref())
+                    .put(/*~~>*/JSONConstants.PROCEDURE, da.getProcedure().getHref())
+                    .put(/*~~>*/JSONConstants.OBSERVED_PROPERTY, da.getObservedProperty().getHref())
+                    .set(/*~~>*/JSONConstants.PHENOMENON_TIME, encodeObjectToJson(da.getPhenomenonTime()));
+            if (t.isSetResponseFormat() && /*~~>*/GetDataAvailabilityConstants.NS_GDA_20.equals(t.getResponseFormat())) {
                 if (da.isSetOffering()) {
-                    objectNode.put(JSONConstants.OFFERING, da.getOffering().getHref());
+                    objectNode.put(/*~~>*/JSONConstants.OFFERING, da.getOffering().getHref());
                 }
                 if (da.isSetFormatDescriptors()) {
-                    ObjectNode fdNode = objectNode.putObject(GetDataAvailabilityConstants.FORMAT_DESCRIPTOR);
+                    ObjectNode fdNode = objectNode.putObject(/*~~>*/GetDataAvailabilityConstants.FORMAT_DESCRIPTOR);
                     encodeProcedureFormatDescriptor(da.getFormatDescriptor().getProcedureDescriptionFormatDescriptor(),
                             fdNode);
                     encodeObservationFormatDescriptor(da.getFormatDescriptor().getObservationFormatDescriptors(),
@@ -64,26 +64,26 @@ public class GetDataAvailabilityJsonEncoder
                 }
             }
             if (da.isSetCount()) {
-                objectNode.put(JSONConstants.COUNT, da.getCount());
+                objectNode.put(/*~~>*/JSONConstants.COUNT, da.getCount());
             }
         }
     }
 
     private void encodeProcedureFormatDescriptor(
             ProcedureDescriptionFormatDescriptor procedureDescriptionFormatDescriptor, ObjectNode fdNode) {
-        ObjectNode pfdNode = fdNode.putObject(GetDataAvailabilityConstants.PROCEDURE_FORMAT_DESCRIPTOR);
-        pfdNode.put(GetDataAvailabilityConstants.PROCEDURE_DESCRIPTION_FORMAT,
+        ObjectNode pfdNode = fdNode.putObject(/*~~>*/GetDataAvailabilityConstants.PROCEDURE_FORMAT_DESCRIPTOR);
+        pfdNode.put(/*~~>*/GetDataAvailabilityConstants.PROCEDURE_DESCRIPTION_FORMAT,
                 procedureDescriptionFormatDescriptor.getProcedureDescriptionFormat());
     }
 
     private void encodeObservationFormatDescriptor(Set<ObservationFormatDescriptor> observationFormatDescriptors,
             ObjectNode fdNode) {
-        ArrayNode ofdArray = fdNode.putArray(GetDataAvailabilityConstants.OBSERVATION_FORMAT_DESCRIPTOR);
+        ArrayNode ofdArray = fdNode.putArray(/*~~>*/GetDataAvailabilityConstants.OBSERVATION_FORMAT_DESCRIPTOR);
         for (ObservationFormatDescriptor ofd : observationFormatDescriptors) {
             ObjectNode ofdNode = ofdArray.addObject();
-            ofdNode.put(GetDataAvailabilityConstants.RESPONSE_FORMAT, ofd.getResponseFormat());
-            ArrayNode otArray = ofdNode.putArray(GetDataAvailabilityConstants.OBSERVATION_TYPE);
-            for (String obsType : ofd.getObservationTypes()) {
+            ofdNode.put(/*~~>*/GetDataAvailabilityConstants.RESPONSE_FORMAT, ofd.getResponseFormat());
+            ArrayNode otArray = ofdNode.putArray(/*~~>*/GetDataAvailabilityConstants.OBSERVATION_TYPE);
+            for (/*~~>*/String obsType : ofd.getObservationTypes()) {
                 otArray.add(obsType);
             }
         }

@@ -27,15 +27,15 @@ public final class SmlCapabilitiesPredicates {
     private SmlCapabilitiesPredicates() {
     }
 
-    public static Predicate<SmlCapabilities> name(String name) {
+    public static Predicate<SmlCapabilities> name(/*~~>*/String name) {
         return new NamePredicate(name);
     }
 
     private static class NamePredicate implements Predicate<SmlCapabilities> {
-        private final String name;
+        private final /*~~>*/String name;
 
-        NamePredicate(String name) {
-            this.name = Objects.requireNonNull(name);
+        NamePredicate(/*~~>*/String name) {
+            /*~~>*/this.name = Objects.requireNonNull(name);
         }
 
         @Override

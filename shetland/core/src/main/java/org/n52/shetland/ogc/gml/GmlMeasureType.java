@@ -43,7 +43,7 @@ public class GmlMeasureType extends AbstractMeasureType {
      * @param unit
      *            Unit of measure
      */
-    public GmlMeasureType(Double value, String unit) {
+    public GmlMeasureType(Double value, /*~~>*/String unit) {
         super(value, unit);
     }
 

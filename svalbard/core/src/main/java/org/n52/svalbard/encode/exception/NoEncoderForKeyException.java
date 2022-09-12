@@ -26,6 +26,6 @@ public class NoEncoderForKeyException extends EncodingException {
     private static final long serialVersionUID = -5532147003138146625L;
 
     public NoEncoderForKeyException(Object key) {
-        super(String.format("Could not find encoder for key '%s'.", key.toString()));
+        super(/*~~>*/String.format("Could not find encoder for key '%s'.", key.toString()));
     }
 }

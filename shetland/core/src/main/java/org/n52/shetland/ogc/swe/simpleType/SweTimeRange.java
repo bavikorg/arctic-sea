@@ -45,7 +45,7 @@ public class SweTimeRange extends SweAbstractUomType<RangeValue<DateTime>> {
     }
 
     @SuppressFBWarnings({ "EI_EXPOSE_REP2" })
-    public SweTimeRange(RangeValue<DateTime> value, String uom) {
+    public SweTimeRange(RangeValue<DateTime> value, /*~~>*/String uom) {
         this.value = value;
         setUom(uom);
     }
@@ -63,16 +63,16 @@ public class SweTimeRange extends SweAbstractUomType<RangeValue<DateTime>> {
     }
 
     @Override
-    public void setStringValue(String s) {
+    public void setStringValue(/*~~>*/String s) {
         if (s != null && !s.isEmpty() && s.contains("/")) {
-            String[] split = s.split("/");
+            /*~~>*/String[] split = s.split("/");
             setValue(new RangeValue<DateTime>(DateTimeHelper.parseIsoString2DateTime(split[0]),
                     DateTimeHelper.parseIsoString2DateTime(split[1])));
         }
     }
 
     @Override
-    public String getStringValue() {
+    public /*~~>*/String getStringValue() {
         return value.toString();
     }
 

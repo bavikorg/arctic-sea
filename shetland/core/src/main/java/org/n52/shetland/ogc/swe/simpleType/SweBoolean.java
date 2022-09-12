@@ -44,14 +44,14 @@ public class SweBoolean extends SweAbstractSimpleType<Boolean> {
     }
 
     @Override
-    public void setStringValue(String s) {
+    public void setStringValue(/*~~>*/String s) {
         if (s != null && !s.isEmpty()) {
             setValue(Boolean.parseBoolean(s));
         }
     }
 
     @Override
-    public String getStringValue() {
+    public /*~~>*/String getStringValue() {
         return Boolean.toString(value);
     }
 

@@ -61,7 +61,7 @@ public class AqdGetObservationResponseXmlStreamWriter extends XmlStreamWriter<Fe
 
     private static final Logger LOGGER = LoggerFactory.getLogger(AqdGetObservationResponseXmlStreamWriter.class);
     private static final long TIMER_PERIOD = 250;
-    private Timer timer = new Timer(String.format("empty-string-write-task-for-%s", getClass().getSimpleName()), true);
+    private Timer timer = new Timer(/*~~>*/String.format("empty-string-write-task-for-%s", getClass().getSimpleName()), true);
     private TimerTask timerTask;
 
     public AqdGetObservationResponseXmlStreamWriter(EncodingContext context, OutputStream outputStream,
@@ -113,7 +113,7 @@ public class AqdGetObservationResponseXmlStreamWriter extends XmlStreamWriter<Fe
                                 count++;
                             }
                             omObservation.setResultTime(resultTime);
-                            String xmlTextObservation = prepareObservation(omObservation, encoder);
+                            /*~~>*/String xmlTextObservation = prepareObservation(omObservation, encoder);
                             // stop the timer task
                             stopTimer();
                             writeMember(xmlTextObservation);
@@ -138,30 +138,30 @@ public class AqdGetObservationResponseXmlStreamWriter extends XmlStreamWriter<Fe
 
     private void addNamespaces() throws XMLStreamException {
         // W3C
-        namespace(W3CConstants.NS_XLINK_PREFIX, W3CConstants.NS_XLINK);
+        namespace(/*~~>*/W3CConstants.NS_XLINK_PREFIX, /*~~>*/W3CConstants.NS_XLINK);
         // xmlns:xsd="http://www.w3.org/2001/XMLSchema"
         namespace("xsd", "http://www.w3.org/2001/XMLSchema");
 
         // OGC
-        namespace(OmConstants.NS_OM_PREFIX, OmConstants.NS_OM_2);
-        namespace(GmlConstants.NS_GML_PREFIX, GmlConstants.NS_GML_32);
-        namespace(SweConstants.NS_SWE_PREFIX, SweConstants.NS_SWE_20);
-        namespace(SfConstants.NS_SAMS_PREFIX, SfConstants.NS_SAMS);
-        namespace("sam", SfConstants.NS_SF);
+        namespace(/*~~>*/OmConstants.NS_OM_PREFIX, /*~~>*/OmConstants.NS_OM_2);
+        namespace(/*~~>*/GmlConstants.NS_GML_PREFIX, /*~~>*/GmlConstants.NS_GML_32);
+        namespace(/*~~>*/SweConstants.NS_SWE_PREFIX, /*~~>*/SweConstants.NS_SWE_20);
+        namespace(/*~~>*/SfConstants.NS_SAMS_PREFIX, /*~~>*/SfConstants.NS_SAMS);
+        namespace("sam", /*~~>*/SfConstants.NS_SF);
 
         // ISO
-        namespace(GmdConstants.NS_GMD_PREFIX, GmdConstants.NS_GMD);
-        namespace(GcoConstants.NS_GCO_PREFIX, GcoConstants.NS_GCO);
+        namespace(/*~~>*/GmdConstants.NS_GMD_PREFIX, /*~~>*/GmdConstants.NS_GMD);
+        namespace(/*~~>*/GcoConstants.NS_GCO_PREFIX, /*~~>*/GcoConstants.NS_GCO);
 
         // AQD e-Reporting
-        namespace(AqdConstants.NS_AQD_PREFIX, AqdConstants.NS_AQD);
-        namespace(AqdConstants.NS_AM_PREFIX, AqdConstants.NS_AM);
-        namespace(AqdConstants.NS_BASE_PREFIX, AqdConstants.NS_BASE);
-        namespace(AqdConstants.NS_BASE2_PREFIX, AqdConstants.NS_BASE2);
-        namespace(AqdConstants.NS_OMPR_PREFIX, AqdConstants.NS_OMPR);
-        namespace(AqdConstants.NS_EF_PREFIX, AqdConstants.NS_EF);
-        namespace(AqdConstants.NS_GN_PREFIX, AqdConstants.NS_GN);
-        namespace(AqdConstants.NS_AD_PREFIX, AqdConstants.NS_AD);
+        namespace(/*~~>*/AqdConstants.NS_AQD_PREFIX, /*~~>*/AqdConstants.NS_AQD);
+        namespace(/*~~>*/AqdConstants.NS_AM_PREFIX, /*~~>*/AqdConstants.NS_AM);
+        namespace(/*~~>*/AqdConstants.NS_BASE_PREFIX, /*~~>*/AqdConstants.NS_BASE);
+        namespace(/*~~>*/AqdConstants.NS_BASE2_PREFIX, /*~~>*/AqdConstants.NS_BASE2);
+        namespace(/*~~>*/AqdConstants.NS_OMPR_PREFIX, /*~~>*/AqdConstants.NS_OMPR);
+        namespace(/*~~>*/AqdConstants.NS_EF_PREFIX, /*~~>*/AqdConstants.NS_EF);
+        namespace(/*~~>*/AqdConstants.NS_GN_PREFIX, /*~~>*/AqdConstants.NS_GN);
+        namespace(/*~~>*/AqdConstants.NS_AD_PREFIX, /*~~>*/AqdConstants.NS_AD);
     }
 
     private void addSchemaLocations() throws XMLStreamException {
@@ -174,15 +174,15 @@ public class AqdGetObservationResponseXmlStreamWriter extends XmlStreamWriter<Fe
 
     }
 
-    private String addGmlId(String gmlId) throws XMLStreamException {
+    private /*~~>*/String addGmlId(/*~~>*/String gmlId) throws XMLStreamException {
         attr(GmlConstants.QN_ID_32, gmlId);
         return gmlId;
     }
 
-    private String prepareObservation(OmObservation omObservation, Encoder<XmlObject, AbstractFeature> encoder)
+    private /*~~>*/String prepareObservation(OmObservation omObservation, Encoder<XmlObject, AbstractFeature> encoder)
             throws EncodingException, XMLStreamException {
 
-        String xmlText = encoder.encode(omObservation, getContext()).xmlText(getXmlOptions());
+        /*~~>*/String xmlText = encoder.encode(omObservation, getContext()).xmlText(getXmlOptions());
         // TODO check for better solutions
         xmlText = xmlText.replace("ns:ReferenceType", "gml:ReferenceType");
         xmlText = xmlText.replace(":ns=\"http://www.opengis.net/gml/3.2\"", ":gml=\"http://www.opengis.net/gml/3.2\"");
@@ -198,7 +198,7 @@ public class AqdGetObservationResponseXmlStreamWriter extends XmlStreamWriter<Fe
         writeXmlObject(encoder.encode(abstractFeature, getContext()));
     }
 
-    private void writeMember(String memberContent) throws XMLStreamException, EncodingException {
+    private void writeMember(/*~~>*/String memberContent) throws XMLStreamException, EncodingException {
         start(GmlConstants.QN_FEATURE_MEMBER_32);
         rawText(memberContent);
         end(GmlConstants.QN_FEATURE_MEMBER_32);

@@ -35,8 +35,8 @@ public class InsertSensorResponseEncoder extends AbstractSosResponseEncoder<Inse
 
     @Override
     protected void encodeResponse(ObjectNode json, InsertSensorResponse t) {
-        json.put(JSONConstants.ASSIGNED_PROCEDURE, t.getAssignedProcedure());
-        json.put(JSONConstants.ASSIGNED_OFFERING, t.getAssignedOffering());
+        json.put(/*~~>*/JSONConstants.ASSIGNED_PROCEDURE, t.getAssignedProcedure());
+        json.put(/*~~>*/JSONConstants.ASSIGNED_OFFERING, t.getAssignedOffering());
     }
 
 }

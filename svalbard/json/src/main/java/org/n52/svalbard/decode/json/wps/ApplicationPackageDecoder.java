@@ -37,20 +37,20 @@ public class ApplicationPackageDecoder extends JSONDecoder<ApplicationPackage> {
         ApplicationPackage ap = new ApplicationPackage();
 
         List<ExecutionUnit> executionUnits = new ArrayList<>();
-        for (JsonNode executionUnit : node.path(JSONConstants.EXECUTION_UNIT)) {
+        for (JsonNode executionUnit : node.path(/*~~>*/JSONConstants.EXECUTION_UNIT)) {
             executionUnits.add(decodeJsonToObject(executionUnit, ExecutionUnit.class));
         }
         ap.setExecutionUnits(executionUnits);
 
-        if (node.path(JSONConstants.DEPLOYMENT_PROFILE_NAME).isValueNode()) {
-            ap.setDeploymentProfileName(URI.create(node.path(JSONConstants.DEPLOYMENT_PROFILE_NAME).asText()));
+        if (node.path(/*~~>*/JSONConstants.DEPLOYMENT_PROFILE_NAME).isValueNode()) {
+            ap.setDeploymentProfileName(URI.create(node.path(/*~~>*/JSONConstants.DEPLOYMENT_PROFILE_NAME).asText()));
         }
 
-        if (node.path(JSONConstants.IMMEDIATE_DEPLOYMENT).isValueNode()) {
-            ap.setImmediateDeployment(node.path(JSONConstants.IMMEDIATE_DEPLOYMENT).asBoolean());
+        if (node.path(/*~~>*/JSONConstants.IMMEDIATE_DEPLOYMENT).isValueNode()) {
+            ap.setImmediateDeployment(node.path(/*~~>*/JSONConstants.IMMEDIATE_DEPLOYMENT).asBoolean());
         }
 
-        ap.setProcessDescription(decodeJsonToObject(node.path(JSONConstants.PROCESS_DESCRIPTION),
+        ap.setProcessDescription(decodeJsonToObject(node.path(/*~~>*/JSONConstants.PROCESS_DESCRIPTION),
                                                     ProcessOffering.class));
         return ap;
     }

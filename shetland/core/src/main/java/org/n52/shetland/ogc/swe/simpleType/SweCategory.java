@@ -25,41 +25,41 @@ import org.n52.shetland.w3c.xlink.Referenceable;
  * @author <a href="mailto:e.h.juerrens@52north.org">Eike Hinderk J&uuml;rrens</a>
  * @since 1.0.0
  */
-public class SweCategory extends SweAbstractUomType<String> implements SweQuality {
+public class SweCategory extends SweAbstractUomType</*~~>*/String> implements SweQuality {
 
-    private String value;
+    private /*~~>*/String value;
     private Referenceable<SweAllowedTokens> constraint;
 
     public SweCategory() {
     }
 
-    public SweCategory(String value, String uom) {
-        this.value = value;
+    public SweCategory(/*~~>*/String value, /*~~>*/String uom) {
+        /*~~>*/this.value = value;
         setUom(uom);
     }
 
-    public SweCategory(String value, UoM uom) {
-        this.value = value;
+    public SweCategory(/*~~>*/String value, UoM uom) {
+        /*~~>*/this.value = value;
         setUom(uom);
     }
 
     @Override
-    public String getValue() {
+    public /*~~>*/String getValue() {
         return value;
     }
 
     @Override
-    public SweCategory setValue(final String value) {
-        this.value = value;
+    public SweCategory setValue(final /*~~>*/String value) {
+        /*~~>*/this.value = value;
         return this;
     }
 
-    public SweCategory setCodeSpace(final String codeSpace) {
+    public SweCategory setCodeSpace(final /*~~>*/String codeSpace) {
         setUom(codeSpace);
         return this;
     }
 
-    public String getCodeSpace() {
+    public /*~~>*/String getCodeSpace() {
         return getUom();
     }
 
@@ -68,8 +68,8 @@ public class SweCategory extends SweAbstractUomType<String> implements SweQualit
     }
 
     @Override
-    public String toString() {
-        return String.format("SosSweCategory [quality=%s, value=%s, codeSpace=%s, simpleType=%s]", getQuality(), value,
+    public /*~~>*/String toString() {
+        return /*~~>*/String.format("SosSweCategory [quality=%s, value=%s, codeSpace=%s, simpleType=%s]", getQuality(), value,
                 getUom(), getDataComponentType());
     }
 
@@ -79,14 +79,14 @@ public class SweCategory extends SweAbstractUomType<String> implements SweQualit
     }
 
     @Override
-    public void setStringValue(String s) {
+    public void setStringValue(/*~~>*/String s) {
         if (s != null && !s.isEmpty()) {
             setValue(s);
         }
     }
 
     @Override
-    public String getStringValue() {
+    public /*~~>*/String getStringValue() {
         return value;
     }
 

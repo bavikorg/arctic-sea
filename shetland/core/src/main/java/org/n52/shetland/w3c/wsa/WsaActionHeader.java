@@ -30,7 +30,7 @@ public class WsaActionHeader extends WsaHeader {
      * @param value
      *            Value to set
      */
-    public WsaActionHeader(String value) {
+    public WsaActionHeader(/*~~>*/String value) {
         super(value);
     }
 

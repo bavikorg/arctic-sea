@@ -56,41 +56,41 @@ public interface Description {
 
         B withAbstract(OwsLanguageString abstrakt);
 
-        default B withAbstract(String abstrakt) {
+        default B withAbstract(/*~~>*/String abstrakt) {
             return withAbstract(Strings.emptyToNull(abstrakt) == null ? null : new OwsLanguageString(abstrakt));
         }
 
-        default B withAbstract(String lang, String abstrakt) {
+        default B withAbstract(/*~~>*/String lang, /*~~>*/String abstrakt) {
             return withAbstract(Strings.emptyToNull(abstrakt) == null ? null : new OwsLanguageString(lang, abstrakt));
         }
 
         B withIdentifier(OwsCode id);
 
-        default B withIdentifier(String id) {
+        default B withIdentifier(/*~~>*/String id) {
             return withIdentifier(new OwsCode(id));
         }
 
-        default B withIdentifier(String codespace, String id) {
+        default B withIdentifier(/*~~>*/String codespace, /*~~>*/String id) {
             return withIdentifier(new OwsCode(id, codespace));
         }
 
-        default B withIdentifier(URI codespace, String id) {
+        default B withIdentifier(URI codespace, /*~~>*/String id) {
             return withIdentifier(new OwsCode(id, codespace));
         }
 
         B withTitle(OwsLanguageString title);
 
-        default B withTitle(String title) {
+        default B withTitle(/*~~>*/String title) {
             return withTitle(null, title);
         }
 
-        default B withTitle(String lang, String title) {
+        default B withTitle(/*~~>*/String lang, /*~~>*/String title) {
             return withTitle(Strings.emptyToNull(title) == null ? null : new OwsLanguageString(lang, title));
         }
 
         B withKeyword(OwsKeyword keyword);
 
-        default B withKeyword(String keyword) {
+        default B withKeyword(/*~~>*/String keyword) {
             return withKeyword(new OwsKeyword(keyword));
         }
 

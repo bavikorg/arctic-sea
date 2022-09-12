@@ -61,10 +61,10 @@ public class MultiPointObservation extends AbstractInspireObservation {
      */
     public MultiPointObservation(OmObservation observation) throws CodedException {
         super(observation);
-        getObservationConstellation().setObservationType(InspireOMSOConstants.OBS_TYPE_MULTI_POINT_OBSERVATION);
+        getObservationConstellation().setObservationType(/*~~>*/InspireOMSOConstants.OBS_TYPE_MULTI_POINT_OBSERVATION);
         if (getValue().getValue() instanceof MultiPointCoverage) {
             SamplingFeature samplingFeature = new SamplingFeature(new CodeWithAuthority(""));
-            samplingFeature.setFeatureType(SfConstants.SAMPLING_FEAT_TYPE_SF_SAMPLING_SURFACE);
+            samplingFeature.setFeatureType(/*~~>*/SfConstants.SAMPLING_FEAT_TYPE_SF_SAMPLING_SURFACE);
             samplingFeature.setEncode(true);
             try {
                 samplingFeature.setGeometry(getEnvelope(((MultiPointCoverage) getValue().getValue()).getValue()));

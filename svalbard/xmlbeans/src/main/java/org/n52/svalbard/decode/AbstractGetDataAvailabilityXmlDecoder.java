@@ -29,7 +29,7 @@ public abstract class AbstractGetDataAvailabilityXmlDecoder
     public abstract GetDataAvailabilityRequest parseGetDataAvailability(XmlObject xml)
             throws DecodingException;
 
-    protected static String getBasePath(String basePath, String prefix) {
+    protected static /*~~>*/String getBasePath(/*~~>*/String basePath, /*~~>*/String prefix) {
         StringBuilder builder = new StringBuilder();
         builder.append(basePath);
         builder.append("/");
@@ -45,7 +45,7 @@ public abstract class AbstractGetDataAvailabilityXmlDecoder
         return parseGetDataAvailability(objectToDecode);
     }
 
-    protected String parseStringValue(XmlObject xmlObject) {
+    protected /*~~>*/String parseStringValue(XmlObject xmlObject) {
         if (xmlObject instanceof XmlString) {
             return ((XmlString) xmlObject).getStringValue();
         } else if (xmlObject instanceof XmlAnyURI) {
@@ -78,7 +78,7 @@ public abstract class AbstractGetDataAvailabilityXmlDecoder
      *            Element name
      * @return XPath path
      */
-    protected String getPath(String xpathPrefix, String prefix, String element) {
+    protected /*~~>*/String getPath(/*~~>*/String xpathPrefix, /*~~>*/String prefix, /*~~>*/String element) {
         StringBuilder builder = new StringBuilder();
         builder.append(xpathPrefix);
         builder.append(".//");

@@ -24,11 +24,11 @@ import org.n52.janmayen.exception.LocationHintException;
 public class EncodingException extends LocationHintException {
     private static final long serialVersionUID = -7730668591653900392L;
 
-    public EncodingException(String message, Object... args) {
+    public EncodingException(/*~~>*/String message, Object... args) {
         super(message, args);
     }
 
-    public EncodingException(String message, Throwable cause) {
+    public EncodingException(/*~~>*/String message, Throwable cause) {
         super(message, cause);
     }
 
@@ -36,23 +36,23 @@ public class EncodingException extends LocationHintException {
         super(cause);
     }
 
-    public EncodingException(String location, String message, Object... args) {
+    public EncodingException(/*~~>*/String location, /*~~>*/String message, Object... args) {
         super(location, message, args);
     }
 
-    public EncodingException(Enum<?> location, String message, Object... args) {
+    public EncodingException(Enum<?> location, /*~~>*/String message, Object... args) {
         super(location, message, args);
     }
 
-    public EncodingException(Throwable cause, Enum<?> location, String message, Object... args) {
+    public EncodingException(Throwable cause, Enum<?> location, /*~~>*/String message, Object... args) {
         super(cause, location, message, args);
     }
 
-    public EncodingException(Throwable cause, String location, String message, Object... args) {
+    public EncodingException(Throwable cause, /*~~>*/String location, /*~~>*/String message, Object... args) {
         super(cause, location, message, args);
     }
 
-    public EncodingException(Throwable cause, String location) {
+    public EncodingException(Throwable cause, /*~~>*/String location) {
         super(cause, location);
     }
 
@@ -60,7 +60,7 @@ public class EncodingException extends LocationHintException {
         super(cause, location);
     }
 
-    public EncodingException(Throwable cause, String message, Object... args) {
+    public EncodingException(Throwable cause, /*~~>*/String message, Object... args) {
         super(cause, message, args);
     }
 

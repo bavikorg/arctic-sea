@@ -38,8 +38,8 @@ public class PTFreeTextJSONEncoder extends JSONEncoder<PT_FreeText> {
     public JsonNode encodeJSON(PT_FreeText t) throws EncodingException {
         return t.getTextGroup().stream()
                 .map(string -> nodeFactory().objectNode()
-                .put(AQDJSONConstants.LANGUAGE, string.getLocale())
-                .put(AQDJSONConstants.TEXT, string.getValue()))
+                .put(/*~~>*/AQDJSONConstants.LANGUAGE, string.getLocale())
+                .put(/*~~>*/AQDJSONConstants.TEXT, string.getValue()))
                 .collect(MoreCollectors.collector(nodeFactory()::arrayNode, ArrayNode::add, ArrayNode::addAll));
     }
 

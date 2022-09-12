@@ -50,7 +50,7 @@ public class SweCommonDecoderV20Test {
 
     private SweCommonDecoderV20 decoder;
 
-    private String definition = "test-definition";
+    private /*~~>*/String definition = "test-definition";
 
     @BeforeEach
     public void initDecoder() {
@@ -84,8 +84,8 @@ public class SweCommonDecoderV20Test {
     @Test
     public void should_encode_xbCategory_into_SosSweCategory_with_correct_value_definition_and_codespace()
             throws DecodingException, XmlException {
-        final String codeSpace = "test-codespace";
-        final String value = "test-category-value";
+        final /*~~>*/String codeSpace = "test-codespace";
+        final /*~~>*/String value = "test-category-value";
 
         CategoryType xbCategory = CategoryType.Factory.newInstance();
         xbCategory.addNewCodeSpace().setHref(codeSpace);
@@ -110,9 +110,9 @@ public class SweCommonDecoderV20Test {
          TimeRangeType xbTimeRange = xbTimeRangeDoc.addNewTimeRange();
          final DateTime startDate = new DateTime(1970, 1, 1, 0, 0, DateTimeZone.UTC);
          final DateTime endDate = new DateTime(2013, 12, 31, 23, 59, DateTimeZone.UTC);
-         final List<String> values = Lists.newArrayList(startDate.toString(), endDate.toString());
+         final List</*~~>*/String> values = Lists.newArrayList(startDate.toString(), endDate.toString());
          xbTimeRange.setValue(values);
-         final String iso8601Uom = "urn:ogc:def:unit:ISO:8601";
+         final /*~~>*/String iso8601Uom = "urn:ogc:def:unit:ISO:8601";
          xbTimeRange.addNewUom().setHref(iso8601Uom);
          final Object decodedObject = new SweCommonDecoderV20().decode(xbTimeRange);
          assertThat(decodedObject, is(instanceOf(SweTimeRange.class)));

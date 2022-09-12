@@ -44,50 +44,50 @@ import com.google.common.base.Strings;
 public class GetDataAvailabilityRequest extends OwsServiceRequest
         implements ResponseFormat, SpatialFeatureQueryRequest {
 
-    private List<String> procedures = new LinkedList<>();
-    private final List<String> observedProperties = new LinkedList<>();
-    private final List<String> featuresOfInterest = new LinkedList<>();
-    private final List<String> offerings = new LinkedList<>();
-    private String namespace = GetDataAvailabilityConstants.NS_GDA_20;
-    private String responseFormat;
+    private List</*~~>*/String> procedures = new LinkedList<>();
+    private final List</*~~>*/String> observedProperties = new LinkedList<>();
+    private final List</*~~>*/String> featuresOfInterest = new LinkedList<>();
+    private final List</*~~>*/String> offerings = new LinkedList<>();
+    private /*~~>*/String namespace = /*~~>*/GetDataAvailabilityConstants.NS_GDA_20;
+    private /*~~>*/String responseFormat;
 
     public GetDataAvailabilityRequest() {
-        super(null, null, GetDataAvailabilityConstants.OPERATION_NAME);
+        super(null, null, /*~~>*/GetDataAvailabilityConstants.OPERATION_NAME);
     }
 
-    public GetDataAvailabilityRequest(String service, String version) {
-        super(service, version, GetDataAvailabilityConstants.OPERATION_NAME);
+    public GetDataAvailabilityRequest(/*~~>*/String service, /*~~>*/String version) {
+        super(service, version, /*~~>*/GetDataAvailabilityConstants.OPERATION_NAME);
     }
 
-    public GetDataAvailabilityRequest(String service, String version, String operationName) {
+    public GetDataAvailabilityRequest(/*~~>*/String service, /*~~>*/String version, /*~~>*/String operationName) {
         super(service, version, operationName);
     }
 
     /**
      * @return the requested {@code procedures}.
      */
-    public List<String> getProcedures() {
+    public List</*~~>*/String> getProcedures() {
         return Collections.unmodifiableList(procedures);
     }
 
     /**
      * @return the requested {@code observedProperties}.
      */
-    public List<String> getObservedProperties() {
+    public List</*~~>*/String> getObservedProperties() {
         return Collections.unmodifiableList(observedProperties);
     }
 
     /**
      * @return the requested {@code featuresOfInterest}.
      */
-    public List<String> getFeaturesOfInterest() {
+    public List</*~~>*/String> getFeaturesOfInterest() {
         return Collections.unmodifiableList(featuresOfInterest);
     }
 
     /**
      * @return the requested {@code offerings}.
      */
-    public List<String> getOfferings() {
+    public List</*~~>*/String> getOfferings() {
         return Collections.unmodifiableList(offerings);
     }
 
@@ -97,7 +97,7 @@ public class GetDataAvailabilityRequest extends OwsServiceRequest
      * @param procedure
      *            the {@code procedure}
      */
-    public void addProcedure(String procedure) {
+    public void addProcedure(/*~~>*/String procedure) {
         if (procedure != null) {
             this.procedures.add(procedure);
         }
@@ -110,7 +110,7 @@ public class GetDataAvailabilityRequest extends OwsServiceRequest
      *            the {@code observedProperty}
      * @return this
      */
-    public GetDataAvailabilityRequest addObservedProperty(String observedProperty) {
+    public GetDataAvailabilityRequest addObservedProperty(/*~~>*/String observedProperty) {
         if (observedProperty != null) {
             this.observedProperties.add(observedProperty);
         }
@@ -124,14 +124,14 @@ public class GetDataAvailabilityRequest extends OwsServiceRequest
      *            the {@code featureOfInterest}
      * @return this
      */
-    public GetDataAvailabilityRequest addFeatureOfInterest(String featureOfInterest) {
+    public GetDataAvailabilityRequest addFeatureOfInterest(/*~~>*/String featureOfInterest) {
         if (featuresOfInterest != null) {
             this.featuresOfInterest.add(featureOfInterest);
         }
         return this;
     }
 
-    public GetDataAvailabilityRequest setFeatureOfInterest(Collection<String> featuresOfInterest) {
+    public GetDataAvailabilityRequest setFeatureOfInterest(Collection</*~~>*/String> featuresOfInterest) {
         this.featuresOfInterest.clear();
         if (featuresOfInterest != null) {
             this.featuresOfInterest.addAll(featuresOfInterest);
@@ -146,14 +146,14 @@ public class GetDataAvailabilityRequest extends OwsServiceRequest
      *            the {@code offering}
      * @return this
      */
-    public GetDataAvailabilityRequest addOffering(String offering) {
+    public GetDataAvailabilityRequest addOffering(/*~~>*/String offering) {
         if (offering != null) {
             this.offerings.add(offering);
         }
         return this;
     }
 
-    public GetDataAvailabilityRequest setOfferings(Collection<String> offerings) {
+    public GetDataAvailabilityRequest setOfferings(Collection</*~~>*/String> offerings) {
         this.offerings.clear();
         if (offerings != null) {
             this.offerings.addAll(offerings);
@@ -165,7 +165,7 @@ public class GetDataAvailabilityRequest extends OwsServiceRequest
         return CollectionHelper.isNotEmpty(getProcedures());
     }
 
-    public GetDataAvailabilityRequest setProcedure(Collection<String> procedures) {
+    public GetDataAvailabilityRequest setProcedure(Collection</*~~>*/String> procedures) {
         this.procedures.clear();
         if (procedures != null) {
             this.procedures.addAll(procedures);
@@ -177,7 +177,7 @@ public class GetDataAvailabilityRequest extends OwsServiceRequest
         return CollectionHelper.isNotEmpty(getProcedures());
     }
 
-    public GetDataAvailabilityRequest setProcedures(Collection<String> procedures) {
+    public GetDataAvailabilityRequest setProcedures(Collection</*~~>*/String> procedures) {
         if (procedures != null) {
             this.procedures.addAll(procedures);
         }
@@ -188,7 +188,7 @@ public class GetDataAvailabilityRequest extends OwsServiceRequest
         return CollectionHelper.isNotEmpty(getObservedProperties());
     }
 
-    public GetDataAvailabilityRequest setObservedProperty(Collection<String> observedProperties) {
+    public GetDataAvailabilityRequest setObservedProperty(Collection</*~~>*/String> observedProperties) {
         this.observedProperties.clear();
         if (observedProperties != null) {
             this.observedProperties.addAll(observedProperties);
@@ -205,33 +205,33 @@ public class GetDataAvailabilityRequest extends OwsServiceRequest
     }
 
     @Override
-    public String getResponseFormat() {
+    public /*~~>*/String getResponseFormat() {
         return Strings.isNullOrEmpty(responseFormat) ? getNamespace() : responseFormat;
     }
 
     @Override
-    public void setResponseFormat(String responseFormat) {
-        this.responseFormat = responseFormat;
+    public void setResponseFormat(/*~~>*/String responseFormat) {
+        /*~~>*/this.responseFormat = responseFormat;
     }
 
-    public String getNamespace() {
-        return this.namespace;
+    public /*~~>*/String getNamespace() {
+        return /*~~>*/this.namespace;
     }
 
-    public GetDataAvailabilityRequest setNamespace(String namespace) {
-        this.namespace = namespace;
+    public GetDataAvailabilityRequest setNamespace(/*~~>*/String namespace) {
+        /*~~>*/this.namespace = namespace;
         return this;
     }
 
     public boolean hasResultFilter() {
-        return hasExtension(ResultFilterConstants.RESULT_FILTER)
-                && getExtension(ResultFilterConstants.RESULT_FILTER).isPresent()
-                && getExtension(ResultFilterConstants.RESULT_FILTER).get() instanceof ResultFilter;
+        return hasExtension(/*~~>*/ResultFilterConstants.RESULT_FILTER)
+                && getExtension(/*~~>*/ResultFilterConstants.RESULT_FILTER).isPresent()
+                && getExtension(/*~~>*/ResultFilterConstants.RESULT_FILTER).get() instanceof ResultFilter;
     }
 
     public Filter<?> getResultFilter() {
         if (hasResultFilter()) {
-            return ((ResultFilter) getExtension(ResultFilterConstants.RESULT_FILTER).get()).getValue();
+            return ((ResultFilter) getExtension(/*~~>*/ResultFilterConstants.RESULT_FILTER).get()).getValue();
         }
         return null;
     }
@@ -242,9 +242,9 @@ public class GetDataAvailabilityRequest extends OwsServiceRequest
     }
 
     public boolean hasSpatialFilter() {
-        return hasExtension(SosSpatialFilterConstants.SPATIAL_FILTER)
-                && getExtension(SosSpatialFilterConstants.SPATIAL_FILTER).isPresent()
-                && getExtension(SosSpatialFilterConstants.SPATIAL_FILTER).get() instanceof SosSpatialFilter;
+        return hasExtension(/*~~>*/SosSpatialFilterConstants.SPATIAL_FILTER)
+                && getExtension(/*~~>*/SosSpatialFilterConstants.SPATIAL_FILTER).isPresent()
+                && getExtension(/*~~>*/SosSpatialFilterConstants.SPATIAL_FILTER).get() instanceof SosSpatialFilter;
     }
 
     @Override
@@ -252,7 +252,7 @@ public class GetDataAvailabilityRequest extends OwsServiceRequest
         if (!hasSpatialFilter()) {
             return null;
         }
-        return ((SosSpatialFilter) getExtension(SosSpatialFilterConstants.SPATIAL_FILTER).get()).getValue();
+        return ((SosSpatialFilter) getExtension(/*~~>*/SosSpatialFilterConstants.SPATIAL_FILTER).get()).getValue();
     }
 
     @Override
@@ -261,12 +261,12 @@ public class GetDataAvailabilityRequest extends OwsServiceRequest
     }
 
     @Override
-    public List<String> getFeatureIdentifiers() {
+    public List</*~~>*/String> getFeatureIdentifiers() {
         return getFeaturesOfInterest();
     }
 
     @Override
-    public void setFeatureIdentifiers(List<String> featureIdentifiers) {
+    public void setFeatureIdentifiers(List</*~~>*/String> featureIdentifiers) {
         setFeatureOfInterest(featureIdentifiers);
     }
 }

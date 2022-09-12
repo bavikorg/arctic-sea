@@ -36,7 +36,7 @@ public class IdentifierPropertyTypeEncoder extends AbstractIdentifierEncoder<Ide
 
     private static final Set<EncoderKey> ENCODER_KEYS = Sets.newHashSet(
             new ClassToClassEncoderKey(Identifier.class, IdentifierPropertyType.class),
-            new XmlPropertyTypeEncoderKey(InspireBaseConstants.NS_BASE, Identifier.class));
+            new XmlPropertyTypeEncoderKey(/*~~>*/InspireBaseConstants.NS_BASE, Identifier.class));
 
     public IdentifierPropertyTypeEncoder() {
         LOGGER.debug("Encoder for the following keys initialized successfully: {}!",

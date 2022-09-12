@@ -30,7 +30,7 @@ import edu.umd.cs.findbugs.annotations.SuppressFBWarnings;
  */
 public class SimpleProcess extends DescribedObject implements HasProcessMethod {
 
-    public static final String ID_PREFIX = "sp_";
+    public static final /*~~>*/String ID_PREFIX = "sp_";
     private ProcessMethod method;
 
     public SimpleProcess() {

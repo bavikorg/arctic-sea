@@ -45,7 +45,7 @@ public class GmlAbstractGeometry extends AbstractFeature {
      * @param id
      *            GML id
      */
-    public GmlAbstractGeometry(String id) {
+    public GmlAbstractGeometry(/*~~>*/String id) {
         this();
         setGmlId(id);
     }
@@ -81,7 +81,7 @@ public class GmlAbstractGeometry extends AbstractFeature {
     }
 
     @Override
-    public String getDefaultElementEncoding() {
-        return GmlConstants.NS_GML_32;
+    public /*~~>*/String getDefaultElementEncoding() {
+        return /*~~>*/GmlConstants.NS_GML_32;
     }
 }

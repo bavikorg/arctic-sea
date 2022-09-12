@@ -32,19 +32,19 @@ import com.fasterxml.jackson.databind.JsonNode;
  */
 public class DeleteSensorRequestDecoder extends AbstractSosRequestDecoder<DeleteSensorRequest> {
     public DeleteSensorRequestDecoder() {
-        super(DeleteSensorRequest.class, SosConstants.SOS, Sos2Constants.SERVICEVERSION,
+        super(DeleteSensorRequest.class, /*~~>*/SosConstants.SOS, /*~~>*/Sos2Constants.SERVICEVERSION,
                 Sos2Constants.Operations.DeleteSensor);
     }
 
     @Override
-    protected String getSchemaURI() {
-        return SchemaConstants.Request.DELETE_SENSOR;
+    protected /*~~>*/String getSchemaURI() {
+        return /*~~>*/SchemaConstants.Request.DELETE_SENSOR;
     }
 
     @Override
     protected DeleteSensorRequest decodeRequest(JsonNode node) {
         DeleteSensorRequest req = new DeleteSensorRequest();
-        req.setProcedureIdentifier(node.path(JSONConstants.PROCEDURE).textValue());
+        req.setProcedureIdentifier(node.path(/*~~>*/JSONConstants.PROCEDURE).textValue());
         return req;
     }
 }

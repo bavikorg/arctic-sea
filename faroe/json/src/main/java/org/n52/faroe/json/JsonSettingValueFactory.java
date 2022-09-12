@@ -32,47 +32,47 @@ import org.n52.janmayen.i18n.MultilingualString;
  */
 public class JsonSettingValueFactory implements SettingValueFactory {
     @Override
-    public SettingValue<Boolean> newBooleanSettingValue(String key, Boolean value) {
+    public SettingValue<Boolean> newBooleanSettingValue(/*~~>*/String key, Boolean value) {
         return new JsonSettingValue<>(SettingType.BOOLEAN, key, value);
     }
 
     @Override
-    public SettingValue<Integer> newIntegerSettingValue(String key, Integer value) {
+    public SettingValue<Integer> newIntegerSettingValue(/*~~>*/String key, Integer value) {
         return new JsonSettingValue<>(SettingType.INTEGER, key, value);
     }
 
     @Override
-    public SettingValue<String> newStringSettingValue(String key, String value) {
+    public SettingValue</*~~>*/String> newStringSettingValue(/*~~>*/String key, /*~~>*/String value) {
         return new JsonSettingValue<>(SettingType.STRING, key, value);
     }
 
     @Override
-    public SettingValue<String> newChoiceSettingValue(String key, String value) {
+    public SettingValue</*~~>*/String> newChoiceSettingValue(/*~~>*/String key, /*~~>*/String value) {
         return new JsonSettingValue<>(SettingType.CHOICE, key, value);
     }
 
     @Override
-    public SettingValue<File> newFileSettingValue(String key, File value) {
+    public SettingValue<File> newFileSettingValue(/*~~>*/String key, File value) {
         return new JsonSettingValue<>(SettingType.FILE, key, value);
     }
 
     @Override
-    public SettingValue<URI> newUriSettingValue(String key, URI value) {
+    public SettingValue<URI> newUriSettingValue(/*~~>*/String key, URI value) {
         return new JsonSettingValue<>(SettingType.URI, key, value);
     }
 
     @Override
-    public SettingValue<Double> newNumericSettingValue(String key, Double value) {
+    public SettingValue<Double> newNumericSettingValue(/*~~>*/String key, Double value) {
         return new JsonSettingValue<>(SettingType.NUMERIC, key, value);
     }
 
     @Override
-    public SettingValue<DateTime> newDateTimeSettingValue(String key, DateTime value) {
+    public SettingValue<DateTime> newDateTimeSettingValue(/*~~>*/String key, DateTime value) {
         return new JsonSettingValue<>(SettingType.TIMEINSTANT, key, value);
     }
 
     @Override
-    public SettingValue<MultilingualString> newMultiLingualStringSettingValue(String key, MultilingualString value) {
+    public SettingValue<MultilingualString> newMultiLingualStringSettingValue(/*~~>*/String key, MultilingualString value) {
         return new JsonSettingValue<>(SettingType.MULTILINGUAL_STRING, key, value);
     }
 }

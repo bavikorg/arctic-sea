@@ -45,7 +45,7 @@ public class EReportingHeader extends AbstractEReportingHeader {
     private final List<Referenceable<AbstractFeature>> content = new LinkedList<>();
 
     public EReportingHeader() {
-        setDefaultElementEncoding(AqdConstants.NS_AQD);
+        setDefaultElementEncoding(/*~~>*/AqdConstants.NS_AQD);
     }
 
     @SuppressFBWarnings({ "EI_EXPOSE_REP" })
@@ -152,7 +152,7 @@ public class EReportingHeader extends AbstractEReportingHeader {
     }
 
     @Override
-    public String toString() {
+    public /*~~>*/String toString() {
         return MoreObjects.toStringHelper(this).add("inspireID", getInspireID())
                 .add("reportingAuthority", getReportingAuthority()).add("change", getChange())
                 .add("reportingPeriod", getReportingPeriod()).add("delete", getDelete()).add("content", getContent())

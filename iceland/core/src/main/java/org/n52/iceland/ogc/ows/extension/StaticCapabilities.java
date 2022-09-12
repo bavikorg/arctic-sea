@@ -16,7 +16,7 @@
 package org.n52.iceland.ogc.ows.extension;
 
 public interface StaticCapabilities {
-    String getDocument();
+    /*~~>*/String getDocument();
 
-    String getIdentifier();
+    /*~~>*/String getIdentifier();
 }

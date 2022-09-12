@@ -44,12 +44,12 @@ import edu.umd.cs.findbugs.annotations.SuppressFBWarnings;
 public class GenericServiceOperator implements ServiceOperator {
     private RequestOperatorRepository requestOperatorRepository;
     private final OwsServiceKey key;
-    private final String service;
-    private final String version;
+    private final /*~~>*/String service;
+    private final /*~~>*/String version;
 
-    public GenericServiceOperator(String service, String version) {
-        this.service = Objects.requireNonNull(service);
-        this.version = Objects.requireNonNull(version);
+    public GenericServiceOperator(/*~~>*/String service, /*~~>*/String version) {
+        /*~~>*/this.service = Objects.requireNonNull(service);
+        /*~~>*/this.version = Objects.requireNonNull(version);
         this.key = new OwsServiceKey(service, version);
     }
 
@@ -91,7 +91,7 @@ public class GenericServiceOperator implements ServiceOperator {
     public OwsServiceResponse receiveRequest(
             OwsServiceRequest request)
             throws OwsExceptionReport {
-        String operationName = request.getOperationName();
+        /*~~>*/String operationName = request.getOperationName();
         RequestOperator operator = this.requestOperatorRepository
                 .getRequestOperator(this.key, operationName);
 
@@ -123,10 +123,10 @@ public class GenericServiceOperator implements ServiceOperator {
     }
 
     @Override
-    public String toString() {
+    public /*~~>*/String toString() {
         return MoreObjects.toStringHelper(this)
-                .add("service", this.service)
-                .add("version", this.version)
+                .add("service", /*~~>*/this.service)
+                .add("version", /*~~>*/this.version)
                 .toString();
     }
 

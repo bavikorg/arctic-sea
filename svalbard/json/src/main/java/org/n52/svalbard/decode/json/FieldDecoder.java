@@ -57,71 +57,71 @@ public class FieldDecoder extends JSONDecoder<SweField> {
     @Override
     public SweField decodeJSON(JsonNode node, boolean validate) throws DecodingException {
         if (validate) {
-            JSONValidator.getInstance().validateAndThrow(node, SchemaConstants.Common.FIELD);
+            JSONValidator.getInstance().validateAndThrow(node, /*~~>*/SchemaConstants.Common.FIELD);
         }
         return decodeJSON(node);
     }
 
     public SweField decodeJSON(JsonNode node) throws DecodingException {
-        final String type = node.path(JSONConstants.TYPE).textValue();
+        final /*~~>*/String type = node.path(/*~~>*/JSONConstants.TYPE).textValue();
         final SweAbstractDataComponent element;
 
-        if (type.equals(JSONConstants.BOOLEAN_TYPE)) {
+        if (type.equals(/*~~>*/JSONConstants.BOOLEAN_TYPE)) {
             element = decodeBoolean(node);
-        } else if (type.equals(JSONConstants.COUNT_TYPE)) {
+        } else if (type.equals(/*~~>*/JSONConstants.COUNT_TYPE)) {
             element = decodeCount(node);
-        } else if (type.equals(JSONConstants.COUNT_RANGE_TYPE)) {
+        } else if (type.equals(/*~~>*/JSONConstants.COUNT_RANGE_TYPE)) {
             element = decodeCountRange(node);
-        } else if (type.equals(JSONConstants.OBSERVABLE_PROPERTY_TYPE)) {
+        } else if (type.equals(/*~~>*/JSONConstants.OBSERVABLE_PROPERTY_TYPE)) {
             element = decodeObservableProperty(node);
-        } else if (type.equals(JSONConstants.QUALITY_TYPE)) {
+        } else if (type.equals(/*~~>*/JSONConstants.QUALITY_TYPE)) {
             element = decodeQuality(node);
-        } else if (type.equals(JSONConstants.TEXT_TYPE)) {
+        } else if (type.equals(/*~~>*/JSONConstants.TEXT_TYPE)) {
             element = decodeText(node);
-        } else if (type.equals(JSONConstants.QUANTITY_TYPE)) {
+        } else if (type.equals(/*~~>*/JSONConstants.QUANTITY_TYPE)) {
             element = decodeQuantity(node);
-        } else if (type.equals(JSONConstants.QUANTITY_RANGE_TYPE)) {
+        } else if (type.equals(/*~~>*/JSONConstants.QUANTITY_RANGE_TYPE)) {
             element = decodeQuantityRange(node);
-        } else if (type.equals(JSONConstants.TIME_TYPE)) {
+        } else if (type.equals(/*~~>*/JSONConstants.TIME_TYPE)) {
             element = decodeTime(node);
-        } else if (type.equals(JSONConstants.TIME_RANGE_TYPE)) {
+        } else if (type.equals(/*~~>*/JSONConstants.TIME_RANGE_TYPE)) {
             element = decodeTimeRange(node);
-        } else if (type.equals(JSONConstants.CATEGORY_TYPE)) {
+        } else if (type.equals(/*~~>*/JSONConstants.CATEGORY_TYPE)) {
             element = decodeCategory(node);
-        } else if (type.equals(JSONConstants.DATA_RECORD_TYPE)) {
+        } else if (type.equals(/*~~>*/JSONConstants.DATA_RECORD_TYPE)) {
             element = decodeDataRecord(node);
         } else {
             throw new UnsupportedDecoderInputException(this, node);
         }
-        final String name = node.path(JSONConstants.NAME).textValue();
-        element.setDescription(node.path(JSONConstants.DESCRIPTION).textValue());
-        element.setIdentifier(node.path(JSONConstants.IDENTIFIER).textValue());
-        element.setDefinition(node.path(JSONConstants.DEFINITION).textValue());
-        element.setLabel(node.path(JSONConstants.LABEL).textValue());
+        final /*~~>*/String name = node.path(/*~~>*/JSONConstants.NAME).textValue();
+        element.setDescription(node.path(/*~~>*/JSONConstants.DESCRIPTION).textValue());
+        element.setIdentifier(node.path(/*~~>*/JSONConstants.IDENTIFIER).textValue());
+        element.setDefinition(node.path(/*~~>*/JSONConstants.DEFINITION).textValue());
+        element.setLabel(node.path(/*~~>*/JSONConstants.LABEL).textValue());
         return new SweField(name, element);
     }
 
     protected SweAbstractDataComponent decodeBoolean(JsonNode node) {
         SweBoolean swe = new SweBoolean();
-        if (node.hasNonNull(JSONConstants.VALUE)) {
-            swe.setValue(node.path(JSONConstants.VALUE).booleanValue());
+        if (node.hasNonNull(/*~~>*/JSONConstants.VALUE)) {
+            swe.setValue(node.path(/*~~>*/JSONConstants.VALUE).booleanValue());
         }
         return swe;
     }
 
     protected SweAbstractDataComponent decodeCount(JsonNode node) {
         SweCount swe = new SweCount();
-        if (node.hasNonNull(JSONConstants.VALUE)) {
-            swe.setValue(node.path(JSONConstants.VALUE).intValue());
+        if (node.hasNonNull(/*~~>*/JSONConstants.VALUE)) {
+            swe.setValue(node.path(/*~~>*/JSONConstants.VALUE).intValue());
         }
         return swe;
     }
 
     protected SweAbstractDataComponent decodeCountRange(JsonNode node) {
         SweCountRange swe = new SweCountRange();
-        if (node.hasNonNull(JSONConstants.VALUE)) {
-            int start = node.path(JSONConstants.VALUE).path(0).intValue();
-            int end = node.path(JSONConstants.VALUE).path(1).intValue();
+        if (node.hasNonNull(/*~~>*/JSONConstants.VALUE)) {
+            int start = node.path(/*~~>*/JSONConstants.VALUE).path(0).intValue();
+            int end = node.path(/*~~>*/JSONConstants.VALUE).path(1).intValue();
             swe.setValue(new RangeValue<Integer>(start, end));
         }
         return swe;
@@ -129,14 +129,14 @@ public class FieldDecoder extends JSONDecoder<SweField> {
 
     protected SweAbstractDataComponent decodeQuantity(JsonNode node) {
         SweQuantity swe = new SweQuantity();
-        if (node.hasNonNull(JSONConstants.VALUE)) {
-            swe.setValue(node.path(JSONConstants.VALUE).doubleValue());
+        if (node.hasNonNull(/*~~>*/JSONConstants.VALUE)) {
+            swe.setValue(node.path(/*~~>*/JSONConstants.VALUE).doubleValue());
         }
-        return swe.setUom(node.path(JSONConstants.UOM).textValue());
+        return swe.setUom(node.path(/*~~>*/JSONConstants.UOM).textValue());
     }
 
     protected SweAbstractDataComponent decodeText(JsonNode node) {
-        return new SweText().setValue(node.path(JSONConstants.VALUE).textValue());
+        return new SweText().setValue(node.path(/*~~>*/JSONConstants.VALUE).textValue());
     }
 
     protected SweAbstractDataComponent decodeQuality(JsonNode node) throws DecodingException {
@@ -146,47 +146,47 @@ public class FieldDecoder extends JSONDecoder<SweField> {
 
     protected SweAbstractDataComponent decodeObservableProperty(JsonNode node) {
         SweObservableProperty swe = new SweObservableProperty();
-        return swe.setValue(node.path(JSONConstants.VALUE).textValue());
+        return swe.setValue(node.path(/*~~>*/JSONConstants.VALUE).textValue());
     }
 
     protected SweAbstractDataComponent decodeTime(JsonNode node) throws DecodingException {
         SweTime swe = new SweTime();
-        if (node.hasNonNull(JSONConstants.VALUE)) {
-            String value = node.path(JSONConstants.VALUE).textValue();
+        if (node.hasNonNull(/*~~>*/JSONConstants.VALUE)) {
+            /*~~>*/String value = node.path(/*~~>*/JSONConstants.VALUE).textValue();
             swe.setValue(parseDateTime(value));
         }
-        return swe.setUom(node.path(JSONConstants.UOM).textValue());
+        return swe.setUom(node.path(/*~~>*/JSONConstants.UOM).textValue());
     }
 
     protected SweAbstractDataComponent decodeCategory(JsonNode node) {
-        String value = node.path(JSONConstants.VALUE).textValue();
-        String codespace = node.path(JSONConstants.CODESPACE).textValue();
+        /*~~>*/String value = node.path(/*~~>*/JSONConstants.VALUE).textValue();
+        /*~~>*/String codespace = node.path(/*~~>*/JSONConstants.CODESPACE).textValue();
         return new SweCategory().setValue(value).setCodeSpace(codespace);
     }
 
     protected SweAbstractDataComponent decodeQuantityRange(JsonNode node) {
         SweQuantityRange swe = new SweQuantityRange();
-        if (node.hasNonNull(JSONConstants.VALUE)) {
-            BigDecimal start = BigDecimal.valueOf(node.path(JSONConstants.VALUE).path(0).doubleValue());
-            BigDecimal end = BigDecimal.valueOf(node.path(JSONConstants.VALUE).path(1).doubleValue());
+        if (node.hasNonNull(/*~~>*/JSONConstants.VALUE)) {
+            BigDecimal start = BigDecimal.valueOf(node.path(/*~~>*/JSONConstants.VALUE).path(0).doubleValue());
+            BigDecimal end = BigDecimal.valueOf(node.path(/*~~>*/JSONConstants.VALUE).path(1).doubleValue());
             swe.setValue(new RangeValue<BigDecimal>(start, end));
         }
-        return swe.setUom(node.path(JSONConstants.UOM).textValue());
+        return swe.setUom(node.path(/*~~>*/JSONConstants.UOM).textValue());
     }
 
     protected SweAbstractDataComponent decodeTimeRange(JsonNode node) throws DecodingException {
         SweTimeRange swe = new SweTimeRange();
-        if (node.hasNonNull(JSONConstants.VALUE)) {
-            String start = node.path(JSONConstants.VALUE).path(0).textValue();
-            String end = node.path(JSONConstants.VALUE).path(1).textValue();
+        if (node.hasNonNull(/*~~>*/JSONConstants.VALUE)) {
+            /*~~>*/String start = node.path(/*~~>*/JSONConstants.VALUE).path(0).textValue();
+            /*~~>*/String end = node.path(/*~~>*/JSONConstants.VALUE).path(1).textValue();
             swe.setValue(new RangeValue<DateTime>(parseDateTime(start), parseDateTime(end)));
         }
-        return swe.setUom(node.path(JSONConstants.UOM).textValue());
+        return swe.setUom(node.path(/*~~>*/JSONConstants.UOM).textValue());
     }
 
     protected SweAbstractDataComponent decodeDataRecord(JsonNode node) throws DecodingException {
         SweDataRecord swe = new SweDataRecord();
-        for (JsonNode field : node.path(JSONConstants.FIELDS)) {
+        for (JsonNode field : node.path(/*~~>*/JSONConstants.FIELDS)) {
             swe.addField(decodeJSON(field));
         }
         return swe;

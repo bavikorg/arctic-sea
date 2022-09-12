@@ -25,15 +25,15 @@ public class Input extends Param {
         super();
     }
 
-    public Input(String name) {
+    public Input(/*~~>*/String name) {
         super(name);
     }
 
-    public Input(String name, QName message) {
+    public Input(/*~~>*/String name, QName message) {
         super(name, message);
     }
 
-    public Input(String name, URI action, QName message) {
+    public Input(/*~~>*/String name, URI action, QName message) {
         super(name, action, message);
     }
 

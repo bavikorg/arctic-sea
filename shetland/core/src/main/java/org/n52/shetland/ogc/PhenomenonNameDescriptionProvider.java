@@ -19,21 +19,21 @@ import com.google.common.base.Strings;
 
 public interface PhenomenonNameDescriptionProvider {
 
-    default boolean isSetObservablePropertyName(String observableProperty) {
+    default boolean isSetObservablePropertyName(/*~~>*/String observableProperty) {
         return !Strings.isNullOrEmpty(getObservablePropertyName(observableProperty));
     }
 
-    String getObservablePropertyName(String observableProperty);
+    /*~~>*/String getObservablePropertyName(/*~~>*/String observableProperty);
 
-    default boolean isSetObservablePropertyDescription(String observableProperty) {
+    default boolean isSetObservablePropertyDescription(/*~~>*/String observableProperty) {
         return !Strings.isNullOrEmpty(getObservablePropertyDescription(observableProperty));
     }
 
-    String getObservablePropertyDescription(String observableProperty);
+    /*~~>*/String getObservablePropertyDescription(/*~~>*/String observableProperty);
 
-    default boolean isSetObservablePropertyUnit(String observableProperty) {
+    default boolean isSetObservablePropertyUnit(/*~~>*/String observableProperty) {
         return getObservablePropertyUnit(observableProperty) != null;
     }
 
-    UoM getObservablePropertyUnit(String observableProperty);
+    UoM getObservablePropertyUnit(/*~~>*/String observableProperty);
 }

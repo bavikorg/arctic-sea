@@ -33,7 +33,7 @@ public class AbstractProcessV20 extends AbstractProcess {
     private AbstractSettings configuration;
     private SmlFeatureOfInterest featureOfInterest;
     private AbstractModes modes;
-    private String definition;
+    private /*~~>*/String definition;
 
     private ReferenceType typeOf;
 
@@ -85,7 +85,7 @@ public class AbstractProcessV20 extends AbstractProcess {
     /**
      * @return the definition
      */
-    public String getDefinition() {
+    public /*~~>*/String getDefinition() {
         return definition;
     }
 
@@ -93,8 +93,8 @@ public class AbstractProcessV20 extends AbstractProcess {
      * @param definition
      *            the definition to set
      */
-    public void setDefinition(String definition) {
-        this.definition = definition;
+    public void setDefinition(/*~~>*/String definition) {
+        /*~~>*/this.definition = definition;
     }
 
     /**
@@ -120,7 +120,7 @@ public class AbstractProcessV20 extends AbstractProcess {
     }
 
     @Override
-    public String getDefaultElementEncoding() {
-        return SensorML20Constants.NS_SML_20;
+    public /*~~>*/String getDefaultElementEncoding() {
+        return /*~~>*/SensorML20Constants.NS_SML_20;
     }
 }

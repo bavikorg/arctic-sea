@@ -27,11 +27,11 @@ import org.n52.shetland.w3c.SchemaLocation;
  */
 public interface SwesConstants {
 
-    String EN_SOS_INSERTION_METADATA = "SosInsertionMetadata";
+    /*~~>*/String EN_SOS_INSERTION_METADATA = "SosInsertionMetadata";
 
-    String NS_SWES_20 = "http://www.opengis.net/swes/2.0";
+    /*~~>*/String NS_SWES_20 = "http://www.opengis.net/swes/2.0";
 
-    String NS_SWES_PREFIX = "swes";
+    /*~~>*/String NS_SWES_PREFIX = "swes";
 
     SchemaLocation SWES_20_SCHEMA_LOCATION =
             new SchemaLocation(NS_SWES_20, "http://schemas.opengis.net/swes/2.0/swes.xsd");
@@ -49,34 +49,34 @@ public interface SwesConstants {
             new SchemaLocation(NS_SWES_20, "http://schemas.opengis.net/swes/2.0/swesDeleteSensor.xsd");
 
     // element names
-    String EN_EXTENSION = "extension";
+    /*~~>*/String EN_EXTENSION = "extension";
 
-    String EN_ABSTRACT_OFFERING = "AbstractOffering";
+    /*~~>*/String EN_ABSTRACT_OFFERING = "AbstractOffering";
 
-    String EN_DELETE_SENSOR_RESPONSE = "DeleteSensorResponse";
+    /*~~>*/String EN_DELETE_SENSOR_RESPONSE = "DeleteSensorResponse";
 
-    String EN_DESCRIBE_SENSOR = "DescribeSensor";
+    /*~~>*/String EN_DESCRIBE_SENSOR = "DescribeSensor";
 
-    String EN_DELETE_SENSOR = "DeleteSensor";
+    /*~~>*/String EN_DELETE_SENSOR = "DeleteSensor";
 
-    String EN_DESCRIBE_SENSOR_RESPONSE = "DescribeSensorResponse";
+    /*~~>*/String EN_DESCRIBE_SENSOR_RESPONSE = "DescribeSensorResponse";
 
-    String EN_INSERT_SENSOR = "InsertSensor";
+    /*~~>*/String EN_INSERT_SENSOR = "InsertSensor";
 
-    String EN_INSERT_SENSOR_RESPONSE = "InsertSensorResponse";
+    /*~~>*/String EN_INSERT_SENSOR_RESPONSE = "InsertSensorResponse";
 
-    String EN_INSERTION_METADATA = "InsertionMetadata";
+    /*~~>*/String EN_INSERTION_METADATA = "InsertionMetadata";
 
-    String EN_METADATA = "metadata";
+    /*~~>*/String EN_METADATA = "metadata";
 
-    String EN_OFFERING = "offering";
+    /*~~>*/String EN_OFFERING = "offering";
 
-    String EN_UPDATE_SENSOR_DESCRIPTION = "UpdateSensorDescription";
+    /*~~>*/String EN_UPDATE_SENSOR_DESCRIPTION = "UpdateSensorDescription";
 
-    String EN_UPDATE_SENSOR_DESCRIPTION_RESPONSE = "UpdateSensorDescriptionResponse";
+    /*~~>*/String EN_UPDATE_SENSOR_DESCRIPTION_RESPONSE = "UpdateSensorDescriptionResponse";
 
     QName QN_INSERTION_METADATA =
-            new QName(SwesConstants.NS_SWES_20, SwesConstants.EN_INSERTION_METADATA, SwesConstants.NS_SWES_PREFIX);
+            new QName(/*~~>*/SwesConstants.NS_SWES_20, /*~~>*/SwesConstants.EN_INSERTION_METADATA, /*~~>*/SwesConstants.NS_SWES_PREFIX);
 
     // QNames for elements
     QName QN_ABSTRACT_OFFERING = new QName(NS_SWES_20, EN_ABSTRACT_OFFERING, NS_SWES_PREFIX);
@@ -102,9 +102,9 @@ public interface SwesConstants {
     QName QN_UPDATE_SENSOR_DESCRIPTION_RESPONSE =
             new QName(NS_SWES_20, EN_UPDATE_SENSOR_DESCRIPTION_RESPONSE, NS_SWES_PREFIX);
 
-    String SOAP_REASON_INVALID_REQUEST = "The request did not conform to its XML Schema definition.";
+    /*~~>*/String SOAP_REASON_INVALID_REQUEST = "The request did not conform to its XML Schema definition.";
 
     // FIXME emtpy constant
-    String SOAP_REASON_REQUEST_EXTENSION_NOT_SUPPORTED = "";
+    /*~~>*/String SOAP_REASON_REQUEST_EXTENSION_NOT_SUPPORTED = "";
 
 }

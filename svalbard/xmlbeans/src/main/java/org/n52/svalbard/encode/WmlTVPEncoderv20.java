@@ -95,26 +95,26 @@ public class WmlTVPEncoderv20 extends AbstractWmlEncoderv20 {
     private static final Logger LOGGER = LoggerFactory.getLogger(WmlTVPEncoderv20.class);
 
     // TODO: change to correct conformance class
-    private static final Set<String> CONFORMANCE_CLASSES = Sets.newHashSet(
-            ConformanceClassesWML2.UML_MEASUREMENT_TIMESERIES_TVP_OBSERVATION,
-            ConformanceClassesWML2.UML_TIMESERIES_TVP_OBSERVATION,
-            ConformanceClassesWML2.UML_MEASUREMENT_TIMESERIES_TVP_OBSERVATION, ConformanceClassesWML2.XSD_XML_RULES,
-            ConformanceClassesWML2.XSD_TIMESERIES_OBSERVATION, ConformanceClassesWML2.XSD_TIMESERIES_TVP_OBSERVATION,
-            ConformanceClassesWML2.XSD_MEASUREMENT_TIMESERIES_TVP);
+    private static final Set</*~~>*/String> CONFORMANCE_CLASSES = Sets.newHashSet(
+            /*~~>*/ConformanceClassesWML2.UML_MEASUREMENT_TIMESERIES_TVP_OBSERVATION,
+            /*~~>*/ConformanceClassesWML2.UML_TIMESERIES_TVP_OBSERVATION,
+            /*~~>*/ConformanceClassesWML2.UML_MEASUREMENT_TIMESERIES_TVP_OBSERVATION, /*~~>*/ConformanceClassesWML2.XSD_XML_RULES,
+            /*~~>*/ConformanceClassesWML2.XSD_TIMESERIES_OBSERVATION, /*~~>*/ConformanceClassesWML2.XSD_TIMESERIES_TVP_OBSERVATION,
+            /*~~>*/ConformanceClassesWML2.XSD_MEASUREMENT_TIMESERIES_TVP);
 
     private static final ImmutableSet<SupportedType> SUPPORTED_TYPES = ImmutableSet.<SupportedType> builder()
-            .add(new ObservationType(WaterMLConstants.OBSERVATION_TYPE_MEASURMENT_TVP))
+            .add(new ObservationType(/*~~>*/WaterMLConstants.OBSERVATION_TYPE_MEASURMENT_TVP))
             .build();
 
     private static final Set<EncoderKey> ENCODER_KEYS = CollectionHelper.union(getDefaultEncoderKeys(),
-            CodingHelper.encoderKeysForElements(WaterMLConstants.NS_WML_20, GetObservationResponse.class,
+            CodingHelper.encoderKeysForElements(/*~~>*/WaterMLConstants.NS_WML_20, GetObservationResponse.class,
                     OmObservation.class, SingleObservationValue.class, MultiObservationValues.class));
 
-    private static final Map<String, Map<String, Set<String>>> SUPPORTED_RESPONSE_FORMATS = Collections.singletonMap(
-            SosConstants.SOS,
-            Collections.singletonMap(Sos2Constants.SERVICEVERSION, Collections.singleton(WaterMLConstants.NS_WML_20)));
+    private static final Map</*~~>*/String, Map</*~~>*/String, Set</*~~>*/String>>> SUPPORTED_RESPONSE_FORMATS = Collections.singletonMap(
+            /*~~>*/SosConstants.SOS,
+            Collections.singletonMap(/*~~>*/Sos2Constants.SERVICEVERSION, Collections.singleton(/*~~>*/WaterMLConstants.NS_WML_20)));
 
-    private static final String TIMESERIES_ID_PREFIX = "timeseries.";
+    private static final /*~~>*/String TIMESERIES_ID_PREFIX = "timeseries.";
 
     public WmlTVPEncoderv20() {
         LOGGER.debug("Encoder for the following keys initialized successfully: {}!", Joiner.on(", ")
@@ -132,20 +132,20 @@ public class WmlTVPEncoderv20 extends AbstractWmlEncoderv20 {
     }
 
     @Override
-    public Map<String, Set<SupportedType>> getSupportedResponseFormatObservationTypes() {
-        return Collections.singletonMap(WaterMLConstants.NS_WML_20, getSupportedTypes());
+    public Map</*~~>*/String, Set<SupportedType>> getSupportedResponseFormatObservationTypes() {
+        return Collections.singletonMap(/*~~>*/WaterMLConstants.NS_WML_20, getSupportedTypes());
     }
 
     @Override
-    public Set<String> getConformanceClasses(String service, String version) {
-        if (SosConstants.SOS.equals(service) && Sos2Constants.SERVICEVERSION.equals(version)) {
+    public Set</*~~>*/String> getConformanceClasses(/*~~>*/String service, /*~~>*/String version) {
+        if (/*~~>*/SosConstants.SOS.equals(service) && /*~~>*/Sos2Constants.SERVICEVERSION.equals(version)) {
             return Collections.unmodifiableSet(CONFORMANCE_CLASSES);
         }
         return Collections.emptySet();
     }
 
     @Override
-    public Set<String> getSupportedResponseFormats(String service, String version) {
+    public Set</*~~>*/String> getSupportedResponseFormats(/*~~>*/String service, /*~~>*/String version) {
         return SUPPORTED_RESPONSE_FORMATS.getOrDefault(service, Collections.emptyMap())
                 .getOrDefault(version, Collections.emptySet());
     }
@@ -206,16 +206,16 @@ public class WmlTVPEncoderv20 extends AbstractWmlEncoderv20 {
     }
 
     @Override
-    protected void addObservationType(OMObservationType xbObservation, String observationType) {
+    protected void addObservationType(OMObservationType xbObservation, /*~~>*/String observationType) {
         if (!Strings.isNullOrEmpty(observationType)) {
-            if (observationType.equals(OmConstants.OBS_TYPE_MEASUREMENT)
-                    || observationType.equals(WaterMLConstants.OBSERVATION_TYPE_MEASURMENT_TVP)) {
+            if (observationType.equals(/*~~>*/OmConstants.OBS_TYPE_MEASUREMENT)
+                    || observationType.equals(/*~~>*/WaterMLConstants.OBSERVATION_TYPE_MEASURMENT_TVP)) {
                 xbObservation.addNewType()
-                        .setHref(WaterMLConstants.OBSERVATION_TYPE_MEASURMENT_TVP);
-            } else if (observationType.equals(OmConstants.OBS_TYPE_CATEGORY_OBSERVATION)
-                    || observationType.equals(WaterMLConstants.OBSERVATION_TYPE_CATEGORICAL_TVP)) {
+                        .setHref(/*~~>*/WaterMLConstants.OBSERVATION_TYPE_MEASURMENT_TVP);
+            } else if (observationType.equals(/*~~>*/OmConstants.OBS_TYPE_CATEGORY_OBSERVATION)
+                    || observationType.equals(/*~~>*/WaterMLConstants.OBSERVATION_TYPE_CATEGORICAL_TVP)) {
                 xbObservation.addNewType()
-                        .setHref(WaterMLConstants.OBSERVATION_TYPE_CATEGORICAL_TVP);
+                        .setHref(/*~~>*/WaterMLConstants.OBSERVATION_TYPE_CATEGORICAL_TVP);
             }
         }
     }
@@ -306,7 +306,7 @@ public class WmlTVPEncoderv20 extends AbstractWmlEncoderv20 {
                     .setAggregationDuration(gDurationBuilder.toGDuration());
 
         }
-        String unit = addValues(measurementTimeseries, sosObservation.getValue());
+        /*~~>*/String unit = addValues(measurementTimeseries, sosObservation.getValue());
         // set uom
         if (unit != null && !unit.isEmpty()) {
             defaultTVPMeasurementMetadata.addNewUom()
@@ -365,7 +365,7 @@ public class WmlTVPEncoderv20 extends AbstractWmlEncoderv20 {
                 .getInterpolationType()
                 .setTitle(interpolationType.getTitle());
 
-        String unit = addValues(measurementTimeseries, observationValue);
+        /*~~>*/String unit = addValues(measurementTimeseries, observationValue);
         // set uom
         if (unit != null && !unit.isEmpty()) {
             defaultTVPMeasurementMetadata.addNewUom()
@@ -383,12 +383,12 @@ public class WmlTVPEncoderv20 extends AbstractWmlEncoderv20 {
         return measurementTimeseriesDoc;
     }
 
-    private String addValues(MeasurementTimeseriesType measurementTimeseries, ObservationValue<?> observationValue)
+    private /*~~>*/String addValues(MeasurementTimeseriesType measurementTimeseries, ObservationValue<?> observationValue)
             throws EncodingException, CodedException {
-        String unit = null;
+        /*~~>*/String unit = null;
         if (observationValue instanceof SingleObservationValue) {
             SingleObservationValue<?> singleObservationValue = (SingleObservationValue<?>) observationValue;
-            String time = getTimeString(singleObservationValue.getPhenomenonTime());
+            /*~~>*/String time = getTimeString(singleObservationValue.getPhenomenonTime());
             unit = singleObservationValue.getValue()
                     .getUnit();
             if (singleObservationValue.getValue() instanceof QuantityValue) {
@@ -416,7 +416,7 @@ public class WmlTVPEncoderv20 extends AbstractWmlEncoderv20 {
                 }
             } else if (checkSweDataArray(observationValue.getValue())) {
                 SweDataArrayValue sweDataArrayValue = (SweDataArrayValue) observationValue.getValue();
-                for (List<String> list : sweDataArrayValue.getValue()
+                for (List</*~~>*/String> list : sweDataArrayValue.getValue()
                         .getValues()) {
                     for (int i = 0; i < list.size(); i = i + 2) {
                         addValuesToMeasurementTVP(measurementTimeseries.addNewPoint()
@@ -430,7 +430,7 @@ public class WmlTVPEncoderv20 extends AbstractWmlEncoderv20 {
             List<TimeValuePair> timeValuePairs = tvpValue.getValue();
             unit = tvpValue.getUnit();
             for (TimeValuePair timeValuePair : timeValuePairs) {
-                String time = getTimeString(timeValuePair.getTime());
+                /*~~>*/String time = getTimeString(timeValuePair.getTime());
                 if (timeValuePair.getValue() instanceof QuantityValue) {
                     QuantityValue quantityValue = (QuantityValue) timeValuePair.getValue();
                     addValuesToMeasurementTVP(measurementTimeseries.addNewPoint()
@@ -478,7 +478,7 @@ public class WmlTVPEncoderv20 extends AbstractWmlEncoderv20 {
      * @param value
      *            value as string
      */
-    private void addValuesToMeasurementTVP(MeasureTVPType measurementTVP, String time, String value) {
+    private void addValuesToMeasurementTVP(MeasureTVPType measurementTVP, /*~~>*/String time, /*~~>*/String value) {
         measurementTVP.addNewTime()
                 .setStringValue(time);
         if (value == null || value.isEmpty()) {
@@ -492,7 +492,7 @@ public class WmlTVPEncoderv20 extends AbstractWmlEncoderv20 {
         }
     }
 
-    private void addValuesToMeasurementTVP(MeasureTVPType measurementTVP, String time, QuantityValue value)
+    private void addValuesToMeasurementTVP(MeasureTVPType measurementTVP, /*~~>*/String time, QuantityValue value)
             throws EncodingException {
         measurementTVP.addNewTime().setStringValue(time);
         if (value.isSetValue()) {
@@ -512,7 +512,7 @@ public class WmlTVPEncoderv20 extends AbstractWmlEncoderv20 {
         }
     }
 
-    private void addValuesToMeasurementTVP(MeasureTVPType addNewMeasurementTVP, String time, CountValue value) {
+    private void addValuesToMeasurementTVP(MeasureTVPType addNewMeasurementTVP, /*~~>*/String time, CountValue value) {
         addValuesToMeasurementTVP(addNewMeasurementTVP, time,
                 value.isSetValue() ? Integer.toString(value.getValue()) : null);
     }
@@ -525,9 +525,9 @@ public class WmlTVPEncoderv20 extends AbstractWmlEncoderv20 {
     private void addMeasurmentMetadata(TVPMeasurementMetadataType metadata, SweQualityHolder quality)
             throws EncodingException {
         if (quality.isSetReferences() && quality.getReferences()
-                .containsKey(WaterMLConstants.EN_CENSORED_REASON)) {
+                .containsKey(/*~~>*/WaterMLConstants.EN_CENSORED_REASON)) {
             ReferenceType reference = quality.getReferences()
-                    .get(WaterMLConstants.EN_CENSORED_REASON);
+                    .get(/*~~>*/WaterMLConstants.EN_CENSORED_REASON);
             XmlObject xmlReferenceType = encodeGML(reference);
             metadata.addNewCensoredReason()
                     .set(xmlReferenceType);
@@ -559,7 +559,7 @@ public class WmlTVPEncoderv20 extends AbstractWmlEncoderv20 {
         }
     }
 
-    private void addTimeseriesMetadata(MeasurementTimeseriesType mtt, String gmlId,
+    private void addTimeseriesMetadata(MeasurementTimeseriesType mtt, /*~~>*/String gmlId,
             TimeseriesMetadata timeseriesMetadata) {
         MeasurementTimeseriesMetadataType mtmt = (MeasurementTimeseriesMetadataType) mtt.addNewMetadata()
                 .addNewTimeseriesMetadata()
@@ -573,7 +573,7 @@ public class WmlTVPEncoderv20 extends AbstractWmlEncoderv20 {
     }
 
     private MeasurementTimeseriesMetadataType createMeasurementTimeseriesMetadataType(
-            MeasurementTimeseriesMetadataType mtmt, String gmlId) {
+            MeasurementTimeseriesMetadataType mtmt, /*~~>*/String gmlId) {
         mtmt.addNewTemporalExtent()
                 .setHref("#" + gmlId);
         return mtmt;

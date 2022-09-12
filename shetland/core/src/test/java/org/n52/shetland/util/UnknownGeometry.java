@@ -39,7 +39,7 @@ public class UnknownGeometry extends Geometry {
     }
 
     @Override
-    public String getGeometryType() {
+    public /*~~>*/String getGeometryType() {
         return geom.getGeometryType();
     }
 
@@ -224,7 +224,7 @@ public class UnknownGeometry extends Geometry {
     }
 
     @Override
-    public boolean relate(Geometry g, String intersectionPattern) {
+    public boolean relate(Geometry g, /*~~>*/String intersectionPattern) {
         return geom.relate(g, intersectionPattern);
     }
 
@@ -254,12 +254,12 @@ public class UnknownGeometry extends Geometry {
     }
 
     @Override
-    public String toString() {
+    public /*~~>*/String toString() {
         return geom.toString();
     }
 
     @Override
-    public String toText() {
+    public /*~~>*/String toText() {
         return geom.toText();
     }
 

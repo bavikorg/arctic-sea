@@ -168,20 +168,20 @@ public class SensorMLEncoderv101
     private static final Logger LOGGER = LoggerFactory.getLogger(SensorMLEncoderv101.class);
 
     private static final ImmutableSet<SupportedType> SUPPORTED_TYPES = ImmutableSet.<SupportedType> builder()
-            .add(new ProcedureDescriptionFormat(SensorMLConstants.SENSORML_OUTPUT_FORMAT_URL))
+            .add(new ProcedureDescriptionFormat(/*~~>*/SensorMLConstants.SENSORML_OUTPUT_FORMAT_URL))
             .add(new ProcedureDescriptionFormat(SensorMLConstants.SENSORML_CONTENT_TYPE.toString())).build();
 
-    private static final Map<String, ImmutableMap<String, Set<String>>> SUPPORTED_PROCEDURE_DESCRIPTION_FORMATS =
-            ImmutableMap.of(SosConstants.SOS,
-                    ImmutableMap.<String, Set<String>> builder()
-                            .put(Sos2Constants.SERVICEVERSION,
-                                    ImmutableSet.of(SensorMLConstants.SENSORML_OUTPUT_FORMAT_URL))
-                            .put(Sos1Constants.SERVICEVERSION,
-                                    ImmutableSet.of(SensorMLConstants.SENSORML_OUTPUT_FORMAT_MIME_TYPE))
+    private static final Map</*~~>*/String, ImmutableMap</*~~>*/String, Set</*~~>*/String>>> SUPPORTED_PROCEDURE_DESCRIPTION_FORMATS =
+            ImmutableMap.of(/*~~>*/SosConstants.SOS,
+                    ImmutableMap.</*~~>*/String, Set</*~~>*/String>> builder()
+                            .put(/*~~>*/Sos2Constants.SERVICEVERSION,
+                                    ImmutableSet.of(/*~~>*/SensorMLConstants.SENSORML_OUTPUT_FORMAT_URL))
+                            .put(/*~~>*/Sos1Constants.SERVICEVERSION,
+                                    ImmutableSet.of(/*~~>*/SensorMLConstants.SENSORML_OUTPUT_FORMAT_MIME_TYPE))
                             .build());
 
     private static final Set<EncoderKey> ENCODER_KEYS = CollectionHelper.union(
-            CodingHelper.encoderKeysForElements(SensorMLConstants.NS_SML, AbstractSensorML.class),
+            CodingHelper.encoderKeysForElements(/*~~>*/SensorMLConstants.NS_SML, AbstractSensorML.class),
             CodingHelper.encoderKeysForElements(SensorMLConstants.SENSORML_CONTENT_TYPE.toString(),
                     AbstractSensorML.class));
 
@@ -201,8 +201,8 @@ public class SensorMLEncoderv101
     }
 
     @Override
-    public void addNamespacePrefixToMap(final Map<String, String> nameSpacePrefixMap) {
-        nameSpacePrefixMap.put(SensorMLConstants.NS_SML, SensorMLConstants.NS_SML_PREFIX);
+    public void addNamespacePrefixToMap(final Map</*~~>*/String, /*~~>*/String> nameSpacePrefixMap) {
+        nameSpacePrefixMap.put(/*~~>*/SensorMLConstants.NS_SML, /*~~>*/SensorMLConstants.NS_SML_PREFIX);
     }
 
     @Override
@@ -216,7 +216,7 @@ public class SensorMLEncoderv101
     }
 
     @Override
-    public Set<String> getSupportedProcedureDescriptionFormats(final String service, final String version) {
+    public Set</*~~>*/String> getSupportedProcedureDescriptionFormats(final /*~~>*/String service, final /*~~>*/String version) {
         return SUPPORTED_PROCEDURE_DESCRIPTION_FORMATS.getOrDefault(service, ImmutableMap.of()).getOrDefault(version,
                 Collections.emptySet());
     }
@@ -363,26 +363,26 @@ public class SensorMLEncoderv101
     protected SensorMLDocument createSensorMLDescription(final SensorML smlSensorDesc) throws EncodingException {
         final SensorMLDocument sensorMLDoc = SensorMLDocument.Factory.newInstance(getXmlOptions());
         final net.opengis.sensorML.x101.SensorMLDocument.SensorML xbSensorML = sensorMLDoc.addNewSensorML();
-        xbSensorML.setVersion(SensorMLConstants.VERSION_V101);
+        xbSensorML.setVersion(/*~~>*/SensorMLConstants.VERSION_V101);
         if (smlSensorDesc.isSetMembers()) {
             for (final AbstractProcess sml : smlSensorDesc.getMembers()) {
                 if (sml instanceof System) {
                     final SystemType xbSystem = (SystemType) xbSensorML.addNewMember().addNewProcess().substitute(
-                            new QName(SensorMLConstants.NS_SML, SensorMLConstants.EN_SYSTEM), SystemType.type);
+                            new QName(/*~~>*/SensorMLConstants.NS_SML, /*~~>*/SensorMLConstants.EN_SYSTEM), SystemType.type);
                     final System smlSystem = (System) sml;
                     addAbstractProcessValues(xbSystem, smlSystem);
                     addSystemValues(xbSystem, smlSystem);
                 } else if (sml instanceof ProcessModel) {
                     final ProcessModelType xbProcessModel =
                             (ProcessModelType) xbSensorML.addNewMember().addNewProcess().substitute(
-                                    new QName(SensorMLConstants.NS_SML, SensorMLConstants.EN_PROCESS_MODEL),
+                                    new QName(/*~~>*/SensorMLConstants.NS_SML, /*~~>*/SensorMLConstants.EN_PROCESS_MODEL),
                                     ProcessModelType.type);
                     final ProcessModel smlProcessModel = (ProcessModel) sml;
                     addAbstractProcessValues(xbProcessModel, smlProcessModel);
                     addProcessModelValues(xbProcessModel, smlProcessModel);
                 } else if (sml instanceof org.n52.shetland.ogc.sensorML.Component) {
                     final ComponentType xbCompontent = (ComponentType) xbSensorML.addNewMember().addNewProcess()
-                            .substitute(new QName(SensorMLConstants.NS_SML, SensorMLConstants.EN_COMPONENT),
+                            .substitute(new QName(/*~~>*/SensorMLConstants.NS_SML, /*~~>*/SensorMLConstants.EN_COMPONENT),
                                     ComponentType.type);
                     final org.n52.shetland.ogc.sensorML.Component smlComponent =
                             (org.n52.shetland.ogc.sensorML.Component) sml;
@@ -456,7 +456,7 @@ public class SensorMLEncoderv101
             xbContactInfo.setContactInstructions(smlRespParty.getContactInstructions());
         }
         if (smlRespParty.isSetOnlineResources()) {
-            for (final String onlineResouce : smlRespParty.getOnlineResources()) {
+            for (final /*~~>*/String onlineResouce : smlRespParty.getOnlineResources()) {
                 xbContactInfo.addNewOnlineResource().setHref(onlineResouce);
             }
         }
@@ -525,7 +525,7 @@ public class SensorMLEncoderv101
 
         if (sosAbstractProcess.isSetCapabilities()) {
             final Capabilities[] existing = abstractProcess.getCapabilitiesArray();
-            final Set<String> names = Sets.newHashSetWithExpectedSize(existing.length);
+            final Set</*~~>*/String> names = Sets.newHashSetWithExpectedSize(existing.length);
             for (final Capabilities element : existing) {
                 if (element.getName() != null) {
                     names.add(element.getName());
@@ -576,13 +576,13 @@ public class SensorMLEncoderv101
         }
         // set keywords
         if (sosAbstractProcess.isSetKeywords()) {
-            final List<String> keywords = sosAbstractProcess.getKeywords();
+            final List</*~~>*/String> keywords = sosAbstractProcess.getKeywords();
             final int length = abstractProcess.getKeywordsArray().length;
             for (int i = 0; i < length; ++i) {
                 abstractProcess.removeKeywords(i);
             }
             abstractProcess.addNewKeywords().addNewKeywordList()
-                    .setKeywordArray(keywords.toArray(new String[keywords.size()]));
+                    .setKeywordArray(keywords.toArray(new /*~~>*/String[keywords.size()]));
         }
 
         if (sosAbstractProcess.isSetValidTime()) {
@@ -593,7 +593,7 @@ public class SensorMLEncoderv101
                 newCursor.dispose();
             }
             final Time time = sosAbstractProcess.getMergedValidTime();
-            final XmlObject xbtime = encodeObjectToXml(GmlConstants.NS_GML, time);
+            final XmlObject xbtime = encodeObjectToXml(/*~~>*/GmlConstants.NS_GML, time);
             if (time instanceof TimeInstant) {
                 abstractProcess.addNewValidTime().addNewTimeInstant().set(xbtime);
             } else if (time instanceof TimePeriod) {
@@ -605,7 +605,7 @@ public class SensorMLEncoderv101
     private void addNamesToAbstractProcess(AbstractProcessType abstractProcess, List<CodeType> names)
             throws EncodingException {
         for (CodeType codeType : names) {
-            abstractProcess.addNewName().set(encodeObjectToXml(GmlConstants.NS_GML, codeType));
+            abstractProcess.addNewName().set(encodeObjectToXml(/*~~>*/GmlConstants.NS_GML, codeType));
         }
     }
 
@@ -688,7 +688,7 @@ public class SensorMLEncoderv101
         }
         if (capabilities.isSetAbstractDataRecord() && capabilities.getDataRecord().isSetFields()) {
             final XmlObject encodedDataRecord =
-                    encodeObjectToXml(SweConstants.NS_SWE_101, capabilities.getDataRecord());
+                    encodeObjectToXml(/*~~>*/SweConstants.NS_SWE_101, capabilities.getDataRecord());
             final XmlObject substituteElement =
                     XmlHelper.substituteElement(xbCapabilities.addNewAbstractDataRecord(), encodedDataRecord);
             substituteElement.set(encodedDataRecord);
@@ -1013,7 +1013,7 @@ public class SensorMLEncoderv101
             if (coordinate.getValue().getValue() != null
                     && (!coordinate.getValue().isSetValue() || !coordinate.getValue().getValue().equals(Double.NaN))) {
                 // FIXME: SWE Common NS
-                xbVector.addNewCoordinate().set(encodeObjectToXml(SweConstants.NS_SWE_101, coordinate));
+                xbVector.addNewCoordinate().set(encodeObjectToXml(/*~~>*/SweConstants.NS_SWE_101, coordinate));
             }
         }
         return xbPosition;
@@ -1033,7 +1033,7 @@ public class SensorMLEncoderv101
     private SmlLocation2 createLocation(SmlLocation location) throws EncodingException {
         final SmlLocation2 xbLocation = SmlLocation2.Factory.newInstance(getXmlOptions());
         if (location.isSetPoint()) {
-            XmlObject xbPoint = encodeObjectToXml(GmlConstants.NS_GML, location.getPoint());
+            XmlObject xbPoint = encodeObjectToXml(/*~~>*/GmlConstants.NS_GML, location.getPoint());
             if (xbPoint instanceof PointType) {
                 xbLocation.setPoint((PointType) xbPoint);
             }
@@ -1079,9 +1079,9 @@ public class SensorMLEncoderv101
     private Outputs createOutputs(final List<SmlIo> sosOutputs) throws EncodingException {
         Outputs outputs = Outputs.Factory.newInstance(getXmlOptions());
         OutputList outputList = outputs.addNewOutputList();
-        Set<String> definitions = Sets.newHashSet();
+        Set</*~~>*/String> definitions = Sets.newHashSet();
         int counter = 1;
-        Set<String> outputNames = Sets.newHashSet();
+        Set</*~~>*/String> outputNames = Sets.newHashSet();
         for (SmlIo sosSMLIo : sosOutputs) {
             if (sosSMLIo.isSetValue() && !definitions.contains(sosSMLIo.getIoValue().getDefinition())) {
                 if (!sosSMLIo.isSetName() || outputNames.contains(sosSMLIo.getIoName())) {
@@ -1108,7 +1108,7 @@ public class SensorMLEncoderv101
                 }
             } else {
                 SweAbstractDataComponent parameter = smlParameter.getParameter();
-                XmlObject xmlObject = encodeObjectToXml(SweConstants.NS_SWE_101, parameter);
+                XmlObject xmlObject = encodeObjectToXml(/*~~>*/SweConstants.NS_SWE_101, parameter);
                 if (xmlObject != null) {
                     if (parameter instanceof SweBoolean) {
                         param.addNewBoolean().set(xmlObject);
@@ -1243,7 +1243,7 @@ public class SensorMLEncoderv101
     private void addSweSimpleTypeToField(AnyScalarPropertyType xbField, SweAbstractDataComponent sosSweData)
             throws EncodingException {
         Encoder<?, SweAbstractDataComponent> encoder =
-                getEncoder(new XmlEncoderKey(SweConstants.NS_SWE_101, SweDataArray.class));
+                getEncoder(new XmlEncoderKey(/*~~>*/SweConstants.NS_SWE_101, SweDataArray.class));
         if (encoder == null) {
             throw new EncodingException("The %s is not supported by this SOS for SWE fields!",
                     sosSweData.getClass().getSimpleName());
@@ -1286,7 +1286,7 @@ public class SensorMLEncoderv101
             }
         } else {
             XmlObject encodeObjectToXml;
-            XmlObject xml = encodeObjectToXml(SweConstants.NS_SWE_101, sosSMLIO.getIoValue());
+            XmlObject xml = encodeObjectToXml(/*~~>*/SweConstants.NS_SWE_101, sosSMLIO.getIoValue());
 
             if (xml instanceof DataArrayDocument) {
                 encodeObjectToXml = ((DataArrayDocument) xml).getDataArray1();

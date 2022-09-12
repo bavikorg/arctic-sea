@@ -26,7 +26,7 @@ public interface ODataExpr {
      *
      * @return String representation of this Expr
      */
-    default String toODataString() {
+    default /*~~>*/String toODataString() {
         return toString();
     }
 }

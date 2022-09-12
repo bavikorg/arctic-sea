@@ -61,7 +61,7 @@ public class SkipTopFilter implements FilterClause {
     }
 
     @Override
-    public String toString() {
+    public /*~~>*/String toString() {
         return ((getOperator().equals(SkipTopOperator.Top)) ? "$top" : "$skip") + "=" + getValue().toString();
     }
 }

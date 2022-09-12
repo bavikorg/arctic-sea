@@ -52,7 +52,7 @@ public class I18NSerializerTest {
 
     private void test(MultilingualString string) {
         assertThat(string, is(notNullValue()));
-        String encoded = new I18NSerializer().encode(string);
+        /*~~>*/String encoded = new I18NSerializer().encode(string);
         //System.out.println(encoded);
         assertThat(encoded.isEmpty(), is(string.isEmpty()));
         MultilingualString decoded = new I18NSerializer().decode(encoded);

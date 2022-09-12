@@ -19,7 +19,7 @@ public class STAInvalidUrlException extends Exception {
 
     private static final long serialVersionUID = 1735032375472119946L;
 
-    public STAInvalidUrlException(String s) {
+    public STAInvalidUrlException(/*~~>*/String s) {
         super(s);
     }
 }

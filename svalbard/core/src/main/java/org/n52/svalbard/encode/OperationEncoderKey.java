@@ -28,12 +28,12 @@ import com.google.common.base.Objects;
 public abstract class OperationEncoderKey extends OwsOperationKey implements EncoderKey {
     private final MediaType contentType;
 
-    public OperationEncoderKey(String service, String version, String operation, MediaType contentType) {
+    public OperationEncoderKey(/*~~>*/String service, /*~~>*/String version, /*~~>*/String operation, MediaType contentType) {
         super(service, version, operation);
         this.contentType = contentType;
     }
 
-    public OperationEncoderKey(String service, String version, Enum<?> operation, MediaType contentType) {
+    public OperationEncoderKey(/*~~>*/String service, /*~~>*/String version, Enum<?> operation, MediaType contentType) {
         super(service, version, operation);
         this.contentType = contentType;
     }
@@ -74,8 +74,8 @@ public abstract class OperationEncoderKey extends OwsOperationKey implements Enc
     }
 
     @Override
-    public String toString() {
-        return String.format("%s[service=%s, version=%s, operation=%s, contentType=%s]", getClass().getSimpleName(),
+    public /*~~>*/String toString() {
+        return /*~~>*/String.format("%s[service=%s, version=%s, operation=%s, contentType=%s]", getClass().getSimpleName(),
                 getService(), getVersion(), getOperation(), getContentType());
     }
 }

@@ -76,8 +76,8 @@ public class MinimalInspireExtendedCapabilities extends InspireExtendedCapabilit
     }
 
     @Override
-    public String toString() {
-        return String.format(
+    public /*~~>*/String toString() {
+        return /*~~>*/String.format(
                 "%s %n[%n \tn supportedLanguages=%s," + "%n responseLanguage=%s," + "%n metadataUrl=%s%n]",
                 this.getClass().getSimpleName(), getSupportedLanguages(), getResponseLanguage(), getMetadataUrl());
     }

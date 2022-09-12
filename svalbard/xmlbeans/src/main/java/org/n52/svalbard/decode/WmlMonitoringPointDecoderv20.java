@@ -50,17 +50,17 @@ public class WmlMonitoringPointDecoderv20 extends SamplingDecoderv20 {
     private static final Logger LOGGER = LoggerFactory.getLogger(WmlMonitoringPointDecoderv20.class);
 
     private static final Set<SupportedType> SUPPORTED_TYPES =
-            ImmutableSet.<SupportedType> builder().add(new FeatureType(OGCConstants.UNKNOWN))
-                    .add(new FeatureType(SfConstants.SAMPLING_FEAT_TYPE_SF_SAMPLING_POINT))
-                    .add(new FeatureType(SfConstants.SAMPLING_FEAT_TYPE_SF_SAMPLING_CURVE))
-                    .add(new FeatureType(SfConstants.SAMPLING_FEAT_TYPE_SF_SAMPLING_SURFACE)).build();
+            ImmutableSet.<SupportedType> builder().add(new FeatureType(/*~~>*/OGCConstants.UNKNOWN))
+                    .add(new FeatureType(/*~~>*/SfConstants.SAMPLING_FEAT_TYPE_SF_SAMPLING_POINT))
+                    .add(new FeatureType(/*~~>*/SfConstants.SAMPLING_FEAT_TYPE_SF_SAMPLING_CURVE))
+                    .add(new FeatureType(/*~~>*/SfConstants.SAMPLING_FEAT_TYPE_SF_SAMPLING_SURFACE)).build();
 
-    private static final Set<String> CONFORMANCE_CLASSES =
-            Sets.newHashSet(ConformanceClasses.OM_V2_SPATIAL_SAMPLING, ConformanceClasses.OM_V2_SAMPLING_POINT,
-                    ConformanceClasses.OM_V2_SAMPLING_CURVE, ConformanceClasses.OM_V2_SAMPLING_SURFACE);
+    private static final Set</*~~>*/String> CONFORMANCE_CLASSES =
+            Sets.newHashSet(/*~~>*/ConformanceClasses.OM_V2_SPATIAL_SAMPLING, /*~~>*/ConformanceClasses.OM_V2_SAMPLING_POINT,
+                    /*~~>*/ConformanceClasses.OM_V2_SAMPLING_CURVE, /*~~>*/ConformanceClasses.OM_V2_SAMPLING_SURFACE);
 
     private static final Set<DecoderKey> DECODER_KEYS = CollectionHelper.union(
-            CodingHelper.decoderKeysForElements(WaterMLConstants.NS_WML_20, MonitoringPointDocument.class,
+            CodingHelper.decoderKeysForElements(/*~~>*/WaterMLConstants.NS_WML_20, MonitoringPointDocument.class,
                     MonitoringPointPropertyType.class, MonitoringPointType.class));
 
     public WmlMonitoringPointDecoderv20() {
@@ -80,8 +80,8 @@ public class WmlMonitoringPointDecoderv20 extends SamplingDecoderv20 {
     }
 
     @Override
-    public Set<String> getConformanceClasses(String service, String version) {
-        if (SosConstants.SOS.equals(service) && Sos2Constants.SERVICEVERSION.equals(version)) {
+    public Set</*~~>*/String> getConformanceClasses(/*~~>*/String service, /*~~>*/String version) {
+        if (/*~~>*/SosConstants.SOS.equals(service) && /*~~>*/Sos2Constants.SERVICEVERSION.equals(version)) {
             return Collections.unmodifiableSet(CONFORMANCE_CLASSES);
         }
         return Collections.emptySet();

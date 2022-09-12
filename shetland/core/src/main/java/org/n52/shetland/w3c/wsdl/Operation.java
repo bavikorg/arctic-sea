@@ -36,7 +36,7 @@ public class Operation extends AbstractWsdl {
     private Output output;
     private final Collection<Fault> faults = new TreeSet<>();
 
-    public Operation(String name) {
+    public Operation(/*~~>*/String name) {
         super(name);
     }
 

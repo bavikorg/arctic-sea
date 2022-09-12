@@ -37,7 +37,7 @@ public class TimeLocationValueTripleTypeEncoder
         extends AbstractTimeLocationValueTripleTypeEncoder<TimeValuePairType> {
 
     private static final Set<EncoderKey> ENCODER_KEYS =
-            CodingHelper.encoderKeysForElements(InspireOMSOConstants.NS_OMSO_30, TimeLocationValueTriple.class);
+            CodingHelper.encoderKeysForElements(/*~~>*/InspireOMSOConstants.NS_OMSO_30, TimeLocationValueTriple.class);
 
     @Override
     public Set<EncoderKey> getKeys() {

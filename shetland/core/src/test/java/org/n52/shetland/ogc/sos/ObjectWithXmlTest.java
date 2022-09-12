@@ -128,13 +128,13 @@ public class ObjectWithXmlTest {
 
     }
 
-    private TestObject createTestObject(Integer object, String xml) {
+    private TestObject createTestObject(Integer object, /*~~>*/String xml) {
         return new TestObject(object, xml);
     }
 
     class TestObject extends ObjectWithXmlString<Integer> {
 
-        public TestObject(Integer object, String xml) {
+        public TestObject(Integer object, /*~~>*/String xml) {
             super(object, xml);
         }
     }

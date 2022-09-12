@@ -114,14 +114,14 @@ public class STAQueryOptionVisitor extends STAQueryOptionsGrammarBaseVisitor {
     }
 
     @Override public SelectFilter visitSelect(STAQueryOptionsGrammar.SelectContext ctx) {
-        Set<String> pathFilterItems = new HashSet<>();
+        Set</*~~>*/String> pathFilterItems = new HashSet<>();
         for (STAQueryOptionsGrammar.SelectItemContext selectItemContext : ctx.selectItem()) {
             pathFilterItems.add(visitSelectItem(selectItemContext));
         }
         return new SelectFilter(pathFilterItems);
     }
 
-    @Override public String visitSelectItem(STAQueryOptionsGrammar.SelectItemContext ctx) {
+    @Override public /*~~>*/String visitSelectItem(STAQueryOptionsGrammar.SelectItemContext ctx) {
         return ctx.getText();
     }
 
@@ -152,7 +152,7 @@ public class STAQueryOptionVisitor extends STAQueryOptionsGrammarBaseVisitor {
     }
 
     private ExpandFilter createExpandFilter(Set<ExpandItem> items) {
-        Map<String, ExpandItem> map = new HashMap<>();
+        Map</*~~>*/String, ExpandItem> map = new HashMap<>();
         for (ExpandItem item : items) {
             if (map.containsKey(item.getPath())) {
                 QueryOptions queryOptions = mergeQueryOptions(map.get(item.getPath()).getQueryOptions(),
@@ -218,7 +218,7 @@ public class STAQueryOptionVisitor extends STAQueryOptionsGrammarBaseVisitor {
             if (Objects.equals(q2Clause.get(), q1Clause.get())) {
                 return q1Clause.get();
             } else {
-                final String empty = "null";
+                final /*~~>*/String empty = "null";
                 throw new STAInvalidQueryError("Invalid Query. Tried to expand the same Entity multiple times "
                                                        + "with different QueryOptions! Could not merge: "
                                                        + ((q1hasClause.get()) ? q1Clause.get().toString() : empty)

@@ -46,9 +46,9 @@ import net.opengis.drt.x10.DeleteResultTemplateType.Tuple;
 public class DeleteResultTemplateDecoder
         extends AbstractXmlDecoder<XmlObject, DeleteResultTemplateRequest> {
     private static final Set<DecoderKey> DECODER_KEYS = CollectionHelper.union(
-            CodingHelper.decoderKeysForElements(DeleteResultTemplateConstants.NS, DeleteResultTemplateDocument.class),
-            CodingHelper.xmlDecoderKeysForOperation(SosConstants.SOS, Sos2Constants.SERVICEVERSION,
-                    DeleteResultTemplateConstants.OPERATION_NAME));
+            CodingHelper.decoderKeysForElements(/*~~>*/DeleteResultTemplateConstants.NS, DeleteResultTemplateDocument.class),
+            CodingHelper.xmlDecoderKeysForOperation(/*~~>*/SosConstants.SOS, /*~~>*/Sos2Constants.SERVICEVERSION,
+                    /*~~>*/DeleteResultTemplateConstants.OPERATION_NAME));
 
     private static final Logger LOGGER = LoggerFactory.getLogger(DeleteResultTemplateDecoder.class);
 
@@ -59,12 +59,12 @@ public class DeleteResultTemplateDecoder
 
     @Override
     public DeleteResultTemplateRequest decode(XmlObject xmlObject) throws DecodingException {
-        LOGGER.debug(String.format("REQUESTTYPE: %s", xmlObject != null ? xmlObject.getClass() : "null recevied"));
+        LOGGER.debug(/*~~>*/String.format("REQUESTTYPE: %s", xmlObject != null ? xmlObject.getClass() : "null recevied"));
         XmlHelper.validateDocument(xmlObject);
         if (xmlObject instanceof DeleteResultTemplateDocument) {
             DeleteResultTemplateDocument drtd = (DeleteResultTemplateDocument) xmlObject;
             DeleteResultTemplateRequest decodedRequest = parseDeleteResultTemplate(drtd);
-            LOGGER.debug(String.format("Decoded request: %s", decodedRequest));
+            LOGGER.debug(/*~~>*/String.format("Decoded request: %s", decodedRequest));
             return decodedRequest;
         } else {
             throw new UnsupportedDecoderInputException(this, xmlObject);
@@ -90,8 +90,8 @@ public class DeleteResultTemplateDecoder
         return request;
     }
 
-    private void parseResultTemplates(String[] resultTemplateArray, DeleteResultTemplateRequest request) {
-        for (String resultTemplateId : resultTemplateArray) {
+    private void parseResultTemplates(/*~~>*/String[] resultTemplateArray, DeleteResultTemplateRequest request) {
+        for (/*~~>*/String resultTemplateId : resultTemplateArray) {
             request.addResultTemplate(resultTemplateId);
         }
     }

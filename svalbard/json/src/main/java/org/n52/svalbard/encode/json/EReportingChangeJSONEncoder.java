@@ -36,8 +36,8 @@ public class EReportingChangeJSONEncoder extends JSONEncoder<EReportingChange> {
     public JsonNode encodeJSON(EReportingChange t)
             throws EncodingException {
         return nodeFactory().objectNode()
-                .put(AQDJSONConstants.CHANGED, t.isChange())
-                .put(AQDJSONConstants.DESCRIPTION, t.getDescription().orNull());
+                .put(/*~~>*/AQDJSONConstants.CHANGED, t.isChange())
+                .put(/*~~>*/AQDJSONConstants.DESCRIPTION, t.getDescription().orNull());
     }
 
 }

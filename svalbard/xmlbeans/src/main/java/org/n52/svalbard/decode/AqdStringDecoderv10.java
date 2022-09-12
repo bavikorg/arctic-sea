@@ -32,10 +32,10 @@ import org.n52.svalbard.util.CodingHelper;
 public class AqdStringDecoderv10 extends AbstractStringRequestDecoder {
 
     private static final Set<DecoderKey> DECODER_KEYS = CollectionHelper.union(
-            CodingHelper.xmlStringDecoderKeysForOperationAndMediaType(AqdConstants.AQD, AqdConstants.VERSION,
+            CodingHelper.xmlStringDecoderKeysForOperationAndMediaType(/*~~>*/AqdConstants.AQD, /*~~>*/AqdConstants.VERSION,
                     AqdConstants.Operations.GetCapabilities, AqdConstants.Operations.GetObservation,
                     AqdConstants.Operations.DescribeSensor),
-            CodingHelper.xmlStringDecoderKeysForOperationAndMediaType(AqdConstants.AQD, null,
+            CodingHelper.xmlStringDecoderKeysForOperationAndMediaType(/*~~>*/AqdConstants.AQD, null,
                     AqdConstants.Operations.GetCapabilities));
 
     @Override

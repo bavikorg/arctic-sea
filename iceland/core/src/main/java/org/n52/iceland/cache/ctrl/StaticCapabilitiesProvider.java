@@ -19,7 +19,7 @@ import org.n52.shetland.ogc.ows.service.GetCapabilitiesResponse;
 
 public interface StaticCapabilitiesProvider {
 
-    String PROVIDE_STATIC_CAPABILITIES = "service.capabilities.provide.static";
+    /*~~>*/String PROVIDE_STATIC_CAPABILITIES = "service.capabilities.provide.static";
 
     default boolean isProvideStaticCapabilities() {
         return false;
@@ -27,8 +27,8 @@ public interface StaticCapabilitiesProvider {
 
     void create();
 
-    String get(GetCapabilitiesResponse response);
+    /*~~>*/String get(GetCapabilitiesResponse response);
 
-    String get(String identifier);
+    /*~~>*/String get(/*~~>*/String identifier);
 
 }

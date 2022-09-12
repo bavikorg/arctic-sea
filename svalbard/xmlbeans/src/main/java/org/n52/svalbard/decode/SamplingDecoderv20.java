@@ -70,19 +70,19 @@ public class SamplingDecoderv20
     private static final Logger LOGGER = LoggerFactory.getLogger(SamplingDecoderv20.class);
 
     private static final Set<SupportedType> SUPPORTED_TYPES =
-            ImmutableSet.<SupportedType> builder().add(new FeatureType(OGCConstants.UNKNOWN))
-                    .add(new FeatureType(SfConstants.SAMPLING_FEAT_TYPE_SF_SAMPLING_POINT))
-                    .add(new FeatureType(SfConstants.SAMPLING_FEAT_TYPE_SF_SAMPLING_CURVE))
-                    .add(new FeatureType(SfConstants.SAMPLING_FEAT_TYPE_SF_SAMPLING_SURFACE)).build();
+            ImmutableSet.<SupportedType> builder().add(new FeatureType(/*~~>*/OGCConstants.UNKNOWN))
+                    .add(new FeatureType(/*~~>*/SfConstants.SAMPLING_FEAT_TYPE_SF_SAMPLING_POINT))
+                    .add(new FeatureType(/*~~>*/SfConstants.SAMPLING_FEAT_TYPE_SF_SAMPLING_CURVE))
+                    .add(new FeatureType(/*~~>*/SfConstants.SAMPLING_FEAT_TYPE_SF_SAMPLING_SURFACE)).build();
 
-    private static final Set<String> CONFORMANCE_CLASSES =
-            Sets.newHashSet(ConformanceClasses.OM_V2_SPATIAL_SAMPLING, ConformanceClasses.OM_V2_SAMPLING_POINT,
-                    ConformanceClasses.OM_V2_SAMPLING_CURVE, ConformanceClasses.OM_V2_SAMPLING_SURFACE);
+    private static final Set</*~~>*/String> CONFORMANCE_CLASSES =
+            Sets.newHashSet(/*~~>*/ConformanceClasses.OM_V2_SPATIAL_SAMPLING, /*~~>*/ConformanceClasses.OM_V2_SAMPLING_POINT,
+                    /*~~>*/ConformanceClasses.OM_V2_SAMPLING_CURVE, /*~~>*/ConformanceClasses.OM_V2_SAMPLING_SURFACE);
 
     private static final Set<DecoderKey> DECODER_KEYS = CollectionHelper.union(
-            CodingHelper.decoderKeysForElements(SfConstants.NS_SF, SFSpatialSamplingFeatureDocument.class,
+            CodingHelper.decoderKeysForElements(/*~~>*/SfConstants.NS_SF, SFSpatialSamplingFeatureDocument.class,
                     SFSpatialSamplingFeatureType.class),
-            CodingHelper.decoderKeysForElements(SfConstants.NS_SAMS, SFSpatialSamplingFeatureDocument.class,
+            CodingHelper.decoderKeysForElements(/*~~>*/SfConstants.NS_SAMS, SFSpatialSamplingFeatureDocument.class,
                     SFSpatialSamplingFeatureType.class));
 
     public SamplingDecoderv20() {
@@ -101,8 +101,8 @@ public class SamplingDecoderv20
     }
 
     @Override
-    public Set<String> getConformanceClasses(String service, String version) {
-        if (SosConstants.SOS.equals(service) && Sos2Constants.SERVICEVERSION.equals(version)) {
+    public Set</*~~>*/String> getConformanceClasses(/*~~>*/String service, /*~~>*/String version) {
+        if (/*~~>*/SosConstants.SOS.equals(service) && /*~~>*/Sos2Constants.SERVICEVERSION.equals(version)) {
             return Collections.unmodifiableSet(CONFORMANCE_CLASSES);
         }
         return Collections.emptySet();
@@ -141,14 +141,14 @@ public class SamplingDecoderv20
         return abstractSamplingFeature;
     }
 
-    private String getXmlDescription(final SFSpatialSamplingFeatureType spatialSamplingFeature) {
+    private /*~~>*/String getXmlDescription(final SFSpatialSamplingFeatureType spatialSamplingFeature) {
         final SFSpatialSamplingFeatureDocument featureDoc =
                 SFSpatialSamplingFeatureDocument.Factory.newInstance(getXmlOptions());
         featureDoc.setSFSpatialSamplingFeature(spatialSamplingFeature);
         return featureDoc.xmlText(getXmlOptions());
     }
 
-    private String getFeatureType(final ReferenceType type) {
+    private /*~~>*/String getFeatureType(final ReferenceType type) {
         if (type != null && type.getHref() != null && !type.getHref().isEmpty()) {
             return type.getHref();
         }
@@ -235,7 +235,7 @@ public class SamplingDecoderv20
     }
 
     private void checkTypeAndGeometry(final AbstractSamplingFeature sosFeat) throws DecodingException {
-        final String featTypeForGeometry = getFeatTypeForGeometry(sosFeat.getGeometry());
+        final /*~~>*/String featTypeForGeometry = getFeatTypeForGeometry(sosFeat.getGeometry());
         if (sosFeat.getFeatureType() == null) {
             sosFeat.setFeatureType(featTypeForGeometry);
         } else {
@@ -248,15 +248,15 @@ public class SamplingDecoderv20
 
     }
 
-    private String getFeatTypeForGeometry(final Geometry geometry) {
+    private /*~~>*/String getFeatTypeForGeometry(final Geometry geometry) {
         if (geometry instanceof Point || geometry instanceof MultiPoint) {
-            return SfConstants.SAMPLING_FEAT_TYPE_SF_SAMPLING_POINT;
+            return /*~~>*/SfConstants.SAMPLING_FEAT_TYPE_SF_SAMPLING_POINT;
         } else if (geometry instanceof LineString || geometry instanceof MultiLineString) {
-            return SfConstants.SAMPLING_FEAT_TYPE_SF_SAMPLING_CURVE;
+            return /*~~>*/SfConstants.SAMPLING_FEAT_TYPE_SF_SAMPLING_CURVE;
         } else if (geometry instanceof Polygon || geometry instanceof MultiPolygon) {
-            return SfConstants.SAMPLING_FEAT_TYPE_SF_SAMPLING_SURFACE;
+            return /*~~>*/SfConstants.SAMPLING_FEAT_TYPE_SF_SAMPLING_SURFACE;
         }
-        return SfConstants.SAMPLING_FEAT_TYPE_SF_SAMPLING_FEATURE;
+        return /*~~>*/SfConstants.SAMPLING_FEAT_TYPE_SF_SAMPLING_FEATURE;
     }
 
 }

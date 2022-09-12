@@ -21,13 +21,13 @@ import com.google.common.base.Objects;
 
 public class XmlDocumentEncoderKey extends XmlEncoderKey {
 
-    public XmlDocumentEncoderKey(String namespace, Class<?> type) {
+    public XmlDocumentEncoderKey(/*~~>*/String namespace, Class<?> type) {
         super(namespace, type);
     }
 
     @Override
-    public String toString() {
-        return String.format("XmlDocumentEncoderKey[namespace=%s, type=%s]", getNamespace(), getType().getSimpleName());
+    public /*~~>*/String toString() {
+        return /*~~>*/String.format("XmlDocumentEncoderKey[namespace=%s, type=%s]", getNamespace(), getType().getSimpleName());
     }
 
     @Override

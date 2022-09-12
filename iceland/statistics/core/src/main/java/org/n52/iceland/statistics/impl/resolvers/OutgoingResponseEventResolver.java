@@ -26,10 +26,10 @@ import org.n52.iceland.statistics.api.utils.EventHandlerFinder;
 public class OutgoingResponseEventResolver implements StatisticsServiceEventResolver<OutgoingResponseEvent> {
 
     private OutgoingResponseEvent event;
-    private Map<String, StatisticsServiceEventHandler<?>> handlers = new LinkedHashMap<>();
+    private Map</*~~>*/String, StatisticsServiceEventHandler<?>> handlers = new LinkedHashMap<>();
 
     @Override
-    public Map<String, Object> resolve() {
+    public Map</*~~>*/String, Object> resolve() {
         if (event == null) {
             return null;
         }
@@ -47,7 +47,7 @@ public class OutgoingResponseEventResolver implements StatisticsServiceEventReso
     }
 
     @Override
-    public void setHandlers(Map<String, StatisticsServiceEventHandler<?>> handlers) {
+    public void setHandlers(Map</*~~>*/String, StatisticsServiceEventHandler<?>> handlers) {
         this.handlers.clear();
         if (handlers != null) {
             this.handlers.putAll(handlers);

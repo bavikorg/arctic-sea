@@ -65,9 +65,9 @@ public class TrajectoryObservationTypeEncoder
         extends AbstractOmInspireEncoder {
 
     private static final Logger LOGGER = LoggerFactory.getLogger(TrajectoryObservationTypeEncoder.class);
-    private static final String TIMESERIES_PREFIX = "timeseries.";
+    private static final /*~~>*/String TIMESERIES_PREFIX = "timeseries.";
     private static final Set<EncoderKey> ENCODER_KEYS =
-            CodingHelper.encoderKeysForElements(InspireOMSOConstants.NS_OMSO_30, TrajectoryObservation.class);
+            CodingHelper.encoderKeysForElements(/*~~>*/InspireOMSOConstants.NS_OMSO_30, TrajectoryObservation.class);
 
     public TrajectoryObservationTypeEncoder() {
         LOGGER.debug("Encoder for the following keys initialized successfully: {}!",
@@ -120,8 +120,8 @@ public class TrajectoryObservationTypeEncoder
     }
 
     @Override
-    protected String getObservationType() {
-        return InspireOMSOConstants.OBS_TYPE_TRAJECTORY_OBSERVATION;
+    protected /*~~>*/String getObservationType() {
+        return /*~~>*/InspireOMSOConstants.OBS_TYPE_TRAJECTORY_OBSERVATION;
     }
 
     protected OMObservationType createOmObservationType() {
@@ -159,7 +159,7 @@ public class TrajectoryObservationTypeEncoder
                 .setHref("http://www.opengis.net/def/timeseriesType/WaterML/2.0/continuous");
 
         xbDefMeasureMetaComponent.getDefaultTVPMeasurementMetadata().getInterpolationType().setTitle("Instantaneous");
-        String unit = null;
+        /*~~>*/String unit = null;
         if (observationValue instanceof SingleObservationValue) {
             SingleObservationValue<?> singleObservationValue = (SingleObservationValue<?>) observationValue;
             unit = singleObservationValue.getValue().getUnit();
@@ -229,7 +229,7 @@ public class TrajectoryObservationTypeEncoder
                 DefaultTVPCategoricalMetadataDocument.Factory.newInstance();
         DefaultCategoricalTVPMetadataType defaultTVPCateMetadata =
                 xbDefCateMetaComponent.addNewDefaultTVPCategoricalMetadata();
-        String unit = null;
+        /*~~>*/String unit = null;
         if (observationValue instanceof SingleObservationValue) {
             SingleObservationValue<?> singleObservationValue = (SingleObservationValue<?>) observationValue;
             unit = singleObservationValue.getValue().getUnit();
@@ -268,16 +268,16 @@ public class TrajectoryObservationTypeEncoder
      *            Observation counter
      * @return {@link EncodingContext}
      */
-    private EncodingContext getUserObject(String observationID, int counter) {
+    private EncodingContext getUserObject(/*~~>*/String observationID, int counter) {
         return EncodingContext.of(XmlBeansEncodingFlags.GMLID, observationID + "_" + counter);
     }
 
     protected XmlObject encodeInspireOMSO(Object o) throws EncodingException {
-        return encodeObjectToXml(InspireOMSOConstants.NS_OMSO_30, o);
+        return encodeObjectToXml(/*~~>*/InspireOMSOConstants.NS_OMSO_30, o);
     }
 
     protected XmlObject encodeInspireOMSO(Object o, EncodingContext ec) throws EncodingException {
-        return encodeObjectToXml(InspireOMSOConstants.NS_OMSO_30, o, ec);
+        return encodeObjectToXml(/*~~>*/InspireOMSOConstants.NS_OMSO_30, o, ec);
     }
 
 }

@@ -34,12 +34,12 @@ public enum Show {
 
     @Override
     @JsonValue
-    public String toString() {
+    public /*~~>*/String toString() {
         return this.name().toLowerCase();
     }
 
     @JsonCreator
-    public static Show fromString(String str) {
+    public static Show fromString(/*~~>*/String str) {
         if (str == null || str.isEmpty()) {
             return null;
         }

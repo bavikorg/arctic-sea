@@ -21,7 +21,7 @@ import org.n52.shetland.rdf.AbstractResource;
 
 public class Email extends AbstractResource implements Vcard4RdfPrefix {
 
-    public Email(String value) {
+    public Email(/*~~>*/String value) {
         super(value);
     }
 

@@ -27,47 +27,47 @@ public interface WsaConstants {
     /**
      * WSA fault action URI
      */
-    String WSA_FAULT_ACTION = "http://www.w3.org/2005/08/addressing/fault";
+    /*~~>*/String WSA_FAULT_ACTION = "http://www.w3.org/2005/08/addressing/fault";
 
     /**
      * WSA namespace
      */
-    String NS_WSA = "http://www.w3.org/2005/08/addressing";
+    /*~~>*/String NS_WSA = "http://www.w3.org/2005/08/addressing";
 
     /**
      * WSA prefix
      */
-    String NS_WSA_PREFIX = "wsa";
+    /*~~>*/String NS_WSA_PREFIX = "wsa";
 
     /**
      * WSA to element
      */
-    String EN_TO = "To";
+    /*~~>*/String EN_TO = "To";
 
     /**
      * WSA action element
      */
-    String EN_ACTION = "Action";
+    /*~~>*/String EN_ACTION = "Action";
 
     /**
      * WSA replyTo element
      */
-    String EN_REPLY_TO = "ReplyTo";
+    /*~~>*/String EN_REPLY_TO = "ReplyTo";
 
     /**
      * WSA address element
      */
-    String EN_ADDRESS = "Address";
+    /*~~>*/String EN_ADDRESS = "Address";
 
     /**
      * WSA messageID element
      */
-    String EN_MESSAGE_ID = "MessageID";
+    /*~~>*/String EN_MESSAGE_ID = "MessageID";
 
     /**
      * WSA relatesTo element
      */
-    String EN_RELATES_TO = "RelatesTo";
+    /*~~>*/String EN_RELATES_TO = "RelatesTo";
 
     QName QN_TO = new QName(NS_WSA, EN_TO, NS_WSA_PREFIX);
 

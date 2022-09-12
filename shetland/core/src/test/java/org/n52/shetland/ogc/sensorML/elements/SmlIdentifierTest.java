@@ -41,7 +41,7 @@ public class SmlIdentifierTest {
 
     @Test
     public void should_return_true_if_name_is_set() {
-        final String name = "name";
+        final /*~~>*/String name = "name";
         final SmlIdentifier identifier = new SmlIdentifier(name, null, null);
 
         assertThat(identifier.isSetName(), is(TRUE));
@@ -50,7 +50,7 @@ public class SmlIdentifierTest {
 
     @Test
     public void should_return_true_if_definition_is_set() {
-        final String definition = "definition";
+        final /*~~>*/String definition = "definition";
         final SmlIdentifier identifier = new SmlIdentifier(null, definition, null);
 
         assertThat(identifier.isSetDefinition(), is(TRUE));
@@ -59,7 +59,7 @@ public class SmlIdentifierTest {
 
     @Test
     public void should_return_true_if_value_is_set() {
-        final String value = "value";
+        final /*~~>*/String value = "value";
         final SmlIdentifier identifier = new SmlIdentifier(null, null, value);
 
         assertThat(identifier.isSetValue(), is(TRUE));

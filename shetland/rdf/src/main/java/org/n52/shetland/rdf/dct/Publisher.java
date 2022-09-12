@@ -21,7 +21,7 @@ import org.n52.shetland.rdf.AbstractResource;
 
 public class Publisher extends AbstractResource implements DctRdfPrefix {
 
-    public Publisher(String value) {
+    public Publisher(/*~~>*/String value) {
         super(value);
     }
 

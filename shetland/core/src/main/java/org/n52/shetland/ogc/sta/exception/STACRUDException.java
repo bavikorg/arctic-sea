@@ -23,17 +23,17 @@ public class STACRUDException extends Exception {
 
     private final HTTPStatus responseStatus;
 
-    public STACRUDException(String msg) {
+    public STACRUDException(/*~~>*/String msg) {
         super(msg);
         responseStatus = HTTPStatus.INTERNAL_SERVER_ERROR;
     }
 
-    public STACRUDException(String msg, HTTPStatus status) {
+    public STACRUDException(/*~~>*/String msg, HTTPStatus status) {
         super(msg);
         responseStatus = status;
     }
 
-    public STACRUDException(String msg, Throwable nested) {
+    public STACRUDException(/*~~>*/String msg, Throwable nested) {
         super(msg, nested);
         responseStatus = HTTPStatus.INTERNAL_SERVER_ERROR;
     }

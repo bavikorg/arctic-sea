@@ -87,16 +87,16 @@ public class SosV1GetCapabilitiesResponseEncoder extends AbstractSosV1ResponseEn
 
         if (sosCapabilities.getServiceIdentification().isPresent()) {
             xbCaps.addNewServiceIdentification()
-                    .set(encodeObjectToXml(OWSConstants.NS_OWS, sosCapabilities.getServiceIdentification().get()));
+                    .set(encodeObjectToXml(/*~~>*/OWSConstants.NS_OWS, sosCapabilities.getServiceIdentification().get()));
         }
         if (sosCapabilities.getServiceProvider().isPresent()) {
             xbCaps.addNewServiceProvider()
-                    .set(encodeObjectToXml(OWSConstants.NS_OWS, sosCapabilities.getServiceProvider().get()));
+                    .set(encodeObjectToXml(/*~~>*/OWSConstants.NS_OWS, sosCapabilities.getServiceProvider().get()));
 
         }
         if (sosCapabilities.getOperationsMetadata().isPresent()) {
             xbCaps.addNewOperationsMetadata()
-                    .set(encodeObjectToXml(OWSConstants.NS_OWS, sosCapabilities.getOperationsMetadata().get()));
+                    .set(encodeObjectToXml(/*~~>*/OWSConstants.NS_OWS, sosCapabilities.getOperationsMetadata().get()));
         }
         if (sosCapabilities.getFilterCapabilities().isPresent()) {
             setFilterCapabilities(xbCaps.addNewFilterCapabilities(), sosCapabilities.getFilterCapabilities().get());
@@ -136,7 +136,7 @@ public class SosV1GetCapabilitiesResponseEncoder extends AbstractSosV1ResponseEn
      *
      * @throws EncodingException * if an error occurs.
      */
-    protected void setContents(Contents xbContents, Collection<SosObservationOffering> offerings, String version)
+    protected void setContents(Contents xbContents, Collection<SosObservationOffering> offerings, /*~~>*/String version)
             throws EncodingException {
         // Contents xbContType = xbContents.addNewContents();
         ObservationOfferingList xbObservationOfferings = xbContents.addNewObservationOfferingList();
@@ -151,14 +151,14 @@ public class SosV1GetCapabilitiesResponseEncoder extends AbstractSosV1ResponseEn
             // envelope
             if (offering.isSetObservedArea()) {
                 xbObservationOffering.addNewBoundedBy().addNewEnvelope()
-                        .set(encodeObjectToXml(GmlConstants.NS_GML, offering.getObservedArea()));
+                        .set(encodeObjectToXml(/*~~>*/GmlConstants.NS_GML, offering.getObservedArea()));
             }
 
             // TODO: add intended application
             // xbObservationOffering.addIntendedApplication("");
             // set gml:name to offering's id (not ncname resolved)
             for (CodeType name : offering.getOffering().getName()) {
-                xbObservationOffering.addNewName().set(encodeObjectToXml(GmlConstants.NS_GML, name));
+                xbObservationOffering.addNewName().set(encodeObjectToXml(/*~~>*/GmlConstants.NS_GML, name));
             }
 
             /*
@@ -183,7 +183,7 @@ public class SosV1GetCapabilitiesResponseEncoder extends AbstractSosV1ResponseEn
             // set up time
             if (offering.getPhenomenonTime() instanceof TimePeriod) {
                 xbObservationOffering.addNewTime()
-                        .set(encodeObjectToXml(SweConstants.NS_SWE_101, offering.getPhenomenonTime()));
+                        .set(encodeObjectToXml(/*~~>*/SweConstants.NS_SWE_101, offering.getPhenomenonTime()));
             }
 
             offering.getObservableProperties().forEach(phenomenon ->

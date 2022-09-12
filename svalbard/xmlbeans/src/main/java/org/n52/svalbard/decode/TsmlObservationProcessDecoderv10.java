@@ -51,18 +51,18 @@ public class TsmlObservationProcessDecoderv10
     private static final Logger LOGGER = LoggerFactory.getLogger(TsmlObservationProcessDecoderv10.class);
 
     private static final Set<DecoderKey> DECODER_KEYS = CollectionHelper.union(
-            CodingHelper.decoderKeysForElements(TimeseriesMLConstants.NS_TSML_10_PROCEDURE_ENCODING,
+            CodingHelper.decoderKeysForElements(/*~~>*/TimeseriesMLConstants.NS_TSML_10_PROCEDURE_ENCODING,
                     ObservationProcessDocument.class, ObservationProcessPropertyType.class,
                     ObservationProcessType.class),
-            CodingHelper.decoderKeysForElements(TimeseriesMLConstants.NS_TSML_10, ObservationProcessDocument.class,
+            CodingHelper.decoderKeysForElements(/*~~>*/TimeseriesMLConstants.NS_TSML_10, ObservationProcessDocument.class,
                     ObservationProcessPropertyType.class, ObservationProcessType.class));
 
-    private static final Map<String, Map<String, Set<String>>> SUPPORTED_TRANSACTIONAL_PROCEDURE_DESCRIPTION_FORMATS =
-            ImmutableMap.of(SosConstants.SOS, ImmutableMap.of(Sos2Constants.SERVICEVERSION,
-                    ImmutableSet.of(TimeseriesMLConstants.NS_TSML_10_PROCEDURE_ENCODING)));
+    private static final Map</*~~>*/String, Map</*~~>*/String, Set</*~~>*/String>>> SUPPORTED_TRANSACTIONAL_PROCEDURE_DESCRIPTION_FORMATS =
+            ImmutableMap.of(/*~~>*/SosConstants.SOS, ImmutableMap.of(/*~~>*/Sos2Constants.SERVICEVERSION,
+                    ImmutableSet.of(/*~~>*/TimeseriesMLConstants.NS_TSML_10_PROCEDURE_ENCODING)));
 
     private static final Set<SupportedType> SUPPORTED_TYPES =
-            ImmutableSet.of(new ProcedureDescriptionFormat(TimeseriesMLConstants.NS_TSML_10_PROCEDURE_ENCODING));
+            ImmutableSet.of(new ProcedureDescriptionFormat(/*~~>*/TimeseriesMLConstants.NS_TSML_10_PROCEDURE_ENCODING));
 
     public TsmlObservationProcessDecoderv10() {
         LOGGER.debug("Decoder for the following keys initialized successfully: {}!",
@@ -80,7 +80,7 @@ public class TsmlObservationProcessDecoderv10
     }
 
     @Override
-    public Set<String> getSupportedProcedureDescriptionFormats(String service, String version) {
+    public Set</*~~>*/String> getSupportedProcedureDescriptionFormats(/*~~>*/String service, /*~~>*/String version) {
         return SUPPORTED_TRANSACTIONAL_PROCEDURE_DESCRIPTION_FORMATS.getOrDefault(service, Collections.emptyMap())
                 .getOrDefault(version, Collections.emptySet());
     }

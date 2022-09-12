@@ -34,7 +34,7 @@ import com.google.common.collect.Sets;
 public class GetDataAvailabilityRequestEncoder extends AbstractSosRequestEncoder<GetDataAvailabilityRequest> {
 
     public GetDataAvailabilityRequestEncoder() {
-        super(GetDataAvailabilityConstants.OPERATION_NAME, GetDataAvailabilityRequest.class);
+        super(/*~~>*/GetDataAvailabilityConstants.OPERATION_NAME, GetDataAvailabilityRequest.class);
     }
 
     @Override
@@ -44,7 +44,7 @@ public class GetDataAvailabilityRequestEncoder extends AbstractSosRequestEncoder
 
     @Override
     protected XmlObject create(GetDataAvailabilityRequest request) throws EncodingException {
-        return request.getNamespace().equals(GetDataAvailabilityConstants.NS_GDA_20)
+        return request.getNamespace().equals(/*~~>*/GetDataAvailabilityConstants.NS_GDA_20)
                ? createGDAv20(request) : createGDAv10(request);
     }
 
@@ -52,8 +52,8 @@ public class GetDataAvailabilityRequestEncoder extends AbstractSosRequestEncoder
         net.opengis.sosgda.x10.GetDataAvailabilityDocument document
                 = net.opengis.sosgda.x10.GetDataAvailabilityDocument.Factory.newInstance();
         net.opengis.sosgda.x10.GetDataAvailabilityType gdat = document.addNewGetDataAvailability();
-        gdat.setService(request.isSetService() ? request.getService() : SosConstants.SOS);
-        gdat.setVersion(request.isSetVersion() ? request.getVersion() : Sos1Constants.SERVICEVERSION);
+        gdat.setService(request.isSetService() ? request.getService() : /*~~>*/SosConstants.SOS);
+        gdat.setVersion(request.isSetVersion() ? request.getVersion() : /*~~>*/Sos1Constants.SERVICEVERSION);
         request.getOfferings().forEach(gdat::addOffering);
         request.getProcedures().forEach(gdat::addProcedure);
         request.getFeaturesOfInterest().forEach(gdat::addFeatureOfInterest);
@@ -65,8 +65,8 @@ public class GetDataAvailabilityRequestEncoder extends AbstractSosRequestEncoder
         net.opengis.sosgda.x20.GetDataAvailabilityDocument document
                 = net.opengis.sosgda.x20.GetDataAvailabilityDocument.Factory.newInstance();
         net.opengis.sosgda.x20.GetDataAvailabilityType gdat = document.addNewGetDataAvailability();
-        gdat.setService(request.isSetService() ? request.getService() : SosConstants.SOS);
-        gdat.setVersion(request.isSetVersion() ? request.getVersion() : Sos2Constants.SERVICEVERSION);
+        gdat.setService(request.isSetService() ? request.getService() : /*~~>*/SosConstants.SOS);
+        gdat.setVersion(request.isSetVersion() ? request.getVersion() : /*~~>*/Sos2Constants.SERVICEVERSION);
         request.getOfferings().forEach(gdat::addOffering);
         request.getProcedures().forEach(gdat::addProcedure);
         request.getFeaturesOfInterest().forEach(gdat::addFeatureOfInterest);

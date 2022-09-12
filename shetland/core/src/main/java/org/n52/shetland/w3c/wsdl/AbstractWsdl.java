@@ -28,7 +28,7 @@ import org.n52.janmayen.Comparables;
 
 public abstract class AbstractWsdl implements Comparable<AbstractWsdl> {
 
-    private String name;
+    private /*~~>*/String name;
 
     private Map<QName, Object> extensionAttributes = new LinkedHashMap<>();
 
@@ -40,7 +40,7 @@ public abstract class AbstractWsdl implements Comparable<AbstractWsdl> {
         this(null, null);
     }
 
-    public AbstractWsdl(String name) {
+    public AbstractWsdl(/*~~>*/String name) {
         this(name, null);
     }
 
@@ -48,15 +48,15 @@ public abstract class AbstractWsdl implements Comparable<AbstractWsdl> {
         this(null, qName);
     }
 
-    public AbstractWsdl(String name, QName qName) {
-        this.name = name;
+    public AbstractWsdl(/*~~>*/String name, QName qName) {
+        /*~~>*/this.name = name;
         this.qName = qName;
     }
 
     /**
      * @return the name
      */
-    public String getName() {
+    public /*~~>*/String getName() {
         return name;
     }
 
@@ -64,8 +64,8 @@ public abstract class AbstractWsdl implements Comparable<AbstractWsdl> {
      * @param name
      *            the name to set
      */
-    public void setName(String name) {
-        this.name = name;
+    public void setName(/*~~>*/String name) {
+        /*~~>*/this.name = name;
     }
 
     public boolean isSetName() {

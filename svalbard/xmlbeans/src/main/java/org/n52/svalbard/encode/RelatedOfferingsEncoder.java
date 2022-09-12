@@ -41,7 +41,7 @@ import org.n52.svalbard.write.RelatedOfferingXmlStreamWriter;
 public class RelatedOfferingsEncoder extends AbstractXmlEncoder<XmlObject, RelatedOfferings> {
 
     private static final Set<EncoderKey> ENCODER_KEYS = CodingHelper
-            .encoderKeysForElements(RelatedOfferingConstants.NS_RO,
+            .encoderKeysForElements(/*~~>*/RelatedOfferingConstants.NS_RO,
                                     RelatedOfferings.class);
 
     @Override
@@ -50,8 +50,8 @@ public class RelatedOfferingsEncoder extends AbstractXmlEncoder<XmlObject, Relat
     }
 
     @Override
-    public void addNamespacePrefixToMap(Map<String, String> nameSpacePrefixMap) {
-        nameSpacePrefixMap.put(RelatedOfferingConstants.NS_RO, RelatedOfferingConstants.NS_RO_PREFIX);
+    public void addNamespacePrefixToMap(Map</*~~>*/String, /*~~>*/String> nameSpacePrefixMap) {
+        nameSpacePrefixMap.put(/*~~>*/RelatedOfferingConstants.NS_RO, /*~~>*/RelatedOfferingConstants.NS_RO_PREFIX);
     }
 
     @Override
@@ -65,7 +65,7 @@ public class RelatedOfferingsEncoder extends AbstractXmlEncoder<XmlObject, Relat
             new RelatedOfferingXmlStreamWriter(context, baos, objectToEncode).write();
             return XmlObject.Factory.parse(baos.toString("UTF8"));
         } catch (XMLStreamException | XmlException | UnsupportedEncodingException ex) {
-            String message = String.format("Error encoding %s", objectToEncode.getClass().getSimpleName());
+            /*~~>*/String message = /*~~>*/String.format("Error encoding %s", objectToEncode.getClass().getSimpleName());
             throw new EncodingException(message, ex);
         }
     }

@@ -30,50 +30,50 @@ import org.n52.shetland.w3c.SchemaLocation;
  *      "http://www.opengeospatial.org/standards/waterml">http://www.opengeospatial.org/standards/waterml</a>
  */
 public interface WaterMLConstants extends SeriesConstants {
-    String NS_WML_20 = "http://www.opengis.net/waterml/2.0";
+    /*~~>*/String NS_WML_20 = "http://www.opengis.net/waterml/2.0";
 
-    String NS_WML_20_DR = "http://www.opengis.net/waterml-dr/2.0";
+    /*~~>*/String NS_WML_20_DR = "http://www.opengis.net/waterml-dr/2.0";
 
-    String NS_WML_20_PREFIX = "wml2";
+    /*~~>*/String NS_WML_20_PREFIX = "wml2";
 
-    String NS_WML_20_DR_PREFIX = "wml2dr";
+    /*~~>*/String NS_WML_20_DR_PREFIX = "wml2dr";
 
-    String NS_WML_20_PROCEDURE_ENCODING = "http://www.opengis.net/waterml/2.0/observationProcess";
+    /*~~>*/String NS_WML_20_PROCEDURE_ENCODING = "http://www.opengis.net/waterml/2.0/observationProcess";
 
-    String PROCESS_TYPE_SIMULATION = "http://www.opengis.net/def/waterml/2.0/processType/Simulation";
+    /*~~>*/String PROCESS_TYPE_SIMULATION = "http://www.opengis.net/def/waterml/2.0/processType/Simulation";
 
-    String PROCESS_TYPE_MANUAL_METHOD = "http://www.opengis.net/def/waterml/2.0/processType/ManualMethod";
+    /*~~>*/String PROCESS_TYPE_MANUAL_METHOD = "http://www.opengis.net/def/waterml/2.0/processType/ManualMethod";
 
-    String PROCESS_TYPE_SENSOR = "http://www.opengis.net/def/waterml/2.0/processType/Sensor";
+    /*~~>*/String PROCESS_TYPE_SENSOR = "http://www.opengis.net/def/waterml/2.0/processType/Sensor";
 
-    String PROCESS_TYPE_ALGORITHM = "http://www.opengis.net/def/waterml/2.0/processType/Algorithm";
+    /*~~>*/String PROCESS_TYPE_ALGORITHM = "http://www.opengis.net/def/waterml/2.0/processType/Algorithm";
 
-    String PROCESS_TYPE_UNKNOWN = OGCConstants.UNKNOWN;
+    /*~~>*/String PROCESS_TYPE_UNKNOWN = /*~~>*/OGCConstants.UNKNOWN;
 
-    String OBSERVATION_TYPE_MEASURMENT_TVP =
+    /*~~>*/String OBSERVATION_TYPE_MEASURMENT_TVP =
             "http://www.opengis.net/def/observationType/waterml/2.0/MeasurementTimeseriesTVPObservation";
 
-    String OBSERVATION_TYPE_CATEGORICAL_TVP =
+    /*~~>*/String OBSERVATION_TYPE_CATEGORICAL_TVP =
             "http://www.opengis.net/def/observationType/waterml/2.0/CategoricalTVPTimeseriesObservation";
 
-    String OBSERVATION_TYPE_MEASURMENT_TDR =
+    /*~~>*/String OBSERVATION_TYPE_MEASURMENT_TDR =
             "http://www.opengis.net/def/observationType/waterml/2.0/measurementDRTimeseriesObservation";
 
-    String OBSERVATION_TYPE_CATEGORICAL_TDR =
+    /*~~>*/String OBSERVATION_TYPE_CATEGORICAL_TDR =
             "http://www.opengis.net/def/observationType/waterml/2.0/categoricalDRTimeseriesObservation";
 
     MediaType WML_CONTENT_TYPE = new MediaType(TEXT, XML, SUBTYPE, "waterml/2.0");
 
     MediaType WML_DR_CONTENT_TYPE = new MediaType(TEXT, XML, SUBTYPE, "waterml-dr/2.0");
 
-    String SCHEMA_LOCATION_URL_WML_20 = "http://schemas.opengis.net/waterml/2.0/waterml2.xsd";
+    /*~~>*/String SCHEMA_LOCATION_URL_WML_20 = "http://schemas.opengis.net/waterml/2.0/waterml2.xsd";
 
-    String SCHEMA_LOCATION_URL_WML_20_DR =
+    /*~~>*/String SCHEMA_LOCATION_URL_WML_20_DR =
             "http://schemas.opengis.net/waterml/2.0/domain-range-informative/timeseries-domain-range.xsd";
 
-    String SCHEMA_LOCATION_URL_WML_20_TS = "http://schemas.opengis.net/waterml/2.0/timeseries.xsd";
+    /*~~>*/String SCHEMA_LOCATION_URL_WML_20_TS = "http://schemas.opengis.net/waterml/2.0/timeseries.xsd";
 
-    String SCHEMA_LOCATION_URL_WML_20_MP = "http://schemas.opengis.net/waterml/2.0/monitoringPoint.xsd";
+    /*~~>*/String SCHEMA_LOCATION_URL_WML_20_MP = "http://schemas.opengis.net/waterml/2.0/monitoringPoint.xsd";
 
     SchemaLocation WML_20_SCHEMA_LOCATION = new SchemaLocation(NS_WML_20, SCHEMA_LOCATION_URL_WML_20);
 
@@ -126,9 +126,9 @@ public interface WaterMLConstants extends SeriesConstants {
     /**
      * @see MeasurementTimeseriesMetadata#isCumulative()
      */
-    String SERIES_METADATA_CUMULATIVE = NS_WML_20 + "/cumulative";
+    /*~~>*/String SERIES_METADATA_CUMULATIVE = NS_WML_20 + "/cumulative";
 
-    String INTERPOLATION_TYPE = "http://www.opengis.net/def/waterml/2.0/interpolationType";
+    /*~~>*/String INTERPOLATION_TYPE = "http://www.opengis.net/def/waterml/2.0/interpolationType";
 
     /**
      * Hold allowed values for element <code>interpolationType</code>.
@@ -197,21 +197,21 @@ public interface WaterMLConstants extends SeriesConstants {
          */
         Statistical("Statistical");
 
-        private String title;
+        private /*~~>*/String title;
 
-        InterpolationType(String title) {
-            this.title = title;
+        InterpolationType(/*~~>*/String title) {
+            /*~~>*/this.title = title;
         }
 
-        public String getIdentifier() {
+        public /*~~>*/String getIdentifier() {
             return INTERPOLATION_TYPE + "/" + this.toString();
         }
 
-        public String getTitle() {
+        public /*~~>*/String getTitle() {
             return title;
         }
 
-        public static InterpolationType from(String v) {
+        public static InterpolationType from(/*~~>*/String v) {
             return valueOf(v.replace(INTERPOLATION_TYPE + "/", ""));
         }
     }

@@ -33,39 +33,39 @@ import org.n52.shetland.util.CollectionHelper;
  */
 public class DeleteObservationRequest extends OwsServiceRequest implements ResponseFormat {
 
-    private final String operationName = DeleteObservationConstants.Operations.DeleteObservation.name();
+    private final /*~~>*/String operationName = DeleteObservationConstants.Operations.DeleteObservation.name();
 
-    private Set<String> observationIdentifiers = new HashSet<>();
+    private Set</*~~>*/String> observationIdentifiers = new HashSet<>();
 
-    private Set<String> procedures = new HashSet<>();
+    private Set</*~~>*/String> procedures = new HashSet<>();
 
-    private Set<String> observedProperties = new HashSet<>();
+    private Set</*~~>*/String> observedProperties = new HashSet<>();
 
-    private Set<String> features = new HashSet<>();
+    private Set</*~~>*/String> features = new HashSet<>();
 
-    private Set<String> offerings = new HashSet<>();
+    private Set</*~~>*/String> offerings = new HashSet<>();
 
     private Set<TemporalFilter> temporalFilters = new LinkedHashSet<>();
 
-    private String responseFormat;
+    private /*~~>*/String responseFormat;
 
     public DeleteObservationRequest() {
     }
 
-    public DeleteObservationRequest(String responseFormat) {
-        this.responseFormat = responseFormat;
+    public DeleteObservationRequest(/*~~>*/String responseFormat) {
+        /*~~>*/this.responseFormat = responseFormat;
     }
 
     @Override
-    public String getOperationName() {
+    public /*~~>*/String getOperationName() {
         return operationName;
     }
 
-    public Set<String> getObservationIdentifiers() {
+    public Set</*~~>*/String> getObservationIdentifiers() {
         return Collections.unmodifiableSet(observationIdentifiers);
     }
 
-    public DeleteObservationRequest setObservationIdentifiers(Collection<String> observationIdentifier) {
+    public DeleteObservationRequest setObservationIdentifiers(Collection</*~~>*/String> observationIdentifier) {
         this.observationIdentifiers.clear();
         if (observationIdentifier != null) {
             this.observationIdentifiers.addAll(observationIdentifier);
@@ -73,7 +73,7 @@ public class DeleteObservationRequest extends OwsServiceRequest implements Respo
         return this;
     }
 
-    public DeleteObservationRequest addObservationIdentifier(String observationIdentifier) {
+    public DeleteObservationRequest addObservationIdentifier(/*~~>*/String observationIdentifier) {
         this.observationIdentifiers.add(observationIdentifier);
         return this;
     }
@@ -85,7 +85,7 @@ public class DeleteObservationRequest extends OwsServiceRequest implements Respo
     /**
      * @return the procedures
      */
-    public Set<String> getProcedures() {
+    public Set</*~~>*/String> getProcedures() {
         return Collections.unmodifiableSet(procedures);
     }
 
@@ -93,7 +93,7 @@ public class DeleteObservationRequest extends OwsServiceRequest implements Respo
      * @param procedures
      *            the procedures to set
      */
-    public DeleteObservationRequest setProcedures(Collection<String> procedures) {
+    public DeleteObservationRequest setProcedures(Collection</*~~>*/String> procedures) {
         this.procedures.clear();
         if (procedures != null) {
             this.procedures.addAll(procedures);
@@ -101,7 +101,7 @@ public class DeleteObservationRequest extends OwsServiceRequest implements Respo
         return this;
     }
 
-    public DeleteObservationRequest addProcedure(String procedure) {
+    public DeleteObservationRequest addProcedure(/*~~>*/String procedure) {
         this.procedures.add(procedure);
         return this;
     }
@@ -113,7 +113,7 @@ public class DeleteObservationRequest extends OwsServiceRequest implements Respo
     /**
      * @return the observedProperties
      */
-    public Set<String> getObservedProperties() {
+    public Set</*~~>*/String> getObservedProperties() {
         return Collections.unmodifiableSet(observedProperties);
     }
 
@@ -121,7 +121,7 @@ public class DeleteObservationRequest extends OwsServiceRequest implements Respo
      * @param observedProperties
      *            the observedProperties to set
      */
-    public DeleteObservationRequest setObservedProperties(Collection<String> observedProperties) {
+    public DeleteObservationRequest setObservedProperties(Collection</*~~>*/String> observedProperties) {
         this.observedProperties.clear();
         if (observedProperties != null) {
             this.observedProperties.addAll(observedProperties);
@@ -129,7 +129,7 @@ public class DeleteObservationRequest extends OwsServiceRequest implements Respo
         return this;
     }
 
-    public DeleteObservationRequest addObservedProperty(String observedProperty) {
+    public DeleteObservationRequest addObservedProperty(/*~~>*/String observedProperty) {
         this.observedProperties.add(observedProperty);
         return this;
     }
@@ -141,7 +141,7 @@ public class DeleteObservationRequest extends OwsServiceRequest implements Respo
     /**
      * @return the featureOfInterest
      */
-    public Set<String> getFeatureIdentifiers() {
+    public Set</*~~>*/String> getFeatureIdentifiers() {
         return Collections.unmodifiableSet(features);
     }
 
@@ -149,7 +149,7 @@ public class DeleteObservationRequest extends OwsServiceRequest implements Respo
      * @param featureOfInterest
      *            the featureOfInterest to set
      */
-    public DeleteObservationRequest setFeatureIdentifiers(Collection<String> featureOfInterest) {
+    public DeleteObservationRequest setFeatureIdentifiers(Collection</*~~>*/String> featureOfInterest) {
         this.features.clear();
         if (featureOfInterest != null) {
             this.features.addAll(featureOfInterest);
@@ -157,7 +157,7 @@ public class DeleteObservationRequest extends OwsServiceRequest implements Respo
         return this;
     }
 
-    public DeleteObservationRequest addFeatureIdentifier(String featureOfInterest) {
+    public DeleteObservationRequest addFeatureIdentifier(/*~~>*/String featureOfInterest) {
         this.features.add(featureOfInterest);
         return this;
     }
@@ -169,7 +169,7 @@ public class DeleteObservationRequest extends OwsServiceRequest implements Respo
     /**
      * @return the offerings
      */
-    public Set<String> getOfferings() {
+    public Set</*~~>*/String> getOfferings() {
         return Collections.unmodifiableSet(offerings);
     }
 
@@ -178,7 +178,7 @@ public class DeleteObservationRequest extends OwsServiceRequest implements Respo
      *            the offerings to set
      * @return this
      */
-    public DeleteObservationRequest setOfferings(Collection<String> offerings) {
+    public DeleteObservationRequest setOfferings(Collection</*~~>*/String> offerings) {
         this.offerings.clear();
         if (offerings != null) {
             this.offerings.addAll(offerings);
@@ -186,7 +186,7 @@ public class DeleteObservationRequest extends OwsServiceRequest implements Respo
         return this;
     }
 
-    public DeleteObservationRequest addOffering(String offering) {
+    public DeleteObservationRequest addOffering(/*~~>*/String offering) {
         this.offerings.add(offering);
         return this;
     }
@@ -222,18 +222,18 @@ public class DeleteObservationRequest extends OwsServiceRequest implements Respo
     }
 
     @Override
-    public String getResponseFormat() {
+    public /*~~>*/String getResponseFormat() {
         return responseFormat;
     }
 
     @Override
-    public void setResponseFormat(String responseFormat) {
-        this.responseFormat = responseFormat;
+    public void setResponseFormat(/*~~>*/String responseFormat) {
+        /*~~>*/this.responseFormat = responseFormat;
     }
 
     @Override
-    public String toString() {
-        return String.format(
+    public /*~~>*/String toString() {
+        return /*~~>*/String.format(
                 "DeleteObservationRequest [service=%s, version=%s, observationIdentifier=%s, operationName=%s]",
                 getService(), getVersion(), getObservationIdentifiers(), getOperationName());
     }

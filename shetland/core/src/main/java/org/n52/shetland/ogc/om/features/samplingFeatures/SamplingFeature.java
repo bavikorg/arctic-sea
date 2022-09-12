@@ -46,9 +46,9 @@ public class SamplingFeature extends AbstractSamplingFeature {
      * @param gmlId
      *            GML of this feature
      */
-    public SamplingFeature(final CodeWithAuthority featureIdentifier, final String gmlId) {
+    public SamplingFeature(final CodeWithAuthority featureIdentifier, final /*~~>*/String gmlId) {
         super(featureIdentifier, gmlId);
-        setDefaultElementEncoding(SfConstants.NS_SAMS);
+        setDefaultElementEncoding(/*~~>*/SfConstants.NS_SAMS);
     }
 
     @Override
@@ -58,8 +58,8 @@ public class SamplingFeature extends AbstractSamplingFeature {
     }
 
     @Override
-    public String toString() {
-        return String.format("SamplingFeature [name=%s, description=%s, xmlDescription=%s, geometry=%s, "
+    public /*~~>*/String toString() {
+        return /*~~>*/String.format("SamplingFeature [name=%s, description=%s, xmlDescription=%s, geometry=%s, "
                 + "featureType=%s, url=%s, sampledFeatures=%s, parameters=%s, encode=%b, relatedSamplingFeatures=%s]",
                 getName(), getDescription(), getXml(), getGeometry(), getFeatureType(), getUrl(), getSampledFeatures(),
                 getParameters(), isEncode(), getRelatedSamplingFeatures());

@@ -46,7 +46,7 @@ public abstract class StreamingValue<
     private Time phenomenonTime;
     private TimeInstant resultTime;
     private Time validTime;
-    private String unit;
+    private /*~~>*/String unit;
     private boolean unitQueried;
     private OmObservation observationTemplate;
     private GeometryTransformer geometryTransformer;
@@ -145,7 +145,7 @@ public abstract class StreamingValue<
             }
 
             @Override
-            public void setUnit(String unit) {
+            public void setUnit(/*~~>*/String unit) {
                 StreamingValue.this.setUnit(unit);
             }
 
@@ -156,7 +156,7 @@ public abstract class StreamingValue<
             }
 
             @Override
-            public String getUnit() {
+            public /*~~>*/String getUnit() {
                 return StreamingValue.this.getUnit();
             }
 
@@ -180,14 +180,14 @@ public abstract class StreamingValue<
     }
 
     @Override
-    public String getUnit() {
+    public /*~~>*/String getUnit() {
         isSetUnit();
         return unit;
     }
 
     @Override
-    public void setUnit(String unit) {
-        this.unit = unit;
+    public void setUnit(/*~~>*/String unit) {
+        /*~~>*/this.unit = unit;
         unitQueried = true;
     }
 
@@ -239,8 +239,8 @@ public abstract class StreamingValue<
             if (additionalRequestParam instanceof Integer) {
                 targetCRS = (Integer) additionalRequestParam;
                 target3DCRS = targetCRS;
-            } else if (additionalRequestParam instanceof String) {
-                targetCRS = Integer.parseInt((String) additionalRequestParam);
+            } else if (additionalRequestParam instanceof /*~~>*/String) {
+                targetCRS = Integer.parseInt((/*~~>*/String) additionalRequestParam);
                 target3DCRS = targetCRS;
             } else if (additionalRequestParam instanceof List && ((List) additionalRequestParam).size() > 0) {
                 targetCRS = JavaHelper.asInteger(((List) additionalRequestParam).get(0));
@@ -252,7 +252,7 @@ public abstract class StreamingValue<
             }
             if (observation.isSetParameter()) {
                 for (NamedValue<?> namedValue : observation.getParameter()) {
-                    if (getGeometryTransformer() != null && Sos2Constants.HREF_PARAMETER_SPATIAL_FILTERING_PROFILE
+                    if (getGeometryTransformer() != null && /*~~>*/Sos2Constants.HREF_PARAMETER_SPATIAL_FILTERING_PROFILE
                             .equals(namedValue.getName().getHref())) {
                         NamedValue<Geometry> spatialFilteringProfileParameter = (NamedValue<Geometry>) namedValue;
                         spatialFilteringProfileParameter.getValue().setValue(getGeometryTransformer().transform(

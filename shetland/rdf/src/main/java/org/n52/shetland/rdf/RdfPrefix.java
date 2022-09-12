@@ -19,9 +19,9 @@ import org.apache.jena.rdf.model.Model;
 
 public interface RdfPrefix {
 
-    String getPrefix();
+    /*~~>*/String getPrefix();
 
-    String getNamespace();
+    /*~~>*/String getNamespace();
 
     default Model addNsPrefix(Model model) {
         return model.setNsPrefix(getPrefix(), getNamespace());

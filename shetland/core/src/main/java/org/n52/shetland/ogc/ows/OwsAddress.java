@@ -29,15 +29,15 @@ import com.google.common.base.Strings;
  */
 public class OwsAddress {
 
-    private final List<String> deliveryPoint;
-    private final Optional<String> city;
-    private final Optional<String> administrativeArea;
-    private final Optional<String> postalCode;
-    private final Optional<String> country;
-    private final List<String> electronicMailAddress;
+    private final List</*~~>*/String> deliveryPoint;
+    private final Optional</*~~>*/String> city;
+    private final Optional</*~~>*/String> administrativeArea;
+    private final Optional</*~~>*/String> postalCode;
+    private final Optional</*~~>*/String> country;
+    private final List</*~~>*/String> electronicMailAddress;
 
-    public OwsAddress(List<String> deliveryPoint, String city, String administrativeArea, String postalCode,
-            String country, List<String> electronicMailAddress) {
+    public OwsAddress(List</*~~>*/String> deliveryPoint, /*~~>*/String city, /*~~>*/String administrativeArea, /*~~>*/String postalCode,
+            /*~~>*/String country, List</*~~>*/String> electronicMailAddress) {
         this.deliveryPoint = deliveryPoint == null ? Collections.emptyList() : deliveryPoint;
         this.city = Optional.ofNullable(Strings.emptyToNull(city));
         this.administrativeArea = Optional.ofNullable(Strings.emptyToNull(administrativeArea));
@@ -46,32 +46,32 @@ public class OwsAddress {
         this.electronicMailAddress = electronicMailAddress == null ? Collections.emptyList() : electronicMailAddress;
     }
 
-    public OwsAddress(String deliveryPoint, String city, String administrativeArea, String postalCode, String country,
-            String electronicMailAddress) {
+    public OwsAddress(/*~~>*/String deliveryPoint, /*~~>*/String city, /*~~>*/String administrativeArea, /*~~>*/String postalCode, /*~~>*/String country,
+            /*~~>*/String electronicMailAddress) {
         this(toList(deliveryPoint), city, administrativeArea, postalCode, country, toList(electronicMailAddress));
     }
 
-    public List<String> getDeliveryPoint() {
+    public List</*~~>*/String> getDeliveryPoint() {
         return Collections.unmodifiableList(deliveryPoint);
     }
 
-    public Optional<String> getCity() {
+    public Optional</*~~>*/String> getCity() {
         return city;
     }
 
-    public Optional<String> getAdministrativeArea() {
+    public Optional</*~~>*/String> getAdministrativeArea() {
         return administrativeArea;
     }
 
-    public Optional<String> getPostalCode() {
+    public Optional</*~~>*/String> getPostalCode() {
         return postalCode;
     }
 
-    public Optional<String> getCountry() {
+    public Optional</*~~>*/String> getCountry() {
         return country;
     }
 
-    public List<String> getElectronicMailAddress() {
+    public List</*~~>*/String> getElectronicMailAddress() {
         return Collections.unmodifiableList(electronicMailAddress);
     }
 
@@ -121,7 +121,7 @@ public class OwsAddress {
     }
 
     @Override
-    public String toString() {
+    public /*~~>*/String toString() {
         return "OwsAddress{" + "deliveryPoint=" + deliveryPoint + ", city=" + city + ", administrativeArea="
                 + administrativeArea + ", postalCode=" + postalCode + ", country=" + country
                 + ", electronicMailAddress=" + electronicMailAddress + '}';

@@ -37,7 +37,7 @@ public abstract class EfAbstractMonitoringObject extends AbstractFeature {
      * @param identifier
      *            Feature identifier
      */
-    public EfAbstractMonitoringObject(String identifier) {
+    public EfAbstractMonitoringObject(/*~~>*/String identifier) {
         super(identifier);
     }
 
@@ -59,7 +59,7 @@ public abstract class EfAbstractMonitoringObject extends AbstractFeature {
      * @param gmlId
      *            GML id
      */
-    public EfAbstractMonitoringObject(CodeWithAuthority identifier, String gmlId) {
+    public EfAbstractMonitoringObject(CodeWithAuthority identifier, /*~~>*/String gmlId) {
         super(identifier, gmlId);
     }
 

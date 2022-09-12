@@ -27,12 +27,12 @@ import java.util.List;
  */
 public class OwsSections {
 
-    private List<String> sections = new ArrayList<>();
+    private List</*~~>*/String> sections = new ArrayList<>();
 
     /**
      * @return the sections
      */
-    public List<String> getSections() {
+    public List</*~~>*/String> getSections() {
         return Collections.unmodifiableList(sections);
     }
 
@@ -42,7 +42,7 @@ public class OwsSections {
      *
      * @return this
      */
-    public OwsSections setSections(Collection<String> sections) {
+    public OwsSections setSections(Collection</*~~>*/String> sections) {
         this.sections.clear();
         if (sections != null) {
             this.sections.addAll(sections);
@@ -56,7 +56,7 @@ public class OwsSections {
      *
      * @return this
      */
-    public OwsSections addSections(Collection<String> sections) {
+    public OwsSections addSections(Collection</*~~>*/String> sections) {
         if (sections != null) {
             this.sections.addAll(sections);
         }
@@ -69,7 +69,7 @@ public class OwsSections {
      *
      * @return this
      */
-    public OwsSections addSections(String section) {
+    public OwsSections addSections(/*~~>*/String section) {
         this.sections.add(section);
         return this;
     }

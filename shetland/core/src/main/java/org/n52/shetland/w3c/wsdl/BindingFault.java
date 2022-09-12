@@ -21,7 +21,7 @@ import org.n52.shetland.w3c.wsdl.WSDLConstants.WSDLQNames;
 
 public class BindingFault extends AbstractWsdl {
 
-    public BindingFault(String name) {
+    public BindingFault(/*~~>*/String name) {
         super(name);
     }
 

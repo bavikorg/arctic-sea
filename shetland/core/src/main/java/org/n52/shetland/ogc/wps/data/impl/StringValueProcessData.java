@@ -33,18 +33,18 @@ import com.google.common.base.MoreObjects;
  */
 public class StringValueProcessData extends ValueProcessData {
 
-    private final String string;
+    private final /*~~>*/String string;
 
-    public StringValueProcessData(OwsCode id, String string) {
+    public StringValueProcessData(OwsCode id, /*~~>*/String string) {
         this(id, null, string);
     }
 
-    public StringValueProcessData(OwsCode id, Format format, String string) {
+    public StringValueProcessData(OwsCode id, Format format, /*~~>*/String string) {
         super(id, format);
-        this.string = Objects.requireNonNull(string);
+        /*~~>*/this.string = Objects.requireNonNull(string);
     }
 
-    public StringValueProcessData(String string) {
+    public StringValueProcessData(/*~~>*/String string) {
         this(null, null, string);
     }
 
@@ -55,7 +55,7 @@ public class StringValueProcessData extends ValueProcessData {
 
     @Override
     public int hashCode() {
-        return Objects.hash(getId(), getFormat(), this.string);
+        return Objects.hash(getId(), getFormat(), /*~~>*/this.string);
     }
 
     @Override
@@ -71,13 +71,13 @@ public class StringValueProcessData extends ValueProcessData {
         }
         final StringValueProcessData other = (StringValueProcessData) obj;
         return Objects.equals(getId(), other.getId()) && Objects.equals(getFormat(), other.getFormat())
-                && Objects.equals(this.string, other.string);
+                && Objects.equals(/*~~>*/this.string, /*~~>*/other.string);
     }
 
     @Override
-    public String toString() {
+    public /*~~>*/String toString() {
         return MoreObjects.toStringHelper(this).omitNullValues().add("id", getId()).add("format", getFormat())
-                .add("value", this.string).toString();
+                .add("value", /*~~>*/this.string).toString();
     }
 
 }

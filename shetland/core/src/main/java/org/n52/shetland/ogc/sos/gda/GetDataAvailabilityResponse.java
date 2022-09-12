@@ -50,9 +50,9 @@ import edu.umd.cs.findbugs.annotations.SuppressFBWarnings;
 public class GetDataAvailabilityResponse extends OwsServiceResponse implements ResponseFormat {
     private final List<DataAvailability> dataAvailabilities = new LinkedList<>();
 
-    private String responseFormat;
+    private /*~~>*/String responseFormat;
 
-    private String namespace = GetDataAvailabilityConstants.NS_GDA_20;
+    private /*~~>*/String namespace = /*~~>*/GetDataAvailabilityConstants.NS_GDA_20;
 
     /**
      * Creates a new {@code GetDataAvailabilityResponse} consisting of zero or more {@code DataAvailability}
@@ -62,19 +62,19 @@ public class GetDataAvailabilityResponse extends OwsServiceResponse implements R
      *            the data availabilities
      */
     public GetDataAvailabilityResponse(DataAvailability... dataAvailabilities) {
-        super(null, null, GetDataAvailabilityConstants.OPERATION_NAME);
+        super(null, null, /*~~>*/GetDataAvailabilityConstants.OPERATION_NAME);
         Collections.addAll(this.dataAvailabilities, dataAvailabilities);
     }
 
     public GetDataAvailabilityResponse() {
-        super(null, null, GetDataAvailabilityConstants.OPERATION_NAME);
+        super(null, null, /*~~>*/GetDataAvailabilityConstants.OPERATION_NAME);
     }
 
-    public GetDataAvailabilityResponse(String service, String version) {
-        super(service, version, GetDataAvailabilityConstants.OPERATION_NAME);
+    public GetDataAvailabilityResponse(/*~~>*/String service, /*~~>*/String version) {
+        super(service, version, /*~~>*/GetDataAvailabilityConstants.OPERATION_NAME);
     }
 
-    public GetDataAvailabilityResponse(String service, String version, String operationName) {
+    public GetDataAvailabilityResponse(/*~~>*/String service, /*~~>*/String version, /*~~>*/String operationName) {
         super(service, version, operationName);
     }
 
@@ -114,21 +114,21 @@ public class GetDataAvailabilityResponse extends OwsServiceResponse implements R
     }
 
     @Override
-    public String getResponseFormat() {
+    public /*~~>*/String getResponseFormat() {
         return Strings.isNullOrEmpty(responseFormat) ? getNamespace() : responseFormat;
     }
 
     @Override
-    public void setResponseFormat(String responseFormat) {
-        this.responseFormat = responseFormat;
+    public void setResponseFormat(/*~~>*/String responseFormat) {
+        /*~~>*/this.responseFormat = responseFormat;
     }
 
-    public String getNamespace() {
-        return this.namespace;
+    public /*~~>*/String getNamespace() {
+        return /*~~>*/this.namespace;
     }
 
-    public GetDataAvailabilityResponse setNamespace(String namespace) {
-        this.namespace = namespace;
+    public GetDataAvailabilityResponse setNamespace(/*~~>*/String namespace) {
+        /*~~>*/this.namespace = namespace;
         return this;
     }
 
@@ -146,7 +146,7 @@ public class GetDataAvailabilityResponse extends OwsServiceResponse implements R
         private List<TimeInstant> resultTimes = Lists.newArrayList();
         private ReferenceType offering;
         private FormatDescriptor formatDescriptor;
-        private Map<String, NamedValue<?>> metadata = Maps.newHashMap();
+        private Map</*~~>*/String, NamedValue<?>> metadata = Maps.newHashMap();
 
         /**
          * Creates a new {@code DataAvailability}.
@@ -288,7 +288,7 @@ public class GetDataAvailabilityResponse extends OwsServiceResponse implements R
             this.offering = offering;
         }
 
-        public String getOfferingString() {
+        public /*~~>*/String getOfferingString() {
             if (isSetOffering()) {
                 return getOffering().getHref();
             }
@@ -319,7 +319,7 @@ public class GetDataAvailabilityResponse extends OwsServiceResponse implements R
         /**
          * @return the metadata
          */
-        public Map<String, NamedValue<?>> getMetadata() {
+        public Map</*~~>*/String, NamedValue<?>> getMetadata() {
             return Collections.unmodifiableMap(metadata);
         }
 
@@ -328,7 +328,7 @@ public class GetDataAvailabilityResponse extends OwsServiceResponse implements R
          *            the metadata to set
          * @return this
          */
-        public DataAvailability setMetadata(Map<String, NamedValue<?>> metadata) {
+        public DataAvailability setMetadata(Map</*~~>*/String, NamedValue<?>> metadata) {
             this.metadata.clear();
             if (metadata != null) {
                 this.metadata.putAll(metadata);
@@ -343,7 +343,7 @@ public class GetDataAvailabilityResponse extends OwsServiceResponse implements R
          *            the metadata to add
          * @return this
          */
-        public DataAvailability addMetadata(String key, NamedValue<?> metadata) {
+        public DataAvailability addMetadata(/*~~>*/String key, NamedValue<?> metadata) {
             this.metadata.put(key, metadata);
             return this;
         }
@@ -488,9 +488,9 @@ public class GetDataAvailabilityResponse extends OwsServiceResponse implements R
      *
      */
     public static class ObservationFormatDescriptor implements Copyable<ObservationFormatDescriptor> {
-        private String responseFormat;
+        private /*~~>*/String responseFormat;
 
-        private final Set<String> observationTypes = new LinkedHashSet<>();
+        private final Set</*~~>*/String> observationTypes = new LinkedHashSet<>();
 
         /**
          * @param responseFormat
@@ -499,9 +499,9 @@ public class GetDataAvailabilityResponse extends OwsServiceResponse implements R
          *            the observation types
          */
         @SuppressFBWarnings({ "EI_EXPOSE_REP2" })
-        public ObservationFormatDescriptor(String responseFormat, Collection<String> observationTypes) {
+        public ObservationFormatDescriptor(/*~~>*/String responseFormat, Collection</*~~>*/String> observationTypes) {
             super();
-            this.responseFormat = responseFormat;
+            /*~~>*/this.responseFormat = responseFormat;
             if (observationTypes != null) {
                 this.observationTypes.addAll(observationTypes);
             }
@@ -510,7 +510,7 @@ public class GetDataAvailabilityResponse extends OwsServiceResponse implements R
         /**
          * @return the responseFormat
          */
-        public String getResponseFormat() {
+        public /*~~>*/String getResponseFormat() {
             return responseFormat;
         }
 
@@ -518,14 +518,14 @@ public class GetDataAvailabilityResponse extends OwsServiceResponse implements R
          * @param responseFormat
          *            the responseFormat to set
          */
-        public void setResponseFormat(String responseFormat) {
-            this.responseFormat = responseFormat;
+        public void setResponseFormat(/*~~>*/String responseFormat) {
+            /*~~>*/this.responseFormat = responseFormat;
         }
 
         /**
          * @return the observationTypes
          */
-        public Set<String> getObservationTypes() {
+        public Set</*~~>*/String> getObservationTypes() {
             return Collections.unmodifiableSet(observationTypes);
         }
 
@@ -534,7 +534,7 @@ public class GetDataAvailabilityResponse extends OwsServiceResponse implements R
          *            the observationTypes to set
          * @return this
          */
-        public ObservationFormatDescriptor setObservationTypes(Collection<String> observationTypes) {
+        public ObservationFormatDescriptor setObservationTypes(Collection</*~~>*/String> observationTypes) {
             this.observationTypes.clear();
             if (observationTypes != null) {
                 this.observationTypes.addAll(observationTypes);
@@ -557,21 +557,21 @@ public class GetDataAvailabilityResponse extends OwsServiceResponse implements R
     public static class ProcedureDescriptionFormatDescriptor
             implements Copyable<ProcedureDescriptionFormatDescriptor> {
 
-        private String procedureDescriptionFormat;
+        private /*~~>*/String procedureDescriptionFormat;
 
         /**
          * @param procedureDescriptionFormat
          *            the procedure desciption format
          */
-        public ProcedureDescriptionFormatDescriptor(String procedureDescriptionFormat) {
+        public ProcedureDescriptionFormatDescriptor(/*~~>*/String procedureDescriptionFormat) {
             super();
-            this.procedureDescriptionFormat = procedureDescriptionFormat;
+            /*~~>*/this.procedureDescriptionFormat = procedureDescriptionFormat;
         }
 
         /**
          * @return the procedureDescriptionFormat
          */
-        public String getProcedureDescriptionFormat() {
+        public /*~~>*/String getProcedureDescriptionFormat() {
             return procedureDescriptionFormat;
         }
 
@@ -579,8 +579,8 @@ public class GetDataAvailabilityResponse extends OwsServiceResponse implements R
          * @param procedureDescriptionFormat
          *            the procedureDescriptionFormat to set
          */
-        public void setProcedureDescriptionFormat(String procedureDescriptionFormat) {
-            this.procedureDescriptionFormat = procedureDescriptionFormat;
+        public void setProcedureDescriptionFormat(/*~~>*/String procedureDescriptionFormat) {
+            /*~~>*/this.procedureDescriptionFormat = procedureDescriptionFormat;
         }
 
         @Override

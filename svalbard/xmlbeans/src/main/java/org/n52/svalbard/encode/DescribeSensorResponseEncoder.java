@@ -63,7 +63,7 @@ public class DescribeSensorResponseEncoder
             sensorDescription.addNewData().set(getSensorDescription(response, sosProcedureDescription));
             if (sosProcedureDescription.isSetValidTime()) {
                 XmlObject xoValidTime =
-                        encodeObjectToXml(GmlConstants.NS_GML_32, sosProcedureDescription.getValidTime());
+                        encodeObjectToXml(/*~~>*/GmlConstants.NS_GML_32, sosProcedureDescription.getValidTime());
                 XmlObject substitution = sensorDescription.addNewValidTime().addNewAbstractTimeGeometricPrimitive()
                         .substitute(GmlHelper.getGml321QnameForITime(sosProcedureDescription.getValidTime()),
                                 xoValidTime.schemaType());

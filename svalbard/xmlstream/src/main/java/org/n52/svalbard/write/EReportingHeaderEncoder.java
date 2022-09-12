@@ -66,15 +66,15 @@ public class EReportingHeaderEncoder
     public void write() throws XMLStreamException, EncodingException {
         EReportingHeader h = getElement();
         start(AqdConstants.QN_AQD_REPORTING_HEADER);
-        namespace(AqdConstants.NS_AD_PREFIX, AqdConstants.NS_AD);
-        namespace(AqdConstants.NS_AQD_PREFIX, AqdConstants.NS_AQD);
-        namespace(AqdConstants.NS_BASE_PREFIX, AqdConstants.NS_BASE);
-        namespace(AqdConstants.NS_BASE2_PREFIX, AqdConstants.NS_BASE2);
-        namespace(AqdConstants.NS_GN_PREFIX, AqdConstants.NS_GN);
-        namespace(GmlConstants.NS_GML_PREFIX, GmlConstants.NS_GML_32);
-        namespace(W3CConstants.NS_XLINK_PREFIX, W3CConstants.NS_XLINK);
-        namespace(W3CConstants.NS_XSI_PREFIX, W3CConstants.NS_XSI);
-        namespace(GcoConstants.NS_GCO_PREFIX, GcoConstants.NS_GCO);
+        namespace(/*~~>*/AqdConstants.NS_AD_PREFIX, /*~~>*/AqdConstants.NS_AD);
+        namespace(/*~~>*/AqdConstants.NS_AQD_PREFIX, /*~~>*/AqdConstants.NS_AQD);
+        namespace(/*~~>*/AqdConstants.NS_BASE_PREFIX, /*~~>*/AqdConstants.NS_BASE);
+        namespace(/*~~>*/AqdConstants.NS_BASE2_PREFIX, /*~~>*/AqdConstants.NS_BASE2);
+        namespace(/*~~>*/AqdConstants.NS_GN_PREFIX, /*~~>*/AqdConstants.NS_GN);
+        namespace(/*~~>*/GmlConstants.NS_GML_PREFIX, /*~~>*/GmlConstants.NS_GML_32);
+        namespace(/*~~>*/W3CConstants.NS_XLINK_PREFIX, /*~~>*/W3CConstants.NS_XLINK);
+        namespace(/*~~>*/W3CConstants.NS_XSI_PREFIX, /*~~>*/W3CConstants.NS_XSI);
+        namespace(/*~~>*/GcoConstants.NS_GCO_PREFIX, /*~~>*/GcoConstants.NS_GCO);
         if (isAddSchemaLocation()) {
             schemaLocation(Collections.singleton(AqdConstants.NS_AQD_SCHEMA_LOCATION));
         }
@@ -91,8 +91,8 @@ public class EReportingHeaderEncoder
         end(AqdConstants.QN_AQD_REPORTING_HEADER);
     }
 
-    protected String getGMLId(Object h) {
-        String gmlId = IdGenerator.generate(h.toString() + System.currentTimeMillis());
+    protected /*~~>*/String getGMLId(Object h) {
+        /*~~>*/String gmlId = IdGenerator.generate(h.toString() + System.currentTimeMillis());
         return NcName.makeValid(gmlId);
     }
 
@@ -196,16 +196,16 @@ public class EReportingHeaderEncoder
         }
     }
 
-    protected void encodeString(QName qn, String v) throws XMLStreamException {
+    protected void encodeString(QName qn, /*~~>*/String v) throws XMLStreamException {
         start(qn);
         chars(v);
         endInline(qn);
     }
 
-    private void encodeNilAttr(Optional<String> reason) throws XMLStreamException {
+    private void encodeNilAttr(Optional</*~~>*/String> reason) throws XMLStreamException {
         attr(W3CConstants.QN_XSI_NIL, Boolean.toString(true));
         if (reason.isPresent()) {
-            attr(AqdConstants.AN_NIL_REASON, reason.get());
+            attr(/*~~>*/AqdConstants.AN_NIL_REASON, reason.get());
         }
     }
 
@@ -255,12 +255,12 @@ public class EReportingHeaderEncoder
         encodeNillableString(AqdConstants.QN_BASE2_ELECTRONIC_MAIL_ADDRESS, c.getElectronicMailAddress());
         encodeNillableFreeText(AqdConstants.QN_BASE2_HOURS_OF_SERVICE, c.getHoursOfService());
         if (c.getTelephoneFacsimile().isPresent()) {
-            for (Nillable<String> value : c.getTelephoneFacsimile().get()) {
+            for (Nillable</*~~>*/String> value : c.getTelephoneFacsimile().get()) {
                 encodeNillableString(AqdConstants.QN_BASE2_TELEPHONE_FACSIMILE, value);
             }
         }
         if (c.getTelephoneVoice().isPresent()) {
-            for (Nillable<String> value : c.getTelephoneVoice().get()) {
+            for (Nillable</*~~>*/String> value : c.getTelephoneVoice().get()) {
                 encodeNillableString(AqdConstants.QN_BASE2_TELEPHONE_VOICE, value);
             }
         }
@@ -289,7 +289,7 @@ public class EReportingHeaderEncoder
             encodeGeographicalName(value);
             end(AqdConstants.QN_AD_ADMIN_UNIT);
         }
-        for (String value : v.getLocatorDesignators()) {
+        for (/*~~>*/String value : v.getLocatorDesignators()) {
             start(AqdConstants.QN_AD_LOCATOR_DESIGNATOR);
             chars(value);
             endInline(AqdConstants.QN_AD_LOCATOR_DESIGNATOR);
@@ -363,7 +363,7 @@ public class EReportingHeaderEncoder
             } else {
                 start(qn);
                 if (v.get().isSetCodeSpace()) {
-                    attr(AqdConstants.AN_CODE_SPACE, v.get().getCodeSpace().toString());
+                    attr(/*~~>*/AqdConstants.AN_CODE_SPACE, v.get().getCodeSpace().toString());
                 }
                 chars(v.get().getValue());
                 endInline(qn);

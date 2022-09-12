@@ -55,7 +55,7 @@ public class ProfileObservation extends AbstractInspireObservation {
      */
     public ProfileObservation(OmObservation observation) {
         super(observation);
-        getObservationConstellation().setObservationType(InspireOMSOConstants.OBS_TYPE_PROFILE_OBSERVATION);
+        getObservationConstellation().setObservationType(/*~~>*/InspireOMSOConstants.OBS_TYPE_PROFILE_OBSERVATION);
     }
 
     @Override
@@ -123,7 +123,7 @@ public class ProfileObservation extends AbstractInspireObservation {
                 LineString lineString = new GeometryFactory().createLineString(coords);
                 lineString.setSRID(srid);
                 sf.setGeometry(lineString);
-                sf.setFeatureType(SfConstants.SAMPLING_FEAT_TYPE_SF_SAMPLING_CURVE);
+                sf.setFeatureType(/*~~>*/SfConstants.SAMPLING_FEAT_TYPE_SF_SAMPLING_CURVE);
             } catch (InvalidSridException e) {
                 // TODO
             }

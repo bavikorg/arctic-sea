@@ -42,12 +42,12 @@ public class SosProcedureDescription<
 
     private final T procedureDescription;
     private Time validTime;
-    private String descriptionFormat;
+    private /*~~>*/String descriptionFormat;
 
     private final Set<SosOffering> offerings = Sets.newLinkedHashSet();
-    private Map<String, AbstractFeature> featuresOfInterestMap = new HashMap<>();
-    private Set<String> featuresOfInterest = Sets.newLinkedHashSet();
-    private Map<String, AbstractPhenomenon> phenomenonMap = new HashMap<>();
+    private Map</*~~>*/String, AbstractFeature> featuresOfInterestMap = new HashMap<>();
+    private Set</*~~>*/String> featuresOfInterest = Sets.newLinkedHashSet();
+    private Map</*~~>*/String, AbstractPhenomenon> phenomenonMap = new HashMap<>();
     private ReferenceType parentProcedure;
     private Set<AbstractSensorML> childProcedures = new LinkedHashSet<>();
     private boolean insitu = true;
@@ -82,12 +82,12 @@ public class SosProcedureDescription<
         return validTime != null && !validTime.isEmpty();
     }
 
-    public String getDescriptionFormat() {
+    public /*~~>*/String getDescriptionFormat() {
         return descriptionFormat;
     }
 
-    public SosProcedureDescription<T> setDescriptionFormat(String descriptionFormat) {
-        this.descriptionFormat = descriptionFormat;
+    public SosProcedureDescription<T> setDescriptionFormat(/*~~>*/String descriptionFormat) {
+        /*~~>*/this.descriptionFormat = descriptionFormat;
         return this;
     }
 
@@ -156,11 +156,11 @@ public class SosProcedureDescription<
         return childProcedures != null && !childProcedures.isEmpty();
     }
 
-    public Map<String, AbstractFeature> getFeaturesOfInterestMap() {
+    public Map</*~~>*/String, AbstractFeature> getFeaturesOfInterestMap() {
         return Collections.unmodifiableMap(featuresOfInterestMap);
     }
 
-    public SosProcedureDescription<T> setFeaturesOfInterestMap(Map<String, AbstractFeature> featuresOfInterestMap) {
+    public SosProcedureDescription<T> setFeaturesOfInterestMap(Map</*~~>*/String, AbstractFeature> featuresOfInterestMap) {
         this.featuresOfInterestMap.clear();
         if (featuresOfInterestMap != null) {
             addFeaturesOfInterestMap(featuresOfInterestMap);
@@ -168,12 +168,12 @@ public class SosProcedureDescription<
         return this;
     }
 
-    public SosProcedureDescription<T> addFeaturesOfInterestMap(Map<String, AbstractFeature> featureOfInterest) {
+    public SosProcedureDescription<T> addFeaturesOfInterestMap(Map</*~~>*/String, AbstractFeature> featureOfInterest) {
         featureOfInterest.forEach(this.featuresOfInterestMap::put);
         return this;
     }
 
-    public SosProcedureDescription<T> addFeaturesOfInterest(Collection<String> featureOfInterest) {
+    public SosProcedureDescription<T> addFeaturesOfInterest(Collection</*~~>*/String> featureOfInterest) {
         featureOfInterest.forEach(this.featuresOfInterest::add);
         return this;
     }
@@ -185,7 +185,7 @@ public class SosProcedureDescription<
         return this;
     }
 
-    public SosProcedureDescription<T> addFeatureOfInterest(String featureOfInterest) {
+    public SosProcedureDescription<T> addFeatureOfInterest(/*~~>*/String featureOfInterest) {
         if (featureOfInterest != null) {
             this.featuresOfInterest.add(featureOfInterest);
         }
@@ -200,13 +200,13 @@ public class SosProcedureDescription<
         return featuresOfInterest != null && !featuresOfInterest.isEmpty();
     }
 
-    public SosProcedureDescription<T> setFeaturesOfInterest(Collection<String> featuresOfInterest) {
+    public SosProcedureDescription<T> setFeaturesOfInterest(Collection</*~~>*/String> featuresOfInterest) {
         this.featuresOfInterest.clear();
         addFeaturesOfInterest(featuresOfInterest);
         return this;
     }
 
-    public Set<String> getFeaturesOfInterest() {
+    public Set</*~~>*/String> getFeaturesOfInterest() {
         return Collections.unmodifiableSet(featuresOfInterest);
     }
 
@@ -219,18 +219,18 @@ public class SosProcedureDescription<
         return this;
     }
 
-    public SosProcedureDescription<T> addPhenomenon(Map<String, AbstractPhenomenon> phenomenons) {
+    public SosProcedureDescription<T> addPhenomenon(Map</*~~>*/String, AbstractPhenomenon> phenomenons) {
         phenomenons.forEach(phenomenonMap::put);
         return this;
     }
 
-    public SosProcedureDescription<T> setPhenomenon(Map<String, AbstractPhenomenon> phenomenons) {
+    public SosProcedureDescription<T> setPhenomenon(Map</*~~>*/String, AbstractPhenomenon> phenomenons) {
         this.phenomenonMap.clear();
         addPhenomenon(phenomenons);
         return this;
     }
 
-    public Map<String, AbstractPhenomenon> getPhenomenon() {
+    public Map</*~~>*/String, AbstractPhenomenon> getPhenomenon() {
         return Collections.unmodifiableMap(phenomenonMap);
     }
 
@@ -238,11 +238,11 @@ public class SosProcedureDescription<
         return getPhenomenon() != null && !getPhenomenon().isEmpty();
     }
 
-    public boolean hasPhenomenonFor(String identifier) {
+    public boolean hasPhenomenonFor(/*~~>*/String identifier) {
         return isSetPhenomenon() && getPhenomenon().containsKey(identifier);
     }
 
-    public AbstractPhenomenon getPhenomenonFor(String identifer) {
+    public AbstractPhenomenon getPhenomenonFor(/*~~>*/String identifer) {
         return getPhenomenon().get(identifer);
     }
 
@@ -327,7 +327,7 @@ public class SosProcedureDescription<
     }
 
     @Override
-    public String getDefaultElementEncoding() {
+    public /*~~>*/String getDefaultElementEncoding() {
         if (getProcedureDescription() != null
                 && !Strings.isNullOrEmpty(getProcedureDescription().getDefaultElementEncoding())) {
             return getProcedureDescription().getDefaultElementEncoding();

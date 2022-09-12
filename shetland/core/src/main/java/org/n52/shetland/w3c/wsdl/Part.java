@@ -23,7 +23,7 @@ public class Part extends AbstractWsdl {
 
     private QName element;
 
-    public Part(String name) {
+    public Part(/*~~>*/String name) {
         super(name);
     }
 

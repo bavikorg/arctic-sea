@@ -48,11 +48,11 @@ public class GeoJSONDecoder extends JSONDecoder<Geometry> {
     public static final int DIM_2D = 2;
     public static final int DIM_3D = 3;
 
-    private static final String[] SRS_LINK_PREFIXES = { "http://www.opengis.net/def/crs/EPSG/0/",
+    private static final /*~~>*/String[] SRS_LINK_PREFIXES = { "http://www.opengis.net/def/crs/EPSG/0/",
                                                         "http://spatialreference.org/ref/epsg/" };
-    private static final String[] SRS_NAME_PREFIXES = { "urn:ogc:def:crs:EPSG::", "EPSG::", "EPSG:" };
+    private static final /*~~>*/String[] SRS_NAME_PREFIXES = { "urn:ogc:def:crs:EPSG::", "EPSG::", "EPSG:" };
     private static final int DEFAULT_SRID = 4326;
-    private static final String EXPECTED_ARRAY = "expected array";
+    private static final /*~~>*/String EXPECTED_ARRAY = "expected array";
     private static final PrecisionModel DEFAULT_PRECISION_MODEL = new PrecisionModel(PrecisionModel.FLOATING);
     private static final GeometryFactory DEFAULT_GEOMETRY_FACTORY =
             new GeometryFactory(DEFAULT_PRECISION_MODEL, DEFAULT_SRID);
@@ -68,7 +68,7 @@ public class GeoJSONDecoder extends JSONDecoder<Geometry> {
             return null;
         } else {
             if (validate) {
-                JSONValidator.getInstance().validateAndThrow(node, SchemaConstants.Common.GEOMETRY);
+                JSONValidator.getInstance().validateAndThrow(node, /*~~>*/SchemaConstants.Common.GEOMETRY);
             }
             return decodeGeometry(node, DEFAULT_GEOMETRY_FACTORY);
         }
@@ -108,22 +108,22 @@ public class GeoJSONDecoder extends JSONDecoder<Geometry> {
             throw new GeoJSONDecodingException("Cannot decode " + o);
         }
         final JsonNode node = (JsonNode) o;
-        final String type = getType(node);
+        final /*~~>*/String type = getType(node);
         final GeometryFactory factory = getGeometryFactory(node, parentFactory);
         switch (type) {
-            case JSONConstants.POINT:
+            case /*~~>*/JSONConstants.POINT:
                 return decodePoint(node, factory);
-            case JSONConstants.MULTI_POINT:
+            case /*~~>*/JSONConstants.MULTI_POINT:
                 return decodeMultiPoint(node, factory);
-            case JSONConstants.LINE_STRING:
+            case /*~~>*/JSONConstants.LINE_STRING:
                 return decodeLineString(node, factory);
-            case JSONConstants.MULTI_LINE_STRING:
+            case /*~~>*/JSONConstants.MULTI_LINE_STRING:
                 return decodeMultiLineString(node, factory);
-            case JSONConstants.POLYGON:
+            case /*~~>*/JSONConstants.POLYGON:
                 return decodePolygon(node, factory);
-            case JSONConstants.MULTI_POLYGON:
+            case /*~~>*/JSONConstants.MULTI_POLYGON:
                 return decodeMultiPolygon(node, factory);
-            case JSONConstants.GEOMETRY_COLLECTION:
+            case /*~~>*/JSONConstants.GEOMETRY_COLLECTION:
                 return decodeGeometryCollection(node, factory);
             default:
                 throw new GeoJSONDecodingException("Unkown geometry type: " + type);
@@ -177,7 +177,7 @@ public class GeoJSONDecoder extends JSONDecoder<Geometry> {
 
     protected GeometryCollection decodeGeometryCollection(JsonNode node, GeometryFactory fac)
             throws GeoJSONDecodingException {
-        final JsonNode geometries = node.path(JSONConstants.GEOMETRIES);
+        final JsonNode geometries = node.path(/*~~>*/JSONConstants.GEOMETRIES);
         if (!geometries.isArray()) {
             throw new GeoJSONDecodingException("expected 'geometries' array");
         }
@@ -190,15 +190,15 @@ public class GeoJSONDecoder extends JSONDecoder<Geometry> {
 
     protected GeometryFactory decodeCRS(JsonNode node, GeometryFactory factory)
             throws GeoJSONDecodingException {
-        if (!node.path(JSONConstants.CRS).hasNonNull(JSONConstants.TYPE)) {
+        if (!node.path(/*~~>*/JSONConstants.CRS).hasNonNull(/*~~>*/JSONConstants.TYPE)) {
             throw new GeoJSONDecodingException("Missing CRS type");
         }
-        String type = node.path(JSONConstants.CRS).path(JSONConstants.TYPE).textValue();
-        JsonNode properties = node.path(JSONConstants.CRS).path(JSONConstants.PROPERTIES);
+        /*~~>*/String type = node.path(/*~~>*/JSONConstants.CRS).path(/*~~>*/JSONConstants.TYPE).textValue();
+        JsonNode properties = node.path(/*~~>*/JSONConstants.CRS).path(/*~~>*/JSONConstants.PROPERTIES);
         switch (type) {
-            case JSONConstants.NAME:
+            case /*~~>*/JSONConstants.NAME:
                 return decodeNamedCRS(properties, factory);
-            case JSONConstants.LINK:
+            case /*~~>*/JSONConstants.LINK:
                 return decodeLinkedCRS(properties, factory);
             default:
                 throw new GeoJSONDecodingException("Unknown CRS type: " + type);
@@ -207,11 +207,11 @@ public class GeoJSONDecoder extends JSONDecoder<Geometry> {
 
     protected GeometryFactory decodeNamedCRS(JsonNode properties, GeometryFactory factory)
             throws GeoJSONDecodingException {
-        String name = properties.path(JSONConstants.NAME).textValue();
+        /*~~>*/String name = properties.path(/*~~>*/JSONConstants.NAME).textValue();
         if (name == null) {
             throw new GeoJSONDecodingException("Missing name attribute for name crs");
         }
-        for (String prefix : SRS_NAME_PREFIXES) {
+        for (/*~~>*/String prefix : SRS_NAME_PREFIXES) {
             if (name.startsWith(prefix)) {
                 try {
                     int srid = Integer.parseInt(name.substring(prefix.length()));
@@ -226,11 +226,11 @@ public class GeoJSONDecoder extends JSONDecoder<Geometry> {
 
     protected GeometryFactory decodeLinkedCRS(JsonNode properties, GeometryFactory factory)
             throws GeoJSONDecodingException {
-        String href = properties.path(JSONConstants.HREF).textValue();
+        /*~~>*/String href = properties.path(/*~~>*/JSONConstants.HREF).textValue();
         if (href == null) {
             throw new GeoJSONDecodingException("Missing href attribute for link crs");
         }
-        for (String prefix : SRS_LINK_PREFIXES) {
+        for (/*~~>*/String prefix : SRS_LINK_PREFIXES) {
             if (href.startsWith(prefix)) {
                 try {
                     int srid = Integer.parseInt(href.substring(prefix.length()));
@@ -268,15 +268,15 @@ public class GeoJSONDecoder extends JSONDecoder<Geometry> {
 
     protected JsonNode requireCoordinates(JsonNode node)
             throws GeoJSONDecodingException {
-        if (!node.path(JSONConstants.COORDINATES).isArray()) {
+        if (!node.path(/*~~>*/JSONConstants.COORDINATES).isArray()) {
             throw new GeoJSONDecodingException("missing 'coordinates' field");
         }
-        return node.path(JSONConstants.COORDINATES);
+        return node.path(/*~~>*/JSONConstants.COORDINATES);
     }
 
     protected GeometryFactory getGeometryFactory(JsonNode node, GeometryFactory factory)
             throws GeoJSONDecodingException {
-        if (!node.hasNonNull(JSONConstants.CRS)) {
+        if (!node.hasNonNull(/*~~>*/JSONConstants.CRS)) {
             return factory;
         } else {
             return decodeCRS(node, factory);
@@ -291,15 +291,15 @@ public class GeoJSONDecoder extends JSONDecoder<Geometry> {
         }
     }
 
-    protected String getType(final JsonNode node)
+    protected /*~~>*/String getType(final JsonNode node)
             throws GeoJSONDecodingException {
-        if (!node.has(JSONConstants.TYPE)) {
+        if (!node.has(/*~~>*/JSONConstants.TYPE)) {
             throw new GeoJSONDecodingException("Can not determine geometry type (missing 'type' field)");
         }
-        if (!node.path(JSONConstants.TYPE).isTextual()) {
+        if (!node.path(/*~~>*/JSONConstants.TYPE).isTextual()) {
             throw new GeoJSONDecodingException("'type' field has to be a string");
         }
-        return node.path(JSONConstants.TYPE).textValue();
+        return node.path(/*~~>*/JSONConstants.TYPE).textValue();
     }
 
     protected boolean isNumber(JsonNode x) {

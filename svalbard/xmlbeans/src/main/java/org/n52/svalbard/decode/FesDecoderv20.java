@@ -81,7 +81,7 @@ public class FesDecoderv20 extends AbstractXmlDecoder<XmlObject, Object> {
 
     private static final Logger LOGGER = LoggerFactory.getLogger(FesDecoderv20.class);
 
-    private static final Set<DecoderKey> DECODER_KEYS = CodingHelper.decoderKeysForElements(FilterConstants.NS_FES_2,
+    private static final Set<DecoderKey> DECODER_KEYS = CodingHelper.decoderKeysForElements(/*~~>*/FilterConstants.NS_FES_2,
                                                                                             SpatialOpsType.class,
                                                                                             TemporalOpsType.class,
                                                                                             ComparisonOpsType.class,
@@ -164,7 +164,7 @@ public class FesDecoderv20 extends AbstractXmlDecoder<XmlObject, Object> {
     private SpatialFilter parseSpatialFilterType(SpatialOpsType xbSpatialOpsType) throws DecodingException {
         SpatialFilter spatialFilter = new SpatialFilter();
         try {
-            String localName = XmlHelper.getLocalName(xbSpatialOpsType);
+            /*~~>*/String localName = XmlHelper.getLocalName(xbSpatialOpsType);
             spatialFilter.setOperator(FilterConstants.SpatialOperator.valueOf(localName));
             if (xbSpatialOpsType instanceof BBOXType) {
                 BBOXType xbBBOX = (BBOXType) xbSpatialOpsType;
@@ -251,12 +251,12 @@ public class FesDecoderv20 extends AbstractXmlDecoder<XmlObject, Object> {
                 NodeList nodes = btot.getDomNode().getChildNodes();
                 for (int i = 0; i < nodes.getLength(); i++) {
                     if (nodes.item(i).getNamespaceURI() != null
-                            && !nodes.item(i).getLocalName().equals(FilterConstants.EN_VALUE_REFERENCE)) {
+                            && !nodes.item(i).getLocalName().equals(/*~~>*/FilterConstants.EN_VALUE_REFERENCE)) {
                         Object timeObject = decodeXmlObject(Factory.parse(nodes.item(i)));
                         if (timeObject instanceof Time) {
                             TimeOperator operator;
                             Time time = (Time) timeObject;
-                            String localName = XmlHelper.getLocalName(xbTemporalOpsType);
+                            /*~~>*/String localName = XmlHelper.getLocalName(xbTemporalOpsType);
                             if (localName.equals(TimeOperator2.After.name())) {
                                 operator = TimeOperator.TM_After;
                             } else if (localName.equals(TimeOperator2.Before.name())) {
@@ -333,7 +333,7 @@ public class FesDecoderv20 extends AbstractXmlDecoder<XmlObject, Object> {
     private ComparisonFilter parseBinaryComparisonFilter(BinaryComparisonOpType comparisonOpsType)
             throws DecodingException {
         ComparisonFilter comparisonFilter = new ComparisonFilter();
-        String localName = XmlHelper.getLocalName(comparisonOpsType);
+        /*~~>*/String localName = XmlHelper.getLocalName(comparisonOpsType);
         if (ComparisonOperator.PropertyIsEqualTo.name().equals(localName)) {
             comparisonFilter.setOperator(ComparisonOperator.PropertyIsEqualTo);
         } else if (ComparisonOperator.PropertyIsNotEqualTo.name().equals(localName)) {
@@ -382,7 +382,7 @@ public class FesDecoderv20 extends AbstractXmlDecoder<XmlObject, Object> {
         }
     }
 
-    private String parseLiteralValue(LiteralType literalType) {
+    private /*~~>*/String parseLiteralValue(LiteralType literalType) {
         return literalType.getDomNode().getFirstChild().getNodeValue();
     }
 
@@ -394,7 +394,7 @@ public class FesDecoderv20 extends AbstractXmlDecoder<XmlObject, Object> {
      * @return <code>true</code>, if XmlObject is a valueReference element
      */
     private boolean isValueReferenceExpression(XmlObject xmlObject) {
-        return FilterConstants.EN_VALUE_REFERENCE.equals(XmlHelper.getLocalName(xmlObject));
+        return /*~~>*/FilterConstants.EN_VALUE_REFERENCE.equals(XmlHelper.getLocalName(xmlObject));
     }
 
     /**
@@ -406,7 +406,7 @@ public class FesDecoderv20 extends AbstractXmlDecoder<XmlObject, Object> {
      * @throws XmlException
      *             If an error occurs
      */
-    private String parseValueReference(XmlObject xmlObject) throws XmlException {
+    private /*~~>*/String parseValueReference(XmlObject xmlObject) throws XmlException {
         ValueReferenceDocument valueRefernece = ValueReferenceDocument.Factory.parse(xmlObject.getDomNode());
         return valueRefernece.getValueReference().trim();
     }
@@ -545,7 +545,7 @@ public class FesDecoderv20 extends AbstractXmlDecoder<XmlObject, Object> {
      */
     private BinaryLogicFilter parseBinaryLogicalFilter(BinaryLogicOpType binaryLogicOpType) throws DecodingException {
         BinaryLogicFilter binaryLogicFilter = null;
-        String localName = XmlHelper.getLocalName(binaryLogicOpType);
+        /*~~>*/String localName = XmlHelper.getLocalName(binaryLogicOpType);
         if (localName.equals(BinaryLogicOperator.And.name())) {
             binaryLogicFilter = new BinaryLogicFilter(BinaryLogicOperator.And);
         } else if (localName.equals(BinaryLogicOperator.Or.name())) {

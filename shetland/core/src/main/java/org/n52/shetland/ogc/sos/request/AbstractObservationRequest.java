@@ -29,33 +29,33 @@ public abstract class AbstractObservationRequest extends OwsServiceRequest imple
     /**
      * SRS name
      */
-    private String srsName;
+    private /*~~>*/String srsName;
 
     /**
      * Response format
      */
-    private String responseFormat;
+    private /*~~>*/String responseFormat;
 
     /**
      * Result model
      */
-    private String resultModel;
+    private /*~~>*/String resultModel;
 
     /**
      * Response mode
      */
-    private String responseMode;
+    private /*~~>*/String responseMode;
 
     private boolean checkForDuplicity;
 
     public AbstractObservationRequest() {
     }
 
-    public AbstractObservationRequest(String service, String version) {
+    public AbstractObservationRequest(/*~~>*/String service, /*~~>*/String version) {
         super(service, version);
     }
 
-    public AbstractObservationRequest(String service, String version, String operationName) {
+    public AbstractObservationRequest(/*~~>*/String service, /*~~>*/String version, /*~~>*/String operationName) {
         super(service, version, operationName);
     }
 
@@ -65,7 +65,7 @@ public abstract class AbstractObservationRequest extends OwsServiceRequest imple
      * @return response format
      */
     @Override
-    public String getResponseFormat() {
+    public /*~~>*/String getResponseFormat() {
         return responseFormat;
     }
 
@@ -76,8 +76,8 @@ public abstract class AbstractObservationRequest extends OwsServiceRequest imple
      *            response format
      */
     @Override
-    public void setResponseFormat(String responseFormat) {
-        this.responseFormat = responseFormat;
+    public void setResponseFormat(/*~~>*/String responseFormat) {
+        /*~~>*/this.responseFormat = responseFormat;
     }
 
     @Override
@@ -90,7 +90,7 @@ public abstract class AbstractObservationRequest extends OwsServiceRequest imple
      *
      * @return response mode
      */
-    public String getResponseMode() {
+    public /*~~>*/String getResponseMode() {
         return responseMode;
     }
 
@@ -100,8 +100,8 @@ public abstract class AbstractObservationRequest extends OwsServiceRequest imple
      * @param responseMode
      *            response mode
      */
-    public void setResponseMode(String responseMode) {
-        this.responseMode = responseMode;
+    public void setResponseMode(/*~~>*/String responseMode) {
+        /*~~>*/this.responseMode = responseMode;
     }
 
     public boolean isSetResponseMode() {
@@ -113,7 +113,7 @@ public abstract class AbstractObservationRequest extends OwsServiceRequest imple
      *
      * @return result model
      */
-    public String getResultModel() {
+    public /*~~>*/String getResultModel() {
         return resultModel;
     }
 
@@ -123,8 +123,8 @@ public abstract class AbstractObservationRequest extends OwsServiceRequest imple
      * @param resultModel
      *            result model
      */
-    public void setResultModel(String resultModel) {
-        this.resultModel = resultModel;
+    public void setResultModel(/*~~>*/String resultModel) {
+        /*~~>*/this.resultModel = resultModel;
     }
 
     public boolean isSetResultModel() {
@@ -132,13 +132,13 @@ public abstract class AbstractObservationRequest extends OwsServiceRequest imple
     }
 
     @Override
-    public String getSrsName() {
+    public /*~~>*/String getSrsName() {
         return srsName;
     }
 
     @Override
-    public void setSrsName(String srsName) {
-        this.srsName = srsName;
+    public void setSrsName(/*~~>*/String srsName) {
+        /*~~>*/this.srsName = srsName;
     }
 
     @Override
@@ -162,10 +162,10 @@ public abstract class AbstractObservationRequest extends OwsServiceRequest imple
     }
 
     public void copyOf(AbstractObservationRequest res) {
-        res.setResponseFormat(this.responseFormat);
-        res.setResponseMode(this.responseMode);
-        res.setResultModel(this.resultModel);
-        res.setSrsName(this.srsName);
+        res.setResponseFormat(/*~~>*/this.responseFormat);
+        res.setResponseMode(/*~~>*/this.responseMode);
+        res.setResultModel(/*~~>*/this.resultModel);
+        res.setSrsName(/*~~>*/this.srsName);
         res.setCheckForDuplicity(this.isCheckForDuplicity());
     }
 

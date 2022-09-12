@@ -48,8 +48,8 @@ import org.n52.janmayen.net.IPAddress;
 
 public class StatisticsLocationUtilIT {
 
-    private static String countryDb = null;
-    private static String cityDb = null;
+    private static /*~~>*/String countryDb = null;
+    private static /*~~>*/String cityDb = null;
     private static StatisticsLocationUtil loc = new StatisticsLocationUtil();
 
     @TempDir
@@ -57,7 +57,7 @@ public class StatisticsLocationUtilIT {
 
     @BeforeAll
     public static void init() {
-        String root = folder.getParent().toAbsolutePath().toString();
+        /*~~>*/String root = folder.getParent().toAbsolutePath().toString();
         GeoLiteFileDownloader.downloadDefaultDatabases(root);
         countryDb = root + "/country.mmdb";
         cityDb = root + "/city.mmdb";
@@ -67,9 +67,9 @@ public class StatisticsLocationUtilIT {
     public void downloadDefaultDatabases() throws Exception {
         StatisticsLocationUtil loc = new StatisticsLocationUtil();
         loc.setEnabled(true);
-        loc.setAutoDownload(StatisticsLocationUtilSettingsKeys.DATABASE_DOWNLOADER_AUTO);
+        loc.setAutoDownload(/*~~>*/StatisticsLocationUtilSettingsKeys.DATABASE_DOWNLOADER_AUTO);
         loc.setDownloadFolderPath(folder.resolve("tmp").toAbsolutePath().toString());
-        loc.setDbType(StatisticsLocationUtilSettingsKeys.DATABASE_TYPE_CITY);
+        loc.setDbType(/*~~>*/StatisticsLocationUtilSettingsKeys.DATABASE_TYPE_CITY);
 
         loc.init();
         Assertions.assertNotNull(loc.ip2SpatialData("67.20.172.183"));
@@ -79,10 +79,10 @@ public class StatisticsLocationUtilIT {
     public void manualCityDatabase() throws Exception {
         StatisticsLocationUtil loc = new StatisticsLocationUtil();
         loc.setEnabled(true);
-        loc.setAutoDownload(StatisticsLocationUtilSettingsKeys.DATABASE_DOWNLOADER_MANUAL);
-        String filepath = new File(cityDb).getAbsolutePath();
+        loc.setAutoDownload(/*~~>*/StatisticsLocationUtilSettingsKeys.DATABASE_DOWNLOADER_MANUAL);
+        /*~~>*/String filepath = new File(cityDb).getAbsolutePath();
         loc.setCityDbLoc(filepath);
-        loc.setDbType(StatisticsLocationUtilSettingsKeys.DATABASE_TYPE_CITY);
+        loc.setDbType(/*~~>*/StatisticsLocationUtilSettingsKeys.DATABASE_TYPE_CITY);
 
         loc.init();
         Assertions.assertNotNull(loc.ip2SpatialData("67.20.172.183"));
@@ -92,10 +92,10 @@ public class StatisticsLocationUtilIT {
     public void manualCountryDatabase() throws Exception {
         StatisticsLocationUtil loc = new StatisticsLocationUtil();
         loc.setEnabled(true);
-        loc.setAutoDownload(StatisticsLocationUtilSettingsKeys.DATABASE_DOWNLOADER_MANUAL);
-        String filepath = new File(countryDb).getAbsolutePath();
+        loc.setAutoDownload(/*~~>*/StatisticsLocationUtilSettingsKeys.DATABASE_DOWNLOADER_MANUAL);
+        /*~~>*/String filepath = new File(countryDb).getAbsolutePath();
         loc.setCountryDbLoc(filepath);
-        loc.setDbType(StatisticsLocationUtilSettingsKeys.DATABASE_TYPE_COUNTRY);
+        loc.setDbType(/*~~>*/StatisticsLocationUtilSettingsKeys.DATABASE_TYPE_COUNTRY);
 
         loc.init();
         Assertions.assertNotNull(loc.ip2SpatialData("67.20.172.183"));
@@ -105,10 +105,10 @@ public class StatisticsLocationUtilIT {
     public void geolocIsDisabled() throws Exception {
         StatisticsLocationUtil loc = new StatisticsLocationUtil();
         loc.setEnabled(false);
-        loc.setAutoDownload(StatisticsLocationUtilSettingsKeys.DATABASE_DOWNLOADER_MANUAL);
-        String filepath = new File(countryDb).getAbsolutePath();
+        loc.setAutoDownload(/*~~>*/StatisticsLocationUtilSettingsKeys.DATABASE_DOWNLOADER_MANUAL);
+        /*~~>*/String filepath = new File(countryDb).getAbsolutePath();
         loc.setCountryDbLoc(filepath);
-        loc.setDbType(StatisticsLocationUtilSettingsKeys.DATABASE_TYPE_COUNTRY);
+        loc.setDbType(/*~~>*/StatisticsLocationUtilSettingsKeys.DATABASE_TYPE_COUNTRY);
 
         loc.init();
         Assertions.assertNull(loc.ip2SpatialData("67.20.172.183"));
@@ -118,9 +118,9 @@ public class StatisticsLocationUtilIT {
     public void manualDatabaseButLocationIsEmpty() throws Exception {
         StatisticsLocationUtil loc = new StatisticsLocationUtil();
         loc.setEnabled(true);
-        loc.setAutoDownload(StatisticsLocationUtilSettingsKeys.DATABASE_DOWNLOADER_MANUAL);
+        loc.setAutoDownload(/*~~>*/StatisticsLocationUtilSettingsKeys.DATABASE_DOWNLOADER_MANUAL);
         loc.setCountryDbLoc(null);
-        loc.setDbType(StatisticsLocationUtilSettingsKeys.DATABASE_TYPE_COUNTRY);
+        loc.setDbType(/*~~>*/StatisticsLocationUtilSettingsKeys.DATABASE_TYPE_COUNTRY);
 
         loc.init();
         Assertions.assertNull(loc.ip2SpatialData("67.20.172.183"));
@@ -132,7 +132,7 @@ public class StatisticsLocationUtilIT {
         loc.initDatabase(LocationDatabaseType.COUNTRY, countryDb);
         IPAddress ip = new IPAddress("67.20.172.183");
 
-        Map<String, Object> map = loc.ip2SpatialData(ip);
+        Map</*~~>*/String, Object> map = loc.ip2SpatialData(ip);
         Assertions.assertEquals("US", map.get(ObjectEsParameterFactory.GEOLOC_COUNTRY_CODE.getName()));
     }
 
@@ -142,7 +142,7 @@ public class StatisticsLocationUtilIT {
         loc.initDatabase(LocationDatabaseType.CITY, cityDb);
         IPAddress ip = new IPAddress("67.20.172.183");
 
-        Map<String, Object> map = loc.ip2SpatialData(ip);
+        Map</*~~>*/String, Object> map = loc.ip2SpatialData(ip);
 
         Assertions.assertNotNull(map);
         Assertions.assertEquals("US", map.get(ObjectEsParameterFactory.GEOLOC_COUNTRY_CODE.getName()));

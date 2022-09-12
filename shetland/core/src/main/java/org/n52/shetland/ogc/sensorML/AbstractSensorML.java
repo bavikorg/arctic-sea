@@ -48,7 +48,7 @@ import edu.umd.cs.findbugs.annotations.SuppressFBWarnings;
  */
 public abstract class AbstractSensorML extends AbstractFeature implements PhenomenonNameDescriptionProvider {
 
-    private List<String> keywords = new ArrayList<>(0);
+    private List</*~~>*/String> keywords = new ArrayList<>(0);
     private List<SmlIdentifier> identifications = new ArrayList<>(0);
     private List<SmlClassifier> classifications = new ArrayList<>(0);
     private List<SmlCharacteristics> characteristics = new ArrayList<>(0);
@@ -61,7 +61,7 @@ public abstract class AbstractSensorML extends AbstractFeature implements Phenom
     // private Map<String, AbstractPhenomenon> phenomenonMap = new HashMap<>();
     // private ReferenceType parentProcedure;
     // private Set<AbstractSensorML> childProcedures = new LinkedHashSet<>();
-    private String history;
+    private /*~~>*/String history;
 
     /**
      * constructor
@@ -69,7 +69,7 @@ public abstract class AbstractSensorML extends AbstractFeature implements Phenom
      * @param identifier
      *            Feature identifier
      */
-    public AbstractSensorML(String identifier) {
+    public AbstractSensorML(/*~~>*/String identifier) {
         super(identifier);
     }
 
@@ -91,7 +91,7 @@ public abstract class AbstractSensorML extends AbstractFeature implements Phenom
      * @param gmlId
      *            GML id
      */
-    public AbstractSensorML(CodeWithAuthority identifier, String gmlId) {
+    public AbstractSensorML(CodeWithAuthority identifier, /*~~>*/String gmlId) {
         super(identifier, gmlId);
     }
 
@@ -104,28 +104,28 @@ public abstract class AbstractSensorML extends AbstractFeature implements Phenom
     }
 
     @Override
-    public AbstractSensorML setIdentifier(String identifier) {
+    public AbstractSensorML setIdentifier(/*~~>*/String identifier) {
         super.setIdentifier(identifier);
         return this;
     }
 
-    protected Predicate<SmlIdentifier> createSmlIdentifierPredicate(String name) {
+    protected Predicate<SmlIdentifier> createSmlIdentifierPredicate(/*~~>*/String name) {
         return createSmlIdentifierPredicate(name, name);
     }
 
-    protected Predicate<SmlIdentifier> createSmlIdentifierPredicate(String name, String definition) {
+    protected Predicate<SmlIdentifier> createSmlIdentifierPredicate(/*~~>*/String name, /*~~>*/String definition) {
         return SmlIdentifierPredicates.nameOrDefinition(name, definition);
     }
 
     private boolean isSetShortName() {
-        return isIdentificationSet(createSmlIdentifierPredicate(SensorMLConstants.ELEMENT_NAME_SHORT_NAME,
-                SensorMLConstants.ELEMENT_NAME_SHORT_DEFINITION));
+        return isIdentificationSet(createSmlIdentifierPredicate(/*~~>*/SensorMLConstants.ELEMENT_NAME_SHORT_NAME,
+                /*~~>*/SensorMLConstants.ELEMENT_NAME_SHORT_DEFINITION));
     }
 
-    private String getShortName() {
+    private /*~~>*/String getShortName() {
         if (isSetShortName()) {
-            return findIdentification(createSmlIdentifierPredicate(SensorMLConstants.ELEMENT_NAME_SHORT_NAME,
-                    SensorMLConstants.ELEMENT_NAME_SHORT_DEFINITION)).get().getValue();
+            return findIdentification(createSmlIdentifierPredicate(/*~~>*/SensorMLConstants.ELEMENT_NAME_SHORT_NAME,
+                    /*~~>*/SensorMLConstants.ELEMENT_NAME_SHORT_DEFINITION)).get().getValue();
         }
         return null;
     }
@@ -140,12 +140,12 @@ public abstract class AbstractSensorML extends AbstractFeature implements Phenom
         return isSetName() ? super.isSetName() ? super.getFirstName() : new CodeType(getShortName()) : null;
     }
 
-    public List<String> getKeywords() {
+    public List</*~~>*/String> getKeywords() {
         return Collections.unmodifiableList(keywords);
     }
 
     @SuppressFBWarnings({ "EI_EXPOSE_REP2" })
-    public AbstractSensorML setKeywords(Collection<String> keywords) {
+    public AbstractSensorML setKeywords(Collection</*~~>*/String> keywords) {
         this.keywords.clear();
         if (keywords != null) {
             this.keywords.addAll(keywords);
@@ -153,7 +153,7 @@ public abstract class AbstractSensorML extends AbstractFeature implements Phenom
         return this;
     }
 
-    public AbstractSensorML addKeywords(Collection<String> keywords) {
+    public AbstractSensorML addKeywords(Collection</*~~>*/String> keywords) {
         if (keywords != null) {
             this.keywords.addAll(keywords);
         }
@@ -291,14 +291,14 @@ public abstract class AbstractSensorML extends AbstractFeature implements Phenom
      *
      * @return The {@link SmlContact} or null if not defined
      */
-    public SmlContact getContact(String contactRole) {
+    public SmlContact getContact(/*~~>*/String contactRole) {
         if (isSetContact()) {
             return getContact(getContact(), contactRole);
         }
         return null;
     }
 
-    private SmlContact getContact(Collection<SmlContact> contacts, String contactRole) {
+    private SmlContact getContact(Collection<SmlContact> contacts, /*~~>*/String contactRole) {
         if (contacts != null) {
             for (SmlContact contact : contacts) {
                 if (contact instanceof SmlContactList) {
@@ -351,12 +351,12 @@ public abstract class AbstractSensorML extends AbstractFeature implements Phenom
         return this;
     }
 
-    public String getHistory() {
+    public /*~~>*/String getHistory() {
         return history;
     }
 
-    public AbstractSensorML setHistory(final String history) {
-        this.history = history;
+    public AbstractSensorML setHistory(final /*~~>*/String history) {
+        /*~~>*/this.history = history;
         return this;
     }
 
@@ -399,15 +399,15 @@ public abstract class AbstractSensorML extends AbstractFeature implements Phenom
 
     public boolean isSetMobile() {
         return getSweBooleanFromCapabilitiesFor(
-                Sets.newHashSet(SensorMLConstants.STATIONARY, SensorMLConstants.MOBILE)) != null;
+                Sets.newHashSet(/*~~>*/SensorMLConstants.STATIONARY, /*~~>*/SensorMLConstants.MOBILE)) != null;
     }
 
     public boolean getMobile() {
         SweBoolean sweBoolean = getSweBooleanFromCapabilitiesFor(
-                Sets.newHashSet(SensorMLConstants.STATIONARY, SensorMLConstants.MOBILE, SensorMLConstants.FIXED));
-        if (SensorMLConstants.MOBILE.equalsIgnoreCase(sweBoolean.getDefinition())) {
+                Sets.newHashSet(/*~~>*/SensorMLConstants.STATIONARY, /*~~>*/SensorMLConstants.MOBILE, /*~~>*/SensorMLConstants.FIXED));
+        if (/*~~>*/SensorMLConstants.MOBILE.equalsIgnoreCase(sweBoolean.getDefinition())) {
             return sweBoolean.getValue();
-        } else if (SensorMLConstants.STATIONARY.equalsIgnoreCase(sweBoolean.getDefinition())) {
+        } else if (/*~~>*/SensorMLConstants.STATIONARY.equalsIgnoreCase(sweBoolean.getDefinition())) {
             return !sweBoolean.getValue();
         }
         return false;
@@ -415,21 +415,21 @@ public abstract class AbstractSensorML extends AbstractFeature implements Phenom
 
     public boolean isSetInsitu() {
         return getSweBooleanFromCapabilitiesFor(
-                Sets.newHashSet(Sets.newHashSet(SensorMLConstants.INSITU, SensorMLConstants.REMOTE))) != null;
+                Sets.newHashSet(Sets.newHashSet(/*~~>*/SensorMLConstants.INSITU, /*~~>*/SensorMLConstants.REMOTE))) != null;
     }
 
     public boolean getInsitu() {
         SweBoolean sweBoolean = getSweBooleanFromCapabilitiesFor(
-                Sets.newHashSet(Sets.newHashSet(SensorMLConstants.INSITU, SensorMLConstants.REMOTE)));
-        if (SensorMLConstants.INSITU.equalsIgnoreCase(sweBoolean.getDefinition())) {
+                Sets.newHashSet(Sets.newHashSet(/*~~>*/SensorMLConstants.INSITU, /*~~>*/SensorMLConstants.REMOTE)));
+        if (/*~~>*/SensorMLConstants.INSITU.equalsIgnoreCase(sweBoolean.getDefinition())) {
             return sweBoolean.getValue();
-        } else if (SensorMLConstants.REMOTE.equalsIgnoreCase(sweBoolean.getDefinition())) {
+        } else if (/*~~>*/SensorMLConstants.REMOTE.equalsIgnoreCase(sweBoolean.getDefinition())) {
             return !sweBoolean.getValue();
         }
         return true;
     }
 
-    private SweBoolean getSweBooleanFromCapabilitiesFor(Collection<String> definitions) {
+    private SweBoolean getSweBooleanFromCapabilitiesFor(Collection</*~~>*/String> definitions) {
         if (this instanceof SensorML && ((SensorML) this).isWrapper()) {
             for (AbstractProcess absProcess : ((SensorML) this).getMembers()) {
                 return getSweBooleanFromCapabilitiesFor(absProcess, definitions);
@@ -440,7 +440,7 @@ public abstract class AbstractSensorML extends AbstractFeature implements Phenom
         return null;
     }
 
-    private SweBoolean getSweBooleanFromCapabilitiesFor(AbstractSensorML sml, Collection<String> definitions) {
+    private SweBoolean getSweBooleanFromCapabilitiesFor(AbstractSensorML sml, Collection</*~~>*/String> definitions) {
         if (sml.isSetCapabilities()) {
             for (SmlCapabilities caps : sml.getCapabilities()) {
                 for (SmlCapability cap : caps.getCapabilities()) {

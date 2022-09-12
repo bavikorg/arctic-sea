@@ -107,7 +107,7 @@ public class Chain<T> implements Iterable<T> {
     }
 
     @Override
-    public String toString() {
+    public /*~~>*/String toString() {
         return this.chain.stream().map(T::toString).collect(Collectors.joining("/"));
     }
 

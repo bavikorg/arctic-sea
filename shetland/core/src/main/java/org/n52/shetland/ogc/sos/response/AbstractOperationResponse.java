@@ -21,18 +21,18 @@ import com.google.common.base.Strings;
 
 public abstract class AbstractOperationResponse extends OwsServiceResponse {
 
-    private String operationVersion;
+    private /*~~>*/String operationVersion;
 
-    public AbstractOperationResponse(String operationVersion) {
+    public AbstractOperationResponse(/*~~>*/String operationVersion) {
         setOperationVersion(operationVersion);
     }
 
-    public String getOperationVersion() {
+    public /*~~>*/String getOperationVersion() {
         return operationVersion;
     }
 
-    public void setOperationVersion(String operationVersion) {
-        this.operationVersion = operationVersion;
+    public void setOperationVersion(/*~~>*/String operationVersion) {
+        /*~~>*/this.operationVersion = operationVersion;
     }
 
     public boolean isSetOperationVersion() {

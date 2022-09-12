@@ -31,58 +31,58 @@ import org.n52.shetland.util.CollectionHelper;
  */
 public class SosInsertionCapabilities
         implements OwsCapabilitiesExtension, MergableExtension<SosInsertionCapabilities> {
-    private static final String SECTION_NAME = Sos2Constants.CapabilitiesSections.InsertionCapabilities.name();
+    private static final /*~~>*/String SECTION_NAME = Sos2Constants.CapabilitiesSections.InsertionCapabilities.name();
 
-    private final SortedSet<String> featureOfInterestTypes = new TreeSet<>();
-    private final SortedSet<String> observationTypes = new TreeSet<>();
-    private final SortedSet<String> procedureDescriptionFormats = new TreeSet<>();
-    private final SortedSet<String> supportedEncodings = new TreeSet<>();
+    private final SortedSet</*~~>*/String> featureOfInterestTypes = new TreeSet<>();
+    private final SortedSet</*~~>*/String> observationTypes = new TreeSet<>();
+    private final SortedSet</*~~>*/String> procedureDescriptionFormats = new TreeSet<>();
+    private final SortedSet</*~~>*/String> supportedEncodings = new TreeSet<>();
 
-    public SortedSet<String> getFeatureOfInterestTypes() {
+    public SortedSet</*~~>*/String> getFeatureOfInterestTypes() {
         return Collections.unmodifiableSortedSet(featureOfInterestTypes);
     }
 
-    public SortedSet<String> getObservationTypes() {
+    public SortedSet</*~~>*/String> getObservationTypes() {
         return Collections.unmodifiableSortedSet(observationTypes);
     }
 
-    public SortedSet<String> getProcedureDescriptionFormats() {
+    public SortedSet</*~~>*/String> getProcedureDescriptionFormats() {
         return Collections.unmodifiableSortedSet(procedureDescriptionFormats);
     }
 
-    public SortedSet<String> getSupportedEncodings() {
+    public SortedSet</*~~>*/String> getSupportedEncodings() {
         return Collections.unmodifiableSortedSet(supportedEncodings);
     }
 
-    public void addFeatureOfInterestTypes(Collection<String> featureOfInterestTypes) {
+    public void addFeatureOfInterestTypes(Collection</*~~>*/String> featureOfInterestTypes) {
         this.featureOfInterestTypes.addAll(featureOfInterestTypes);
     }
 
-    public void addObservationTypes(Collection<String> observationTypes) {
+    public void addObservationTypes(Collection</*~~>*/String> observationTypes) {
         this.observationTypes.addAll(observationTypes);
     }
 
-    public void addProcedureDescriptionFormats(Collection<String> procedureDescriptionFormats) {
+    public void addProcedureDescriptionFormats(Collection</*~~>*/String> procedureDescriptionFormats) {
         this.procedureDescriptionFormats.addAll(procedureDescriptionFormats);
     }
 
-    public void addSupportedEncodings(Collection<String> supportedEncodings) {
+    public void addSupportedEncodings(Collection</*~~>*/String> supportedEncodings) {
         this.supportedEncodings.addAll(supportedEncodings);
     }
 
-    public void addFeatureOfInterestType(String featureOfInterestType) {
+    public void addFeatureOfInterestType(/*~~>*/String featureOfInterestType) {
         this.featureOfInterestTypes.add(featureOfInterestType);
     }
 
-    public void addObservationType(String observationType) {
+    public void addObservationType(/*~~>*/String observationType) {
         this.observationTypes.add(observationType);
     }
 
-    public void addProcedureDescriptionFormat(String procedureDescriptionFormat) {
+    public void addProcedureDescriptionFormat(/*~~>*/String procedureDescriptionFormat) {
         this.procedureDescriptionFormats.add(procedureDescriptionFormat);
     }
 
-    public void addSupportedEncoding(String supportedEncoding) {
+    public void addSupportedEncoding(/*~~>*/String supportedEncoding) {
         this.supportedEncodings.add(supportedEncoding);
     }
 
@@ -103,7 +103,7 @@ public class SosInsertionCapabilities
     }
 
     @Override
-    public String getSectionName() {
+    public /*~~>*/String getSectionName() {
         return SECTION_NAME;
     }
 

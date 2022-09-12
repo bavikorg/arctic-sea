@@ -25,12 +25,12 @@ public class DateTimeParseException extends DateTimeException {
 
     private static final long serialVersionUID = 8746024085392577840L;
 
-    public DateTimeParseException(String value) {
+    public DateTimeParseException(/*~~>*/String value) {
         this(value, null);
     }
 
-    public DateTimeParseException(String value, Throwable cause) {
-        super(String.format("Error parsing time string '%s'", value), cause);
+    public DateTimeParseException(/*~~>*/String value, Throwable cause) {
+        super(/*~~>*/String.format("Error parsing time string '%s'", value), cause);
     }
 
 }

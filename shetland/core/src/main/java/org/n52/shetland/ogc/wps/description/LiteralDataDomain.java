@@ -45,27 +45,27 @@ public interface LiteralDataDomain {
             B extends Builder<T, B>> extends org.n52.janmayen.Builder<T, B> {
         B withDefaultValue(OwsValue value);
 
-        default B withDefaultValue(String value) {
+        default B withDefaultValue(/*~~>*/String value) {
             return withDefaultValue(new OwsValue(value));
         }
 
         B withDataType(OwsDomainMetadata dataType);
 
-        default B withDataType(URI reference, String value) {
+        default B withDataType(URI reference, /*~~>*/String value) {
             return withDataType(Strings.emptyToNull(value) == null ? null : new OwsDomainMetadata(reference, value));
         }
 
-        default B withDataType(String value) {
+        default B withDataType(/*~~>*/String value) {
             return withDataType(Strings.emptyToNull(value) == null ? null : new OwsDomainMetadata(value));
         }
 
         B withUOM(OwsDomainMetadata uom);
 
-        default B withUOM(URI reference, String value) {
+        default B withUOM(URI reference, /*~~>*/String value) {
             return withUOM(Strings.emptyToNull(value) == null ? null : new OwsDomainMetadata(reference, value));
         }
 
-        default B withUOM(String value) {
+        default B withUOM(/*~~>*/String value) {
             return withUOM(Strings.emptyToNull(value) == null ? null : new OwsDomainMetadata(value));
         }
 

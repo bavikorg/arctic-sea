@@ -58,9 +58,9 @@ import com.google.common.collect.Sets;
 public class InspireXmlEncoder extends AbstractXmlEncoder<XmlObject, Object> {
 
     private static final Set<EncoderKey> ENCODER_KEYS = Sets.union(
-            CodingHelper.encoderKeysForElements(InspireConstants.NS_INSPIRE_DLS,
+            CodingHelper.encoderKeysForElements(/*~~>*/InspireConstants.NS_INSPIRE_DLS,
                                                 InspireExtendedCapabilities.class),
-            CodingHelper.encoderKeysForElements(InspireConstants.NS_INSPIRE_COMMON,
+            CodingHelper.encoderKeysForElements(/*~~>*/InspireConstants.NS_INSPIRE_COMMON,
                                                 SwesExtension.class,
                                                 CapabilitiesExtension.class,
                                                 InspireSupportedLanguages.class,
@@ -102,7 +102,7 @@ public class InspireXmlEncoder extends AbstractXmlEncoder<XmlObject, Object> {
             EncodingContext context = ctx.with(EncoderFlags.ENCODER_REPOSITORY, getEncoderRepository())
                     .with(XmlEncoderFlags.XML_OPTIONS, (Supplier<XmlOptions>) this::getXmlOptions);
             new InspireXmlStreamWriter(context, out, objectToEncode).write();
-            String s = out.toString("UTF8");
+            /*~~>*/String s = out.toString("UTF8");
             return XmlObject.Factory.parse(s);
         } catch (XMLStreamException | DateTimeFormatException | XmlException | UnsupportedEncodingException ex) {
             throw new EncodingException("Error encoding Inspire extended capabilities!", ex);
@@ -126,9 +126,9 @@ public class InspireXmlEncoder extends AbstractXmlEncoder<XmlObject, Object> {
     }
 
     @Override
-    public void addNamespacePrefixToMap(Map<String, String> nameSpacePrefixMap) {
-        nameSpacePrefixMap.put(InspireConstants.NS_INSPIRE_COMMON, InspireConstants.NS_INSPIRE_COMMON_PREFIX);
-        nameSpacePrefixMap.put(InspireConstants.NS_INSPIRE_DLS, InspireConstants.NS_INSPIRE_DLS_PREFIX);
+    public void addNamespacePrefixToMap(Map</*~~>*/String, /*~~>*/String> nameSpacePrefixMap) {
+        nameSpacePrefixMap.put(/*~~>*/InspireConstants.NS_INSPIRE_COMMON, /*~~>*/InspireConstants.NS_INSPIRE_COMMON_PREFIX);
+        nameSpacePrefixMap.put(/*~~>*/InspireConstants.NS_INSPIRE_DLS, /*~~>*/InspireConstants.NS_INSPIRE_DLS_PREFIX);
     }
 
     @Override

@@ -36,15 +36,15 @@ public class EReportingHeaderJSONDecoder
     public EReportingHeader decodeJSON(JsonNode node, boolean validate)
             throws DecodingException {
         EReportingHeader header = new EReportingHeader();
-        header.setChange(decodeJsonToObject(node.path(AQDJSONConstants.CHANGE), EReportingChange.class));
-        header.setIdentifier(decodeJsonToObject(node.path(AQDJSONConstants.INSPIRE_ID), Identifier.class));
+        header.setChange(decodeJsonToObject(node.path(/*~~>*/AQDJSONConstants.CHANGE), EReportingChange.class));
+        header.setIdentifier(decodeJsonToObject(node.path(/*~~>*/AQDJSONConstants.INSPIRE_ID), Identifier.class));
         header.setReportingAuthority(
-                decodeJsonToObject(node.path(AQDJSONConstants.REPORTING_AUTHORITY), RelatedParty.class));
-        header.setReportingPeriod(parseReferenceableTime(node.path(AQDJSONConstants.REPORTING_PERIOD)));
-        for (JsonNode child : node.path(AQDJSONConstants.CONTENT)) {
+                decodeJsonToObject(node.path(/*~~>*/AQDJSONConstants.REPORTING_AUTHORITY), RelatedParty.class));
+        header.setReportingPeriod(parseReferenceableTime(node.path(/*~~>*/AQDJSONConstants.REPORTING_PERIOD)));
+        for (JsonNode child : node.path(/*~~>*/AQDJSONConstants.CONTENT)) {
             header.addContent(decodeJsonToReferencable(child, AbstractFeature.class));
         }
-        for (JsonNode child : node.path(AQDJSONConstants.DELETE)) {
+        for (JsonNode child : node.path(/*~~>*/AQDJSONConstants.DELETE)) {
             header.addDelete(decodeJsonToReferencable(child, AbstractFeature.class));
         }
         return header;

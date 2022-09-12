@@ -35,9 +35,9 @@ import edu.umd.cs.findbugs.annotations.SuppressFBWarnings;
  * @since 1.0.0
  */
 public class UpdateSensorRequest extends OwsServiceRequest {
-    private String procedureIdentifier;
+    private /*~~>*/String procedureIdentifier;
 
-    private String procedureDescriptionFormat;
+    private /*~~>*/String procedureDescriptionFormat;
 
     /**
      * SOS SensorML description
@@ -51,18 +51,18 @@ public class UpdateSensorRequest extends OwsServiceRequest {
         super(null, null, Sos2Constants.Operations.UpdateSensorDescription.name());
     }
 
-    public UpdateSensorRequest(String service, String version) {
+    public UpdateSensorRequest(/*~~>*/String service, /*~~>*/String version) {
         super(service, version, Sos2Constants.Operations.UpdateSensorDescription.name());
     }
 
-    public UpdateSensorRequest(String service, String version, String operationName) {
+    public UpdateSensorRequest(/*~~>*/String service, /*~~>*/String version, /*~~>*/String operationName) {
         super(service, version, operationName);
     }
 
     /**
      * @return the procedureIdentifier
      */
-    public String getProcedureIdentifier() {
+    public /*~~>*/String getProcedureIdentifier() {
         return procedureIdentifier;
     }
 
@@ -70,20 +70,20 @@ public class UpdateSensorRequest extends OwsServiceRequest {
      * @param procedureIdentifier
      *            the procedureIdentifier to set
      */
-    public void setProcedureIdentifier(String procedureIdentifier) {
-        this.procedureIdentifier = procedureIdentifier;
+    public void setProcedureIdentifier(/*~~>*/String procedureIdentifier) {
+        /*~~>*/this.procedureIdentifier = procedureIdentifier;
     }
 
     public boolean isSetProcedureIdentifier() {
         return !Strings.isNullOrEmpty(getProcedureIdentifier());
     }
 
-    public String getProcedureDescriptionFormat() {
+    public /*~~>*/String getProcedureDescriptionFormat() {
         return procedureDescriptionFormat;
     }
 
-    public void setProcedureDescriptionFormat(String procedureDescriptionFormat) {
-        this.procedureDescriptionFormat = procedureDescriptionFormat;
+    public void setProcedureDescriptionFormat(/*~~>*/String procedureDescriptionFormat) {
+        /*~~>*/this.procedureDescriptionFormat = procedureDescriptionFormat;
     }
 
     public boolean isSetProcedureDescriptionFormat() {

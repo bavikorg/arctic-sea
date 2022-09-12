@@ -44,11 +44,11 @@ public class OwsKeyword implements Comparable<OwsKeyword> {
         this(keyword, null);
     }
 
-    public OwsKeyword(String keyword) {
+    public OwsKeyword(/*~~>*/String keyword) {
         this(keyword, null);
     }
 
-    public OwsKeyword(String keyword, OwsCode type) {
+    public OwsKeyword(/*~~>*/String keyword, OwsCode type) {
         this(new OwsLanguageString(keyword), type);
     }
 
@@ -95,7 +95,7 @@ public class OwsKeyword implements Comparable<OwsKeyword> {
     }
 
     @Override
-    public String toString() {
+    public /*~~>*/String toString() {
         return "OwsKeyword{" + "keyword=" + keyword + ", type=" + type + '}';
     }
 

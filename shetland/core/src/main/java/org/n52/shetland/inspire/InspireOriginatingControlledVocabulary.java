@@ -32,7 +32,7 @@ public class InspireOriginatingControlledVocabulary extends InspireCitation {
      * @param dateOf
      *            the {@link InspireDateOf} implementation
      */
-    public InspireOriginatingControlledVocabulary(String title, InspireDateOf dateOf) {
+    public InspireOriginatingControlledVocabulary(/*~~>*/String title, InspireDateOf dateOf) {
         super(title, dateOf);
     }
 }

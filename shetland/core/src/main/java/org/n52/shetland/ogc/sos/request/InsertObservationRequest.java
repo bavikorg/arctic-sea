@@ -47,8 +47,8 @@ public class InsertObservationRequest extends OwsServiceRequest {
     /**
      * Assigned sensor id
      */
-    private String assignedSensorId;
-    private List<String> offerings = new LinkedList<>();
+    private /*~~>*/String assignedSensorId;
+    private List</*~~>*/String> offerings = new LinkedList<>();
     /**
      * SOS observation collection with observations to insert
      */
@@ -59,11 +59,11 @@ public class InsertObservationRequest extends OwsServiceRequest {
         super(null, null, SosConstants.Operations.InsertObservation.name());
     }
 
-    public InsertObservationRequest(String service, String version) {
+    public InsertObservationRequest(/*~~>*/String service, /*~~>*/String version) {
         super(service, version, SosConstants.Operations.InsertObservation.name());
     }
 
-    public InsertObservationRequest(String service, String version, String operationName) {
+    public InsertObservationRequest(/*~~>*/String service, /*~~>*/String version, /*~~>*/String operationName) {
         super(service, version, operationName);
     }
 
@@ -72,7 +72,7 @@ public class InsertObservationRequest extends OwsServiceRequest {
      *
      * @return assigned sensor id
      */
-    public String getAssignedSensorId() {
+    public /*~~>*/String getAssignedSensorId() {
         return assignedSensorId;
     }
 
@@ -82,8 +82,8 @@ public class InsertObservationRequest extends OwsServiceRequest {
      * @param assignedSensorId
      *            assigned sensor id
      */
-    public InsertObservationRequest setAssignedSensorId(String assignedSensorId) {
-        this.assignedSensorId = assignedSensorId;
+    public InsertObservationRequest setAssignedSensorId(/*~~>*/String assignedSensorId) {
+        /*~~>*/this.assignedSensorId = assignedSensorId;
         return this;
     }
 
@@ -121,7 +121,7 @@ public class InsertObservationRequest extends OwsServiceRequest {
     }
 
     @SuppressFBWarnings({ "EI_EXPOSE_REP2" })
-    public InsertObservationRequest setOfferings(Collection<String> offerings) {
+    public InsertObservationRequest setOfferings(Collection</*~~>*/String> offerings) {
         this.offerings.clear();
         if (offerings != null) {
             this.offerings.addAll(offerings);
@@ -129,7 +129,7 @@ public class InsertObservationRequest extends OwsServiceRequest {
         return this;
     }
 
-    public List<String> getOfferings() {
+    public List</*~~>*/String> getOfferings() {
         return Collections.unmodifiableList(offerings);
     }
 
@@ -150,28 +150,28 @@ public class InsertObservationRequest extends OwsServiceRequest {
      *
      */
     private static class ReferenceChecker {
-        private final Map<String, Time> phenomenonTimes = new HashMap<String, Time>();
-        private final Map<String, TimeInstant> resultTimes = new HashMap<String, TimeInstant>();
-        private final Map<String, AbstractFeature> features = new HashMap<String, AbstractFeature>();
+        private final Map</*~~>*/String, Time> phenomenonTimes = new HashMap</*~~>*/String, Time>();
+        private final Map</*~~>*/String, TimeInstant> resultTimes = new HashMap</*~~>*/String, TimeInstant>();
+        private final Map</*~~>*/String, AbstractFeature> features = new HashMap</*~~>*/String, AbstractFeature>();
 
         /**
          * @return the phenomenonTimes
          */
-        public Map<String, Time> getPhenomenonTimes() {
+        public Map</*~~>*/String, Time> getPhenomenonTimes() {
             return phenomenonTimes;
         }
 
         /**
          * @return the resultTimes
          */
-        public Map<String, TimeInstant> getResultTimes() {
+        public Map</*~~>*/String, TimeInstant> getResultTimes() {
             return resultTimes;
         }
 
         /**
          * @return the features
          */
-        public Map<String, AbstractFeature> getFeatures() {
+        public Map</*~~>*/String, AbstractFeature> getFeatures() {
             return features;
         }
 
@@ -212,27 +212,27 @@ public class InsertObservationRequest extends OwsServiceRequest {
             return observation;
         }
 
-        private void checkAndAddPhenomenonTime(final Time phenomenonTime, final Map<String, Time> phenomenonTimes) {
+        private void checkAndAddPhenomenonTime(final Time phenomenonTime, final Map</*~~>*/String, Time> phenomenonTimes) {
             if (phenomenonTime != null && !phenomenonTime.isReferenced()) {
                 phenomenonTimes.put(phenomenonTime.getGmlId(), phenomenonTime);
             }
         }
 
-        private void checkAndAddResultTime(final TimeInstant resultTime, final Map<String, TimeInstant> resultTimes) {
+        private void checkAndAddResultTime(final TimeInstant resultTime, final Map</*~~>*/String, TimeInstant> resultTimes) {
             if (resultTime != null && !resultTime.isReferenced()) {
                 resultTimes.put(resultTime.getGmlId(), resultTime);
             }
         }
 
         private void checkAndAddFeatures(final AbstractFeature featureOfInterest,
-                final Map<String, AbstractFeature> features) {
+                final Map</*~~>*/String, AbstractFeature> features) {
             if (featureOfInterest != null && !featureOfInterest.isReferenced()) {
                 features.put(featureOfInterest.getGmlId(), featureOfInterest);
             }
         }
 
-        private void checkReferencedElements(final OmObservation observation, final Map<String, Time> phenomenonTimes,
-                final Map<String, TimeInstant> resultTimes, final Map<String, AbstractFeature> features) {
+        private void checkReferencedElements(final OmObservation observation, final Map</*~~>*/String, Time> phenomenonTimes,
+                final Map</*~~>*/String, TimeInstant> resultTimes, final Map</*~~>*/String, AbstractFeature> features) {
             // phenomenonTime
             final Time phenomenonTime = observation.getPhenomenonTime();
             if (phenomenonTime != null && phenomenonTime.isReferenced()) {

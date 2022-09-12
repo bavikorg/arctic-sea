@@ -77,7 +77,7 @@ public class FeatureOfInterestEncoder extends JSONEncoder<AbstractFeature> {
 
     private void encodeIdentifier(AbstractSamplingFeature sf, ObjectNode json) {
         if (sf.isSetIdentifier()) {
-            json.set(JSONConstants.IDENTIFIER, encodeCodeWithAuthority(sf.getIdentifierCodeWithAuthority()));
+            json.set(/*~~>*/JSONConstants.IDENTIFIER, encodeCodeWithAuthority(sf.getIdentifierCodeWithAuthority()));
         }
 
     }
@@ -85,9 +85,9 @@ public class FeatureOfInterestEncoder extends JSONEncoder<AbstractFeature> {
     private void encodeNames(AbstractSamplingFeature samplingFeature, ObjectNode json) {
         if (samplingFeature.isSetName()) {
             if (samplingFeature.getName().size() == 1) {
-                json.set(JSONConstants.NAME, encodeCodeType(samplingFeature.getName().iterator().next()));
+                json.set(/*~~>*/JSONConstants.NAME, encodeCodeType(samplingFeature.getName().iterator().next()));
             } else {
-                ArrayNode names = json.putArray(JSONConstants.NAME);
+                ArrayNode names = json.putArray(/*~~>*/JSONConstants.NAME);
                 for (CodeType name : samplingFeature.getName()) {
                     names.add(encodeCodeType(name));
                 }
@@ -98,9 +98,9 @@ public class FeatureOfInterestEncoder extends JSONEncoder<AbstractFeature> {
     private void encodeSampledFeatures(AbstractSamplingFeature sf, ObjectNode json) throws EncodingException {
         if (sf.isSetSampledFeatures()) {
             if (sf.getSampledFeatures().size() == 1) {
-                json.set(JSONConstants.SAMPLED_FEATURE, encodeObjectToJson(sf.getSampledFeatures().iterator().next()));
+                json.set(/*~~>*/JSONConstants.SAMPLED_FEATURE, encodeObjectToJson(sf.getSampledFeatures().iterator().next()));
             } else {
-                ArrayNode sampledFeatures = json.putArray(JSONConstants.SAMPLED_FEATURE);
+                ArrayNode sampledFeatures = json.putArray(/*~~>*/JSONConstants.SAMPLED_FEATURE);
                 for (AbstractFeature sampledFeature : sf.getSampledFeatures()) {
                     sampledFeatures.add(encodeObjectToJson(sampledFeature));
                 }
@@ -110,7 +110,7 @@ public class FeatureOfInterestEncoder extends JSONEncoder<AbstractFeature> {
 
     private void encodeGeometry(AbstractSamplingFeature sf, ObjectNode json) throws EncodingException {
         if (sf.isSetGeometry()) {
-            json.set(JSONConstants.GEOMETRY, encodeObjectToJson(sf.getGeometry()));
+            json.set(/*~~>*/JSONConstants.GEOMETRY, encodeObjectToJson(sf.getGeometry()));
         }
     }
 }

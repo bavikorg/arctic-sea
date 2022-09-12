@@ -39,8 +39,8 @@ public class OmV20XmlStreamWriter extends AbstractOmV20XmlStreamWriter {
     }
 
     @Override
-    protected Optional<String> getDefaultFeatureEncodingNamespace() {
-        return Optional.of(SfConstants.NS_SAMS);
+    protected Optional</*~~>*/String> getDefaultFeatureEncodingNamespace() {
+        return Optional.of(/*~~>*/SfConstants.NS_SAMS);
     }
 
     @Override

@@ -80,24 +80,24 @@ public class ProcessDescriptionDecoder extends JSONDecoder<ProcessDescription> {
         }
         ProcessDescription.Builder<?, ?> builder = factory.process();
         decodeDescription(builder, node);
-        for (JsonNode input : node.path(JSONConstants.INPUTS)) {
+        for (JsonNode input : node.path(/*~~>*/JSONConstants.INPUTS)) {
             builder.withInput(decodeInput(input));
         }
-        for (JsonNode output : node.path(JSONConstants.OUTPUTS)) {
+        for (JsonNode output : node.path(/*~~>*/JSONConstants.OUTPUTS)) {
             builder.withOutput(decodeOutput(output));
         }
-        if (node.path(JSONConstants.VERSION).isValueNode()) {
-            builder.withVersion(node.path(JSONConstants.VERSION).textValue());
+        if (node.path(/*~~>*/JSONConstants.VERSION).isValueNode()) {
+            builder.withVersion(node.path(/*~~>*/JSONConstants.VERSION).textValue());
         }
         return builder.build();
     }
 
     private ProcessInputDescription decodeInput(JsonNode node) throws DecodingException {
-        if (node.path(JSONConstants.INPUT).has(JSONConstants.LITERAL_DATA_DOMAINS)) {
+        if (node.path(/*~~>*/JSONConstants.INPUT).has(/*~~>*/JSONConstants.LITERAL_DATA_DOMAINS)) {
             return decodeLiteralInput(node);
-        } else if (node.path(JSONConstants.INPUT).has(JSONConstants.FORMATS)) {
+        } else if (node.path(/*~~>*/JSONConstants.INPUT).has(/*~~>*/JSONConstants.FORMATS)) {
             return decodeComplexInput(node);
-        } else if (node.path(JSONConstants.INPUT).has(JSONConstants.SUPPORTED_CRS)) {
+        } else if (node.path(/*~~>*/JSONConstants.INPUT).has(/*~~>*/JSONConstants.SUPPORTED_CRS)) {
             return decodeBoundingBoxInput(node);
         }
         throw new DecodingException("unsupported input" + node);
@@ -106,19 +106,19 @@ public class ProcessDescriptionDecoder extends JSONDecoder<ProcessDescription> {
     private LiteralInputDescription decodeLiteralInput(JsonNode node) throws DecodingException {
         LiteralInputDescription.Builder<?, ?> builder = factory.literalInput();
         decodeInputDescription(builder, node);
-        decodeSupportedLiteralDataDomains(builder, node.path(JSONConstants.INPUT));
+        decodeSupportedLiteralDataDomains(builder, node.path(/*~~>*/JSONConstants.INPUT));
         return builder.build();
     }
 
     private void decodeSupportedLiteralDataDomains(LiteralDescription.Builder<?, ?> builder, JsonNode node)
             throws DecodingException {
-        JsonNode domains = node.path(JSONConstants.LITERAL_DATA_DOMAINS);
+        JsonNode domains = node.path(/*~~>*/JSONConstants.LITERAL_DATA_DOMAINS);
         LiteralDataDomain defaultLiteralDataDomain = null;
         List<LiteralDataDomain> literalDataDomains = new ArrayList<>(domains.size());
         for (JsonNode domainNode : domains) {
             LiteralDataDomain literalDataDomain = decodeLiteralDataDomain(domainNode);
             literalDataDomains.add(literalDataDomain);
-            if (domainNode.path(JSONConstants.DEFAULT).asBoolean(false)) {
+            if (domainNode.path(/*~~>*/JSONConstants.DEFAULT).asBoolean(false)) {
                 defaultLiteralDataDomain = literalDataDomain;
             }
         }
@@ -135,18 +135,18 @@ public class ProcessDescriptionDecoder extends JSONDecoder<ProcessDescription> {
 
     private LiteralDataDomain decodeLiteralDataDomain(JsonNode node) {
         LiteralDataDomain.Builder<?, ?> builder = factory.literalDataDomain();
-        if (!node.path(JSONConstants.DEFAULT_VALUE).isMissingNode()) {
-            builder.withDefaultValue(node.path(JSONConstants.DEFAULT_VALUE).textValue());
+        if (!node.path(/*~~>*/JSONConstants.DEFAULT_VALUE).isMissingNode()) {
+            builder.withDefaultValue(node.path(/*~~>*/JSONConstants.DEFAULT_VALUE).textValue());
         }
-        JsonNode dataTypeNode = node.path(JSONConstants.DATA_TYPE);
+        JsonNode dataTypeNode = node.path(/*~~>*/JSONConstants.DATA_TYPE);
         if (!dataTypeNode.isMissingNode()) {
             builder.withDataType(decodeDomainMetadata(dataTypeNode));
         }
-        JsonNode uomNode = node.path(JSONConstants.UOM);
+        JsonNode uomNode = node.path(/*~~>*/JSONConstants.UOM);
         if (!uomNode.isMissingNode()) {
             builder.withUOM(decodeDomainMetadata(uomNode));
         }
-        builder.withValueDescription(decodeValueDefinition(node.path(JSONConstants.VALUE_DEFINITION)));
+        builder.withValueDescription(decodeValueDefinition(node.path(/*~~>*/JSONConstants.VALUE_DEFINITION)));
         return builder.build();
     }
 
@@ -166,21 +166,21 @@ public class ProcessDescriptionDecoder extends JSONDecoder<ProcessDescription> {
         if (!node.isValueNode()) {
             return null;
         }
-        String text = node.asText();
+        /*~~>*/String text = node.asText();
         return new OwsValue(text);
     }
 
     private OwsRange decodeRange(JsonNode node) {
-        OwsValue min = decodeValue(node.path(JSONConstants.MINIMUM_VALUE));
-        OwsValue max = decodeValue(node.path(JSONConstants.MAXIMUM_VALUE));
-        OwsValue spacing = decodeValue(node.path(JSONConstants.SPACING));
-        String rangeClosure = node.path(JSONConstants.RANGE_CLOSURE).textValue();
+        OwsValue min = decodeValue(node.path(/*~~>*/JSONConstants.MINIMUM_VALUE));
+        OwsValue max = decodeValue(node.path(/*~~>*/JSONConstants.MAXIMUM_VALUE));
+        OwsValue spacing = decodeValue(node.path(/*~~>*/JSONConstants.SPACING));
+        /*~~>*/String rangeClosure = node.path(/*~~>*/JSONConstants.RANGE_CLOSURE).textValue();
         return new OwsRange(min, max, rangeClosure, spacing);
     }
 
     private OwsDomainMetadata decodeDomainMetadata(JsonNode dataTypeNode) {
-        String name = dataTypeNode.path(JSONConstants.NAME).textValue();
-        URI reference = Optional.ofNullable(dataTypeNode.path(JSONConstants.REFERENCE).textValue())
+        /*~~>*/String name = dataTypeNode.path(/*~~>*/JSONConstants.NAME).textValue();
+        URI reference = Optional.ofNullable(dataTypeNode.path(/*~~>*/JSONConstants.REFERENCE).textValue())
                                 .map(URI::create).orElse(null);
         return new OwsDomainMetadata(reference, name);
     }
@@ -188,13 +188,13 @@ public class ProcessDescriptionDecoder extends JSONDecoder<ProcessDescription> {
     private ComplexInputDescription decodeComplexInput(JsonNode node) throws DecodingException {
         ComplexInputDescription.Builder<?, ?> builder = factory.complexInput();
         decodeInputDescription(builder, node);
-        BigInteger maximumMegabytes = decodeSupportedFormats(builder, node.path(JSONConstants.INPUT));
+        BigInteger maximumMegabytes = decodeSupportedFormats(builder, node.path(/*~~>*/JSONConstants.INPUT));
         return builder.withMaximumMegabytes(maximumMegabytes).build();
     }
 
     private BigInteger getMaximumMegabytes(BigInteger currentMaximum, JsonNode formatNode) {
-        if (formatNode.path(JSONConstants.MAXIMUM_MEGABYTES).isNumber()) {
-            BigInteger value = formatNode.path(JSONConstants.MAXIMUM_MEGABYTES).bigIntegerValue();
+        if (formatNode.path(/*~~>*/JSONConstants.MAXIMUM_MEGABYTES).isNumber()) {
+            BigInteger value = formatNode.path(/*~~>*/JSONConstants.MAXIMUM_MEGABYTES).bigIntegerValue();
             if (currentMaximum == null || currentMaximum.compareTo(value) > 0) {
                 return value;
             }
@@ -203,24 +203,24 @@ public class ProcessDescriptionDecoder extends JSONDecoder<ProcessDescription> {
     }
 
     private Format decodeFormat(JsonNode node) {
-        return new Format(node.path(JSONConstants.MIME_TYPE).textValue(),
-                          node.path(JSONConstants.ENCODING).textValue(),
-                          node.path(JSONConstants.SCHEMA).textValue());
+        return new Format(node.path(/*~~>*/JSONConstants.MIME_TYPE).textValue(),
+                          node.path(/*~~>*/JSONConstants.ENCODING).textValue(),
+                          node.path(/*~~>*/JSONConstants.SCHEMA).textValue());
     }
 
     private BoundingBoxInputDescription decodeBoundingBoxInput(JsonNode node) throws DecodingException {
         BoundingBoxInputDescription.Builder<?, ?> builder = factory.boundingBoxInput();
         decodeInputDescription(builder, node);
-        decodeSupportedCRS(builder, node.path(JSONConstants.INPUT));
+        decodeSupportedCRS(builder, node.path(/*~~>*/JSONConstants.INPUT));
         return builder.build();
     }
 
     private ProcessOutputDescription decodeOutput(JsonNode node) throws DecodingException {
-        if (node.path(JSONConstants.OUTPUT).has(JSONConstants.LITERAL_DATA_DOMAINS)) {
+        if (node.path(/*~~>*/JSONConstants.OUTPUT).has(/*~~>*/JSONConstants.LITERAL_DATA_DOMAINS)) {
             return decodeLiteralOutput(node);
-        } else if (node.path(JSONConstants.OUTPUT).has(JSONConstants.FORMATS)) {
+        } else if (node.path(/*~~>*/JSONConstants.OUTPUT).has(/*~~>*/JSONConstants.FORMATS)) {
             return decodeComplexOutput(node);
-        } else if (node.path(JSONConstants.OUTPUT).has(JSONConstants.SUPPORTED_CRS)) {
+        } else if (node.path(/*~~>*/JSONConstants.OUTPUT).has(/*~~>*/JSONConstants.SUPPORTED_CRS)) {
             return decodeBoundingBoxOutput(node);
         }
         throw new DecodingException("unsupported output" + node);
@@ -229,27 +229,27 @@ public class ProcessDescriptionDecoder extends JSONDecoder<ProcessDescription> {
     private BoundingBoxOutputDescription decodeBoundingBoxOutput(JsonNode node) throws DecodingException {
         BoundingBoxOutputDescription.Builder<?, ?> builder = factory.boundingBoxOutput();
         decodeDescription(builder, node);
-        decodeSupportedCRS(builder, node.path(JSONConstants.OUTPUT));
+        decodeSupportedCRS(builder, node.path(/*~~>*/JSONConstants.OUTPUT));
         return builder.build();
     }
 
     private ComplexOutputDescription decodeComplexOutput(JsonNode node) throws DecodingException {
         ComplexOutputDescription.Builder<?, ?> builder = factory.complexOutput();
         decodeDescription(builder, node);
-        BigInteger maximumMegabytes = decodeSupportedFormats(builder, node.path(JSONConstants.OUTPUT));
+        BigInteger maximumMegabytes = decodeSupportedFormats(builder, node.path(/*~~>*/JSONConstants.OUTPUT));
         return builder.withMaximumMegabytes(maximumMegabytes).build();
     }
 
     private BigInteger decodeSupportedFormats(ComplexDescription.Builder<?, ?> builder, JsonNode node)
             throws DecodingException {
-        JsonNode formatsNode = node.path(JSONConstants.FORMATS);
+        JsonNode formatsNode = node.path(/*~~>*/JSONConstants.FORMATS);
         BigInteger maximumMegabytes = null;
         Format defaultFormat = null;
         List<Format> formats = new ArrayList<>(formatsNode.size());
         for (JsonNode formatNode : formatsNode) {
             Format format = decodeFormat(formatNode);
             formats.add(format);
-            if (formatNode.path(JSONConstants.DEFAULT).asBoolean(false)) {
+            if (formatNode.path(/*~~>*/JSONConstants.DEFAULT).asBoolean(false)) {
                 defaultFormat = format;
             }
             maximumMegabytes = getMaximumMegabytes(maximumMegabytes, formatNode);
@@ -269,29 +269,29 @@ public class ProcessDescriptionDecoder extends JSONDecoder<ProcessDescription> {
     private LiteralOutputDescription decodeLiteralOutput(JsonNode node) throws DecodingException {
         LiteralOutputDescription.Builder<?, ?> builder = factory.literalOutput();
         decodeDescription(builder, node);
-        decodeSupportedLiteralDataDomains(builder, node.path(JSONConstants.OUTPUT));
+        decodeSupportedLiteralDataDomains(builder, node.path(/*~~>*/JSONConstants.OUTPUT));
         return builder.build();
     }
 
     private void decodeInputDescription(ProcessInputDescription.Builder<?, ?> builder, JsonNode node) {
         decodeDescription(builder, node);
-        if (node.path(JSONConstants.MIN_OCCURS).isNumber()) {
-            builder.withMinimalOccurence(node.path(JSONConstants.MIN_OCCURS).bigIntegerValue());
+        if (node.path(/*~~>*/JSONConstants.MIN_OCCURS).isNumber()) {
+            builder.withMinimalOccurence(node.path(/*~~>*/JSONConstants.MIN_OCCURS).bigIntegerValue());
         }
-        if (node.path(JSONConstants.MAX_OCCURS).isNumber()) {
-            builder.withMaximalOccurence(node.path(JSONConstants.MAX_OCCURS).bigIntegerValue());
+        if (node.path(/*~~>*/JSONConstants.MAX_OCCURS).isNumber()) {
+            builder.withMaximalOccurence(node.path(/*~~>*/JSONConstants.MAX_OCCURS).bigIntegerValue());
         }
     }
 
     private void decodeSupportedCRS(BoundingBoxDescription.Builder<?, ?> builder, JsonNode node)
             throws DecodingException {
-        JsonNode crsNodes = node.path(JSONConstants.SUPPORTED_CRS);
+        JsonNode crsNodes = node.path(/*~~>*/JSONConstants.SUPPORTED_CRS);
         OwsCRS defaultCRS = null;
         List<OwsCRS> supportedCRS = new ArrayList<>(crsNodes.size());
         for (JsonNode crsNode : crsNodes) {
-            OwsCRS crs = new OwsCRS(URI.create(crsNode.path(JSONConstants.CRS).textValue()));
+            OwsCRS crs = new OwsCRS(URI.create(crsNode.path(/*~~>*/JSONConstants.CRS).textValue()));
             supportedCRS.add(crs);
-            if (crsNode.path(JSONConstants.DEFAULT).asBoolean(false)) {
+            if (crsNode.path(/*~~>*/JSONConstants.DEFAULT).asBoolean(false)) {
                 defaultCRS = crs;
             }
         }
@@ -306,17 +306,17 @@ public class ProcessDescriptionDecoder extends JSONDecoder<ProcessDescription> {
     }
 
     private void decodeDescription(Description.Builder<?, ?> builder, JsonNode node) {
-        builder.withIdentifier(node.path(JSONConstants.ID).textValue());
-        builder.withTitle(node.path(JSONConstants.TITLE).textValue());
-        builder.withAbstract(node.path(JSONConstants.DESCRIPTION).textValue());
+        builder.withIdentifier(node.path(/*~~>*/JSONConstants.ID).textValue());
+        builder.withTitle(node.path(/*~~>*/JSONConstants.TITLE).textValue());
+        builder.withAbstract(node.path(/*~~>*/JSONConstants.DESCRIPTION).textValue());
 
-        for (JsonNode metadata : node.path(JSONConstants.METADATA)) {
-            URI role = Optional.ofNullable(metadata.path(JSONConstants.ROLE).textValue()).map(URI::create).orElse(null);
-            URI href = Optional.ofNullable(metadata.path(JSONConstants.HREF).textValue()).map(URI::create).orElse(null);
+        for (JsonNode metadata : node.path(/*~~>*/JSONConstants.METADATA)) {
+            URI role = Optional.ofNullable(metadata.path(/*~~>*/JSONConstants.ROLE).textValue()).map(URI::create).orElse(null);
+            URI href = Optional.ofNullable(metadata.path(/*~~>*/JSONConstants.HREF).textValue()).map(URI::create).orElse(null);
             builder.withMetadata(new OwsMetadata(href, role, null, null, null, null, null));
         }
 
-        for (JsonNode keyword : node.path(JSONConstants.KEYWORDS)) {
+        for (JsonNode keyword : node.path(/*~~>*/JSONConstants.KEYWORDS)) {
             builder.withKeyword(keyword.textValue());
         }
     }

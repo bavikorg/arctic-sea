@@ -32,12 +32,12 @@ import edu.umd.cs.findbugs.annotations.SuppressFBWarnings;
 public class OwsValuesReference implements OwsPossibleValues {
 
     private final URI reference;
-    private final String value;
+    private final /*~~>*/String value;
 
     @SuppressFBWarnings(value = "NP_PARAMETER_MUST_BE_NONNULL_BUT_MARKED_AS_NULLABLE")
-    public OwsValuesReference(URI reference, @Nullable String value) {
+    public OwsValuesReference(URI reference, @Nullable /*~~>*/String value) {
         this.reference = Objects.requireNonNull(reference);
-        this.value = Strings.nullToEmpty(value);
+        /*~~>*/this.value = Strings.nullToEmpty(value);
     }
 
     public OwsValuesReference(URI reference) {
@@ -64,15 +64,15 @@ public class OwsValuesReference implements OwsPossibleValues {
      *
      * @return the value
      */
-    public String getValue() {
-        return this.value;
+    public /*~~>*/String getValue() {
+        return /*~~>*/this.value;
     }
 
     @Override
     public int hashCode() {
         int hash = 3;
         hash = 89 * hash + Objects.hashCode(this.reference);
-        hash = 89 * hash + Objects.hashCode(this.value);
+        hash = 89 * hash + Objects.hashCode(/*~~>*/this.value);
         return hash;
     }
 
@@ -88,11 +88,11 @@ public class OwsValuesReference implements OwsPossibleValues {
             return false;
         }
         final OwsValuesReference other = (OwsValuesReference) obj;
-        return Objects.equals(this.value, other.value) && Objects.equals(this.reference, other.reference);
+        return Objects.equals(/*~~>*/this.value, /*~~>*/other.value) && Objects.equals(this.reference, other.reference);
     }
 
     @Override
-    public String toString() {
+    public /*~~>*/String toString() {
         return "OwsValuesReference{" + "reference=" + reference + ", value=" + value + '}';
     }
 

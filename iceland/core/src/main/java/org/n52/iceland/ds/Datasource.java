@@ -36,7 +36,7 @@ public interface Datasource extends Serializable {
     /**
      * @return the representive name of this dialect
      */
-    String getDialectName();
+    /*~~>*/String getDialectName();
 
     /**
      * @return the settings needed to connect
@@ -59,7 +59,7 @@ public interface Datasource extends Serializable {
      *            Current datasource properties
      * @return Map with String key and Object value
      */
-    Map<String, Object> parseDatasourceProperties(Properties current);
+    Map</*~~>*/String, Object> parseDatasourceProperties(Properties current);
 
     /**
      * Check if a connection is possible.
@@ -67,7 +67,7 @@ public interface Datasource extends Serializable {
      * @param settings
      *            the settings to connect
      */
-    void validateConnection(Map<String, Object> settings);
+    void validateConnection(Map</*~~>*/String, Object> settings);
 
     /**
      * Check if a connection is still possible with the newSettings settings.
@@ -77,7 +77,7 @@ public interface Datasource extends Serializable {
      * @param newSettings
      *            the newSettings settings
      */
-    void validateConnection(Properties current, Map<String, Object> newSettings);
+    void validateConnection(Properties current, Map</*~~>*/String, Object> newSettings);
 
     /**
      * Validate if all prerequisites (e.g. datasource version) are met. Will
@@ -88,7 +88,7 @@ public interface Datasource extends Serializable {
      * @param settings
      *            the settings to connect
      */
-    void validatePrerequisites(Map<String, Object> settings);
+    void validatePrerequisites(Map</*~~>*/String, Object> settings);
 
     /**
      * Used to validate prerequisites after the connections settings newSettings
@@ -99,7 +99,7 @@ public interface Datasource extends Serializable {
      * @param newSettings
      *            the newSettings settings
      */
-    void validatePrerequisites(Properties current, Map<String, Object> newSettings);
+    void validatePrerequisites(Properties current, Map</*~~>*/String, Object> newSettings);
 
     /**
      * @return if this datasource needs some kind of schema
@@ -115,7 +115,7 @@ public interface Datasource extends Serializable {
      * @param settings
      *            the settings to connect
      */
-    void validateSchema(Map<String, Object> settings);
+    void validateSchema(Map</*~~>*/String, Object> settings);
 
     /**
      * Validate the existing schema. Will only be called if
@@ -128,7 +128,7 @@ public interface Datasource extends Serializable {
      * @param newSettings
      *            the newSettings settings
      */
-    void validateSchema(Properties current, Map<String, Object> newSettings);
+    void validateSchema(Properties current, Map</*~~>*/String, Object> newSettings);
 
     /**
      *
@@ -141,7 +141,7 @@ public interface Datasource extends Serializable {
      *
      * @return if the schema (or parts of it) exists
      */
-    boolean checkIfSchemaExists(Map<String, Object> settings);
+    boolean checkIfSchemaExists(Map</*~~>*/String, Object> settings);
 
     /**
      * Check if the schema exists. Should return {@code true} even if parts are
@@ -155,7 +155,7 @@ public interface Datasource extends Serializable {
      *
      * @return if the schema (or parts of it) exists
      */
-    boolean checkIfSchemaExists(Properties current, Map<String, Object> newSettings);
+    boolean checkIfSchemaExists(Properties current, Map</*~~>*/String, Object> newSettings);
 
     /**
      * Check if it is possible to create the schema (e.g. test if the privilege
@@ -167,7 +167,7 @@ public interface Datasource extends Serializable {
      *
      * @return if the creation if the schema is possible
      */
-    boolean checkSchemaCreation(Map<String, Object> settings);
+    boolean checkSchemaCreation(Map</*~~>*/String, Object> settings);
 
     /**
      * Create the schema for the supplied settings. Will only be called if
@@ -181,7 +181,7 @@ public interface Datasource extends Serializable {
      *            the settings to connect
      * @return an array of DDL statements
      */
-    String[] createSchema(Map<String, Object> settings);
+    /*~~>*//*~~>*/String[] createSchema(Map</*~~>*/String, Object> settings);
 
     /**
      * Drop the present schema (or parts of it). Will only be called if
@@ -193,7 +193,7 @@ public interface Datasource extends Serializable {
      *            the settings to connect
      * @return an array of DDL statements
      */
-    String[] dropSchema(Map<String, Object> settings);
+    /*~~>*//*~~>*/String[] dropSchema(Map</*~~>*/String, Object> settings);
 
     /**
      * Creates an update schema for the supplied settings. Will only be called if
@@ -207,9 +207,9 @@ public interface Datasource extends Serializable {
      *            the settings to connect
      * @return an array of DDL statements
      */
-    String[] updateSchema(Map<String, Object> settings);
+    /*~~>*//*~~>*/String[] updateSchema(Map</*~~>*/String, Object> settings);
 
-    void execute(String[] sql, Map<String, Object> settings);
+    void execute(/*~~>*/String[] sql, Map</*~~>*/String, Object> settings);
 
     /**
      * Clear the contents of the datasource. Only called if
@@ -235,7 +235,7 @@ public interface Datasource extends Serializable {
      *
      * @return the datasource properties
      */
-    Properties getDatasourceProperties(Map<String, Object> settings);
+    Properties getDatasourceProperties(Map</*~~>*/String, Object> settings);
 
     /**
      * Create the datasource properties used by the {@link ConnectionProvider}
@@ -248,7 +248,7 @@ public interface Datasource extends Serializable {
      *
      * @return the new datasource properties
      */
-    Properties getDatasourceProperties(Properties current, Map<String, Object> newSettings);
+    Properties getDatasourceProperties(Properties current, Map</*~~>*/String, Object> newSettings);
 
     /**
      * @return the callback used at instantiation time of the connection provider
@@ -260,14 +260,14 @@ public interface Datasource extends Serializable {
      *
      * @param settings the settings to connect
      */
-    void prepare(Map<String, Object> settings);
+    void prepare(Map</*~~>*/String, Object> settings);
 
     boolean isPostCreateSchema();
 
-    void executePostCreateSchema(Map<String, Object> databaseSettings);
+    void executePostCreateSchema(Map</*~~>*/String, Object> databaseSettings);
 
     void checkPostCreation(Properties properties);
 
-    Set<String> getSpringProfiles();
+    Set</*~~>*/String> getSpringProfiles();
 
 }

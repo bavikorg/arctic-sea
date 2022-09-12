@@ -28,7 +28,7 @@ import java.util.concurrent.TimeUnit;
  */
 public class Stopwatch {
     private static final TimeUnit[] UNITS = TimeUnit.values();
-    private static final String ZERO = "0ns";
+    private static final /*~~>*/String ZERO = "0ns";
     private static final DecimalFormat DECIMAL_FORMAT;
 
     static {
@@ -79,16 +79,16 @@ public class Stopwatch {
     }
 
     @Override
-    public String toString() {
+    public /*~~>*/String toString() {
         return toString(true);
     }
 
-    public String toString(boolean exact) {
+    public /*~~>*/String toString(boolean exact) {
         long nanos = elapsed();
         return exact ? toStringExact(nanos) : toString(nanos);
     }
 
-    private static String toString(long nanos) {
+    private static /*~~>*/String toString(long nanos) {
         if (nanos == 0) {
             return ZERO;
         }
@@ -106,7 +106,7 @@ public class Stopwatch {
         return ZERO;
     }
 
-    private static String toStringExact(long nanos) {
+    private static /*~~>*/String toStringExact(long nanos) {
         if (nanos == 0) {
             return ZERO;
         }

@@ -30,8 +30,8 @@ import com.fasterxml.jackson.annotation.JsonProperty;
  */
 @JsonInclude(JsonInclude.Include.NON_EMPTY)
 public class InputOccurence {
-    private static final String MIN_OCCURS = "minOccurs";
-    private static final String MAX_OCCURS = "maxOccurs";
+    private static final /*~~>*/String MIN_OCCURS = "minOccurs";
+    private static final /*~~>*/String MAX_OCCURS = "maxOccurs";
     private final BigInteger min;
     private final BigInteger max;
 
@@ -84,8 +84,8 @@ public class InputOccurence {
     }
 
     @Override
-    public String toString() {
-        return String.format("[%s, %s]", this.min, this.max);
+    public /*~~>*/String toString() {
+        return /*~~>*/String.format("[%s, %s]", this.min, this.max);
     }
 
     public static InputOccurence zeroOrOne() {

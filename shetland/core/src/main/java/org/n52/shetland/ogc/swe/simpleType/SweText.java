@@ -29,12 +29,12 @@ import org.n52.shetland.w3c.xlink.Referenceable;
  * @author <a href="mailto:c.hollmann@52north.org">Carsten Hollmann</a>
  * @since 1.0.0
  */
-public class SweText extends SweAbstractSimpleType<String> implements Comparable<SweText>, SweQuality {
+public class SweText extends SweAbstractSimpleType</*~~>*/String> implements Comparable<SweText>, SweQuality {
 
     /**
      * value
      */
-    private String value;
+    private /*~~>*/String value;
     private Referenceable<SweAllowedTokens> constraint;
 
     /**
@@ -44,25 +44,25 @@ public class SweText extends SweAbstractSimpleType<String> implements Comparable
     }
 
     @Override
-    public String getValue() {
+    public /*~~>*/String getValue() {
         return value;
     }
 
     @Override
-    public SweText setValue(final String value) {
-        this.value = value;
+    public SweText setValue(final /*~~>*/String value) {
+        /*~~>*/this.value = value;
         return this;
     }
 
     @Override
-    public void setStringValue(String s) {
+    public void setStringValue(/*~~>*/String s) {
         if (s != null && !s.isEmpty()) {
             setValue(s);
         }
     }
 
     @Override
-    public String getStringValue() {
+    public /*~~>*/String getStringValue() {
         return value;
     }
 

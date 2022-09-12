@@ -39,30 +39,30 @@ import com.fasterxml.jackson.databind.JsonNode;
  */
 public class BatchRequestDecoder extends AbstractSosRequestDecoder<BatchRequest> {
     public BatchRequestDecoder() {
-        super(BatchRequest.class, SosConstants.SOS, Sos2Constants.SERVICEVERSION, BatchConstants.OPERATION_NAME);
+        super(BatchRequest.class, /*~~>*/SosConstants.SOS, /*~~>*/Sos2Constants.SERVICEVERSION, /*~~>*/BatchConstants.OPERATION_NAME);
     }
 
     @Override
-    protected String getSchemaURI() {
-        return SchemaConstants.Request.BULK_REQUEST;
+    protected /*~~>*/String getSchemaURI() {
+        return /*~~>*/SchemaConstants.Request.BULK_REQUEST;
     }
 
     @Override
     protected BatchRequest decodeRequest(JsonNode node) throws DecodingException {
         BatchRequest request = new BatchRequest();
-        if (node.path(JSONConstants.STOP_AT_FAILURE).isBoolean()) {
-            request.setStopAtFailure(node.path(JSONConstants.STOP_AT_FAILURE).booleanValue());
+        if (node.path(/*~~>*/JSONConstants.STOP_AT_FAILURE).isBoolean()) {
+            request.setStopAtFailure(node.path(/*~~>*/JSONConstants.STOP_AT_FAILURE).booleanValue());
         }
-        for (JsonNode n : node.path(JSONConstants.REQUESTS)) {
+        for (JsonNode n : node.path(/*~~>*/JSONConstants.REQUESTS)) {
             request.add(getDecoder(n).decode(n));
         }
         return request;
     }
 
     private Decoder<OwsServiceRequest, JsonNode> getDecoder(JsonNode n) throws DecodingException {
-        String service = n.path(JSONConstants.SERVICE).textValue();
-        String version = n.path(JSONConstants.VERSION).textValue();
-        String request = n.path(JSONConstants.REQUEST).textValue();
+        /*~~>*/String service = n.path(/*~~>*/JSONConstants.SERVICE).textValue();
+        /*~~>*/String version = n.path(/*~~>*/JSONConstants.VERSION).textValue();
+        /*~~>*/String request = n.path(/*~~>*/JSONConstants.REQUEST).textValue();
         OperationDecoderKey k = new OperationDecoderKey(service, version, request, MediaTypes.APPLICATION_JSON);
         Decoder<OwsServiceRequest, JsonNode> decoder = getDecoder(k);
         if (decoder == null) {

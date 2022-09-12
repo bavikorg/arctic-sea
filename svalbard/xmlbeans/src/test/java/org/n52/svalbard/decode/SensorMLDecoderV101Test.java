@@ -66,10 +66,10 @@ import net.opengis.swe.x101.SimpleDataRecordType;
  * @since 1.0.0
  */
 public class SensorMLDecoderV101Test {
-    private static final String TEST_ID_1 = "test-id-1";
-    private static final String TEST_NAME_1 = "test-name-1";
-    private static final String TEST_ID_2 = "test-id-2";
-    private static final String TEST_NAME_2 = "test-name-2";
+    private static final /*~~>*/String TEST_ID_1 = "test-id-1";
+    private static final /*~~>*/String TEST_NAME_1 = "test-name-1";
+    private static final /*~~>*/String TEST_ID_2 = "test-id-2";
+    private static final /*~~>*/String TEST_NAME_2 = "test-name-2";
 
     private SensorMLDecoderV101 sensorMLDecoderV101;
 
@@ -96,7 +96,7 @@ public class SensorMLDecoderV101Test {
                 (SystemType) xbSmlDoc.getSensorML().addNewMember().addNewProcess()
                         .substitute(SensorMLConstants.SYSTEM_QNAME, SystemType.type);
         IdentifierList xbIdentifierList = xbSystem.addNewIdentification().addNewIdentifierList();
-        addIdentifier(xbIdentifierList, OGCConstants.URN_UNIQUE_IDENTIFIER_END, null, TEST_ID_1);
+        addIdentifier(xbIdentifierList, /*~~>*/OGCConstants.URN_UNIQUE_IDENTIFIER_END, null, TEST_ID_1);
         addIdentifier(xbIdentifierList, "any name", null, TEST_ID_2);
         AbstractProcess absProcess = decodeAbstractProcess(xbSmlDoc);
         assertThat(absProcess.getIdentifier(), is(TEST_ID_1));
@@ -107,7 +107,7 @@ public class SensorMLDecoderV101Test {
         SensorMLDocument xbSmlDoc =
                 SensorMLDocument.Factory.newInstance();
         net.opengis.sensorML.x101.SensorMLDocument.SensorML xbSensorML = xbSmlDoc.addNewSensorML();
-        xbSensorML.setVersion(SensorMLConstants.VERSION_V101);
+        xbSensorML.setVersion(/*~~>*/SensorMLConstants.VERSION_V101);
         return xbSmlDoc;
     }
 
@@ -118,7 +118,7 @@ public class SensorMLDecoderV101Test {
                 (SystemType) xbSmlDoc.getSensorML().addNewMember().addNewProcess()
                         .substitute(SensorMLConstants.SYSTEM_QNAME, SystemType.type);
         IdentifierList xbIdentifierList = xbSystem.addNewIdentification().addNewIdentifierList();
-        addIdentifier(xbIdentifierList, "any name", OGCConstants.URN_UNIQUE_IDENTIFIER, TEST_ID_1);
+        addIdentifier(xbIdentifierList, "any name", /*~~>*/OGCConstants.URN_UNIQUE_IDENTIFIER, TEST_ID_1);
         addIdentifier(xbIdentifierList, "any other name", null, TEST_ID_2);
         AbstractProcess absProcess = decodeAbstractProcess(xbSmlDoc);
         assertThat(absProcess.getIdentifier(), is(TEST_ID_1));
@@ -132,8 +132,8 @@ public class SensorMLDecoderV101Test {
                 (SystemType) xbSmlDoc.getSensorML().addNewMember().addNewProcess()
                         .substitute(SensorMLConstants.SYSTEM_QNAME, SystemType.type);
         IdentifierList xbIdentifierList = xbSystem.addNewIdentification().addNewIdentifierList();
-        String definiton =
-                OGCConstants.URN_UNIQUE_IDENTIFIER_START + "anything" + OGCConstants.URN_UNIQUE_IDENTIFIER_END;
+        /*~~>*/String definiton =
+                /*~~>*/OGCConstants.URN_UNIQUE_IDENTIFIER_START + "anything" + /*~~>*/OGCConstants.URN_UNIQUE_IDENTIFIER_END;
         addIdentifier(xbIdentifierList, "any name", definiton, TEST_ID_1);
         addIdentifier(xbIdentifierList, "any other name", null, TEST_ID_2);
         AbstractProcess absProcess = decodeAbstractProcess(xbSmlDoc);
@@ -141,7 +141,7 @@ public class SensorMLDecoderV101Test {
         assertThat(absProcess.getIdentifications().size(), is(2));
     }
 
-    private void addIdentifier(IdentifierList xbIdentifierList, String name, String definition, String value) {
+    private void addIdentifier(IdentifierList xbIdentifierList, /*~~>*/String name, /*~~>*/String definition, /*~~>*/String value) {
         Identifier xbIdentifier = xbIdentifierList.addNewIdentifier();
         xbIdentifier.setName(name);
         Term xbTerm = xbIdentifier.addNewTerm();
@@ -156,7 +156,7 @@ public class SensorMLDecoderV101Test {
                 (SystemType) xbSmlDoc.getSensorML().addNewMember().addNewProcess()
                         .substitute(SensorMLConstants.SYSTEM_QNAME, SystemType.type);
         Capabilities xbCapabilities = xbSystem.addNewCapabilities();
-        xbCapabilities.setName(SensorMLConstants.ELEMENT_NAME_OFFERINGS);
+        xbCapabilities.setName(/*~~>*/SensorMLConstants.ELEMENT_NAME_OFFERINGS);
         SimpleDataRecordType xbSimpleDataRecord =
                 (SimpleDataRecordType) xbCapabilities.addNewAbstractDataRecord().substitute(
                         SweConstants.QN_SIMPLEDATARECORD_SWE_101, SimpleDataRecordType.type);
@@ -180,7 +180,7 @@ public class SensorMLDecoderV101Test {
                 (SystemType) xbSmlDoc.getSensorML().addNewMember().addNewProcess()
                         .substitute(SensorMLConstants.SYSTEM_QNAME, SystemType.type);
         Capabilities xbCapabilities = xbSystem.addNewCapabilities();
-        xbCapabilities.setName(SensorMLConstants.ELEMENT_NAME_PARENT_PROCEDURES);
+        xbCapabilities.setName(/*~~>*/SensorMLConstants.ELEMENT_NAME_PARENT_PROCEDURES);
         SimpleDataRecordType xbSimpleDataRecord =
                 (SimpleDataRecordType) xbCapabilities.addNewAbstractDataRecord().substitute(
                         SweConstants.QN_SIMPLEDATARECORD_SWE_101, SimpleDataRecordType.type);
@@ -202,7 +202,7 @@ public class SensorMLDecoderV101Test {
                 (SystemType) xbSmlDoc.getSensorML().addNewMember().addNewProcess()
                         .substitute(SensorMLConstants.SYSTEM_QNAME, SystemType.type);
         Capabilities xbCapabilities = xbSystem.addNewCapabilities();
-        xbCapabilities.setName(SensorMLConstants.ELEMENT_NAME_FEATURES_OF_INTEREST);
+        xbCapabilities.setName(/*~~>*/SensorMLConstants.ELEMENT_NAME_FEATURES_OF_INTEREST);
         SimpleDataRecordType xbSimpleDataRecord =
                 (SimpleDataRecordType) xbCapabilities.addNewAbstractDataRecord().substitute(
                         SweConstants.QN_SIMPLEDATARECORD_SWE_101, SimpleDataRecordType.type);
@@ -217,7 +217,7 @@ public class SensorMLDecoderV101Test {
 //        assertThat(featuresOfInterest.get(1), is(TEST_ID_2));
     }
 
-    private void addCapabilitiesInsertionMetadata(SimpleDataRecordType xbSimpleDataRecord, String value, String name) {
+    private void addCapabilitiesInsertionMetadata(SimpleDataRecordType xbSimpleDataRecord, /*~~>*/String value, /*~~>*/String name) {
         AnyScalarPropertyType xbField = xbSimpleDataRecord.addNewField();
         xbField.setName(name);
         xbField.addNewText().setValue(value);
@@ -243,7 +243,7 @@ public class SensorMLDecoderV101Test {
                 (SystemType) xbSmlDoc.getSensorML().addNewMember().addNewProcess()
                         .substitute(SensorMLConstants.SYSTEM_QNAME, SystemType.type);
         IdentifierList xbIdentifierList = xbSystem.addNewIdentification().addNewIdentifierList();
-        addIdentifier(xbIdentifierList, "anyname", OGCConstants.URN_UNIQUE_IDENTIFIER, TEST_ID_1);
+        addIdentifier(xbIdentifierList, "anyname", /*~~>*/OGCConstants.URN_UNIQUE_IDENTIFIER, TEST_ID_1);
 
         ComponentList xbComponentList = xbSystem.addNewComponents().addNewComponentList();
         addChildProcedure(xbComponentList, TEST_ID_2);
@@ -255,13 +255,13 @@ public class SensorMLDecoderV101Test {
 //        assertThat(childProcedure.getIdentifier(), is(TEST_ID_2));
     }
 
-    private void addChildProcedure(ComponentList xbComponentList, String identifier) {
+    private void addChildProcedure(ComponentList xbComponentList, /*~~>*/String identifier) {
         Component xbComponent = xbComponentList.addNewComponent();
-        xbComponent.setName(SensorMLConstants.ELEMENT_NAME_CHILD_PROCEDURES);
+        xbComponent.setName(/*~~>*/SensorMLConstants.ELEMENT_NAME_CHILD_PROCEDURES);
         SystemType xbSystem =
                 (SystemType) xbComponent.addNewProcess().substitute(SensorMLConstants.SYSTEM_QNAME, SystemType.type);
         IdentifierList xbIdentifierList = xbSystem.addNewIdentification().addNewIdentifierList();
-        addIdentifier(xbIdentifierList, "anyname", OGCConstants.URN_UNIQUE_IDENTIFIER, identifier);
+        addIdentifier(xbIdentifierList, "anyname", /*~~>*/OGCConstants.URN_UNIQUE_IDENTIFIER, identifier);
     }
 
     @Test
@@ -316,31 +316,31 @@ public class SensorMLDecoderV101Test {
 
     @Test
     public void should_decode_contact_from_sml() throws DecodingException {
-        String role1 = "role1";
-        String role2 = "role2";
-        String orgName = "orgName";
-        String individualName = "individualName";
-        String posName = "posName";
-        String contactInstructions = "contactInstructions";
-        String hoursOfService = "hoursOfService";
-        String adminArea = "adminArea";
-        String city = "city";
-        String country = "country";
-        String email = "email";
-        String postalCode = "postalCode";
-        String deliveryPoint1 = "deliveryPoint1";
-        String deliveryPoint2 = "deliveryPoint2";
-        String onlineResource1 = "onlineResource1";
-        String onlineResource2 = "onlineResource2";
-        String phoneVoice1 = "phoneVoice1";
-        String phoneVoice2 = "phoneVoice2";
-        String phoneFax1 = "phoneFax1";
-        String phoneFax2 = "phoneFax2";
-        String affiliation = "affiliation";
-        String name = "name";
-        String phoneNumber = "phoneNumber";
-        String surname = "surname";
-        String userID = "userID";
+        /*~~>*/String role1 = "role1";
+        /*~~>*/String role2 = "role2";
+        /*~~>*/String orgName = "orgName";
+        /*~~>*/String individualName = "individualName";
+        /*~~>*/String posName = "posName";
+        /*~~>*/String contactInstructions = "contactInstructions";
+        /*~~>*/String hoursOfService = "hoursOfService";
+        /*~~>*/String adminArea = "adminArea";
+        /*~~>*/String city = "city";
+        /*~~>*/String country = "country";
+        /*~~>*/String email = "email";
+        /*~~>*/String postalCode = "postalCode";
+        /*~~>*/String deliveryPoint1 = "deliveryPoint1";
+        /*~~>*/String deliveryPoint2 = "deliveryPoint2";
+        /*~~>*/String onlineResource1 = "onlineResource1";
+        /*~~>*/String onlineResource2 = "onlineResource2";
+        /*~~>*/String phoneVoice1 = "phoneVoice1";
+        /*~~>*/String phoneVoice2 = "phoneVoice2";
+        /*~~>*/String phoneFax1 = "phoneFax1";
+        /*~~>*/String phoneFax2 = "phoneFax2";
+        /*~~>*/String affiliation = "affiliation";
+        /*~~>*/String name = "name";
+        /*~~>*/String phoneNumber = "phoneNumber";
+        /*~~>*/String surname = "surname";
+        /*~~>*/String userID = "userID";
 
         SensorMLDocument xbSmlDoc = getSensorMLDoc();
         SystemType xbSystem =

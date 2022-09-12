@@ -28,11 +28,11 @@ public class OwsContact {
     private final Optional<OwsPhone> phone;
     private final Optional<OwsAddress> address;
     private final Optional<OwsOnlineResource> onlineResource;
-    private final Optional<String> hoursOfService;
-    private final Optional<String> contactInstructions;
+    private final Optional</*~~>*/String> hoursOfService;
+    private final Optional</*~~>*/String> contactInstructions;
 
-    public OwsContact(OwsPhone phone, OwsAddress address, OwsOnlineResource onlineResource, String hoursOfService,
-            String contactInstructions) {
+    public OwsContact(OwsPhone phone, OwsAddress address, OwsOnlineResource onlineResource, /*~~>*/String hoursOfService,
+            /*~~>*/String contactInstructions) {
         this.phone = Optional.ofNullable(phone);
         this.address = Optional.ofNullable(address);
         this.onlineResource = Optional.ofNullable(onlineResource);
@@ -52,11 +52,11 @@ public class OwsContact {
         return onlineResource;
     }
 
-    public Optional<String> getHoursOfService() {
+    public Optional</*~~>*/String> getHoursOfService() {
         return hoursOfService;
     }
 
-    public Optional<String> getContactInstructions() {
+    public Optional</*~~>*/String> getContactInstructions() {
         return contactInstructions;
     }
 
@@ -102,7 +102,7 @@ public class OwsContact {
     }
 
     @Override
-    public String toString() {
+    public /*~~>*/String toString() {
         return "OwsContact{" + "phone=" + phone + ", address=" + address + ", onlineResource=" + onlineResource
                 + ", hoursOfService=" + hoursOfService + ", contactInstructions=" + contactInstructions + '}';
     }

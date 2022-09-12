@@ -41,7 +41,7 @@ public class EnvironmentalMonitoringFaciltityPropertyTypeEncoder
     private static final Set<EncoderKey> ENCODER_KEYS = Sets.newHashSet(
             new ClassToClassEncoderKey(EnvironmentalMonitoringFacility.class,
                     EnvironmentalMonitoringFacilityPropertyType.class),
-            new XmlPropertyTypeEncoderKey(InspireEfConstants.NS_EF, EnvironmentalMonitoringFacility.class));
+            new XmlPropertyTypeEncoderKey(/*~~>*/InspireEfConstants.NS_EF, EnvironmentalMonitoringFacility.class));
 
     public EnvironmentalMonitoringFaciltityPropertyTypeEncoder() {
         LOGGER.debug("Encoder for the following keys initialized successfully: {}!",

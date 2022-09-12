@@ -26,18 +26,18 @@ public class IntegerSettingValueForTesting implements SettingValue<Integer> {
 
     private static final long serialVersionUID = 1754026121092771295L;
 
-    private String key;
+    private /*~~>*/String key;
 
     private Integer value;
 
     @Override
-    public String getKey() {
+    public /*~~>*/String getKey() {
         return key;
     }
 
     @Override
-    public void setKey(String key) {
-        this.key = key;
+    public void setKey(/*~~>*/String key) {
+        /*~~>*/this.key = key;
     }
 
     @Override

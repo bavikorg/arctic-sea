@@ -63,7 +63,7 @@ public class GetDataAvailabilityXmlEncoderTest {
     public void test() throws EncodingException {
 
         GetDataAvailabilityResponse response = new GetDataAvailabilityResponse("SOS", "2.0.0");
-        response.setNamespace(GetDataAvailabilityConstants.NS_GDA);
+        response.setNamespace(/*~~>*/GetDataAvailabilityConstants.NS_GDA);
         DateTime begin = DateTime.now().withZone(DateTimeZone.UTC);
         DateTime end = begin.plusHours(1).withZone(DateTimeZone.UTC);
         TimePeriod timePeriod = new TimePeriod(begin, end);
@@ -79,7 +79,7 @@ public class GetDataAvailabilityXmlEncoderTest {
 
         //System.out.println(encoded.xmlText());
 
-        assertThat(encoded.xmlText(), is(String
+        assertThat(encoded.xmlText(), is(/*~~>*/String
                          .format("<gda:GetDataAvailabilityResponse xsi:schemaLocation=\"http://www.opengis.net/sosgda/1.0 http://waterml2.org/schemas/gda/1.0/gda.xsd\" " +
                                  "xmlns:gda=\"http://www.opengis.net/sosgda/1.0\" " +
                                  "xmlns:gml=\"http://www.opengis.net/gml/3.2\" " +

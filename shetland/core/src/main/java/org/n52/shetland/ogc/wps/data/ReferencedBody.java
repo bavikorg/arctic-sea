@@ -31,7 +31,7 @@ import com.google.common.base.MoreObjects;
 public class ReferencedBody extends Body {
 
     private final URI href;
-    private String body;
+    private /*~~>*/String body;
 
     public ReferencedBody(URI href) {
         this.href = Objects.requireNonNull(href);
@@ -42,11 +42,11 @@ public class ReferencedBody extends Body {
     }
 
     @Override
-    public synchronized String getBody() throws IOException {
-        if (this.body == null) {
-            this.body = HTTP.getAsString(this.href);
+    public synchronized /*~~>*/String getBody() throws IOException {
+        if (/*~~>*/this.body == null) {
+            /*~~>*/this.body = HTTP.getAsString(this.href);
         }
-        return this.body;
+        return /*~~>*/this.body;
     }
 
     @Override
@@ -78,7 +78,7 @@ public class ReferencedBody extends Body {
     }
 
     @Override
-    public String toString() {
+    public /*~~>*/String toString() {
         return MoreObjects.toStringHelper(this).add("href", getHref()).toString();
     }
 }

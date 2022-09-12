@@ -20,19 +20,19 @@ public interface InsertFeatureOfInterestConstants {
     /**
      * The operation name.
      */
-    String OPERATION_NAME = "InsertFeatureOfInterest";
+    /*~~>*/String OPERATION_NAME = "InsertFeatureOfInterest";
 
     /*
      * GDA v10
      */
-    String NS_IFOI = "http://www.opengis.net/ifoi/1.0";
+    /*~~>*/String NS_IFOI = "http://www.opengis.net/ifoi/1.0";
 
-    String NS_IFOI_PREFIX = "ifoi";
+    /*~~>*/String NS_IFOI_PREFIX = "ifoi";
 
-    String SCHEMA_LOCATION_URL_INSERT_FEATURE_OF_INTEREST =
+    /*~~>*/String SCHEMA_LOCATION_URL_INSERT_FEATURE_OF_INTEREST =
             "http://52north.org/schema/ifoi/1.0/InsertFeatureOfInterest.xsd";
 
-    String CONFORMANCE_CLASS = "http://www.opengis.net/spec/SOS/2.0/conf/foi";
+    /*~~>*/String CONFORMANCE_CLASS = "http://www.opengis.net/spec/SOS/2.0/conf/foi";
 
     interface InsertFeatureOfInterestParams {
 

@@ -28,7 +28,7 @@ public class ExampleQueryOptionTest extends QueryOptionTests implements TestCons
 
     @Test
     public void testValidExamplesFromSpecSyntax() {
-        for (String exampleFunction : EXAMPLE_FUNCTIONS) {
+        for (/*~~>*/String exampleFunction : EXAMPLE_FUNCTIONS) {
             init(exampleFunction);
             Assertions.assertDoesNotThrow(() -> parser.queryOptions().accept(new STAQueryOptionVisitor()),
                                           "Syntax of " + exampleFunction + "was not recognized");

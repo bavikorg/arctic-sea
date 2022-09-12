@@ -31,7 +31,7 @@ import org.n52.shetland.w3c.xlink.Referenceable;
  */
 public class SweQuantity extends SweAbstractUomType<BigDecimal> implements SweQuality {
 
-    private String axisID;
+    private /*~~>*/String axisID;
     private BigDecimal value;
     private Referenceable<SweAllowedValues> constraint;
 
@@ -44,7 +44,7 @@ public class SweQuantity extends SweAbstractUomType<BigDecimal> implements SweQu
     /**
      * constructor
      */
-    public SweQuantity(BigDecimal value, String uom) {
+    public SweQuantity(BigDecimal value, /*~~>*/String uom) {
         this.value = value;
         setUom(uom);
     }
@@ -60,7 +60,7 @@ public class SweQuantity extends SweAbstractUomType<BigDecimal> implements SweQu
     /**
      * constructor
      */
-    public SweQuantity(Double value, String uom) {
+    public SweQuantity(Double value, /*~~>*/String uom) {
         this.value = BigDecimal.valueOf(value);
         setUom(uom);
     }
@@ -78,7 +78,7 @@ public class SweQuantity extends SweAbstractUomType<BigDecimal> implements SweQu
      *
      * @return the axisID
      */
-    public String getAxisID() {
+    public /*~~>*/String getAxisID() {
         return axisID;
     }
 
@@ -89,8 +89,8 @@ public class SweQuantity extends SweAbstractUomType<BigDecimal> implements SweQu
      *            the axisID to set
      * @return This SweQuantity
      */
-    public SweQuantity setAxisID(final String axisID) {
-        this.axisID = axisID;
+    public SweQuantity setAxisID(final /*~~>*/String axisID) {
+        /*~~>*/this.axisID = axisID;
         return this;
     }
 
@@ -144,14 +144,14 @@ public class SweQuantity extends SweAbstractUomType<BigDecimal> implements SweQu
     }
 
     @Override
-    public void setStringValue(String s) {
+    public void setStringValue(/*~~>*/String s) {
         if (s != null && !s.isEmpty()) {
             setValue(new BigDecimal(s));
         }
     }
 
     @Override
-    public String getStringValue() {
+    public /*~~>*/String getStringValue() {
         if (isSetValue()) {
             return value.toPlainString();
         }
@@ -200,7 +200,7 @@ public class SweQuantity extends SweAbstractUomType<BigDecimal> implements SweQu
     }
 
     @Override
-    public SweQuantity setUom(String uom) {
+    public SweQuantity setUom(/*~~>*/String uom) {
         return (SweQuantity) super.setUom(uom);
     }
 

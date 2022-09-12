@@ -51,8 +51,8 @@ import edu.umd.cs.findbugs.annotations.SuppressFBWarnings;
 public abstract class AbstractXmlResponseEncoder<T> extends AbstractXmlEncoder<XmlObject, T>
         implements StreamingEncoder<XmlObject, T>, ConformanceClass {
 
-    private final String namespace;
-    private final String prefix;
+    private final /*~~>*/String namespace;
+    private final /*~~>*/String prefix;
     private final Class<T> responseType;
     private boolean validate;
     private SchemaRepository schemaRepository;
@@ -68,10 +68,10 @@ public abstract class AbstractXmlResponseEncoder<T> extends AbstractXmlEncoder<X
      * @param responseType Response type
      * @param validate     Indicator if the created/encoded object should be validated
      */
-    public AbstractXmlResponseEncoder(String service, String version, String operation, String namespace,
-                                      String prefix, Class<T> responseType, boolean validate) {
-        this.namespace = namespace;
-        this.prefix = prefix;
+    public AbstractXmlResponseEncoder(/*~~>*/String service, /*~~>*/String version, /*~~>*/String operation, /*~~>*/String namespace,
+                                      /*~~>*/String prefix, Class<T> responseType, boolean validate) {
+        /*~~>*/this.namespace = namespace;
+        /*~~>*/this.prefix = prefix;
         this.responseType = responseType;
         this.validate = validate;
     }
@@ -86,8 +86,8 @@ public abstract class AbstractXmlResponseEncoder<T> extends AbstractXmlEncoder<X
      * @param prefix       Service XML schema prefix
      * @param responseType Response type
      */
-    public AbstractXmlResponseEncoder(String service, String version, String operation, String namespace,
-                                      String prefix, Class<T> responseType) {
+    public AbstractXmlResponseEncoder(/*~~>*/String service, /*~~>*/String version, /*~~>*/String operation, /*~~>*/String namespace,
+                                      /*~~>*/String prefix, Class<T> responseType) {
         this(service, version, operation, namespace, prefix, responseType, false);
     }
 
@@ -102,22 +102,22 @@ public abstract class AbstractXmlResponseEncoder<T> extends AbstractXmlEncoder<X
         return schemaRepository;
     }
 
-    @Setting(value = CodingSettings.VALIDATE_RESPONSE, required = false)
+    @Setting(value = /*~~>*/CodingSettings.VALIDATE_RESPONSE, required = false)
     public void setValidate(boolean validate) {
         this.validate = validate;
     }
 
     @Override
-    public void addNamespacePrefixToMap(Map<String, String> nameSpacePrefixMap) {
+    public void addNamespacePrefixToMap(Map</*~~>*/String, /*~~>*/String> nameSpacePrefixMap) {
         if (nameSpacePrefixMap != null) {
-            nameSpacePrefixMap.put(this.namespace, this.prefix);
+            nameSpacePrefixMap.put(/*~~>*/this.namespace, /*~~>*/this.prefix);
         }
     }
 
     @Override
     public XmlObject encode(T response) throws EncodingException {
         if (response == null) {
-            throw new UnsupportedEncoderInputException(this, (String) null);
+            throw new UnsupportedEncoderInputException(this, (/*~~>*/String) null);
         }
         return encode(response, EncodingContext.empty());
     }
@@ -125,7 +125,7 @@ public abstract class AbstractXmlResponseEncoder<T> extends AbstractXmlEncoder<X
     @Override
     public XmlObject encode(T response, EncodingContext additionalValues) throws EncodingException {
         if (response == null) {
-            throw new UnsupportedEncoderInputException(this, (String) null);
+            throw new UnsupportedEncoderInputException(this, (/*~~>*/String) null);
         }
         XmlObject xml = create(response);
         setSchemaLocations(xml);
@@ -136,7 +136,7 @@ public abstract class AbstractXmlResponseEncoder<T> extends AbstractXmlEncoder<X
     }
 
     private void setSchemaLocations(XmlObject document) {
-        Map<String, SchemaLocation> schemaLocations = getSchemaLocations(document)
+        Map</*~~>*/String, SchemaLocation> schemaLocations = getSchemaLocations(document)
                                                               .collect(toMap(SchemaLocation::getNamespace,
                                                                              Function.identity()));
         schemaLocations.putAll(getSchemaLocations()
@@ -158,7 +158,7 @@ public abstract class AbstractXmlResponseEncoder<T> extends AbstractXmlEncoder<X
      */
     protected abstract Set<SchemaLocation> getConcreteSchemaLocations();
 
-    protected Set<SchemaLocation> getConcreteSchemaLocations(String namespace) {
+    protected Set<SchemaLocation> getConcreteSchemaLocations(/*~~>*/String namespace) {
         return getConcreteSchemaLocations();
     }
 

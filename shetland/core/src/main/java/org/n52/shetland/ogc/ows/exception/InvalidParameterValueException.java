@@ -37,13 +37,13 @@ public class InvalidParameterValueException extends CodedOwsException {
         setStatus(HTTPStatus.BAD_REQUEST);
     }
 
-    public InvalidParameterValueException(final String parameterName, final String value) {
+    public InvalidParameterValueException(final /*~~>*/String parameterName, final /*~~>*/String value) {
         super(OwsExceptionCode.InvalidParameterValue);
         withMessage("The value '%s' of the parameter '%s' is invalid", value, parameterName).at(parameterName);
         setStatus(HTTPStatus.BAD_REQUEST);
     }
 
-    public InvalidParameterValueException(final Enum<?> parameterName, final String value) {
+    public InvalidParameterValueException(final Enum<?> parameterName, final /*~~>*/String value) {
         this(parameterName.name(), value);
     }
 }

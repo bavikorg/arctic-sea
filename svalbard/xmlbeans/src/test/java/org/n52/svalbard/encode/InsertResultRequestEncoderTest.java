@@ -104,10 +104,10 @@ public class InsertResultRequestEncoderTest {
 
     @Test
     public void shouldEncodeInsertResultRequest() throws EncodingException {
-        String version = Sos2Constants.SERVICEVERSION;
-        String service = SosConstants.SOS;
-        String templateIdentifier = "test-template-identifier";
-        String resultValues = "test-result-values";
+        /*~~>*/String version = /*~~>*/Sos2Constants.SERVICEVERSION;
+        /*~~>*/String service = /*~~>*/SosConstants.SOS;
+        /*~~>*/String templateIdentifier = "test-template-identifier";
+        /*~~>*/String resultValues = "test-result-values";
         InsertResultRequest request = new InsertResultRequest(service, version);
         request.setTemplateIdentifier(templateIdentifier);
         request.setResultValues(resultValues);

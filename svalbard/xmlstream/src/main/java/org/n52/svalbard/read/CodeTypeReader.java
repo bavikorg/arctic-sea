@@ -37,7 +37,7 @@ public class CodeTypeReader extends XmlReader<CodeType> {
 
     @Override
     protected void begin() throws XMLStreamException, DecodingException {
-        String codeSpace = attr(AqdConstants.AN_CODE_SPACE).orNull();
+        /*~~>*/String codeSpace = attr(/*~~>*/AqdConstants.AN_CODE_SPACE).orNull();
         try {
             if (!Strings.isNullOrEmpty(codeSpace)) {
                 this.codeType = new CodeType(chars(), new URI(codeSpace));

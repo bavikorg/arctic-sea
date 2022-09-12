@@ -70,7 +70,7 @@ public class OgcDecoderv100
 
     private static final Logger LOGGER = LoggerFactory.getLogger(OgcDecoderv100.class);
 
-    private static final Set<DecoderKey> DECODER_KEYS = CodingHelper.decoderKeysForElements(OGCConstants.NS_OGC,
+    private static final Set<DecoderKey> DECODER_KEYS = CodingHelper.decoderKeysForElements(/*~~>*/OGCConstants.NS_OGC,
             SpatialOperatorType.class, TemporalOperatorType.class, BinarySpatialOpType.class,
             BinaryTemporalOpType.class, BBOXType.class, PropertyNameDocument.class);
 
@@ -136,14 +136,14 @@ public class OgcDecoderv100
 
         TemporalFilter temporalFilter = new TemporalFilter();
         // FIXME local workaround against SOSHelper check value reference
-        String valueRef = "phenomenonTime";
+        /*~~>*/String valueRef = "phenomenonTime";
         try {
 
             NodeList nodes = xbBinaryTemporalOp.getDomNode().getChildNodes();
             for (int i = 0; i < nodes.getLength(); i++) {
 
                 if (nodes.item(i).getNamespaceURI() != null
-                        && !nodes.item(i).getLocalName().equals(FilterConstants.EN_VALUE_REFERENCE)) {
+                        && !nodes.item(i).getLocalName().equals(/*~~>*/FilterConstants.EN_VALUE_REFERENCE)) {
                     // GML decoder will return TimeInstant or TimePriod
                     Object timeObject = decodeXmlElement(XmlObject.Factory.parse(nodes.item(i)));
 
@@ -158,7 +158,7 @@ public class OgcDecoderv100
                     if (timeObject instanceof Time) {
                         TimeOperator operator;
                         Time time = (Time) timeObject;
-                        String localName = XmlHelper.getLocalName(xbBinaryTemporalOp);
+                        /*~~>*/String localName = XmlHelper.getLocalName(xbBinaryTemporalOp);
                         // change to SOS 1.0. TMDuring kind of
                         if (localName.equals(TimeOperator.TM_During.name()) && time instanceof TimePeriod) {
                             operator = TimeOperator.TM_During;
@@ -206,7 +206,7 @@ public class OgcDecoderv100
 
         SpatialFilter spatialFilter = new SpatialFilter();
         // FIXME local workaround for SOSHelper check value reference
-        String valueRef = "om:featureOfInterest/sams:SF_SpatialSamplingFeature/sams:shape";
+        /*~~>*/String valueRef = "om:featureOfInterest/sams:SF_SpatialSamplingFeature/sams:shape";
         try {
 
             spatialFilter.setOperator(FilterConstants.SpatialOperator.BBOX);
@@ -282,7 +282,7 @@ public class OgcDecoderv100
     private ComparisonFilter parseBinaryComparisonFilter(BinaryComparisonOpType comparisonOpsType)
             throws DecodingException {
         ComparisonFilter comparisonFilter = new ComparisonFilter();
-        String localName = XmlHelper.getLocalName(comparisonOpsType);
+        /*~~>*/String localName = XmlHelper.getLocalName(comparisonOpsType);
         if (ComparisonOperator.PropertyIsEqualTo.name().equals(localName)) {
             comparisonFilter.setOperator(ComparisonOperator.PropertyIsEqualTo);
         } else if (ComparisonOperator.PropertyIsNotEqualTo.name().equals(localName)) {
@@ -379,7 +379,7 @@ public class OgcDecoderv100
         }
     }
 
-    private String parseLiteralValue(LiteralType literalType) {
+    private /*~~>*/String parseLiteralValue(LiteralType literalType) {
         return parseStringFromExpression(literalType);
     }
 
@@ -391,7 +391,7 @@ public class OgcDecoderv100
      * @return <code>true</code>, if XmlObject is a propertyName element
      */
     private boolean isPropertyNameExpression(XmlObject xmlObject) {
-        return FilterConstants.EN_PROPERTY_NAME.equals(XmlHelper.getLocalName(xmlObject));
+        return /*~~>*/FilterConstants.EN_PROPERTY_NAME.equals(XmlHelper.getLocalName(xmlObject));
     }
 
     /**
@@ -403,13 +403,13 @@ public class OgcDecoderv100
      * @throws XmlException
      *             If an error occurs
      */
-    private String parsePropertyName(XmlObject xmlObject)
+    private /*~~>*/String parsePropertyName(XmlObject xmlObject)
             throws XmlException {
         PropertyNameDocument propertyName = PropertyNameDocument.Factory.parse(xmlObject.getDomNode());
         return parseStringFromExpression(propertyName.getPropertyName());
     }
 
-    private String parseStringFromExpression(XmlObject xmlObject) {
+    private /*~~>*/String parseStringFromExpression(XmlObject xmlObject) {
         return xmlObject.getDomNode().getFirstChild().getNodeValue().trim();
     }
 

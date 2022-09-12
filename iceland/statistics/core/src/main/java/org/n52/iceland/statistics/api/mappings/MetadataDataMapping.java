@@ -24,9 +24,9 @@ import org.n52.iceland.statistics.api.parameters.SingleEsParameter;
 
 public class MetadataDataMapping {
 
-    public static final String METADATA_TYPE_NAME = "mt";
+    public static final /*~~>*/String METADATA_TYPE_NAME = "mt";
 
-    public static final String METADATA_ROW_ID = "1";
+    public static final /*~~>*/String METADATA_ROW_ID = "1";
 
     public static final AbstractEsParameter METADATA_CREATION_TIME_FIELD = new SingleEsParameter(
             "mt-creation-time",

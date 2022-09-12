@@ -52,7 +52,7 @@ public class WsaEncoder extends AbstractXmlEncoder<XmlObject, WsaHeader> {
     private static final Logger LOGGER = LoggerFactory.getLogger(WsaEncoder.class);
 
     private static final Set<EncoderKey> ENCODER_KEYS =
-            CodingHelper.encoderKeysForElements(WsaConstants.NS_WSA, WsaHeader.class);
+            CodingHelper.encoderKeysForElements(/*~~>*/WsaConstants.NS_WSA, WsaHeader.class);
 
     public WsaEncoder() {
         LOGGER.debug("Encoder for the following keys initialized successfully: {}!",

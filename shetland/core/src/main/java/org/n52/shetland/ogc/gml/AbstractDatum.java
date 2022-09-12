@@ -41,17 +41,17 @@ public abstract class AbstractDatum extends IdentifiedObject {
     /* 0..1 */
     private Referenceable<DomainOfValidity> domainOfValidity;
     /* 1..* */
-    private List<String> scope = new ArrayList<>();
+    private List</*~~>*/String> scope = new ArrayList<>();
     /* 0..1 */
     private CodeType anchorDefinition;
     /* 0..1 */
     private DateTime realizationEpoch;
 
-    public AbstractDatum(CodeWithAuthority identifier, String scope) {
+    public AbstractDatum(CodeWithAuthority identifier, /*~~>*/String scope) {
         this(identifier, Lists.newArrayList(scope));
     }
 
-    public AbstractDatum(CodeWithAuthority identifier, Collection<String> scope) {
+    public AbstractDatum(CodeWithAuthority identifier, Collection</*~~>*/String> scope) {
         super(identifier);
         setScope(scope);
     }
@@ -79,11 +79,11 @@ public abstract class AbstractDatum extends IdentifiedObject {
         return getDomainOfValidity() != null;
     }
 
-    public List<String> getScope() {
+    public List</*~~>*/String> getScope() {
         return Collections.unmodifiableList(scope);
     }
 
-    public AbstractDatum setScope(Collection<String> scope) {
+    public AbstractDatum setScope(Collection</*~~>*/String> scope) {
         this.scope.clear();
         if (!CollectionHelper.nullEmptyOrContainsOnlyNulls(scope)) {
             this.scope.addAll(scope);
@@ -91,14 +91,14 @@ public abstract class AbstractDatum extends IdentifiedObject {
         return this;
     }
 
-    public AbstractDatum addScope(Collection<String> scope) {
+    public AbstractDatum addScope(Collection</*~~>*/String> scope) {
         if (!CollectionHelper.nullEmptyOrContainsOnlyNulls(scope)) {
             this.scope.addAll(scope);
         }
         return this;
     }
 
-    public AbstractDatum addScope(String scope) {
+    public AbstractDatum addScope(/*~~>*/String scope) {
         if (scope != null) {
             this.scope.add(scope);
         }

@@ -74,7 +74,7 @@ public class AqdGetObservationResponseEncoder extends AbstractAqdResponseEncoder
                 eReportingHeader.setReportingPeriod(Referenceable.of((Time) timePeriod));
             }
             EncodingContext ctx = EncodingContext.empty()
-                    .with(XmlEncoderFlags.ENCODE_NAMESPACE, OmConstants.NS_OM_2)
+                    .with(XmlEncoderFlags.ENCODE_NAMESPACE, /*~~>*/OmConstants.NS_OM_2)
                     .with(XmlBeansEncodingFlags.DOCUMENT);
             return encodeGml(ctx, featureCollection);
         } catch (OwsExceptionReport ex) {
@@ -101,7 +101,7 @@ public class AqdGetObservationResponseEncoder extends AbstractAqdResponseEncoder
         try {
             EncodingContext context = ctx.with(EncoderFlags.ENCODER_REPOSITORY, getEncoderRepository())
                     .with(XmlEncoderFlags.XML_OPTIONS, (Supplier<XmlOptions>) this::getXmlOptions)
-                    .with(XmlEncoderFlags.ENCODE_NAMESPACE, OmConstants.NS_OM_2)
+                    .with(XmlEncoderFlags.ENCODE_NAMESPACE, /*~~>*/OmConstants.NS_OM_2)
                     .with(XmlBeansEncodingFlags.DOCUMENT);
             new AqdGetObservationResponseXmlStreamWriter(context, outputStream, featureCollection).write();
         } catch (XMLStreamException xmlse) {

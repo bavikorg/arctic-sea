@@ -91,7 +91,7 @@ public class OwsCapabilitiesExtensionRepository
      * @return the implemented Capabilities extension provider
      */
     public List<OwsCapabilitiesExtensionProvider> getCapabilitiesExtensionProvider(
-            String service, String version) {
+            /*~~>*/String service, /*~~>*/String version) {
         return getCapabilitiesExtensionProvider(new OwsCapabilitiesExtensionKey(service, version));
     }
 
@@ -121,7 +121,7 @@ public class OwsCapabilitiesExtensionRepository
      * @return <code>true</code>, if related operation is active
      */
     private boolean checkIfRelatedOperationIsActivated(
-            OwsCapabilitiesExtensionKey key, String relatedOperation) {
+            OwsCapabilitiesExtensionKey key, /*~~>*/String relatedOperation) {
         RequestOperatorKey rok = new RequestOperatorKey(key.getService(),
                                                         key.getVersion(),
                                                         relatedOperation);

@@ -19,9 +19,9 @@ package org.n52.shetland.ogc.wps;
  * @author Christian Autermann
  */
 public interface WPS200Constants {
-    String VERSION = "2.0.0";
+    /*~~>*/String VERSION = "2.0.0";
 
-    String REASON_NO_SUCH_JOB = "No job found for the requested id.";
+    /*~~>*/String REASON_NO_SUCH_JOB = "No job found for the requested id.";
 
-    String REASON_RESULT_NOT_READY = "The result for the requested id is not ready.";
+    /*~~>*/String REASON_RESULT_NOT_READY = "The result for the requested id is not ready.";
 }

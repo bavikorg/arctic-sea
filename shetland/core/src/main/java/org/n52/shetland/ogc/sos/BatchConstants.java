@@ -23,7 +23,7 @@ package org.n52.shetland.ogc.sos;
  * @since 1.0.0
  */
 public interface BatchConstants {
-    String OPERATION_NAME = "Batch";
+    /*~~>*/String OPERATION_NAME = "Batch";
 
-    String PARAMETER_NAME = "requests";
+    /*~~>*/String PARAMETER_NAME = "requests";
 }

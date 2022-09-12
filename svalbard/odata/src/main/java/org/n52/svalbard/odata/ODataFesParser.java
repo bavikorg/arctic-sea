@@ -93,19 +93,19 @@ import java.util.stream.Collectors;
  */
 public class ODataFesParser
         implements
-        Decoder<Filter<?>, String> {
-    private static final String METHOD_CONTAINS = "contains";
-    private static final String METHOD_STARTS_WITH = "startswith";
-    private static final String METHOD_ENDS_WITH = "endswith";
-    private static final String METHOD_GEO_INTERSECTS = "geo.intersects";
+        Decoder<Filter<?>, /*~~>*/String> {
+    private static final /*~~>*/String METHOD_CONTAINS = "contains";
+    private static final /*~~>*/String METHOD_STARTS_WITH = "startswith";
+    private static final /*~~>*/String METHOD_ENDS_WITH = "endswith";
+    private static final /*~~>*/String METHOD_GEO_INTERSECTS = "geo.intersects";
     private static final Logger LOG = LoggerFactory.getLogger(ODataFesParser.class);
-    private static final String PATH = "/ObservationCollection";
-    private static final String FRAGMENT = "";
-    private static final String BASE_URI = "/";
-    private static final String GEOGRAPHY_TYPE = "geography";
-    private static final String SRID_PREFIX = "SRID=";
-    private static final String GEOMETRY_TYPE = "geometry";
-    private static final String FEATURE_EQUALS = "featureOfInterest eq '";
+    private static final /*~~>*/String PATH = "/ObservationCollection";
+    private static final /*~~>*/String FRAGMENT = "";
+    private static final /*~~>*/String BASE_URI = "/";
+    private static final /*~~>*/String GEOGRAPHY_TYPE = "geography";
+    private static final /*~~>*/String SRID_PREFIX = "SRID=";
+    private static final /*~~>*/String GEOMETRY_TYPE = "geometry";
+    private static final /*~~>*/String FEATURE_EQUALS = "featureOfInterest eq '";
     private final Escaper urlEscaper;
     private final Edm edm;
     private final Parser parser;
@@ -128,14 +128,14 @@ public class ODataFesParser
     }
 
     @Override
-    public Filter<?> decode(String objectToDecode)
+    public Filter<?> decode(/*~~>*/String objectToDecode)
             throws DecodingException {
         LOG.debug("Parsing filter: {}", objectToDecode);
         if (objectToDecode == null || objectToDecode.isEmpty()) {
             return null;
         }
         try {
-            String encode = urlEscaper.escape(checkForGeoFitler(objectToDecode));
+            /*~~>*/String encode = urlEscaper.escape(checkForGeoFitler(objectToDecode));
             // >=4.4.0
             UriInfo parseUri = parser.parseUri(PATH, "$filter=" + encode, FRAGMENT, BASE_URI);
             // >=4.2.0 <4.4.0
@@ -157,8 +157,8 @@ public class ODataFesParser
         return Collections.emptySet();
     }
 
-    private String checkForGeoFitler(String objectToDecode) {
-        String modified = objectToDecode;
+    private /*~~>*/String checkForGeoFitler(/*~~>*/String objectToDecode) {
+        /*~~>*/String modified = objectToDecode;
         if (objectToDecode.contains("geo.")) {
             modified = objectToDecode.replace(",'SRID", ",geometry'SRID").replace("(featureOfInterest,",
                                                                                   "(featureOfInterest/shape,");
@@ -178,7 +178,7 @@ public class ODataFesParser
      */
     private static Geometry parseGeometry(StringValueExpr val)
             throws DecodingException {
-        String value = val.getValue();
+        /*~~>*/String value = val.getValue();
         if (value.startsWith(GEOGRAPHY_TYPE)) {
             value = value.substring(GEOGRAPHY_TYPE.length());
         }
@@ -263,7 +263,7 @@ public class ODataFesParser
      * @return the string value without quotes
      */
     @CheckReturnValue
-    private static String stripQuotes(String value) {
+    private static /*~~>*/String stripQuotes(/*~~>*/String value) {
         return value != null && value.length() >= 2 && value.startsWith("'") && value.endsWith("'")
                ? value.substring(1, value.length() - 1)
                : value;
@@ -408,7 +408,7 @@ public class ODataFesParser
         public Expr visitBinaryOperator(BinaryOperatorKind op, Expr left, Expr right)
                 throws ExpressionVisitException {
             Supplier<ExpressionVisitException> exceptionSupplier = () -> new ExpressionVisitException(
-                    String.format("Operator %s is not supported: %s %s %s", op, left, op, right));
+                    /*~~>*/String.format("Operator %s is not supported: %s %s %s", op, left, op, right));
             switch (op) {
                 case AND:
                 case OR: {
@@ -447,7 +447,7 @@ public class ODataFesParser
         public UnaryExpr<?> visitUnaryOperator(UnaryOperatorKind op, Expr operand)
                 throws ExpressionVisitException {
             Supplier<ExpressionVisitException> exceptionSupplier =
-                    () -> new ExpressionVisitException(String.format("Operator is not supported: %s %s", op,
+                    () -> new ExpressionVisitException(/*~~>*/String.format("Operator is not supported: %s %s", op,
                                                                      operand));
             switch (op) {
                 case NOT:
@@ -461,7 +461,7 @@ public class ODataFesParser
         }
 
         @Override
-        public Expr visitLambdaExpression(String fun, String var, Expression expr)
+        public Expr visitLambdaExpression(/*~~>*/String fun, /*~~>*/String var, Expression expr)
                 throws ExpressionVisitException {
             throw new ExpressionVisitException("Lambda expressions are not supported");
         }
@@ -474,7 +474,7 @@ public class ODataFesParser
         }
 
         @Override
-        public Expr visitAlias(String aliasName)
+        public Expr visitAlias(/*~~>*/String aliasName)
                 throws ExpressionVisitException {
             throw new ExpressionVisitException("aliases are not supported");
         }
@@ -486,13 +486,13 @@ public class ODataFesParser
         }
 
         @Override
-        public Expr visitLambdaReference(String variableName)
+        public Expr visitLambdaReference(/*~~>*/String variableName)
                 throws ExpressionVisitException {
             throw new ExpressionVisitException("Lambda references are not supported");
         }
 
         @Override
-        public Expr visitEnum(EdmEnumType type, List<String> enumValues)
+        public Expr visitEnum(EdmEnumType type, List</*~~>*/String> enumValues)
                 throws ExpressionVisitException {
             throw new ExpressionVisitException("enums are not supported");
         }
@@ -502,7 +502,7 @@ public class ODataFesParser
      * Class to create a {@code Filter} from an {@code Expr}.
      */
     private static final class FilterGenerator implements ExprVisitor<Filter<?>, DecodingException> {
-        private static final String WILDCARD = "%";
+        private static final /*~~>*/String WILDCARD = "%";
 
         @Override
         public Filter<?> visitBooleanBinary(BooleanBinaryExpr expr) throws DecodingException {
@@ -529,26 +529,26 @@ public class ODataFesParser
             switch (expr.getName()) {
                 case METHOD_CONTAINS: {
                     MemberValueExprPair mv = getMemberValuePair(expr.getParameters()).orElseThrow(this::unsupported);
-                    String referenceValue = mv.getMember().getValue();
-                    String value = WILDCARD + mv.getValue().getValue() + WILDCARD;
+                    /*~~>*/String referenceValue = mv.getMember().getValue();
+                    /*~~>*/String value = WILDCARD + mv.getValue().getValue() + WILDCARD;
                     return new ComparisonFilter(ComparisonOperator.PropertyIsLike, referenceValue, value);
                 }
                 case METHOD_STARTS_WITH: {
                     MemberValueExprPair mv = getMemberValuePair(expr.getParameters()).orElseThrow(this::unsupported);
-                    String referenceValue = mv.getMember().getValue();
-                    String value = mv.getValue().getValue() + WILDCARD;
+                    /*~~>*/String referenceValue = mv.getMember().getValue();
+                    /*~~>*/String value = mv.getValue().getValue() + WILDCARD;
                     return new ComparisonFilter(ComparisonOperator.PropertyIsLike, referenceValue, value);
                 }
                 case METHOD_ENDS_WITH: {
                     MemberValueExprPair mv = getMemberValuePair(expr.getParameters()).orElseThrow(this::unsupported);
-                    String referenceValue = mv.getMember().getValue();
-                    String value = WILDCARD + mv.getValue().getValue();
+                    /*~~>*/String referenceValue = mv.getMember().getValue();
+                    /*~~>*/String value = WILDCARD + mv.getValue().getValue();
                     return new ComparisonFilter(ComparisonOperator.PropertyIsLike, referenceValue, value);
 
                 }
                 case METHOD_GEO_INTERSECTS: {
                     MemberValueExprPair mv = getMemberValuePair(expr.getParameters()).orElseThrow(this::unsupported);
-                    String referenceValue = mv.getMember().getValue();
+                    /*~~>*/String referenceValue = mv.getMember().getValue();
                     if (referenceValue.equals("om:featureOfInterest")) {
                         referenceValue += "/*/sams:shape";
                     }
@@ -679,7 +679,7 @@ public class ODataFesParser
         @Override
         public Expr visitMethodCall(MethodCallExpr expr)
                 throws T {
-            String name = expr.getName();
+            /*~~>*/String name = expr.getName();
             List<Expr> list = new ArrayList<>(expr.getParameters().size());
             for (Expr e : expr.getParameters()) {
                 list.add(e.accept(this));
@@ -689,7 +689,7 @@ public class ODataFesParser
 
         @Override
         public Expr visitMember(MemberExpr expr) {
-            String value = expr.getValue();
+            /*~~>*/String value = expr.getValue();
             return new MemberExpr(value);
         }
 
@@ -702,7 +702,7 @@ public class ODataFesParser
          */
         @Override
         public Expr visitString(StringValueExpr expr) throws T {
-            String value = expr.getValue();
+            /*~~>*/String value = expr.getValue();
             return new StringValueExpr(value);
         }
 
@@ -762,14 +762,14 @@ public class ODataFesParser
             extends
             AbstractExprTransformer<Error> {
 
-        private final Function<String, String> mapper;
+        private final Function</*~~>*/String, /*~~>*/String> mapper;
 
         /**
          * Create a new {@code RenamingVisitor}.
          *
          * @param mapper the mapper used to modifiy the member references
          */
-        RenamingVisitor(Function<String, String> mapper) {
+        RenamingVisitor(Function</*~~>*/String, /*~~>*/String> mapper) {
             this.mapper = mapper;
         }
 

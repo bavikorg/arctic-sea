@@ -25,7 +25,7 @@ import org.n52.janmayen.lifecycle.Constructable;
 
 public interface IAdminDataHandler extends Constructable, Destroyable {
 
-    void deleteIndex(String index) throws IOException;
+    void deleteIndex(/*~~>*/String index) throws IOException;
 
     void createSchema() throws IOException;
 

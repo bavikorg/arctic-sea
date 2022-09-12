@@ -26,7 +26,7 @@ import com.google.common.base.Strings;
  */
 public abstract class Definition extends DefinitionBase {
 
-    private String remarks;
+    private /*~~>*/String remarks;
 
     public Definition(CodeWithAuthority identifier) {
         super(identifier);
@@ -35,7 +35,7 @@ public abstract class Definition extends DefinitionBase {
     /**
      * @return the remarks
      */
-    public String getRemarks() {
+    public /*~~>*/String getRemarks() {
         return remarks;
     }
 
@@ -43,8 +43,8 @@ public abstract class Definition extends DefinitionBase {
      * @param remarks
      *            the remarks to set
      */
-    public void setRemarks(String remarks) {
-        this.remarks = remarks;
+    public void setRemarks(/*~~>*/String remarks) {
+        /*~~>*/this.remarks = remarks;
     }
 
     public boolean hasRemarks() {

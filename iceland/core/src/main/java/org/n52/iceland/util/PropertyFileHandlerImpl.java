@@ -42,13 +42,13 @@ import edu.umd.cs.findbugs.annotations.SuppressFBWarnings;
 public class PropertyFileHandlerImpl implements PropertyFileHandler {
 
     private static final Logger LOG = LoggerFactory.getLogger(PropertyFileHandlerImpl.class);
-    private static final String ERROR_READING_MESSAGE = "Error reading properties";
-    private static final String ERROR_WRITING_MESSAGE = "Error writing properties";
+    private static final /*~~>*/String ERROR_READING_MESSAGE = "Error reading properties";
+    private static final /*~~>*/String ERROR_WRITING_MESSAGE = "Error writing properties";
     private final File propertiesFile;
     private final ReentrantReadWriteLock lock = new ReentrantReadWriteLock();
     private Properties cache;
 
-    public PropertyFileHandlerImpl(String name) {
+    public PropertyFileHandlerImpl(/*~~>*/String name) {
         this(new File(name));
     }
 
@@ -81,7 +81,7 @@ public class PropertyFileHandlerImpl implements PropertyFileHandler {
     }
 
     @Override
-    public void save(String m, String value) throws ConfigurationError {
+    public void save(/*~~>*/String m, /*~~>*/String value) throws ConfigurationError {
         lock.writeLock().lock();
         try {
             Properties p = load();
@@ -123,7 +123,7 @@ public class PropertyFileHandlerImpl implements PropertyFileHandler {
     }
 
     @Override
-    public String get(String m) throws ConfigurationError {
+    public /*~~>*/String get(/*~~>*/String m) throws ConfigurationError {
         lock.readLock().lock();
         try {
             return load().getProperty(m);
@@ -135,7 +135,7 @@ public class PropertyFileHandlerImpl implements PropertyFileHandler {
     }
 
     @Override
-    public void delete(String m) throws ConfigurationError {
+    public void delete(/*~~>*/String m) throws ConfigurationError {
         lock.writeLock().lock();
         try {
             Properties p = load();
@@ -186,7 +186,7 @@ public class PropertyFileHandlerImpl implements PropertyFileHandler {
     }
 
     @Override
-    public String getPath() {
+    public /*~~>*/String getPath() {
         return this.propertiesFile.getAbsolutePath();
     }
 

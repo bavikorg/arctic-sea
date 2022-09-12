@@ -130,17 +130,17 @@ public class BatchRequestDecodingTest {
 
     @Test
     public void testService() throws DecodingException {
-        assertThat(request.getService(), is(SosConstants.SOS));
+        assertThat(request.getService(), is(/*~~>*/SosConstants.SOS));
     }
 
     @Test
     public void testVersion() throws DecodingException {
-        assertThat(request.getVersion(), is(Sos2Constants.SERVICEVERSION));
+        assertThat(request.getVersion(), is(/*~~>*/Sos2Constants.SERVICEVERSION));
     }
 
     @Test
     public void testOperationName() throws DecodingException {
-        assertThat(request.getOperationName(), is(BatchConstants.OPERATION_NAME));
+        assertThat(request.getOperationName(), is(/*~~>*/BatchConstants.OPERATION_NAME));
     }
 
     @Test

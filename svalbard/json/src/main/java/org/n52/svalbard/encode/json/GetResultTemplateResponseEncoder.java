@@ -76,7 +76,7 @@ public class GetResultTemplateResponseEncoder
 
     private void encodeResultStructure(GetResultTemplateResponse t, ObjectNode json)
             throws EncodingException {
-        ObjectNode jrs = json.putObject(JSONConstants.RESULT_STRUCTURE);
+        ObjectNode jrs = json.putObject(/*~~>*/JSONConstants.RESULT_STRUCTURE);
         SweAbstractDataComponent structure;
         SosResultStructure rs = t.getResultStructure();
         if (rs.isDecoded()) {
@@ -84,7 +84,7 @@ public class GetResultTemplateResponseEncoder
         } else {
             try {
                 XmlNamespaceDecoderKey key =
-                        new XmlNamespaceDecoderKey(SweConstants.NS_SWE_20, SweAbstractDataComponent.class);
+                        new XmlNamespaceDecoderKey(/*~~>*/SweConstants.NS_SWE_20, SweAbstractDataComponent.class);
                 Decoder<SweAbstractDataComponent, XmlObject> decoder = this.decoderRepository.getDecoder(key);
                 if (decoder == null) {
                     throw new NoDecoderForKeyException(key);
@@ -103,7 +103,7 @@ public class GetResultTemplateResponseEncoder
 
     private void encodeResultEncoding(GetResultTemplateResponse t, ObjectNode json)
             throws EncodingException {
-        ObjectNode jre = json.putObject(JSONConstants.RESULT_ENCODING);
+        ObjectNode jre = json.putObject(/*~~>*/JSONConstants.RESULT_ENCODING);
         SweAbstractEncoding encoding = null;
         SosResultEncoding re = t.getResultEncoding();
 
@@ -112,7 +112,7 @@ public class GetResultTemplateResponseEncoder
         } else {
             try {
                 XmlNamespaceDecoderKey key =
-                        new XmlNamespaceDecoderKey(SweConstants.NS_SWE_20, SweAbstractEncoding.class);
+                        new XmlNamespaceDecoderKey(/*~~>*/SweConstants.NS_SWE_20, SweAbstractEncoding.class);
                 Decoder<SweAbstractEncoding, XmlObject> decoder = this.decoderRepository.getDecoder(key);
                 if (decoder == null) {
                     throw new NoDecoderForKeyException(key);
@@ -132,24 +132,24 @@ public class GetResultTemplateResponseEncoder
 
     private void encodeSweTextEncoding(SweAbstractEncoding encoding, ObjectNode node) {
         SweTextEncoding sweTextEncoding = (SweTextEncoding) encoding;
-        String ts = sweTextEncoding.getTokenSeparator();
+        /*~~>*/String ts = sweTextEncoding.getTokenSeparator();
         if (ts != null && !ts.isEmpty()) {
-            node.put(JSONConstants.TOKEN_SEPARATOR, ts);
+            node.put(/*~~>*/JSONConstants.TOKEN_SEPARATOR, ts);
         }
-        String bs = sweTextEncoding.getBlockSeparator();
+        /*~~>*/String bs = sweTextEncoding.getBlockSeparator();
         if (bs != null && !bs.isEmpty()) {
-            node.put(JSONConstants.BLOCK_SEPARATOR, bs);
+            node.put(/*~~>*/JSONConstants.BLOCK_SEPARATOR, bs);
         }
-        String ds = sweTextEncoding.getDecimalSeparator();
+        /*~~>*/String ds = sweTextEncoding.getDecimalSeparator();
         if (ds != null && !ds.isEmpty()) {
-            node.put(JSONConstants.DECIMAL_SEPARATOR, ds);
+            node.put(/*~~>*/JSONConstants.DECIMAL_SEPARATOR, ds);
         }
     }
 
     private void encodeSweDataRecord(SweAbstractDataComponent structure, ObjectNode node)
             throws EncodingException {
         SweDataRecord sweDataRecord = (SweDataRecord) structure;
-        ArrayNode fields = node.putArray(JSONConstants.FIELDS);
+        ArrayNode fields = node.putArray(/*~~>*/JSONConstants.FIELDS);
         for (SweField field : sweDataRecord.getFields()) {
             fields.add(encodeObjectToJson(field));
         }

@@ -44,7 +44,7 @@ public class GetObservationResponseDocumentDecoder extends
     private static final Logger LOGGER = LoggerFactory.getLogger(GetObservationResponseDocumentDecoder.class);
 
     private static final Set<DecoderKey> DECODER_KEYS =
-            CodingHelper.decoderKeysForElements(Sos2Constants.NS_SOS_20, GetObservationResponseDocument.class);
+            CodingHelper.decoderKeysForElements(/*~~>*/Sos2Constants.NS_SOS_20, GetObservationResponseDocument.class);
 
     public GetObservationResponseDocumentDecoder() {
         LOGGER.debug("Decoder for the following keys initialized successfully: {}!",

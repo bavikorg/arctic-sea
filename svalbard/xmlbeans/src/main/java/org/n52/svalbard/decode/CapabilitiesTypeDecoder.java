@@ -73,7 +73,7 @@ public class CapabilitiesTypeDecoder extends
             = LoggerFactory.getLogger(CapabilitiesTypeDecoder.class);
 
     private static final Set<DecoderKey> DECODER_KEYS
-            = CodingHelper.decoderKeysForElements(Sos2Constants.NS_SOS_20, CapabilitiesType.class);
+            = CodingHelper.decoderKeysForElements(/*~~>*/Sos2Constants.NS_SOS_20, CapabilitiesType.class);
 
     public CapabilitiesTypeDecoder() {
         LOGGER.debug("Decoder for the following keys initialized successfully: {}!",
@@ -89,7 +89,7 @@ public class CapabilitiesTypeDecoder extends
     @SuppressFBWarnings("NP_LOAD_OF_KNOWN_NULL_VALUE")
     public SosCapabilities decode(CapabilitiesType ct) throws DecodingException {
         if (ct != null) {
-            OwsCapabilities owsCapabilities = parseCapabilitiesBaseType(SosConstants.SOS, ct);
+            OwsCapabilities owsCapabilities = parseCapabilitiesBaseType(/*~~>*/SosConstants.SOS, ct);
             FilterCapabilities filterCapabilities = parseFilterCapabilities(ct.getFilterCapabilities());
             Collection<SosObservationOffering> contents = parseContents(ct.getContents());
             return new SosCapabilities(owsCapabilities, filterCapabilities, contents);
@@ -139,7 +139,7 @@ public class CapabilitiesTypeDecoder extends
     }
 
     private SosOffering parseOffering(ObservationOfferingType obsOffPropType) throws DecodingException {
-        String offeringId;
+        /*~~>*/String offeringId;
         if (obsOffPropType.getIdentifier() != null) {
             offeringId = obsOffPropType.getIdentifier();
         } else {
@@ -165,18 +165,18 @@ public class CapabilitiesTypeDecoder extends
         return null;
     }
 
-    private Collection<String> parseProcedure(ObservationOfferingType obsOff) {
+    private Collection</*~~>*/String> parseProcedure(ObservationOfferingType obsOff) {
         return Optional.ofNullable(obsOff.getProcedure()).map(Collections::singleton).get();
     }
 
-    private Collection<String> parseProcedureDescriptionFormat(ObservationOfferingType obsOff) {
+    private Collection</*~~>*/String> parseProcedureDescriptionFormat(ObservationOfferingType obsOff) {
         return Optional.ofNullable(obsOff.getProcedureDescriptionFormatArray())
                 .map(Arrays::stream)
                 .orElseGet(Stream::empty)
                 .collect(toSet());
     }
 
-    private Collection<String> parseObservableProperties(ObservationOfferingType obsOff) {
+    private Collection</*~~>*/String> parseObservableProperties(ObservationOfferingType obsOff) {
         return Optional.ofNullable(obsOff.getObservablePropertyArray())
                 .map(Arrays::stream)
                 .orElseGet(Stream::empty)
@@ -222,12 +222,12 @@ public class CapabilitiesTypeDecoder extends
         }).orElse(null);
     }
 
-    private Map<String, Set<String>> parseRelatedFeatures(ObservationOfferingType obsOff) {
-        HashMap<String, Set<String>> map = new HashMap<>(obsOff.getRelatedFeatureArray().length);
+    private Map</*~~>*/String, Set</*~~>*/String>> parseRelatedFeatures(ObservationOfferingType obsOff) {
+        HashMap</*~~>*/String, Set</*~~>*/String>> map = new HashMap<>(obsOff.getRelatedFeatureArray().length);
         for (RelatedFeature releatedFeature : obsOff.getRelatedFeatureArray()) {
-            String feature = releatedFeature.getFeatureRelationship().getTarget().getHref();
-            String role = releatedFeature.getFeatureRelationship().getRole();
-            Set<String> roles = map.computeIfAbsent(feature, key -> new HashSet<>(1));
+            /*~~>*/String feature = releatedFeature.getFeatureRelationship().getTarget().getHref();
+            /*~~>*/String role = releatedFeature.getFeatureRelationship().getRole();
+            Set</*~~>*/String> roles = map.computeIfAbsent(feature, key -> new HashSet<>(1));
             if (role != null) {
                 roles.add(role);
             }
@@ -248,21 +248,21 @@ public class CapabilitiesTypeDecoder extends
                 .orElse(null);
     }
 
-    private Collection<String> parseResponseFormats(ObservationOfferingType obsOff) {
+    private Collection</*~~>*/String> parseResponseFormats(ObservationOfferingType obsOff) {
         return Optional.ofNullable(obsOff.getResponseFormatArray())
                 .map(Arrays::stream)
                 .orElseGet(Stream::empty)
                 .collect(toSet());
     }
 
-    private Collection<String> parseObservationTypes(ObservationOfferingType obsOff) {
+    private Collection</*~~>*/String> parseObservationTypes(ObservationOfferingType obsOff) {
         return Optional.ofNullable(obsOff.getObservationTypeArray())
                 .map(Arrays::stream)
                 .orElseGet(Stream::empty)
                 .collect(toSet());
     }
 
-    private Collection<String> parseFeatureOfInterestTypes(ObservationOfferingType obsOff) {
+    private Collection</*~~>*/String> parseFeatureOfInterestTypes(ObservationOfferingType obsOff) {
         return Optional.ofNullable(obsOff.getFeatureOfInterestTypeArray())
                 .map(Arrays::stream)
                 .orElseGet(Stream::empty)

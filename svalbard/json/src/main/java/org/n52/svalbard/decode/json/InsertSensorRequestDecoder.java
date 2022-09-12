@@ -49,13 +49,13 @@ public class InsertSensorRequestDecoder
     private final JSONDecoder<AbstractFeature> featureDecoder = new FeatureDecoder();
 
     public InsertSensorRequestDecoder() {
-        super(InsertSensorRequest.class, SosConstants.SOS, Sos2Constants.SERVICEVERSION,
+        super(InsertSensorRequest.class, /*~~>*/SosConstants.SOS, /*~~>*/Sos2Constants.SERVICEVERSION,
                 Sos2Constants.Operations.InsertSensor);
     }
 
     @Override
-    protected String getSchemaURI() {
-        return SchemaConstants.Request.INSERT_SENSOR;
+    protected /*~~>*/String getSchemaURI() {
+        return /*~~>*/SchemaConstants.Request.INSERT_SENSOR;
     }
 
     @Override
@@ -63,13 +63,13 @@ public class InsertSensorRequestDecoder
             throws DecodingException {
         final InsertSensorRequest r = new InsertSensorRequest();
         final SosInsertionMetadata meta = new SosInsertionMetadata();
-        meta.setFeatureOfInterestTypes(parseStringOrStringList(node.path(JSONConstants.FEATURE_OF_INTEREST_TYPE)));
-        meta.setObservationTypes(parseStringOrStringList(node.path(JSONConstants.OBSERVATION_TYPE)));
+        meta.setFeatureOfInterestTypes(parseStringOrStringList(node.path(/*~~>*/JSONConstants.FEATURE_OF_INTEREST_TYPE)));
+        meta.setObservationTypes(parseStringOrStringList(node.path(/*~~>*/JSONConstants.OBSERVATION_TYPE)));
         r.setMetadata(meta);
-        r.setObservableProperty(parseStringOrStringList(node.path(JSONConstants.OBSERVABLE_PROPERTY)));
-        r.setProcedureDescriptionFormat(node.path(JSONConstants.PROCEDURE_DESCRIPTION_FORMAT).textValue());
-        r.setRelatedFeature(parseFeatureRelationships(node.path(JSONConstants.RELATED_FEATURE)));
-        r.setProcedureDescription(parseProcedureDescription(node.path(JSONConstants.PROCEDURE_DESCRIPTION),
+        r.setObservableProperty(parseStringOrStringList(node.path(/*~~>*/JSONConstants.OBSERVABLE_PROPERTY)));
+        r.setProcedureDescriptionFormat(node.path(/*~~>*/JSONConstants.PROCEDURE_DESCRIPTION_FORMAT).textValue());
+        r.setRelatedFeature(parseFeatureRelationships(node.path(/*~~>*/JSONConstants.RELATED_FEATURE)));
+        r.setProcedureDescription(parseProcedureDescription(node.path(/*~~>*/JSONConstants.PROCEDURE_DESCRIPTION),
                 r.getProcedureDescriptionFormat()));
         return r;
     }
@@ -93,18 +93,18 @@ public class InsertSensorRequestDecoder
 
     protected SwesFeatureRelationship parseFeatureRelationship(JsonNode node)
             throws DecodingException {
-        return new SwesFeatureRelationship(node.path(JSONConstants.ROLE).textValue(),
-                featureDecoder.decodeJSON(node.path(JSONConstants.TARGET), false));
+        return new SwesFeatureRelationship(node.path(/*~~>*/JSONConstants.ROLE).textValue(),
+                featureDecoder.decodeJSON(node.path(/*~~>*/JSONConstants.TARGET), false));
     }
 
-    private SosProcedureDescription<?> parseProcedureDescription(JsonNode path, String pdf)
+    private SosProcedureDescription<?> parseProcedureDescription(JsonNode path, /*~~>*/String pdf)
             throws DecodingException {
         try {
             final XmlObject xb = XmlObject.Factory.parse(path.textValue());
             Decoder<?, XmlObject> decoder = getProcedureDescriptionDecoder(pdf, xb);
             if (decoder == null) {
-                throw new DecodingException(JSONConstants.PROCEDURE_DESCRIPTION_FORMAT,
-                        "The requested %s is not supported!", JSONConstants.PROCEDURE_DESCRIPTION_FORMAT);
+                throw new DecodingException(/*~~>*/JSONConstants.PROCEDURE_DESCRIPTION_FORMAT,
+                        "The requested %s is not supported!", /*~~>*/JSONConstants.PROCEDURE_DESCRIPTION_FORMAT);
             }
             Object decode = decoder.decode(xb);
             if (decode instanceof SosProcedureDescription<?>) {
@@ -120,7 +120,7 @@ public class InsertSensorRequestDecoder
         }
     }
 
-    protected Decoder<?, XmlObject> getProcedureDescriptionDecoder(String pdf, XmlObject xb) {
+    protected Decoder<?, XmlObject> getProcedureDescriptionDecoder(/*~~>*/String pdf, XmlObject xb) {
         return getDecoder(new XmlNamespaceDecoderKey(pdf, xb.getClass()));
     }
 }

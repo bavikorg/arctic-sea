@@ -33,9 +33,9 @@ public class ReportObligationJSONDecoder
     @Override
     public ReportObligation decodeJSON(JsonNode node, boolean validate) throws DecodingException {
         ReportObligation reportObligation = new ReportObligation();
-        reportObligation.setChange(decodeJsonToObject(node.path(AQDJSONConstants.CHANGE), EReportingChange.class));
-        reportObligation.setInspireID(decodeJsonToObject(node.path(AQDJSONConstants.INSPIRE_ID), Identifier.class));
-        reportObligation.setReportingPeriod(parseReferenceableTime(node.path(AQDJSONConstants.REPORTING_PERIOD)));
+        reportObligation.setChange(decodeJsonToObject(node.path(/*~~>*/AQDJSONConstants.CHANGE), EReportingChange.class));
+        reportObligation.setInspireID(decodeJsonToObject(node.path(/*~~>*/AQDJSONConstants.INSPIRE_ID), Identifier.class));
+        reportObligation.setReportingPeriod(parseReferenceableTime(node.path(/*~~>*/AQDJSONConstants.REPORTING_PERIOD)));
         return reportObligation;
     }
 

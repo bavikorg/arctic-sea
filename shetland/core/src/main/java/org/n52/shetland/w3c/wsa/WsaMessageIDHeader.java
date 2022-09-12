@@ -30,7 +30,7 @@ public class WsaMessageIDHeader extends WsaHeader {
      * @param value
      *            Value to set
      */
-    public WsaMessageIDHeader(String value) {
+    public WsaMessageIDHeader(/*~~>*/String value) {
         super(value);
     }
 

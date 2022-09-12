@@ -37,11 +37,11 @@ public class RelatedPartyJSONEncoder extends JSONEncoder<RelatedParty> {
     public JsonNode encodeJSON(RelatedParty t)
             throws EncodingException {
         ObjectNode j = nodeFactory().objectNode();
-        j.set(AQDJSONConstants.CONTACT, encodeObjectToJson(t.getContact()));
-        j.set(AQDJSONConstants.INDIVIDUAL_NAME, encodeObjectToJson(t.getIndividualName()));
-        j.set(AQDJSONConstants.ORGANISATION_NAME, encodeObjectToJson(t.getOrganisationName()));
-        j.set(AQDJSONConstants.POSITION_NAME, encodeObjectToJson(t.getPositionName()));
-        j.set(AQDJSONConstants.ROLES, encodeObjectToJson(t.getRoles()));
+        j.set(/*~~>*/AQDJSONConstants.CONTACT, encodeObjectToJson(t.getContact()));
+        j.set(/*~~>*/AQDJSONConstants.INDIVIDUAL_NAME, encodeObjectToJson(t.getIndividualName()));
+        j.set(/*~~>*/AQDJSONConstants.ORGANISATION_NAME, encodeObjectToJson(t.getOrganisationName()));
+        j.set(/*~~>*/AQDJSONConstants.POSITION_NAME, encodeObjectToJson(t.getPositionName()));
+        j.set(/*~~>*/AQDJSONConstants.ROLES, encodeObjectToJson(t.getRoles()));
         return j;
     }
 

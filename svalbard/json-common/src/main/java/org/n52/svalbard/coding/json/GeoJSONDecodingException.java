@@ -28,11 +28,11 @@ public class GeoJSONDecodingException extends DecodingException {
 
     private static final long serialVersionUID = -8203818559729187312L;
 
-    public GeoJSONDecodingException(String message) {
+    public GeoJSONDecodingException(/*~~>*/String message) {
         super(message);
     }
 
-    public GeoJSONDecodingException(String message, Throwable cause) {
+    public GeoJSONDecodingException(/*~~>*/String message, Throwable cause) {
         super(message, cause);
     }
 

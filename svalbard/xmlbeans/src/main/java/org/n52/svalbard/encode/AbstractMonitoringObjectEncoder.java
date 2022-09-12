@@ -37,7 +37,7 @@ import eu.europa.ec.inspire.schemas.ef.x40.AbstractMonitoringObjectType.Supersed
 public abstract class AbstractMonitoringObjectEncoder
         extends AbstractEnvironmentalFaciltityEncoder<XmlObject, AbstractFeature> {
 
-    protected abstract String generateGmlId();
+    protected abstract /*~~>*/String generateGmlId();
 
     protected void encodeAbstractMonitoringObject(AbstractMonitoringObjectType amot,
             AbstractMonitoringObject abstractMonitoringObject) throws EncodingException {
@@ -141,7 +141,7 @@ public abstract class AbstractMonitoringObjectEncoder
     private void setOnlineResource(AbstractMonitoringObjectType amot,
             AbstractMonitoringObject abstractMonitoringObject) {
         if (abstractMonitoringObject.isSetOnlineResources()) {
-            for (String onlineResource : abstractMonitoringObject.getOnlineResource()) {
+            for (/*~~>*/String onlineResource : abstractMonitoringObject.getOnlineResource()) {
                 amot.addNewOnlineResource().setStringValue(onlineResource);
             }
         }

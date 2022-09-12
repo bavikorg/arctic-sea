@@ -18,40 +18,40 @@ package org.n52.shetland.ogc.ows.extension;
 public abstract class AbstractExtension<
         T> implements Extension<T> {
 
-    private String namespace;
-    private String identifier;
-    private String definition;
+    private /*~~>*/String namespace;
+    private /*~~>*/String identifier;
+    private /*~~>*/String definition;
 
     @Override
-    public Extension<T> setNamespace(String namespace) {
-        this.namespace = namespace;
+    public Extension<T> setNamespace(/*~~>*/String namespace) {
+        /*~~>*/this.namespace = namespace;
         return this;
     }
 
     @Override
-    public String getNamespace() {
+    public /*~~>*/String getNamespace() {
         return namespace;
     }
 
     @Override
-    public Extension<T> setIdentifier(String identifier) {
-        this.identifier = identifier;
+    public Extension<T> setIdentifier(/*~~>*/String identifier) {
+        /*~~>*/this.identifier = identifier;
         return this;
     }
 
     @Override
-    public String getIdentifier() {
+    public /*~~>*/String getIdentifier() {
         return identifier;
     }
 
     @Override
-    public Extension<T> setDefinition(String definition) {
-        this.definition = definition;
+    public Extension<T> setDefinition(/*~~>*/String definition) {
+        /*~~>*/this.definition = definition;
         return this;
     }
 
     @Override
-    public String getDefinition() {
+    public /*~~>*/String getDefinition() {
         return definition;
     }
 }

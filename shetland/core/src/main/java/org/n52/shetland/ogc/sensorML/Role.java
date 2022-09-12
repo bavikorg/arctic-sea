@@ -26,7 +26,7 @@ import org.n52.shetland.iso.gco.AbstractRole;
  */
 public class Role extends AbstractRole {
 
-    public Role(String value) {
+    public Role(/*~~>*/String value) {
         super(value);
     }
 

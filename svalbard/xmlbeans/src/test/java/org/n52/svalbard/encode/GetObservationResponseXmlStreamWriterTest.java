@@ -103,7 +103,7 @@ public class GetObservationResponseXmlStreamWriterTest extends AbstractMetadataT
                     EncodingContext.of(EncoderFlags.ENCODER_REPOSITORY, encoderRepository), baos,
                     createResponse());
             encoder.write();
-            XmlObject encode = XmlObject.Factory.parse(new String(baos.toByteArray()));
+            XmlObject encode = XmlObject.Factory.parse(new /*~~>*/String(baos.toByteArray()));
             assertThat(encode, instanceOf(GetObservationResponseDocument.class));
             GetObservationResponseDocument gord = (GetObservationResponseDocument) encode;
             assertThat(gord.getGetObservationResponse() != null, is(true));
@@ -113,18 +113,18 @@ public class GetObservationResponseXmlStreamWriterTest extends AbstractMetadataT
 
     private GetObservationResponse createResponse() {
         GetObservationResponse response = new GetObservationResponse();
-        response.setService(SosConstants.SOS);
-        response.setVersion(Sos2Constants.SERVICEVERSION);
-        response.setResponseFormat(OmConstants.NS_OM_2);
+        response.setService(/*~~>*/SosConstants.SOS);
+        response.setVersion(/*~~>*/Sos2Constants.SERVICEVERSION);
+        response.setResponseFormat(/*~~>*/OmConstants.NS_OM_2);
         OmObservation obs = new OmObservation();
 
         OmObservationConstellation obsConst = new OmObservationConstellation();
-        obsConst.setProcedure(new SosProcedureDescriptionUnknownType("procedure", SensorMLConstants.NS_SML, null));
+        obsConst.setProcedure(new SosProcedureDescriptionUnknownType("procedure", /*~~>*/SensorMLConstants.NS_SML, null));
         OmObservableProperty omObservableProperty = new OmObservableProperty("observable_property");
         omObservableProperty.setUnit("°C");
         obsConst.setObservableProperty(omObservableProperty);
         obsConst.setFeatureOfInterest(new SamplingFeature(new CodeWithAuthority("feature")));
-        obsConst.setObservationType( OmConstants.OBS_TYPE_MEASUREMENT);
+        obsConst.setObservationType( /*~~>*/OmConstants.OBS_TYPE_MEASUREMENT);
         obsConst.addOffering("offering");
         obs.setObservationConstellation(obsConst);
 

@@ -97,7 +97,7 @@ public class EXIResponseWriter
 
     private byte[] getBytes(EXIObject<XmlObject> exi) {
         XmlObject doc = exi.getDoc();
-        String text = doc.xmlText(this.xmlOptions.get());
+        /*~~>*/String text = doc.xmlText(this.xmlOptions.get());
         return text.getBytes(Charsets.UTF_8);
     }
 

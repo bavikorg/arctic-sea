@@ -41,9 +41,9 @@ public class IPAddress implements Comparable<IPAddress> {
     public static final int IPV6_BIT_SIZE = IPV6_BYTE_SIZE * Byte.SIZE;
     public static final int IPV4_BIT_SIZE = IPV4_BYTE_SIZE * Byte.SIZE;
 
-    private static final String V4_PATTERN_STRING
+    private static final /*~~>*/String V4_PATTERN_STRING
             = "(?:(?:25[0-5]|(?:2[0-4]|1?[0-9])?[0-9])\\.){3}(?:25[0-5]|(?:2[0-4]|1?[0-9])?[0-9])";
-    private static final String V6_PATTERN_STRING
+    private static final /*~~>*/String V6_PATTERN_STRING
             = "(?:" +
               "(?:[0-9a-fA-F]{1,4}:){7,7}[0-9a-fA-F]{1,4}" +
               "|" +
@@ -113,7 +113,7 @@ public class IPAddress implements Comparable<IPAddress> {
      *
      * @param address the address
      */
-    public IPAddress(String address) {
+    public IPAddress(/*~~>*/String address) {
         this(InetAddresses.forString(address));
     }
 
@@ -204,7 +204,7 @@ public class IPAddress implements Comparable<IPAddress> {
     }
 
     @Override
-    public String toString() {
+    public /*~~>*/String toString() {
         return this.address.getHostAddress();
     }
 

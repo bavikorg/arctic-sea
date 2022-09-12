@@ -26,17 +26,17 @@ import edu.umd.cs.findbugs.annotations.SuppressFBWarnings;
  * Abstract Elasticsearch variables which the user sees on the interface by the name
  */
 public abstract class AbstractEsParameter {
-    private final String name;
+    private final /*~~>*/String name;
     private Description description;
     private ElasticsearchType type;
 
-    public AbstractEsParameter(String name) {
-        this.name = name;
+    public AbstractEsParameter(/*~~>*/String name) {
+        /*~~>*/this.name = name;
     }
 
     @SuppressFBWarnings({ "EI_EXPOSE_REP2" })
-    public AbstractEsParameter(String name, Description description) {
-        this.name = name;
+    public AbstractEsParameter(/*~~>*/String name, Description description) {
+        /*~~>*/this.name = name;
         this.description = description;
     }
 
@@ -54,7 +54,7 @@ public abstract class AbstractEsParameter {
         return this.description != null;
     }
 
-    public final String getName() {
+    public final /*~~>*/String getName() {
         return name;
     }
 
@@ -66,7 +66,7 @@ public abstract class AbstractEsParameter {
         return type;
     }
 
-    public Map<String, Object> getTypeAsMap() {
+    public Map</*~~>*/String, Object> getTypeAsMap() {
         if (type != null) {
             return type.getType();
         } else {
@@ -79,7 +79,7 @@ public abstract class AbstractEsParameter {
     }
 
     @Override
-    public String toString() {
+    public /*~~>*/String toString() {
         return "AbstractEsParameter [name=" + name + ", description=" + description + ", type=" + type + "]";
     }
 
@@ -105,10 +105,10 @@ public abstract class AbstractEsParameter {
         }
         AbstractEsParameter other = (AbstractEsParameter) obj;
         if (name == null) {
-            if (other.name != null) {
+            if (/*~~>*/other.name != null) {
                 return false;
             }
-        } else if (!name.equals(other.name)) {
+        } else if (!name.equals(/*~~>*/other.name)) {
             return false;
         }
         if (type == null) {

@@ -23,11 +23,11 @@ import edu.umd.cs.findbugs.annotations.SuppressFBWarnings;
  */
 public class SmlDocumentationListMember {
 
-    private String name;
+    private /*~~>*/String name;
 
     private SmlDocumentation documentation;
 
-    public String getName() {
+    public /*~~>*/String getName() {
         return name;
     }
 
@@ -36,8 +36,8 @@ public class SmlDocumentationListMember {
         return documentation;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setName(/*~~>*/String name) {
+        /*~~>*/this.name = name;
     }
 
     @SuppressFBWarnings({ "EI_EXPOSE_REP2" })

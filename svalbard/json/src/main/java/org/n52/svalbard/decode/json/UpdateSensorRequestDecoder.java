@@ -40,23 +40,23 @@ import com.fasterxml.jackson.databind.JsonNode;
 public class UpdateSensorRequestDecoder
         extends AbstractSosRequestDecoder<UpdateSensorRequest> {
     public UpdateSensorRequestDecoder() {
-        super(UpdateSensorRequest.class, SosConstants.SOS, Sos2Constants.SERVICEVERSION,
+        super(UpdateSensorRequest.class, /*~~>*/SosConstants.SOS, /*~~>*/Sos2Constants.SERVICEVERSION,
                 Sos2Constants.Operations.UpdateSensorDescription);
     }
 
     @Override
-    protected String getSchemaURI() {
-        return SchemaConstants.Request.UPDATE_SENSOR_DESCRIPTION;
+    protected /*~~>*/String getSchemaURI() {
+        return /*~~>*/SchemaConstants.Request.UPDATE_SENSOR_DESCRIPTION;
     }
 
     @Override
     protected UpdateSensorRequest decodeRequest(JsonNode node)
             throws DecodingException {
         UpdateSensorRequest req = new UpdateSensorRequest();
-        req.setProcedureIdentifier(node.path(JSONConstants.PROCEDURE).textValue());
-        String pdf = node.path(JSONConstants.PROCEDURE_DESCRIPTION_FORMAT).textValue();
+        req.setProcedureIdentifier(node.path(/*~~>*/JSONConstants.PROCEDURE).textValue());
+        /*~~>*/String pdf = node.path(/*~~>*/JSONConstants.PROCEDURE_DESCRIPTION_FORMAT).textValue();
         req.setProcedureDescriptionFormat(pdf);
-        JsonNode procedureDescriptionNode = node.path(JSONConstants.PROCEDURE_DESCRIPTION);
+        JsonNode procedureDescriptionNode = node.path(/*~~>*/JSONConstants.PROCEDURE_DESCRIPTION);
         if (procedureDescriptionNode.isArray()) {
             for (JsonNode n : procedureDescriptionNode) {
                 req.addProcedureDescriptionString(decodeProcedureDescription(n, pdf));
@@ -67,28 +67,28 @@ public class UpdateSensorRequestDecoder
         return req;
     }
 
-    private SosProcedureDescription<?> decodeProcedureDescription(JsonNode node, String pdf)
+    private SosProcedureDescription<?> decodeProcedureDescription(JsonNode node, /*~~>*/String pdf)
             throws DecodingException {
         if (node.isTextual()) {
             return parseProcedureDesciption(node.textValue(), pdf);
         } else {
             SosProcedureDescription<?> pd =
-                    parseProcedureDesciption(node.path(JSONConstants.DESCRIPTION).textValue(), pdf);
-            if (node.has(JSONConstants.VALID_TIME)) {
-                pd.setValidTime(parseTime(node.path(JSONConstants.VALID_TIME)));
+                    parseProcedureDesciption(node.path(/*~~>*/JSONConstants.DESCRIPTION).textValue(), pdf);
+            if (node.has(/*~~>*/JSONConstants.VALID_TIME)) {
+                pd.setValidTime(parseTime(node.path(/*~~>*/JSONConstants.VALID_TIME)));
             }
             return pd;
         }
     }
 
-    private SosProcedureDescription<?> parseProcedureDesciption(String xml, String pdf)
+    private SosProcedureDescription<?> parseProcedureDesciption(/*~~>*/String xml, /*~~>*/String pdf)
             throws DecodingException {
         try {
             final XmlObject xb = XmlObject.Factory.parse(xml);
             Decoder<?, XmlObject> decoder = getDecoder(new XmlNamespaceDecoderKey(pdf, xb.getClass()));
             if (decoder == null) {
-                throw new DecodingException(JSONConstants.PROCEDURE_DESCRIPTION_FORMAT,
-                        "The requested %s is not supported!", JSONConstants.PROCEDURE_DESCRIPTION_FORMAT);
+                throw new DecodingException(/*~~>*/JSONConstants.PROCEDURE_DESCRIPTION_FORMAT,
+                        "The requested %s is not supported!", /*~~>*/JSONConstants.PROCEDURE_DESCRIPTION_FORMAT);
             }
             Object decode = decoder.decode(xb);
             if (decode instanceof SosProcedureDescription<?>) {

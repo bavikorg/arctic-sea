@@ -42,7 +42,7 @@ public class GeographicalNameReaderTest {
     @Test
     public void test() throws UnsupportedEncodingException, XMLStreamException, URISyntaxException, DecodingException {
 
-        String xml = "<gn:GeographicalName xmlns:gn=\"urn:x-inspire:specification:gmlas:GeographicalNames:3.0\" xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\">\n" +
+        /*~~>*/String xml = "<gn:GeographicalName xmlns:gn=\"urn:x-inspire:specification:gmlas:GeographicalNames:3.0\" xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\">\n" +
                      "  <gn:language>eng</gn:language>\n" +
                      "  <gn:nativeness>&lt;asdfasdf</gn:nativeness>\n" +
                      "  <gn:nameStatus xsi:nil=\"true\" nilReason=\"unknown\"/>\n" +

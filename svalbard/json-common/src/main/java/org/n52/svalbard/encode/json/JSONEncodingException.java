@@ -28,11 +28,11 @@ public class JSONEncodingException extends EncodingException {
 
     private static final long serialVersionUID = 43255040132887078L;
 
-    public JSONEncodingException(String message) {
+    public JSONEncodingException(/*~~>*/String message) {
         super(message);
     }
 
-    public JSONEncodingException(String message, Throwable cause) {
+    public JSONEncodingException(/*~~>*/String message, Throwable cause) {
         super(message, cause);
     }
 

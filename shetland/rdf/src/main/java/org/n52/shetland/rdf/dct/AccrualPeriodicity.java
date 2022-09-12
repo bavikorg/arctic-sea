@@ -21,7 +21,7 @@ import org.n52.shetland.rdf.AbstractResource;
 
 public class AccrualPeriodicity extends AbstractResource implements DctRdfPrefix {
 
-    public AccrualPeriodicity(String value) {
+    public AccrualPeriodicity(/*~~>*/String value) {
         super(value);
     }
 

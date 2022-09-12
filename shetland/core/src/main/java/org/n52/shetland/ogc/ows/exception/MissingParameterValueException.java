@@ -32,7 +32,7 @@ import org.n52.janmayen.http.HTTPStatus;
 public class MissingParameterValueException extends CodedOwsException {
     private static final long serialVersionUID = 236478803986562631L;
 
-    public MissingParameterValueException(final String parameter) {
+    public MissingParameterValueException(final /*~~>*/String parameter) {
         super(OwsExceptionCode.MissingParameterValue);
         at(parameter).withMessage("The value for the parameter '%s' is missing in the request!", parameter);
         setStatus(HTTPStatus.BAD_REQUEST);

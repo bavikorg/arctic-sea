@@ -48,7 +48,7 @@ public class SweEnvelopeTest {
         final BigDecimal by1 = BigDecimal.valueOf(y1);
         final BigDecimal by2 = BigDecimal.valueOf(y2);
         final BigDecimal bx2 = BigDecimal.valueOf(x2);
-        final String uom = "deg";
+        final /*~~>*/String uom = "deg";
         final ReferencedEnvelope sosEnvelope = new ReferencedEnvelope(new Envelope(x1, x2, y1, y2), srid);
         final SweEnvelope sweEnvelope = new SweEnvelope(sosEnvelope, uom, false);
 
@@ -70,11 +70,11 @@ public class SweEnvelopeTest {
         assertThat(((SweQuantity) ucCoordinates.get(0).getValue()).getUom(), is(uom));
         assertThat(((SweQuantity) ucCoordinates.get(1).getValue()).getUom(), is(uom));
         // northing
-        assertThat(lcCoordinates.get(0).getName(), is(SweCoordinateNames.EASTING));
-        assertThat(ucCoordinates.get(0).getName(), is(SweCoordinateNames.EASTING));
+        assertThat(lcCoordinates.get(0).getName(), is(/*~~>*/SweCoordinateNames.EASTING));
+        assertThat(ucCoordinates.get(0).getName(), is(/*~~>*/SweCoordinateNames.EASTING));
         // easting
-        assertThat(lcCoordinates.get(1).getName(), is(SweCoordinateNames.NORTHING));
-        assertThat(ucCoordinates.get(1).getName(), is(SweCoordinateNames.NORTHING));
+        assertThat(lcCoordinates.get(1).getName(), is(/*~~>*/SweCoordinateNames.NORTHING));
+        assertThat(ucCoordinates.get(1).getName(), is(/*~~>*/SweCoordinateNames.NORTHING));
     }
 
 }

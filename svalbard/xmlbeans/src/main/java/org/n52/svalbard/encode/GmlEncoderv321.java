@@ -159,7 +159,7 @@ public class GmlEncoderv321
     private static final Logger LOGGER = LoggerFactory.getLogger(GmlEncoderv321.class);
 
     private static final Set<EncoderKey> ENCODER_KEY_TYPES = CodingHelper.encoderKeysForElements(
-            GmlConstants.NS_GML_32, org.n52.shetland.ogc.gml.time.Time.class,
+            /*~~>*/GmlConstants.NS_GML_32, org.n52.shetland.ogc.gml.time.Time.class,
             org.locationtech.jts.geom.Geometry.class, org.n52.shetland.ogc.om.values.CategoryValue.class,
             org.n52.shetland.ogc.gml.ReferenceType.class, org.n52.shetland.ogc.om.values.QuantityValue.class,
             org.n52.shetland.ogc.gml.CodeWithAuthority.class, org.n52.shetland.ogc.gml.CodeType.class,
@@ -167,22 +167,22 @@ public class GmlEncoderv321
             org.n52.shetland.util.ReferencedEnvelope.class, org.n52.shetland.util.EnvelopeOrGeometry.class,
             org.n52.shetland.ogc.om.features.FeatureCollection.class, org.n52.shetland.ogc.gml.AbstractGeometry.class);
 
-    private String srsNamePrefixURL = OGCConstants.URL_DEF_CRS_EPSG;
-    private String srsNamePrefixURN = OGCConstants.URN_DEF_CRS_EPSG;
+    private /*~~>*/String srsNamePrefixURL = /*~~>*/OGCConstants.URL_DEF_CRS_EPSG;
+    private /*~~>*/String srsNamePrefixURN = /*~~>*/OGCConstants.URN_DEF_CRS_EPSG;
 
     public GmlEncoderv321() {
         LOGGER.debug("Encoder for the following keys initialized successfully: {}!",
                 Joiner.on(", ").join(ENCODER_KEY_TYPES));
     }
 
-    @Setting(value = CodingSettings.SRS_NAME_PREFIX_URL, required = false)
-    public void setSrsNamePrefixURL(String prefix) {
-        this.srsNamePrefixURL = CRSHelper.asHttpPrefix(prefix);
+    @Setting(value = /*~~>*/CodingSettings.SRS_NAME_PREFIX_URL, required = false)
+    public void setSrsNamePrefixURL(/*~~>*/String prefix) {
+        /*~~>*/this.srsNamePrefixURL = CRSHelper.asHttpPrefix(prefix);
     }
 
-    @Setting(value = CodingSettings.SRS_NAME_PREFIX_URN, required = false)
-    public void setSrsNamePrefixURN(String prefix) {
-        this.srsNamePrefixURN = CRSHelper.asUrnPrefix(prefix);
+    @Setting(value = /*~~>*/CodingSettings.SRS_NAME_PREFIX_URN, required = false)
+    public void setSrsNamePrefixURN(/*~~>*/String prefix) {
+        /*~~>*/this.srsNamePrefixURN = CRSHelper.asUrnPrefix(prefix);
     }
 
     @Override
@@ -191,8 +191,8 @@ public class GmlEncoderv321
     }
 
     @Override
-    public void addNamespacePrefixToMap(Map<String, String> nameSpacePrefixMap) {
-        nameSpacePrefixMap.put(GmlConstants.NS_GML_32, GmlConstants.NS_GML_PREFIX);
+    public void addNamespacePrefixToMap(Map</*~~>*/String, /*~~>*/String> nameSpacePrefixMap) {
+        nameSpacePrefixMap.put(/*~~>*/GmlConstants.NS_GML_32, /*~~>*/GmlConstants.NS_GML_PREFIX);
     }
 
     @Override
@@ -262,7 +262,7 @@ public class GmlEncoderv321
             return encodeObjectToXml(feature.getDefaultElementEncoding(), feature);
         } else if (ctx.has(XmlEncoderFlags.ENCODE_NAMESPACE)
                 && ctx.get(XmlEncoderFlags.ENCODE_NAMESPACE).isPresent()) {
-            return encodeObjectToXml((String) ctx.get(XmlEncoderFlags.ENCODE_NAMESPACE).get(), feature, ctx);
+            return encodeObjectToXml((/*~~>*/String) ctx.get(XmlEncoderFlags.ENCODE_NAMESPACE).get(), feature, ctx);
         } else {
             throw new UnsupportedEncoderInputException(this, feature);
         }
@@ -324,7 +324,7 @@ public class GmlEncoderv321
                     }
                     return featurePropertyType;
                 } else {
-                    String namespace = ctx.getString(XmlEncoderFlags.ENCODE_NAMESPACE)
+                    /*~~>*/String namespace = ctx.getString(XmlEncoderFlags.ENCODE_NAMESPACE)
                             .orElseGet(() -> samplingFeature.isSetDefaultElementEncoding()
                                     ? samplingFeature.getDefaultElementEncoding()
                                     : OMHelper.getNamespaceForFeatureType(samplingFeature.getFeatureType()));
@@ -367,7 +367,7 @@ public class GmlEncoderv321
     private XmlObject createEnvelope(ReferencedEnvelope sosEnvelope) {
         int srid = sosEnvelope.getSrid();
         EnvelopeType envelopeType = EnvelopeType.Factory.newInstance();
-        MinMax<String> minmax = sosEnvelope.getMinMaxFromEnvelope();
+        MinMax</*~~>*/String> minmax = sosEnvelope.getMinMaxFromEnvelope();
         envelopeType.addNewLowerCorner().setStringValue(minmax.getMinimum());
         envelopeType.addNewUpperCorner().setStringValue(minmax.getMaximum());
         envelopeType.setSrsName(getSrsName(srid));
@@ -492,7 +492,7 @@ public class GmlEncoderv321
     private TimePositionType createTimePositionType(TimePosition timePosition) throws DateTimeFormatException {
         TimePositionType xbTimePosition = TimePositionType.Factory.newInstance();
         if (!timePosition.isSetTime()) {
-            String indeterminateValue = Optional.ofNullable(timePosition.getIndeterminateValue())
+            /*~~>*/String indeterminateValue = Optional.ofNullable(timePosition.getIndeterminateValue())
                     .orElse(IndeterminateValue.UNKNOWN).getValue();
             if (TimeIndeterminateValueType.Enum.forString(indeterminateValue) != null) {
                 xbTimePosition.setIndeterminatePosition(TimeIndeterminateValueType.Enum.forString(indeterminateValue));
@@ -500,7 +500,7 @@ public class GmlEncoderv321
                 xbTimePosition.setStringValue(indeterminateValue);
             }
         } else {
-            String endString = DateTimeHelper.formatDateTime2String(timePosition);
+            /*~~>*/String endString = DateTimeHelper.formatDateTime2String(timePosition);
 
             // concat minutes for timeZone offset, because gml requires
             // xs:dateTime, which needs minutes in
@@ -552,7 +552,7 @@ public class GmlEncoderv321
     }
 
     private XmlObject createPosition(Geometry geom, EncodingContext ctx) throws EncodingException {
-        String foiId = ctx.<String>get(XmlBeansEncodingFlags.GMLID).orElse(null);
+        /*~~>*/String foiId = ctx.</*~~>*/String>get(XmlBeansEncodingFlags.GMLID).orElse(null);
         if (geom instanceof Point) {
             PointType xbPoint = PointType.Factory.newInstance(getXmlOptions());
             xbPoint.setId(getGmlID(geom, foiId));
@@ -626,7 +626,7 @@ public class GmlEncoderv321
             return xbPolygon;
         } else if (geom instanceof MultiPoint) {
             MultiPointType xbMultiPoint = MultiPointType.Factory.newInstance(getXmlOptions());
-            String id = getGmlID(geom, foiId);
+            /*~~>*/String id = getGmlID(geom, foiId);
             xbMultiPoint.setId(id);
             createMultiPointFromJtsGeometry((MultiPoint) geom, xbMultiPoint, id);
 
@@ -648,13 +648,13 @@ public class GmlEncoderv321
     }
 
     @SuppressWarnings("rawtypes")
-    private String getGmlID(Geometry geom, String gmlId) {
-        String id;
+    private /*~~>*/String getGmlID(Geometry geom, /*~~>*/String gmlId) {
+        /*~~>*/String id;
         if (!Strings.isNullOrEmpty(gmlId)) {
             id = gmlId;
         } else if (geom.getUserData() != null && geom.getUserData() instanceof Map
                 && ((Map) geom.getUserData()).containsKey(XmlBeansEncodingFlags.GMLID.name())) {
-            id = (String) ((Map) geom.getUserData()).get(XmlBeansEncodingFlags.GMLID.name());
+            id = (/*~~>*/String) ((Map) geom.getUserData()).get(XmlBeansEncodingFlags.GMLID.name());
         } else {
             id = IdGenerator.generate(geom.toText());
         }
@@ -684,7 +684,7 @@ public class GmlEncoderv321
      *            XML LinetSring
      */
     private void createLineStringFromJtsGeometry(LineString jtsLineString, LineStringType xbLst) {
-        String srsName = getSrsName(jtsLineString);
+        /*~~>*/String srsName = getSrsName(jtsLineString);
         xbLst.setSrsName(srsName);
         DirectPositionListType xbPosList = xbLst.addNewPosList();
         xbPosList.setSrsName(srsName);
@@ -702,7 +702,7 @@ public class GmlEncoderv321
      */
     private void createPolygonFromJtsGeometry(Polygon jtsPolygon, PolygonType xbPolType) {
         List<?> jtsPolygons = PolygonExtracter.getPolygons(jtsPolygon);
-        String srsName = getSrsName(jtsPolygon);
+        /*~~>*/String srsName = getSrsName(jtsPolygon);
 
         for (int i = 0; i < jtsPolygons.size(); i++) {
 
@@ -752,7 +752,7 @@ public class GmlEncoderv321
         }
     }
 
-    private void createMultiPointFromJtsGeometry(MultiPoint geom, MultiPointType xbMultiPoint, String id)
+    private void createMultiPointFromJtsGeometry(MultiPoint geom, MultiPointType xbMultiPoint, /*~~>*/String id)
             throws EncodingException {
         for (int i = 0; i < geom.getNumGeometries(); i++) {
             Geometry geometry = geom.getGeometryN(i);
@@ -783,7 +783,7 @@ public class GmlEncoderv321
 
     private ReferenceType createReferencType(org.n52.shetland.ogc.gml.ReferenceType sosReferenceType) {
         if (!sosReferenceType.isSetHref()) {
-            String exceptionText = String.format("The required 'href' parameter is empty for encoding %s!",
+            /*~~>*/String exceptionText = /*~~>*/String.format("The required 'href' parameter is empty for encoding %s!",
                     ReferenceType.class.getName());
             LOGGER.error(exceptionText);
             throw new IllegalArgumentException(exceptionText);
@@ -807,7 +807,7 @@ public class GmlEncoderv321
         CodeWithAuthorityType codeWithAuthority = CodeWithAuthorityType.Factory.newInstance(getXmlOptions());
         codeWithAuthority.setStringValue(sosCodeWithAuthority.getValue());
         codeWithAuthority.setCodeSpace(Optional.ofNullable(sosCodeWithAuthority.getCodeSpace())
-                .filter(Predicates.not(String::isEmpty)).orElse(OGCConstants.UNKNOWN));
+                .filter(Predicates.not(/*~~>*/String::isEmpty)).orElse(/*~~>*/OGCConstants.UNKNOWN));
         return codeWithAuthority;
     }
 
@@ -818,7 +818,7 @@ public class GmlEncoderv321
         CodeType codeType = CodeType.Factory.newInstance(getXmlOptions());
         codeType.setStringValue(sosCodeType.getValue());
         codeType.setCodeSpace(Optional.ofNullable(sosCodeType.getCodeSpace()).map(URI::toString)
-                .filter(Predicates.not(String::isEmpty)).orElse(OGCConstants.UNKNOWN));
+                .filter(Predicates.not(/*~~>*/String::isEmpty)).orElse(/*~~>*/OGCConstants.UNKNOWN));
         return codeType;
     }
 
@@ -843,8 +843,8 @@ public class GmlEncoderv321
         }
         MeasureType measureType = MeasureType.Factory.newInstance(getXmlOptions());
         measureType.setDoubleValue(quantityValue.getValue().doubleValue());
-        measureType.setUom(Optional.ofNullable(quantityValue.getUnit()).filter(Predicates.not(String::isEmpty))
-                .orElse(OGCConstants.UNKNOWN));
+        measureType.setUom(Optional.ofNullable(quantityValue.getUnit()).filter(Predicates.not(/*~~>*/String::isEmpty))
+                .orElse(/*~~>*/OGCConstants.UNKNOWN));
         return measureType;
     }
 
@@ -1153,15 +1153,15 @@ public class GmlEncoderv321
         return csat;
     }
 
-    protected String getSrsName(Geometry geom) {
+    protected /*~~>*/String getSrsName(Geometry geom) {
         return getSrsName(geom.getSRID());
     }
 
-    protected String getSrsName(int srid) {
-        return srsNamePrefixURL.concat(String.valueOf(srid));
+    protected /*~~>*/String getSrsName(int srid) {
+        return srsNamePrefixURL.concat(/*~~>*/String.valueOf(srid));
     }
 
-    private static EncodingException missingValueParameter(String type) {
+    private static EncodingException missingValueParameter(/*~~>*/String type) {
         return new EncodingException("The required 'value' parameter is empty for encoding %s!", type);
     }
 }

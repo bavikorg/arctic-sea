@@ -41,11 +41,11 @@ import java.util.Objects;
  * @author Christian Autermann
  */
 public class QueryBuilder {
-    private static final String DEFAULT_LIST_SEPERATOR = ",";
+    private static final /*~~>*/String DEFAULT_LIST_SEPERATOR = ",";
     private final URL url;
     private final Charset charset;
-    private final Map<String, List<String>> query = new LinkedHashMap<>();
-    private String listSeperator = DEFAULT_LIST_SEPERATOR;
+    private final Map</*~~>*/String, List</*~~>*/String>> query = new LinkedHashMap<>();
+    private /*~~>*/String listSeperator = DEFAULT_LIST_SEPERATOR;
 
     public QueryBuilder(URL url) {
         this(url, StandardCharsets.UTF_8);
@@ -60,23 +60,23 @@ public class QueryBuilder {
     public QueryBuilder(QueryBuilder builder) {
         this.url = builder.getURL();
         this.charset = builder.getCharset();
-        this.listSeperator = builder.getListSeperator();
+        /*~~>*/this.listSeperator = builder.getListSeperator();
         builder.getQuery().forEach(this::add);
     }
 
-    public QueryBuilder(String url) throws MalformedURLException {
+    public QueryBuilder(/*~~>*/String url) throws MalformedURLException {
         this(new URL(url));
     }
 
-    private String getListSeperator() {
-        return this.listSeperator;
+    private /*~~>*/String getListSeperator() {
+        return /*~~>*/this.listSeperator;
     }
 
     private Charset getCharset() {
         return this.charset;
     }
 
-    private Map<String, List<String>> getQuery() {
+    private Map</*~~>*/String, List</*~~>*/String>> getQuery() {
         return Collections.unmodifiableMap(this.query);
     }
 
@@ -85,12 +85,12 @@ public class QueryBuilder {
     }
 
     @SuppressFBWarnings("NP_NULL_ON_SOME_PATH_FROM_RETURN_VALUE")
-    public QueryBuilder setListSeperator(String seperator) {
-        this.listSeperator = Objects.requireNonNull(Strings.emptyToNull(seperator));
+    public QueryBuilder setListSeperator(/*~~>*/String seperator) {
+        /*~~>*/this.listSeperator = Objects.requireNonNull(Strings.emptyToNull(seperator));
         return this;
     }
 
-    public QueryBuilder add(String name, Object... value) {
+    public QueryBuilder add(/*~~>*/String name, Object... value) {
         return add(name, Arrays.asList(value));
     }
 
@@ -102,8 +102,8 @@ public class QueryBuilder {
         return add(name.name(), value);
     }
 
-    public QueryBuilder add(String name, Iterable<Object> value) {
-        List<String> list = query.computeIfAbsent(name, Functions.forSupplier(LinkedList::new));
+    public QueryBuilder add(/*~~>*/String name, Iterable<Object> value) {
+        List</*~~>*/String> list = query.computeIfAbsent(name, Functions.forSupplier(LinkedList::new));
         Streams.stream(value).filter(Objects::nonNull).map(Object::toString).forEach(list::add);
         return this;
     }
@@ -118,10 +118,10 @@ public class QueryBuilder {
                         builder.append('&');
                     }
                     builder.append(name).append('=');
-                    Iterator<String> iter = values.iterator();
+                    Iterator</*~~>*/String> iter = values.iterator();
                     builder.append(encodeValue(iter.next()));
                     while (iter.hasNext()) {
-                        builder.append(this.listSeperator)
+                        builder.append(/*~~>*/this.listSeperator)
                                .append(encodeValue(iter.next()));
                     }
                 }
@@ -135,7 +135,7 @@ public class QueryBuilder {
         }
     }
 
-    private String encodeValue(Object s) {
+    private /*~~>*/String encodeValue(Object s) {
         try {
             if (s == null) {
                 return "";

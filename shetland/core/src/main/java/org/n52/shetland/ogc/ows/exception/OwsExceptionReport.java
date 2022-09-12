@@ -35,7 +35,7 @@ public abstract class OwsExceptionReport extends Exception {
 
     private static final long serialVersionUID = 52L;
     private HTTPStatus status;
-    private String version;
+    private /*~~>*/String version;
 
     /**
      * @return Returns the ExceptionTypes of this exception
@@ -50,8 +50,8 @@ public abstract class OwsExceptionReport extends Exception {
      *
      * @return this
      */
-    public final OwsExceptionReport setVersion(String version) {
-        this.version = version;
+    public final OwsExceptionReport setVersion(/*~~>*/String version) {
+        /*~~>*/this.version = version;
         return this;
     }
 
@@ -60,19 +60,19 @@ public abstract class OwsExceptionReport extends Exception {
      *
      * @return service version
      */
-    public final String getVersion() {
+    public final /*~~>*/String getVersion() {
         if (version == null) {
-            this.version = OWSConstants.VERSION;
+            /*~~>*/this.version = /*~~>*/OWSConstants.VERSION;
         }
         return version;
     }
 
-    public String getNamespace() {
-        return OWSConstants.NS_OWS;
+    public /*~~>*/String getNamespace() {
+        return /*~~>*/OWSConstants.NS_OWS;
     }
 
     @Override
-    public String getMessage() {
+    public /*~~>*/String getMessage() {
         final StringBuilder faultString = new StringBuilder();
         final Iterator<? extends CodedException> i = getExceptions().iterator();
         boolean first = true;

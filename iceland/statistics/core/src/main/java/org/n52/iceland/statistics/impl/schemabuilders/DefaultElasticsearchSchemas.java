@@ -37,12 +37,12 @@ import org.n52.iceland.statistics.api.parameters.SingleEsParameter;
 public abstract class DefaultElasticsearchSchemas {
 
     private static final Logger LOG = LoggerFactory.getLogger(DefaultElasticsearchSchemas.class);
-    private static final String PROPERTIES_KEY = "properties";
+    private static final /*~~>*/String PROPERTIES_KEY = "properties";
 
-    protected Map<String, Object> properties;
-    protected Map<String, Object> mappings;
+    protected Map</*~~>*/String, Object> properties;
+    protected Map</*~~>*/String, Object> mappings;
 
-    public Map<String, Object> getSchema() {
+    public Map</*~~>*/String, Object> getSchema() {
         properties = new HashMap<>(1);
         mappings = new HashMap<>();
         properties.put(PROPERTIES_KEY, mappings);
@@ -68,7 +68,7 @@ public abstract class DefaultElasticsearchSchemas {
         LOG.debug(mappings.toString());
     }
 
-    private void resolveParameterField(AbstractEsParameter value, Map<String, Object> map) {
+    private void resolveParameterField(AbstractEsParameter value, Map</*~~>*/String, Object> map) {
         if (value instanceof SingleEsParameter) {
             SingleEsParameter single = (SingleEsParameter) value;
             map.put(single.getName(), single.getTypeAsMap());
@@ -77,8 +77,8 @@ public abstract class DefaultElasticsearchSchemas {
 
             // loadup all the children
             // the wrapper properties map is needed to elasticsearch
-            Map<String, Object> subproperties = new HashMap<>(1);
-            Map<String, Object> childrenMap = new HashMap<>(value.getAllChildren().size());
+            Map</*~~>*/String, Object> subproperties = new HashMap<>(1);
+            Map</*~~>*/String, Object> childrenMap = new HashMap<>(value.getAllChildren().size());
             subproperties.put(PROPERTIES_KEY, childrenMap);
 
             for (AbstractEsParameter child : object.getAllChildren()) {
@@ -107,7 +107,7 @@ public abstract class DefaultElasticsearchSchemas {
         return null;
     }
 
-    public final Map<String, Object> getMetadataSchema() {
+    public final Map</*~~>*/String, Object> getMetadataSchema() {
         properties = new HashMap<>(1);
         mappings = new HashMap<>();
         properties.put(PROPERTIES_KEY, mappings);

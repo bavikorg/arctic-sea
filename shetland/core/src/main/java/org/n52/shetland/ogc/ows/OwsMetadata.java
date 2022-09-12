@@ -40,7 +40,7 @@ public class OwsMetadata extends Link implements Comparable<OwsMetadata> {
     private static final Comparator<OwsMetadata> COMPARATOR =
             Comparator.nullsLast(Comparator.comparing(OwsMetadata::getTitle, Optionals.nullsLast())
                     .thenComparing(OwsMetadata::getHref, Optionals.nullsLast()));
-    private static final String ABOUT = "about";
+    private static final /*~~>*/String ABOUT = "about";
 
     private final Optional<URI> about;
 
@@ -52,17 +52,17 @@ public class OwsMetadata extends Link implements Comparable<OwsMetadata> {
         this(href, null, null, null, null, null, about);
     }
 
-    public OwsMetadata(URI href, String title) {
+    public OwsMetadata(URI href, /*~~>*/String title) {
         this(href, null, null, title, null, null, null);
     }
 
-    public OwsMetadata(URI href, String title, URI about) {
+    public OwsMetadata(URI href, /*~~>*/String title, URI about) {
         this(href, null, null, title, null, null, about);
     }
 
     @JsonCreator
     public OwsMetadata(@JsonProperty(HREF) @Nullable URI href, @JsonProperty(ROLE) @Nullable URI role,
-            @JsonProperty(ARCROLE) @Nullable URI arcrole, @JsonProperty(TITLE) @Nullable String title,
+            @JsonProperty(ARCROLE) @Nullable URI arcrole, @JsonProperty(TITLE) @Nullable /*~~>*/String title,
             @JsonProperty(SHOW) @Nullable Show show, @JsonProperty(ACTUATE) @Nullable Actuate actuate,
             @JsonProperty(ABOUT) @Nullable URI about) {
         super(href, role, arcrole, title, show, actuate);

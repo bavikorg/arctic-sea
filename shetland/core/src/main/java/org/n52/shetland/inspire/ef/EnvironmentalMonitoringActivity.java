@@ -40,7 +40,7 @@ public class EnvironmentalMonitoringActivity extends AbstractFeature {
     /**
      * 1..1
      */
-    private String activityConditions;
+    private /*~~>*/String activityConditions;
 
     /**
      * 0..1
@@ -73,11 +73,11 @@ public class EnvironmentalMonitoringActivity extends AbstractFeature {
     private Set<AbstractMonitoringFeature> uses = Sets.newHashSet();
 
     @SuppressFBWarnings({ "EI_EXPOSE_REP2" })
-    public EnvironmentalMonitoringActivity(Time activityTime, String activityConditions, RelatedParty responsibleParty,
+    public EnvironmentalMonitoringActivity(Time activityTime, /*~~>*/String activityConditions, RelatedParty responsibleParty,
             Identifier inspireId) {
         super(inspireId);
         this.activityTime = activityTime;
-        this.activityConditions = activityConditions;
+        /*~~>*/this.activityConditions = activityConditions;
         this.responsibleParty = responsibleParty;
         this.inspireId = inspireId;
     }
@@ -93,7 +93,7 @@ public class EnvironmentalMonitoringActivity extends AbstractFeature {
     /**
      * @return the activityConditions
      */
-    public String getActivityConditions() {
+    public /*~~>*/String getActivityConditions() {
         return activityConditions;
     }
 

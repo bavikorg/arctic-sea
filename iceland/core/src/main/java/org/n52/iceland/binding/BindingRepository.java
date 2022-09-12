@@ -82,7 +82,7 @@ public class BindingRepository extends AbstractComponentRepository<BindingKey, B
         return this.activation.isActive(key);
     }
 
-    public boolean isActive(String urlPattern) {
+    public boolean isActive(/*~~>*/String urlPattern) {
         return isActive(new PathBindingKey(urlPattern));
     }
 
@@ -129,7 +129,7 @@ public class BindingRepository extends AbstractComponentRepository<BindingKey, B
         }
     }
 
-    public Binding getBinding(String urlPattern) {
+    public Binding getBinding(/*~~>*/String urlPattern) {
         return getBinding(new PathBindingKey(urlPattern));
     }
 
@@ -142,7 +142,7 @@ public class BindingRepository extends AbstractComponentRepository<BindingKey, B
         return binding == null ? null : binding.get();
     }
 
-    public boolean isBindingSupported(String urlPattern) {
+    public boolean isBindingSupported(/*~~>*/String urlPattern) {
         return isActive(new PathBindingKey(urlPattern));
     }
 

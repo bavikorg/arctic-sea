@@ -17,7 +17,7 @@ package org.n52.shetland.aqd;
 
 public class AqdUomRepository {
 
-    public static Uom getAqdUom(String v) {
+    public static Uom getAqdUom(/*~~>*/String v) {
         try {
             return UomConcentration.from(v);
         } catch (Exception e) {
@@ -26,13 +26,13 @@ public class AqdUomRepository {
     }
 
     public interface Uom {
-        String BASE_UNIT = "http://dd.eionet.europa.eu/vocabulary/uom/";
+        /*~~>*/String BASE_UNIT = "http://dd.eionet.europa.eu/vocabulary/uom/";
 
-        String getId();
+        /*~~>*/String getId();
 
-        String getNotation();
+        /*~~>*/String getNotation();
 
-        String getConceptURI();
+        /*~~>*/String getConceptURI();
     }
 
     public enum UomConcentration implements Uom {
@@ -45,36 +45,36 @@ public class AqdUomRepository {
         MicrogramsCubicMetreDay("ug.m-3.day", "ug/m3·day"),
         MicrogramsCubicMetreHour("ug.m-3.h", "ug/m3·h");
 
-        private static final String CONCENTRATION_BASE_UNIT = BASE_UNIT + "concentration/";
+        private static final /*~~>*/String CONCENTRATION_BASE_UNIT = BASE_UNIT + "concentration/";
 
-        private final String conceptURI;
+        private final /*~~>*/String conceptURI;
 
-        private final String id;
+        private final /*~~>*/String id;
 
-        private final String notation;
+        private final /*~~>*/String notation;
 
-        UomConcentration(String id, String notation) {
-            this.id = id;
-            this.notation = notation;
-            this.conceptURI = CONCENTRATION_BASE_UNIT + id;
+        UomConcentration(/*~~>*/String id, /*~~>*/String notation) {
+            /*~~>*/this.id = id;
+            /*~~>*/this.notation = notation;
+            /*~~>*/this.conceptURI = CONCENTRATION_BASE_UNIT + id;
         }
 
         @Override
-        public String getId() {
+        public /*~~>*/String getId() {
             return id;
         }
 
         @Override
-        public String getNotation() {
+        public /*~~>*/String getNotation() {
             return notation;
         }
 
         @Override
-        public String getConceptURI() {
+        public /*~~>*/String getConceptURI() {
             return conceptURI;
         }
 
-        public static UomConcentration from(String v) {
+        public static UomConcentration from(/*~~>*/String v) {
             for (UomConcentration c : UomConcentration.values()) {
                 if (c.getNotation().equals(v) || c.getId().equals(v) || c.getConceptURI().equals(v)) {
                     return c;

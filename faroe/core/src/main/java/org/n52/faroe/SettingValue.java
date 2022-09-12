@@ -30,7 +30,7 @@ public interface SettingValue<T> extends Serializable {
     /**
      * @return the key of this setting
      */
-    String getKey();
+    /*~~>*/String getKey();
 
     /**
      * @return the value
@@ -40,7 +40,7 @@ public interface SettingValue<T> extends Serializable {
     /**
      * @param key the key of this setting
      */
-    void setKey(String key);
+    void setKey(/*~~>*/String key);
 
     /**
      * @param value the value of this setting

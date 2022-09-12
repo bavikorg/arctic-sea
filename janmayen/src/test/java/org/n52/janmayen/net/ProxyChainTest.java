@@ -68,11 +68,11 @@ public class ProxyChainTest {
         isValid("[::ffff:0:192.168.52.123]:80", "0:0:0:0:ffff:0:c0a8:347b");
     }
 
-    private void isInvalid(String addr) {
+    private void isInvalid(/*~~>*/String addr) {
         assertThat(ProxyChain.getIPAddress(addr), is(nullValue()));
     }
 
-    private void isValid(String input, String expected) {
+    private void isValid(/*~~>*/String input, /*~~>*/String expected) {
         assertThat(ProxyChain.getIPAddress(input).toString(), is(expected));
     }
 

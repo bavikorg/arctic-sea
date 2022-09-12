@@ -17,39 +17,39 @@ package org.n52.shetland.ogc.sensorML.elements;
 
 public class SmlLink {
 
-    private String id;
+    private /*~~>*/String id;
 
-    private String destination;
+    private /*~~>*/String destination;
 
-    private String source;
+    private /*~~>*/String source;
 
-    public SmlLink(String destination, String source) {
-        this.destination = destination;
-        this.source = source;
+    public SmlLink(/*~~>*/String destination, /*~~>*/String source) {
+        /*~~>*/this.destination = destination;
+        /*~~>*/this.source = source;
     }
 
-    public String getId() {
+    public /*~~>*/String getId() {
         return id;
     }
 
-    public void setId(String id) {
-        this.id = id;
+    public void setId(/*~~>*/String id) {
+        /*~~>*/this.id = id;
     }
 
-    public String getDestination() {
+    public /*~~>*/String getDestination() {
         return destination;
     }
 
-    public void setDestination(String destination) {
-        this.destination = destination;
+    public void setDestination(/*~~>*/String destination) {
+        /*~~>*/this.destination = destination;
     }
 
-    public String getSource() {
+    public /*~~>*/String getSource() {
         return source;
     }
 
-    public void setSource(String source) {
-        this.source = source;
+    public void setSource(/*~~>*/String source) {
+        /*~~>*/this.source = source;
     }
 
 }

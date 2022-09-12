@@ -36,13 +36,13 @@ import net.opengis.sosdo.x20.DeleteObservationResponseDocument;
  * @since 1.0.0
  */
 public class DeleteObservationV20Encoder extends AbstractVersionedResponseEncoder<DeleteObservationResponse> {
-    public static final SchemaLocation SCHEMA_LOCATION = new SchemaLocation(DeleteObservationConstants.NS_SOSDO_2_0,
-            DeleteObservationConstants.NS_SOSDO_2_0_SCHEMA_LOCATION);
+    public static final SchemaLocation SCHEMA_LOCATION = new SchemaLocation(/*~~>*/DeleteObservationConstants.NS_SOSDO_2_0,
+            /*~~>*/DeleteObservationConstants.NS_SOSDO_2_0_SCHEMA_LOCATION);
 
     public DeleteObservationV20Encoder() {
-        super(SosConstants.SOS, Sos2Constants.SERVICEVERSION, DeleteObservationConstants.Operations.DeleteObservation
-                .name(), DeleteObservationConstants.NS_SOSDO_2_0, DeleteObservationConstants.NS_SOSDO_PREFIX,
-                DeleteObservationResponse.class, DeleteObservationConstants.NS_SOSDO_2_0);
+        super(/*~~>*/SosConstants.SOS, /*~~>*/Sos2Constants.SERVICEVERSION, DeleteObservationConstants.Operations.DeleteObservation
+                .name(), /*~~>*/DeleteObservationConstants.NS_SOSDO_2_0, /*~~>*/DeleteObservationConstants.NS_SOSDO_PREFIX,
+                DeleteObservationResponse.class, /*~~>*/DeleteObservationConstants.NS_SOSDO_2_0);
     }
 
     @Override

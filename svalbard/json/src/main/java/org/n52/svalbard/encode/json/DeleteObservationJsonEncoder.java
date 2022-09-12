@@ -52,11 +52,11 @@ public class DeleteObservationJsonEncoder extends AbstractSosResponseEncoder<Del
         if (t.getVersion() == null) {
             exceptions.add(new MissingVersionParameterException());
         }
-        if (DeleteObservationConstants.NS_SOSDO_1_0.equals(t.getOperationVersion())) {
+        if (/*~~>*/DeleteObservationConstants.NS_SOSDO_1_0.equals(t.getOperationVersion())) {
             if (t.getObservationId() == null || t.getObservationId().isEmpty()) {
-                exceptions.add(new MissingParameterValueException(DeleteObservationConstants.PARAM_OBSERVATION));
+                exceptions.add(new MissingParameterValueException(/*~~>*/DeleteObservationConstants.PARAM_OBSERVATION));
             } else {
-                json.put(JSONConstants.DELETED_OBSERVATION, t.getObservationId());
+                json.put(/*~~>*/JSONConstants.DELETED_OBSERVATION, t.getObservationId());
             }
         }
         try {

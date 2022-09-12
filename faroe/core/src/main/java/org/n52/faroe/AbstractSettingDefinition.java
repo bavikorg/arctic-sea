@@ -31,9 +31,9 @@ public abstract class AbstractSettingDefinition<T> extends AbstractOrdered
         implements SettingDefinition<T>, Serializable {
     private static final long serialVersionUID = -4844522246101262287L;
     private boolean optional;
-    private String identifier;
-    private String title;
-    private String description;
+    private /*~~>*/String identifier;
+    private /*~~>*/String title;
+    private /*~~>*/String description;
     private SettingDefinitionGroup group;
     private SettingType type;
     private T defaultValue;
@@ -46,24 +46,24 @@ public abstract class AbstractSettingDefinition<T> extends AbstractOrdered
     }
 
     @Override
-    public String getKey() {
+    public /*~~>*/String getKey() {
         return identifier;
     }
 
     @Override
-    public AbstractSettingDefinition<T> setKey(String k) {
-        this.identifier = k;
+    public AbstractSettingDefinition<T> setKey(/*~~>*/String k) {
+        /*~~>*/this.identifier = k;
         return this;
     }
 
     @Override
-    public String getDescription() {
+    public /*~~>*/String getDescription() {
         return description;
     }
 
     @Override
-    public AbstractSettingDefinition<T> setDescription(String d) {
-        this.description = d;
+    public AbstractSettingDefinition<T> setDescription(/*~~>*/String d) {
+        /*~~>*/this.description = d;
         return this;
     }
 
@@ -73,13 +73,13 @@ public abstract class AbstractSettingDefinition<T> extends AbstractOrdered
     }
 
     @Override
-    public String getTitle() {
+    public /*~~>*/String getTitle() {
         return title;
     }
 
     @Override
-    public AbstractSettingDefinition<T> setTitle(String t) {
-        this.title = t;
+    public AbstractSettingDefinition<T> setTitle(/*~~>*/String t) {
+        /*~~>*/this.title = t;
         return this;
     }
 
@@ -133,7 +133,7 @@ public abstract class AbstractSettingDefinition<T> extends AbstractOrdered
         return getDefaultValue() != null;
     }
 
-    protected boolean hasStringProperty(String s) {
+    protected boolean hasStringProperty(/*~~>*/String s) {
         return s != null && !s.isEmpty();
     }
 
@@ -160,8 +160,8 @@ public abstract class AbstractSettingDefinition<T> extends AbstractOrdered
     }
 
     @Override
-    public String toString() {
-        return String.format("%s[key=%s]", getClass().getSimpleName(), getKey());
+    public /*~~>*/String toString() {
+        return /*~~>*/String.format("%s[key=%s]", getClass().getSimpleName(), getKey());
     }
 
     @Override
@@ -175,7 +175,7 @@ public abstract class AbstractSettingDefinition<T> extends AbstractOrdered
     }
 
     @Override
-    protected String getSuborder() {
+    protected /*~~>*/String getSuborder() {
         return getTitle();
     }
 }

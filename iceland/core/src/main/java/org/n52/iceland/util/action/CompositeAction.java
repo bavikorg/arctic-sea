@@ -49,7 +49,7 @@ public abstract class CompositeAction<A extends Action> extends RunnableAction {
     protected abstract void post(A action);
 
     @Override
-    public String toString() {
-        return String.format("%s[actions=[%s]]", getClass().getSimpleName(), Joiner.on(", ").join(getActions()));
+    public /*~~>*/String toString() {
+        return /*~~>*/String.format("%s[actions=[%s]]", getClass().getSimpleName(), Joiner.on(", ").join(getActions()));
     }
 }

@@ -37,7 +37,7 @@ import edu.umd.cs.findbugs.annotations.SuppressFBWarnings;
 public class AggregateProcess extends DescribedObject
         implements HasComponents<AggregateProcess>, HasConnections<AggregateProcess> {
 
-    public static final String ID_PREFIX = "ap_";
+    public static final /*~~>*/String ID_PREFIX = "ap_";
     private final List<SmlComponent> components = new LinkedList<>();
     private SmlConnection connections;
 

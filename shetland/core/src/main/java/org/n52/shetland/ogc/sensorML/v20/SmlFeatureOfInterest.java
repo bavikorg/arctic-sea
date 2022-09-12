@@ -41,26 +41,26 @@ import com.google.common.collect.Maps;
  */
 public class SmlFeatureOfInterest extends SweAbstractDataComponent {
 
-    private final Map<String, AbstractFeature> featuresOfInterestMap = Maps.newHashMap();
+    private final Map</*~~>*/String, AbstractFeature> featuresOfInterestMap = Maps.newHashMap();
 
     @Override
     public SweDataComponentType getDataComponentType() {
         return null;
     }
 
-    public SmlFeatureOfInterest addFeaturesOfInterest(Collection<String> features) {
+    public SmlFeatureOfInterest addFeaturesOfInterest(Collection</*~~>*/String> features) {
         features.forEach(this::addFeatureOfInterest);
         return this;
     }
 
-    public SmlFeatureOfInterest addFeaturesOfInterest(Map<String, AbstractFeature> featuresOfInterestMap) {
+    public SmlFeatureOfInterest addFeaturesOfInterest(Map</*~~>*/String, AbstractFeature> featuresOfInterestMap) {
         if (featuresOfInterestMap != null) {
             this.featuresOfInterestMap.putAll(featuresOfInterestMap);
         }
         return this;
     }
 
-    public SmlFeatureOfInterest addFeatureOfInterest(String featureIdentifier) {
+    public SmlFeatureOfInterest addFeatureOfInterest(/*~~>*/String featureIdentifier) {
         if (featureIdentifier != null && !featureIdentifier.isEmpty()) {
             this.featuresOfInterestMap.put(featureIdentifier,
                     new SamplingFeature(new CodeWithAuthority(featureIdentifier)));
@@ -75,7 +75,7 @@ public class SmlFeatureOfInterest extends SweAbstractDataComponent {
         return this;
     }
 
-    public Set<String> getFeaturesOfInterest() {
+    public Set</*~~>*/String> getFeaturesOfInterest() {
         return featuresOfInterestMap.keySet();
     }
 
@@ -84,7 +84,7 @@ public class SmlFeatureOfInterest extends SweAbstractDataComponent {
                 || CollectionHelper.isNotEmpty(featuresOfInterestMap);
     }
 
-    public Map<String, AbstractFeature> getFeaturesOfInterestMap() {
+    public Map</*~~>*/String, AbstractFeature> getFeaturesOfInterestMap() {
         return Collections.unmodifiableMap(featuresOfInterestMap);
     }
 
@@ -92,11 +92,11 @@ public class SmlFeatureOfInterest extends SweAbstractDataComponent {
         return CollectionHelper.isNotEmpty(featuresOfInterestMap);
     }
 
-    public boolean hasAbstractFeatureFor(String identifier) {
+    public boolean hasAbstractFeatureFor(/*~~>*/String identifier) {
         return isSetFeaturesOfInterestMap() && featuresOfInterestMap.containsKey(identifier);
     }
 
-    public AbstractFeature getAbstractFeatureFor(String identifier) {
+    public AbstractFeature getAbstractFeatureFor(/*~~>*/String identifier) {
         return featuresOfInterestMap.get(identifier);
     }
 

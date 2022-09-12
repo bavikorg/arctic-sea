@@ -27,19 +27,19 @@ import org.n52.shetland.w3c.SchemaLocation;
  */
 public interface InspireOMPRConstants {
 
-    String NS_OMPR_30 = "http://inspire.ec.europa.eu/schemas/ompr/3.0";
+    /*~~>*/String NS_OMPR_30 = "http://inspire.ec.europa.eu/schemas/ompr/3.0";
 
-    String NS_OMPR_PREFIX = "ompr";
+    /*~~>*/String NS_OMPR_PREFIX = "ompr";
 
-    String SCHEMA_LOCATION_URL_OMPR = "http://inspire.ec.europa.eu/schemas/ompr/3.0/Process.xsd";
+    /*~~>*/String SCHEMA_LOCATION_URL_OMPR = "http://inspire.ec.europa.eu/schemas/ompr/3.0/Process.xsd";
 
     SchemaLocation OMPR_SCHEMA_LOCATION = new SchemaLocation(NS_OMPR_30, SCHEMA_LOCATION_URL_OMPR);
 
-    String OMPR_30_OUTPUT_FORMAT_URL = NS_OMPR_30;
+    /*~~>*/String OMPR_30_OUTPUT_FORMAT_URL = NS_OMPR_30;
 
     MediaType OMPR_30_CONTENT_TYPE = new MediaType("text", "xml", "subtype", "ompr/3.0");
 
-    String OMPR_30_OUTPUT_FORMAT_MIME_TYPE = OMPR_30_CONTENT_TYPE.toString();
+    /*~~>*/String OMPR_30_OUTPUT_FORMAT_MIME_TYPE = OMPR_30_CONTENT_TYPE.toString();
 
-    String FEATURE_CONCEPT_PROCESS = "http://inspire.ec.europa.eu/featureconcept/Process";
+    /*~~>*/String FEATURE_CONCEPT_PROCESS = "http://inspire.ec.europa.eu/featureconcept/Process";
 }

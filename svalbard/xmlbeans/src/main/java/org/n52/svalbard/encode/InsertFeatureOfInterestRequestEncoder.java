@@ -43,12 +43,12 @@ import net.opengis.ifoi.x10.InsertFeatureOfInterestType;
  * @since 1.0.0
  */
 public class InsertFeatureOfInterestRequestEncoder extends AbstractRequestEncoder<InsertFeatureOfInterestRequest> {
-    public static final SchemaLocation SCHEMA_LOCATION = new SchemaLocation(InsertFeatureOfInterestConstants.NS_IFOI,
-            InsertFeatureOfInterestConstants.SCHEMA_LOCATION_URL_INSERT_FEATURE_OF_INTEREST);
+    public static final SchemaLocation SCHEMA_LOCATION = new SchemaLocation(/*~~>*/InsertFeatureOfInterestConstants.NS_IFOI,
+            /*~~>*/InsertFeatureOfInterestConstants.SCHEMA_LOCATION_URL_INSERT_FEATURE_OF_INTEREST);
 
     public InsertFeatureOfInterestRequestEncoder() {
-        super(SosConstants.SOS, Sos2Constants.SERVICEVERSION, InsertFeatureOfInterestConstants.OPERATION_NAME,
-                InsertFeatureOfInterestConstants.NS_IFOI, InsertFeatureOfInterestConstants.NS_IFOI_PREFIX,
+        super(/*~~>*/SosConstants.SOS, /*~~>*/Sos2Constants.SERVICEVERSION, /*~~>*/InsertFeatureOfInterestConstants.OPERATION_NAME,
+                /*~~>*/InsertFeatureOfInterestConstants.NS_IFOI, /*~~>*/InsertFeatureOfInterestConstants.NS_IFOI_PREFIX,
                 InsertFeatureOfInterestRequest.class);
     }
 
@@ -88,12 +88,12 @@ public class InsertFeatureOfInterestRequestEncoder extends AbstractRequestEncode
             return;
         }
         for (Extension<?> o : extensions.getExtensions()) {
-            insertFeatureOfInterestType.addNewExtension().set(encodeObjectToXml(SwesConstants.NS_SWES_20, o));
+            insertFeatureOfInterestType.addNewExtension().set(encodeObjectToXml(/*~~>*/SwesConstants.NS_SWES_20, o));
         }
     }
 
     private XmlObject encodeGml(EncodingContext context, Object o) throws EncodingException {
-        return encodeObjectToXml(GmlConstants.NS_GML_32, o, context);
+        return encodeObjectToXml(/*~~>*/GmlConstants.NS_GML_32, o, context);
     }
 
     @Override

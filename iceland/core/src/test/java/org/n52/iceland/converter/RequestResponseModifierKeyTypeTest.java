@@ -26,8 +26,8 @@ import org.n52.shetland.ogc.ows.service.OwsServiceRequest;
 import org.n52.shetland.ogc.ows.service.OwsServiceResponse;
 
 public class RequestResponseModifierKeyTypeTest {
-    private static final String SERVICE = "SOS";
-    private static final String VERSION = "2.0.0";
+    private static final /*~~>*/String SERVICE = "SOS";
+    private static final /*~~>*/String VERSION = "2.0.0";
     private final OwsServiceRequest request = new RequestImpl();
     private final OwsServiceResponse response = new ResponseImpl();
 

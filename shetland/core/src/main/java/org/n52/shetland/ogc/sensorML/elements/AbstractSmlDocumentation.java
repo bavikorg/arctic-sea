@@ -21,14 +21,14 @@ package org.n52.shetland.ogc.sensorML.elements;
  */
 public abstract class AbstractSmlDocumentation {
 
-    private String description;
+    private /*~~>*/String description;
 
-    public String getDescription() {
+    public /*~~>*/String getDescription() {
         return description;
     }
 
-    public void setDescription(String description) {
-        this.description = description;
+    public void setDescription(/*~~>*/String description) {
+        /*~~>*/this.description = description;
     }
 
     public boolean isSetDescription() {

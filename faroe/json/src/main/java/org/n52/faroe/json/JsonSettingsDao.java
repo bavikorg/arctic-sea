@@ -58,7 +58,7 @@ public class JsonSettingsDao extends AbstractJsonDao implements SettingsDao {
     public Set<SettingValue<?>> getSettingValues() {
         readLock().lock();
         try {
-            JsonNode node = getConfiguration().path(JSONSettingConstants.SETTINGS_KEY);
+            JsonNode node = getConfiguration().path(/*~~>*/JSONSettingConstants.SETTINGS_KEY);
             return getSettingsDecoder().decode(node);
         } finally {
             readLock().unlock();
@@ -66,10 +66,10 @@ public class JsonSettingsDao extends AbstractJsonDao implements SettingsDao {
     }
 
     @Override
-    public SettingValue<?> getSettingValue(String key) {
+    public SettingValue<?> getSettingValue(/*~~>*/String key) {
         readLock().lock();
         try {
-            JsonNode node = getConfiguration().path(JSONSettingConstants.SETTINGS_KEY).path(key);
+            JsonNode node = getConfiguration().path(/*~~>*/JSONSettingConstants.SETTINGS_KEY).path(key);
             if (!node.isObject()) {
                 return null;
             }
@@ -80,10 +80,10 @@ public class JsonSettingsDao extends AbstractJsonDao implements SettingsDao {
     }
 
     @Override
-    public void deleteSettingValue(String key) {
+    public void deleteSettingValue(/*~~>*/String key) {
         writeLock().lock();
         try {
-            getConfiguration().with(JSONSettingConstants.SETTINGS_KEY).remove(key);
+            getConfiguration().with(/*~~>*/JSONSettingConstants.SETTINGS_KEY).remove(key);
         } finally {
             writeLock().unlock();
         }
@@ -94,12 +94,12 @@ public class JsonSettingsDao extends AbstractJsonDao implements SettingsDao {
     public void saveSettingValue(SettingValue<?> value) {
         writeLock().lock();
         try {
-            ObjectNode settings = getConfiguration().with(JSONSettingConstants.SETTINGS_KEY);
+            ObjectNode settings = getConfiguration().with(/*~~>*/JSONSettingConstants.SETTINGS_KEY);
             JsonNode node = settings.path(value.getKey());
             ObjectNode settingNode = (ObjectNode) Optional.ofNullable(node.isObject() ? node : null)
                     .orElseGet(() -> settings.putObject(value.getKey()));
-            settingNode.put(JSONSettingConstants.TYPE_KEY, value.getType().toString());
-            settingNode.set(JSONSettingConstants.VALUE_KEY, getSettingsEncoder().encodeValue(value));
+            settingNode.put(/*~~>*/JSONSettingConstants.TYPE_KEY, value.getType().toString());
+            settingNode.set(/*~~>*/JSONSettingConstants.VALUE_KEY, getSettingsEncoder().encodeValue(value));
         } finally {
             writeLock().unlock();
         }

@@ -43,7 +43,7 @@ public class NumericValueExpr implements ArithmeticExpr {
      *
      * @param value the value
      */
-    public NumericValueExpr(String value) {
+    public NumericValueExpr(/*~~>*/String value) {
         this.value = Objects.requireNonNull(Double.valueOf(value));
     }
 
@@ -67,11 +67,11 @@ public class NumericValueExpr implements ArithmeticExpr {
     }
 
     @Override
-    public String toString() {
-        return String.format("As float: '%f'", this.value.floatValue());
+    public /*~~>*/String toString() {
+        return /*~~>*/String.format("As float: '%f'", this.value.floatValue());
     }
 
-    @Override public String toODataString() {
+    @Override public /*~~>*/String toODataString() {
         return Float.toString(this.value.floatValue());
     }
 

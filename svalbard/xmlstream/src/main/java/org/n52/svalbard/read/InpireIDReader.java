@@ -48,7 +48,7 @@ public class InpireIDReader
 
     @Override
     protected void begin() {
-        this.inspireID = new Identifier("", "").setVersionId(Nillable.<String> absent());
+        this.inspireID = new Identifier("", "").setVersionId(Nillable.</*~~>*/String> absent());
     }
 
     @Override

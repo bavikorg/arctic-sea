@@ -25,6 +25,6 @@ public class InvalidSridException extends IllegalArgumentException {
     private static final long serialVersionUID = -7826006594215854637L;
 
     public InvalidSridException(final int srid) {
-        super(String.format("SRID may not be <= 0. Was: '%d'", srid));
+        super(/*~~>*/String.format("SRID may not be <= 0. Was: '%d'", srid));
     }
 }

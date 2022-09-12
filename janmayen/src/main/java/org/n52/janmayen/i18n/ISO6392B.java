@@ -47,24 +47,24 @@ public enum ISO6392B {
     TIB("tib", "bod"),
     WEL("wel", "cym");
 
-    private final String iso;
+    private final /*~~>*/String iso;
 
-    private final String isoBib;
+    private final /*~~>*/String isoBib;
 
-    ISO6392B(String isoBib, String iso) {
-        this.iso = iso;
-        this.isoBib = isoBib;
+    ISO6392B(/*~~>*/String isoBib, /*~~>*/String iso) {
+        /*~~>*/this.iso = iso;
+        /*~~>*/this.isoBib = isoBib;
     }
 
-    public String getIso() {
+    public /*~~>*/String getIso() {
         return iso;
     }
 
-    public String getIsoBib() {
+    public /*~~>*/String getIsoBib() {
         return isoBib;
     }
 
-    public static ISO6392B fromValue(String v) {
+    public static ISO6392B fromValue(/*~~>*/String v) {
         for (ISO6392B c : ISO6392B.values()) {
             if (c.getIso().equalsIgnoreCase(v) || c.getIsoBib().equalsIgnoreCase(v)) {
                 return c;

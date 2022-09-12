@@ -82,7 +82,7 @@ public class SupportedTypeRepository {
     }
 
     @SuppressWarnings("unchecked")
-    public Set<String> getFeatureOfInterestTypesAsString() {
+    public Set</*~~>*/String> getFeatureOfInterestTypesAsString() {
         return getSupportedTypeAsString((Set<AbstractSupportedStringType>) typesFor(FeatureType.class));
     }
 
@@ -92,11 +92,11 @@ public class SupportedTypeRepository {
     }
 
     @SuppressWarnings("unchecked")
-    public Set<String> getObservationTypesAsString() {
+    public Set</*~~>*/String> getObservationTypesAsString() {
         return getSupportedTypeAsString((Set<AbstractSupportedStringType>) typesFor(ObservationType.class));
     }
 
-    private Set<String> getSupportedTypeAsString(Set<? extends AbstractSupportedStringType> types) {
+    private Set</*~~>*/String> getSupportedTypeAsString(Set<? extends AbstractSupportedStringType> types) {
         return types.stream().map(AbstractSupportedStringType::getValue).collect(toSet());
     }
 

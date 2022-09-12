@@ -34,7 +34,7 @@ public class SweCoordinate<
     /**
      * Coordinate name
      */
-    private String name;
+    private /*~~>*/String name;
 
     /**
      * Coordinate value TODO is this assignment to generic? maybe, we switch to {@link SweAbstractUomType}?
@@ -50,16 +50,16 @@ public class SweCoordinate<
      *            Coordinate value
      */
     @SuppressFBWarnings({ "EI_EXPOSE_REP2" })
-    public SweCoordinate(String name, SweAbstractSimpleType<T> value) {
+    public SweCoordinate(/*~~>*/String name, SweAbstractSimpleType<T> value) {
         super();
-        this.name = name;
+        /*~~>*/this.name = name;
         this.value = value;
     }
 
     /**
      * @return the name
      */
-    public String getName() {
+    public /*~~>*/String getName() {
         return name;
     }
 
@@ -67,8 +67,8 @@ public class SweCoordinate<
      * @param name
      *            the name to set
      */
-    public void setName(String name) {
-        this.name = name;
+    public void setName(/*~~>*/String name) {
+        /*~~>*/this.name = name;
     }
 
     /**
@@ -89,8 +89,8 @@ public class SweCoordinate<
     }
 
     @Override
-    public String toString() {
-        return String.format("SosSweCoordinate[name=%s, value=%s]", getName(), getValue());
+    public /*~~>*/String toString() {
+        return /*~~>*/String.format("SosSweCoordinate[name=%s, value=%s]", getName(), getValue());
     }
 
     @Override

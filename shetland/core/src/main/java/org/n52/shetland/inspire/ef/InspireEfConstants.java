@@ -19,11 +19,11 @@ import org.n52.shetland.w3c.SchemaLocation;
 
 public interface InspireEfConstants {
 
-    String NS_EF = "http://inspire.ec.europa.eu/schemas/ef/4.0";
+    /*~~>*/String NS_EF = "http://inspire.ec.europa.eu/schemas/ef/4.0";
 
-    String NS_EF_PREFIX = "ef";
+    /*~~>*/String NS_EF_PREFIX = "ef";
 
-    String SCHEMA_LOCATION_URL_EF = "http://inspire.ec.europa.eu/schemas/ef/4.0/EnvironmentalMonitoringFacilities.xsd";
+    /*~~>*/String SCHEMA_LOCATION_URL_EF = "http://inspire.ec.europa.eu/schemas/ef/4.0/EnvironmentalMonitoringFacilities.xsd";
 
     SchemaLocation EF_40_SCHEMA_LOCATION = new SchemaLocation(NS_EF, SCHEMA_LOCATION_URL_EF);
 

@@ -46,7 +46,7 @@ import net.opengis.sosdo.x20.DeleteObservationResponseDocument;
  */
 public class DeleteObservationV20EncoderTest {
 
-    private static final String observationId = "test_observation_id";
+    private static final /*~~>*/String observationId = "test_observation_id";
 
     private static DeleteObservationV20Encoder instance;
 
@@ -78,15 +78,15 @@ public class DeleteObservationV20EncoderTest {
         instance.setEncoderRepository(encoderRepository);
         instance.setXmlOptions(options);
 
-        correctCoreResponse = new DeleteObservationResponse(DeleteObservationConstants.NS_SOSDO_2_0);
+        correctCoreResponse = new DeleteObservationResponse(/*~~>*/DeleteObservationConstants.NS_SOSDO_2_0);
         correctCoreResponse.setObservationId(observationId);
-        correctCoreResponse.setService(Sos2Constants.SOS);
-        correctCoreResponse.setVersion(Sos2Constants.SERVICEVERSION);
+        correctCoreResponse.setService(/*~~>*/Sos2Constants.SOS);
+        correctCoreResponse.setVersion(/*~~>*/Sos2Constants.SERVICEVERSION);
     }
 
     @Test
     public void constructorReturnsInstance() {
-        final String className = DeleteObservationV20Encoder.class.getName();
+        final /*~~>*/String className = DeleteObservationV20Encoder.class.getName();
         assertNotNull(instance, "Instance is null. Constructor failed");
         assertTrue(instance.getClass().getName().equals(className),
                 "Instance of constructed object is not of class " + className);
@@ -95,15 +95,15 @@ public class DeleteObservationV20EncoderTest {
     @Test
     public void testGetEncoderKey() {
         assertNotNull(instance.getKeys(), "DecoderKeyTypes is null");
-        EncoderKey key = new XmlEncoderKey(DeleteObservationConstants.NS_SOSDO_2_0, DeleteObservationResponse.class);
+        EncoderKey key = new XmlEncoderKey(/*~~>*/DeleteObservationConstants.NS_SOSDO_2_0, DeleteObservationResponse.class);
         assertTrue(instance.getKeys().contains(key), "DecoderKeyTypes does NOT contain " + key);
-        key = new VersionedOperationEncoderKey(SosConstants.SOS, Sos2Constants.SERVICEVERSION,
+        key = new VersionedOperationEncoderKey(/*~~>*/SosConstants.SOS, /*~~>*/Sos2Constants.SERVICEVERSION,
                 DeleteObservationConstants.Operations.DeleteObservation, MediaTypes.TEXT_XML,
-                DeleteObservationConstants.NS_SOSDO_2_0);
+                /*~~>*/DeleteObservationConstants.NS_SOSDO_2_0);
         assertTrue(instance.getKeys().contains(key), "DecoderKeyTypes does NOT contain " + key);
-        key = new VersionedOperationEncoderKey(SosConstants.SOS, Sos2Constants.SERVICEVERSION,
+        key = new VersionedOperationEncoderKey(/*~~>*/SosConstants.SOS, /*~~>*/Sos2Constants.SERVICEVERSION,
                 DeleteObservationConstants.Operations.DeleteObservation, MediaTypes.APPLICATION_XML,
-                DeleteObservationConstants.NS_SOSDO_2_0);
+                /*~~>*/DeleteObservationConstants.NS_SOSDO_2_0);
         assertTrue(instance.getKeys().contains(key), "DecoderKeyTypes does NOT contain " + key);
     }
 
@@ -134,14 +134,14 @@ public class DeleteObservationV20EncoderTest {
 
     @Test
     public void should_add_correct_namespace_and_prefix_to_given_map() {
-        final Map<String, String> givenMap = new HashMap<String, String>(1);
+        final Map</*~~>*/String, /*~~>*/String> givenMap = new HashMap</*~~>*/String, /*~~>*/String>(1);
 
         instance.addNamespacePrefixToMap(givenMap);
 
-        assertTrue(givenMap.containsKey(DeleteObservationConstants.NS_SOSDO_2_0));
-        assertTrue(givenMap.containsValue(DeleteObservationConstants.NS_SOSDO_PREFIX));
-        assertEquals(givenMap.get(DeleteObservationConstants.NS_SOSDO_2_0),
-                DeleteObservationConstants.NS_SOSDO_PREFIX);
+        assertTrue(givenMap.containsKey(/*~~>*/DeleteObservationConstants.NS_SOSDO_2_0));
+        assertTrue(givenMap.containsValue(/*~~>*/DeleteObservationConstants.NS_SOSDO_PREFIX));
+        assertEquals(givenMap.get(/*~~>*/DeleteObservationConstants.NS_SOSDO_2_0),
+                /*~~>*/DeleteObservationConstants.NS_SOSDO_PREFIX);
     }
 
     @Test
@@ -153,8 +153,8 @@ public class DeleteObservationV20EncoderTest {
     public void should_return_correct_schema_location() {
         assertEquals(instance.getSchemaLocations().size(), 1);
         final SchemaLocation schemLoc = instance.getSchemaLocations().iterator().next();
-        assertEquals(schemLoc.getNamespace(), DeleteObservationConstants.NS_SOSDO_2_0);
-        assertEquals(schemLoc.getSchemaFileUrl(), DeleteObservationConstants.NS_SOSDO_2_0_SCHEMA_LOCATION);
+        assertEquals(schemLoc.getNamespace(), /*~~>*/DeleteObservationConstants.NS_SOSDO_2_0);
+        assertEquals(schemLoc.getSchemaFileUrl(), /*~~>*/DeleteObservationConstants.NS_SOSDO_2_0_SCHEMA_LOCATION);
     }
 
 }

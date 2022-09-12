@@ -43,9 +43,9 @@ import edu.umd.cs.findbugs.annotations.SuppressFBWarnings;
 public class AbstractSmlDataComponentContainer<
         T> extends AbstractReferenceType {
 
-    private String name;
+    private /*~~>*/String name;
 
-    private String typeDefinition;
+    private /*~~>*/String typeDefinition;
 
     private DataRecord dataRecord;
 
@@ -66,13 +66,13 @@ public class AbstractSmlDataComponentContainer<
         }
     }
 
-    public String getName() {
+    public /*~~>*/String getName() {
         return name;
     }
 
     @SuppressWarnings("unchecked")
-    public T setName(String name) {
-        this.name = name;
+    public T setName(/*~~>*/String name) {
+        /*~~>*/this.name = name;
         return (T) this;
     }
 
@@ -83,7 +83,7 @@ public class AbstractSmlDataComponentContainer<
     /**
      * @return the typeDefinition
      */
-    public String getTypeDefinition() {
+    public /*~~>*/String getTypeDefinition() {
         return typeDefinition;
     }
 
@@ -92,8 +92,8 @@ public class AbstractSmlDataComponentContainer<
      *            the typeDefinition to set
      * @return this
      */
-    public T setTypeDefinition(String typeDefinition) {
-        this.typeDefinition = typeDefinition;
+    public T setTypeDefinition(/*~~>*/String typeDefinition) {
+        /*~~>*/this.typeDefinition = typeDefinition;
         return (T) this;
     }
 
@@ -109,7 +109,7 @@ public class AbstractSmlDataComponentContainer<
             SweSimpleDataRecord sdr = new SweSimpleDataRecord();
             int counter = 1;
             for (SweAbstractDataComponent element : abstractDataComponents) {
-                String n = "field_" + counter++;
+                /*~~>*/String n = "field_" + counter++;
                 if (element.isSetName()) {
                     n = element.getName().getValue();
                 }

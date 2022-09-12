@@ -21,18 +21,18 @@ import com.google.common.base.Strings;
 
 public class LocalisedCharacterString extends AbtractGmd {
 
-    private String value;
+    private /*~~>*/String value;
 
-    private String locale;
+    private /*~~>*/String locale;
 
-    public LocalisedCharacterString(String value) {
+    public LocalisedCharacterString(/*~~>*/String value) {
         setValue(value);
     }
 
     /**
      * @return the value
      */
-    public String getValue() {
+    public /*~~>*/String getValue() {
         return value;
     }
 
@@ -40,15 +40,15 @@ public class LocalisedCharacterString extends AbtractGmd {
      * @param value
      *            the value to set
      */
-    public LocalisedCharacterString setValue(String value) {
-        this.value = value;
+    public LocalisedCharacterString setValue(/*~~>*/String value) {
+        /*~~>*/this.value = value;
         return this;
     }
 
     /**
      * @return the locale
      */
-    public String getLocale() {
+    public /*~~>*/String getLocale() {
         return locale;
     }
 
@@ -56,8 +56,8 @@ public class LocalisedCharacterString extends AbtractGmd {
      * @param locale
      *            the locale to set
      */
-    public LocalisedCharacterString setLocale(String locale) {
-        this.locale = locale;
+    public LocalisedCharacterString setLocale(/*~~>*/String locale) {
+        /*~~>*/this.locale = locale;
         return this;
     }
 
@@ -80,7 +80,7 @@ public class LocalisedCharacterString extends AbtractGmd {
     }
 
     @Override
-    public String toString() {
+    public /*~~>*/String toString() {
         return MoreObjects.toStringHelper(this).add("Value", getValue()).add("Locale", getLocale()).toString();
     }
 

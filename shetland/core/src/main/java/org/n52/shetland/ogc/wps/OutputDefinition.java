@@ -139,7 +139,7 @@ public class OutputDefinition {
     }
 
     @Override
-    public String toString() {
+    public /*~~>*/String toString() {
         return MoreObjects.toStringHelper(this).omitNullValues().add("id", this.id).add("format", this.format)
                 .add("dataTransmissionMode", this.dataTransmissionMode).add("outputs", this.outputs).toString();
     }

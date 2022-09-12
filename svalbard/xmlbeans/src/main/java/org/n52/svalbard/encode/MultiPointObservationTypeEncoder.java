@@ -48,7 +48,7 @@ public class MultiPointObservationTypeEncoder
 
     private static final Logger LOGGER = LoggerFactory.getLogger(MultiPointObservationTypeEncoder.class);
     private static final Set<EncoderKey> ENCODER_KEYS =
-            CodingHelper.encoderKeysForElements(InspireOMSOConstants.NS_OMSO_30, MultiPointObservation.class);
+            CodingHelper.encoderKeysForElements(/*~~>*/InspireOMSOConstants.NS_OMSO_30, MultiPointObservation.class);
 
     public MultiPointObservationTypeEncoder() {
         LOGGER.debug("Encoder for the following keys initialized successfully: {}!",
@@ -74,8 +74,8 @@ public class MultiPointObservationTypeEncoder
     }
 
     @Override
-    protected String getObservationType() {
-        return InspireOMSOConstants.OBS_TYPE_MULTI_POINT_OBSERVATION;
+    protected /*~~>*/String getObservationType() {
+        return /*~~>*/InspireOMSOConstants.OBS_TYPE_MULTI_POINT_OBSERVATION;
     }
 
     @Override

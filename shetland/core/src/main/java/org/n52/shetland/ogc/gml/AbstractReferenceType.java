@@ -30,19 +30,19 @@ public class AbstractReferenceType implements Comparable<AbstractReferenceType> 
     /**
      * Title
      */
-    private String title;
+    private /*~~>*/String title;
 
     /**
      * Role
      */
-    private String role;
+    private /*~~>*/String role;
 
     /**
      * Get href
      *
      * @return Href
      */
-    public String getHref() {
+    public /*~~>*/String getHref() {
         if (href != null) {
             return href.getHref();
         }
@@ -54,7 +54,7 @@ public class AbstractReferenceType implements Comparable<AbstractReferenceType> 
      *
      * @return Title
      */
-    public String getTitle() {
+    public /*~~>*/String getTitle() {
         return title;
     }
 
@@ -63,7 +63,7 @@ public class AbstractReferenceType implements Comparable<AbstractReferenceType> 
      *
      * @return Role
      */
-    public String getRole() {
+    public /*~~>*/String getRole() {
         return role;
     }
 
@@ -73,7 +73,7 @@ public class AbstractReferenceType implements Comparable<AbstractReferenceType> 
      * @param href
      *            Href to set
      */
-    public AbstractReferenceType setHref(String href) {
+    public AbstractReferenceType setHref(/*~~>*/String href) {
         this.href = new W3CHrefAttribute(href);
         return this;
     }
@@ -84,8 +84,8 @@ public class AbstractReferenceType implements Comparable<AbstractReferenceType> 
      * @param title
      *            Title to set
      */
-    public AbstractReferenceType setTitle(String title) {
-        this.title = title;
+    public AbstractReferenceType setTitle(/*~~>*/String title) {
+        /*~~>*/this.title = title;
         return this;
     }
 
@@ -95,8 +95,8 @@ public class AbstractReferenceType implements Comparable<AbstractReferenceType> 
      * @param role
      *            Role to set
      */
-    public AbstractReferenceType setRole(String role) {
-        this.role = role;
+    public AbstractReferenceType setRole(/*~~>*/String role) {
+        /*~~>*/this.role = role;
         return this;
     }
 
@@ -115,7 +115,7 @@ public class AbstractReferenceType implements Comparable<AbstractReferenceType> 
      * @return <code>true</code>, if title is set
      */
     public boolean isSetTitle() {
-        return this.title != null && !this.title.isEmpty();
+        return /*~~>*/this.title != null && !/*~~>*/this.title.isEmpty();
     }
 
     /**
@@ -124,7 +124,7 @@ public class AbstractReferenceType implements Comparable<AbstractReferenceType> 
      * @return <code>true</code>, if role is set
      */
     public boolean isSetRole() {
-        return this.role != null && !this.role.isEmpty();
+        return /*~~>*/this.role != null && !/*~~>*/this.role.isEmpty();
     }
 
     /**
@@ -145,11 +145,11 @@ public class AbstractReferenceType implements Comparable<AbstractReferenceType> 
      *
      * @return Title from href
      */
-    public String getTitleOrFromHref() {
+    public /*~~>*/String getTitleOrFromHref() {
         if (isSetTitle()) {
             return getTitle();
         }
-        String t = getHref();
+        /*~~>*/String t = getHref();
         if (t.startsWith("http")) {
             t = t.substring(t.lastIndexOf('/') + 1, t.length());
         } else if (t.startsWith("urn")) {
@@ -162,8 +162,8 @@ public class AbstractReferenceType implements Comparable<AbstractReferenceType> 
     }
 
     @Override
-    public String toString() {
-        return String.format("AbstractReferenceType [title=%s, role=%s, href=%s]", getTitle(), getRole(), getHref());
+    public /*~~>*/String toString() {
+        return /*~~>*/String.format("AbstractReferenceType [title=%s, role=%s, href=%s]", getTitle(), getRole(), getHref());
     }
 
     @Override
@@ -176,8 +176,8 @@ public class AbstractReferenceType implements Comparable<AbstractReferenceType> 
     public int hashCode() {
         int hash = 7;
         hash = 29 * hash + Objects.hashCode(this.href);
-        hash = 29 * hash + Objects.hashCode(this.title);
-        hash = 29 * hash + Objects.hashCode(this.role);
+        hash = 29 * hash + Objects.hashCode(/*~~>*/this.title);
+        hash = 29 * hash + Objects.hashCode(/*~~>*/this.role);
         return hash;
     }
 
@@ -193,10 +193,10 @@ public class AbstractReferenceType implements Comparable<AbstractReferenceType> 
             return false;
         }
         final AbstractReferenceType other = (AbstractReferenceType) obj;
-        if (!Objects.equals(this.title, other.title)) {
+        if (!Objects.equals(/*~~>*/this.title, /*~~>*/other.title)) {
             return false;
         }
-        if (!Objects.equals(this.role, other.role)) {
+        if (!Objects.equals(/*~~>*/this.role, /*~~>*/other.role)) {
             return false;
         }
         if (!Objects.equals(this.href, other.href)) {

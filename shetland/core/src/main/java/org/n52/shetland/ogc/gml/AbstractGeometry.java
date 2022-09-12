@@ -37,7 +37,7 @@ public class AbstractGeometry extends AbstractGML {
      * @param id
      *            GML id
      */
-    public AbstractGeometry(String id) {
+    public AbstractGeometry(/*~~>*/String id) {
         setGmlId(id);
     }
 

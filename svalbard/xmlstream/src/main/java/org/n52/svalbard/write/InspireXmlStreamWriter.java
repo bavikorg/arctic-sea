@@ -172,7 +172,7 @@ public class InspireXmlStreamWriter extends XmlStreamWriter<InspireObject> imple
         writeTitle(citation.getTitle());
         writeDateOf(citation.getDateOf());
         if (citation.isSetUrls()) {
-            for (String url : citation.getUrls()) {
+            for (/*~~>*/String url : citation.getUrls()) {
                 writeURI(url);
             }
         }
@@ -191,7 +191,7 @@ public class InspireXmlStreamWriter extends XmlStreamWriter<InspireObject> imple
      * @throws XMLStreamException
      *             If an error occurs when writing the object to stream
      */
-    private void writeCode(String code) throws XMLStreamException {
+    private void writeCode(/*~~>*/String code) throws XMLStreamException {
         start(QN_CODE);
         chars(code);
         endInline(QN_CODE);
@@ -310,7 +310,7 @@ public class InspireXmlStreamWriter extends XmlStreamWriter<InspireObject> imple
      * @throws XMLStreamException
      *             If an error occurs when writing the object to stream
      */
-    private void writeEmailAddress(String emailAddress) throws XMLStreamException {
+    private void writeEmailAddress(/*~~>*/String emailAddress) throws XMLStreamException {
         start(QN_EMAIL_ADDRESS);
         chars(emailAddress);
         endInline(QN_EMAIL_ADDRESS);
@@ -415,7 +415,7 @@ public class InspireXmlStreamWriter extends XmlStreamWriter<InspireObject> imple
      * @throws XMLStreamException
      *             If an error occurs when writing the object to stream
      */
-    private void writeKeywordValue(String keywordValue) throws XMLStreamException {
+    private void writeKeywordValue(/*~~>*/String keywordValue) throws XMLStreamException {
         start(QN_KEYWORD_VALUE);
         chars(keywordValue);
         endInline(QN_KEYWORD_VALUE);
@@ -529,7 +529,7 @@ public class InspireXmlStreamWriter extends XmlStreamWriter<InspireObject> imple
      * @throws XMLStreamException
      *             If an error occurs when writing the object to stream
      */
-    private void writeNamespace(String namespace) throws XMLStreamException {
+    private void writeNamespace(/*~~>*/String namespace) throws XMLStreamException {
         start(QN_NAMESPACE);
         chars(namespace);
         end(QN_NAMESPACE);
@@ -559,7 +559,7 @@ public class InspireXmlStreamWriter extends XmlStreamWriter<InspireObject> imple
      * @throws XMLStreamException
      *             If an error occurs when writing the object to stream
      */
-    private void writeOrganisationName(String organisationName) throws XMLStreamException {
+    private void writeOrganisationName(/*~~>*/String organisationName) throws XMLStreamException {
         start(QN_ORGANISATION_NAME);
         chars(organisationName);
         endInline(QN_SPATIAL_DATA_SERVICE_TYPE);
@@ -822,7 +822,7 @@ public class InspireXmlStreamWriter extends XmlStreamWriter<InspireObject> imple
      * @throws XMLStreamException
      *             If an error occurs when writing the object to stream
      */
-    private void writeTitle(String title) throws XMLStreamException {
+    private void writeTitle(/*~~>*/String title) throws XMLStreamException {
         start(QN_TITLE);
         chars(title);
         endInline(QN_TITLE);
@@ -853,7 +853,7 @@ public class InspireXmlStreamWriter extends XmlStreamWriter<InspireObject> imple
      * @throws XMLStreamException
      *             If an error occurs when writing the object to stream
      */
-    private void writeURI(String url) throws XMLStreamException {
+    private void writeURI(/*~~>*/String url) throws XMLStreamException {
         start(QN_URI);
         chars(HtmlEscapers.htmlEscaper().escape(url));
         endInline(QN_URI);
@@ -867,7 +867,7 @@ public class InspireXmlStreamWriter extends XmlStreamWriter<InspireObject> imple
      * @throws XMLStreamException
      *             If an error occurs when writing the object to stream
      */
-    private void writeUrl(String url) throws XMLStreamException {
+    private void writeUrl(/*~~>*/String url) throws XMLStreamException {
         start(QN_URL);
         chars(HtmlEscapers.htmlEscaper().escape(url));
         endInline(QN_URL);
@@ -891,7 +891,7 @@ public class InspireXmlStreamWriter extends XmlStreamWriter<InspireObject> imple
         }
         writeDefaultCRS(supportedCRSes.getDefaultCRS());
         if (supportedCRSes.isSetSupportedCRSs()) {
-            for (String supportedCRS : supportedCRSes.getOtherCRS()) {
+            for (/*~~>*/String supportedCRS : supportedCRSes.getOtherCRS()) {
                 writeOtherCRS(supportedCRS);
             }
         }
@@ -907,7 +907,7 @@ public class InspireXmlStreamWriter extends XmlStreamWriter<InspireObject> imple
      * @throws XMLStreamException
      *             If an error occurs when writing the object to stream
      */
-    private void writeDefaultCRS(String crs) throws XMLStreamException {
+    private void writeDefaultCRS(/*~~>*/String crs) throws XMLStreamException {
         start(QN_DEFAULT_CRS);
         chars(crs);
         endInline(QN_DEFAULT_CRS);
@@ -921,7 +921,7 @@ public class InspireXmlStreamWriter extends XmlStreamWriter<InspireObject> imple
      * @throws XMLStreamException
      *             If an error occurs when writing the object to stream
      */
-    private void writeOtherCRS(String crs) throws XMLStreamException {
+    private void writeOtherCRS(/*~~>*/String crs) throws XMLStreamException {
         start(QN_OTHER_CRS);
         chars(crs);
         endInline(QN_OTHER_CRS);
@@ -935,7 +935,7 @@ public class InspireXmlStreamWriter extends XmlStreamWriter<InspireObject> imple
      * @throws XMLStreamException
      *             If an error occurs when writing the object to stream
      */
-    private void writeCRS(String crs) throws XMLStreamException {
+    private void writeCRS(/*~~>*/String crs) throws XMLStreamException {
         start(QN_CRS);
         chars(crs);
         endInline(QN_CRS);

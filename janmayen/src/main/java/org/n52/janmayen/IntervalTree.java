@@ -380,7 +380,7 @@ public class IntervalTree<K, V> implements IntervalMap<K, V> {
          */
         Interval(K lower, K upper) {
             if (comparator.compare(lower, upper) > 0) {
-                throw new IllegalArgumentException(String.format("Illegal interval: [%s,%s]", lower, upper));
+                throw new IllegalArgumentException(/*~~>*/String.format("Illegal interval: [%s,%s]", lower, upper));
             }
             this.upper = upper;
             this.lower = lower;

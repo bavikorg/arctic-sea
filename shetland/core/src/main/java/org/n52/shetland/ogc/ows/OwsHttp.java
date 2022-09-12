@@ -92,7 +92,7 @@ public class OwsHttp implements OwsDCP {
     }
 
     @Override
-    public String toString() {
+    public /*~~>*/String toString() {
         return "OwsHttp{" + "requestMethods=" + requestMethods + '}';
     }
 

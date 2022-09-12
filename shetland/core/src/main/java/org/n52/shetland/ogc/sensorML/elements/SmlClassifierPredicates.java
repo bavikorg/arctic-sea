@@ -26,19 +26,19 @@ public final class SmlClassifierPredicates {
     private SmlClassifierPredicates() {
     }
 
-    public static Predicate<SmlClassifier> name(String name) {
+    public static Predicate<SmlClassifier> name(/*~~>*/String name) {
         return new NamePredicate(name);
     }
 
-    public static Predicate<SmlClassifier> definition(String definition) {
+    public static Predicate<SmlClassifier> definition(/*~~>*/String definition) {
         return new DefinitionPredicate(definition);
     }
 
     private static class NamePredicate implements Predicate<SmlClassifier> {
-        private final String name;
+        private final /*~~>*/String name;
 
-        NamePredicate(String name) {
-            this.name = name;
+        NamePredicate(/*~~>*/String name) {
+            /*~~>*/this.name = name;
         }
 
         @Override
@@ -48,10 +48,10 @@ public final class SmlClassifierPredicates {
     }
 
     private static class DefinitionPredicate implements Predicate<SmlClassifier> {
-        private final String definition;
+        private final /*~~>*/String definition;
 
-        DefinitionPredicate(String definition) {
-            this.definition = definition;
+        DefinitionPredicate(/*~~>*/String definition) {
+            /*~~>*/this.definition = definition;
         }
 
         @Override

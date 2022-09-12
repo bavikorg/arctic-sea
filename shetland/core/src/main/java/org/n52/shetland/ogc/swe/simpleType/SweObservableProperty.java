@@ -24,12 +24,12 @@ import org.n52.shetland.ogc.swe.VoidSweDataComponentVisitor;
  *
  * @since 1.0.0
  */
-public class SweObservableProperty extends SweAbstractSimpleType<String> {
+public class SweObservableProperty extends SweAbstractSimpleType</*~~>*/String> {
 
     /**
      * value
      */
-    private String value;
+    private /*~~>*/String value;
 
     /**
      * constructor
@@ -38,25 +38,25 @@ public class SweObservableProperty extends SweAbstractSimpleType<String> {
     }
 
     @Override
-    public String getValue() {
+    public /*~~>*/String getValue() {
         return value;
     }
 
     @Override
-    public SweObservableProperty setValue(final String value) {
-        this.value = value;
+    public SweObservableProperty setValue(final /*~~>*/String value) {
+        /*~~>*/this.value = value;
         return this;
     }
 
     @Override
-    public void setStringValue(String s) {
+    public void setStringValue(/*~~>*/String s) {
         if (s != null && !s.isEmpty()) {
             setValue(s);
         }
     }
 
     @Override
-    public String getStringValue() {
+    public /*~~>*/String getStringValue() {
         return value;
     }
 

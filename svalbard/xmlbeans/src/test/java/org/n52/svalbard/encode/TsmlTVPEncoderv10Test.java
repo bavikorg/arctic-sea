@@ -84,17 +84,17 @@ public class TsmlTVPEncoderv10Test {
 
     private ObservationValue<MultiValue<List<TimeValuePair>>> mv;
 
-    private static final String PROCEDURE = "phttp://example.tld/rocedure";
-    private static final String OFFERING = "http://example.tld/offering";
-    private static final String FEATURE = "http://example.tld/feature";
-    private static final String OBSERVABLE_PROPERTY = "http://example.tld/phenomenon";
-    private static final String CODE_SPACE = "http://example.tld/codespace";
+    private static final /*~~>*/String PROCEDURE = "phttp://example.tld/rocedure";
+    private static final /*~~>*/String OFFERING = "http://example.tld/offering";
+    private static final /*~~>*/String FEATURE = "http://example.tld/feature";
+    private static final /*~~>*/String OBSERVABLE_PROPERTY = "http://example.tld/phenomenon";
+    private static final /*~~>*/String CODE_SPACE = "http://example.tld/codespace";
     private static final DateTime DATE_TIME = new DateTime(UTC_TIMESTAMP);
 
-    private static final String TOKEN_SEPERATOR = "##";
-    private static final String TUPLE_SEPERATOR = "@@";
+    private static final /*~~>*/String TOKEN_SEPERATOR = "##";
+    private static final /*~~>*/String TUPLE_SEPERATOR = "@@";
 
-    private static final String RECREATIONAL = "Recreational";
+    private static final /*~~>*/String RECREATIONAL = "Recreational";
 
     @BeforeEach
     public void initObjects() {
@@ -125,7 +125,7 @@ public class TsmlTVPEncoderv10Test {
                 .forEach(e -> ((AbstractDelegatingEncoder<?, ?>) e).setEncoderRepository(encoderRepository));
 
         MultiValue<List<TimeValuePair>> value = new TVPValue();
-        String unit = "test-unit";
+        /*~~>*/String unit = "test-unit";
         value.setUnit(unit);
 
         TimeValuePair tvp1 =
@@ -265,7 +265,7 @@ public class TsmlTVPEncoderv10Test {
         observationConstellation.setObservableProperty(new OmObservableProperty("omobservableProperty"));
         observationConstellation.setDefaultPointMetadata(new DefaultPointMetadata()
                 .setDefaultTVPMeasurementMetadata(new DefaultTVPMeasurementMetadata().setInterpolationtype(type)));
-        observationConstellation.setObservationType(OmConstants.OBS_TYPE_OBSERVATION);
+        observationConstellation.setObservationType(/*~~>*/OmConstants.OBS_TYPE_OBSERVATION);
         observationConstellation.addOffering(OFFERING);
         AbstractFeature procedure = new SosProcedureDescriptionUnknownType(PROCEDURE);
         observationConstellation.setProcedure(procedure);
@@ -285,7 +285,7 @@ public class TsmlTVPEncoderv10Test {
         QuantityValue value = new QuantityValue();
         value.setUom("unit");
         SweQualityHolder holder = new SweQualityHolder();
-        holder.addReference(WaterMLConstants.EN_CENSORED_REASON, createCensoredReference());
+        holder.addReference(/*~~>*/WaterMLConstants.EN_CENSORED_REASON, createCensoredReference());
         holder.addQuality(createDetectionLimit());
         value.setQuality(holder);
         observation.setValue(new SingleObservationValue<>(phenomenonTime, value));
@@ -327,7 +327,7 @@ public class TsmlTVPEncoderv10Test {
         observationConstellation.setFeatureOfInterest(new SamplingFeature(new CodeWithAuthority(FEATURE, CODE_SPACE)));
         OmObservableProperty observableProperty = new OmObservableProperty(OBSERVABLE_PROPERTY);
         observationConstellation.setObservableProperty(observableProperty);
-        observationConstellation.setObservationType(OmConstants.OBS_TYPE_MEASUREMENT);
+        observationConstellation.setObservationType(/*~~>*/OmConstants.OBS_TYPE_MEASUREMENT);
         observationConstellation.addOffering(OFFERING);
         AbstractFeature procedure = new SosProcedureDescriptionUnknownType(PROCEDURE);
         observationConstellation.setProcedure(procedure);
@@ -344,7 +344,7 @@ public class TsmlTVPEncoderv10Test {
     }
 
     private org.n52.shetland.ogc.gml.ReferenceType createCensoredReference() {
-        return new org.n52.shetland.ogc.gml.ReferenceType(OGCConstants.BELOW_DETECTION_RANGE,
+        return new org.n52.shetland.ogc.gml.ReferenceType(/*~~>*/OGCConstants.BELOW_DETECTION_RANGE,
                 "Below threshold of sensor");
     }
 
@@ -365,7 +365,7 @@ public class TsmlTVPEncoderv10Test {
         return createText(RECREATIONAL, RECREATIONAL, RECREATIONAL);
     }
 
-    private SweText createText(String description, String label, String value) {
+    private SweText createText(/*~~>*/String description, /*~~>*/String label, /*~~>*/String value) {
         SweText text = new SweText();
         text.setLabel(label);
         text.setDescription(description);

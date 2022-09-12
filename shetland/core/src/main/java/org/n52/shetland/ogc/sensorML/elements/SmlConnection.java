@@ -25,13 +25,13 @@ import edu.umd.cs.findbugs.annotations.SuppressFBWarnings;
 
 public class SmlConnection {
 
-    private String name;
+    private /*~~>*/String name;
 
-    private String title;
+    private /*~~>*/String title;
 
-    private String href;
+    private /*~~>*/String href;
 
-    private String role;
+    private /*~~>*/String role;
 
     private List<SmlLink> connections = Lists.newArrayList();
 
@@ -45,15 +45,15 @@ public class SmlConnection {
      * @param name
      *            Component name
      */
-    public SmlConnection(String name) {
+    public SmlConnection(/*~~>*/String name) {
         super();
-        this.name = name;
+        /*~~>*/this.name = name;
     }
 
     /**
      * @return the name
      */
-    public String getName() {
+    public /*~~>*/String getName() {
         return name;
     }
 
@@ -61,32 +61,32 @@ public class SmlConnection {
      * @param name
      *            The name
      */
-    public void setName(String name) {
-        this.name = name;
+    public void setName(/*~~>*/String name) {
+        /*~~>*/this.name = name;
     }
 
-    public void setTitle(String title) {
-        this.title = title;
+    public void setTitle(/*~~>*/String title) {
+        /*~~>*/this.title = title;
     }
 
-    public String getTitle() {
+    public /*~~>*/String getTitle() {
         return title;
     }
 
-    public void setHref(String href) {
-        this.href = href;
+    public void setHref(/*~~>*/String href) {
+        /*~~>*/this.href = href;
     }
 
-    public String getHref() {
+    public /*~~>*/String getHref() {
         return href;
     }
 
-    public String getRole() {
+    public /*~~>*/String getRole() {
         return role;
     }
 
-    public void setRole(String role) {
-        this.role = role;
+    public void setRole(/*~~>*/String role) {
+        /*~~>*/this.role = role;
     }
 
     public List<SmlLink> getConnections() {

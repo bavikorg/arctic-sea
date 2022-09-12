@@ -63,9 +63,9 @@ public class GetDataAvailabilityResponseDecoder
     private static final Logger LOGGER = LoggerFactory.getLogger(GetDataAvailabilityResponseDecoder.class);
 
     private static final Set<DecoderKey> DECODER_KEYS = CollectionHelper.union(
-            CodingHelper.decoderKeysForElements(GetDataAvailabilityConstants.NS_GDA,
+            CodingHelper.decoderKeysForElements(/*~~>*/GetDataAvailabilityConstants.NS_GDA,
                                                 GetDataAvailabilityResponseDocument.class),
-            CodingHelper.decoderKeysForElements(GetDataAvailabilityConstants.NS_GDA_20,
+            CodingHelper.decoderKeysForElements(/*~~>*/GetDataAvailabilityConstants.NS_GDA_20,
                                                 net.opengis.sosgda.x20.GetDataAvailabilityResponseDocument.class));
 
     public GetDataAvailabilityResponseDecoder() {
@@ -93,7 +93,7 @@ public class GetDataAvailabilityResponseDecoder
         GetDataAvailabilityResponse response = new GetDataAvailabilityResponse();
         setService(response);
         setVersions(response);
-        response.setNamespace(GetDataAvailabilityConstants.NS_GDA);
+        response.setNamespace(/*~~>*/GetDataAvailabilityConstants.NS_GDA);
         response.setDataAvailabilities(parseDataAvalabilities(document.getGetDataAvailabilityResponse()));
         return response;
     }
@@ -103,7 +103,7 @@ public class GetDataAvailabilityResponseDecoder
         GetDataAvailabilityResponse response = new GetDataAvailabilityResponse();
         setService(response);
         setVersions(response);
-        response.setNamespace(GetDataAvailabilityConstants.NS_GDA_20);
+        response.setNamespace(/*~~>*/GetDataAvailabilityConstants.NS_GDA_20);
         response.setDataAvailabilities(parseDataAvalabilities(document.getGetDataAvailabilityResponse()));
         return response;
     }
@@ -112,7 +112,7 @@ public class GetDataAvailabilityResponseDecoder
             GetDataAvailabilityResponseType response) throws DecodingException {
         List<DataAvailability> availabilities = Lists.newArrayList();
         if (CollectionHelper.isNotNullOrEmpty(response.getDataAvailabilityMemberArray())) {
-            Map<String, TimePeriod> periods = Maps.newHashMap();
+            Map</*~~>*/String, TimePeriod> periods = Maps.newHashMap();
             for (DataAvailabilityMemberType damt : response.getDataAvailabilityMemberArray()) {
 
                 ReferenceType procedure = decodeXmlElement(damt.getProcedure());
@@ -132,7 +132,7 @@ public class GetDataAvailabilityResponseDecoder
             net.opengis.sosgda.x20.GetDataAvailabilityResponseType response) throws DecodingException {
         List<DataAvailability> availabilities = Lists.newArrayList();
         if (CollectionHelper.isNotNullOrEmpty(response.getDataAvailabilityMemberArray())) {
-            Map<String, TimePeriod> periods = Maps.newHashMap();
+            Map</*~~>*/String, TimePeriod> periods = Maps.newHashMap();
             for (net.opengis.sosgda.x20.DataAvailabilityMemberType damt : response.getDataAvailabilityMemberArray()) {
 
                 ReferenceType procedure = decodeXmlElement(damt.getProcedure());
@@ -154,14 +154,14 @@ public class GetDataAvailabilityResponseDecoder
         return availabilities;
     }
 
-    private TimePeriod getPhenomenonTime(AbstractTimeObjectType atot, String href, Map<String, TimePeriod> periods)
+    private TimePeriod getPhenomenonTime(AbstractTimeObjectType atot, /*~~>*/String href, Map</*~~>*/String, TimePeriod> periods)
             throws DecodingException {
         TimePeriod phenomenonTime;
         if (atot != null) {
             phenomenonTime = decodeXmlElement(atot);
             periods.put(phenomenonTime.getGmlId(), phenomenonTime);
         } else {
-            String id = href.startsWith("#") ? href.substring(1) : href;
+            /*~~>*/String id = href.startsWith("#") ? href.substring(1) : href;
             phenomenonTime = periods.get(id);
         }
         return phenomenonTime;
@@ -169,7 +169,7 @@ public class GetDataAvailabilityResponseDecoder
 
     private FormatDescriptor createFormatDescriptor(FormatDescriptorType fdt) {
         if (fdt != null) {
-            String procDescFormatDescriptor = fdt.getProcedureDescriptionFormatDescriptor()
+            /*~~>*/String procDescFormatDescriptor = fdt.getProcedureDescriptionFormatDescriptor()
                     .getProcedureDescriptionFormat();
             Set<ObservationFormatDescriptor> obsFormDescs = Sets.newHashSet();
             for (ObservationFormatDescriptorType obsFormatDescriptor : fdt.getObservationFormatDescriptorArray()) {

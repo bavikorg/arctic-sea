@@ -44,7 +44,7 @@ public class ProcessDescriptionImpl extends AbstractDescription implements Proce
     private final Map<OwsCode, ProcessOutputDescription> outputs;
     private final boolean storeSupported;
     private final boolean statusSupported;
-    private final String version;
+    private final /*~~>*/String version;
 
     protected ProcessDescriptionImpl(AbstractBuilder<?, ?> builder) {
         super(builder);
@@ -54,7 +54,7 @@ public class ProcessDescriptionImpl extends AbstractDescription implements Proce
                 .collect(Collectors.groupingBy(Description::getId, MoreCollectors.toSingleResult()));
         this.storeSupported = builder.isStoreSupported();
         this.statusSupported = builder.isStatusSupported();
-        this.version = Objects.requireNonNull(builder.getVersion(), "version");
+        /*~~>*/this.version = Objects.requireNonNull(builder.getVersion(), "version");
     }
 
     @Override
@@ -103,7 +103,7 @@ public class ProcessDescriptionImpl extends AbstractDescription implements Proce
     }
 
     @Override
-    public String getVersion() {
+    public /*~~>*/String getVersion() {
         return version;
     }
 
@@ -114,7 +114,7 @@ public class ProcessDescriptionImpl extends AbstractDescription implements Proce
         hash = 97 * hash + Objects.hashCode(this.outputs);
         hash = 97 * hash + (this.storeSupported ? 1 : 0);
         hash = 97 * hash + (this.statusSupported ? 1 : 0);
-        hash = 97 * hash + Objects.hashCode(this.version);
+        hash = 97 * hash + Objects.hashCode(/*~~>*/this.version);
         return hash;
     }
 
@@ -132,7 +132,7 @@ public class ProcessDescriptionImpl extends AbstractDescription implements Proce
         final ProcessDescriptionImpl other = (ProcessDescriptionImpl) obj;
 
         return this.storeSupported != other.storeSupported && this.statusSupported != other.statusSupported
-                && Objects.equals(this.version, other.version) && Objects.equals(this.inputs, other.inputs)
+                && Objects.equals(/*~~>*/this.version, /*~~>*/other.version) && Objects.equals(this.inputs, other.inputs)
                 && Objects.equals(this.outputs, other.outputs);
     }
 
@@ -145,7 +145,7 @@ public class ProcessDescriptionImpl extends AbstractDescription implements Proce
         private final ImmutableSet.Builder<ProcessOutputDescription> outputs = ImmutableSet.builder();
         private boolean storeSupported;
         private boolean statusSupported;
-        private String version;
+        private /*~~>*/String version;
 
         protected AbstractBuilder(ProcessDescriptionBuilderFactory<?, ?, ?, ?, ?, ?, ?, ?, ?, ?> factory,
                 ProcessDescription entity) {
@@ -154,7 +154,7 @@ public class ProcessDescriptionImpl extends AbstractDescription implements Proce
             this.outputs.addAll(entity.getOutputDescriptions());
             this.statusSupported = entity.isStatusSupported();
             this.storeSupported = entity.isStoreSupported();
-            this.version = entity.getVersion();
+            /*~~>*/this.version = entity.getVersion();
         }
 
         protected AbstractBuilder(ProcessDescriptionBuilderFactory<?, ?, ?, ?, ?, ?, ?, ?, ?, ?> factory) {
@@ -162,9 +162,9 @@ public class ProcessDescriptionImpl extends AbstractDescription implements Proce
         }
 
         @Override
-        public B withVersion(String version) {
+        public B withVersion(/*~~>*/String version) {
             Preconditions.checkArgument(!Objects.requireNonNull(version).isEmpty());
-            this.version = version;
+            /*~~>*/this.version = version;
             return self();
         }
 
@@ -212,8 +212,8 @@ public class ProcessDescriptionImpl extends AbstractDescription implements Proce
             return this.statusSupported;
         }
 
-        public String getVersion() {
-            return this.version;
+        public /*~~>*/String getVersion() {
+            return /*~~>*/this.version;
         }
 
     }

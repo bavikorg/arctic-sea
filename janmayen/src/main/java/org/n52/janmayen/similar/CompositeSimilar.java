@@ -51,8 +51,8 @@ public class CompositeSimilar<T extends Similar<T>> implements Similar<T> {
     }
 
     @Override
-    public String toString() {
-        return String.format("%s[%s]", getClass().getSimpleName(), Joiner.on(", ").join(similars));
+    public /*~~>*/String toString() {
+        return /*~~>*/String.format("%s[%s]", getClass().getSimpleName(), Joiner.on(", ").join(similars));
     }
 
     @Override

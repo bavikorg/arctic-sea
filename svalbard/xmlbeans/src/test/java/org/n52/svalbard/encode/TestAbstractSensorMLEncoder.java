@@ -31,7 +31,7 @@ import org.n52.svalbard.encode.exception.UnsupportedEncoderInputException;
 public class TestAbstractSensorMLEncoder extends AbstractSensorMLEncoder {
 
     @Override
-    public Set<String> getSupportedProcedureDescriptionFormats(String service, String version) {
+    public Set</*~~>*/String> getSupportedProcedureDescriptionFormats(/*~~>*/String service, /*~~>*/String version) {
         // TODO Auto-generated method stub
         return null;
     }

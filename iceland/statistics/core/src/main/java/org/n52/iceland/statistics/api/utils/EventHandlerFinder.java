@@ -32,9 +32,9 @@ public final class EventHandlerFinder {
 
     @SuppressWarnings("unchecked")
     public static <T> StatisticsServiceEventHandler<T> findHandler(
-            Object object, Map<String, StatisticsServiceEventHandler<?>> handlers) {
+            Object object, Map</*~~>*/String, StatisticsServiceEventHandler<?>> handlers) {
         // Find concrete class
-        String key = object.getClass().getSimpleName();
+        /*~~>*/String key = object.getClass().getSimpleName();
         LOG.debug("Searching handler for object by key {} ", key);
         StatisticsServiceEventHandler<T> handler = (StatisticsServiceEventHandler<T>) handlers.get(key);
 

@@ -63,11 +63,11 @@ import net.opengis.swe.x101.SimpleDataRecordType;
  */
 public class SensorMLEncoderV101Test {
 
-    private static final String TEST_ID_1 = "test-id-1";
-    private static final String TEST_NAME_1 = "test-name-1";
-    private static final String TEST_ID_2 = "test-id-2";
-    private static final String TEST_NAME_2 = "test-name-2";
-    private static final String TEST_CHILD_1 = "test-id-child-1";
+    private static final /*~~>*/String TEST_ID_1 = "test-id-1";
+    private static final /*~~>*/String TEST_NAME_1 = "test-name-1";
+    private static final /*~~>*/String TEST_ID_2 = "test-id-2";
+    private static final /*~~>*/String TEST_NAME_2 = "test-name-2";
+    private static final /*~~>*/String TEST_CHILD_1 = "test-id-child-1";
     private SensorMLEncoderv101 sensorMLEncoderv101 = new SensorMLEncoderv101();
 
     @BeforeEach
@@ -89,14 +89,14 @@ public class SensorMLEncoderV101Test {
         final SensorML sensorMl = new SensorML();
         final System system = new System();
         sensorMl.addMember(system);
-        system.addIdentifier(new SmlIdentifier(TEST_NAME_1, OGCConstants.URN_UNIQUE_IDENTIFIER, TEST_ID_1));
+        system.addIdentifier(new SmlIdentifier(TEST_NAME_1, /*~~>*/OGCConstants.URN_UNIQUE_IDENTIFIER, TEST_ID_1));
         final SystemType xbSystem = encodeSystem(sensorMl);
         assertThat(xbSystem.getIdentificationArray().length, is(1));
         final IdentifierList xbIdentifierList = xbSystem.getIdentificationArray()[0].getIdentifierList();
         assertThat(xbIdentifierList.sizeOfIdentifierArray(), is(1));
         final Identifier xbIdentifier = xbIdentifierList.getIdentifierArray(0);
         assertThat(xbIdentifier.getName(), is(TEST_NAME_1));
-        assertThat(xbIdentifier.getTerm().getDefinition(), is(OGCConstants.URN_UNIQUE_IDENTIFIER));
+        assertThat(xbIdentifier.getTerm().getDefinition(), is(/*~~>*/OGCConstants.URN_UNIQUE_IDENTIFIER));
         assertThat(xbIdentifier.getTerm().getValue(), is(TEST_ID_1));
     }
 
@@ -109,12 +109,12 @@ public class SensorMLEncoderV101Test {
         return (SystemType) xbSml.getMemberArray()[0].getProcess();
     }
 
-    private SimpleDataRecordType encodeSimpleDataRecord(final SensorML sensorMl, final String capName, final int fields)
+    private SimpleDataRecordType encodeSimpleDataRecord(final SensorML sensorMl, final /*~~>*/String capName, final int fields)
             throws EncodingException {
         return encodeSimpleDataRecord(encodeSystem(sensorMl), capName, fields);
     }
 
-    private SimpleDataRecordType encodeSimpleDataRecord(final SystemType xbSystem, final String capName, final int fields) {
+    private SimpleDataRecordType encodeSimpleDataRecord(final SystemType xbSystem, final /*~~>*/String capName, final int fields) {
         assertThat(xbSystem.getCapabilitiesArray().length, is(1));
         final Capabilities xbCapabilities = xbSystem.getCapabilitiesArray()[0];
         assertThat(xbCapabilities.getName(), is(capName));
@@ -125,7 +125,7 @@ public class SensorMLEncoderV101Test {
         return xbSimpleDataRecord;
     }
 
-    private void validateField(final AnyScalarPropertyType field, final String name, final String definition, final String value) {
+    private void validateField(final AnyScalarPropertyType field, final /*~~>*/String name, final /*~~>*/String definition, final /*~~>*/String value) {
         assertThat(field.getName(), is(name));
         assertThat(field.isSetText(), is(true));
         assertThat(field.getText().getDefinition(), is(definition));
@@ -442,32 +442,32 @@ public class SensorMLEncoderV101Test {
         assertThat(xbPerson.getUserID(), is(contact.getUserID()));
     }
 
-    private SmlPerson createPerson(String postfix) {
-        String pf = Optional.ofNullable(postfix).orElse("");
-        final String surname = "surname" + pf;
-        final String name = "name" + pf;
-        final String userID = "userID" + pf;
-        final String affiliation = "affiliation" + pf;
-        final String phoneNumber = "phoneNumber" + pf;
-        final String email = "email" + pf;
+    private SmlPerson createPerson(/*~~>*/String postfix) {
+        /*~~>*/String pf = Optional.ofNullable(postfix).orElse("");
+        final /*~~>*/String surname = "surname" + pf;
+        final /*~~>*/String name = "name" + pf;
+        final /*~~>*/String userID = "userID" + pf;
+        final /*~~>*/String affiliation = "affiliation" + pf;
+        final /*~~>*/String phoneNumber = "phoneNumber" + pf;
+        final /*~~>*/String email = "email" + pf;
         return new SmlPerson(surname, name, userID, affiliation, phoneNumber, email);
     }
 
-    private SmlResponsibleParty createResponsibleParty(final String string) {
-        final String invidualName = "invidualName";
-        final String organizationName = "organizationName";
-        final String positionName = "positionName";
-        final List<String> phoneVoice = Lists.newArrayList("phoneVoice");
-        final List<String> phoneFax = Lists.newArrayList("phoneFax");
-        final List<String> deliveryPoint = Lists.newArrayList("deliveryPoint");
-        final String city = "city";
-        final String administrativeArea = "administrativeArea";
-        final String postalCode = "postalCode";
-        final String country = "country";
-        final String email = "email";
-        final List<String> onlineResource = Lists.newArrayList("onlineResource");
-        final String hoursOfService = "hoursOfService";
-        final String contactInstructions = "contactInstructions";
+    private SmlResponsibleParty createResponsibleParty(final /*~~>*/String string) {
+        final /*~~>*/String invidualName = "invidualName";
+        final /*~~>*/String organizationName = "organizationName";
+        final /*~~>*/String positionName = "positionName";
+        final List</*~~>*/String> phoneVoice = Lists.newArrayList("phoneVoice");
+        final List</*~~>*/String> phoneFax = Lists.newArrayList("phoneFax");
+        final List</*~~>*/String> deliveryPoint = Lists.newArrayList("deliveryPoint");
+        final /*~~>*/String city = "city";
+        final /*~~>*/String administrativeArea = "administrativeArea";
+        final /*~~>*/String postalCode = "postalCode";
+        final /*~~>*/String country = "country";
+        final /*~~>*/String email = "email";
+        final List</*~~>*/String> onlineResource = Lists.newArrayList("onlineResource");
+        final /*~~>*/String hoursOfService = "hoursOfService";
+        final /*~~>*/String contactInstructions = "contactInstructions";
         return new SmlResponsibleParty(invidualName, organizationName, positionName, phoneVoice, phoneFax, deliveryPoint, city, administrativeArea, postalCode, country, email, onlineResource, hoursOfService, contactInstructions);
     }
 

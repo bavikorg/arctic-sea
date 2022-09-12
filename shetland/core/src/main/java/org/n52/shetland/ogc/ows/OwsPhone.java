@@ -30,23 +30,23 @@ import org.n52.shetland.util.CollectionHelper;
  */
 public class OwsPhone {
 
-    private final SortedSet<String> voice;
-    private final SortedSet<String> facsimile;
+    private final SortedSet</*~~>*/String> voice;
+    private final SortedSet</*~~>*/String> facsimile;
 
-    public OwsPhone(Set<String> voice, Set<String> facsimile) {
+    public OwsPhone(Set</*~~>*/String> voice, Set</*~~>*/String> facsimile) {
         this.voice = CollectionHelper.newSortedSet(voice);
         this.facsimile = CollectionHelper.newSortedSet(facsimile);
     }
 
-    public OwsPhone(String voice, String facsimile) {
+    public OwsPhone(/*~~>*/String voice, /*~~>*/String facsimile) {
         this(toSet(voice), toSet(facsimile));
     }
 
-    public SortedSet<String> getVoice() {
+    public SortedSet</*~~>*/String> getVoice() {
         return Collections.unmodifiableSortedSet(voice);
     }
 
-    public SortedSet<String> getFacsimile() {
+    public SortedSet</*~~>*/String> getFacsimile() {
         return Collections.unmodifiableSortedSet(facsimile);
     }
 
@@ -80,7 +80,7 @@ public class OwsPhone {
     }
 
     @Override
-    public String toString() {
+    public /*~~>*/String toString() {
         return "OwsPhone{" + "voice=" + voice + ", facsimile=" + facsimile + '}';
     }
 

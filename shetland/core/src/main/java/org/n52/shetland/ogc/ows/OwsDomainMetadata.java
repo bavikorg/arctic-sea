@@ -34,15 +34,15 @@ import edu.umd.cs.findbugs.annotations.SuppressFBWarnings;
 public class OwsDomainMetadata {
 
     private final URI reference;
-    private final String value;
+    private final /*~~>*/String value;
 
     @SuppressFBWarnings(value = "NP_PARAMETER_MUST_BE_NONNULL_BUT_MARKED_AS_NULLABLE")
-    public OwsDomainMetadata(@Nullable URI reference, @Nullable String value) {
+    public OwsDomainMetadata(@Nullable URI reference, @Nullable /*~~>*/String value) {
         this.reference = reference;
-        this.value = Strings.emptyToNull(value);
+        /*~~>*/this.value = Strings.emptyToNull(value);
     }
 
-    public OwsDomainMetadata(@Nullable String value) {
+    public OwsDomainMetadata(@Nullable /*~~>*/String value) {
         this(null, value);
     }
 
@@ -54,13 +54,13 @@ public class OwsDomainMetadata {
         return Optional.ofNullable(this.reference);
     }
 
-    public Optional<String> getValue() {
-        return Optional.ofNullable(this.value);
+    public Optional</*~~>*/String> getValue() {
+        return Optional.ofNullable(/*~~>*/this.value);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(this.reference, this.value);
+        return Objects.hash(this.reference, /*~~>*/this.value);
     }
 
     @Override
@@ -77,7 +77,7 @@ public class OwsDomainMetadata {
     }
 
     @Override
-    public String toString() {
+    public /*~~>*/String toString() {
         return MoreObjects.toStringHelper(this).omitNullValues().add("reference", getReference().orElse(null))
                 .add("value", getValue().orElse(null)).toString();
     }

@@ -30,11 +30,11 @@ public final class ReportObligations {
     }
 
     public static boolean hasFlow(Extensions extensions) {
-        return extensions != null && extensions.containsExtension(AqdConstants.EXTENSION_FLOW);
+        return extensions != null && extensions.containsExtension(/*~~>*/AqdConstants.EXTENSION_FLOW);
     }
 
     public static ReportObligationType getFlow(Extensions extensions) throws OwsExceptionReport {
-        return extensions.getExtension(AqdConstants.EXTENSION_FLOW).map(x -> x.getValue())
+        return extensions.getExtension(/*~~>*/AqdConstants.EXTENSION_FLOW).map(x -> x.getValue())
                 .flatMap(Functions.castIfInstanceOf(SweText.class)).map(SweText::getValue)
                 .map(ReportObligationType::from).orElse(ReportObligationType.E2A);
     }

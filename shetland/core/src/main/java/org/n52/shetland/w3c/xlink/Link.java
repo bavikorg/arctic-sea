@@ -35,16 +35,16 @@ import edu.umd.cs.findbugs.annotations.SuppressFBWarnings;
  */
 @JsonInclude(JsonInclude.Include.NON_EMPTY)
 public class Link {
-    protected static final String HREF = "href";
-    protected static final String ROLE = "role";
-    protected static final String ARCROLE = "arcrole";
-    protected static final String TITLE = "title";
-    protected static final String SHOW = "show";
-    protected static final String ACTUATE = "actuate";
+    protected static final /*~~>*/String HREF = "href";
+    protected static final /*~~>*/String ROLE = "role";
+    protected static final /*~~>*/String ARCROLE = "arcrole";
+    protected static final /*~~>*/String TITLE = "title";
+    protected static final /*~~>*/String SHOW = "show";
+    protected static final /*~~>*/String ACTUATE = "actuate";
     private final Optional<URI> href;
     private final Optional<URI> role;
     private final Optional<URI> arcrole;
-    private final Optional<String> title;
+    private final Optional</*~~>*/String> title;
     private final Optional<Show> show;
     private final Optional<Actuate> actuate;
 
@@ -52,14 +52,14 @@ public class Link {
         this(href, null, null, null, null, null);
     }
 
-    public Link(@Nullable URI href, @Nullable String title) {
+    public Link(@Nullable URI href, @Nullable /*~~>*/String title) {
         this(href, null, null, title, null, null);
     }
 
     @SuppressFBWarnings(value = "NP_PARAMETER_MUST_BE_NONNULL_BUT_MARKED_AS_NULLABLE")
     @JsonCreator
     public Link(@JsonProperty(HREF) @Nullable URI href, @JsonProperty(ROLE) @Nullable URI role,
-            @JsonProperty(ARCROLE) @Nullable URI arcrole, @JsonProperty(TITLE) @Nullable String title,
+            @JsonProperty(ARCROLE) @Nullable URI arcrole, @JsonProperty(TITLE) @Nullable /*~~>*/String title,
             @JsonProperty(SHOW) @Nullable Show show, @JsonProperty(ACTUATE) @Nullable Actuate actuate) {
         this.href = Optional.ofNullable(href);
         this.role = Optional.ofNullable(role);
@@ -85,7 +85,7 @@ public class Link {
     }
 
     @JsonProperty(TITLE)
-    public Optional<String> getTitle() {
+    public Optional</*~~>*/String> getTitle() {
         return title;
     }
 

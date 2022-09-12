@@ -20,15 +20,15 @@ import org.n52.shetland.rdf.RdfPrefix;
 
 public interface Vcard4RdfPrefix extends RdfPrefix {
 
-    String NS_PREFIX = "vcard";
+    /*~~>*/String NS_PREFIX = "vcard";
 
     @Override
-    default String getPrefix() {
+    default /*~~>*/String getPrefix() {
         return NS_PREFIX;
     }
 
     @Override
-    default String getNamespace() {
-        return VCARD4.NS;
+    default /*~~>*/String getNamespace() {
+        return /*~~>*/VCARD4.NS;
     }
 }

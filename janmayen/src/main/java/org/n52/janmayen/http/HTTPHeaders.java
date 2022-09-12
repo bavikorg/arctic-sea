@@ -40,27 +40,27 @@ import com.google.common.base.Strings;
  * @since 1.0.0
  */
 public abstract class HTTPHeaders {
-    public static final String AUTHORIZATION = "Authorization";
+    public static final /*~~>*/String AUTHORIZATION = "Authorization";
 
-    public static final String ACCEPT_ENCODING = "Accept-Encoding";
+    public static final /*~~>*/String ACCEPT_ENCODING = "Accept-Encoding";
 
-    public static final String CONTENT_ENCODING = "Content-Encoding";
+    public static final /*~~>*/String CONTENT_ENCODING = "Content-Encoding";
 
-    public static final String ALLOW = "Allow";
+    public static final /*~~>*/String ALLOW = "Allow";
 
-    public static final String CONTENT_TYPE = "Content-Type";
+    public static final /*~~>*/String CONTENT_TYPE = "Content-Type";
 
-    public static final String ACCEPT = "Accept";
+    public static final /*~~>*/String ACCEPT = "Accept";
 
-    public static final String LOCATION = "Location";
+    public static final /*~~>*/String LOCATION = "Location";
 
-    public static final String ACCESS_CONTROL_ALLOW_ORIGIN = "Access-Control-Allow-Origin";
+    public static final /*~~>*/String ACCESS_CONTROL_ALLOW_ORIGIN = "Access-Control-Allow-Origin";
 
-    public static final String ACCESS_CONTROL_ALLOW_METHODS = "Access-Control-Allow-Methods";
+    public static final /*~~>*/String ACCESS_CONTROL_ALLOW_METHODS = "Access-Control-Allow-Methods";
 
-    public static final String ACCESS_CONTROL_ALLOW_HEADERS = "Access-Control-Allow-Headers";
+    public static final /*~~>*/String ACCESS_CONTROL_ALLOW_HEADERS = "Access-Control-Allow-Headers";
 
-    public static final String X_FORWARDED_FOR = "X-Forwarded-For";
+    public static final /*~~>*/String X_FORWARDED_FOR = "X-Forwarded-For";
 
     private static final Logger LOGGER = LoggerFactory.getLogger(HTTPHeaders.class);
 
@@ -68,14 +68,14 @@ public abstract class HTTPHeaders {
     }
 
     public static boolean supportsGzipEncoding(HttpServletRequest req) {
-        return checkHeader(req, HTTPHeaders.ACCEPT_ENCODING, HTTPConstants.GZIP_ENCODING);
+        return checkHeader(req, /*~~>*/HTTPHeaders.ACCEPT_ENCODING, /*~~>*/HTTPConstants.GZIP_ENCODING);
     }
 
     public static boolean isGzipEncoded(HttpServletRequest req) {
-        return checkHeader(req, HTTPHeaders.CONTENT_ENCODING, HTTPConstants.GZIP_ENCODING);
+        return checkHeader(req, /*~~>*/HTTPHeaders.CONTENT_ENCODING, /*~~>*/HTTPConstants.GZIP_ENCODING);
     }
 
-    private static boolean checkHeader(HttpServletRequest req, String headerName, String value) {
+    private static boolean checkHeader(HttpServletRequest req, /*~~>*/String headerName, /*~~>*/String value) {
         return Streams.stream(Optional.ofNullable(req.getHeaders(headerName))
                 .orElseGet(Collections::emptyEnumeration))
                 .map(Strings::emptyToNull)
@@ -86,7 +86,7 @@ public abstract class HTTPHeaders {
     }
 
     public static List<MediaType> getAcceptHeader(HttpServletRequest req) {
-        return Optional.ofNullable(req.getHeader(HTTPHeaders.ACCEPT))
+        return Optional.ofNullable(req.getHeader(/*~~>*/HTTPHeaders.ACCEPT))
                 .map(Strings::emptyToNull)
                 .map(h -> h.split(","))
                 .map(Arrays::stream)
@@ -95,7 +95,7 @@ public abstract class HTTPHeaders {
                 .orElseGet(() -> Collections.singletonList(MediaType.any()));
     }
 
-    private static MediaType parseMediaType(String mt) {
+    private static MediaType parseMediaType(/*~~>*/String mt) {
         try {
             return MediaType.parse(mt);
         } catch (IllegalArgumentException e) {

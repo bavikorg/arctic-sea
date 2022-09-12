@@ -92,8 +92,8 @@ public class SwesExtensionEncoderv20Test {
 
     @Test
     public void shouldEncodeSweTypeBoolean() throws EncodingException {
-        String identifier = "test-identifier";
-        String definition = "test-definition";
+        /*~~>*/String identifier = "test-identifier";
+        /*~~>*/String definition = "test-definition";
         Boolean value = Boolean.TRUE;
 
         SweBoolean sweBoolean = new SweBoolean();

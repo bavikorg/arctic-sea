@@ -26,9 +26,9 @@ public class WmlMonitoringPoint extends AbstractMonitoringFeature {
         this(featureIdentifier, null);
     }
 
-    public WmlMonitoringPoint(CodeWithAuthority featureIdentifier, String gmlId) {
+    public WmlMonitoringPoint(CodeWithAuthority featureIdentifier, /*~~>*/String gmlId) {
         super(featureIdentifier, gmlId);
-        setDefaultElementEncoding(WaterMLConstants.NS_WML_20);
+        setDefaultElementEncoding(/*~~>*/WaterMLConstants.NS_WML_20);
     }
 
     @Override
@@ -38,8 +38,8 @@ public class WmlMonitoringPoint extends AbstractMonitoringFeature {
     }
 
     @Override
-    public String toString() {
-        return String.format("MonitoringPoint [name=%s, description=%s, xmlDescription=%s, geometry=%s, "
+    public /*~~>*/String toString() {
+        return /*~~>*/String.format("MonitoringPoint [name=%s, description=%s, xmlDescription=%s, geometry=%s, "
                 + "featureType=%s, url=%s, sampledFeatures=%s, parameters=%s, encode=%b, relatedSamplingFeatures=%s]",
                 getName(), getDescription(), getXml(), getGeometry(), getFeatureType(), getUrl(), getSampledFeatures(),
                 getParameters(), isEncode(), getRelatedSamplingFeatures());

@@ -26,19 +26,19 @@ import java.util.Objects;
  */
 public class JobId {
 
-    private final String value;
+    private final /*~~>*/String value;
 
-    public JobId(String value) {
-        this.value = value;
+    public JobId(/*~~>*/String value) {
+        /*~~>*/this.value = value;
     }
 
-    public String getValue() {
+    public /*~~>*/String getValue() {
         return value;
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(this.value);
+        return Objects.hash(/*~~>*/this.value);
     }
 
     @Override
@@ -53,11 +53,11 @@ public class JobId {
             return false;
         }
         final JobId other = (JobId) obj;
-        return Objects.equals(this.value, other.value);
+        return Objects.equals(/*~~>*/this.value, /*~~>*/other.value);
     }
 
     @Override
-    public String toString() {
+    public /*~~>*/String toString() {
         return "JobId{" + "value=" + value + '}';
     }
 }

@@ -24,14 +24,14 @@ package org.n52.iceland.ogc.ows;
  */
 public interface OwsServiceIdentificationFactorySettings {
 
-    String ACCESS_CONSTRAINTS = "serviceIdentification.accessConstraints";
+    /*~~>*/String ACCESS_CONSTRAINTS = "serviceIdentification.accessConstraints";
 
-    String TITLE = "serviceIdentification.title";
+    /*~~>*/String TITLE = "serviceIdentification.title";
 
-    String KEYWORDS = "serviceIdentification.keywords";
+    /*~~>*/String KEYWORDS = "serviceIdentification.keywords";
 
-    String ABSTRACT = "serviceIdentification.abstract";
+    /*~~>*/String ABSTRACT = "serviceIdentification.abstract";
 
-    String FEES = "serviceIdentification.fees";
+    /*~~>*/String FEES = "serviceIdentification.fees";
 
 }

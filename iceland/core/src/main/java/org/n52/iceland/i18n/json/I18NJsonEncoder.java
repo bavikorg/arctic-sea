@@ -42,17 +42,17 @@ import com.fasterxml.jackson.databind.node.ObjectNode;
  */
 public class I18NJsonEncoder {
 
-    private static final String DESCRIPTION = "description";
-    private static final String NAME = "name";
-    private static final String ID = "id";
-    private static final String LONG_NAME = "longName";
-    private static final String SHORT_NAME = "shortName";
-    private static final String TYPE = "type";
-    private static final String TYPE_FEATURE = "feature";
-    private static final String TYPE_OFFERING = "offering";
-    private static final String TYPE_PROCEDURE = "procedure";
-    private static final String TYPE_OBSERVABLE_PROPERTY = "observableProperty";
-    private static final String I18N = "i18n";
+    private static final /*~~>*/String DESCRIPTION = "description";
+    private static final /*~~>*/String NAME = "name";
+    private static final /*~~>*/String ID = "id";
+    private static final /*~~>*/String LONG_NAME = "longName";
+    private static final /*~~>*/String SHORT_NAME = "shortName";
+    private static final /*~~>*/String TYPE = "type";
+    private static final /*~~>*/String TYPE_FEATURE = "feature";
+    private static final /*~~>*/String TYPE_OFFERING = "offering";
+    private static final /*~~>*/String TYPE_PROCEDURE = "procedure";
+    private static final /*~~>*/String TYPE_OBSERVABLE_PROPERTY = "observableProperty";
+    private static final /*~~>*/String I18N = "i18n";
     private final JsonNodeFactory nodeFactory = Json.nodeFactory();
 
     private ObjectNode encodeInternal(AbstractI18NMetadata i18n) {
@@ -126,9 +126,9 @@ public class I18NJsonEncoder {
 
     private void decodeMultilingualString(JsonNode json,
                                           MultilingualString mls) {
-        Iterator<Entry<String, JsonNode>> it = json.fields();
+        Iterator<Entry</*~~>*/String, JsonNode>> it = json.fields();
         while (it.hasNext()) {
-            Entry<String, JsonNode> e = it.next();
+            Entry</*~~>*/String, JsonNode> e = it.next();
             Locale locale = LocaleHelper.decode(e.getKey());
             mls.addLocalization(locale, e.getValue().asText());
         }
@@ -136,8 +136,8 @@ public class I18NJsonEncoder {
 
     public AbstractI18NMetadata decodeI18NMetadata(JsonNode s)
             throws JSONException {
-        String type = s.path(TYPE).asText();
-        String id = s.path(ID).asText();
+        /*~~>*/String type = s.path(TYPE).asText();
+        /*~~>*/String id = s.path(ID).asText();
         final AbstractI18NMetadata i18n;
         if (type.equals(TYPE_FEATURE)) {
             i18n = new I18NFeatureMetadata(id);

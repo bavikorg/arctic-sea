@@ -24,25 +24,25 @@ import java.util.Objects;
  */
 public class PathBindingKey implements BindingKey {
 
-    private final String path;
+    private final /*~~>*/String path;
 
-    public PathBindingKey(String path) {
-        this.path = path;
+    public PathBindingKey(/*~~>*/String path) {
+        /*~~>*/this.path = path;
     }
 
-    public String getPath() {
+    public /*~~>*/String getPath() {
         return path;
     }
 
     @Override
-    public String toString() {
+    public /*~~>*/String toString() {
         return "PathBindingKey{" + "path=" + path + '}';
     }
 
     @Override
     public int hashCode() {
         int hash = 5;
-        hash = 37 * hash + Objects.hashCode(this.path);
+        hash = 37 * hash + Objects.hashCode(/*~~>*/this.path);
         return hash;
     }
 
@@ -62,7 +62,7 @@ public class PathBindingKey implements BindingKey {
     }
 
     @Override
-    public String getKeyAsString() {
+    public /*~~>*/String getKeyAsString() {
         return getPath();
     }
 }

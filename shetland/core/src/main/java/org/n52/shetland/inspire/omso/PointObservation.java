@@ -46,7 +46,7 @@ public class PointObservation extends AbstractInspireObservation {
      */
     public PointObservation(OmObservation observation) {
         super(observation);
-        getObservationConstellation().setObservationType(InspireOMSOConstants.OBS_TYPE_POINT_OBSERVATION);
+        getObservationConstellation().setObservationType(/*~~>*/InspireOMSOConstants.OBS_TYPE_POINT_OBSERVATION);
         if (!checkForFeatureGeometry(observation) && observation.isSetSpatialFilteringProfileParameter()) {
             try {
                 ((AbstractSamplingFeature) getObservationConstellation().getFeatureOfInterest())
@@ -77,7 +77,7 @@ public class PointObservation extends AbstractInspireObservation {
                     .setRangeType(new ReferenceType(getObservationConstellation().getObservablePropertyIdentifier()));
             cvDiscretePointCoverage.setUnit(((AbstractObservationValue<?>) value).getUnit());
             Geometry geometry = null;
-            String domainExtent = "";
+            /*~~>*/String domainExtent = "";
             if (isSetSpatialFilteringProfileParameter()
                     && getSpatialFilteringProfileParameter().getValue() instanceof GeometryValue) {
                 GeometryValue geometryValue = (GeometryValue) getSpatialFilteringProfileParameter().getValue();

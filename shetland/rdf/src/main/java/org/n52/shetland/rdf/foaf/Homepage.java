@@ -21,7 +21,7 @@ import org.n52.shetland.rdf.AbstractResource;
 
 public class Homepage extends AbstractResource implements FoafRdfPrefix {
 
-    public Homepage(String value) {
+    public Homepage(/*~~>*/String value) {
         super(value);
     }
 

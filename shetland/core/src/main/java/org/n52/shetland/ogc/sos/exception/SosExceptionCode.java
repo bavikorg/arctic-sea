@@ -24,17 +24,17 @@ import org.n52.shetland.ogc.sos.SosConstants;
  * @since 1.0.0
  */
 public enum SosExceptionCode implements ExceptionCode {
-    ResponseExceedsSizeLimit(SosConstants.SOAP_REASON_RESPONSE_EXCEEDS_SIZE_LIMIT),
-    InvalidPropertyOfferingCombination(SosConstants.SOAP_REASON_INVALID_PROPERTY_OFFERING_COMBINATION);
+    ResponseExceedsSizeLimit(/*~~>*/SosConstants.SOAP_REASON_RESPONSE_EXCEEDS_SIZE_LIMIT),
+    InvalidPropertyOfferingCombination(/*~~>*/SosConstants.SOAP_REASON_INVALID_PROPERTY_OFFERING_COMBINATION);
 
-    private final String soapFaultReason;
+    private final /*~~>*/String soapFaultReason;
 
-    SosExceptionCode(String soapFaultReason) {
-        this.soapFaultReason = soapFaultReason;
+    SosExceptionCode(/*~~>*/String soapFaultReason) {
+        /*~~>*/this.soapFaultReason = soapFaultReason;
     }
 
     @Override
-    public String getSoapFaultReason() {
-        return this.soapFaultReason;
+    public /*~~>*/String getSoapFaultReason() {
+        return /*~~>*/this.soapFaultReason;
     }
 }

@@ -32,8 +32,8 @@ public abstract class AbstractReverencableGridCoverageType<T>
         extends AbstractXmlEncoder<T, ReferencableGridCoverage> {
 
     @Override
-    public void addNamespacePrefixToMap(Map<String, String> nameSpacePrefixMap) {
+    public void addNamespacePrefixToMap(Map</*~~>*/String, /*~~>*/String> nameSpacePrefixMap) {
         super.addNamespacePrefixToMap(nameSpacePrefixMap);
-        nameSpacePrefixMap.put(GmlCoverageConstants.NS_GML_COV, GmlCoverageConstants.NS_GML_COV_PREFIX);
+        nameSpacePrefixMap.put(/*~~>*/GmlCoverageConstants.NS_GML_COV, /*~~>*/GmlCoverageConstants.NS_GML_COV_PREFIX);
     }
 }

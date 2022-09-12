@@ -21,7 +21,7 @@ import org.n52.shetland.rdf.AbstractLang;
 
 public class Description extends AbstractLang implements DctRdfPrefix {
 
-    public Description(String value, String lang) {
+    public Description(/*~~>*/String value, /*~~>*/String lang) {
         super(value, lang);
     }
 

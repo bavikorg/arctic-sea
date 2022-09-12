@@ -31,19 +31,19 @@ import com.google.common.base.Strings;
  */
 public class GetCapabilitiesRequest extends OwsServiceRequest {
 
-    private final List<String> acceptVersions = new LinkedList<>();
-    private final List<String> sections = new LinkedList<>();
-    private final List<String> acceptFormats = new LinkedList<>();
-    private final List<String> acceptLanguages = new LinkedList<>();
+    private final List</*~~>*/String> acceptVersions = new LinkedList<>();
+    private final List</*~~>*/String> sections = new LinkedList<>();
+    private final List</*~~>*/String> acceptFormats = new LinkedList<>();
+    private final List</*~~>*/String> acceptLanguages = new LinkedList<>();
 
-    private String capabilitiesId;
-    private String updateSequence;
+    private /*~~>*/String capabilitiesId;
+    private /*~~>*/String updateSequence;
 
     public GetCapabilitiesRequest() {
         this(null);
     }
 
-    public GetCapabilitiesRequest(String service) {
+    public GetCapabilitiesRequest(/*~~>*/String service) {
         super(service, null, OWSConstants.Operations.GetCapabilities.name());
     }
 
@@ -52,7 +52,7 @@ public class GetCapabilitiesRequest extends OwsServiceRequest {
      *
      * @return accept Formats
      */
-    public List<String> getAcceptFormats() {
+    public List</*~~>*/String> getAcceptFormats() {
         return Collections.unmodifiableList(acceptFormats);
     }
 
@@ -62,7 +62,7 @@ public class GetCapabilitiesRequest extends OwsServiceRequest {
      * @param acceptFormats
      *            accept Formats
      */
-    public void setAcceptFormats(List<String> acceptFormats) {
+    public void setAcceptFormats(List</*~~>*/String> acceptFormats) {
         this.acceptFormats.clear();
         if (acceptFormats != null) {
             this.acceptFormats.addAll(acceptFormats);
@@ -74,18 +74,18 @@ public class GetCapabilitiesRequest extends OwsServiceRequest {
      *
      * @return accept versions
      */
-    public List<String> getAcceptVersions() {
+    public List</*~~>*/String> getAcceptVersions() {
         return Collections.unmodifiableList(acceptVersions);
     }
 
-    public void setAcceptVersions(List<String> acceptVersions) {
+    public void setAcceptVersions(List</*~~>*/String> acceptVersions) {
         this.acceptVersions.clear();
         if (acceptVersions != null) {
             this.acceptVersions.addAll(acceptVersions);
         }
     }
 
-    public void addAcceptVersion(String acceptVersion) {
+    public void addAcceptVersion(/*~~>*/String acceptVersion) {
         if (acceptVersion != null) {
             acceptVersions.add(acceptVersion);
         }
@@ -96,7 +96,7 @@ public class GetCapabilitiesRequest extends OwsServiceRequest {
      *
      * @return sections
      */
-    public List<String> getSections() {
+    public List</*~~>*/String> getSections() {
         return Collections.unmodifiableList(sections);
     }
 
@@ -106,7 +106,7 @@ public class GetCapabilitiesRequest extends OwsServiceRequest {
      * @param sections
      *            sections
      */
-    public void setSections(List<String> sections) {
+    public void setSections(List</*~~>*/String> sections) {
         this.sections.clear();
         if (sections != null) {
             this.sections.addAll(sections);
@@ -118,7 +118,7 @@ public class GetCapabilitiesRequest extends OwsServiceRequest {
      *
      * @return update sequence
      */
-    public String getUpdateSequence() {
+    public /*~~>*/String getUpdateSequence() {
         return updateSequence;
     }
 
@@ -128,16 +128,16 @@ public class GetCapabilitiesRequest extends OwsServiceRequest {
      * @param updateSequence
      *            update sequence
      */
-    public void setUpdateSequence(String updateSequence) {
-        this.updateSequence = updateSequence;
+    public void setUpdateSequence(/*~~>*/String updateSequence) {
+        /*~~>*/this.updateSequence = updateSequence;
     }
 
-    public String getCapabilitiesId() {
-        return this.capabilitiesId;
+    public /*~~>*/String getCapabilitiesId() {
+        return /*~~>*/this.capabilitiesId;
     }
 
-    public void setCapabilitiesId(String id) {
-        this.capabilitiesId = id;
+    public void setCapabilitiesId(/*~~>*/String id) {
+        /*~~>*/this.capabilitiesId = id;
     }
 
     public boolean isCapabilitiesIdSet() {
@@ -160,19 +160,19 @@ public class GetCapabilitiesRequest extends OwsServiceRequest {
         return !Strings.isNullOrEmpty(getUpdateSequence());
     }
 
-    public void setAcceptLanguages(List<String> acceptLanguages) {
+    public void setAcceptLanguages(List</*~~>*/String> acceptLanguages) {
         this.acceptLanguages.clear();
         if (acceptLanguages != null) {
             this.acceptLanguages.addAll(acceptLanguages);
         }
     }
 
-    public List<String> getAcceptLanguages() {
+    public List</*~~>*/String> getAcceptLanguages() {
         return Collections.unmodifiableList(acceptLanguages);
     }
 
     @Override
-    public String getRequestedLanguage() {
+    public /*~~>*/String getRequestedLanguage() {
         if (acceptLanguages.isEmpty()) {
             return super.getRequestedLanguage();
         } else {

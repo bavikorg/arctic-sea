@@ -48,7 +48,7 @@ public class SosSweCategoryTest {
     @Test
     public void should_return_true_afterSetting_CodeSpace() {
         final SweCategory category = new SweCategory();
-        final String codeSpace = "test-code-space";
+        final /*~~>*/String codeSpace = "test-code-space";
         category.setCodeSpace(codeSpace);
 
         assertThat(category.isSetCodeSpace(), is(TRUE));

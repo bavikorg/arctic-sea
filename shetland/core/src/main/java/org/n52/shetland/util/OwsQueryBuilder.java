@@ -32,21 +32,21 @@ public class OwsQueryBuilder extends QueryBuilder {
         super(url, charset);
     }
 
-    public OwsQueryBuilder(String url) throws MalformedURLException {
+    public OwsQueryBuilder(/*~~>*/String url) throws MalformedURLException {
         super(url);
     }
 
-    public OwsQueryBuilder addService(String service) {
+    public OwsQueryBuilder addService(/*~~>*/String service) {
         add(OWSConstants.RequestParams.service, service);
         return this;
     }
 
-    public OwsQueryBuilder addVersion(String version) {
+    public OwsQueryBuilder addVersion(/*~~>*/String version) {
         add(OWSConstants.RequestParams.version, version);
         return this;
     }
 
-    public OwsQueryBuilder addRequest(String request) {
+    public OwsQueryBuilder addRequest(/*~~>*/String request) {
         add(OWSConstants.RequestParams.request, request);
         return this;
     }

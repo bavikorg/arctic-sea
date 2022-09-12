@@ -26,7 +26,7 @@ public class XmlBeansGenerator extends AbstractXmlBeansGenerator {
 
     @Test
     public void test() {
-        SortedSet<String> set = new TreeSet<>();
+        SortedSet</*~~>*/String> set = new TreeSet<>();
         set.addAll(getClasses("org.n52.svalbard.decode.json", Decoder.class));
         set.addAll(getClasses("org.n52.svalbard.encode.json", Encoder.class));
         printBeans(set);

@@ -42,13 +42,13 @@ public class GetFeatureOfInterestRequestDecoder extends AbstractSosRequestDecode
     private static final Logger LOGGER = LoggerFactory.getLogger(GetFeatureOfInterestRequestDecoder.class);
 
     public GetFeatureOfInterestRequestDecoder() {
-        super(GetFeatureOfInterestRequest.class, SosConstants.SOS, Sos2Constants.SERVICEVERSION,
+        super(GetFeatureOfInterestRequest.class, /*~~>*/SosConstants.SOS, /*~~>*/Sos2Constants.SERVICEVERSION,
                 SosConstants.Operations.GetFeatureOfInterest);
     }
 
     @Override
-    protected String getSchemaURI() {
-        return SchemaConstants.Request.GET_FEATURE_OF_INTEREST;
+    protected /*~~>*/String getSchemaURI() {
+        return /*~~>*/SchemaConstants.Request.GET_FEATURE_OF_INTEREST;
     }
 
     @Override
@@ -63,27 +63,27 @@ public class GetFeatureOfInterestRequestDecoder extends AbstractSosRequestDecode
     }
 
     private List<SpatialFilter> decodeSpatialFilters(JsonNode node) throws DecodingException {
-        JsonNode path = node.path(JSONConstants.SPATIAL_FILTER);
+        JsonNode path = node.path(/*~~>*/JSONConstants.SPATIAL_FILTER);
         return decodeJsonToObjectList(path, SpatialFilter.class);
     }
 
     private List<TemporalFilter> decodeTemporalFilters(JsonNode node) throws DecodingException {
-        JsonNode path = node.path(JSONConstants.TEMPORAL_FILTER);
+        JsonNode path = node.path(/*~~>*/JSONConstants.TEMPORAL_FILTER);
         return decodeJsonToObjectList(path, TemporalFilter.class);
     }
 
-    private List<String> decodeObservedProperties(JsonNode node) {
-        JsonNode path = node.path(JSONConstants.OBSERVED_PROPERTY);
+    private List</*~~>*/String> decodeObservedProperties(JsonNode node) {
+        JsonNode path = node.path(/*~~>*/JSONConstants.OBSERVED_PROPERTY);
         return parseStringOrStringList(path);
     }
 
-    private List<String> decodeProcedures(JsonNode node) {
-        JsonNode path = node.path(JSONConstants.PROCEDURE);
+    private List</*~~>*/String> decodeProcedures(JsonNode node) {
+        JsonNode path = node.path(/*~~>*/JSONConstants.PROCEDURE);
         return parseStringOrStringList(path);
     }
 
-    private List<String> decodeFeatureOfInterests(JsonNode node) {
-        JsonNode path = node.path(JSONConstants.FEATURE_OF_INTEREST);
+    private List</*~~>*/String> decodeFeatureOfInterests(JsonNode node) {
+        JsonNode path = node.path(/*~~>*/JSONConstants.FEATURE_OF_INTEREST);
         return parseStringOrStringList(path);
     }
 }

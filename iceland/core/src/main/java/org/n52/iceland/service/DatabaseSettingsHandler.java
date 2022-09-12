@@ -27,12 +27,12 @@ import org.n52.iceland.util.ServletContextPropertyFileHandler;
  */
 public class DatabaseSettingsHandler extends DelegatingPropertyFileHandler implements DatasourceSettingsHandler {
 
-    public static final String INIT_PARAM_DATA_SOURCE_CONFIG_LOCATION
+    public static final /*~~>*/String INIT_PARAM_DATA_SOURCE_CONFIG_LOCATION
             = "datasourceConfigLocation";
 
     @Inject
     public void setServletContext(ServletContext ctx) {
-        String name = ctx.getInitParameter(INIT_PARAM_DATA_SOURCE_CONFIG_LOCATION);
+        /*~~>*/String name = ctx.getInitParameter(INIT_PARAM_DATA_SOURCE_CONFIG_LOCATION);
         setDelegate(new ServletContextPropertyFileHandler(ctx, name));
     }
 

@@ -25,5 +25,5 @@ package org.n52.janmayen.http;
  * @since 1.0.0
  */
 public interface HTTPConstants {
-    String GZIP_ENCODING = "gzip";
+    /*~~>*/String GZIP_ENCODING = "gzip";
 }

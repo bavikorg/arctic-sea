@@ -29,20 +29,20 @@ import java.util.Collection;
 public interface DiscreteCoverage<
         T> extends Value<T> {
 
-    String getGmlId();
+    /*~~>*/String getGmlId();
 
     Collection<Value<?>> getRangeSet();
 
     /**
      * @return the rangeParameters
      */
-    String getRangeParameters();
+    /*~~>*/String getRangeParameters();
 
     /**
      * @param rangeParameters
      *            the rangeParameters to set
      */
-    void setRangeParameters(String rangeParameters);
+    void setRangeParameters(/*~~>*/String rangeParameters);
 
     boolean isSetRangeParameters();
 

@@ -21,7 +21,7 @@ import org.n52.shetland.rdf.AbstractValue;
 
 public class Format extends AbstractValue implements DctRdfPrefix {
 
-    public Format(String value) {
+    public Format(/*~~>*/String value) {
         super(value);
     }
 

@@ -46,9 +46,9 @@ import org.slf4j.LoggerFactory;
  */
 public class JTSHelper {
 
-    public static final String WKT_POLYGON = "Polygon";
+    public static final /*~~>*/String WKT_POLYGON = "Polygon";
 
-    public static final String WKT_POINT = "Point";
+    public static final /*~~>*/String WKT_POINT = "Point";
 
     public static final CoordinateFilter COORDINATE_SWITCHING_FILTER = coord -> {
         double tmp = coord.x;
@@ -74,7 +74,7 @@ public class JTSHelper {
      * @throws ParseException
      *             If an error occurs
      */
-    public static Geometry createGeometryFromWKT(String wkt, int srid) throws ParseException {
+    public static Geometry createGeometryFromWKT(/*~~>*/String wkt, int srid) throws ParseException {
         WKTReader wktReader = getWKTReaderForSRID(srid);
         LOGGER.trace("FOI Geometry: {}", wkt);
         return wktReader.read(wkt);
@@ -94,11 +94,11 @@ public class JTSHelper {
      *            Geometry to get coordinates
      * @return Coordinates as String
      */
-    public static String getCoordinatesString(Geometry geom) {
+    public static /*~~>*/String getCoordinatesString(Geometry geom) {
         return getCoordinatesString(geom.getCoordinates());
     }
 
-    public static String getCoordinatesString(Coordinate[] sourceCoords) {
+    public static /*~~>*/String getCoordinatesString(Coordinate[] sourceCoords) {
         StringBuilder builder = new StringBuilder();
         if (sourceCoords.length > 0) {
             getCoordinateString(builder, sourceCoords[0]);
@@ -129,18 +129,18 @@ public class JTSHelper {
      *            Upper corner coordinates
      * @return WKT Polygon
      */
-    public static String createWKTPolygonFromEnvelope(String lowerCorner, String upperCorner) {
-        final String[] splittedLowerCorner = lowerCorner.split(" ");
-        final String[] splittedUpperCorner = upperCorner.split(" ");
-        String minx = splittedLowerCorner[0];
-        String miny = splittedLowerCorner[1];
-        String maxx = splittedUpperCorner[0];
-        String maxy = splittedUpperCorner[1];
+    public static /*~~>*/String createWKTPolygonFromEnvelope(/*~~>*/String lowerCorner, /*~~>*/String upperCorner) {
+        final /*~~>*/String[] splittedLowerCorner = lowerCorner.split(" ");
+        final /*~~>*/String[] splittedUpperCorner = upperCorner.split(" ");
+        /*~~>*/String minx = splittedLowerCorner[0];
+        /*~~>*/String miny = splittedLowerCorner[1];
+        /*~~>*/String maxx = splittedUpperCorner[0];
+        /*~~>*/String maxy = splittedUpperCorner[1];
 
         return createWKTPolygonFromEnvelope(minx, miny, maxx, maxy);
     }
 
-    private static String createWKTPolygonFromEnvelope(String minx, String miny, String maxx, String maxy) {
+    private static /*~~>*/String createWKTPolygonFromEnvelope(/*~~>*/String minx, /*~~>*/String miny, /*~~>*/String maxx, /*~~>*/String maxy) {
         StringBuilder sb = new StringBuilder();
         sb.append(WKT_POLYGON).append(" ((");
         sb.append(minx).append(' ').append(miny).append(',');
@@ -151,9 +151,9 @@ public class JTSHelper {
         return sb.toString();
     }
 
-    public static Envelope createEnvelopeFromLowerUpperCorner(String lowerCorner, String upperCorner) {
-        final String[] splittedLowerCorner = lowerCorner.split(" ");
-        final String[] splittedUpperCorner = upperCorner.split(" ");
+    public static Envelope createEnvelopeFromLowerUpperCorner(/*~~>*/String lowerCorner, /*~~>*/String upperCorner) {
+        final /*~~>*/String[] splittedLowerCorner = lowerCorner.split(" ");
+        final /*~~>*/String[] splittedUpperCorner = upperCorner.split(" ");
         double minx = Double.parseDouble(splittedLowerCorner[0]);
         double miny = Double.parseDouble(splittedLowerCorner[1]);
         double maxx = Double.parseDouble(splittedUpperCorner[0]);
@@ -221,7 +221,7 @@ public class JTSHelper {
      *            Coordinate string
      * @return WKT Point string
      */
-    public static String createWKTPointFromCoordinateString(String coordinates) {
+    public static /*~~>*/String createWKTPointFromCoordinateString(/*~~>*/String coordinates) {
         return WKT_POINT + "(" + coordinates + ")";
     }
 

@@ -22,18 +22,18 @@ import org.apache.jena.rdf.model.Resource;
 
 public abstract class AbstractLang extends AbstractValue {
 
-    private final String language;
+    private final /*~~>*/String language;
 
-    public AbstractLang(String value) {
+    public AbstractLang(/*~~>*/String value) {
         this(value, null);
     }
 
-    public AbstractLang(String value, String language) {
+    public AbstractLang(/*~~>*/String value, /*~~>*/String language) {
         super(value);
-        this.language = language;
+        /*~~>*/this.language = language;
     }
 
-    public String getLanguage() {
+    public /*~~>*/String getLanguage() {
         return language;
     }
 

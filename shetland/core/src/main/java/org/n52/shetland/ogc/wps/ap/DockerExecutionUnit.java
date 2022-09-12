@@ -20,28 +20,28 @@ import java.util.Map;
 import java.util.Optional;
 
 public class DockerExecutionUnit implements ExecutionUnit {
-    public static final String TYPE = "docker";
-    private String image;
-    private Map<String, String> environment = Collections.emptyMap();
+    public static final /*~~>*/String TYPE = "docker";
+    private /*~~>*/String image;
+    private Map</*~~>*/String, /*~~>*/String> environment = Collections.emptyMap();
 
     @Override
-    public String getType() {
+    public /*~~>*/String getType() {
         return TYPE;
     }
 
-    public String getImage() {
+    public /*~~>*/String getImage() {
         return image;
     }
 
-    public void setImage(String image) {
-        this.image = image;
+    public void setImage(/*~~>*/String image) {
+        /*~~>*/this.image = image;
     }
 
-    public Map<String, String> getEnvironment() {
+    public Map</*~~>*/String, /*~~>*/String> getEnvironment() {
         return Collections.unmodifiableMap(environment);
     }
 
-    public void setEnvironment(Map<String, String> environment) {
+    public void setEnvironment(Map</*~~>*/String, /*~~>*/String> environment) {
         this.environment = Optional.ofNullable(environment).orElseGet(Collections::emptyMap);
     }
 }

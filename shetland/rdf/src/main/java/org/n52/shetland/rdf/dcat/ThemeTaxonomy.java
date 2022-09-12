@@ -21,7 +21,7 @@ import org.n52.shetland.rdf.AbstractResource;
 
 public class ThemeTaxonomy extends AbstractResource implements DcatRdfPrefix {
 
-    public ThemeTaxonomy(String value) {
+    public ThemeTaxonomy(/*~~>*/String value) {
         super(value);
     }
 

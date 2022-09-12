@@ -23,30 +23,30 @@ import org.n52.shetland.w3c.xlink.Referenceable;
 
 import edu.umd.cs.findbugs.annotations.SuppressFBWarnings;
 
-public class SweCategoryRange extends SweAbstractUomType<RangeValue<String>> implements SweQuality {
+public class SweCategoryRange extends SweAbstractUomType<RangeValue</*~~>*/String>> implements SweQuality {
 
     /**
      * value
      */
-    private RangeValue<String> value;
+    private RangeValue</*~~>*/String> value;
     private Referenceable<SweAllowedTokens> constraint;
 
     @Override
     @SuppressFBWarnings({ "EI_EXPOSE_REP" })
-    public RangeValue<String> getValue() {
+    public RangeValue</*~~>*/String> getValue() {
         return value;
     }
 
     @Override
-    public void setStringValue(String s) {
+    public void setStringValue(/*~~>*/String s) {
         if (s != null && !s.isEmpty() && s.contains("/")) {
-            String[] split = s.split("/");
-            setValue(new RangeValue<String>(split[0], split[1]));
+            /*~~>*/String[] split = s.split("/");
+            setValue(new RangeValue</*~~>*/String>(split[0], split[1]));
         }
     }
 
     @Override
-    public String getStringValue() {
+    public /*~~>*/String getStringValue() {
         return value.toString();
     }
 
@@ -57,7 +57,7 @@ public class SweCategoryRange extends SweAbstractUomType<RangeValue<String>> imp
 
     @Override
     @SuppressFBWarnings({ "EI_EXPOSE_REP2" })
-    public SweAbstractSimpleType<RangeValue<String>> setValue(RangeValue<String> value) {
+    public SweAbstractSimpleType<RangeValue</*~~>*/String>> setValue(RangeValue</*~~>*/String> value) {
         this.value = value;
         return this;
     }

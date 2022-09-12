@@ -23,7 +23,7 @@ import org.n52.shetland.ogc.ows.service.OwsServiceResponse;
  */
 public class NoContentResponse extends OwsServiceResponse {
 
-    public NoContentResponse(String operationName) {
+    public NoContentResponse(/*~~>*/String operationName) {
         super(null, null, operationName);
     }
 

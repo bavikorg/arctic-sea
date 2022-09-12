@@ -50,7 +50,7 @@ public class SpatialFilter extends Filter<SpatialOperator> {
      * @param valueReference
      *            Filter valueReference
      */
-    public SpatialFilter(SpatialOperator operator, Geometry geometry, String valueReference) {
+    public SpatialFilter(SpatialOperator operator, Geometry geometry, /*~~>*/String valueReference) {
         super(valueReference);
         this.operator = operator;
         this.geometry = new EnvelopeOrGeometry(geometry);
@@ -66,7 +66,7 @@ public class SpatialFilter extends Filter<SpatialOperator> {
      * @param valueReference
      *            Filter valueReference
      */
-    public SpatialFilter(SpatialOperator operator, ReferencedEnvelope geometry, String valueReference) {
+    public SpatialFilter(SpatialOperator operator, ReferencedEnvelope geometry, /*~~>*/String valueReference) {
         super(valueReference);
         this.operator = operator;
         this.geometry = new EnvelopeOrGeometry(geometry);
@@ -84,7 +84,7 @@ public class SpatialFilter extends Filter<SpatialOperator> {
      * @param distance
      *            Filter distance (DWithin, Beyond)
      */
-    public SpatialFilter(SpatialOperator operator, Geometry geometry, String valueReference, FesMeasureType distance) {
+    public SpatialFilter(SpatialOperator operator, Geometry geometry, /*~~>*/String valueReference, FesMeasureType distance) {
         this(operator, geometry, valueReference);
         this.setDistance(distance);
     }
@@ -101,7 +101,7 @@ public class SpatialFilter extends Filter<SpatialOperator> {
      * @param distance
      *            Filter distance (DWithin, Beyond)
      */
-    public SpatialFilter(SpatialOperator operator, ReferencedEnvelope geometry, String valueReference,
+    public SpatialFilter(SpatialOperator operator, ReferencedEnvelope geometry, /*~~>*/String valueReference,
             FesMeasureType distance) {
         this(operator, geometry, valueReference);
         this.setDistance(distance);
@@ -184,7 +184,7 @@ public class SpatialFilter extends Filter<SpatialOperator> {
     }
 
     @Override
-    public String toString() {
+    public /*~~>*/String toString() {
         return "Spatial filter: " + operator + " " + geometry;
     }
 

@@ -40,17 +40,17 @@ public interface SettingDefinition<T> extends Ordered, Serializable {
     /**
      * @return the unique key of this definition
      */
-    String getKey();
+    /*~~>*/String getKey();
 
     /**
      * @return the title of this definition
      */
-    String getTitle();
+    /*~~>*/String getTitle();
 
     /**
      * @return the description of this definition
      */
-    String getDescription();
+    /*~~>*/String getDescription();
 
     /**
      * @return wether this setting is optional or required.
@@ -104,14 +104,14 @@ public interface SettingDefinition<T> extends Ordered, Serializable {
      *
      * @param key the <b>unique</b> key
      */
-    SettingDefinition<?> setKey(String key);
+    SettingDefinition<?> setKey(/*~~>*/String key);
 
     /**
      * Sets the title of this setting definition, which will be presented to the user.
      *
      * @param title the title
      */
-    SettingDefinition<?> setTitle(String title);
+    SettingDefinition<?> setTitle(/*~~>*/String title);
 
     /**
      * Sets the description of this setting definition, which should further describe the purpose of this setting. Can
@@ -119,7 +119,7 @@ public interface SettingDefinition<T> extends Ordered, Serializable {
      *
      * @param description the description
      */
-    SettingDefinition<?> setDescription(String description);
+    SettingDefinition<?> setDescription(/*~~>*/String description);
 
     /**
      * Sets whether this setting is optional or can be null. By default all settings are required.

@@ -17,17 +17,17 @@ package org.n52.shetland.iso.gmd;
 
 public class MDDataIdentification extends AbstractMDIdentification {
 
-    private String language;
+    private /*~~>*/String language;
 
-    public MDDataIdentification(GmdCitation citation, String abstrakt, String language) {
+    public MDDataIdentification(GmdCitation citation, /*~~>*/String abstrakt, /*~~>*/String language) {
         super(citation, abstrakt);
-        this.language = language;
+        /*~~>*/this.language = language;
     }
 
     /**
      * @return the language
      */
-    public String getLanguage() {
+    public /*~~>*/String getLanguage() {
         return language;
     }
 

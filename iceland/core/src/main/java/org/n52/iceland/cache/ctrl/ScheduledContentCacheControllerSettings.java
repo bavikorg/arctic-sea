@@ -24,6 +24,6 @@ package org.n52.iceland.cache.ctrl;
  */
 public interface ScheduledContentCacheControllerSettings {
 
-    String CAPABILITIES_CACHE_UPDATE
+    /*~~>*/String CAPABILITIES_CACHE_UPDATE
             = "service.capabilitiesCacheUpdate";
 }

@@ -41,7 +41,7 @@ public class SmlIdentifier extends Term {
      * @param value
      *            Identifier value
      */
-    public SmlIdentifier(final String name, final String definition, final String value) {
+    public SmlIdentifier(final /*~~>*/String name, final /*~~>*/String definition, final /*~~>*/String value) {
         super();
         setName(name);
         setLabel(name);

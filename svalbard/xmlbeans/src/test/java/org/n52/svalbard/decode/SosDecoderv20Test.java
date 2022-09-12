@@ -150,8 +150,8 @@ public class SosDecoderv20Test {
         assertThat(decodedObject, instanceOf(InsertObservationRequest.class));
         InsertObservationRequest request = (InsertObservationRequest) decodedObject;
         DateTime phenomenonTime = DateTimeHelper.parseIsoString2DateTime("2019-11-19T17:42:15.000+00:00");
-        String identifier = "http://www.52north.org/test/featureOfInterest/9";
-        String name = "52°North";
+        /*~~>*/String identifier = "http://www.52north.org/test/featureOfInterest/9";
+        /*~~>*/String name = "52°North";
         Geometry geom = JTSHelper.createGeometryFromWKT("Point(51.935101100104916 7.651968812254194)", 4326);
         for (OmObservation observation : request.getObservations()) {
             assertThat(observation.isSetPhenomenonTime(), is(true));

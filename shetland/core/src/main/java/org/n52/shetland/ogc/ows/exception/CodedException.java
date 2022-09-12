@@ -28,8 +28,8 @@ public abstract class CodedException extends OwsExceptionReport {
     private static final long serialVersionUID = 8213294348107603436L;
     private final List<CodedException> exceptions = Collections.singletonList(this);
     private final ExceptionCode code;
-    private String locator;
-    private String message;
+    private /*~~>*/String locator;
+    private /*~~>*/String message;
 
     public CodedException(final ExceptionCode code) {
         this.code = code;
@@ -39,13 +39,13 @@ public abstract class CodedException extends OwsExceptionReport {
         return this.code;
     }
 
-    public final String getLocator() {
-        return this.locator;
+    public final /*~~>*/String getLocator() {
+        return /*~~>*/this.locator;
     }
 
     @Override
-    public final String getMessage() {
-        return this.message;
+    public final /*~~>*/String getMessage() {
+        return /*~~>*/this.message;
     }
 
     public final boolean hasMessage() {
@@ -57,8 +57,8 @@ public abstract class CodedException extends OwsExceptionReport {
         return Collections.unmodifiableList(exceptions);
     }
 
-    public final CodedException at(final String locator) {
-        this.locator = locator;
+    public final CodedException at(final /*~~>*/String locator) {
+        /*~~>*/this.locator = locator;
         return this;
     }
 
@@ -76,8 +76,8 @@ public abstract class CodedException extends OwsExceptionReport {
      *
      * @see String#format(java.lang.String, java.lang.Object[])
      */
-    public final CodedException withMessage(final String message, final Object... args) {
-        this.message = (args != null && args.length > 0) ? String.format(message, args) : message;
+    public final CodedException withMessage(final /*~~>*/String message, final Object... args) {
+        /*~~>*/this.message = (args != null && args.length > 0) ? /*~~>*/String.format(message, args) : message;
         return this;
     }
 

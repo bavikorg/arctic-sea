@@ -75,9 +75,9 @@ public class EXIUtils
                 if (isXSBaseTypeGrammar()) {
                     grammarBaseTypes = grammarFactory.createXSDTypesOnlyGrammars();
                 } else if (isSOS10Schema()) {
-                    grammarSos10 = grammarFactory.createGrammars(Sos1Constants.SCHEMA_LOCATION_SOS);
+                    grammarSos10 = grammarFactory.createGrammars(/*~~>*/Sos1Constants.SCHEMA_LOCATION_SOS);
                 } else if (isSOS20Schema()) {
-                    grammarSos20 = grammarFactory.createGrammars(Sos2Constants.SCHEMA_LOCATION_URL_SOS);
+                    grammarSos20 = grammarFactory.createGrammars(/*~~>*/Sos2Constants.SCHEMA_LOCATION_URL_SOS);
                 }
             }
 
@@ -87,63 +87,63 @@ public class EXIUtils
         }
     }
 
-    @Setting(EXISettings.EXI_FIDELITY_LEXICAL_VALUE)
+    @Setting(/*~~>*/EXISettings.EXI_FIDELITY_LEXICAL_VALUE)
     public void setFidelityLexicalValue(boolean preserveLexicalValue) {
         this.preserveLexicalValue = preserveLexicalValue;
     }
 
-    @Setting(EXISettings.EXI_FIDELITY_PREFIXES)
+    @Setting(/*~~>*/EXISettings.EXI_FIDELITY_PREFIXES)
     public void setFidelityPrefixes(boolean preservePrefixes) {
         this.preservePrefixes = preservePrefixes;
     }
 
-    @Setting(EXISettings.EXI_FIDELITY_DTD)
+    @Setting(/*~~>*/EXISettings.EXI_FIDELITY_DTD)
     public void setFidelityDTD(boolean preserveDTD) {
         this.preserveDTD = preserveDTD;
     }
 
-    @Setting(EXISettings.EXI_FIDELITY_PROCESSING_INSTRUCTIONS)
+    @Setting(/*~~>*/EXISettings.EXI_FIDELITY_PROCESSING_INSTRUCTIONS)
     public void setFidelityProcessingInstructions(boolean preserveProcessingInstructions) {
         this.preserveProcessingInstructions = preserveProcessingInstructions;
     }
 
-    @Setting(EXISettings.EXI_FIDELITY_COMMENTS)
+    @Setting(/*~~>*/EXISettings.EXI_FIDELITY_COMMENTS)
     public void setFidelityComments(boolean preserveComments) {
         this.preserveComments = preserveComments;
     }
 
-    @Setting(EXISettings.EXI_FIDELITY)
-    public void setStrictFidelity(String fidelity) {
-        Validation.notNullOrEmpty(EXISettings.EXI_FIDELITY, fidelity);
-        if (fidelity.equalsIgnoreCase(EXISettings.EXI_FIDELITY_STRICT)) {
+    @Setting(/*~~>*/EXISettings.EXI_FIDELITY)
+    public void setStrictFidelity(/*~~>*/String fidelity) {
+        Validation.notNullOrEmpty(/*~~>*/EXISettings.EXI_FIDELITY, fidelity);
+        if (fidelity.equalsIgnoreCase(/*~~>*/EXISettings.EXI_FIDELITY_STRICT)) {
             this.isStrict = true;
-        } else if (fidelity.equalsIgnoreCase(EXISettings.EXI_FIDELITY_DEFAULT)) {
+        } else if (fidelity.equalsIgnoreCase(/*~~>*/EXISettings.EXI_FIDELITY_DEFAULT)) {
             this.isDefault = true;
         }
     }
 
-    @Setting(EXISettings.EXI_ALIGNMENT)
-    public void setCodingMode(String codingMode) {
-        Validation.notNullOrEmpty(EXISettings.EXI_ALIGNMENT, codingMode);
+    @Setting(/*~~>*/EXISettings.EXI_ALIGNMENT)
+    public void setCodingMode(/*~~>*/String codingMode) {
+        Validation.notNullOrEmpty(/*~~>*/EXISettings.EXI_ALIGNMENT, codingMode);
         this.alignment = CodingMode.valueOf(codingMode);
     }
 
-    @Setting(EXISettings.EXI_GRAMMAR)
-    public void setGrammarType(String grammar) {
-        Validation.notNullOrEmpty(EXISettings.EXI_GRAMMAR, grammar);
-        if (grammar.equalsIgnoreCase(EXISettings.EXI_GRAMMAR_SCHEMALESS)) {
+    @Setting(/*~~>*/EXISettings.EXI_GRAMMAR)
+    public void setGrammarType(/*~~>*/String grammar) {
+        Validation.notNullOrEmpty(/*~~>*/EXISettings.EXI_GRAMMAR, grammar);
+        if (grammar.equalsIgnoreCase(/*~~>*/EXISettings.EXI_GRAMMAR_SCHEMALESS)) {
             setSchemaLessGrammar(true);
-        } else if (grammar.equalsIgnoreCase(EXISettings.EXI_GRAMMAR_BASETYPES)) {
+        } else if (grammar.equalsIgnoreCase(/*~~>*/EXISettings.EXI_GRAMMAR_BASETYPES)) {
             setXSBaseTypeGrammar(true);
         }
     }
 
-    @Setting(EXISettings.EXI_GRAMMAR_SCHEMA)
-    public void setGrammarSchema(String grammarSchema) {
-        Validation.notNullOrEmpty(EXISettings.EXI_GRAMMAR_SCHEMA, grammarSchema);
-        if (grammarSchema.equalsIgnoreCase(EXISettings.EXI_GRAMMAR_SCHEMA_SOS_20)) {
+    @Setting(/*~~>*/EXISettings.EXI_GRAMMAR_SCHEMA)
+    public void setGrammarSchema(/*~~>*/String grammarSchema) {
+        Validation.notNullOrEmpty(/*~~>*/EXISettings.EXI_GRAMMAR_SCHEMA, grammarSchema);
+        if (grammarSchema.equalsIgnoreCase(/*~~>*/EXISettings.EXI_GRAMMAR_SCHEMA_SOS_20)) {
             setSOS20Schema(true);
-        } else if (grammarSchema.equalsIgnoreCase(EXISettings.EXI_GRAMMAR_SCHEMA_SOS_10)) {
+        } else if (grammarSchema.equalsIgnoreCase(/*~~>*/EXISettings.EXI_GRAMMAR_SCHEMA_SOS_10)) {
             setSOS10Schema(true);
         }
     }
@@ -179,11 +179,11 @@ public class EXIUtils
             factory.setFidelityOptions(FidelityOptions.createDefault());
         } else {
             FidelityOptions options = factory.getFidelityOptions();
-            options.setFidelity(FidelityOptions.FEATURE_COMMENT, this.preserveComments);
-            options.setFidelity(FidelityOptions.FEATURE_PI, this.preserveProcessingInstructions);
-            options.setFidelity(FidelityOptions.FEATURE_DTD, this.preserveDTD);
-            options.setFidelity(FidelityOptions.FEATURE_PREFIX, this.preservePrefixes);
-            options.setFidelity(FidelityOptions.FEATURE_LEXICAL_VALUE, this.preserveLexicalValue);
+            options.setFidelity(/*~~>*/FidelityOptions.FEATURE_COMMENT, this.preserveComments);
+            options.setFidelity(/*~~>*/FidelityOptions.FEATURE_PI, this.preserveProcessingInstructions);
+            options.setFidelity(/*~~>*/FidelityOptions.FEATURE_DTD, this.preserveDTD);
+            options.setFidelity(/*~~>*/FidelityOptions.FEATURE_PREFIX, this.preservePrefixes);
+            options.setFidelity(/*~~>*/FidelityOptions.FEATURE_LEXICAL_VALUE, this.preserveLexicalValue);
         }
         factory.setCodingMode(alignment);
         //

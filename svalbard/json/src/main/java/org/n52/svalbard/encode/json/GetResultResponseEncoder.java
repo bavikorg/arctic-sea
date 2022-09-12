@@ -35,6 +35,6 @@ public class GetResultResponseEncoder extends AbstractSosResponseEncoder<GetResu
 
     @Override
     protected void encodeResponse(ObjectNode json, GetResultResponse t) {
-        json.put(JSONConstants.RESULT_VALUES, t.getResultValues());
+        json.put(/*~~>*/JSONConstants.RESULT_VALUES, t.getResultValues());
     }
 }

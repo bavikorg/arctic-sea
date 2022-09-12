@@ -64,9 +64,9 @@ public class GetFeatureOfInterestXmlStreamWriter
 
     private void writeGetFeatureOfInterestResponseDoc() throws XMLStreamException, EncodingException {
         start(Sos2StreamingConstants.QN_GET_FEATURE_OF_INTEREST_RESPONSE);
-        namespace(W3CConstants.NS_XLINK_PREFIX, W3CConstants.NS_XLINK);
-        namespace(Sos2Constants.NS_SOS_PREFIX, Sos2Constants.NS_SOS_20);
-        namespace(SwesConstants.NS_SWES_PREFIX, SwesConstants.NS_SWES_20);
+        namespace(/*~~>*/W3CConstants.NS_XLINK_PREFIX, /*~~>*/W3CConstants.NS_XLINK);
+        namespace(/*~~>*/Sos2Constants.NS_SOS_PREFIX, /*~~>*/Sos2Constants.NS_SOS_20);
+        namespace(/*~~>*/SwesConstants.NS_SWES_PREFIX, /*~~>*/SwesConstants.NS_SWES_20);
         // write schemaLocation
         schemaLocation(getSchemaLocation());
         if (getElement().hasExtensions()) {
@@ -100,7 +100,7 @@ public class GetFeatureOfInterestXmlStreamWriter
 
     private void writeFeatureMember(AbstractFeature af) throws XMLStreamException, EncodingException {
         Object o =
-                getEncoder(GmlConstants.NS_GML_32, af).encode(af, EncodingContext.of(XmlBeansEncodingFlags.DOCUMENT));
+                getEncoder(/*~~>*/GmlConstants.NS_GML_32, af).encode(af, EncodingContext.of(XmlBeansEncodingFlags.DOCUMENT));
         if (o != null && o instanceof XmlObject) {
             start(Sos2StreamingConstants.QN_FEATURE_MEMBER);
             rawText(((XmlObject) o).xmlText(getXmlOptions()));

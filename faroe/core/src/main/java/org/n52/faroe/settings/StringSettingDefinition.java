@@ -25,7 +25,7 @@ import org.n52.faroe.SettingType;
  * @since 1.0.0
  * @author <a href="mailto:c.autermann@52north.org">Christian Autermann</a>
  */
-public class StringSettingDefinition extends AbstractSettingDefinition<String> {
+public class StringSettingDefinition extends AbstractSettingDefinition</*~~>*/String> {
 
     private static final long serialVersionUID = -7311142312519344325L;
 

@@ -37,7 +37,7 @@ public class ElasticSearchDataHandlerIT extends ElasticsearchAwareTest {
     @Test
     public void persistBasicData() throws InterruptedException, ElasticsearchGenerationException, IOException {
         Thread.sleep(2500);
-        Map<String, Object> data = new HashMap<>();
+        Map</*~~>*/String, Object> data = new HashMap<>();
         data.put("alma", "korte");
         dataHandler.persist(data);
 

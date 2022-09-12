@@ -127,7 +127,7 @@ public class TimePosition {
     }
 
     @Override
-    public String toString() {
+    public /*~~>*/String toString() {
         return MoreObjects.toStringHelper(this).add("time", this.time.get())
                 .add("indeterminate time", this.indeterminateValue.get()).omitNullValues().toString();
     }

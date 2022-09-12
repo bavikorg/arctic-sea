@@ -57,7 +57,7 @@ public final class StringHelper {
      * @return a normalized String for use in a file path, i.e. all [\,/,:,*,?,",&lt;,&gt;,;] characters are
      *         replaced by '_'.
      */
-    public static String normalize(String toNormalize) {
+    public static /*~~>*/String normalize(/*~~>*/String toNormalize) {
         // toNormalize = toNormalize.replaceAll("ä", "ae");
         // toNormalize = toNormalize.replaceAll("ö", "oe");
         // toNormalize = toNormalize.replaceAll("ü", "ue");
@@ -68,8 +68,8 @@ public final class StringHelper {
         return toNormalize.replaceAll("[\\\\/:\\*?\"<>;,#%=@]", "_");
     }
 
-    public static String convertStreamToString(InputStream is, @Nullable String charset) throws IOException {
-        String cs = Optional.ofNullable(charset).map(Strings::emptyToNull).orElseGet(DEFAULT_CHARSET::name);
+    public static /*~~>*/String convertStreamToString(InputStream is, @Nullable /*~~>*/String charset) throws IOException {
+        /*~~>*/String cs = Optional.ofNullable(charset).map(Strings::emptyToNull).orElseGet(DEFAULT_CHARSET::name);
         try (InputStreamReader reader = new InputStreamReader(is, cs)) {
             return CharStreams.toString(reader);
         } catch (IOException ex) {
@@ -77,44 +77,44 @@ public final class StringHelper {
         }
     }
 
-    public static String convertStreamToString(InputStream is) throws IOException {
+    public static /*~~>*/String convertStreamToString(InputStream is) throws IOException {
         return convertStreamToString(is, null);
     }
 
-    public static List<String> splitToList(String string) {
+    public static List</*~~>*/String> splitToList(/*~~>*/String string) {
         return splitToList(string, ",");
     }
 
-    public static List<String> splitToList(String string, String separator) {
+    public static List</*~~>*/String> splitToList(/*~~>*/String string, /*~~>*/String separator) {
         return splitToStream(string, separator).collect(toList());
     }
 
-    public static Set<String> splitToSet(String string, String separator) {
+    public static Set</*~~>*/String> splitToSet(/*~~>*/String string, /*~~>*/String separator) {
         return splitToStream(string, separator).collect(toCollection(TreeSet::new));
     }
 
-    public static Set<String> splitToSet(String stringToSplit) {
+    public static Set</*~~>*/String> splitToSet(/*~~>*/String stringToSplit) {
         return splitToSet(stringToSplit, ",");
     }
 
-    public static String[] splitToArray(String stringToSplit, String separator) {
-        return splitToStream(stringToSplit, separator).toArray(length -> new String[length]);
+    public static /*~~>*//*~~>*/String[] splitToArray(/*~~>*/String stringToSplit, /*~~>*/String separator) {
+        return splitToStream(stringToSplit, separator).toArray(length -> new /*~~>*/String[length]);
     }
 
-    public static String[] splitToArray(String stringToSplit) {
+    public static /*~~>*//*~~>*/String[] splitToArray(/*~~>*/String stringToSplit) {
         return splitToArray(stringToSplit, ",");
     }
 
-    public static int getCharacterCountIgnoreCase(String s, char character) {
+    public static int getCharacterCountIgnoreCase(/*~~>*/String s, char character) {
         return getCharacterCount(s.toUpperCase(Locale.ROOT), Character.toUpperCase(character));
     }
 
-    public static int getCharacterCount(String s, char character) {
+    public static int getCharacterCount(/*~~>*/String s, char character) {
         return (int) s.chars().filter(c -> c == character).count();
     }
 
-    public static Stream<String> splitToStream(String string, String separator) {
+    public static Stream</*~~>*/String> splitToStream(/*~~>*/String string, /*~~>*/String separator) {
         return Optional.ofNullable(string).map(s -> s.split(separator)).map(Arrays::stream).orElseGet(Stream::empty)
-                .map(String::trim).map(Strings::emptyToNull).filter(Objects::nonNull);
+                .map(/*~~>*/String::trim).map(Strings::emptyToNull).filter(Objects::nonNull);
     }
 }

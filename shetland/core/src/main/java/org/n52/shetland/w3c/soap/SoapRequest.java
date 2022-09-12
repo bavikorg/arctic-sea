@@ -25,7 +25,7 @@ import org.n52.shetland.ogc.ows.service.OwsServiceRequest;
  */
 public class SoapRequest extends AbstractSoap<OwsServiceRequest> {
 
-    public SoapRequest(String soapNamespace, String soapVersion) {
+    public SoapRequest(/*~~>*/String soapNamespace, /*~~>*/String soapVersion) {
         super(soapNamespace, soapVersion);
     }
 

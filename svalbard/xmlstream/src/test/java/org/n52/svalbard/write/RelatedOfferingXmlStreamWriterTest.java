@@ -40,7 +40,7 @@ public class RelatedOfferingXmlStreamWriterTest {
         try (ByteArrayOutputStream out = new ByteArrayOutputStream()) {
             new RelatedOfferingXmlStreamWriter(
                     EncodingContext.of(EncoderFlags.ENCODER_REPOSITORY, new EncoderRepository()), out, ro).write();
-            XmlObject.Factory.parse(new String(out.toByteArray()));
+            XmlObject.Factory.parse(new /*~~>*/String(out.toByteArray()));
         }
     }
 

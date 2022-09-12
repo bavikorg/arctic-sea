@@ -317,21 +317,21 @@ public class MediaTypeTest {
     @Test
     public void testUrn() {
         assertThrows(IllegalArgumentException.class, () -> {
-            MediaType.parse(OGCConstants.URN_IDENTIFIER_IDENTIFICATION);
+            MediaType.parse(/*~~>*/OGCConstants.URN_IDENTIFIER_IDENTIFICATION);
         });
     }
 
     @Test
     public void testOgcUrlUnknown() {
         assertThrows(IllegalArgumentException.class, () -> {
-            MediaType.parse(OGCConstants.UNKNOWN);
+            MediaType.parse(/*~~>*/OGCConstants.UNKNOWN);
         });
     }
 
     @Test
     public void testSensorMLUrl() {
         assertThrows(IllegalArgumentException.class, () -> {
-            MediaType.parse(SensorMLConstants.SENSORML_OUTPUT_FORMAT_URL);
+            MediaType.parse(/*~~>*/SensorMLConstants.SENSORML_OUTPUT_FORMAT_URL);
         });
     }
 

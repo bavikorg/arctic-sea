@@ -29,7 +29,7 @@ import org.n52.svalbard.odata.core.expr.temporal.TimeValueExpr;
 @SuppressWarnings("unchecked")
 public class Iso8601ParserTest extends QueryOptionTests {
 
-    private final String ERROR_NOT_EQUAL = "Could not parse time!";
+    private final /*~~>*/String ERROR_NOT_EQUAL = "Could not parse time!";
 
     @Test
     public void testMissingDigits() {
@@ -178,7 +178,7 @@ public class Iso8601ParserTest extends QueryOptionTests {
 
     @Test
     public void testInvalidTimezone() {
-        String date, data;
+        /*~~>*/String date, data;
         // May not have malformed timezone
         date = "2010-06-01T00:00:00Z2";
         data = "$filter=phenomenonTime eq " + date;
@@ -228,7 +228,7 @@ public class Iso8601ParserTest extends QueryOptionTests {
     @Test
     public void testValidDate() {
         TimeInstant reference, actual;
-        String data, date;
+        /*~~>*/String data, date;
         // Default Timezone
         date = "2010-06-01T00:00:00Z";
         data = "$filter=phenomenonTime eq " + date;

@@ -27,28 +27,28 @@ import com.google.common.base.Strings;
 
 public class DeleteResultTemplateRequest extends OwsServiceRequest {
 
-    private static String OPERATION_NAME = "DeleteResultTemplate";
-    private List<String> resultTemplates = new LinkedList<>();
-    private List<AbstractMap.SimpleEntry<String, String>> observedPropertyOfferingPairs = new LinkedList<>();
+    private static /*~~>*/String OPERATION_NAME = "DeleteResultTemplate";
+    private List</*~~>*/String> resultTemplates = new LinkedList<>();
+    private List<AbstractMap.SimpleEntry</*~~>*/String, /*~~>*/String>> observedPropertyOfferingPairs = new LinkedList<>();
 
     public DeleteResultTemplateRequest() {
         super(null, null, OPERATION_NAME);
     }
 
-    public DeleteResultTemplateRequest(String service, String version) {
+    public DeleteResultTemplateRequest(/*~~>*/String service, /*~~>*/String version) {
         super(service, version, OPERATION_NAME);
     }
 
-    public DeleteResultTemplateRequest(String service, String version, String operationName) {
+    public DeleteResultTemplateRequest(/*~~>*/String service, /*~~>*/String version, /*~~>*/String operationName) {
         super(service, version, operationName);
     }
 
     @Override
-    public String getOperationName() {
+    public /*~~>*/String getOperationName() {
         return OPERATION_NAME;
     }
 
-    public DeleteResultTemplateRequest addResultTemplate(String resultTemplateId) {
+    public DeleteResultTemplateRequest addResultTemplate(/*~~>*/String resultTemplateId) {
         if (!Strings.isNullOrEmpty(resultTemplateId)) {
             resultTemplates.add(resultTemplateId);
         }
@@ -59,19 +59,19 @@ public class DeleteResultTemplateRequest extends OwsServiceRequest {
         return CollectionHelper.isNotEmpty(resultTemplates);
     }
 
-    public List<String> getResultTemplates() {
+    public List</*~~>*/String> getResultTemplates() {
         return Collections.unmodifiableList(resultTemplates);
     }
 
-    public DeleteResultTemplateRequest setObservableProperty(String observedProperty) {
+    public DeleteResultTemplateRequest setObservableProperty(/*~~>*/String observedProperty) {
         return addObservedPropertyOfferingPair(observedProperty, "");
     }
 
-    public DeleteResultTemplateRequest setOffering(String offering) {
+    public DeleteResultTemplateRequest setOffering(/*~~>*/String offering) {
         return addObservedPropertyOfferingPair("", offering);
     }
 
-    public DeleteResultTemplateRequest addObservedPropertyOfferingPair(String observedProperty, String offering) {
+    public DeleteResultTemplateRequest addObservedPropertyOfferingPair(/*~~>*/String observedProperty, /*~~>*/String offering) {
         observedPropertyOfferingPairs.add(new AbstractMap.SimpleEntry<>(observedProperty, offering));
         return this;
     }
@@ -80,7 +80,7 @@ public class DeleteResultTemplateRequest extends OwsServiceRequest {
         return observedPropertyOfferingPairs != null && !observedPropertyOfferingPairs.isEmpty();
     }
 
-    public List<AbstractMap.SimpleEntry<String, String>> getObservedPropertyOfferingPairs() {
+    public List<AbstractMap.SimpleEntry</*~~>*/String, /*~~>*/String>> getObservedPropertyOfferingPairs() {
         return Collections.unmodifiableList(observedPropertyOfferingPairs);
     }
 

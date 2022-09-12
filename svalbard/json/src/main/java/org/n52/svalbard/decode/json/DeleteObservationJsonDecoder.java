@@ -38,25 +38,25 @@ public class DeleteObservationJsonDecoder
 
     public DeleteObservationJsonDecoder() {
         super(DeleteObservationRequest.class,
-              SosConstants.SOS,
-              Sos2Constants.SERVICEVERSION,
+              /*~~>*/SosConstants.SOS,
+              /*~~>*/Sos2Constants.SERVICEVERSION,
               DeleteObservationConstants.Operations.DeleteObservation);
     }
 
     @Override
-    protected String getSchemaURI() {
-        return SchemaConstants.Request.DELETE_OBSERVATION;
+    protected /*~~>*/String getSchemaURI() {
+        return /*~~>*/SchemaConstants.Request.DELETE_OBSERVATION;
     }
 
     @Override
     protected DeleteObservationRequest decodeRequest(JsonNode node) throws DecodingException  {
-        DeleteObservationRequest r = new DeleteObservationRequest(DeleteObservationConstants.NS_SOSDO_2_0);
-        r.setObservationIdentifiers(parseStringOrStringList(node.path(JSONConstants.OBSERVATION)));
-        r.setFeatureIdentifiers(parseStringOrStringList(node.path(JSONConstants.FEATURE_OF_INTEREST)));
-        r.setObservedProperties(parseStringOrStringList(node.path(JSONConstants.OBSERVED_PROPERTY)));
-        r.setOfferings(parseStringOrStringList(node.path(JSONConstants.OFFERING)));
-        r.setProcedures(parseStringOrStringList(node.path(JSONConstants.PROCEDURE)));
-        r.setTemporalFilters(parseTemporalFilters(node.path(JSONConstants.TEMPORAL_FILTER)));
+        DeleteObservationRequest r = new DeleteObservationRequest(/*~~>*/DeleteObservationConstants.NS_SOSDO_2_0);
+        r.setObservationIdentifiers(parseStringOrStringList(node.path(/*~~>*/JSONConstants.OBSERVATION)));
+        r.setFeatureIdentifiers(parseStringOrStringList(node.path(/*~~>*/JSONConstants.FEATURE_OF_INTEREST)));
+        r.setObservedProperties(parseStringOrStringList(node.path(/*~~>*/JSONConstants.OBSERVED_PROPERTY)));
+        r.setOfferings(parseStringOrStringList(node.path(/*~~>*/JSONConstants.OFFERING)));
+        r.setProcedures(parseStringOrStringList(node.path(/*~~>*/JSONConstants.PROCEDURE)));
+        r.setTemporalFilters(parseTemporalFilters(node.path(/*~~>*/JSONConstants.TEMPORAL_FILTER)));
         return r;
     }
 

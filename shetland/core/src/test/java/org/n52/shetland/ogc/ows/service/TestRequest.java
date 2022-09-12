@@ -24,7 +24,7 @@ public class TestRequest extends OwsServiceRequest {
     }
 
     @Override
-    public String getRequestedLanguage() {
+    public /*~~>*/String getRequestedLanguage() {
         // TODO Auto-generated method stub
         return null;
     }

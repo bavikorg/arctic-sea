@@ -23,9 +23,9 @@ import org.n52.shetland.w3c.wsdl.WSDLConstants;
 
 public class HttpBinding extends ExtensibilityElement {
 
-    private String verb;
+    private /*~~>*/String verb;
 
-    public HttpBinding(String verb) {
+    public HttpBinding(/*~~>*/String verb) {
         super(WSDLConstants.QN_HTTP_BINDING);
         this.setVerb(verb);
     }
@@ -33,7 +33,7 @@ public class HttpBinding extends ExtensibilityElement {
     /**
      * @return the verb
      */
-    public String getVerb() {
+    public /*~~>*/String getVerb() {
         return verb;
     }
 
@@ -41,8 +41,8 @@ public class HttpBinding extends ExtensibilityElement {
      * @param verb
      *            the verb to set
      */
-    public void setVerb(String verb) {
-        this.verb = verb;
+    public void setVerb(/*~~>*/String verb) {
+        /*~~>*/this.verb = verb;
     }
 
     @Override

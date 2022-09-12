@@ -25,17 +25,17 @@ import org.n52.shetland.ogc.wps.WPS200Constants;
  */
 public enum WpsExceptionCode implements ExceptionCode {
 
-    NoSuchJob(WPS200Constants.REASON_NO_SUCH_JOB),
-    ResultNotReady(WPS200Constants.REASON_RESULT_NOT_READY);
+    NoSuchJob(/*~~>*/WPS200Constants.REASON_NO_SUCH_JOB),
+    ResultNotReady(/*~~>*/WPS200Constants.REASON_RESULT_NOT_READY);
 
-    private final String soapFaultReason;
+    private final /*~~>*/String soapFaultReason;
 
-    WpsExceptionCode(String soapFaultReason) {
-        this.soapFaultReason = soapFaultReason;
+    WpsExceptionCode(/*~~>*/String soapFaultReason) {
+        /*~~>*/this.soapFaultReason = soapFaultReason;
     }
 
     @Override
-    public String getSoapFaultReason() {
+    public /*~~>*/String getSoapFaultReason() {
         return soapFaultReason;
     }
 

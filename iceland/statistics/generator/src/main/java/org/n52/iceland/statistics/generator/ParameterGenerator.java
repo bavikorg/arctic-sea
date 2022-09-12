@@ -40,10 +40,10 @@ import org.n52.iceland.statistics.generator.formats.MdFormat;
 
 public class ParameterGenerator {
 
-    public void processClass(String filePath, List<Class<?>> classes) throws IOException {
+    public void processClass(/*~~>*/String filePath, List<Class<?>> classes) throws IOException {
         MdFormat formatter = new MdFormat();
         formatter.setParameters(getParameters(classes));
-        String printable = formatter.create();
+        /*~~>*/String printable = formatter.create();
         // System.out.println(printable);
         try {
             Files.write(Paths.get(filePath), printable.getBytes(StandardCharsets.UTF_8), StandardOpenOption.CREATE);
@@ -87,9 +87,9 @@ public class ParameterGenerator {
      * @throws Exception if an error occurs
      */
     //CHECKSTYLE:OFF
-    public static void main(String[] args) throws Exception {
+    public static void main(/*~~>*/String[] args) throws Exception {
         if (args.length >= 2) {
-            String outputFilePath = args[0];
+            /*~~>*/String outputFilePath = args[0];
             ParameterGenerator gen = new ParameterGenerator();
             List<Class<?>> processClasses = new ArrayList<>(args.length + 1);
             for (int i = 1; i < args.length; i++) {

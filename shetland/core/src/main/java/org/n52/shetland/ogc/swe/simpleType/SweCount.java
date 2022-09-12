@@ -46,14 +46,14 @@ public class SweCount extends SweAbstractSimpleType<Integer> {
     }
 
     @Override
-    public void setStringValue(String s) {
+    public void setStringValue(/*~~>*/String s) {
         if (s != null && !s.isEmpty()) {
             setValue(Integer.parseInt(s));
         }
     }
 
     @Override
-    public String getStringValue() {
+    public /*~~>*/String getStringValue() {
         if (isSetValue()) {
             return Integer.toString(value);
         }

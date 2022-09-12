@@ -45,9 +45,9 @@ import net.opengis.swes.x20.ExtensibleResponseType;
  */
 public abstract class AbstractSwesResponseEncoder<T extends OwsServiceResponse> extends AbstractResponseEncoder<T> {
 
-    public AbstractSwesResponseEncoder(String operation, Class<T> responseType) {
-        super(SosConstants.SOS, Sos2Constants.SERVICEVERSION, operation, SwesConstants.NS_SWES_20,
-                SwesConstants.NS_SWES_PREFIX, responseType);
+    public AbstractSwesResponseEncoder(/*~~>*/String operation, Class<T> responseType) {
+        super(/*~~>*/SosConstants.SOS, /*~~>*/Sos2Constants.SERVICEVERSION, operation, /*~~>*/SwesConstants.NS_SWES_20,
+                /*~~>*/SwesConstants.NS_SWES_PREFIX, responseType);
     }
 
     @Override
@@ -56,7 +56,7 @@ public abstract class AbstractSwesResponseEncoder<T extends OwsServiceResponse> 
     }
 
     protected XmlObject encodeSwe(EncodingContext helperValues, Object o) throws EncodingException {
-        return encodeObjectToXml(SweConstants.NS_SWE_20, o, helperValues);
+        return encodeObjectToXml(/*~~>*/SweConstants.NS_SWE_20, o, helperValues);
     }
 
     protected void createExtension(ExtensibleResponseType xbResponse, Extensions extensions) throws EncodingException {

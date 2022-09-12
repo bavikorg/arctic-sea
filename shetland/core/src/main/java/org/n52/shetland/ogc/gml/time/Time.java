@@ -36,7 +36,7 @@ public abstract class Time implements Comparable<Time>, Serializable {
     /**
      * GML id
      */
-    private String gmlId;
+    private /*~~>*/String gmlId;
 
     /**
      * Time format
@@ -46,7 +46,7 @@ public abstract class Time implements Comparable<Time>, Serializable {
     /**
      * Reference
      */
-    private String reference;
+    private /*~~>*/String reference;
 
     /**
      * nil reason
@@ -66,8 +66,8 @@ public abstract class Time implements Comparable<Time>, Serializable {
      * @param gmlId
      *            GML id
      */
-    public Time(String gmlId) {
-        this.gmlId = gmlId;
+    public Time(/*~~>*/String gmlId) {
+        /*~~>*/this.gmlId = gmlId;
     }
 
     /**
@@ -76,8 +76,8 @@ public abstract class Time implements Comparable<Time>, Serializable {
      * @param gmlId
      *            Id to set
      */
-    public void setGmlId(String gmlId) {
-        this.gmlId = gmlId;
+    public void setGmlId(/*~~>*/String gmlId) {
+        /*~~>*/this.gmlId = gmlId;
     }
 
     /**
@@ -85,11 +85,11 @@ public abstract class Time implements Comparable<Time>, Serializable {
      *
      * @return GML id
      */
-    public String getGmlId() {
-        if (this.gmlId != null) {
-            return this.gmlId.replaceFirst("#", "");
+    public /*~~>*/String getGmlId() {
+        if (/*~~>*/this.gmlId != null) {
+            return /*~~>*/this.gmlId.replaceFirst("#", "");
         }
-        return this.gmlId;
+        return /*~~>*/this.gmlId;
     }
 
     /**
@@ -107,7 +107,7 @@ public abstract class Time implements Comparable<Time>, Serializable {
      * @return <code>true</code>, if GML id contains document reference indicator
      */
     public boolean isReferenced() {
-        return isSetGmlId() && this.gmlId.startsWith("#");
+        return isSetGmlId() && /*~~>*/this.gmlId.startsWith("#");
     }
 
     /**
@@ -143,7 +143,7 @@ public abstract class Time implements Comparable<Time>, Serializable {
      *
      * @return Reference
      */
-    public String getReference() {
+    public /*~~>*/String getReference() {
         return reference;
     }
 
@@ -153,8 +153,8 @@ public abstract class Time implements Comparable<Time>, Serializable {
      * @param reference
      *            Reference to set
      */
-    public void setReference(String reference) {
-        this.reference = reference;
+    public void setReference(/*~~>*/String reference) {
+        /*~~>*/this.reference = reference;
     }
 
     /**
@@ -163,7 +163,7 @@ public abstract class Time implements Comparable<Time>, Serializable {
      * @return <code>true</code>, if reference is set
      */
     public boolean isSetReference() {
-        return this.reference != null && !this.reference.isEmpty();
+        return /*~~>*/this.reference != null && !/*~~>*/this.reference.isEmpty();
     }
 
     /**
@@ -303,11 +303,11 @@ public abstract class Time implements Comparable<Time>, Serializable {
     public enum NilReason {
         template;
 
-        public static boolean contains(final String nilReason) {
+        public static boolean contains(final /*~~>*/String nilReason) {
             return nilReason.equalsIgnoreCase(template.name());
         }
 
-        public static NilReason getEnumForString(final String value) {
+        public static NilReason getEnumForString(final /*~~>*/String value) {
             if (value.equalsIgnoreCase(template.name())) {
                 return template;
             }

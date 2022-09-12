@@ -39,7 +39,7 @@ public class ResultFilterDecoder
     private static final Logger LOGGER = LoggerFactory.getLogger(ResultFilterDecoder.class);
 
     private static final Set<DecoderKey> DECODER_KEYS =
-            CodingHelper.decoderKeysForElements(ResultFilterConstants.NS_RF, ResultFilterDocument.class,
+            CodingHelper.decoderKeysForElements(/*~~>*/ResultFilterConstants.NS_RF, ResultFilterDocument.class,
                     ResultFilterPropertyType.class, ResultFilterType.class);
 
     @Override

@@ -32,12 +32,12 @@ public enum ExecutionMode {
 
     @JsonValue
     @Override
-    public String toString() {
+    public /*~~>*/String toString() {
         return super.toString();
     }
 
     @JsonCreator
-    public static Optional<ExecutionMode> fromString(String string) {
+    public static Optional<ExecutionMode> fromString(/*~~>*/String string) {
         for (ExecutionMode t : values()) {
             if (t.name().equalsIgnoreCase(string)) {
                 return Optional.of(t);

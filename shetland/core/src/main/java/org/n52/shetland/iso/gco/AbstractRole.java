@@ -20,20 +20,20 @@ import org.n52.shetland.ogc.gml.ReferenceType;
 
 public abstract class AbstractRole extends ReferenceType {
 
-    private String value;
+    private /*~~>*/String value;
 
-    private String codeList = CodeList.CI_ROLE_CODE_URL;
+    private /*~~>*/String codeList = /*~~>*/CodeList.CI_ROLE_CODE_URL;
 
-    private String codeListValue = CodeList.CiRoleCodes.CI_RoleCode_pointOfContact.name();
+    private /*~~>*/String codeListValue = CodeList.CiRoleCodes.CI_RoleCode_pointOfContact.name();
 
-    public AbstractRole(String value) {
-        this.value = value;
+    public AbstractRole(/*~~>*/String value) {
+        /*~~>*/this.value = value;
     }
 
     /**
      * @return the value
      */
-    public String getValue() {
+    public /*~~>*/String getValue() {
         return value;
     }
 
@@ -41,15 +41,15 @@ public abstract class AbstractRole extends ReferenceType {
      * @param value
      *            the value to set
      */
-    public AbstractRole setValue(String value) {
-        this.value = value;
+    public AbstractRole setValue(/*~~>*/String value) {
+        /*~~>*/this.value = value;
         return this;
     }
 
     /**
      * @return the codeList
      */
-    public String getCodeList() {
+    public /*~~>*/String getCodeList() {
         return codeList;
     }
 
@@ -57,15 +57,15 @@ public abstract class AbstractRole extends ReferenceType {
      * @param codeList
      *            the codeList to set
      */
-    public AbstractRole setCodeList(String codeList) {
-        this.codeList = codeList;
+    public AbstractRole setCodeList(/*~~>*/String codeList) {
+        /*~~>*/this.codeList = codeList;
         return this;
     }
 
     /**
      * @return the codeListValue
      */
-    public String getCodeListValue() {
+    public /*~~>*/String getCodeListValue() {
         return codeListValue;
     }
 
@@ -73,8 +73,8 @@ public abstract class AbstractRole extends ReferenceType {
      * @param codeListValue
      *            the codeListValue to set
      */
-    public AbstractRole setCodeListValue(String codeListValue) {
-        this.codeListValue = codeListValue;
+    public AbstractRole setCodeListValue(/*~~>*/String codeListValue) {
+        /*~~>*/this.codeListValue = codeListValue;
         return this;
     }
 
@@ -83,7 +83,7 @@ public abstract class AbstractRole extends ReferenceType {
      *            the codeListValue to set
      */
     public AbstractRole setCodeListValue(CodeList.CiRoleCodes codeListValue) {
-        this.codeListValue = codeListValue.name();
+        /*~~>*/this.codeListValue = codeListValue.name();
         return this;
     }
 

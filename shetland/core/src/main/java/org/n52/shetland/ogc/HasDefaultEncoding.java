@@ -20,9 +20,9 @@ import com.google.common.base.Strings;
 public interface HasDefaultEncoding<
         T extends HasDefaultEncoding<T>> {
 
-    T setDefaultElementEncoding(String defaultEncoding);
+    T setDefaultElementEncoding(/*~~>*/String defaultEncoding);
 
-    String getDefaultElementEncoding();
+    /*~~>*/String getDefaultElementEncoding();
 
     default boolean isSetDefaultElementEncoding() {
         return !Strings.isNullOrEmpty(getDefaultElementEncoding());

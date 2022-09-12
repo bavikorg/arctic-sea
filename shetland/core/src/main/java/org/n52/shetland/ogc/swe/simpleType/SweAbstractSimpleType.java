@@ -35,7 +35,7 @@ public abstract class SweAbstractSimpleType<
 
     private SweQualityHolder quality;
 
-    public abstract void setStringValue(String s);
+    public abstract void setStringValue(/*~~>*/String s);
 
     /**
      * Get quality information
@@ -81,8 +81,8 @@ public abstract class SweAbstractSimpleType<
     }
 
     @Override
-    public String toString() {
-        return String.format("%s [value=%s; quality=%s; simpleType=%s]", this.getClass().getSimpleName(), getValue(),
+    public /*~~>*/String toString() {
+        return /*~~>*/String.format("%s [value=%s; quality=%s; simpleType=%s]", this.getClass().getSimpleName(), getValue(),
                 getQuality(), getDataComponentType());
     }
 

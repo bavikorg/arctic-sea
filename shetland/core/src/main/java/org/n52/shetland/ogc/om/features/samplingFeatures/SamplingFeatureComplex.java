@@ -31,7 +31,7 @@ public class SamplingFeatureComplex {
     /**
      * Related sampling feature role
      */
-    private final String relatedSamplingFeatureRole;
+    private final /*~~>*/String relatedSamplingFeatureRole;
 
     /**
      * Related sampling feature
@@ -50,7 +50,7 @@ public class SamplingFeatureComplex {
      *                {@link #relatedSamplingFeature} is null or empty
      */
     @SuppressFBWarnings({ "EI_EXPOSE_REP2" })
-    public SamplingFeatureComplex(final String relatedSamplingFeatureRole,
+    public SamplingFeatureComplex(final /*~~>*/String relatedSamplingFeatureRole,
             final SamplingFeature relatedSamplingFeature) {
         if (Strings.isNullOrEmpty(relatedSamplingFeatureRole)) {
             throw new IllegalArgumentException("relatedSamplingFeatureRole is required.");
@@ -59,7 +59,7 @@ public class SamplingFeatureComplex {
             throw new IllegalArgumentException(
                     "relatedSamplingFeature is required and MUST have set at least an identifier.");
         }
-        this.relatedSamplingFeatureRole = relatedSamplingFeatureRole;
+        /*~~>*/this.relatedSamplingFeatureRole = relatedSamplingFeatureRole;
         this.relatedSamplingFeature = relatedSamplingFeature;
     }
 
@@ -68,7 +68,7 @@ public class SamplingFeatureComplex {
      *
      * @return Related sampling feature role
      */
-    public String getRelatedSamplingFeatureRole() {
+    public /*~~>*/String getRelatedSamplingFeatureRole() {
         return relatedSamplingFeatureRole;
     }
 

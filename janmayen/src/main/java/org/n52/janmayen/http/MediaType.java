@@ -39,16 +39,16 @@ import com.google.common.collect.Multimap;
  */
 public class MediaType implements Comparable<MediaType>, Similar<MediaType> {
 
-    public static final String IMAGE_TYPE = "image";
-    public static final String AUDIO_TYPE = "audio";
-    public static final String VIDEO_TYPE = "video";
-    public static final String MESSAGE_TYPE = "message";
-    public static final String MODEL_TYPE = "model";
-    public static final String MULTIPART_TYPE = "multipart";
-    public static final String APPLICATION_TYPE = "application";
-    public static final String TEXT_TYPE = "text";
-    public static final String WILDCARD_TYPE = "*";
-    private static final String QUALITY_PARAMETER = "q";
+    public static final /*~~>*/String IMAGE_TYPE = "image";
+    public static final /*~~>*/String AUDIO_TYPE = "audio";
+    public static final /*~~>*/String VIDEO_TYPE = "video";
+    public static final /*~~>*/String MESSAGE_TYPE = "message";
+    public static final /*~~>*/String MODEL_TYPE = "model";
+    public static final /*~~>*/String MULTIPART_TYPE = "multipart";
+    public static final /*~~>*/String APPLICATION_TYPE = "application";
+    public static final /*~~>*/String TEXT_TYPE = "text";
+    public static final /*~~>*/String WILDCARD_TYPE = "*";
+    private static final /*~~>*/String QUALITY_PARAMETER = "q";
 
     private static final MediaType ANY = new MediaType(WILDCARD_TYPE, WILDCARD_TYPE);
     private static final MediaType ANY_APPLICATION = application(WILDCARD_TYPE);
@@ -74,7 +74,7 @@ public class MediaType implements Comparable<MediaType>, Similar<MediaType> {
      *
      * @param type the type (may be <code>null</code> for a wild card)
      */
-    public MediaType(String type) {
+    public MediaType(/*~~>*/String type) {
         this(type, WILDCARD_TYPE, Collections.emptyMap());
     }
 
@@ -84,7 +84,7 @@ public class MediaType implements Comparable<MediaType>, Similar<MediaType> {
      * @param type    the type (may be <code>null</code> for a wild card)
      * @param subtype the subtype (may be <code>null</code> for a wild card)
      */
-    public MediaType(String type, String subtype) {
+    public MediaType(/*~~>*/String type, /*~~>*/String subtype) {
         this(type, subtype, Collections.emptyMap());
     }
 
@@ -96,10 +96,10 @@ public class MediaType implements Comparable<MediaType>, Similar<MediaType> {
      * @param parameter      the parameter
      * @param parameterValue the parameter value
      */
-    public MediaType(String type,
-                     String subtype,
-                     String parameter,
-                     String parameterValue) {
+    public MediaType(/*~~>*/String type,
+                     /*~~>*/String subtype,
+                     /*~~>*/String parameter,
+                     /*~~>*/String parameterValue) {
         this(type, subtype, Collections.singletonMap(
              Objects.requireNonNull(parameter).toLowerCase(Locale.ROOT),
              Collections.singletonList(Objects.requireNonNull(parameterValue))));
@@ -112,7 +112,7 @@ public class MediaType implements Comparable<MediaType>, Similar<MediaType> {
      * @param subtype    the subtype (may be <code>null</code> for a wild card)
      * @param parameters the parameter map
      */
-    public MediaType(String type, String subtype, Map<String, ? extends Collection<String>> parameters) {
+    public MediaType(/*~~>*/String type, /*~~>*/String subtype, Map</*~~>*/String, ? extends Collection</*~~>*/String>> parameters) {
         this(com.google.common.net.MediaType.create(type, subtype).withParameters(asMultiMap(parameters)));
     }
 
@@ -120,15 +120,15 @@ public class MediaType implements Comparable<MediaType>, Similar<MediaType> {
         this.delegate = Objects.requireNonNull(mediaType);
     }
 
-    public String getType() {
+    public /*~~>*/String getType() {
         return getDelegate().type();
     }
 
-    public String getSubtype() {
+    public /*~~>*/String getSubtype() {
         return getDelegate().subtype();
     }
 
-    public Map<String, Collection<String>> getParameters() {
+    public Map</*~~>*/String, Collection</*~~>*/String>> getParameters() {
         return getDelegate().parameters().asMap();
     }
 
@@ -158,11 +158,11 @@ public class MediaType implements Comparable<MediaType>, Similar<MediaType> {
         return false;
     }
 
-    public Collection<String> getParameter(String parameter) {
+    public Collection</*~~>*/String> getParameter(/*~~>*/String parameter) {
         return getParameters().get(parameter.toLowerCase(Locale.ROOT));
     }
 
-    public boolean hasParameter(String parameter) {
+    public boolean hasParameter(/*~~>*/String parameter) {
         return getParameters().containsKey(parameter.toLowerCase(Locale.ROOT));
     }
 
@@ -174,12 +174,12 @@ public class MediaType implements Comparable<MediaType>, Similar<MediaType> {
         }
     }
 
-    public MediaType withType(String type) {
+    public MediaType withType(/*~~>*/String type) {
         return new MediaType(type, getSubtype(), getParameters());
 
     }
 
-    public MediaType withSubType(String subtype) {
+    public MediaType withSubType(/*~~>*/String subtype) {
         return new MediaType(getType(), subtype, getParameters());
     }
 
@@ -187,19 +187,19 @@ public class MediaType implements Comparable<MediaType>, Similar<MediaType> {
         return !getParameters().isEmpty();
     }
 
-    public MediaType withParameter(String parameter, String value) {
+    public MediaType withParameter(/*~~>*/String parameter, /*~~>*/String value) {
         return new MediaType(getDelegate().withParameter(value, value));
     }
 
-    public MediaType withParameters(Map<String, ? extends Collection<String>> parameters) {
+    public MediaType withParameters(Map</*~~>*/String, ? extends Collection</*~~>*/String>> parameters) {
         return new MediaType(getType(), getSubtype(), parameters);
     }
 
-    public MediaType withoutParameter(String parameter) {
+    public MediaType withoutParameter(/*~~>*/String parameter) {
         if (!hasParameter(parameter)) {
             return this;
         }
-        Map<String, Collection<String>> parameters = new HashMap<>(getParameters());
+        Map</*~~>*/String, Collection</*~~>*/String>> parameters = new HashMap<>(getParameters());
         parameters.remove(parameter);
         return withParameters(parameters);
     }
@@ -236,7 +236,7 @@ public class MediaType implements Comparable<MediaType>, Similar<MediaType> {
     }
 
     @Override
-    public String toString() {
+    public /*~~>*/String toString() {
         return getDelegate().toString();
     }
 
@@ -269,7 +269,7 @@ public class MediaType implements Comparable<MediaType>, Similar<MediaType> {
         return multiMap;
     }
 
-    public static MediaType parse(String string) {
+    public static MediaType parse(/*~~>*/String string) {
         Preconditions.checkArgument(string != null);
         return new MediaType(com.google.common.net.MediaType.parse(string.trim()));
     }
@@ -282,43 +282,43 @@ public class MediaType implements Comparable<MediaType>, Similar<MediaType> {
      *
      * @return Normalized mime type string
      */
-    public static String normalizeString(String string) {
+    public static /*~~>*/String normalizeString(/*~~>*/String string) {
         return parse(string).toString();
     }
 
-    public static MediaType application(String subtype) {
+    public static MediaType application(/*~~>*/String subtype) {
         return new MediaType(APPLICATION_TYPE, subtype);
     }
 
-    public static MediaType application(String subtype, String parameterName, String parameterValue) {
+    public static MediaType application(/*~~>*/String subtype, /*~~>*/String parameterName, /*~~>*/String parameterValue) {
         return application(subtype).withParameter(parameterName, parameterValue);
     }
 
-    public static MediaType text(String subtype) {
+    public static MediaType text(/*~~>*/String subtype) {
         return new MediaType(TEXT_TYPE, subtype);
     }
 
-    public static MediaType image(String subtype) {
+    public static MediaType image(/*~~>*/String subtype) {
         return new MediaType(IMAGE_TYPE, subtype);
     }
 
-    public static MediaType audio(String subtype) {
+    public static MediaType audio(/*~~>*/String subtype) {
         return new MediaType(AUDIO_TYPE, subtype);
     }
 
-    public static MediaType video(String subtype) {
+    public static MediaType video(/*~~>*/String subtype) {
         return new MediaType(VIDEO_TYPE, subtype);
     }
 
-    public static MediaType message(String subtype) {
+    public static MediaType message(/*~~>*/String subtype) {
         return new MediaType(MESSAGE_TYPE, subtype);
     }
 
-    public static MediaType model(String subtype) {
+    public static MediaType model(/*~~>*/String subtype) {
         return new MediaType(MODEL_TYPE, subtype);
     }
 
-    public static MediaType multipart(String subtype) {
+    public static MediaType multipart(/*~~>*/String subtype) {
         return new MediaType(MULTIPART_TYPE, subtype);
     }
 

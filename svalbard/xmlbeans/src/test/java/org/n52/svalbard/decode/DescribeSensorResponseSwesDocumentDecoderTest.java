@@ -59,12 +59,12 @@ public class DescribeSensorResponseSwesDocumentDecoderTest {
         DecoderKey decoderKey = CodingHelper.getDecoderKey(xml);
         Decoder<DescribeSensorResponse, XmlObject> decoder = decoderRepository.getDecoder(decoderKey);
         DescribeSensorResponse response = decoder.decode(xml);
-        Assertions.assertEquals(SensorMLConstants.NS_SML, response.getOutputFormat());
+        Assertions.assertEquals(/*~~>*/SensorMLConstants.NS_SML, response.getOutputFormat());
         Assertions.assertEquals(1, response.getProcedureDescriptions()
                 .size());
     }
 
-    private XmlObject decode(String fileName) throws DecodingException, XmlException, IOException {
+    private XmlObject decode(/*~~>*/String fileName) throws DecodingException, XmlException, IOException {
         return XmlObject.Factory.parse(getClass().getResourceAsStream(fileName));
     }
 }

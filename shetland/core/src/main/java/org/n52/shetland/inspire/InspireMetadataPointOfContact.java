@@ -25,10 +25,10 @@ package org.n52.shetland.inspire;
 public class InspireMetadataPointOfContact {
 
     /* Element OrganisationName 1..1 */
-    private String organisationName;
+    private /*~~>*/String organisationName;
 
     /* Element EmailAddress 1..1 */
-    private String emailAddress;
+    private /*~~>*/String emailAddress;
 
     /**
      * constructor
@@ -38,7 +38,7 @@ public class InspireMetadataPointOfContact {
      * @param emailAddress
      *            the email address
      */
-    public InspireMetadataPointOfContact(String organisationName, String emailAddress) {
+    public InspireMetadataPointOfContact(/*~~>*/String organisationName, /*~~>*/String emailAddress) {
         setOrganisationName(organisationName);
         setEmailAddress(emailAddress);
     }
@@ -48,7 +48,7 @@ public class InspireMetadataPointOfContact {
      *
      * @return the organisationName
      */
-    public String getOrganisationName() {
+    public /*~~>*/String getOrganisationName() {
         return organisationName;
     }
 
@@ -58,8 +58,8 @@ public class InspireMetadataPointOfContact {
      * @param organisationName
      *            the organisationName to set
      */
-    private void setOrganisationName(String organisationName) {
-        this.organisationName = organisationName;
+    private void setOrganisationName(/*~~>*/String organisationName) {
+        /*~~>*/this.organisationName = organisationName;
     }
 
     /**
@@ -67,7 +67,7 @@ public class InspireMetadataPointOfContact {
      *
      * @return the emailAddress
      */
-    public String getEmailAddress() {
+    public /*~~>*/String getEmailAddress() {
         return emailAddress;
     }
 
@@ -77,13 +77,13 @@ public class InspireMetadataPointOfContact {
      * @param emailAddress
      *            the emailAddress to set
      */
-    private void setEmailAddress(String emailAddress) {
-        this.emailAddress = emailAddress;
+    private void setEmailAddress(/*~~>*/String emailAddress) {
+        /*~~>*/this.emailAddress = emailAddress;
     }
 
     @Override
-    public String toString() {
-        return String.format("%s %n[%n organisationName=%s,%n emailAddress=%s%n]", this.getClass().getSimpleName(),
+    public /*~~>*/String toString() {
+        return /*~~>*/String.format("%s %n[%n organisationName=%s,%n emailAddress=%s%n]", this.getClass().getSimpleName(),
                 getOrganisationName(), getEmailAddress());
     }
 }

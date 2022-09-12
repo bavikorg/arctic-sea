@@ -49,10 +49,10 @@ import com.google.common.collect.Sets;
  */
 public final class N52XmlHelper {
     public static final SchemaLocation SCHEMA_LOCATION_OM_100 =
-            new SchemaLocation(OmConstants.NS_OM, OmConstants.SCHEMA_LOCATION_URL_OM_CONSTRAINT);
+            new SchemaLocation(/*~~>*/OmConstants.NS_OM, /*~~>*/OmConstants.SCHEMA_LOCATION_URL_OM_CONSTRAINT);
 
     public static final SchemaLocation SCHEMA_LOCATION_SOAP_12 =
-            new SchemaLocation(SoapConstants.NS_SOAP_12, SoapConstants.SCHEMA_LOCATION_URL_SOPA_12);
+            new SchemaLocation(/*~~>*/SoapConstants.NS_SOAP_12, /*~~>*/SoapConstants.SCHEMA_LOCATION_URL_SOPA_12);
 
     private N52XmlHelper() {
     }
@@ -65,7 +65,7 @@ public final class N52XmlHelper {
      * @param schemaLocations
      *            schema location
      */
-    public static void setSchemaLocationToDocument(XmlObject document, String schemaLocations) {
+    public static void setSchemaLocationToDocument(XmlObject document, /*~~>*/String schemaLocations) {
         XmlCursor cursor = document.newCursor();
         if (cursor.toFirstChild()) {
             cursor.setAttributeText(getSchemaLocationQName(), schemaLocations);
@@ -85,7 +85,7 @@ public final class N52XmlHelper {
         setSchemaLocationToDocument(document, mergeSchemaLocationsToString(schemaLocations));
     }
 
-    public static String mergeSchemaLocationsToString(Iterable<SchemaLocation> schemaLocations) {
+    public static /*~~>*/String mergeSchemaLocationsToString(Iterable<SchemaLocation> schemaLocations) {
         if (schemaLocations != null) {
             Iterator<SchemaLocation> it = schemaLocations.iterator();
             if (it.hasNext()) {
@@ -100,8 +100,8 @@ public final class N52XmlHelper {
         return "";
     }
 
-    public static Set<String> getNamespaces(XmlObject xmlObject) {
-        Set<String> namespaces = Sets.newHashSet();
+    public static Set</*~~>*/String> getNamespaces(XmlObject xmlObject) {
+        Set</*~~>*/String> namespaces = Sets.newHashSet();
         XmlCursor newCursor = xmlObject.newCursor();
         while (newCursor.hasNextToken()) {
             TokenType evt = newCursor.toNextToken();

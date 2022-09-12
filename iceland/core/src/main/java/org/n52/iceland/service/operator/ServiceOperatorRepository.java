@@ -47,7 +47,7 @@ public class ServiceOperatorRepository
         implements Constructable {
 
     private final Map<OwsServiceKey, Producer<ServiceOperator>> serviceOperators = Maps.newHashMap();
-    private final Map<String, Set<String>> supportedVersions = Maps.newHashMap();
+    private final Map</*~~>*/String, Set</*~~>*/String>> supportedVersions = Maps.newHashMap();
 
     @Inject
     private Optional<Collection<ServiceOperator>> components = Optional.of(Collections.emptyList());
@@ -88,11 +88,11 @@ public class ServiceOperatorRepository
      * @return the implemented request listener
      *
      */
-    public ServiceOperator getServiceOperator(final String service, final String version) {
+    public ServiceOperator getServiceOperator(final /*~~>*/String service, final /*~~>*/String version) {
         return getServiceOperator(new OwsServiceKey(service, version));
     }
 
-    public Set<String> getAllSupportedVersions() {
+    public Set</*~~>*/String> getAllSupportedVersions() {
         return this.supportedVersions.values().stream().flatMap(Set::stream).collect(Collectors.toSet());
     }
 
@@ -102,7 +102,7 @@ public class ServiceOperatorRepository
      * @return the supportedVersions
      *
      */
-    public Set<String> getSupportedVersions(String service) {
+    public Set</*~~>*/String> getSupportedVersions(/*~~>*/String service) {
         return Collections.unmodifiableSet(this.supportedVersions.getOrDefault(service, Collections.emptySet()));
     }
 
@@ -113,18 +113,18 @@ public class ServiceOperatorRepository
      * @return the supportedVersions
      *
      */
-    public boolean isVersionSupported(String service, String version) {
+    public boolean isVersionSupported(/*~~>*/String service, /*~~>*/String version) {
         return getSupportedVersions(service).contains(version);
     }
 
     /**
      * @return the supportedVersions
      */
-    public Set<String> getSupportedServices() {
+    public Set</*~~>*/String> getSupportedServices() {
         return Collections.unmodifiableSet(this.supportedVersions.keySet());
     }
 
-    public boolean isServiceSupported(String service) {
+    public boolean isServiceSupported(/*~~>*/String service) {
         return this.supportedVersions.containsKey(service);
     }
 

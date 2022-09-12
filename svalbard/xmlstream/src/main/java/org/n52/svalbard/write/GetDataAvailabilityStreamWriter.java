@@ -66,10 +66,10 @@ public class GetDataAvailabilityStreamWriter
     @Override
     protected void writeGetDataAvailabilityResponse() throws XMLStreamException, EncodingException {
         start(GetDataAvailabilityConstants.GDA_GET_DATA_AVAILABILITY_RESPONSE);
-        namespace(GetDataAvailabilityConstants.NS_GDA_PREFIX, GetDataAvailabilityConstants.NS_GDA);
-        namespace(GmlConstants.NS_GML_PREFIX, GmlConstants.NS_GML_32);
-        namespace(SweConstants.NS_SWE_PREFIX, SweConstants.NS_SWE_20);
-        namespace(W3CConstants.NS_XLINK_PREFIX, W3CConstants.NS_XLINK);
+        namespace(/*~~>*/GetDataAvailabilityConstants.NS_GDA_PREFIX, /*~~>*/GetDataAvailabilityConstants.NS_GDA);
+        namespace(/*~~>*/GmlConstants.NS_GML_PREFIX, /*~~>*/GmlConstants.NS_GML_32);
+        namespace(/*~~>*/SweConstants.NS_SWE_PREFIX, /*~~>*/SweConstants.NS_SWE_20);
+        namespace(/*~~>*/W3CConstants.NS_XLINK_PREFIX, /*~~>*/W3CConstants.NS_XLINK);
         schemaLocation(Sets.newHashSet(GetDataAvailabilityConstants.GET_DATA_AVAILABILITY_SCHEMA_LOCATION));
         for (DataAvailability da : getElement()) {
             wirteDataAvailabilityMember(da);
@@ -95,7 +95,7 @@ public class GetDataAvailabilityStreamWriter
             writeOffering(da.getOffering(), GetDataAvailabilityConstants.GDA_EXTENSION);
         }
         if (da.isSetFormatDescriptors()) {
-            Set<String> observationTypes = da.getFormatDescriptor().getObservationFormatDescriptors().stream()
+            Set</*~~>*/String> observationTypes = da.getFormatDescriptor().getObservationFormatDescriptors().stream()
                     .map(ObservationFormatDescriptor::getObservationTypes).flatMap(Set::stream).collect(toSet());
             writeObservationTypes(observationTypes);
         }
@@ -111,12 +111,12 @@ public class GetDataAvailabilityStreamWriter
         end(GetDataAvailabilityConstants.GDA_EXTENSION);
     }
 
-    protected void writeObservationTypes(Set<String> observationTypes) throws XMLStreamException {
+    protected void writeObservationTypes(Set</*~~>*/String> observationTypes) throws XMLStreamException {
         start(GetDataAvailabilityConstants.GDA_EXTENSION);
         start(SweConstants.QN_DATA_RECORD_SWE_200);
         attr(AN_DEFINITION, "observationTypes");
         int observationTypeCount = 1;
-        for (String observationType : observationTypes) {
+        for (/*~~>*/String observationType : observationTypes) {
             start(SweConstants.QN_FIELD_200);
             attr("name", "observationType_" + observationTypeCount++);
             writeSweText("observationType", observationType);
@@ -126,7 +126,7 @@ public class GetDataAvailabilityStreamWriter
         end(GetDataAvailabilityConstants.GDA_EXTENSION);
     }
 
-    private void writeSweText(String definition, String value) throws XMLStreamException {
+    private void writeSweText(/*~~>*/String definition, /*~~>*/String value) throws XMLStreamException {
         start(SweConstants.QN_TEXT_SWE_200);
         attr(AN_DEFINITION, definition);
         writeSweValue(value);

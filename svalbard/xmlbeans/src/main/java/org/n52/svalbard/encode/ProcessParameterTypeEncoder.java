@@ -41,7 +41,7 @@ public class ProcessParameterTypeEncoder extends AbstractXmlEncoder<XmlObject, P
 
     private static final Set<EncoderKey> ENCODER_KEYS = Sets.newHashSet(
             new ClassToClassEncoderKey(ProcessParameterType.class, ProcessParameter.class),
-            new XmlDocumentEncoderKey(InspireOMPRConstants.NS_OMPR_30, ProcessParameter.class));
+            new XmlDocumentEncoderKey(/*~~>*/InspireOMPRConstants.NS_OMPR_30, ProcessParameter.class));
 
     public ProcessParameterTypeEncoder() {
         LOGGER.debug("Encoder for the following keys initialized successfully: {}!",
@@ -59,8 +59,8 @@ public class ProcessParameterTypeEncoder extends AbstractXmlEncoder<XmlObject, P
     }
 
     @Override
-    public void addNamespacePrefixToMap(final Map<String, String> nameSpacePrefixMap) {
-        nameSpacePrefixMap.put(InspireOMPRConstants.NS_OMPR_30, InspireOMPRConstants.NS_OMPR_PREFIX);
+    public void addNamespacePrefixToMap(final Map</*~~>*/String, /*~~>*/String> nameSpacePrefixMap) {
+        nameSpacePrefixMap.put(/*~~>*/InspireOMPRConstants.NS_OMPR_30, /*~~>*/InspireOMPRConstants.NS_OMPR_PREFIX);
     }
 
     @Override
@@ -86,7 +86,7 @@ public class ProcessParameterTypeEncoder extends AbstractXmlEncoder<XmlObject, P
 
     protected ProcessParameterType createProcessParameter(ProcessParameter processParameter) throws EncodingException {
         ProcessParameterType ppt = ProcessParameterType.Factory.newInstance();
-        ppt.addNewName().set(encodeObjectToXml(GmlConstants.NS_GML_32, processParameter.getName()));
+        ppt.addNewName().set(encodeObjectToXml(/*~~>*/GmlConstants.NS_GML_32, processParameter.getName()));
         if (processParameter.isSetDescription()) {
             ppt.setDescription(processParameter.getDescription());
         }

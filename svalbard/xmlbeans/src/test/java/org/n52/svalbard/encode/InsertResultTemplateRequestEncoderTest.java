@@ -70,9 +70,9 @@ import net.opengis.swe.x20.TimeType;
 
 public class InsertResultTemplateRequestEncoderTest {
 
-    private String templateIdentifier = "test-template-identifier";
+    private /*~~>*/String templateIdentifier = "test-template-identifier";
 
-    private String offering = "test-offering";
+    private /*~~>*/String offering = "test-offering";
 
     private OmObservationConstellation observationTemplate;
 
@@ -80,23 +80,23 @@ public class InsertResultTemplateRequestEncoderTest {
 
     private InsertResultTemplateRequest request;
 
-    private String procedureIdentifier = "test-procedure-identifier";
+    private /*~~>*/String procedureIdentifier = "test-procedure-identifier";
 
-    private String observedProperty = "test-observed-property";
+    private /*~~>*/String observedProperty = "test-observed-property";
 
-    private String featureIdentifier = "test-feature-identifier";
+    private /*~~>*/String featureIdentifier = "test-feature-identifier";
 
-    private String featureName = "test-feature-name";
+    private /*~~>*/String featureName = "test-feature-name";
 
-    private String tokenSeparator = "@";
+    private /*~~>*/String tokenSeparator = "@";
 
-    private String blockSeparator = ";";
+    private /*~~>*/String blockSeparator = ";";
 
-    private String field1Definition = "test-field-1-definition";
+    private /*~~>*/String field1Definition = "test-field-1-definition";
 
-    private String field1Name = "test_field_1_name";
+    private /*~~>*/String field1Name = "test_field_1_name";
 
-    private String field1Uom = "test-field-1-uom";
+    private /*~~>*/String field1Uom = "test-field-1-uom";
 
     @BeforeEach
     public void setup() throws InvalidSridException, ParseException {
@@ -106,12 +106,12 @@ public class InsertResultTemplateRequestEncoderTest {
         SamplingFeature featureOfInterest = new SamplingFeature(new CodeWithAuthority(featureIdentifier));
         featureOfInterest.setIdentifier(featureIdentifier);
         featureOfInterest.setName(new CodeType(featureName));
-        featureOfInterest.setFeatureType(SfConstants.SAMPLING_FEAT_TYPE_SF_SAMPLING_POINT);
+        featureOfInterest.setFeatureType(/*~~>*/SfConstants.SAMPLING_FEAT_TYPE_SF_SAMPLING_POINT);
         featureOfInterest.setGeometry(JTSHelper.createGeometryFromWKT("POINT(30 10)", 4326));
 
         observationTemplate = new OmObservationConstellation();
         observationTemplate.addOffering(offering);
-        observationTemplate.setObservationType(OmConstants.OBS_TYPE_MEASUREMENT);
+        observationTemplate.setObservationType(/*~~>*/OmConstants.OBS_TYPE_MEASUREMENT);
         observationTemplate.setProcedure(procedure);
         observationTemplate.setObservableProperty(new OmObservableProperty(observedProperty));
         observationTemplate.setFeatureOfInterest(featureOfInterest);
@@ -126,8 +126,8 @@ public class InsertResultTemplateRequestEncoderTest {
         sweTime.setUom(field1Uom);
         resultStructure.addField(new SweField(field1Name, sweTime));
 
-        request = new InsertResultTemplateRequest(SosConstants.SOS,
-                Sos2Constants.SERVICEVERSION,
+        request = new InsertResultTemplateRequest(/*~~>*/SosConstants.SOS,
+                /*~~>*/Sos2Constants.SERVICEVERSION,
                 Sos2Constants.Operations.InsertResultTemplate.name());
         request.setResultEncoding(new SosResultEncoding(textEncoding));
         request.setResultStructure(new SosResultStructure(resultStructure));
@@ -247,8 +247,8 @@ public class InsertResultTemplateRequestEncoderTest {
         InsertResultTemplateType encodedRequest = ((InsertResultTemplateDocument) encoder.create(request))
                 .getInsertResultTemplate();
 
-        assertThat(encodedRequest.getService(), Is.is(SosConstants.SOS));
-        assertThat(encodedRequest.getVersion(), Is.is(Sos2Constants.SERVICEVERSION));
+        assertThat(encodedRequest.getService(), Is.is(/*~~>*/SosConstants.SOS));
+        assertThat(encodedRequest.getVersion(), Is.is(/*~~>*/Sos2Constants.SERVICEVERSION));
     }
 
     @Test
@@ -288,7 +288,7 @@ public class InsertResultTemplateRequestEncoderTest {
 
         OMObservationType omObservation = observationTemplate.getOMObservation();
         assertThat(omObservation, Matchers.instanceOf(OMObservationType.class));
-        assertThat(omObservation.getType().getHref(), Is.is(OmConstants.OBS_TYPE_MEASUREMENT));
+        assertThat(omObservation.getType().getHref(), Is.is(/*~~>*/OmConstants.OBS_TYPE_MEASUREMENT));
         assertThat(omObservation.getPhenomenonTime().isNil(), Is.is(false));
         assertThat(omObservation.getPhenomenonTime().isSetNilReason(), Is.is(true));
         assertThat(omObservation.getPhenomenonTime().getNilReason(), Is.is("template"));

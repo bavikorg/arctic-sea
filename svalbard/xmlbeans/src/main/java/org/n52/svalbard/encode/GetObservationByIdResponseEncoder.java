@@ -49,7 +49,7 @@ import net.opengis.sos.x20.GetObservationByIdResponseType;
  */
 public class GetObservationByIdResponseEncoder
         extends AbstractObservationResponseEncoder<GetObservationByIdResponse> {
-    public static final String GML_ID = "sf_1";
+    public static final /*~~>*/String GML_ID = "sf_1";
 
     public GetObservationByIdResponseEncoder() {
         super(SosConstants.Operations.GetObservationById.name(), GetObservationByIdResponse.class);
@@ -65,7 +65,7 @@ public class GetObservationByIdResponseEncoder
             createExtension(xbResponse, response.getExtensions());
         }
         ObservationStream observations = getObservationsAndCheckForStreaming(response, encoder);
-        HashMap<CodeWithAuthority, String> gmlID4sfIdentifier = new HashMap<>();
+        HashMap<CodeWithAuthority, /*~~>*/String> gmlID4sfIdentifier = new HashMap<>();
         try {
             while (observations.hasNext()) {
                 OmObservation observation = observations.next();

@@ -21,18 +21,18 @@ import org.n52.svalbard.encode.json.JSONEncodingException;
 
 import com.fasterxml.jackson.databind.JsonNode;
 
-public class JSONEncoderForExceptionTesting extends JSONEncoder<String> {
+public class JSONEncoderForExceptionTesting extends JSONEncoder</*~~>*/String> {
 
-    public JSONEncoderForExceptionTesting(Class<String> type, EncoderKey[] additionalKeys) {
+    public JSONEncoderForExceptionTesting(Class</*~~>*/String> type, EncoderKey[] additionalKeys) {
         super(type, additionalKeys);
     }
 
-    public JSONEncoderForExceptionTesting(Class<String> clazz) {
+    public JSONEncoderForExceptionTesting(Class</*~~>*/String> clazz) {
         super(clazz);
     }
 
     @Override
-    public JsonNode encodeJSON(String t) throws JSONEncodingException {
+    public JsonNode encodeJSON(/*~~>*/String t) throws JSONEncodingException {
         throw new JSONEncodingException("message");
     }
 

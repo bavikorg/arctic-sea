@@ -27,25 +27,25 @@ import com.google.common.base.MoreObjects;
  */
 public class SettingDefinitionGroup extends AbstractOrdered {
 
-    private String title;
-    private String description;
+    private /*~~>*/String title;
+    private /*~~>*/String description;
     private boolean showInDefaultSetting = true;
 
-    public SettingDefinitionGroup(String title, String description, float order) {
+    public SettingDefinitionGroup(/*~~>*/String title, /*~~>*/String description, float order) {
         super(order);
-        this.title = title;
-        this.description = description;
+        /*~~>*/this.title = title;
+        /*~~>*/this.description = description;
     }
 
-    public SettingDefinitionGroup(String title, String description) {
+    public SettingDefinitionGroup(/*~~>*/String title, /*~~>*/String description) {
         this(title, description, 0.0f);
     }
 
-    public SettingDefinitionGroup(String title, float order) {
+    public SettingDefinitionGroup(/*~~>*/String title, float order) {
         this(title, null, order);
     }
 
-    public SettingDefinitionGroup(String title) {
+    public SettingDefinitionGroup(/*~~>*/String title) {
         this(title, null, 0.0f);
     }
 
@@ -56,7 +56,7 @@ public class SettingDefinitionGroup extends AbstractOrdered {
     /**
      * @return the title of this group
      */
-    public String getTitle() {
+    public /*~~>*/String getTitle() {
         return title;
     }
 
@@ -65,8 +65,8 @@ public class SettingDefinitionGroup extends AbstractOrdered {
      *
      * @param title the title
      */
-    public void setTitle(String title) {
-        this.title = title;
+    public void setTitle(/*~~>*/String title) {
+        /*~~>*/this.title = title;
     }
 
     /**
@@ -79,7 +79,7 @@ public class SettingDefinitionGroup extends AbstractOrdered {
     /**
      * @return the description for this group
      */
-    public String getDescription() {
+    public /*~~>*/String getDescription() {
         return description;
     }
 
@@ -88,8 +88,8 @@ public class SettingDefinitionGroup extends AbstractOrdered {
      *
      * @param description the description
      */
-    public void setDescription(String description) {
-        this.description = description;
+    public void setDescription(/*~~>*/String description) {
+        /*~~>*/this.description = description;
     }
 
     /**
@@ -124,7 +124,7 @@ public class SettingDefinitionGroup extends AbstractOrdered {
      *
      * @return if it is not null and not empty
      */
-    protected boolean hasStringProperty(String s) {
+    protected boolean hasStringProperty(/*~~>*/String s) {
         return s != null && !s.isEmpty();
     }
 
@@ -146,7 +146,7 @@ public class SettingDefinitionGroup extends AbstractOrdered {
     }
 
     @Override
-    public String toString() {
+    public /*~~>*/String toString() {
         return MoreObjects.toStringHelper(this)
                 .add("title", getTitle())
                 .add("description", getDescription())
@@ -155,7 +155,7 @@ public class SettingDefinitionGroup extends AbstractOrdered {
     }
 
     @Override
-    protected String getSuborder() {
+    protected /*~~>*/String getSuborder() {
         return getTitle();
     }
 

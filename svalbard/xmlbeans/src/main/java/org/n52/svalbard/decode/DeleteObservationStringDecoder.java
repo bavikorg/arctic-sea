@@ -37,7 +37,7 @@ public class DeleteObservationStringDecoder
         AbstractStringRequestDecoder {
 
     private static final Set<DecoderKey> DECODER_KEYS = CodingHelper.xmlStringDecoderKeysForOperationAndMediaType(
-            Sos2Constants.SOS, Sos2Constants.SERVICEVERSION, DeleteObservationConstants.Operations.DeleteObservation);
+            /*~~>*/Sos2Constants.SOS, /*~~>*/Sos2Constants.SERVICEVERSION, DeleteObservationConstants.Operations.DeleteObservation);
 
     private static final Logger LOGGER = LoggerFactory.getLogger(DeleteObservationStringDecoder.class);
 

@@ -24,10 +24,10 @@ package org.n52.iceland.service;
  */
 public interface MiscSettings {
 
-    String HTTP_STATUS_CODE_USE_IN_KVP_POX_BINDING
+    /*~~>*/String HTTP_STATUS_CODE_USE_IN_KVP_POX_BINDING
             = "misc.httpResponseCodeUseInKvpAndPoxBinding";
 
-    String COUNTING_OUTPUTSTREAM = "misc.counting-outputstream";
+    /*~~>*/String COUNTING_OUTPUTSTREAM = "misc.counting-outputstream";
 
-    String INCLUDE_ORIGINAL_REQUEST = "misc.includeOriginalRequest";
+    /*~~>*/String INCLUDE_ORIGINAL_REQUEST = "misc.includeOriginalRequest";
 }

@@ -74,7 +74,7 @@ public class SoapChainResponseWriter extends AbstractResponseWriter<SoapChain> {
 
     @Override
     public void write(SoapChain chain, OutputStream out) throws EncodingException, IOException {
-        String namespace = chain.getSoapResponse().getSoapNamespace();
+        /*~~>*/String namespace = chain.getSoapResponse().getSoapNamespace();
         EncoderKey key = CodingHelper.getEncoderKey(namespace, chain.getSoapResponse());
         Encoder<?, SoapResponse> encoder = getEncoder(key);
         if (encoder == null) {

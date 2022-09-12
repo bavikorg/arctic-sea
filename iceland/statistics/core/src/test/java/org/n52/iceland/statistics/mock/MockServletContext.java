@@ -39,7 +39,7 @@ import javax.servlet.descriptor.JspConfigDescriptor;
 public class MockServletContext implements ServletContext {
 
     @Override
-    public Object getAttribute(String arg0) {
+    public Object getAttribute(/*~~>*/String arg0) {
         return null;
     }
 
@@ -49,17 +49,17 @@ public class MockServletContext implements ServletContext {
     }
 
     @Override
-    public ServletContext getContext(String arg0) {
+    public ServletContext getContext(/*~~>*/String arg0) {
         return null;
     }
 
     @Override
-    public String getContextPath() {
+    public /*~~>*/String getContextPath() {
         return ".";
     }
 
     @Override
-    public String getInitParameter(String arg0) {
+    public /*~~>*/String getInitParameter(/*~~>*/String arg0) {
         return null;
     }
 
@@ -75,7 +75,7 @@ public class MockServletContext implements ServletContext {
     }
 
     @Override
-    public String getMimeType(String arg0) {
+    public /*~~>*/String getMimeType(/*~~>*/String arg0) {
         return null;
     }
 
@@ -85,49 +85,49 @@ public class MockServletContext implements ServletContext {
     }
 
     @Override
-    public RequestDispatcher getNamedDispatcher(String arg0) {
+    public RequestDispatcher getNamedDispatcher(/*~~>*/String arg0) {
         return null;
     }
 
     @Override
-    public String getRealPath(String arg0) {
+    public /*~~>*/String getRealPath(/*~~>*/String arg0) {
         return ".";
     }
 
     @Override
-    public RequestDispatcher getRequestDispatcher(String arg0) {
+    public RequestDispatcher getRequestDispatcher(/*~~>*/String arg0) {
         return null;
     }
 
     @Override
-    public URL getResource(String arg0) throws MalformedURLException {
+    public URL getResource(/*~~>*/String arg0) throws MalformedURLException {
         return null;
     }
 
     @Override
-    public InputStream getResourceAsStream(String arg0) {
-        return null;
-    }
-
-    @Override
-    @Deprecated
-    public Set getResourcePaths(String arg0) {
-        return null;
-    }
-
-    @Override
-    public String getServerInfo() {
+    public InputStream getResourceAsStream(/*~~>*/String arg0) {
         return null;
     }
 
     @Override
     @Deprecated
-    public Servlet getServlet(String arg0) throws ServletException {
+    public Set getResourcePaths(/*~~>*/String arg0) {
         return null;
     }
 
     @Override
-    public String getServletContextName() {
+    public /*~~>*/String getServerInfo() {
+        return null;
+    }
+
+    @Override
+    @Deprecated
+    public Servlet getServlet(/*~~>*/String arg0) throws ServletException {
+        return null;
+    }
+
+    @Override
+    public /*~~>*/String getServletContextName() {
         return null;
     }
 
@@ -144,24 +144,24 @@ public class MockServletContext implements ServletContext {
     }
 
     @Override
-    public void log(String arg0) {
+    public void log(/*~~>*/String arg0) {
     }
 
     @Override
     @Deprecated
-    public void log(Exception arg0, String arg1) {
+    public void log(Exception arg0, /*~~>*/String arg1) {
     }
 
     @Override
-    public void log(String arg0, Throwable arg1) {
+    public void log(/*~~>*/String arg0, Throwable arg1) {
     }
 
     @Override
-    public void removeAttribute(String arg0) {
+    public void removeAttribute(/*~~>*/String arg0) {
     }
 
     @Override
-    public void setAttribute(String arg0, Object arg1) {
+    public void setAttribute(/*~~>*/String arg0, Object arg1) {
     }
 
     @Override
@@ -175,22 +175,22 @@ public class MockServletContext implements ServletContext {
     }
 
     @Override
-    public boolean setInitParameter(String string, String string1) {
+    public boolean setInitParameter(/*~~>*/String string, /*~~>*/String string1) {
         throw new UnsupportedOperationException("Not supported yet.");
     }
 
     @Override
-    public ServletRegistration.Dynamic addServlet(String string, String string1) {
+    public ServletRegistration.Dynamic addServlet(/*~~>*/String string, /*~~>*/String string1) {
         throw new UnsupportedOperationException("Not supported yet.");
     }
 
     @Override
-    public ServletRegistration.Dynamic addServlet(String string, Servlet srvlt) {
+    public ServletRegistration.Dynamic addServlet(/*~~>*/String string, Servlet srvlt) {
         throw new UnsupportedOperationException("Not supported yet.");
     }
 
     @Override
-    public ServletRegistration.Dynamic addServlet(String string, Class<? extends Servlet> type) {
+    public ServletRegistration.Dynamic addServlet(/*~~>*/String string, Class<? extends Servlet> type) {
         throw new UnsupportedOperationException("Not supported yet.");
     }
 
@@ -200,27 +200,27 @@ public class MockServletContext implements ServletContext {
     }
 
     @Override
-    public ServletRegistration getServletRegistration(String string) {
+    public ServletRegistration getServletRegistration(/*~~>*/String string) {
         throw new UnsupportedOperationException("Not supported yet.");
     }
 
     @Override
-    public Map<String, ? extends ServletRegistration> getServletRegistrations() {
+    public Map</*~~>*/String, ? extends ServletRegistration> getServletRegistrations() {
         throw new UnsupportedOperationException("Not supported yet.");
     }
 
     @Override
-    public FilterRegistration.Dynamic addFilter(String string, String string1) {
+    public FilterRegistration.Dynamic addFilter(/*~~>*/String string, /*~~>*/String string1) {
         throw new UnsupportedOperationException("Not supported yet.");
     }
 
     @Override
-    public FilterRegistration.Dynamic addFilter(String string, Filter filter) {
+    public FilterRegistration.Dynamic addFilter(/*~~>*/String string, Filter filter) {
         throw new UnsupportedOperationException("Not supported yet.");
     }
 
     @Override
-    public FilterRegistration.Dynamic addFilter(String string, Class<? extends Filter> type) {
+    public FilterRegistration.Dynamic addFilter(/*~~>*/String string, Class<? extends Filter> type) {
         throw new UnsupportedOperationException("Not supported yet.");
     }
 
@@ -230,12 +230,12 @@ public class MockServletContext implements ServletContext {
     }
 
     @Override
-    public FilterRegistration getFilterRegistration(String string) {
+    public FilterRegistration getFilterRegistration(/*~~>*/String string) {
         throw new UnsupportedOperationException("Not supported yet.");
     }
 
     @Override
-    public Map<String, ? extends FilterRegistration> getFilterRegistrations() {
+    public Map</*~~>*/String, ? extends FilterRegistration> getFilterRegistrations() {
         throw new UnsupportedOperationException("Not supported yet.");
     }
 
@@ -260,7 +260,7 @@ public class MockServletContext implements ServletContext {
     }
 
     @Override
-    public void addListener(String string) {
+    public void addListener(/*~~>*/String string) {
         throw new UnsupportedOperationException("Not supported yet.");
     }
 
@@ -290,17 +290,17 @@ public class MockServletContext implements ServletContext {
     }
 
     @Override
-    public void declareRoles(String... strings) {
+    public void declareRoles(/*~~>*/String... strings) {
         throw new UnsupportedOperationException("Not supported yet.");
     }
 
     @Override
-    public String getVirtualServerName() {
+    public /*~~>*/String getVirtualServerName() {
         throw new UnsupportedOperationException("Not supported yet.");
     }
 
     @Override
-    public Dynamic addJspFile(String servletName, String jspFile) {
+    public Dynamic addJspFile(/*~~>*/String servletName, /*~~>*/String jspFile) {
         // TODO Auto-generated method stub
         return null;
     }
@@ -318,25 +318,25 @@ public class MockServletContext implements ServletContext {
     }
 
     @Override
-    public String getRequestCharacterEncoding() {
+    public /*~~>*/String getRequestCharacterEncoding() {
         // TODO Auto-generated method stub
         return null;
     }
 
     @Override
-    public void setRequestCharacterEncoding(String encoding) {
+    public void setRequestCharacterEncoding(/*~~>*/String encoding) {
         // TODO Auto-generated method stub
 
     }
 
     @Override
-    public String getResponseCharacterEncoding() {
+    public /*~~>*/String getResponseCharacterEncoding() {
         // TODO Auto-generated method stub
         return null;
     }
 
     @Override
-    public void setResponseCharacterEncoding(String encoding) {
+    public void setResponseCharacterEncoding(/*~~>*/String encoding) {
         // TODO Auto-generated method stub
 
     }

@@ -39,7 +39,7 @@ public class SosSpatialFilterDecoder
     private static final Logger LOGGER = LoggerFactory.getLogger(SosSpatialFilterDecoder.class);
 
     private static final Set<DecoderKey> DECODER_KEYS =
-            CodingHelper.decoderKeysForElements(SosSpatialFilterConstants.NS_SF, SpatialFilterDocument.class,
+            CodingHelper.decoderKeysForElements(/*~~>*/SosSpatialFilterConstants.NS_SF, SpatialFilterDocument.class,
                     SpatialFilterPropertyType.class, SpatialFilterType.class);
 
     @Override

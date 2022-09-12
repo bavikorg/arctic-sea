@@ -52,7 +52,7 @@ public class ProfileObservationTypeEncoder
 
     private static final Logger LOGGER = LoggerFactory.getLogger(ProfileObservationTypeEncoder.class);
     private static final Set<EncoderKey> ENCODER_KEYS =
-            CodingHelper.encoderKeysForElements(InspireOMSOConstants.NS_OMSO_30, ProfileObservation.class);
+            CodingHelper.encoderKeysForElements(/*~~>*/InspireOMSOConstants.NS_OMSO_30, ProfileObservation.class);
 
     public ProfileObservationTypeEncoder() {
         LOGGER.debug("Encoder for the following keys initialized successfully: {}!",
@@ -74,21 +74,21 @@ public class ProfileObservationTypeEncoder
         if (observationValue.getValue() instanceof RectifiedGridCoverage) {
             return encodeGML(observationValue.getValue());
         } else if (observationValue.getValue() instanceof ReferencableGridCoverage) {
-            return encodeObjectToXmlPropertyType(GmlCoverageConstants.NS_GML_COV, observationValue.getValue());
+            return encodeObjectToXmlPropertyType(/*~~>*/GmlCoverageConstants.NS_GML_COV, observationValue.getValue());
         }
         return null;
     }
 
     @Override
-    public <T> XmlObject encodeObjectToXmlPropertyType(String namespace, T object, EncodingContext helperValues)
+    public <T> XmlObject encodeObjectToXmlPropertyType(/*~~>*/String namespace, T object, EncodingContext helperValues)
             throws EncodingException {
         // TODO Auto-generated method stub
         return super.encodeObjectToXmlPropertyType(namespace, object, helperValues);
     }
 
     @Override
-    protected String getObservationType() {
-        return InspireOMSOConstants.OBS_TYPE_PROFILE_OBSERVATION;
+    protected /*~~>*/String getObservationType() {
+        return /*~~>*/InspireOMSOConstants.OBS_TYPE_PROFILE_OBSERVATION;
     }
 
     @Override
@@ -107,8 +107,8 @@ public class ProfileObservationTypeEncoder
     }
 
     @Override
-    public void addNamespacePrefixToMap(Map<String, String> nameSpacePrefixMap) {
+    public void addNamespacePrefixToMap(Map</*~~>*/String, /*~~>*/String> nameSpacePrefixMap) {
         super.addNamespacePrefixToMap(nameSpacePrefixMap);
-        nameSpacePrefixMap.put(GmlConstants.NS_GML_33_CE, GmlConstants.SCHEMA_LOCATION_URL_GML_33_CE);
+        nameSpacePrefixMap.put(/*~~>*/GmlConstants.NS_GML_33_CE, /*~~>*/GmlConstants.SCHEMA_LOCATION_URL_GML_33_CE);
     }
 }

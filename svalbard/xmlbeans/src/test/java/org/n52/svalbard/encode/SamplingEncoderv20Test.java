@@ -75,7 +75,7 @@ public class SamplingEncoderv20Test {
         featureOfInterest = new SamplingFeature(new CodeWithAuthority("test-feature"));
         featureOfInterest.setIdentifier("test-feature-identifier");
         featureOfInterest.setName(new CodeType("test-feature-name"));
-        featureOfInterest.setFeatureType(SfConstants.SAMPLING_FEAT_TYPE_SF_SAMPLING_POINT);
+        featureOfInterest.setFeatureType(/*~~>*/SfConstants.SAMPLING_FEAT_TYPE_SF_SAMPLING_POINT);
         featureOfInterest.setGeometry(JTSHelper.createGeometryFromWKT("POINT (30 10)" , 4326));
     }
 

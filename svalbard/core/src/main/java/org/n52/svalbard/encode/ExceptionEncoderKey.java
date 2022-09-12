@@ -57,7 +57,7 @@ public class ExceptionEncoderKey implements EncoderKey {
     }
 
     @Override
-    public String toString() {
-        return String.format("ExceptionEncoderKey[mediaType=%s]", getMediaType());
+    public /*~~>*/String toString() {
+        return /*~~>*/String.format("ExceptionEncoderKey[mediaType=%s]", getMediaType());
     }
 }

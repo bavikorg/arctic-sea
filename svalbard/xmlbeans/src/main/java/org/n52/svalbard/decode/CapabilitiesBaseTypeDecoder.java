@@ -40,7 +40,7 @@ public class CapabilitiesBaseTypeDecoder
     private static final Logger LOGGER = LoggerFactory.getLogger(CapabilitiesBaseTypeDecoder.class);
 
     private static final Set<DecoderKey> DECODER_KEYS =
-            CodingHelper.decoderKeysForElements(OWSConstants.NS_OWS, CapabilitiesBaseType.class);
+            CodingHelper.decoderKeysForElements(/*~~>*/OWSConstants.NS_OWS, CapabilitiesBaseType.class);
 
     public CapabilitiesBaseTypeDecoder() {
         LOGGER.debug("Decoder for the following keys initialized successfully: {}!",

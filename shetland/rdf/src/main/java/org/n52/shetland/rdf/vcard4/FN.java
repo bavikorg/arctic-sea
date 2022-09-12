@@ -21,7 +21,7 @@ import org.n52.shetland.rdf.AbstractValue;
 
 public class FN extends AbstractValue implements Vcard4RdfPrefix {
 
-    public FN(String value) {
+    public FN(/*~~>*/String value) {
         super(value);
     }
 
